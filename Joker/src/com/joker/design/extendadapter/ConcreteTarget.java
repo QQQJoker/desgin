@@ -1,5 +1,10 @@
 package com.joker.design.extendadapter;
 
+/**
+ * 目标角色
+ * @author Joker
+ *
+ */
 public class ConcreteTarget implements Target{
 
 	@Override
