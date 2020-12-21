@@ -1,0 +1,47 @@
+{"properties": [
+  {
+    "name": "adp.schedule.client.enabled",
+    "type": "java.lang.String",
+    "description": "A description for 'adp.schedule.client.enabled'"
+  },
+  {
+    "name": "adp.schedule.client.host",
+    "type": "java.lang.String",
+    "description": "A description for 'adp.schedule.client.host'"
+  },
+  {
+    "name": "adp.schedule.client.appId",
+    "type": "java.lang.String",
+    "description": "A description for 'adp.schedule.client.appId'"
+  },
+  {
+    "name": "adp.schedule.client.secret",
+    "type": "java.lang.String",
+    "description": "A description for 'adp.schedule.client.secret'"
+  },
+  {
+    "name": "adp.schedule.client.tenantId",
+    "type": "java.lang.String",
+    "description": "A description for 'adp.schedule.client.tenantId'"
+  },
+  {
+    "name": "adp.schedule.client.autoStart",
+    "type": "java.lang.String",
+    "description": "A description for 'adp.schedule.client.autoStart'"
+  },
+  {
+    "name": "adp.schedule.client.group",
+    "type": "java.lang.String",
+    "description": "A description for 'adp.schedule.client.group'"
+  },
+  {
+    "name": "adp.schedule.client.intervalMill",
+    "type": "java.lang.String",
+    "description": "A description for 'adp.schedule.client.intervalMill'"
+  },
+  {
+    "name": "adp.schedule.client.maxConcurrentNo",
+    "type": "java.lang.String",
+    "description": "A description for 'adp.schedule.client.maxConcurrentNo'"
+  }
+]}

@@ -1,0 +1,32 @@
+{"properties": [
+  {
+    "name": "adp.r2m.zk-provider.password",
+    "type": "java.lang.String",
+    "description": "A description for 'adp.r2m.zk-provider.password'"
+  },
+  {
+    "name": "adp.r2m.zk-provider.zkSessionTimeout",
+    "type": "java.lang.String",
+    "description": "A description for 'adp.r2m.zk-provider.zkSessionTimeout'"
+  },
+  {
+    "name": "adp.r2m.zk-provider.zkTimeout",
+    "type": "java.lang.String",
+    "description": "A description for 'adp.r2m.zk-provider.zkTimeout'"
+  },
+  {
+    "name": "adp.r2m.zk-provider.zkConnectionStr",
+    "type": "java.lang.String",
+    "description": "A description for 'adp.r2m.zk-provider.zkConnectionStr'"
+  },
+  {
+    "name": "adp.r2m.zk-provider.appName",
+    "type": "java.lang.String",
+    "description": "A description for 'adp.r2m.zk-provider.appName'"
+  },
+  {
+    "name": "adp.r2m.enabled",
+    "type": "java.lang.String",
+    "description": "A description for 'adp.r2m.enabled'"
+  }
+]}

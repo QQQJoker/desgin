@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="FmqEnumType" package="cn.sunline.clwj.zdbank.fmq.type" longname="enum-type(FmqEnumType)" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <restrictionType id="E_SENDTYPE" longname="send type" base="string">
+        <enumeration id="SMS" value="SMS" longname="短信"/>
+        <enumeration id="MAIL" value="MAIL" longname="邮件"/>
+        <enumeration id="PUSH" value="PUSH" longname="PUSH"/>
+        <enumeration id="ALL" value="ALL" longname="ALL"/>
+    </restrictionType>
+</schema>

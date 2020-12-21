@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- [Template id=AksConfig longname=Aks服务] -->
+<aksConfig appid="${appid|appid}" appname="${appname|appname}" aliasname="${aliasname|aliasname}" secure="${secure|secure}" inferface="${inferface|inferface}" protocol="${protocol|protocol}"/>
+<!-- [End] -->

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<parent>
+		<groupId>cn.sunline.clwj.zdbank</groupId>
+		<artifactId>zdbank-custom-parent</artifactId>
+		<version>3.0.0-SNAPSHOT</version>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>edsp-zd-cds</artifactId>
+	<name>edsp-zd-cds 招东CDS组件对接</name>
+	<properties>
+		<ltts-module>true</ltts-module>
+		<access-rule>
+			*/**
+		</access-rule>
+	</properties>
+	<dependencies>
+	        <dependency>
+                <groupId>com.jd.jr</groupId>
+                <artifactId>jdcds-driver</artifactId>
+            </dependency>
+            <dependency>
+                <groupId>com.wangyin</groupId>
+                <artifactId>wangyin-commons</artifactId>
+                <exclusions>
+                <exclusion>
+					<groupId>ch.qos.logback</groupId>
+					<artifactId>logback-classic</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>ch.qos.logback</groupId>
+					<artifactId>logback-core</artifactId>
+				</exclusion>
+				</exclusions>
+            </dependency>		
+		<dependency>
+			<groupId>cn.sunline.ltts.business</groupId>
+			<artifactId>icore-ap-gns</artifactId>
+		</dependency>
+
+	</dependencies>
+</project>
