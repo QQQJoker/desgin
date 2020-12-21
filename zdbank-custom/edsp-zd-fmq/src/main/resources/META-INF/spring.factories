@@ -1,5 +1,0 @@
-cn.sunline.adp.cedar.server.online.factory.OnlineAccessProtocolProviderFactory=\
-cn.sunline.clwj.zdbank.fmq.factory.FMQOnlineAccessProtocolProviderFactory
-
-cn.sunline.adp.cedar.service.remote.factory.RemoteServiceExecuteProtocolProviderFactory=\
-cn.sunline.clwj.zdbank.fmq.out.factory.FmqRemoteServiceExecuteProtocolProviderFactory
