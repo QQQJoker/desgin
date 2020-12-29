@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<componentSchema id="FaBaseComp" package="cn.sunline.ltts.busi.aplt.component" longname="文件组件" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <componentType id="FileTransfer" longname="文件传输组件" desc="定义文件的上传和下载传输服务">
+        <service id="download" longname="下载服务" name="download">
+            <interface>
+                <input packMode="false">
+                    <field id="localFileName" type="string" required="false" multi="false" array="false" longname="本地文件名"/>
+                    <field id="remoteFileName" type="string" required="false" multi="false" array="false" longname="远程文件名"/>
+                </input>
+                <output asParm="true" packMode="false">
+                    <field id="result" type="int" required="false" multi="false" array="false" longname="结果"/>
+                </output>
+                <property packMode="false"/>
+                <printer packMode="false"/>
+            </interface>
+            <exceptions>
+                <exception code="10" message="连接失败"/>
+                <exception code="11" message="下载失败"/>
+            </exceptions>
+        </service>
+        <service id="downloadWithSysId" longname="下载服务" name="download">
+            <interface>
+                <input packMode="false">
+                    <field id="sysId" type="string" required="false" multi="false" array="false" longname="文件来源系统标识"/>
+                    <field id="trandate" type="string" required="false" multi="false" array="false" longname="交易日期"/>
+                    <field id="localFileName" type="string" required="false" multi="false" array="false" longname="本地文件名"/>
+                    <field id="remoteFileName" type="string" required="false" multi="false" array="false" longname="远程文件名"/>
+                </input>
+                <output asParm="true" packMode="false">
+                    <field id="result" type="int" required="false" multi="false" array="false" longname="结果"/>
+                </output>
+                <property packMode="false"/>
+                <printer packMode="false"/>
+            </interface>
+            <exceptions>
+                <exception code="10" message="连接失败"/>
+                <exception code="11" message="下载失败"/>
+            </exceptions>
+        </service>
+        <service id="uploadWithDate" longname="上传服务" name="upload">
+            <interface>
+                <input packMode="false">
+                    <field id="trandate" type="string" required="false" multi="false" array="false" longname="交易日期"/>
+                    <field id="localFileName" type="string" required="false" multi="false" array="false" longname="本地文件名"/>
+                    <field id="remoteFileName" type="string" required="false" multi="false" array="false" longname="远程文件名"/>
+                </input>
+                <output asParm="true" packMode="false">
+                    <field id="result" type="int" required="false" multi="false" array="false" longname="结果"/>
+                </output>
+                <property packMode="false"/>
+                <printer packMode="false"/>
+            </interface>
+            <exceptions>
+                <exception code="10" message="上传失败"/>
+            </exceptions>
+        </service>
+        <service id="upload" longname="上传服务" name="upload">
+            <interface>
+                <input packMode="false">
+                    <field id="localFileName" type="string" required="false" multi="false" array="false" longname="本地文件名"/>
+                    <field id="remoteFileName" type="string" required="false" multi="false" array="false" longname="远程文件名"/>
+                </input>
+                <output asParm="true" packMode="false">
+                    <field id="result" type="int" required="false" multi="false" array="false" longname="结果"/>
+                </output>
+                <property packMode="false"/>
+                <printer packMode="false"/>
+            </interface>
+            <exceptions>
+                <exception code="10" message="上传失败"/>
+            </exceptions>
+        </service>
+        <service id="workDirectory" longname="获取本地工作目录" name="workDirectory">
+            <interface>
+                <input packMode="false"/>
+                <output asParm="true" packMode="false">
+                    <field id="result" type="string" required="false" multi="false" array="false" longname="返回本地工作目录"/>
+                </output>
+                <property packMode="false"/>
+                <printer packMode="false"/>
+            </interface>
+            <exceptions/>
+        </service>
+        <service id="setLocalDirectory" longname="设置本地工作目录" name="setLocalDirectory">
+            <interface>
+                <input packMode="false">
+                    <field id="result" type="string" required="false" multi="false" array="false" longname="设置本地工作目录"/>
+                </input>
+                <output asParm="true" packMode="false">
+                    <field id="result" type="string" required="false" multi="false" array="false" longname="设置本地工作目录"/>
+                </output>
+                <property packMode="false"/>
+                <printer packMode="false"/>
+            </interface>
+            <exceptions/>
+        </service>
+        <service id="remoteDirectory" longname="远程工作目录" name="remoteDirectory">
+            <interface>
+                <input packMode="false">
+                    <field id="result" type="string" required="false" multi="false" array="false" longname="设置远程工作目录"/>
+                </input>
+                <output asParm="true" packMode="false">
+                    <field id="result" type="string" required="false" multi="false" array="false" longname="返回远程工作目录"/>
+                </output>
+                <property packMode="false"/>
+                <printer packMode="false"/>
+            </interface>
+            <exceptions/>
+        </service>
+        <service id="getRemoteDirectory" longname="获取远程工作目录" name="getRemoteDirectory">
+            <interface>
+                <input packMode="false"/>
+                <output asParm="true" packMode="false">
+                    <field id="field" type="string" required="false" multi="false" array="false" longname="远程工作目录"/>
+                </output>
+                <property packMode="false"/>
+                <printer packMode="false"/>
+            </interface>
+            <exceptions/>
+        </service>
+        <service id="getBatchLocalDir" longname="获取批量本地目录" name="getBatchLocalDir">
+            <interface>
+                <input packMode="false"/>
+                <output asParm="true" packMode="false">
+                    <field id="field" type="string" required="false" multi="false" array="false" longname="批量文件本地目录"/>
+                </output>
+                <property packMode="false"/>
+                <printer packMode="false"/>
+            </interface>
+            <exceptions/>
+        </service>
+        <service id="getBatchRemoteDir" longname="获取批量远程目录" name="getBatchRemoteDir">
+            <interface>
+                <input packMode="false"/>
+                <output asParm="true" packMode="false">
+                    <field id="field" type="string" required="false" multi="false" array="false" longname="批量文件远程目录"/>
+                </output>
+                <property packMode="false"/>
+                <printer packMode="false"/>
+            </interface>
+            <exceptions/>
+        </service>
+        <service id="getRemoteFileList" longname="获取指定远程路径下指定规则文件列表" name="getRemoteFileList">
+            <interface>
+                <input packMode="false">
+                    <field id="remoteDir" type="string" required="false" multi="false" array="false" longname="远程路径"/>
+                    <field id="fileRegs" type="string" required="false" multi="false" array="false" longname="匹配规则"/>
+                </input>
+                <output asParm="true" packMode="false">
+                    <field id="remoteFileList" type="ComFaApFile.ApRemoteFileList" required="false" multi="false" array="false" longname="远程文件列表"/>
+                </output>
+                <property packMode="true"/>
+                <printer packMode="true"/>
+            </interface>
+            <exceptions/>
+        </service>
+    </componentType>
+</componentSchema>

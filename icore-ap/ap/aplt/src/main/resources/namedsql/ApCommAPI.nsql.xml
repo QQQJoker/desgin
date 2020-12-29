@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<sqls xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="ApCommAPI" longname="应用平台公共表命名sql" package="cn.sunline.ltts.busi.aplt.namedsql" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <description><![CDATA[应用平台公共表命名sql]]></description>
+    <procedure method="query" id="mntn_partition" longname="表分区" changelog="none">
+        <sql><![CDATA[
+    		call mntn_partition('%', #errorTxt#)
+    	]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="errorTxt" jdbcType="VARCHAR" javaType="string" mode="out" longname="错误信息" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="java.util.Map"/>
+    </procedure>
+</sqls>

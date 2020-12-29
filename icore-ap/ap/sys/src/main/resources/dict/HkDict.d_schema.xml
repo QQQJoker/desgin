@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema id="HkDict" package="cn.sunline.ltts.busi.sys.dict" longname="卡账户字典定义" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <complexType id="Opend" longname="电子账户开户新增字典" dict="true" abstract="false" introduct="false">
+        <element id="chonln" longname="是否联网核查" type="CaEnumType.E_RESULT" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="result" longname="联网核查结果" type="CaEnumType.E_RESULT" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="mediav" longname="认证状态变更" type="CaEnumType.E_MEDIAV" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="medist" longname="激活状态变更" type="CaEnumType.E_MEDIST" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="device" longname="开户设备平台" type="CaEnumType.E_DEVICE" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="elcatp" longname="电子账户卡类型" type="CaEnumType.E_ELCATP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    
+    </complexType>
+    <complexType id="Tally" longname="海口新增电子账户记账字典值" dict="true" abstract="false" introduct="false">
+        <element id="ktrntp" longname="电子账户交易类型" type="BaseEnumType.E_HKTRTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="kpyatp" longname="付款人账号类型" type="BaseEnumType.E_HKACTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="krvatp" longname="收款人账号类型" type="BaseEnumType.E_HKACTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="kothcd" longname="对方行账号" type="BaseType.U_CHAR32" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="kbohcd" longname="绑定他行卡账号" type="BaseType.U_CHAR32" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+</schema>

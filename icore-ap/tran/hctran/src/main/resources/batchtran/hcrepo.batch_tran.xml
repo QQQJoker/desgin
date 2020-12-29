@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<batch_transaction id="hcrepo" longname="热点账户日终汇总上日明细" dataItem="HotCtrl.HcbBlceDetl" package="cn.sunline.ltts.busi.hctran.batchtran" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <interface package="cn.sunline.ltts.busi.hctran.batchtran.intf">
+        <input packMode="true"/>
+        <output asParm="true" packMode="true"/>
+        <property packMode="true"/>
+        <printer packMode="true"/>
+    </interface>
+</batch_transaction>

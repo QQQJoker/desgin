@@ -1,0 +1,53 @@
+#################################################
+#
+# Description: 配置说明
+# Date: 2018-5-10
+# Usage: 应用命名规则
+# Author: liuych@sunline.cn
+# Version: v1.0
+#
+#################################################
+
+######### 配置规则 #########
+onl/bat/job + App + 系统架构（Cen/Dis) + 子系统名（CB,GL,SA...） + vm序号（01,02,03...） + 所属环境（DEV,ATE,SIT,UAT,POC,PRO...）
+
+说明：因研发版本系统架构存在集中式和分布式，使用 系统架构（Cen/Dis) 配置项进行区分，实施项目系统架构确定后可去掉 系统架构（Cen/Dis) 配置。
+
+######### 配置举例 #########
+onlAppCenCB01DEV	开发测试环境集中式联机应用
+batAppCenCB01DEV	开发测试环境集中式批量应用
+jobAppCenCB01DEV	开发测试环境集中式批量Job应用
+
+onlAppDisCB01SIT	SIT测试环境分布式联机应用
+batAppDisCB01SIT	SIT测试环境分布式批量应用
+jobAppDisCB01SIT	SIT测试环境分布式批量Job应用
+
+######### onl/bat/job #########
+onl	联机
+bat	批量
+job	批量job
+
+######### App #########
+App	应用
+
+######### 系统架构 #########
+Cen	集中式
+Dis	分布式
+
+######### 子系统名 #########
+CB	核心
+GL	总账
+SA	结构账户
+
+######### vm序号 #########
+01	服务器01
+02	服务器02
+03	服务器03
+
+######### 所属环境 #########
+DEV	开发测环境
+ATE	ATE测试环境
+SIT	SIT测试环境
+UAT	UAT测试环境
+POC	POC环境
+PRO	生产环境

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceImpl id="IoApAccountImpl" longname="账号信息查询实现" serviceType="IoApAccount" package="cn.sunline.ltts.busi.aplt.serviceimpl" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description><![CDATA[账号信息查询实现]]></description>
+</serviceImpl>

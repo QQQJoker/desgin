@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="IoUeComplexType" package="cn.sunline.edsp.busi.iobus.type.ue" longname="统一对外服务类型" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <complexType id="ChkPwdIN" longname="交易验密输入参数" dict="false" abstract="false" introduct="false">
+        <element id="ispass" longname="是否验密" type="BaseEnumType.E_YES___" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="authtp" longname="密码类型" type="BaseType.U_CHAR02" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="zpkact" longname="加密因子" type="BaseType.U_SHORDS" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="passwd" longname="密码" type="BaseType.U_TRANPW" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="zpknam" longname="密钥名称" type="BaseType.U_CHAR30" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+</schema>

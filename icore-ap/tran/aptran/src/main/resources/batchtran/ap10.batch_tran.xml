@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<batch_transaction id="ap10" longname="换日后批处理等待" package="cn.sunline.ltts.busi.aptran.batchtran" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description><![CDATA[换日后等待其他dcn都执行完换日处理]]></description>
+    <interface package="cn.sunline.ltts.busi.aptran.batchtran.intf">
+        <input packMode="true"/>
+        <output asParm="true" packMode="false"/>
+        <property packMode="true"/>
+        <printer packMode="false"/>
+    </interface>
+</batch_transaction>

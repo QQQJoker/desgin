@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="CfBaseType" package="cn.sunline.ltts.busi.sys.type" longname="用户客户基础数据类型" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <restrictionType id="U_USERID" longname="用户ID" base="string" maxLength="40"/>
+    <restrictionType id="U_PICADD" longname="头像地址" base="string" maxLength="255"/>
+    <restrictionType id="U_USEREM" longname="电子邮箱" base="string" maxLength="60"/>
+    <restrictionType id="U_LOGINA" longname="登录名" base="string" maxLength="80"/>
+    <restrictionType id="U_PHONNO" longname="手机号码" base="string" maxLength="30"/>
+    <restrictionType id="U_DATETIME" longname="日期时间" base="dateTime" maxLength="32"/>
+    <restrictionType id="U_VERITE" longname="柜员" base="string" maxLength="6"/>
+    <restrictionType id="U_REASON" longname="原因" base="string" maxLength="1000"/>
+    <restrictionType id="U_POSTCD" longname="邮编" base="string" maxLength="6"/>
+    <restrictionType id="U_DETASI" longname="详细地址" base="string" maxLength="280"/>
+    <restrictionType id="U_SITEDE" longname="地址描述" base="string" maxLength="280"/>
+    <restrictionType id="U_RECENA" longname="收货人姓名" base="string" maxLength="80"/>
+    <restrictionType id="U_REMOBI" longname="收货人手机号" base="string" maxLength="20"/>
+    <restrictionType id="U_REPHON" longname="收货人固定电话" base="string" maxLength="20"/>
+    <restrictionType id="U_QUESID" longname="问题ID" base="string" maxLength="10"/>
+    <restrictionType id="U_QUESNA" longname="问题名称" base="string" maxLength="80"/>
+    <restrictionType id="U_ANSWER" longname="答案" base="string" maxLength="200"/>
+    <restrictionType id="U_PARMID" longname="参数标识" base="string" maxLength="20"/>
+    <restrictionType id="U_PARMNA" longname="参数名称" base="string" maxLength="60"/>
+    <restrictionType id="U_PARMVA" longname="参数值" base="string" maxLength="60"/>
+    <restrictionType id="U_PARMDE" longname="参数描述" base="string" maxLength="60"/>
+    <restrictionType id="U_CUSTID" longname="客户ID" base="string" maxLength="40"/>
+    <restrictionType id="U_CUSTNA" longname="客户姓名" base="string" maxLength="100" dbLength="100"/>
+    <restrictionType id="U_BHDATE" longname="出生日期" base="string" maxLength="8" dbLength="8"/>
+    <restrictionType id="U_IDTFNO" longname="证件号码" base="string" maxLength="40"/>
+    <restrictionType id="U_ISSUAT" longname="发证机关" base="string" maxLength="200"/>
+    <restrictionType id="U_IDSITE" longname="证件地址" base="string" maxLength="280"/>
+    <restrictionType id="U_CHKSEQ" longname="核查流水" base="string" maxLength="40"/>
+    <restrictionType id="U_CKDATE" longname="核查日期" base="date" pattern="yyyy-MM-dd"/>
+    <restrictionType id="U_VRPHOT" longname="核查返回证件照片" base="string" maxLength="255"/>
+    <restrictionType id="U_CUSTBR" longname="机构" base="string" maxLength="10" dbLength="10"/>
+    <restrictionType id="U_ANNUIN" longname="年收入" base="decimal" maxLength="17" fractionDigits="2"/>
+    <restrictionType id="U_EACTNO" longname="电子账号" base="string" maxLength="32"/>
+    <restrictionType id="U_EACTID" longname="电子账号ID" base="string" maxLength="15"/>
+    <restrictionType id="U_BINDNO" longname="绑定账号" base="string" maxLength="32"/>
+    <restrictionType id="U_CHAR1024" longname="字符1024" base="string" maxLength="1024"/>
+    <restrictionType id="U_CHAR255" longname="字符255" base="string" maxLength="255"/>
+    <restrictionType id="U_CHAR80" longname="字符80" base="string" maxLength="80"/>
+    <restrictionType id="U_CHAR50" longname="字符50" base="string" maxLength="50"/>
+    <restrictionType id="U_CHAR40" longname="字符40" base="string" maxLength="40"/>
+    <restrictionType id="U_CHAR31" longname="字符31" base="string" maxLength="31"/>
+    <restrictionType id="U_CHAR22" longname="字符22" base="string" maxLength="22"/>
+    <restrictionType id="U_CHAR20" longname="字符20" base="string" maxLength="20"/>
+    <restrictionType id="U_CHAR11" longname="字符11" base="string" maxLength="11"/>
+    <restrictionType id="U_CHAR10" longname="字符10" base="string" maxLength="10"/>
+    <restrictionType id="U_CHAR4" longname="字符4" base="string" maxLength="4"/>
+    <restrictionType id="U_CHAR2" longname="字符2" base="string" maxLength="2"/>
+    <restrictionType id="U_CHAR1" longname="字符1" base="string" maxLength="1"/>
+    <restrictionType id="U_PROVCD" longname="定位省" base="string" maxLength="20"/>
+    <restrictionType id="U_CITYCD" longname="定位市" base="string" maxLength="20"/>
+    <restrictionType id="U_DISTCD" longname="区代码" base="string" maxLength="20"/>
+    <restrictionType id="U_ACMAID" longname="客户经理" base="string" maxLength="8"/>
+    <restrictionType id="U_BIZTRA" longname="签约流水" base="string" maxLength="22"/>
+    <restrictionType id="U_AGTENO" longname="协议模板编号" base="string" maxLength="16"/>
+    <restrictionType id="U_AGTENA" longname="协议模板名称" base="string" maxLength="80"/>
+    <restrictionType id="U_VERIST" longname="结果" base="string" maxLength="1"/>
+    <restrictionType id="U_TCOUNT" longname="文件总条数" base="int" maxLength="10"/>
+    <restrictionType id="U_CLESEQ" longname="柜员流水号" base="string" maxLength="14"/>
+    <restrictionType id="U_OPSTRE" longname="操作前记录" base="string" maxLength="1500"/>
+    <restrictionType id="U_OPAFRE" longname="操作后记录" base="string" maxLength="1500"/>
+    <restrictionType id="U_VECODE" longname="验证码" base="string" maxLength="10"/>
+    <restrictionType id="U_AGRENO" longname="协议账户" base="string" maxLength="30"/>
+    <restrictionType id="U_RECNUM" longname="推荐人数" base="int"/>
+    <restrictionType id="U_INTGER" longname="数字" base="integer"/>
+    <restrictionType id="U_DATE" longname="日期类型" base="date"/>
+    <restrictionType id="U_RSTDLV" longname="线下风险评级等级" base="string" maxLength="30"/>
+    <restrictionType id="U_USERNA" longname="昵称" base="string" maxLength="80" dbLength="80"/>
+    <restrictionType id="U_DATEST" longname="日期类型" base="dateString" maxLength="32"/>
+    <restrictionType id="U_PASSWD" longname="用户密码" base="string" maxLength="64" dbLength="64">
+        <description><![CDATA[用户密码]]></description>
+    </restrictionType>
+    <restrictionType id="U_DECENO" longname="设备号" base="string" maxLength="50" dbLength="50">
+        <description><![CDATA[设备号]]></description>
+    </restrictionType>
+    <restrictionType id="U_PUSHID" longname="推送ID" base="string" maxLength="32" dbLength="20"/>
+    <restrictionType id="U_LISTRE" longname="上传名单原因" base="string" maxLength="400"/>
+    <restrictionType id="U_LISTBR" longname="归属机构" base="string" maxLength="10"/>
+    <restrictionType id="U_WORKDT" longname="生效日期" base="string" maxLength="8"/>
+    <restrictionType id="U_UNWKDT" longname="失效日期" base="string" maxLength="8"/>
+    <restrictionType id="U_OPERUS" longname="操作员" base="string" maxLength="6"/>
+    <restrictionType id="U_MODYUS" longname="修改操作员" base="string" maxLength="6"/>
+    <restrictionType id="U_CLERKU" longname="柜员" base="string" maxLength="6" dbLength="6"/>
+    <restrictionType id="U_LISTNM" longname="名单名称" base="string" maxLength="200"/>
+    <restrictionType id="U_SIGNPW" longname="手势密码" base="string" maxLength="64" dbLength="64"/>
+    <restrictionType id="U_LISTID" longname="名单id" base="string" maxLength="12" dbLength="12"/>
+    <restrictionType id="U_ADDRID" longname="地址ID" base="string" maxLength="14"/>
+    <restrictionType id="U_SENDID" longname="消息id" base="string" maxLength="20"/>
+    <restrictionType id="U_GLBLSQ" longname="全局流水号" base="string" maxLength="32"/>
+    <restrictionType id="U_MSGID" longname="消息流水号" base="string" maxLength="36"/>
+    <restrictionType id="U_MSGDAT" longname="消息日期" base="string" maxLength="10"/>
+    <restrictionType id="U_MSGTIM" longname="消息时间" base="string" maxLength="12"/>
+    <restrictionType id="U_MSGTYP" longname="消息类型" base="string" maxLength="2"/>
+    <restrictionType id="U_FACRNM" longname="短信要素个数" base="string" maxLength="4"/>
+    <restrictionType id="U_FTRLEN" longname="短信要素长度" base="string" maxLength="100"/>
+    <restrictionType id="U_FACTOR" longname="短信要素" base="string" maxLength="600"/>
+    <restrictionType id="U_SERLNM" longname="短信模板编号" base="string" maxLength="4"/>
+    <restrictionType id="U_SPARE1" longname="备用长字符1" base="string" maxLength="120"/>
+    <restrictionType id="U_SPARE2" longname="备用长字符2" base="string" maxLength="120"/>
+    <restrictionType id="U_SPARE3" longname="备用长字符3" base="string" maxLength="120"/>
+    <restrictionType id="U_PUSHDT" longname="推送日期" base="string" maxLength="8"/>
+    <restrictionType id="U_PUSHZT" longname="推送状态" base="string" maxLength="8"/>
+    <restrictionType id="U_CHTYPE" longname="消息渠道类型" base="string" maxLength="3"/>
+    <restrictionType id="U_TEMPID" longname="消息模板id" base="string" maxLength="20"/>
+    <restrictionType id="U_VERSIN" longname="模板版本号" base="string" maxLength="3"/>
+    <restrictionType id="U_BRC" longname="交易机构" base="string" maxLength="10"/>
+    <restrictionType id="U_CLERK" longname="柜员号" base="string" maxLength="6"/>
+    <restrictionType id="U_ATTLLR" longname="授权柜员" base="string" maxLength="6"/>
+    <restrictionType id="U_ATCODE" longname="授权密码" base="string" maxLength="6"/>
+    <restrictionType id="U_CHNLSG" longname="渠道标志" base="string" maxLength="20"/>
+    <restrictionType id="U_VATRCD" longname="交易码" base="string" maxLength="4"/>
+    <restrictionType id="U_SERVNO" longname="服务号" base="string" maxLength="15"/>
+    <restrictionType id="U_TRNTYP" longname="交易类型" base="string" maxLength="6"/>
+    <restrictionType id="U_REMARK" longname="备注" base="string" maxLength="1000"/>
+    <restrictionType id="U_IP" longname="终端号" base="string" maxLength="20"/>
+    <restrictionType id="U_CUSTNO" longname="客户号" base="string" maxLength="15"/>
+    <restrictionType id="U_ORGLCH" longname="发起机构" base="string" maxLength="15"/>
+    <restrictionType id="U_BARGCL" longname="交易柜员" base="string" maxLength="12"/>
+    <restrictionType id="U_TLPHNM" longname="手机号码" base="string" maxLength="11"/>
+    <restrictionType id="U_PROBBL" longname="概率" base="decimal" maxLength="5" fractionDigits="2"/>
+    <restrictionType id="U_REFEID" longname="推荐人身份证号" base="string" maxLength="40"/>
+    <restrictionType id="U_SIGACC" longname="签约账户" base="string" maxLength="32"/>
+    <restrictionType id="U_SGNVER" longname="签约版本" base="string" maxLength="30"/>
+    <restrictionType id="U_DECEID" longname="设备id" base="string" maxLength="40"/>
+    <restrictionType id="U_DECETY" longname="设备类型" base="string" maxLength="50"/>
+    <restrictionType id="U_SYSPLT" longname="系统平台" base="string" maxLength="20"/>
+    <restrictionType id="U_VERSTA" longname="版本状态" base="string" maxLength="10"/>
+    <restrictionType id="U_DVUUID" longname="设备UUID" base="string" maxLength="100"/>
+    <restrictionType id="U_PUBLIP" longname="公网IP" base="string" maxLength="15"/>
+    <restrictionType id="U_PRIVIP" longname="私网IP" base="string" maxLength="15"/>
+    <restrictionType id="U_OPECHL" longname="操作渠道" base="string" maxLength="10"/>
+    <restrictionType id="U_IMEINO" longname="IMEI" base="string" maxLength="40"/>
+    <restrictionType id="U_MACADD" longname="MAC" base="string" maxLength="40"/>
+    <restrictionType id="U_ANDRID" longname="安卓id" base="string" maxLength="40"/>
+    <restrictionType id="U_BINDID" longname="绑定机构" base="string" maxLength="40"/>
+    <restrictionType id="U_ZTIDCD" longname="云证通识别码" base="string" maxLength="40"/>
+    <restrictionType id="U_BINDDT" longname="绑定日期" base="string" maxLength="40"/>
+    <restrictionType id="U_UNBDDT" longname="解绑日期" base="string" maxLength="40"/>
+    <restrictionType id="U_STADY1" longname="预留字段1" base="string" maxLength="100"/>
+    <restrictionType id="U_STADY2" longname="预留字段2" base="string" maxLength="100"/>
+    <restrictionType id="U_STADY3" longname="预留字段3" base="string" maxLength="100"/>
+    <restrictionType id="U_CRTEBR" longname="账户开户机构" base="string" maxLength="10"/>
+    <restrictionType id="U_ACCTAL" longname="别名" base="string" maxLength="100"/>
+    <restrictionType id="U_ACCTRM" longname="账户备注" base="string" maxLength="255"/>
+    <restrictionType id="U_LIMTID" longname="限额ID" base="string" maxLength="40"/>
+    <restrictionType id="U_BRCHNA" longname="机构名称" base="string" maxLength="100"/>
+    <restrictionType id="U_DAYLIM" longname="单日最高限额" base="decimal" maxLength="17" fractionDigits="2"/>
+    <restrictionType id="U_SIGLIM" longname="单笔最高限额" base="decimal" maxLength="17" fractionDigits="2"/>
+    <restrictionType id="U_YEALIM" longname="年累计交易限额" base="decimal" maxLength="17" fractionDigits="2"/>
+    <restrictionType id="U_DAYNUM" longname="单日交易笔数" base="integer" byCharacter="false"/>
+    <restrictionType id="U_TRANNO" longname="流水号" base="string" maxLength="40"/>
+    <restrictionType id="U_ACCSEQ" longname="账务流水" base="string" maxLength="40"/>
+    <restrictionType id="U_TRANDT" longname="交易日期" base="string" maxLength="8"/>
+    <restrictionType id="U_TRANAM" longname="交易金额" base="decimal" maxLength="17" fractionDigits="2"/>
+    <restrictionType id="U_BRANCH" longname="机构" base="string" maxLength="10"/>
+    <restrictionType id="U_TELLER" longname="柜员" base="string" maxLength="10"/>
+    <restrictionType id="U_CACCTP" longname="卡账户类型" base="string" maxLength="2"/>
+    <restrictionType id="U_RECCTY" longname="转入城市" base="string" maxLength="60"/>
+    <restrictionType id="U_RECBCD" longname="收款人总行代码" base="string" maxLength="60"/>
+    <restrictionType id="U_RECBNU" longname="收款人接收行行号" base="string" maxLength="14"/>
+    <restrictionType id="U_DATE15" longname="15位日期" base="string" maxLength="15"/>
+    <restrictionType id="U_OLDUID" longname="老用户id" base="string" maxLength="60"/>
+    <restrictionType id="U_JFCUID" longname="缴费客户号" base="string" maxLength="20"/>
+    <restrictionType id="U_JFHHID" longname="缴费户号" base="string" maxLength="20"/>
+    <restrictionType id="U_JFNAME" longname="缴费户名" base="string" maxLength="200"/>
+    <restrictionType id="U_DWCODE" longname="单位编码" base="string" maxLength="20"/>
+    <restrictionType id="U_DWNAME" longname="单位名称" base="string" maxLength="200"/>
+    <restrictionType id="U_DQCODE" longname="地区编码" base="string" maxLength="10"/>
+    <restrictionType id="U_DQNAME" longname="地区名称" base="string" maxLength="60"/>
+    <restrictionType id="U_GDCODE" longname="供电公司编码" base="string" maxLength="60"/>
+    <restrictionType id="U_JFREMK" longname="缴费自主备注" base="string" maxLength="60"/>
+    <restrictionType id="U_JFDATE" longname="缴费日期" base="string" maxLength="21"/>
+    <restrictionType id="U_PAYAMT" longname="缴费金额" base="decimal" maxLength="15" fractionDigits="2"/>
+    <restrictionType id="U_FKRACC" longname="付款人账号" base="string" maxLength="32"/>
+    <restrictionType id="U_FUKRNA" longname="付款人名称" base="string" maxLength="60"/>
+    <restrictionType id="U_PAYMOD" longname="付款方式" base="string" maxLength="1"/>
+    <restrictionType id="U_HFMZHI" longname="话费面值" base="decimal" maxLength="15" fractionDigits="2"/>
+    <restrictionType id="U_OPERAT" longname="运营商" base="string" maxLength="10"/>
+    <restrictionType id="U_CFJDNO" longname="处罚决定书编号" base="string" maxLength="16"/>
+    <restrictionType id="U_WFCODE" longname="违法行为代码" base="string" maxLength="20"/>
+    <restrictionType id="U_JSZNUM" longname="驾驶证编号" base="string" maxLength="30"/>
+    <restrictionType id="U_CFDATE" longname="处罚时间" base="string" maxLength="21"/>
+    <restrictionType id="U_WFAAMT" longname="违法金额" base="decimal" maxLength="15" fractionDigits="2"/>
+    <restrictionType id="U_ZNAAMT" longname="滞纳金" base="decimal" maxLength="15" fractionDigits="2"/>
+    <restrictionType id="U_JKSNUM" longname="缴款书编号" base="string" maxLength="16"/>
+    <restrictionType id="U_FKBANK" longname="付款人银行" base="string" maxLength="60"/>
+    <restrictionType id="U_TEESEQ" longname="柜员流水" base="string" maxLength="20"/>
+    <restrictionType id="U_CZCODE" longname="财政代码" base="string" maxLength="10"/>
+    <restrictionType id="U_YWTYPE" longname="业务类型" base="string" maxLength="2"/>
+    <restrictionType id="U_KZFLAG" longname="卡折标识" base="string" maxLength="1"/>
+    <restrictionType id="U_PZNUMB" longname="凭证号码" base="string" maxLength="12"/>
+    <restrictionType id="U_ZHIFTJ" longname="支付条件" base="string" maxLength="1"/>
+    <restrictionType id="U_DZPJNO" longname="电子票据号" base="string" maxLength="10"/>
+    <restrictionType id="U_YZCODE" longname="验证码" base="string" maxLength="10"/>
+    <restrictionType id="U_CFJGNA" longname="处罚机关名称" base="string" maxLength="60"/>
+    <restrictionType id="U_XXCUID" longname="学校客户号" base="string" maxLength="20"/>
+    <restrictionType id="U_XXNAME" longname="学校名称" base="string" maxLength="200"/>
+    <restrictionType id="U_XUEHAO" longname="学号" base="string" maxLength="60"/>
+    <restrictionType id="U_BANJNO" longname="班级" base="string" maxLength="60"/>
+    <restrictionType id="U_JIZDAT" longname="记账日期" base="string" maxLength="21"/>
+    <restrictionType id="U_PICINO" longname="批次号" base="string" maxLength="20"/>
+    <restrictionType id="U_JIBIAO" longname="机表号" base="string" maxLength="50"/>
+    <restrictionType id="U_PRODID" longname="产品ID" base="string" maxLength="20"/>
+    <restrictionType id="U_BILLID" longname="账单编号" base="string" maxLength="70"/>
+    <restrictionType id="U_BILAMT" longname="账单金额" base="decimal" maxLength="15" fractionDigits="2"/>
+    <restrictionType id="U_FREAMT" longname="优惠金额" base="decimal" maxLength="15" fractionDigits="2"/>
+    <restrictionType id="U_JIFNUM" longname="使用积分数" base="string" maxLength="17"/>
+    <restrictionType id="U_JIFAMT" longname="积分等额金额" base="decimal" maxLength="15" fractionDigits="2"/>
+    <restrictionType id="U_HETNUM" longname="合同号" base="string" maxLength="35"/>
+    <restrictionType id="U_JFZLBH" longname="缴费种类编号" base="string" maxLength="15"/>
+    <restrictionType id="U_JFZLNA" longname="缴费种类名称" base="string" maxLength="200"/>
+    <restrictionType id="U_JFEIZL" longname="缴费种类" base="string" maxLength="5"/>
+    <restrictionType id="U_CARNUM" longname="车牌号" base="string" maxLength="10"/>
+    <restrictionType id="U_CARCOL" longname="车牌颜色" base="string" maxLength="10"/>
+    <restrictionType id="U_CARTYP" longname="车型" base="string" maxLength="10"/>
+    <restrictionType id="U_TRAACC" longname="交通卡号" base="string" maxLength="64"/>
+    <restrictionType id="U_STATUS" longname="处理结果" base="string" maxLength="1"/>
+    <restrictionType id="U_REPCDE" longname="响应吗" base="string" maxLength="50"/>
+    <restrictionType id="U_REPMSG" longname="响应描述" base="string" maxLength="500"/>
+    <restrictionType id="U_TRNSEQ" longname="交易流水" base="string" maxLength="64"/>
+    <restrictionType id="U_SERIAL" longname="设备序列号" base="string" maxLength="100"/>
+    <restrictionType id="U_ACTIID" longname="活动ID" base="string" maxLength="20"/>
+    <restrictionType id="U_SYUNUM" longname="活动剩余名额" base="integer" maxLength="8"/>
+    <restrictionType id="U_CYSTDT" longname="周期开始时间" base="string" maxLength="32"/>
+    <restrictionType id="U_CYENDT" longname="周期结束时间" base="string" maxLength="32"/>
+    <restrictionType id="U_TUIJRN" longname="推荐人数" base="integer" maxLength="8"/>
+    <restrictionType id="U_KHJBIE" longname="客户级别" base="string" maxLength="30"/>
+    <restrictionType id="U_CHUSRQ" longname="出生日期" base="string" maxLength="30"/>
+    <restrictionType id="U_ZHUCSJ" longname="注册时间（天）" base="integer" maxLength="8"/>
+    <restrictionType id="U_BRCHNO" longname="机构ID" base="string" maxLength="10"/>
+    <restrictionType id="U_CHUEND" longname="出生结束日期" base="string" maxLength="30"/>
+    <restrictionType id="U_CUSTCD" longname="客户内码" base="string" maxLength="14"/>
+    <restrictionType id="U_AGRTNO" longname="协议模版编号" base="string" maxLength="20"/>
+    <restrictionType id="U_VESION" longname="版本号" base="string" maxLength="10"/>
+    <restrictionType id="U_CDOPAC" longname="绑定账户" base="string" maxLength="35"/>
+    <restrictionType id="U_CDOPNA" longname="账户名称" base="string" maxLength="80"/>
+    <restrictionType id="U_OPBRCH" longname="账户开户行号" base="string" maxLength="14"/>
+    <restrictionType id="U_TELENO" longname="手机号码" base="string" maxLength="20"/>
+    <restrictionType id="U_CKRTSQ" longname="核查流水号" base="string" maxLength="32"/>
+    <restrictionType id="U_CARDNO" longname="电子账号" base="string" maxLength="35"/>
+    <restrictionType id="U_CUSTAC" longname="电子账号ID" base="string" maxLength="15"/>
+    <restrictionType id="U_ACALNO" longname="新绑定手机号码" base="string" maxLength="20"/>
+    <restrictionType id="U_ODALNO" longname="原绑定手机号" base="string" maxLength="20"/>
+    <restrictionType id="U_BKPHNO" longname="预留手机号" base="string" maxLength="30" dbLength="30"/>
+    <restrictionType id="U_PARMCD" longname="参数代码" base="string" maxLength="30" dbLength="40"/>
+    <restrictionType id="U_CHANNEL" longname="渠道" base="string" maxLength="10"/>
+    <restrictionType id="U_PWCUNT" longname="密码错误次数" base="int"/>
+    <restrictionType id="U_DATE23" longname="23位长时间" base="string" maxLength="23"/>
+    <restrictionType id="U_PDHASH" longname="用户密码哈希值" base="string" maxLength="50"/>
+    <restrictionType id="U_ISSUAR" longname="发证地址" base="string" maxLength="200"/>
+    <restrictionType id="U_IDFRONT" longname="证件正面照片" base="string" maxLength="500"/>
+    <restrictionType id="U_IDBACK" longname="证件反面照片" base="string" maxLength="500"/>
+    <restrictionType id="U_IMGURL" longname="影像地址" base="string" maxLength="500"/>
+    <restrictionType id="U_IMGEID" longname="影像ID" base="string" maxLength="20"/>
+    <restrictionType id="U_HEADID" longname="用户证件头像id" base="string" maxLength="500"/>
+    <restrictionType id="U_SESSID" longname="会话ID" base="string" maxLength="40"/>
+    <restrictionType id="U_APPNAM" longname="app应用名称" base="string" maxLength="50"/>
+    <restrictionType id="U_APPVER" longname="app版本" base="string" maxLength="10"/>
+    <restrictionType id="U_APPTOK" longname="app Token" base="string" maxLength="100"/>
+    <restrictionType id="U_HASHCD" longname="hash值" base="string" maxLength="50"/>
+    <restrictionType id="U_OPENID" longname="openid" base="string" maxLength="30"/>
+    <restrictionType id="U_CHNLHD" longname="渠道头像" base="string" maxLength="100"/>
+    <restrictionType id="U_OPRSEQ" longname="流水号" base="string" maxLength="50"/>
+    <restrictionType id="U_TAXINF" longname="税收信息" base="string" maxLength="100"/>
+    <restrictionType id="U_WKADDR" longname="单位地址" base="string" maxLength="200"/>
+    <restrictionType id="U_TLPHNO" longname="30位电话" base="string" maxLength="30"/>
+    <restrictionType id="U_WKNAME" longname="单位名称" base="string" maxLength="100"/>
+    <restrictionType id="U_HMADDR" longname="居住地址" base="string" maxLength="200"/>
+    <restrictionType id="U_ADDLAB" longname="地址标签" base="string" maxLength="20"/>
+    <restrictionType id="U_FCCMID" longname="人脸比对照id" base="string" maxLength="500"/>
+    <restrictionType id="U_IDIMID" longname="身份证影印件id" base="string" maxLength="500"/>
+    <restrictionType id="U_DATE08" longname="八位日期" base="string" maxLength="8"/>
+    <restrictionType id="U_CHNLNO" longname="授权id" base="string" maxLength="30"/>
+    <restrictionType id="U_JOBNAT" longname="工作性质" base="string" maxLength="2"/>
+    <restrictionType id="U_ISFARM" longname="是否农户" base="string" maxLength="2"/>
+    <restrictionType id="U_ISEMPY" longname="是否员工" base="string" maxLength="2"/>
+    <restrictionType id="U_EDUCAT" longname="最高学历" base="string" maxLength="2"/>
+    <restrictionType id="U_DEGREE" longname="最高学位" base="string" maxLength="2"/>
+    <restrictionType id="U_MARITL" longname="婚姻状况" base="string" maxLength="2"/>
+    <restrictionType id="U_POTICE" longname="政治面貌" base="string" maxLength="2"/>
+    <restrictionType id="U_CUSTRL" longname="客户关系" base="string" maxLength="2"/>
+    <restrictionType id="U_FACEIG" longname="人脸影像地址" base="string" maxLength="500"/>
+    <restrictionType id="U_BUSINESSNO" longname="流水号" base="string" maxLength="100"/>
+    <restrictionType id="U_USERIP" longname="用户ip" base="string" maxLength="15"/>
+    <restrictionType id="U_BROWNM" longname="浏览器名称" base="string" maxLength="100"/>
+    <restrictionType id="U_BROWVE" longname="浏览器版本" base="string" maxLength="10"/>
+    <restrictionType id="U_LGTUDE" longname="经度" base="string" maxLength="20"/>
+    <restrictionType id="U_LATUDE" longname="纬度" base="string" maxLength="20"/>
+    <restrictionType id="U_TKDATA" longname="埋点数据" base="string" maxLength="1000"/>
+    <restrictionType id="U_RESMSG" longname="登录风控返回信息" base="string" maxLength="1000"/>
+    <restrictionType id="U_AVATID" longname="头像ID" base="string" maxLength="200"/>
+    <restrictionType id="U_AVATNA" longname="头像名称" base="string" maxLength="100"/>
+    <restrictionType id="U_AVATAD" longname="头像地址" base="string" maxLength="200"/>
+    <restrictionType id="U_FRNTSQ" longname="身份证正面影像流水" base="string" maxLength="40"/>
+    <restrictionType id="U_BACKSQ" longname="身份证反面影像流水" base="string" maxLength="40"/>
+    <restrictionType id="U_HEADSQ" longname="身份证头像影像流水" base="string" maxLength="40"/>
+</schema>

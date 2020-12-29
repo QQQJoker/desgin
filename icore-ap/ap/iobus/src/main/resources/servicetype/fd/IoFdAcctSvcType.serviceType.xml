@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType id="IoFdAcctSvcType" kind="business" longname="基金账户服务" package="cn.sunline.ltts.busi.iobus.servicetype.fd" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+     <service id="IoFdOpenAcct" name="fdOpenAcct" longname="基金开户">
+        <interface>
+            <input packMode="false">
+                <field id="fdOpenIn" type="FdAcctTyp.FdOpenAcctIn" required="false" multi="false" array="false" longname="开基金户输入"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="fdOpenOut" type="FdAcctTyp.FdOpenAcctOut" required="false" multi="false" array="false" longname="基金开户输出"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoFdApplBuy" name="applBuy" longname="基金申购">
+        <interface>
+            <input packMode="false">
+                <field id="fdBuyIn" type="FdAcctTyp.FdApplBuyIn" required="false" multi="false" array="false" longname="基金类型"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="fdBuyOut" type="FdAcctTyp.FdApplBuyOut" required="false" multi="false" array="false" longname="交易日期"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoFdApplFromFd" name="fdApplFromFd" longname="基金申购结果处理">
+        <interface>
+            <input packMode="false">
+                <field id="transq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="交易流水"/>
+                <field id="trandt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="交易日期"/>
+                <field id="billsq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="基金订单流水"/>
+                <field id="applst" type="BaseType.U_CHAR01" required="false" multi="false" array="false" longname="申购结果"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoFdApplBack" name="applBack" longname="基金赎回申请服务">
+        <interface>
+            <input packMode="false">
+                <field id="cplFdBackIn" type="FdAcctTyp.FdApplBackIn" required="false" multi="false" array="false" longname="基金赎回申请输入"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="cplFdBackOut" type="FdAcctTyp.FdApplBackOut" required="false" multi="false" array="false" longname="基金赎回申请输出"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoFdDealBack" name="dealBack" longname="基金赎回结果处理服务">
+        <interface>
+            <input packMode="false">
+                <field id="cplDealBackIn" type="FdAcctTyp.FdDealBackIn" required="false" multi="false" array="false" longname="基金赎回结果处理输入"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="cplDealBackOut" type="FdAcctTyp.FdDealBackOut" required="false" multi="false" array="false" longname="基金赎回结果处理输出"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoFdIsSign" name="fdIsSign" longname="基金是否签约查询">
+        <interface>
+            <input packMode="false">
+                <field id="ecctno" type="BaseType.U_CUACNO" required="false" multi="false" array="false" longname="电子账号" ref="CaDict.Eacct.ecctno"/>
+                <field id="fundno" type="BaseType.U_FUNDNO" required="false" multi="false" array="false" longname="基金公司代码"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="signfg" type="BaseEnumType.E_SIGNFG" required="false" multi="false" array="false" longname="签约标志"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoFdTranst" name="fdTranst" longname="基金订单状态查询">
+        <interface>
+            <input packMode="false">
+                <field id="mdtrdt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="渠道日期" ref="DpDict.Fund.mdtrdt"/>
+                <field id="mdtrsq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="渠道流水" ref="DpDict.Fund.mdtrsq"/>
+            </input>
+            <output asParm="false" packMode="true">
+                <field id="transt" type="BaseEnumType.E_FUNDST" required="false" multi="false" array="false" longname="基金订单交易状态"/>
+                <field id="trandt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="交易日期" ref="DpDict.Acct.trandt"/>
+                <field id="transq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="主交易流水" ref="DpDict.Acct.transq"/>
+                <field id="trantm" type="BaseType.U_TIME06" required="false" multi="false" array="false" longname="交易时间" ref="FnDict.Fnfc.trantm"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="genMDSFiles" name="genMDSFiles" longname="生成基金信息文件接口">
+        <interface>
+            <input packMode="false">
+                <field id="lstrdt" type="string" required="false" multi="false" array="false" longname="上次交易日期"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="genFudChkFiles" name="genFudChkFiles" longname="生成基金对账明细文件接口">
+        <interface>
+            <input packMode="false">
+                <field id="jiaoyirq" type="string" required="false" multi="false" array="false" longname="交易日期"/>
+                <field id="lstrdt" type="string" required="false" multi="false" array="false" longname="上次交易日期"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoFdApplNoChk" name="applNoChk" longname="基金申购(不验密）">
+        <interface>
+            <input packMode="false">
+                <field id="fdBuyIn" type="FdAcctTyp.FdApplBuyIn" required="false" multi="false" array="false" longname="基金申购输入"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="fdBuyOut" type="FdAcctTyp.FdApplBuyOut" required="false" multi="false" array="false" longname="基金申购输出"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="genFdCustFiles" name="genFdCustFiles" longname="基金导出数据">
+        <interface>
+            <input packMode="false">
+                <field id="lstrdt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="上次交易日期" ref="DpDict.Acct.lstrdt"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoFdMiApplBuy" name="miApplBuy" longname="月月盈基金申购">
+        <interface>
+            <input packMode="false">
+                <field id="fdBuyIn" type="FdAcctTyp.FdApplMipuyIn" required="false" multi="false" array="false" longname="基金申购输入"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="fdBuyOut" type="FdAcctTyp.FdApplMipuyOut" required="false" multi="false" array="false" longname="基金申购输出"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoFdLimitDeal" name="fdLimitDeal" longname="基金限额处理">
+        <interface>
+            <input packMode="false">
+                <field id="trinfo" type="FdAcctTyp.FdLimitDealIn" required="false" multi="false" array="false" longname="基金交易信息"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoFdOpenFdAcct" name="openFdAcct" longname="开立基金子账户">
+        <interface>
+            <input packMode="false">
+                <field id="custac" type="BaseType.U_CUACNO" required="false" multi="false" array="false" longname="客户账号"/>
+                <field id="prodcd" type="BaseType.U_CHAR32" required="false" multi="false" array="false" longname="产品代码"/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="acctno" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="负债账号"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoFdReoprt" name="fdReoprt" longname="登记基金公司开户结果(月月盈)">
+        <interface>
+            <input packMode="true">
+                <field id="acctno" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="基金核心交易账号"/>
+                <field id="tranno" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="基金公司交易账号"/>
+                <field id="custno" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="基金公司客户号"/>
+                <field id="keepdt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="清算日期"/>
+                <field id="billsq" type="BaseType.U_CHAR32" required="false" default="''" multi="false" array="false" longname="基金订单流水"/>
+                <field id="opflag" type="BaseEnumType.E_YES___" required="false" multi="false" array="false" longname="开户结果标志"/>
+            </input>
+            <output asParm="true" packMode="true"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="selMiFdClearTranam" name="selMiFdClearTranam" longname="月月盈基金清算总金额查询">
+        <interface>
+            <input packMode="true">
+                <field id="trandt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="交易日期"/>
+                <field id="cleartp" type="BaseType.U_BUSITP" required="false" multi="false" array="false" longname="清算类型"/>
+            </input>
+            <output asParm="false" packMode="true">
+                <field id="tranam" type="BaseType.U_ACBLTP" required="false" multi="false" array="false" longname="交易金额"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+</serviceType>

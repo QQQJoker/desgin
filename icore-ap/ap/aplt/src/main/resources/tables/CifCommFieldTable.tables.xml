@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="CifCommFieldTable" package="cn.sunline.ltts.busi.aplt.tables" longname="客户信息系统表公共字段" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <table id="cif_file_rgst" name="cif_file_rgst" longname="客户信息批量文件登记簿" tableType="ORDINARY" virtual="false" extension="CifCommFieldTable.cif_publ_comm" abstract="false">
+        <fields>
+            <field id="tranno" longname="交易序号" type="CfBaseType.U_CHAR40" ref="CfDict.param.tranno" primarykey="true" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="busseq" longname="业务流水" type="CfBaseType.U_CHAR50" ref="CfDict.param.busseq" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="source" longname="原系统标识" type="CfEnumType.E_SYSNAME" ref="CfDict.param.source" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="target" longname="目标系统标识" type="CfEnumType.E_SYSNAME" ref="CfDict.param.target" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="dataid" longname="数据类型" type="CfBaseType.U_CHAR50" ref="CfDict.param.dataid" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="flpath" longname="文件路径" type="CfBaseType.U_CHAR255" ref="CfDict.param.flpath" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="filenm" longname="文件名" type="CfBaseType.U_CHAR80" ref="CfDict.param.filenm" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="filemd" longname="文件md5标识" type="CfBaseType.U_CHAR80" ref="CfDict.param.filemd" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="acctdt" longname="会计日期" type="CfBaseType.U_CHAR22" ref="CfDict.param.acctdt" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="params" longname="附加参数" type="CfBaseType.U_CHAR1024" ref="CfDict.param.params" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="status" longname="文件交互状态" type="CfEnumType.E_FLJHST" ref="CfDict.param.status" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="descri" longname="文件交互结果描述" type="CfBaseType.U_CHAR80" ref="CfDict.param.descri" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="filest" longname="文件登记状态" type="CfEnumType.E_FILEST" ref="CfDict.param.filest" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="trandt" longname="交易日期" type="BaseType.U_CHAR08" ref="CfDict.param.trandt" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="trantm" longname="交易时间" type="BaseType.U_CHAR21" ref="CfDict.param.trantm" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="fainum" longname="重发错误次数" type="CfBaseType.U_INTGER" ref="CfDict.param.fainum" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="isdewa" longname="是否登记预警" type="BaseEnumType.E_YES___" ref="CfDict.param.isdewa" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="unique" fields="tranno" operate="selectOne deleteOne updateOne"/>
+        </odbindexes>
+        <indexes/>
+    </table>
+    <table id="cif_warn_info" name="cif_warn_info" longname="客户信息系统预警信息表" tableType="ORDINARY" virtual="false" abstract="false">
+        <fields>
+            <field id="tranno" longname="交易序号" type="CfBaseType.U_CHAR40" ref="CfDict.param.tranno" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="trancd" longname="交易卡号" type="CfBaseType.U_CHAR40" ref="CfDict.param.trancd" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="trannm" longname="交易笔数" type="CfBaseType.U_INTGER" ref="CfDict.param.trannm" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="warnty" longname="预警类型" type="CfEnumType.E_WARNTY" ref="CfDict.param.warnty" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="erinfo" longname="错误信息" type="CfBaseType.U_CHAR80" ref="CfDict.param.erinfo" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+    </table>
+    <table id="cif_publ_comm" name="cif_publ_comm" longname="客户公共参数" tableType="ORDINARY" virtual="false" abstract="true">
+        <fields>
+            <field id="gmt_create" longname="创建时间" type="BaseType.U_CHAR21" ref="CfDict.param.gmt_create" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="gmt_modified" longname="修改时间" type="BaseType.U_CHAR21" ref="CfDict.param.gmt_modified" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="corpno" longname="法人代码" type="BaseType.U_CORPNO" ref="CfDict.param.corpno" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+    </table>
+</schema>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="ApAcdt" package="cn.sunline.ltts.acdt" longname="账务日期表" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <table id="AppAcdt" name="app_acdt" longname="账务日期表" tableType="ORDINARY" virtual="false" abstract="false">
+        <fields>
+            <field id="validt" longname="生效日期" type="BaseType.U_DATE19" ref="ApDict.Aplt.validt" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="bflsdt" longname="上上次交易日期" type="BaseType.U_DATE08" ref="BaseDict.Comm.bflsdt" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="lastdt" longname="上次交易日期" type="BaseType.U_DATE08" ref="BaseDict.Comm.lastdt" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="systdt" longname="交易日期" type="BaseType.U_DATE08" ref="BaseDict.Comm.systdt" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="nextdt" longname="下次交易日期" type="BaseType.U_DATE08" ref="BaseDict.Comm.nextdt" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="afnxdt" longname="下下次交易日期" type="BaseType.U_DATE08" ref="BaseDict.Comm.afnxdt" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="yreddt" longname="年终决算日期" type="BaseType.U_DATE08" ref="BaseDict.Comm.yreddt" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="updttm" longname="修改时间戳" type="ApBaseType.U_TMSTMP" ref="ApDict.Aplt.updttm" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="unique" fields="validt" operate="deleteOne selectOne updateOne"/>
+        </odbindexes>
+        <indexes>
+            <index id="app_acdt_uk" type="unique" fields="validt">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+</schema>

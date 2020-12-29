@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<sqls xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="ApAcdtNSQL" longname="账务日期命名sq" package="cn.sunline.edsp.busi.icore.ap.acdt.namedsql" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <select cache="none" method="selectAll" type="sql" id="getAllApAcdt" longname="获取所有的账务日期表对象">
+        <sql><![CDATA[select validt,lastdt,systdt,nextdt,updttm from app_acdt]]></sql>
+        <parameterMap class="java.util.Map"/>
+        <resultMap class="ApAcdt.AppAcdt"/>
+    </select>
+    <select cache="none" method="selectAll selectPageWithCount" type="sql" id="lstApAcdt" longname="查询所有的账务日期">
+        <sql><![CDATA[select * from app_acdt]]></sql>
+        <parameterMap class="java.util.Map"/>
+        <resultMap class="ApAcdt.AppAcdt"/>
+	</select>
+	<select cache="none" method="selectFirst" type="sql" id="selNewApAcdt" longname="查询最新账务日期">
+        <sql><![CDATA[select * from app_acdt order by validt desc]]></sql>
+        <parameterMap class="java.util.Map"/>
+        <resultMap class="ApAcdt.AppAcdt"/>
+	</select>
+</sqls>

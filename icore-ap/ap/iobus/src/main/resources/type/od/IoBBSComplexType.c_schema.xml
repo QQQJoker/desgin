@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema id="IoBBSComplexType" package="cn.sunline.ltts.busi.iobus.type.od" longname="待办事项复合类型" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <complexType id="KubSubj" longname="主题发布" dict="false" abstract="false" introduct="false">
+        <element id="subjid" longname="主题ID" type="BaseType2.U_BUSICD" ref="PbDict1.BBS.subjid" required="false" default="''" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="subjna" longname="主题名称" type="PbBaseType2.U_SHORDS" ref="PbDict1.BBS.subjna" required="false" default="''" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="subjtp" longname="主题类型" type="BaseEnumType2.E_SUBJTP" ref="PbDict1.BBS.subjtp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="relsid" longname="发布人ID" type="BaseType2.U_BUSICD" ref="PbDict1.BBS.relsid" required="false" default="''" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="relsna" longname="发布人名称" type="BaseType2.U_CHAR50" ref="PbDict1.BBS.relsna" required="false" default="''" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="relsbr" longname="发布机构" type="BaseType2.U_BRCHNO" ref="PbDict1.BBS.relsbr" required="false" default="''" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="subjtm" longname="发布时间" type="time" ref="PbDict1.BBS.subjtm" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="recvid" longname="接收柜员ID" type="BaseType2.U_BUSICD" ref="PbDict1.BBS.recvid" required="false" default="''" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="recvna" longname="接收柜员名称" type="BaseType2.U_CHAR50" ref="PbDict1.BBS.recvna" required="false" default="''" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="recvrl" longname="接收人角色" type="BaseType2.U_BUSINO" ref="PbDict1.BBS.recvrl" required="false" default="''" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="procus" longname="处理柜员" type="BaseType2.U_BUSICD" ref="PbDict1.BBS.procus" required="false" default="''" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="procst" longname="处理状态" type="BaseEnumType2.E_PROCST" ref="PbDict1.BBS.procst" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="readfg" longname="是否已读" type="BaseEnumType2.E_YES___" ref="PbDict1.BBS.readfg" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="recvbr" longname="接收机构" type="BaseType2.U_BRCHNO" ref="PbDict1.BBS.recvbr" required="false" default="''" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="emrgfg" longname="紧急标志" type="BaseEnumType2.E_EMRGFG" ref="PbDict1.BBS.emrgfg" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="efctdt" longname="生效日期" type="BaseType2.U_DATE08" ref="PbDict1.BBS.efctdt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="inefdt" longname="失效日期" type="BaseType2.U_DATE08" ref="PbDict1.BBS.inefdt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="inseno" longname="是否新增" type="BaseEnumType2.E_YES___" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="KusSubjDetl" longname="主题发布明细" dict="false" abstract="false" introduct="false">
+        <element id="subjid" longname="主题ID" type="BaseType2.U_BUSICD" ref="PbDict1.BBS.subjid" required="false" default="''" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="contnt" longname="内容描述" type="BaseType2.U_CHAR200" ref="PbDict1.BBS.contnt" required="false" default="''" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="sortno" longname="序号" type="PbBaseType2.U_SENOTP" ref="PbDict1.BBS.sortno" required="false" default="0" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="subjdl" longname="主题明细" type="PbBaseType2.U_SHORDS" ref="PbDict1.BBS.subjdl" required="false" default="''" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="subdl1" longname="备注" type="PbBaseType2.U_SHORDS" required="false" default="''" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="QrSubjDetl" longname="主题发布明细记录查询结果" dict="false" abstract="false" introduct="false">
+        <element id="infos" longname="结果集" type="IoBBSComplexType.KusSubjDetl" required="false" multi="true" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="counts" longname="主题发布明细条数" type="long" required="false" default="0" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="contnt" longname="内容描述" type="BaseType2.U_CHAR200" ref="PbDict1.BBS.contnt" required="false" default="''" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="QrSubj" longname="待办事项记录查询结果" dict="false" abstract="false" introduct="false">
+        <element id="infos" longname="结果集" type="IoBBSComplexType.KubSubj" required="false" multi="true" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="counts" longname="待办事项记录数" type="long" required="false" default="0" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+   <complexType id="DataLinkFileInfo" longname="数据交互文件集合信息" dict="false" abstract="false" introduct="false">
+        <element id="filenm" longname="文件名称" type="BaseType2.U_CHAR100" required="false" default="''" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="filemd" longname="文件md5标识" type="BaseType2.U_CHAR40" required="false" default="''" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="flpath" longname="文件路径" type="BaseType2.U_CHAR100" required="false" default="''" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="params" longname="附加参数" type="BaseType2.U_CHAR1024" required="false" default="''" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+     <complexType id="FileSynDubboSend" longname="文件同步集合信息" dict="false" abstract="false" introduct="false">
+        <element id="target" longname="目标系统标识" type="BaseType2.U_CHAR10" required="false" default="''" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+</schema>

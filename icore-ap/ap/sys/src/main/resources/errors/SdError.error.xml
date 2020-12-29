@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<errorConf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="SdError" longname="结构性存款模块错误码" package="cn.sunline.ltts.busi.sys.errors" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <errors id="SdProd" longname="结构性产品错误码">
+        <error id="E0001" type="error" message="产品编号不能为空" errorCode="01020000"/>
+        <error id="E0002" type="error" message="产品名称不能为空" errorCode="01020001"/>
+        <error id="E0003" type="error" message="业务中类不能为空" errorCode="01020002"/>
+        <error id="E0004" type="error" message="业务小类不能为空" errorCode="01020003"/>
+        <error id="E0005" type="error" message="业务细类不能为空" errorCode="01020004"/>
+        <error id="E0006" type="error" message="风险等级不能为空" errorCode="01020005"/>
+        <error id="E0007" type="error" message="产品类型不能为空" errorCode="01020006"/>
+        <error id="E0008" type="error" message="适合人员不能为空" errorCode="01020007"/>
+        <error id="E0009" type="error" message="募集开始日期不能为空" errorCode="01020008"/>
+        <error id="E0010" type="error" message="募集结束日期不能为空" errorCode="01020009"/>
+        <error id="E0011" type="error" message="成立开始日期不能为空" errorCode="01020010"/>
+        <error id="E0012" type="error" message="成立到期日期不能为空" errorCode="01020011"/>
+        <error id="E0013" type="error" message="成立利率不能为空" errorCode="01020012"/>
+        <error id="E0014" type="error" message="最低收益率不能为空" errorCode="01020013"/>
+        <error id="E0015" type="error" message="最高收益率不能为空" errorCode="01020014"/>
+        <error id="E0016" type="error" message="违约利率不能为空" errorCode="01020015"/>
+        <error id="E0017" type="error" message="起存金额不能为空" errorCode="01020016"/>
+        <error id="E0018" type="error" message="步长值不能为空" errorCode="01020017"/>
+        <error id="E0019" type="error" message="可否提前终止不能为空" errorCode="01020018"/>
+        <error id="E0020" type="error" message="募集期可否撤单不能为空" errorCode="01020019"/>
+        <error id="E0021" type="error" message="募集成立最小金额不能为空" errorCode="01020020"/>
+        <error id="E0022" type="error" message="产品适用币种不能为空" errorCode="01020021"/>
+        <error id="E0023" type="error" message="核算代码不能为空" errorCode="01020022"/>
+        <error id="E0024" type="error" message="募集结束日期必须大于募集开始日期" errorCode="01020023"/>
+        <error id="E0025" type="error" message="成立开始日期必须大于募集结束日期" errorCode="01020024"/>
+        <error id="E0026" type="error" message="成立到期日期必须大于成立开始日期" errorCode="01020025"/>
+        <error id="E0027" type="error" message="成立利率必须介于最高收益率和最低收益率之间" errorCode="01020026"/>
+        <error id="E0028" type="error" message="产品编号已存在，请重新提交" errorCode="01020027"/>
+        <error id="E0029" type="error" message="成立利率不允许为负数" errorCode="01020028"/>
+        <error id="E0030" type="error" message="请求系统标识不能为空" errorCode="01020029"/>
+        <error id="E0031" type="error" message="该产品编号对应产品不存在" errorCode="01020030"/>
+        <error id="E0032" type="error" message="该产品已进行该通知" errorCode="01020031"/>
+        <error id="E0033" type="error" message="输入成立日期必须小于原产品成立日期" errorCode="01020032"/>
+        <error id="E0034" type="error" message="当前系统日期下产品已经募集结束，不支持提前成立通知" errorCode="01020033"/>
+        <error id="E0035" type="error" message="输入备注不能为空" errorCode="01020034"/>
+        <error id="E0036" type="error" message="提前兑付率不能为空" errorCode="01020035"/>
+        <error id="E0037" type="error" message="输入提前兑付日期必须小于原产品到期日期" errorCode="01020036"/>
+        <error id="E0038" type="error" message="输入提前兑付日期必须大于当前系统日期" errorCode="01020037"/>
+        <error id="E0039" type="error" message="该产品未处于募集期，不能进行提前成立通知" errorCode="01020038"/>
+        <error id="E0040" type="error" message="该产品未处于成立期，不能进行提前兑付通知" errorCode="01020039"/>
+        <error id="E0041" type="error" message="该产品不允许提前兑付" errorCode="01020040"/>
+        <error id="E0042" type="error" message="资金到账日不能为空" errorCode="01020041"/>
+        <error id="E0043" type="error" message="资金到账日期为节假日，请确认" errorCode="01020042"/>
+        <error id="E0044" type="error" message="资金到账日期必须大于产品到期日期" errorCode="01020043"/>
+        <error id="E0045" type="error" message="输入的金额值必须为整数" errorCode="01020044"/>
+        <error id="E0046" type="error" message="募集成立日期必须大于当前系统日期" errorCode="01020045"/>
+        <error id="E0047" type="error" message="产品处于未募集期，不允许进行提前成立通知" errorCode="01020046"/>
+        <error id="E0048" type="error" message="提前成立日期小于产品募集日期，不允许进行提前成立通知" errorCode="01020047"/>
+        <error id="E0049" type="error" message="提前兑付日期不能小于当前系统日期" errorCode="01020048"/>
+        <error id="E0050" type="error" message="参数未配置" errorCode="01020049"/>
+		<error id="E0051" type="error" message="最大募集金额必须大于最小募集金额" errorCode="01020050"/>
+        <error id="E0052" type="error" message="该产品分组已存在" errorCode="01020051"/>
+        <error id="E9999" type="error" message="[${msg}]" errorCode="01020052">
+            <parameter id="msg" type="BaseType.U_SHORDS" longname="参数"/>
+        </error>
+    </errors>
+    <errors id="SdMUji" longname="结构性存款募集错误码">
+        <error id="E0001" type="error" message="客户编号不能为空" errorCode="01020053"/>
+        <error id="E0002" type="error" message="卡号不能为空" errorCode="01020054"/>
+        <error id="E0003" type="error" message="活期账户不能为空" errorCode="01020055"/>
+        <error id="E0004" type="error" message="募集金额不能为空" errorCode="01020056"/>
+        <error id="E0005" type="error" message="产品编号不能为空" errorCode="01020057"/>
+        <error id="E0006" type="error" message="该产品只有募集期时才能撤销" errorCode="01020058"/>
+        <error id="E0007" type="error" message="募集交易日期必须大于募集开始日期小于募集结束日期" errorCode="01020059"/>
+        <error id="E0008" type="error" message="募集金额必须大于0" errorCode="01020060"/>
+        <error id="E0009" type="error" message="募集金额必须必须大于起存金额" errorCode="01020061"/>
+        <error id="E0010" type="error" message="账户余额大于募集金额" errorCode="01020062"/>
+        <error id="E0011" type="error" message="募集金额减去起存金额必须是起存金额的整数倍" errorCode="01020063"/>
+        <error id="E0012" type="error" message="产品编码未找到对应的记录" errorCode="01020064"/>
+        <error id="E0013" type="error" message="募集状态为募集期时才能撤销" errorCode="01020065"/>
+        <error id="E0014" type="error" message="产品参数设置募集期内不允许撤单" errorCode="01020066"/>
+        <error id="E0015" type="error" message="撤销输入的募集金额必须等于输入的募集金额" errorCode="01020067"/>
+        <error id="E0016" type="error" message="募集编号未找到对应的记录" errorCode="01020068"/>
+        <error id="E0017" type="error" message="产品状态为募集期时才可以购买" errorCode="01020069"/>
+        <error id="E0018" type="error" message="募集编号不能为空" errorCode="01020070"/>
+        <error id="E0019" type="error" message="该客户编号未找到对应的记录" errorCode="01020071"/>
+        <error id="E0020" type="error" message="输入卡号与客户编号不一致" errorCode="01020072"/>
+	    <error id="E0021" type="error" message="产品状态必须为成立期" errorCode="01020073"/>
+        <error id="E0022" type="error" message="产品结转事件中没有提前兑付事件" errorCode="01020074"/>
+    </errors>
+    <errors id="EFile" longname="文件错误码">
+        <description><![CDATA[文件错误描述]]></description>
+        <error id="E1001" type="error" message="文件[${filena}]不存在" errorCode="01020075">
+            <parameter id="filena" type="BaseType.U_FILENA" longname="文件名称"/>
+        </error>
+    </errors>
+    <errors id="SdCommon" longname="公共错误码">
+        <error id="E9999" type="error" message="上传参数[${msg}]不能为空！" errorCode="01020076">
+            <parameter id="msg" type="BaseType.U_SHORDS" longname="参数"/>
+        </error>
+        <error id="E2001" type="error" message="产品事件同步失败" errorCode="01020077"/>
+        <error id="E2002" type="error" message="子节点存在同步失败的产品，请检查" errorCode="01020078"/>
+        <error id="E2003" type="error" message="产品预成立未找到对应的募集记录" errorCode="01020079"/>
+        <error id="E2004" type="error" message="未在子节点[${rdcnno}]找到产品[${jjprod}]预不成立处理记录" errorCode="01020080">
+            <parameter id="rdcnno" type="BaseType.U_DCNNO" longname="节点编号"/>
+            <parameter id="jjprod" type="BaseType.U_PRODCD" longname="产品编码"/>
+        </error>
+        <error id="E2005" type="error" message="子节点存在同步预不成立处理失败的产品，请检查!" errorCode="01020081"/>
+        <error id="E2006" type="error" message="累计募集规模已大于最大募集金额，无法进行募集购买！" errorCode="01020082"/>
+        <error id="E2007" type="error" message="募集金额已小于0，无法进行募集撤销！" errorCode="01020083"/>
+    </errors>
+</errorConf>

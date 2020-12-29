@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema id="CdEnumType" package="cn.sunline.ltts.busi.sys.type" longname="单位账户限制类型" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <restrictionType id="E_CHRGFG" longname="收费标志" base="BaseType.U_CHAR01">
+        <enumeration id="NOCHARGE" value="0" longname="不收费"/>
+        <enumeration id="SECOND" value="1" longname="按次"/>
+        <enumeration id="MONTH" value="2" longname="按月"/>
+        <enumeration id="SEASON" value="3" longname="按季"/>
+        <enumeration id="YEAR" value="4" longname="按年"/>
+    </restrictionType>
+    <restrictionType id="E_BLACFG" longname="对账标志" base="BaseType.U_CHAR01">
+        <enumeration id="NOPRINT" value="0" longname="不打印"/>
+        <enumeration id="MONTH" value="1" longname="按月"/>
+        <enumeration id="SEASON" value="2" longname="按季"/>
+        <enumeration id="YEAR" value="3" longname="按年"/>
+    </restrictionType>
+    <restrictionType id="E_CASHFG" longname="提现标志" base="BaseType.U_CHAR01">
+        <enumeration id="NOT" value="0" longname="不可提现"/>
+        <enumeration id="CAN" value="1" longname="可提现"/>
+    </restrictionType>
+    <restrictionType id="E_POSTLV" longname="通存级别" base="BaseType.U_CHAR01">
+        <enumeration id="PROVINCE" value="1" longname="省级"/>
+        <enumeration id="REGION" value="2" longname="地区级"/>
+        <enumeration id="COUNTY" value="3" longname="县级"/>
+        <enumeration id="BRANCH" value="4" longname="行社级"/>
+    </restrictionType>
+    <restrictionType id="E_EXCHLV" longname="通兑级别" base="BaseType.U_CHAR01">
+        <enumeration id="PROVINCIAL" value="1" longname="省级"/>
+        <enumeration id="REGIONAL" value="2" longname="地区级"/>
+        <enumeration id="COUNTY" value="3" longname="县级"/>
+        <enumeration id="BRANCH" value="4" longname="行社级"/>
+        <enumeration id="NONE" value="5" longname="不通兑"/>
+    </restrictionType>
+    <restrictionType id="E_INDFFG" longname="利率浮动标志" base="BaseType.U_CHAR01">
+        <enumeration id="FLOAT" value="0" longname="浮动"/>
+        <enumeration id="NOTFLOAT" value="1" longname="不浮动"/>
+    </restrictionType>
+    <restrictionType id="E_ACOPRS" longname="开户结果" base="BaseType.U_CHAR01">
+        <enumeration id="SUCCESS" value="1" longname="开户成功"/>
+        <enumeration id="FAILD" value="2" longname="开户失败"/>
+    </restrictionType>
+    <restrictionType id="E_DPACST" longname="子账户状态" base="BaseType.U_CHAR01">
+        <enumeration id="NORMAL" value="1" longname="正常"/>
+        <enumeration id="NEWACC" value="2" longname="新开户"/>
+        <enumeration id="SLEEP" value="3" longname="休眠"/>
+        <enumeration id="CLOSE" value="4" longname="销户"/>
+        <enumeration id="SETTLE" value="5" longname="结清"/>
+    </restrictionType>
+    <restrictionType id="E_VRACTP" longname="虚拟账户类型" base="string" maxLength="1">
+        <enumeration id="COMMON" value="0" longname="实账户"/>
+        <enumeration id="VIRTUAL" value="1" longname="虚账户"/>
+    </restrictionType>
+    <restrictionType id="E_CNTRST" longname="合同状态" base="string" maxLength="1">
+        <enumeration id="INVALID" value="0" longname="无效"/>
+        <enumeration id="VALID" value="1" longname="有效"/>
+        <enumeration id="PENDING" value="3" longname="待生效"/>
+    </restrictionType>
+    <restrictionType id="E_CNTRTP" longname="签约类型码" base="string" maxLength="5">
+        <enumeration id="ALL" value="%" longname="全部"/>
+        <enumeration id="RL001" value="RL001" longname="第三方入息"/>
+        <enumeration id="RL002" value="RL002" longname="第三方还息"/>
+        <enumeration id="RL003" value="RL003" longname="第三方还本"/>
+        <enumeration id="RL004" value="RL004" longname="第三方收费"/>
+        <enumeration id="SG001" value="SG001" longname="定期约定转存"/>
+        <enumeration id="SG002" value="SG002" longname="通知质押额度"/>
+        <enumeration id="SG003" value="SG003" longname="定期质押额度"/>
+        <enumeration id="SG004" value="SG004" longname="信贷授信额度"/>
+        <enumeration id="SG005" value="SG005" longname="储宝乐"/>
+        <enumeration id="SG006" value="SG006" longname="协定存款"/>
+        <enumeration id="SG008" value="SG008" longname="国库签约"/>
+        <enumeration id="SG009" value="SG009" longname="零整约定转存"/>
+        <enumeration id="SG010" value="SG010" longname="通知约定转存"/>
+        <enumeration id="SG011" value="SG011" longname="定活约定转存"/>
+        <enumeration id="SG012" value="SG012" longname="智能通知存款"/>
+        <enumeration id="SG013" value="SG013" longname="活期约定转账"/>
+        <enumeration id="SG014" value="SG014" longname="零整约定转账"/>
+        <enumeration id="SG015" value="SG015" longname="批量挂账签约"/>
+        <enumeration id="SG016" value="SG016" longname="定期到期转活期"/>
+        <enumeration id="SG020" value="SG020" longname="客户透支限额"/>
+        <enumeration id="SV001" value="SV001" longname="电话银行"/>
+        <enumeration id="SV002" value="SV002" longname="电子缴税"/>
+        <enumeration id="SV003" value="SV003" longname="银证转账"/>
+        <enumeration id="SV004" value="SV004" longname="网上银行"/>
+        <enumeration id="SV005" value="SV005" longname="短信通知"/>
+        <enumeration id="EG001" value="EG001" longname="黄金业务签约"/>
+        <enumeration id="MD001" value="MD001" longname="电子国债"/>
+        <enumeration id="MD002" value="MD002" longname="银保通"/>
+        <enumeration id="MD003" value="MD003" longname="代理兴业三方存管"/>
+        <enumeration id="MD004" value="MD004" longname="支付宝"/>
+        <enumeration id="MD005" value="MD005" longname="无卡支付"/>
+        <enumeration id="FI001" value="FI001" longname="理财产品(客户)"/>
+        <enumeration id="FI002" value="FI002" longname="理财产品(账户)"/>
+        <enumeration id="FI003" value="FI003" longname="基金产品(客户)"/>
+        <enumeration id="FI004" value="FI004" longname="基金产品(账户)"/>
+        <subenums>
+            <subenum id="E_CNTRTP_SUTD" enums="SG001,SG010,SG011" longname="约定转存签约类型码"/>
+            <subenum id="E_CNTRTP_AUTR" enums="SG013,SG014" longname="约定转账签约类型码"/>
+        </subenums>
+    </restrictionType>
+    <restrictionType id="E_OWNRTP" longname="签约主体类型码" base="string" maxLength="4">
+        <enumeration id="ALL" value="%" longname="所有"/>
+        <enumeration id="ACCT" value="ACCT" longname="账户"/>
+        <enumeration id="ACID" value="ACID" longname="子户号"/>
+        <enumeration id="CUST" value="CUST" longname="客户"/>
+        <enumeration id="FFOX" value="FFOX" longname="存单"/>
+        <enumeration id="NMPS" value="NMPS" longname="折"/>
+    </restrictionType>
+    <restrictionType id="E_STATUS" longname="对照状态" base="string" maxLength="1">
+        <enumeration id="INEFCT" value="0" longname="失效"/>
+        <enumeration id="EFFECT" value="1" longname="有效"/>
+    </restrictionType>
+    <restrictionType id="E_AUTDTG" longname="到期转存方式" base="string" maxLength="1">
+        <enumeration id="UNDO" value="0" longname="非自动转存"/>
+        <enumeration id="DO" value="1" longname="本息自动转存"/>
+        <enumeration id="FTOC" value="2" longname="转活期"/>
+        <enumeration id="PDO" value="3" longname="本金自动转存"/>
+    </restrictionType>
+    <restrictionType id="E_BSPKTG" longname="通知存款预约方式" base="string" maxLength="1">
+        <enumeration id="COMM" value="0" longname="常规预约"/>
+        <enumeration id="AUTO" value="1" longname="自动预约"/>
+    </restrictionType>
+    <restrictionType id="E_YZPSTG" longname="验资通过标志" base="string" maxLength="1">
+        <enumeration id="NONE" value="0" longname="不适用"/>
+        <enumeration id="WAIT" value="1" longname="待验资"/>
+        <enumeration id="PASS" value="2" longname="通过"/>
+        <enumeration id="UNPASS" value="3" longname="不通过"/>
+    </restrictionType>
+    <restrictionType id="E_SPECYZ" longname="验资标识" base="string" maxLength="1">
+        <enumeration id="C_UNTEMP" value="0" longname="非临时账户"/>
+        <enumeration id="C_TEMP" value="1" longname="普通临时账户"/>
+        <enumeration id="C_YZ" value="2" longname="验资户"/>
+        <enumeration id="C_APPYZ" value="3" longname="增资验资户"/>
+    </restrictionType>
+    <restrictionType id="E_BROTWY" longname="计提方式" base="string" maxLength="1">
+        <enumeration id="N" value="0" longname="不计提"/>
+        <enumeration id="P" value="1" longname="逐户差额周期计提"/>
+        <enumeration id="G" value="2" longname="汇总差额周期计提"/>
+        <enumeration id="S" value="9" longname="自定义计提"/>
+    </restrictionType>
+    <restrictionType id="E_FPPSTP" longname="重定价利息处理方式" base="string" maxLength="1">
+        <enumeration id="NONE" value="0" longname="不处理"/>
+        <enumeration id="INBE" value="1" longname="结息"/>
+        <enumeration id="INSG" value="2" longname="分段处理"/>
+    </restrictionType>
+    <restrictionType id="E_FPBGDF" longname="周期重定价起始日期定义" base="string" maxLength="1">
+        <enumeration id="OPEN_DATE" value="1" longname="开户日"/>
+        <enumeration id="FIX_DATE" value="2" longname="固定日"/>
+    </restrictionType>
+    <restrictionType id="E_FPPDUT" longname="重定价周期" base="string" maxLength="1">
+        <enumeration id="D" value="D" longname="日"/>
+        <enumeration id="M" value="M" longname="月"/>
+        <enumeration id="T" value="T" longname="旬"/>
+        <enumeration id="P" value="P" longname="计划"/>
+    </restrictionType>
+    <restrictionType id="E_FPTYPE" longname="重定价方式定义" base="string" maxLength="1">
+        <enumeration id="NONE" value="0" longname="无"/>
+        <enumeration id="ACCT" value="1" longname="按账户重定价"/>
+        <enumeration id="PROD" value="2" longname="按产品重定价"/>
+    </restrictionType>
+    <restrictionType id="E_IRBYBS" longname="日利率计算基础" base="string" maxLength="3">
+        <enumeration id="IR_360" value="360" longname="年利率除以360天为日利率"/>
+        <enumeration id="IR_365" value="365" longname="年利率除以365天为日利率"/>
+        <enumeration id="IR_366" value="366" longname="年利率除以366天为日利率"/>
+    </restrictionType>
+    <restrictionType id="E_PDIBTP" longname="周期结息方式" base="string" maxLength="1">
+        <enumeration id="PD_NOCYCLE" value="0" longname="非周期"/>
+        <enumeration id="PD_FIXDAY" value="1" longname="按固定日期周期结息"/>
+        <enumeration id="PD_OPDAY" value="2" longname="按起息日周期结息"/>
+        <enumeration id="PD_BGINDT" value="3" longname="按起息日周期结息"/>
+    </restrictionType>
+    <restrictionType id="E_DRIBTP" longname="支取结息方式" base="string" maxLength="1">
+        <enumeration id="NONE" value="1" longname="不结息"/>
+        <enumeration id="WITH_PRINCIPAL" value="2" longname="利随本清"/>
+        <enumeration id="INTSET_DRAW" value="3" longname="支取时全额结息"/>
+    </restrictionType>
+    <restrictionType id="E_CNTRKD" longname="签约性质" base="string" maxLength="1">
+        <enumeration id="PROP" value="1" longname="产品类"/>
+        <enumeration id="SERV" value="2" longname="服务类"/>
+        <enumeration id="AGRE" value="3" longname="三方约定类"/>
+    </restrictionType>
+    <restrictionType id="E_YSNOTG" longname="是否标志" base="string" maxLength="1">
+        <enumeration id="ALL" value="%" longname="全部"/>
+        <enumeration id="YES" value="1" longname="是"/>
+        <enumeration id="NO" value="0" longname="否"/>
+    </restrictionType>
+    <restrictionType id="E_ACCTST" longname="账户状态" base="string" maxLength="1">
+        <enumeration id="CLOSED" value="0" longname="关闭"/>
+        <enumeration id="NORMAL" value="1" longname="正常"/>
+        <enumeration id="NOEFCT" value="2" longname="未生效"/>
+    </restrictionType>
+    <restrictionType id="E_SEACTG" longname="核准标志" base="string" maxLength="1">
+        <enumeration id="NO" value="0" longname="不需核准"/>
+        <enumeration id="YES" value="1" longname="需要核准"/>
+    </restrictionType>
+    <restrictionType id="E_SPECTP" longname="账户性质" base="string" maxLength="1">
+        <enumeration id="ALL" value="%" longname="全账户性质"/>
+        <enumeration id="P_SAVING" value="0" longname="个人非结算户"/>
+        <enumeration id="P_CURRENT" value="1" longname="个人结算户"/>
+        <enumeration id="C_BASIC" value="4" longname="基本账户"/>
+        <enumeration id="C_TEMP" value="5" longname="临时账户"/>
+        <enumeration id="C_NORMAL" value="6" longname="一般账户"/>
+        <enumeration id="C_SPECIAL" value="7" longname="专用账户"/>
+        <enumeration id="C_SAVING" value="9" longname="单位非结算户"/>
+        <enumeration id="SAVING_2ND" value="B" longname="乙种储蓄存款账户"/>
+        <enumeration id="SAVING_3TH" value="C" longname="丙种储蓄存款账户"/>
+        <enumeration id="FE_CURRENT" value="F" longname="外汇结算账户"/>
+        <enumeration id="FE_SAVING" value="G" longname="外汇非结算账户"/>
+    </restrictionType>
+    <restrictionType id="E_CORPPR" longname="所有制形式" base="string" maxLength="2">
+        <enumeration id="_01" value="01" longname="企业法人"/>
+        <enumeration id="_02" value="02" longname="非企业法人"/>
+        <enumeration id="_03" value="03" longname="机关"/>
+        <enumeration id="_04" value="04" longname="实行预算管理的事业单位"/>
+        <enumeration id="_05" value="05" longname="非实行预算管理的事业单位"/>
+        <enumeration id="_06" value="06" longname="团级（含）以上军队及分散执勤的支（分）队"/>
+        <enumeration id="_07" value="07" longname="团级（含）以上武警部队及分散执勤的支（分）队"/>
+        <enumeration id="_08" value="08" longname="社会团体"/>
+        <enumeration id="_09" value="09" longname="宗教组织"/>
+        <enumeration id="_10" value="10" longname="民办非企业组织"/>
+        <enumeration id="_11" value="11" longname="外地常设机构"/>
+        <enumeration id="_12" value="12" longname="外国驻华机构"/>
+        <enumeration id="_13" value="13" longname="有字号的个体工商户"/>
+        <enumeration id="_14" value="14" longname="无字号的个体工商户"/>
+        <enumeration id="_15" value="15" longname="居民委员会、村民委员会、社区委员会"/>
+        <enumeration id="_16" value="16" longname="单位设立的独立核算的附属机构"/>
+        <enumeration id="_17" value="17" longname="其它组织"/>
+    </restrictionType>
+    <restrictionType id="E_CORPTP" longname="行业分类" base="string" maxLength="1">
+        <enumeration id="A" value="A" longname="农、林、牧、渔业"/>
+        <enumeration id="B" value="B" longname="采矿业"/>
+        <enumeration id="C" value="C" longname="制造业"/>
+        <enumeration id="D" value="D" longname="电力、燃气及水的生产供应业"/>
+        <enumeration id="E" value="E" longname="建筑业"/>
+        <enumeration id="F" value="F" longname="交通运输、仓储和邮政业"/>
+        <enumeration id="G" value="G" longname="信息传输、计算机服务及软件业"/>
+        <enumeration id="H" value="H" longname="批发和零售业"/>
+        <enumeration id="I" value="I" longname="住宿和餐饮业"/>
+        <enumeration id="J" value="J" longname="金融业"/>
+        <enumeration id="K" value="K" longname="房地产业"/>
+        <enumeration id="L" value="L" longname="租赁和商务服务业"/>
+        <enumeration id="M" value="M" longname="科学研究、技术服务和地址勘查业"/>
+        <enumeration id="N" value="N" longname="水利、环境和公共设施管理"/>
+        <enumeration id="O" value="O" longname="居民服务和其他服务业"/>
+        <enumeration id="P" value="P" longname="教育业"/>
+        <enumeration id="Q" value="Q" longname="卫生、社会保障和社会福利业"/>
+        <enumeration id="R" value="R" longname="文化、教育和娱乐业"/>
+        <enumeration id="S" value="S" longname="公共管理和社会组织"/>
+        <enumeration id="T" value="T" longname="其他行业"/>
+    </restrictionType>
+    <restrictionType id="E_PSRNTG" longname="居民标志" base="string" maxLength="1">
+        <enumeration id="_0" value="0" longname="非居民"/>
+        <enumeration id="_1" value="1" longname="居民"/>
+    </restrictionType>
+    <restrictionType id="E_RENATG" longname="实名标志" base="string" maxLength="1">
+        <enumeration id="_0" value="0" longname="未登记"/>
+        <enumeration id="_1" value="1" longname="已登记"/>
+    </restrictionType>
+    <restrictionType id="E_CLTYPE" longname="销户类型" base="string" maxLength="1">
+        <enumeration id="NORMAL" value="1" longname="正常销户"/>
+        <enumeration id="UNRL" value="2" longname="解挂销户"/>
+    </restrictionType>
+    <restrictionType id="E_CSANCD" longname="收支项目代码" base="string" maxLength="2">
+        <enumeration id="S_01" value="01" longname="商品销售收入"/>
+        <enumeration id="S_02" value="02" longname="服务业收入"/>
+        <enumeration id="S_03" value="03" longname="行政税费收入"/>
+        <enumeration id="S_04" value="04" longname="城乡个体经营收入"/>
+        <enumeration id="S_05" value="05" longname="储蓄存款收入"/>
+        <enumeration id="S_06" value="06" longname="其他金融性公司收入"/>
+        <enumeration id="S_07" value="07" longname="居民归还贷款收入"/>
+        <enumeration id="S_08" value="08" longname="汇兑收入"/>
+        <enumeration id="S_09" value="09" longname="有价证券及其他投资性收入"/>
+        <enumeration id="S_10" value="10" longname="其他收入"/>
+        <enumeration id="S_11" value="11" longname="其他收入-兑换外币收入"/>
+        <enumeration id="S_13" value="13" longname="内部现金收入"/>
+        <enumeration id="S_14" value="14" longname="同业往来收入"/>
+        <enumeration id="S_15" value="15" longname="由人行发行库领取现金"/>
+        <enumeration id="S_16" value="16" longname="由人行业务库领取现金"/>
+        <enumeration id="S_17" value="17" longname="信用社(其他银行)交存现金"/>
+        <enumeration id="S_20" value="20" longname="工资及对个人其他支出"/>
+        <enumeration id="S_21" value="21" longname="国家工资及奖金支出"/>
+        <enumeration id="S_22" value="22" longname="国家对个人其他支出"/>
+        <enumeration id="S_23" value="23" longname="部队存款支出"/>
+        <enumeration id="S_24" value="24" longname="其他单位工资性支出"/>
+        <enumeration id="S_25" value="25" longname="产品采购支出"/>
+        <enumeration id="S_26" value="26" longname="农副产品采购支出"/>
+        <enumeration id="S_27" value="27" longname="行政企业管理和经营费支出"/>
+        <enumeration id="S_28" value="28" longname="城乡个体经营支出"/>
+        <enumeration id="S_29" value="29" longname="储蓄存款支出"/>
+        <enumeration id="S_30" value="30" longname="其他金融性公司支出"/>
+        <enumeration id="S_31" value="31" longname="居民提取贷款支出"/>
+        <enumeration id="S_32" value="32" longname="汇兑支出"/>
+        <enumeration id="S_33" value="33" longname="有价证券及其他投资性支出"/>
+        <enumeration id="S_34" value="34" longname="其他支出"/>
+        <enumeration id="S_35" value="35" longname="其他支出-兑换外币支出"/>
+        <enumeration id="S_37" value="37" longname="内部现金支出"/>
+        <enumeration id="S_38" value="38" longname="同业往来支出"/>
+        <enumeration id="S_39" value="39" longname="交回人行发行库现金"/>
+        <enumeration id="S_40" value="40" longname="交回人行业务库现金"/>
+        <enumeration id="S_41" value="41" longname="信用社(其他银行)支取现金"/>
+        <enumeration id="S_47" value="47" longname="工矿及其他产品采购支出"/>
+    </restrictionType>
+    <restrictionType id="E_PSCOCU" longname="对公/个人标志" base="string" maxLength="1">
+        <enumeration id="PRSN" value="1" longname="个人"/>
+        <enumeration id="CORP" value="2" longname="对公"/>
+        <enumeration id="SAME" value="3" longname="同业"/>
+    </restrictionType>
+    <restrictionType id="E_TRANFG" longname="核准通过类型" base="string" maxLength="1">
+        <enumeration id="APPROVED_PBC" value="1" longname="人行核准通过"/>
+        <enumeration id="APPROVED_SPECIAL" value="2" longname="特殊核准通过"/>
+    </restrictionType>
+    <restrictionType id="E_ACPSST" longname="核准状态" base="string" maxLength="1">
+        <enumeration id="NO_AUTH" value="0" longname="无核准"/>
+        <enumeration id="N_AUTH" value="1" longname="待核准"/>
+        <enumeration id="Y_AUTH" value="9" longname="已核准"/>
+    </restrictionType>
+    <restrictionType id="E_CUSTLV" longname="客户级别" base="string" maxLength="2">
+        <enumeration id="L00" value="00" longname="普卡客户"/>
+        <enumeration id="L01" value="01" longname="黄金卡客户"/>
+        <enumeration id="L11" value="11" longname="白金卡客户"/>
+        <enumeration id="L12" value="12" longname="钻石卡客户"/>
+        <enumeration id="L21" value="21" longname="准私人银行客户"/>
+        <enumeration id="L22" value="22" longname="私人银行客户"/>
+    </restrictionType>
+    <restrictionType id="E_STTLFS" longname="结清方式" base="string" maxLength="1">
+        <enumeration id="S_CLOS" value="0" longname="销户结清"/>
+        <enumeration id="S_SLEP" value="1" longname="转久悬结清"/>
+        <enumeration id="S_AUTR" value="2" longname="自动转存结清"/>
+    </restrictionType>
+    <restrictionType id="E_TRSTST" longname="结清登记簿处理状态" base="string" maxLength="1">
+        <enumeration id="UNTR" value="0" longname="未处理"/>
+        <enumeration id="ALTR" value="1" longname="已处理"/>
+    </restrictionType>
+    <restrictionType id="E_FRACTP" longname="外汇账户类型" base="string" maxLength="4">
+        <enumeration id="F0000" value="0000" longname="无外汇账户"/>
+        <enumeration id="F1000" value="1000" longname="经常项-外汇账户"/>
+        <enumeration id="F1100" value="1100" longname="经常项-结算账号"/>
+        <enumeration id="F1101" value="1101" longname="经常项-待核查账户"/>
+        <enumeration id="F1201" value="1201" longname="经常项-承包工程及贸易专项"/>
+        <enumeration id="F1202" value="1202" longname="经常项-捐赠账户"/>
+        <enumeration id="F1203" value="1203" longname="经常项-国际货运账户"/>
+        <enumeration id="F1204" value="1204" longname="经常项-国际汇兑账户"/>
+        <enumeration id="F1205" value="1205" longname="经常项-旅游账户"/>
+        <enumeration id="F1206" value="1206" longname="经常项-免税账户"/>
+        <enumeration id="F1207" value="1207" longname="经常项-远洋渔业账户"/>
+        <enumeration id="F1208" value="1208" longname="经常项-涉外酒店宾馆账户"/>
+        <enumeration id="F1209" value="1209" longname="经常项-涉外中介机构账户"/>
+        <enumeration id="F1210" value="1210" longname="经常项-合作办学账户"/>
+        <enumeration id="F1211" value="1211" longname="经常项-房地产业账户"/>
+        <enumeration id="F1212" value="1212" longname="经常项-国际展会账号"/>
+        <enumeration id="F1300" value="1300" longname="经常项-定期存款户"/>
+        <enumeration id="F1400" value="1400" longname="经常项-驻华机构经费户"/>
+        <enumeration id="F1500" value="1500" longname="经常项-个人及来华人员定活期外汇户"/>
+        <enumeration id="F1600" value="1600" longname="经常项-其它账户"/>
+        <enumeration id="F2201" value="2201" longname="资本项-外债专户"/>
+        <enumeration id="F2202" value="2202" longname="资本项-外债转贷款专户"/>
+        <enumeration id="F2203" value="2203" longname="资本项-自营外汇贷款专户"/>
+        <enumeration id="F2204" value="2204" longname="资本项-还贷专户"/>
+        <enumeration id="F2205" value="2205" longname="资本项-外币股票账户"/>
+        <enumeration id="F2206" value="2206" longname="资本项-外商投资企业外汇资本金账户"/>
+        <enumeration id="F2207" value="2207" longname="资本项-外商投资临时账户"/>
+        <enumeration id="F2208" value="2208" longname="资本项-资产存量变现账户"/>
+        <enumeration id="F2209" value="2209" longname="资本项-外币股票交易账号"/>
+        <enumeration id="F2210" value="2210" longname="资本项-期货账号"/>
+        <enumeration id="F2211" value="2211" longname="资本项-投资专用账号"/>
+        <enumeration id="F2300" value="2300" longname="资本项-定期存款户"/>
+        <enumeration id="F2600" value="2600" longname="资本项-其它账号"/>
+        <enumeration id="F4200" value="4200" longname="暂存户-开证、付汇保证金户"/>
+        <enumeration id="F4600" value="4600" longname="暂存户-其它暂存户"/>
+        <subenums>
+            <subenum id="E_FRACTP_CAPT" enums="F2201,F2202,F2203,F2204,F2205,F2206,F2207,F2208,F2209,F2210,F2211,F2300,F2600" longname="资本项"/>
+        </subenums>
+    </restrictionType>
+    <restrictionType id="E_NOTECD" longname="通知期代码" base="string" maxLength="3">
+        <enumeration id="T101" value="101" longname="一天"/>
+        <enumeration id="T107" value="107" longname="七天"/>
+    </restrictionType>
+    <restrictionType id="E_ACCST2" longname="子账户止付状态" base="string" maxLength="1">
+        <enumeration id="NORMAL" value="0" longname="正常"/>
+        <enumeration id="PF_SAVE" value="1" longname="部分止付-可进"/>
+        <enumeration id="PF_NOSV" value="2" longname="部分止付-不可进"/>
+        <enumeration id="SF_SAVE" value="3" longname="全额止付-只进不出"/>
+        <enumeration id="SF_NOSV" value="4" longname="全额止付-不进不出"/>
+        <subenums>
+            <subenum id="E_ACCST2_SAVE" enums="NORMAL,PF_SAVE,SF_SAVE" longname="存款允许的账户止付状态"/>
+            <subenum id="E_ACCST2_DRAW" enums="NORMAL,PF_SAVE,PF_NOSV" longname="取款允许的账户止付状态"/>
+            <subenum id="E_ACCST2_CLOS" enums="NORMAL" longname="销户允许的账户止付状态"/>
+            <subenum id="E_ACCST2_STTL" enums="NORMAL" longname="结清允许的账户止付状态"/>
+            <subenum id="E_ACCST2_STRK_SAVE" enums="NORMAL,PF_SAVE,PF_NOSV" longname="存款冲账允许的账户止付状态"/>
+            <subenum id="E_ACCST2_STRK_DRAW" enums="NORMAL,PF_SAVE,SF_SAVE" longname="取款冲账允许的账户止付状态"/>
+            <subenum id="E_ACCST2_ALFZ" enums="SF_SAVE,SF_NOSV" longname="全额止付状态集合"/>
+            <subenum id="E_ACCST2_UNPAY" enums="NORMAL,PF_SAVE,PF_NOSV" longname="止付合法状态集合"/>
+            <subenum id="E_ACCST2_PAY" enums="PF_SAVE,PF_NOSV,SF_NOSV,SF_SAVE" longname="解除止付合法状态"/>
+            <subenum id="E_ACCST2_SVPROVE" enums="NORMAL,PF_SAVE,PF_NOSV" longname="开立存款证明合法止付状态"/>
+            <subenum id="E_ACCST2_SLEP" enums="NORMAL" longname="结转久悬允许的账户止付状态"/>
+        </subenums>
+    </restrictionType>
+    <restrictionType id="E_STACFX" longname="质押换证登记簿状态" base="string" maxLength="1">
+        <enumeration id="CNFX" value="1" longname="置换中"/>
+        <enumeration id="BACK" value="2" longname="已回收"/>
+        <enumeration id="ALL" value="%" longname="已回收"/>
+    </restrictionType>
+    <restrictionType id="E_CSBXTG" longname="库存管理标志" base="string" maxLength="1">
+        <enumeration id="STOCMGR" value="1" longname="库存管理"/>
+        <enumeration id="NSTOCMR" value="0" longname="非库存管理"/>
+        <enumeration id="OTHER" value="x" longname="其他"/>
+    </restrictionType>
+    <restrictionType id="E_RECDST" longname="换卡状态" base="string" maxLength="1">
+        <enumeration id="ALL" value="%" longname="全部"/>
+        <enumeration id="REGISTER" value="0" longname="换卡申请登记"/>
+        <enumeration id="REPLACEED" value="1" longname="换卡成功"/>
+        <enumeration id="CANCEL" value="2" longname="换卡申请撤销"/>
+    </restrictionType>
+    <restrictionType id="E_RETNIN" longname="付息方式" base="string" maxLength="2">
+        <enumeration id="_00" value="00" longname="到期付息"/>
+        <enumeration id="_01" value="01" longname="每月21日付息"/>
+        <enumeration id="_02" value="02" longname="起息日起每满1个月的对应日付息"/>
+        <enumeration id="_03" value="03" longname="每季度末月21日付息"/>
+        <enumeration id="_04" value="04" longname="起息日起每满3个月的对应日付息"/>
+        <enumeration id="_05" value="05" longname="指定上、下半年末月的付息日"/>
+        <enumeration id="_06" value="06" longname="起息日起每满半年的对应日付息"/>
+        <enumeration id="_07" value="07" longname="指定每年12月份的付息日"/>
+        <enumeration id="_08" value="08" longname="起息日起每满一年的对应日付息"/>
+        <subenums>
+            <subenum id="E_RETNIN_201" enums="_00,_01,_02" longname="30天存期"/>
+            <subenum id="E_RETNIN_203" enums="_00,_01,_02,_03,_04" longname="90天存期"/>
+            <subenum id="E_RETNIN_206" enums="_00,_01,_02,_03,_04,_05,_06,_07,_08" longname="180天存期"/>
+        </subenums>
+    </restrictionType>
+    <restrictionType id="E_RETNTP" longname="付息类别" base="string" maxLength="1">
+        <enumeration id="_0" value="0" longname="手工计息"/>
+        <enumeration id="_1" value="1" longname="自动计息"/>
+    </restrictionType>
+    <restrictionType id="E_IBYRBS" longname="年计息天数" base="string" maxLength="3">
+        <enumeration id="IB_360" value="360" longname="按储蓄天数计算" desc="整年按360天计算，整月按30天计算，非整月按实际天数计算"/>
+        <enumeration id="IB_365" value="365" longname="整年按365天计算，非整年按实际天数计算"/>
+        <enumeration id="IB_366" value="366" longname="按实际天数计算"/>
+    </restrictionType>
+    <restrictionType id="E_STMODE" longname="结清登记簿处理模式" base="string" maxLength="1">
+        <enumeration id="UPDATE" value="1" longname="更新登记簿状态"/>
+        <enumeration id="DELETE" value="2" longname="删除登记簿记录"/>
+    </restrictionType>
+    <restrictionType id="E_IDTFTS" longname="证件类型" base="BaseType.U_CHAR01" maxLength="3">
+        <enumeration id="ZXZ" value="141" longname="执行证"/>
+        <enumeration id="GZZ" value="142" longname="工作证"/>
+        <enumeration id="SFZ" value="111" longname="身份证"/>
+        <enumeration id="QTZ" value="199" longname="其他"/>
+    </restrictionType>
+    <restrictionType id="E_MODITP" longname="维护类型" base="string" maxLength="1">
+        <enumeration id="MODIFY" value="1" longname="维护"/>
+        <enumeration id="ADD" value="2" longname="增加"/>
+        <enumeration id="DELETE" value="3" longname="减少"/>
+        <enumeration id="RESET" value="4" longname="重置"/>
+    </restrictionType>
+    <restrictionType id="E_CHCKTP" longname="验证类型" base="string" maxLength="1">
+        <enumeration id="PASSWD" value="1" longname="密码验证"/>
+        <enumeration id="IDENTIFY" value="2" longname="经办人验证"/>
+    </restrictionType>
+    <restrictionType id="E_CKBITS" longname="身份证校验位检查方式" base="string" maxLength="1">
+        <enumeration id="_0" value="0" longname="不检查"/>
+        <enumeration id="_1" value="1" longname="检查,不允许小写x"/>
+        <enumeration id="_2" value="2" longname="检查,允许小写x"/>
+        <subenums>
+            <subenum id="E_MCHECK_CKBITS" enums="_0,_1" longname="需要检查"/>
+        </subenums>
+    </restrictionType>
+  	<restrictionType id="E_DRAWTP" longname="取款类型" base="string" maxLength="1">
+	    <enumeration id="COMM"  value="0" longname="普通"/>
+	    <enumeration id="PTDR"  value="1" longname="部提"/>
+	    <enumeration id="CLOS"  value="2" longname="销户"/>
+	    <enumeration id="DEFD"  value="3" longname="扣划"/>
+	</restrictionType>
+	<restrictionType id="E_DCMTTP" longname="凭证类型" base="string" maxLength="3" fractionDigits="0">
+        <enumeration id="CARDBN" value="0" longname="卡号"/>
+        <enumeration id="CSCHEC" value="731" longname="现金支票"/>
+        <enumeration id="TRCHEC" value="732" longname="转账支票"/>
+        <enumeration id="CODEPT" value="736" longname="单位定期证实书"/>
+        <description><![CDATA[对公模块凭证类型由字符串改为枚举值时需调整]]></description>
+    </restrictionType>
+</schema>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="IoCgStrikeSvcType" kind="business" longname="公共冲正服务" package="cn.sunline.ltts.busi.iobus.servicetype.cg" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <description><![CDATA[公共冲正服务]]></description>
+    <service id="ProcPbChargStrike" name="procPbChargStrike" longname="收费登记冲正">
+        <interface>
+            <input packMode="false">
+                <field id="strikeInput" type="IoPbTypeStrikeInfo.ProcPbChargStrikeInput" required="false" multi="false" array="false" longname="输入参数"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="output" type="IoPbTypeStrikeInfo.ChargStrikeOutput" required="false" multi="true" array="false" longname="收费冲正输出"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="ProcPbChargOffStrike" name="procPbChargOffStrike" longname="销记收费登记冲正">
+        <interface>
+            <input packMode="false">
+                <field id="strikeInput" type="IoPbTypeStrikeInfo.ProcPbChargStrikeInput" required="false" multi="false" array="false" longname="输入参数"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="ProcPbChargAdjtStrike" name="procPbChargAdjtStrike" longname="收费调整冲正">
+        <interface>
+            <input packMode="false">
+                <field id="strikeInput" type="IoPbTypeStrikeInfo.ProcPbChargStrikeInput" required="false" multi="false" array="false" longname="输入参数"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+</serviceType>

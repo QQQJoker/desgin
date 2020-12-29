@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType id="IoAcctStmtReSvc" kind="business" longname="查询账户和账单相关信息服务" package="cn.sunline.ltts.busi.iobus.servicetype.cc" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <service id="QueryAcctInfo" name="qryAcctInfoSvc" longname="账户信息查询">
+        <interface>
+            <input packMode="false">
+                <field id="acctInfoReq" type="IoCcAcctReSvcType.IoCcQueryAcctInfoIn" required="false" multi="false" array="false" longname="账户查询信息输入"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="acctInfoResp" type="IoCcAcctReSvcType.IoCcQueryAcctInfoOut" required="false" multi="false" array="false" longname="账查询户信息输出"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="QueryStmtList" name="qryStmtList" longname="账单列表查询">
+        <interface>
+            <input packMode="false">
+                <field id="stmtListReq" type="IoCcAcctReSvcType.IoCcQueryStatInfoIn" required="false" multi="false" array="false" longname="账单列表查询输入"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="stmtListResp" type="IoCcAcctReSvcType.IoCcQueryStatInfoOut" required="false" multi="false" array="false" longname="账单列表查询输出"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="QueryColStmt" name="qryColStmt" longname="查询账单汇总信息">
+        <interface>
+            <input packMode="false">
+                <field id="colStmtReq" type="IoCcAcctReSvcType.IoCcQueryColStatIn" required="false" multi="false" array="false" longname="查询账单汇总信息输入接口"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="colStmtResp" type="IoCcAcctReSvcType.IoCcQueryColStatOut" required="false" multi="false" array="false" longname="查询账单汇总信息输出接口"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="QueryStmtTxnList" name="qryStmtTxnList" longname="账单交易明细查询">
+        <interface>
+            <input packMode="false">
+                <field id="stmtTxnListReq" type="IoCcAcctReSvcType.IoCcQueryStatTxnListIn" required="false" multi="false" array="false" longname="账单交易明细查询输入"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="stmtTxnListResp" type="IoCcAcctReSvcType.IoCcQueryStatTxnListOut" required="false" multi="false" array="false" longname="账单交易明细查询输出"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="QueryUStmtTxnList" name="qryUStmtTxnList" longname="未入账单交易明细查询">
+        <interface>
+            <input packMode="false">
+                <field id="uStmtTxnListReq" type="IoCcAcctReSvcType.IoCcQueryUStmtTxnListIn" required="false" multi="false" array="false" longname="未出账单交易明细查询输入接口"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="uStmtTxnListResp" type="IoCcAcctReSvcType.IoCcQueryUStmtTxnListOut" required="false" multi="false" array="false" longname="未出账单交易明细查询输出接口"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="QueryHistTxnList" name="qryHistTxnList" longname="入账历史交易明细">
+        <interface>
+            <input packMode="false">
+                <field id="histTxnListReq" type="IoCcAcctReSvcType.IoCcQueryHstTxnListIn" required="false" multi="false" array="false" longname="入账历史交易输入接口"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="qryHistTxnListResp" type="IoCcAcctReSvcType.IoCcQueryHstTxnListOut" required="false" multi="false" array="false" longname="入账历史交易输出接口"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+</serviceType>

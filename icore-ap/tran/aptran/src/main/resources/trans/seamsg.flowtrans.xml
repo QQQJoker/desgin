@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<flowtran id="seamsg" longname="发送异步消息" kind="2" package="cn.sunline.ltts.busi.aptran.trans" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <error_prof serviceName="IoApTransactionTCC.exceptionStrikeCallBack" id="exceptionStrikeCallBack" longname="异常冲正">
+        <in_mappings by_interface="true"/>
+        <out_mappings by_interface="true"/>
+    </error_prof>
+    <interface package="cn.sunline.ltts.busi.amsg.trans.intf">
+        <input packMode="true">
+            <field id="affseq" type="BaseType.U_TTUSCT" required="false" multi="false" array="false" longname="事务内消息序号"/>
+            <field id="affcnt" type="BaseType.U_TTUSCT" required="false" multi="false" array="false" longname="事务内消息总数"/>
+            <field id="mtopic" type="BaseType.U_TOPIC" required="false" multi="false" array="false" longname="消息主题" ref="BaseDict.Comm.mtopic"/>
+            <field id="msgseq" type="BaseType.U_TTUSCT" required="false" multi="false" array="false" longname="消息产生序号"/>
+            <field id="affaid" type="BaseType.U_CHAR40" required="false" multi="false" array="false" longname="事务ID"/>
+            <field id="messid" type="BaseType.U_CHAR40" required="false" multi="false" array="false" longname="消息ID" ref="ApDict.Aplt.messid"/>
+            <field id="msgtyp" type="BaseType.U_CTTYPE" required="false" multi="false" array="false" longname="消息类型" ref="BaseDict.Comm.msgtyp"/>
+            <field id="msgopt" type="BaseEnumType.E_MSGOPT" required="false" multi="false" array="false" longname="异步消息发送标志" ref="BaseDict.Comm.msgopt"/>
+            <field id="msgstr" type="string" required="false" multi="false" array="false" longname="消息序列化字符串"/>
+            <field id="refeInfo" type="TrxBaseEnvs.MessageRefeInfo" required="false" multi="false" array="false" longname="辅助消息"/>
+            <field id="consInfo" type="TrxBaseEnvs.MessageConsInfo" required="false" multi="true" array="false" longname="消费者消息"/>
+        </input>
+        <output asParm="true" packMode="false"/>
+        <property packMode="true">
+            <field id="msgobj" type="BaseType.U_MSGOBJ" required="false" multi="false" array="false" longname="消息复合对象" ref="BaseDict.Comm.msgobj"/>
+        </property>
+        <printer packMode="true"/>
+    </interface>
+    <flow>
+        <method method="preProcessData" id="preProcessData" longname="准备消息数据"/>
+        <service serviceName="IoApAsyncMessage.publish" id="异步消息处理服务" longname="异步消息处理服务">
+            <in_mappings by_interface="true">
+                <mapping src="affcnt" dest="mtinfo.affcnt" by_interface="true" on_top="true"/>
+                <mapping src="affseq" dest="mtinfo.affseq" by_interface="true" on_top="true"/>
+                <mapping src="consInfo" dest="mtinfo.consInfo" by_interface="true" on_top="true"/>
+                <mapping src="affaid" dest="mtinfo.realInfo.affaid" by_interface="true" on_top="true"/>
+                <mapping src="messid" dest="mtinfo.realInfo.messid" by_interface="true" on_top="true"/>
+                <mapping src="msgobj" dest="mtinfo.realInfo.msgobj" by_interface="true" on_top="true"/>
+                <mapping src="msgopt" dest="mtinfo.realInfo.msgopt" by_interface="true" on_top="true"/>
+                <mapping src="msgseq" dest="mtinfo.realInfo.msgseq" by_interface="true" on_top="true"/>
+                <mapping src="msgtyp" dest="mtinfo.realInfo.msgtyp" by_interface="true" on_top="true"/>
+                <mapping src="mtopic" dest="mtinfo.realInfo.mtopic" by_interface="true" on_top="true"/>
+                <mapping src="refeInfo.busisq" dest="mtinfo.refeInfo.busisq" by_interface="true" on_top="true"/>
+                <mapping src="refeInfo.callsq" dest="mtinfo.refeInfo.callsq" by_interface="true" on_top="true"/>
+                <mapping src="refeInfo.cdcnno" dest="mtinfo.refeInfo.cdcnno" by_interface="true" on_top="true"/>
+                <mapping src="refeInfo.corpno" dest="mtinfo.refeInfo.corpno" by_interface="true" on_top="true"/>
+                <mapping src="refeInfo.hostip" dest="mtinfo.refeInfo.hostip" by_interface="true" on_top="true"/>
+                <mapping src="refeInfo.inpudt" dest="mtinfo.refeInfo.inpudt" by_interface="true" on_top="true"/>
+                <mapping src="refeInfo.inpusq" dest="mtinfo.refeInfo.inpusq" by_interface="true" on_top="true"/>
+                <mapping src="refeInfo.mdcnno" dest="mtinfo.refeInfo.mdcnno" by_interface="true" on_top="true"/>
+                <mapping src="refeInfo.mntrsq" dest="mtinfo.refeInfo.mntrsq" by_interface="true" on_top="true"/>
+                <mapping src="refeInfo.systcd" dest="mtinfo.refeInfo.systcd" by_interface="true" on_top="true"/>
+                <mapping src="refeInfo.trandt" dest="mtinfo.refeInfo.trandt" by_interface="true" on_top="true"/>
+                <mapping src="refeInfo.transq" dest="mtinfo.refeInfo.transq" by_interface="true" on_top="true"/>
+                <mapping src="refeInfo.vmidxx" dest="mtinfo.refeInfo.vmidxx" by_interface="true" on_top="true"/>
+            </in_mappings>
+            <out_mappings by_interface="true"/>
+        </service>
+    </flow>
+    <outMapping/>
+    <propertyToPrinterMapping/>
+    <outToPrinterMapping/>
+</flowtran>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema id="IoHotCtrlType" package="cn.sunline.ltts.busi.iobus.type.hc" longname="热点控制复合类型" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <complexType id="IoChkHotCtrlIn" longname="热点控制校验输入要素" dict="false" abstract="false" introduct="false">
+        <element id="hcacct" longname="账号或产品号" type="BaseType.U_CHAR30" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="hctype" longname="热点类型" type="HcEnumType.E_HCTYPE" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="amntcd" longname="余额方向" type="BaseEnumType.E_AMNTCD" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tranam" longname="交易金额" type="BaseType.U_TRANAM" ref="BaseDict.Comm.tranam" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoHotCtrlStrikeIn" longname="热点控制冲正输入要素" dict="false" abstract="false" introduct="false">
+        <element id="hcacct" longname="账号或产品号" type="BaseType.U_CHAR32" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trandt" longname="交易日期" type="BaseType.U_DATE08" ref="BaseDict.Comm.trandt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="transq" longname="交易流水" type="BaseType.U_SEQUNO" ref="BaseDict.Comm.transq" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="amntcd" longname="余额方向" type="BaseEnumType.E_AMNTCD" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tranam" longname="交易金额" type="BaseType.U_TRANAM" ref="BaseDict.Comm.tranam" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IohcbFileIn" longname="文件记录输入要素" dict="false" abstract="false" introduct="false">
+        <element id="flpath" longname="文件路径" type="HcBaseType.U_CHAR30" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="flname" longname="文件名称" type="HcBaseType.U_CHAR30" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="hsread" longname="是否已读" type="HcEnumType.E_HSREAD" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trandt" longname="日期" type="HcBaseType.U_DATE08" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="corpno" longname="法人" type="BaseType.U_CORPNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tabnum" longname="分表号" type="HcBaseType.U_CHAR30" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+</schema>

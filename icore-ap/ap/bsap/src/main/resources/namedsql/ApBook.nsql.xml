@@ -1,0 +1,1262 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<sqls xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="ApBook" longname="应用平台登记簿命名sql" package="cn.sunline.ltts.aplt.namedsql" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <dynamicSelect cache="none" method="selectPageWithCount" type="sql" id="selBusinessAudit" longname="查询业务审计主表">
+        <parameterMap class="java.util.Map">
+            <parameter property="corpno" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人号" parameterType="condition"/>
+            <parameter property="trandt" jdbcType="VARCHAR" javaType="BaseType.U_DATE08" mode="in" longname="交易日期" parameterType="condition"/>
+            <parameter property="transq" jdbcType="VARCHAR" javaType="BaseType.U_SEQUNO" mode="in" longname="交易流水号" parameterType="condition"/>
+            <parameter property="prcscd" jdbcType="VARCHAR" javaType="BaseType.U_PRCSCD" mode="in" longname="交易代码" parameterType="condition"/>
+            <parameter property="tablna" jdbcType="VARCHAR" javaType="BaseType.U_TABLENAME" mode="in" longname="数据库表名" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="ApBook.ApAuditInfo"/>
+        <dynamicSql>
+            <str type="Str"><![CDATA[select a.*,a.audtsq audtsq from apl_busi_audt a]]></str>
+            <where type="Where">
+                <and type="And">
+                    <if test="trandt!=null &amp;&amp; trandt!=''" type="If">
+                        <str type="Str"><![CDATA[trandt=#trandt#]]></str>
+                    </if>
+                    <if test="transq!=null &amp;&amp; transq!=''" type="If">
+                        <str type="Str"><![CDATA[transq=#transq#]]></str>
+                    </if>
+                    <if test="prcscd!=null &amp;&amp; prcscd!=''" type="If">
+                        <str type="Str"><![CDATA[prcscd=#prcscd#]]></str>
+                    </if>
+                    <if test="tablna!=null &amp;&amp; tablna!=''" type="If">
+                        <str type="Str"><![CDATA[tablna=#tablna#]]></str>
+                    </if>
+                    <str type="Str"><![CDATA[corpno=#corpno#]]></str>
+                </and>
+            </where>
+            <str type="Str"><![CDATA[order by trandt,transq desc]]></str>
+        </dynamicSql>
+        <dynamicSql type="oracle">
+            <str type="Str"><![CDATA[select a.*,a.audtsq audtsq from apl_busi_audt a]]></str>
+            <where type="Where">
+                <and type="And">
+                    <if test="trandt!=null &amp;&amp; trandt!=''" type="If">
+                        <str type="Str"><![CDATA[trandt=#trandt#]]></str>
+                    </if>
+                    <if test="transq!=null &amp;&amp; transq!=''" type="If">
+                        <str type="Str"><![CDATA[transq=#transq#]]></str>
+                    </if>
+                    <if test="prcscd!=null &amp;&amp; prcscd!=''" type="If">
+                        <str type="Str"><![CDATA[prcscd=#prcscd#]]></str>
+                    </if>
+                    <if test="tablna!=null &amp;&amp; tablna!=''" type="If">
+                        <str type="Str"><![CDATA[tablna=#tablna#]]></str>
+                    </if>
+                    <str type="Str"><![CDATA[corpno=#corpno#]]></str>
+                </and>
+            </where>
+            <str type="Str"><![CDATA[order by trandt,transq desc]]></str>
+        </dynamicSql>
+        <dynamicSql type="mysql">
+            <str type="Str"><![CDATA[select a.*,a.audtsq audtsq from apl_busi_audt a]]></str>
+            <where type="Where">
+                <and type="And">
+                    <if test="trandt!=null &amp;&amp; trandt!=''" type="If">
+                        <str type="Str"><![CDATA[trandt=#trandt#]]></str>
+                    </if>
+                    <if test="transq!=null &amp;&amp; transq!=''" type="If">
+                        <str type="Str"><![CDATA[transq=#transq#]]></str>
+                    </if>
+                    <if test="prcscd!=null &amp;&amp; prcscd!=''" type="If">
+                        <str type="Str"><![CDATA[prcscd=#prcscd#]]></str>
+                    </if>
+                    <if test="tablna!=null &amp;&amp; tablna!=''" type="If">
+                        <str type="Str"><![CDATA[tablna=#tablna#]]></str>
+                    </if>
+                    <str type="Str"><![CDATA[corpno=#corpno#]]></str>
+                </and>
+            </where>
+            <str type="Str"><![CDATA[order by trandt,transq desc]]></str>
+        </dynamicSql>
+    </dynamicSelect>
+    <dynamicSelect cache="none" method="selectPageWithCount" type="sql" id="selParameterAudit" longname="查询参数审计主表">
+        <parameterMap class="java.util.Map">
+            <parameter property="corpno" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人号" parameterType="condition"/>
+            <parameter property="trandt" jdbcType="VARCHAR" javaType="BaseType.U_DATE08" mode="in" longname="交易日期" parameterType="condition"/>
+            <parameter property="transq" jdbcType="VARCHAR" javaType="BaseType.U_SEQUNO" mode="in" longname="交易流水号" parameterType="condition"/>
+            <parameter property="prcscd" jdbcType="VARCHAR" javaType="BaseType.U_PRCSCD" mode="in" longname="交易代码" parameterType="condition"/>
+            <parameter property="tablna" jdbcType="VARCHAR" javaType="BaseType.U_TABLENAME" mode="in" longname="数据库表名" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="ApBook.ApAuditInfo"/>
+        <dynamicSql>
+            <str type="Str"><![CDATA[select a.*,a.audtsq audtsq from apl_para_audt a]]></str>
+            <where type="Where">
+                <and type="And">
+                    <if test="trandt!=null &amp;&amp; trandt!=''" type="If">
+                        <str type="Str"><![CDATA[trandt=#trandt#]]></str>
+                    </if>
+                    <if test="transq!=null &amp;&amp; transq!=''" type="If">
+                        <str type="Str"><![CDATA[transq=#transq#]]></str>
+                    </if>
+                    <if test="prcscd!=null &amp;&amp; prcscd!=''" type="If">
+                        <str type="Str"><![CDATA[prcscd=#prcscd#]]></str>
+                    </if>
+                    <if test="tablna!=null &amp;&amp; tablna!=''" type="If">
+                        <str type="Str"><![CDATA[tablna=#tablna#]]></str>
+                    </if>
+                    <str type="Str"><![CDATA[corpno=#corpno#]]></str>
+                </and>
+            </where>
+            <str type="Str"><![CDATA[order by trandt,transq desc]]></str>
+        </dynamicSql>
+        <dynamicSql type="mysql">
+            <str type="Str"><![CDATA[select a.*,a.audtsq audtsq from apl_para_audt a]]></str>
+            <where type="Where">
+                <and type="And">
+                    <if test="trandt!=null &amp;&amp; trandt!=''" type="If">
+                        <str type="Str"><![CDATA[trandt=#trandt#]]></str>
+                    </if>
+                    <if test="transq!=null &amp;&amp; transq!=''" type="If">
+                        <str type="Str"><![CDATA[transq=#transq#]]></str>
+                    </if>
+                    <if test="prcscd!=null &amp;&amp; prcscd!=''" type="If">
+                        <str type="Str"><![CDATA[prcscd=#prcscd#]]></str>
+                    </if>
+                    <if test="tablna!=null &amp;&amp; tablna!=''" type="If">
+                        <str type="Str"><![CDATA[tablna=#tablna#]]></str>
+                    </if>
+                    <str type="Str"><![CDATA[corpno=#corpno#]]></str>
+                </and>
+            </where>
+            <str type="Str"><![CDATA[order by trandt,transq desc]]></str>
+        </dynamicSql>
+        <dynamicSql type="oracle">
+            <str type="Str"><![CDATA[select a.*,a.audtsq audtsq from apl_para_audt a]]></str>
+            <where type="Where">
+                <and type="And">
+                    <if test="trandt!=null &amp;&amp; trandt!=''" type="If">
+                        <str type="Str"><![CDATA[trandt=#trandt#]]></str>
+                    </if>
+                    <if test="transq!=null &amp;&amp; transq!=''" type="If">
+                        <str type="Str"><![CDATA[transq=#transq#]]></str>
+                    </if>
+                    <if test="prcscd!=null &amp;&amp; prcscd!=''" type="If">
+                        <str type="Str"><![CDATA[prcscd=#prcscd#]]></str>
+                    </if>
+                    <if test="tablna!=null &amp;&amp; tablna!=''" type="If">
+                        <str type="Str"><![CDATA[tablna=#tablna#]]></str>
+                    </if>
+                    <str type="Str"><![CDATA[corpno=#corpno#]]></str>
+                </and>
+            </where>
+            <str type="Str"><![CDATA[order by trandt,transq desc]]></str>
+        </dynamicSql>
+    </dynamicSelect>
+    <select cache="none" method="selectPageWithCount" type="sql" id="selBusinessAuditDetail" longname="查询业务审计详情">
+        <sql><![CDATA[
+        select a.*,a.audtsq audtsq from apl_busi_audt_detl a
+		where corpno = #corpno#
+		and audtsq=#audtsq#
+		order by datast ]]></sql>
+        <sql type="oracle"><![CDATA[
+        select a.*,a.audtsq audtsq from apl_busi_audt_detl a
+		where corpno = #corpno#
+		and audtsq=#audtsq#
+		order by datast ]]></sql>
+        <sql type="mysql"><![CDATA[
+        select a.*,a.audtsq audtsq from apl_busi_audt_detl a
+		where corpno = #corpno#
+		and audtsq=#audtsq#
+		order by datast ]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="corpno" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人号" parameterType="condition"/>
+            <parameter property="audtsq" jdbcType="VARCHAR" javaType="BaseType.U_SEQUNO" mode="in" longname="业务审计流水号" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="ApBook.ApAuditDetailInfo"/>
+    </select>
+    <select cache="none" method="selectPageWithCount" type="sql" id="selParameterAuditDetail" longname="查询参数审计日志详情">
+        <sql><![CDATA[
+        select a.*,a.audtsq audtsq from apl_para_audt_detl a
+		where corpno = #corpno#
+		and audtsq=#audtsq#
+		order by datast]]></sql>
+        <sql type="oracle"><![CDATA[
+        select a.*,a.audtsq audtsq from apl_para_audt_detl a
+		where corpno = #corpno#
+		and audtsq=#audtsq#
+		order by datast]]></sql>
+        <sql type="mysql"><![CDATA[
+        select a.*,a.audtsq audtsq from apl_para_audt_detl a
+		where corpno = #corpno#
+		and audtsq=#audtsq#
+		order by datast]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="corpno" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人号" parameterType="condition"/>
+            <parameter property="audtsq" jdbcType="VARCHAR" javaType="BaseType.U_SEQUNO" mode="in" longname="业务审计流水号" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="ApBook.ApAuditDetailInfo"/>
+    </select>
+    <select cache="none" method="selectFirst" type="sql" id="selApbEodtForAppSydt" longname="查询交易系统日期参数表">
+        <sql><![CDATA[
+    	SELECT
+    	    	b.bflsdt,b.lastdt,b.systdt,b.nextdt
+    	from
+    	    	app_sydt b 
+    	where
+    	    	b.systdt = (
+    	    	    	SELECT
+    	    	    	    	distinct a.flowdt 
+    	    	    	from
+    	    	    	    	apb_eodt a 
+    	    	    	where
+    	    	    	    	a.corpno = #corpno# and a.systcd = #systcd# 
+    	    	) 
+    	    	and b.corpno = #corpno# 
+    	]]></sql>
+        <sql type="oracle"><![CDATA[
+    	SELECT
+    	    	b.bflsdt,b.lastdt,b.systdt,b.nextdt
+    	from
+    	    	app_sydt b 
+    	where
+    	    	b.systdt = (
+    	    	    	SELECT
+    	    	    	    	distinct a.flowdt 
+    	    	    	from
+    	    	    	    	apb_eodt a 
+    	    	    	where
+    	    	    	    	a.corpno = #corpno# and a.systcd = #systcd# 
+    	    	) 
+    	    	and b.corpno = #corpno# 
+    	]]></sql>
+        <sql type="mysql"><![CDATA[
+    	SELECT
+    	    	b.bflsdt,b.lastdt,b.systdt,b.nextdt
+    	from
+    	    	app_sydt b 
+    	where
+    	    	b.systdt = (
+    	    	    	SELECT
+    	    	    	    	distinct a.flowdt 
+    	    	    	from
+    	    	    	    	apb_eodt a 
+    	    	    	where
+    	    	    	    	a.corpno = #corpno# and a.systcd = #systcd# 
+    	    	) 
+    	    	and b.corpno = #corpno# 
+    	]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="corpno" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人号" parameterType="condition"/>
+            <parameter property="systcd" jdbcType="VARCHAR" javaType="BaseType.U_SYSTCD" mode="in" longname="系统代码" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="ApBook.AppSydtQueryDate"/>
+    </select>
+    <select cache="none" method="selectAll" type="sql" id="selKsysPllcdy" longname="查询批量流程定义表">
+        <sql><![CDATA[
+    	select
+    	    	a.tran_flow_id,a.chinese_name 
+    	from
+    	    	tsp_flow_definition a 
+    	where
+    	    	a.system_code = #systcd#
+    	]]></sql>
+        <sql type="oracle"><![CDATA[
+    	select
+    	    	a.tran_flow_id,a.chinese_name 
+    	from
+    	    	tsp_flow_definition a 
+    	where
+    	    	a.system_code = #systcd#
+    	]]></sql>
+        <sql type="mysql"><![CDATA[
+    	select
+    	    	a.tran_flow_id,a.chinese_name 
+    	from
+    	    	tsp_flow_definition a 
+    	where
+    	    	a.system_code = #systcd#
+    	]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="systcd" jdbcType="VARCHAR" javaType="BaseType.U_SYSTCD" mode="in" longname="系统代码" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="ApBook.ApQueryKsysPllcdy"/>
+    </select>
+    <select cache="none" method="selectAll" type="sql" id="selApbEodtDate" longname="查询日终批量日期管理表得到批量流程日终日期">
+        <sql><![CDATA[
+    	select
+    	    	a.flowdt,a.corpno
+    	from
+    	    	apb_eodt a 
+    	where
+    	    	a.systcd = #systcd# and a.flowid = #flowid#
+    	]]></sql>
+        <sql type="oracle"><![CDATA[
+    	select
+    	    	a.flowdt,a.corpno
+    	from
+    	    	apb_eodt a 
+    	where
+    	    	a.systcd = #systcd# and a.flowid = #flowid#
+    	]]></sql>
+        <sql type="mysql"><![CDATA[
+    	select
+    	    	a.flowdt,a.corpno
+    	from
+    	    	apb_eodt a 
+    	where
+    	    	a.systcd = #systcd# and a.flowid = #flowid#
+    	]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="flowid" jdbcType="VARCHAR" javaType="KBaseType.U_PLJYLCBS" mode="in" longname="批量日终流程ID" parameterType="condition"/>
+            <parameter property="systcd" jdbcType="VARCHAR" javaType="BaseType.U_SYSTCD" mode="in" longname="系统代码" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="ApBook.ApQueryApbEodCor"/>
+    </select>
+    <select cache="none" method="selectAll" type="sql" id="selApbEodtCorpno" longname="查询当前交易系统日期法人集合">
+        <sql><![CDATA[
+    	select
+    	    	a.corpno 
+    	from
+    	    	apb_eodt a 
+    	where
+    	    	a.flowdt = #flowdt# and a.flowid = #flowid# 
+    	    	and a.systcd = #systcd# 
+    	]]></sql>
+        <sql type="oracle"><![CDATA[
+    	select
+    	    	a.corpno 
+    	from
+    	    	apb_eodt a 
+    	where
+    	    	a.flowdt = #flowdt# and a.flowid = #flowid# 
+    	    	and a.systcd = #systcd# 
+    	]]></sql>
+        <sql type="mysql"><![CDATA[
+    	select
+    	    	a.corpno 
+    	from
+    	    	apb_eodt a 
+    	where
+    	    	a.flowdt = #flowdt# and a.flowid = #flowid# 
+    	    	and a.systcd = #systcd# 
+    	]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="systcd" jdbcType="VARCHAR" javaType="BaseType.U_SYSTCD" mode="in" longname="系统代码" parameterType="condition"/>
+            <parameter property="flowdt" jdbcType="VARCHAR" javaType="BaseType.U_DATE08" mode="in" longname="批量日终管理日期" parameterType="condition"/>
+            <parameter property="flowid" jdbcType="VARCHAR" javaType="KBaseType.U_PLJYLCBS" mode="in" longname="批量日终流程ID" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="BaseType.U_CORPNO"/>
+    </select>
+    <select cache="none" method="selectAll" type="sql" id="selApsEodtDetl" longname="根据DCN号/日期查询交易信息明细">
+        <sql><![CDATA[
+    	SELECT
+    	    	a.corpno, a.flowdt,a.txntal,a.txnsuc,a.pecent,
+    	    	a.dcnste
+    	FROM
+    	    	aps_eodt_detl a 
+    	WHERE
+    	       a.corpno=#corpno# and
+    	       a.flowdt =#flowdt# AND a.flowid =#flowid# AND a.systcd= #systcd# 
+    	       and a.dcnnum=#dcnnum#
+    	]]></sql>
+        <sql type="oracle"><![CDATA[
+    	SELECT
+    	    	a.corpno, a.flowdt,a.txntal,a.txnsuc,a.pecent,
+    	    	a.dcnste
+    	FROM
+    	    	aps_eodt_detl a 
+    	WHERE
+    	       a.corpno=#corpno# and
+    	       a.flowdt =#flowdt# AND a.flowid =#flowid# AND a.systcd= #systcd# 
+    	       and a.dcnnum=#dcnnum#
+    	]]></sql>
+        <sql type="mysql"><![CDATA[
+    	SELECT
+    	    	a.corpno, a.flowdt,a.txntal,a.txnsuc,a.pecent,
+    	    	a.dcnste
+    	FROM
+    	    	aps_eodt_detl a 
+    	WHERE
+    	       a.corpno=#corpno# and
+    	       a.flowdt =#flowdt# AND a.flowid =#flowid# AND a.systcd= #systcd# 
+    	       and a.dcnnum=#dcnnum#
+    	]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="corpno" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人号" parameterType="condition"/>
+            <parameter property="systcd" jdbcType="VARCHAR" javaType="BaseType.U_SYSTCD" mode="in" longname="系统代码" parameterType="condition"/>
+            <parameter property="flowdt" jdbcType="VARCHAR" javaType="BaseType.U_DATE08" mode="in" longname="批量日终管理日期" parameterType="condition"/>
+            <parameter property="flowid" jdbcType="VARCHAR" javaType="KBaseType.U_PLJYLCBS" mode="in" longname="批量日终流程ID" parameterType="condition"/>
+            <parameter property="dcnnum" jdbcType="VARCHAR" javaType="BaseType.U_DCNNO" mode="in" longname="DCN编号" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="ApBook.ApQueryApsEodtDetl"/>
+    </select>
+    
+    <select cache="none" method="selectAll" type="sql" id="selApsEodtDetlNoDcn" longname="根据DCN号/日期查询交易信息明细">
+        <sql><![CDATA[
+    	SELECT
+    	    	a.corpno, a.flowdt,a.txntal,a.txnsuc,a.pecent,
+    	    	a.dcnste
+    	FROM
+    	    	aps_eodt_detl a 
+    	WHERE
+    	       a.corpno=#corpno# and
+    	       a.flowdt =#flowdt# AND a.flowid =#flowid# AND a.systcd= #systcd# 
+    	]]></sql>
+        <sql type="oracle"><![CDATA[
+    	SELECT
+    	    	a.corpno, a.flowdt,a.txntal,a.txnsuc,a.pecent,
+    	    	a.dcnste
+    	FROM
+    	    	aps_eodt_detl a 
+    	WHERE
+    	       a.corpno=#corpno# and
+    	       a.flowdt =#flowdt# AND a.flowid =#flowid# AND a.systcd= #systcd# 
+    	]]></sql>
+        <sql type="mysql"><![CDATA[
+    	SELECT
+    	    	a.corpno, a.flowdt,a.txntal,a.txnsuc,a.pecent,
+    	    	a.dcnste
+    	FROM
+    	    	aps_eodt_detl a 
+    	WHERE
+    	       a.corpno=#corpno# and
+    	       a.flowdt =#flowdt# AND a.flowid =#flowid# AND a.systcd= #systcd# 
+    	]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="corpno" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人号" parameterType="condition"/>
+            <parameter property="systcd" jdbcType="VARCHAR" javaType="BaseType.U_SYSTCD" mode="in" longname="系统代码" parameterType="condition"/>
+            <parameter property="flowdt" jdbcType="VARCHAR" javaType="BaseType.U_DATE08" mode="in" longname="批量日终管理日期" parameterType="condition"/>
+            <parameter property="flowid" jdbcType="VARCHAR" javaType="KBaseType.U_PLJYLCBS" mode="in" longname="批量日终流程ID" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="ApBook.ApQueryApsEodtDetl"/>
+    </select>
+    <select cache="none" method="selectOne" type="sql" id="selKnpParaForzhxbz" longname="查询公共参数得到执行步骤">
+        <sql><![CDATA[
+    	select
+    	    	a.parmcd, a.pmkey1, a.pmkey2, a.pmkey3, a.pmval1,
+    	    	a.pmval2, a.pmval3, a.pmval4, a.pmval5 
+    	from
+    	    	knp_para a 
+    	where
+    	    	a.parmcd = #parmcd# AND a.pmkey1 =#systcd# 
+    	    	AND a.pmkey2 =#tran_flow_id# and corpno = #corpno#
+    	]]></sql>
+        <sql type="oracle"><![CDATA[
+    	select
+    	    	a.parmcd, a.pmkey1, a.pmkey2, a.pmkey3, a.pmval1,
+    	    	a.pmval2, a.pmval3, a.pmval4, a.pmval5 
+    	from
+    	    	knp_para a 
+    	where
+    	    	a.parmcd = #parmcd# AND a.pmkey1 =#systcd# 
+    	    	AND a.pmkey2 =#tran_flow_id# and corpno = #corpno#
+    	]]></sql>
+        <sql type="mysql"><![CDATA[
+    	select
+    	    	a.parmcd, a.pmkey1, a.pmkey2, a.pmkey3, a.pmval1,
+    	    	a.pmval2, a.pmval3, a.pmval4, a.pmval5 
+    	from
+    	    	knp_para a 
+    	where
+    	    	a.parmcd = #parmcd# AND a.pmkey1 =#systcd# 
+    	    	AND a.pmkey2 =#tran_flow_id# and corpno = #corpno#
+    	]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="corpno" jdbcType="VARCHAR" javaType="BaseType.U_CHAR40" mode="in" longname="法人号" parameterType="condition"/>
+            <parameter property="parmcd" jdbcType="VARCHAR" javaType="BaseType.U_CHAR40" mode="in" longname="参数表标识" parameterType="condition"/>
+            <parameter property="systcd" jdbcType="VARCHAR" javaType="BaseType.U_CHAR40" mode="in" longname="系统代码" parameterType="condition"/>
+            <parameter property="tran_flow_id" jdbcType="VARCHAR" javaType="BaseType.U_CHAR40" mode="in" longname="批量交易流程ID" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="KnpParaTable.KnpPara"/>
+    </select>
+    <select cache="none" method="selectFirst" type="sql" id="selKnpParaForPLJY" longname="查询公共参数得到校验参数">
+        <sql><![CDATA[
+    	select
+    	    	a.parmcd, a.pmkey1, a.pmkey2, a.pmkey3, a.pmval1,
+    	    	a.pmval2, a.pmval3, a.pmval4, a.pmval5 
+    	from
+    	    	knp_para a 
+    	where
+    	    	a.parmcd = #parmcd# AND a.pmkey1 =#corpno# 
+    	]]></sql>
+        <sql type="oracle"><![CDATA[
+    	select
+    	    	a.parmcd, a.pmkey1, a.pmkey2, a.pmkey3, a.pmval1,
+    	    	a.pmval2, a.pmval3, a.pmval4, a.pmval5 
+    	from
+    	    	knp_para a 
+    	where
+    	    	a.parmcd = #parmcd# AND a.pmkey1 =#corpno# 
+    	]]></sql>
+        <sql type="mysql"><![CDATA[
+    	select
+    	    	a.parmcd, a.pmkey1, a.pmkey2, a.pmkey3, a.pmval1,
+    	    	a.pmval2, a.pmval3, a.pmval4, a.pmval5 
+    	from
+    	    	knp_para a 
+    	where
+    	    	a.parmcd = #parmcd# AND a.pmkey1 =#corpno# 
+    	]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="parmcd" jdbcType="VARCHAR" javaType="BaseType.U_CHAR40" mode="in" longname="参数表标识" parameterType="condition"/>
+            <parameter property="corpno" jdbcType="VARCHAR" javaType="BaseType.U_CHAR40" mode="in" longname="法人号" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="KnpParaTable.KnpPara"/>
+    </select>
+    <select cache="none" method="selectFirst" type="sql" id="selApsEodtDetlfordt" longname="查询日终批量执行明细表">
+        <sql><![CDATA[
+    	select
+    	    	a.flowdt 
+    	from
+    	    	aps_eodt_detl a 
+    	where
+    	    	a.corpno=#corpno# and a.flowid=#flowid# 
+    	    	and a.systcd=#systcd# 
+    	]]></sql>
+        <sql type="oracle"><![CDATA[
+    	select
+    	    	a.flowdt 
+    	from
+    	    	aps_eodt_detl a 
+    	where
+    	    	a.corpno=#corpno# and a.flowid=#flowid# 
+    	    	and a.systcd=#systcd# 
+    	]]></sql>
+        <sql type="mysql"><![CDATA[
+    	select
+    	    	a.flowdt 
+    	from
+    	    	aps_eodt_detl a 
+    	where
+    	    	a.corpno=#corpno# and a.flowid=#flowid# 
+    	    	and a.systcd=#systcd# 
+    	]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="corpno" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人号" parameterType="condition"/>
+            <parameter property="flowid" jdbcType="VARCHAR" javaType="KBaseType.U_PLJYLCBS" mode="in" longname="批量日终流程ID" parameterType="condition"/>
+            <parameter property="systcd" jdbcType="VARCHAR" javaType="BaseType.U_SYSTCD" mode="in" longname="系统代码" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="BaseType.U_DATE08"/>
+    </select>
+    <select cache="none" method="selectFirst" type="sql" id="selApbEodt" longname="查询日终批量日期管理表">
+        <sql><![CDATA[
+    	select
+    	    	a.flowtp,a.flowdt,a.flowst 
+    	from
+    	    	apb_eodt a 
+    	where
+    	    	a.corpno=#corpno# AND a.flowid=#flowid#
+    	    	AND a.systcd=#systcd#
+    	]]></sql>
+        <sql type="oracle"><![CDATA[
+    	select
+    	    	a.flowtp,a.flowdt,a.flowst 
+    	from
+    	    	apb_eodt a 
+    	where
+    	    	a.corpno=#corpno# AND a.flowid=#flowid#
+    	    	AND a.systcd=#systcd#
+    	]]></sql>
+        <sql type="mysql"><![CDATA[
+    	select
+    	    	a.flowtp,a.flowdt,a.flowst 
+    	from
+    	    	apb_eodt a 
+    	where
+    	    	a.corpno=#corpno# AND a.flowid=#flowid#
+    	    	AND a.systcd=#systcd#
+    	]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="corpno" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人号" parameterType="condition"/>
+            <parameter property="flowid" jdbcType="VARCHAR" javaType="KBaseType.U_PLJYLCBS" mode="in" longname="批量日终流程ID" parameterType="condition"/>
+            <parameter property="systcd" jdbcType="VARCHAR" javaType="BaseType.U_SYSTCD" mode="in" longname="系统代码" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="ApBook.ApQueryApbEodt"/>
+    </select>
+    <select cache="none" method="selectFirst" type="sql" id="selApbEodtDateForFlowtp" longname="查询日终批量日期管理表得到日终日期">
+        <sql><![CDATA[
+    	SELECT
+    	    	b.flowdt 
+    	from
+    	    	apb_eodt b 
+    	where
+    	    	b.corpno = #corpno# AND b.flowtp = #flowtp#
+    	    	AND b.systcd=#systcd#
+    	]]></sql>
+        <sql type="oracle"><![CDATA[
+    	SELECT
+    	    	b.flowdt 
+    	from
+    	    	apb_eodt b 
+    	where
+    	    	b.corpno = #corpno# AND b.flowtp = #flowtp#
+    	    	AND b.systcd=#systcd#
+    	]]></sql>
+        <sql type="mysql"><![CDATA[
+    	SELECT
+    	    	b.flowdt 
+    	from
+    	    	apb_eodt b 
+    	where
+    	    	b.corpno = #corpno# AND b.flowtp = #flowtp#
+    	    	AND b.systcd=#systcd#
+    	]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="corpno" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人号" parameterType="condition"/>
+            <parameter property="flowtp" jdbcType="VARCHAR" javaType="BaseEnumType.E_EODTP" mode="in" longname="日终流程类型" parameterType="condition"/>
+            <parameter property="systcd" jdbcType="VARCHAR" javaType="BaseType.U_SYSTCD" mode="in" longname="系统代码" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="BaseType.U_DATE08"/>
+    </select>
+    <select cache="none" method="selectFirst" type="sql" id="selAppSydt" longname="查询系统日期参数">
+        <sql><![CDATA[
+    	SELECT
+    	    	b.bflsdt,b.lastdt,b.systdt, b.nextdt 
+    	FROM
+    	    	app_sydt b 
+    	WHERE
+    	    	b.corpno = #corpno# 
+    	]]></sql>
+        <sql type="oracle"><![CDATA[
+    	SELECT
+    	    	b.bflsdt,b.lastdt,b.systdt, b.nextdt 
+    	FROM
+    	    	app_sydt b 
+    	WHERE
+    	    	b.corpno = #corpno# 
+    	]]></sql>
+        <sql type="mysql"><![CDATA[
+    	SELECT
+    	    	b.bflsdt,b.lastdt,b.systdt, b.nextdt 
+    	FROM
+    	    	app_sydt b 
+    	WHERE
+    	    	b.corpno = #corpno# 
+    	]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="corpno" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人号" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="ApBook.AppSydtQueryDate"/>
+    </select>
+    <select cache="none" method="selectAll" type="sql" id="selApsEodtDetlfordcn" longname="查询当前dcn有没有数据">
+        <sql><![CDATA[
+    	select
+    	    	a.flowid,a.flowdt,a.dcnnum,a.dcnste,a.txntal,
+    	    	a.txnsuc,a.pecent,a.systcd 
+    	from
+    	    	aps_eodt_detl a 
+    	where
+    	    	a.corpno=#corpno# and a.flowid=#flowid# 
+    	    	and a.systcd=#systcd# and a.dcnnum=#dcnnum# 
+    	    	and a.flowdt = #flowdt# 
+    	]]></sql>
+        <sql type="oracle"><![CDATA[
+    	select
+    	    	a.flowid,a.flowdt,a.dcnnum,a.dcnste,a.txntal,
+    	    	a.txnsuc,a.pecent,a.systcd 
+    	from
+    	    	aps_eodt_detl a 
+    	where
+    	    	a.corpno=#corpno# and a.flowid=#flowid# 
+    	    	and a.systcd=#systcd# and a.dcnnum=#dcnnum# 
+    	    	and a.flowdt = #flowdt# 
+    	]]></sql>
+        <sql type="mysql"><![CDATA[
+    	select
+    	    	a.flowid,a.flowdt,a.dcnnum,a.dcnste,a.txntal,
+    	    	a.txnsuc,a.pecent,a.systcd 
+    	from
+    	    	aps_eodt_detl a 
+    	where
+    	    	a.corpno=#corpno# and a.flowid=#flowid# 
+    	    	and a.systcd=#systcd# and a.dcnnum=#dcnnum# 
+    	    	and a.flowdt = #flowdt# 
+    	]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="dcnnum" jdbcType="VARCHAR" javaType="BaseType.U_DCNNO" mode="in" longname="DCN编号" parameterType="condition"/>
+            <parameter property="corpno" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人号" parameterType="condition"/>
+            <parameter property="flowid" jdbcType="VARCHAR" javaType="KBaseType.U_PLJYLCBS" mode="in" longname="批量日终流程ID" parameterType="condition"/>
+            <parameter property="systcd" jdbcType="VARCHAR" javaType="BaseType.U_SYSTCD" mode="in" longname="系统代码" parameterType="condition"/>
+            <parameter property="flowdt" jdbcType="VARCHAR" javaType="BaseType.U_DATE08" mode="in" longname="批量日终管理日期" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="SysPublicTable.ApsEodtDetl"/>
+    </select>
+    <select cache="none" method="selectFirst" type="sql" id="selKsysJyyxrz" longname="查询批量作业运行交易个数">
+        <sql><![CDATA[
+    	select
+    	    	count(*) 
+    	from
+    	    	tsp_transaction_log a 
+    	where
+    	    	a.task_num =#task_num# and a.system_code = #system_code# 
+    	    	and a.corporate_code =#corporate_code# and a.zuoyzxzt = #zuoyzxzt# 
+    	]]></sql>
+        <sql type="oracle"><![CDATA[
+    	select
+    	    	count(*) 
+    	from
+    	    	tsp_transaction_log a 
+    	where
+    	    	a.task_num =#task_num# and a.system_code = #system_code# 
+    	    	and a.corporate_code =#corporate_code# and a.zuoyzxzt = #zuoyzxzt# 
+    	]]></sql>
+        <sql type="mysql"><![CDATA[
+    	select
+    	    	count(*) 
+    	from
+    	    	tsp_transaction_log a 
+    	where
+    	    	a.task_num =#task_num# and a.system_code = #system_code# 
+    	    	and a.corporate_code =#corporate_code# and a.zuoyzxzt = #zuoyzxzt# 
+    	]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="system_code" jdbcType="VARCHAR" javaType="KBaseType.U_LEIXIN10" mode="in" longname="系统标识号" parameterType="condition"/>
+            <parameter property="corporate_code" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人代码" parameterType="condition"/>
+            <parameter property="task_num" jdbcType="VARCHAR" javaType="KBaseType.U_PILJYLSH" mode="in" longname="批量任务批次号" parameterType="condition"/>
+            <parameter property="zuoyzxzt" jdbcType="VARCHAR" javaType="KBaseEnumType.E_ZUOYZXZT" mode="in" longname="作业执行状态" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="BaseType.U_LONGIN"/>
+    </select>
+    <select cache="none" method="selectAll" type="sql" id="selAppCorp" longname="查询所有的法人">
+        <sql><![CDATA[select a.corpno from app_corp a]]></sql>
+        <sql type="oracle"><![CDATA[select a.corpno from app_corp a]]></sql>
+        <sql type="mysql"><![CDATA[select a.corpno from app_corp a]]></sql>
+        <parameterMap class="java.util.Map"/>
+        <resultMap class="BaseType.U_CORPNO"/>
+    </select>
+    <select cache="none" method="selectFirst" type="sql" id="selKsysJykzhq" longname="查询交易控制器表得到交易总个数">
+        <sql><![CDATA[
+    	select
+    	    	count(*) 
+    	from
+    	    	tsp_tran_controller c 
+    	where
+    	    	tran_group_id in (
+    	    	    	select
+    	    	    	    	tran_group_id 
+    	    	    	from
+    	    	    	    	tsp_flow_step_controller b 
+    	    	    	where
+    	    	    	    	b.is_execution = '1' and b.tran_flow_id = (
+    	    	    	    	    	select
+    	    	    	    	    	    	tran_flow_id 
+    	    	    	    	    	from
+    	    	    	    	    	    	tsp_task a 
+    	    	    	    	    	where
+    	    	    	    	    	    	a.task_num = #task_num# 
+    	    	    	    	) and b.corporate_code = #corporate_code#
+    	    	    	) 
+    	    	    	and c.system_code = #system_code# and c.corporate_code = #corporate_code# 
+    	    	    	and c.execution_code = '1'
+    	]]></sql>
+        <sql type="oracle"><![CDATA[
+    	select
+    	    	count(*) 
+    	from
+    	    	tsp_tran_controller c 
+    	where
+    	    	tran_group_id in (
+    	    	    	select
+    	    	    	    	tran_group_id 
+    	    	    	from
+    	    	    	    	tsp_flow_step_controller b 
+    	    	    	where
+    	    	    	    	b.is_execution = '1' and b.tran_flow_id = (
+    	    	    	    	    	select
+    	    	    	    	    	    	tran_flow_id 
+    	    	    	    	    	from
+    	    	    	    	    	    	tsp_task a 
+    	    	    	    	    	where
+    	    	    	    	    	    	a.task_num = #task_num# 
+    	    	    	    	) and b.corporate_code = #corporate_code#
+    	    	    	) 
+    	    	    	and c.system_code = #system_code# and c.corporate_code = #corporate_code# 
+    	    	    	and c.execution_code = '1'
+    	]]></sql>
+        <sql type="mysql"><![CDATA[
+    	select
+    	    	count(*) 
+    	from
+    	    	tsp_tran_controller c 
+    	where
+    	    	tran_group_id in (
+    	    	    	select
+    	    	    	    	tran_group_id 
+    	    	    	from
+    	    	    	    	tsp_flow_step_controller b 
+    	    	    	where
+    	    	    	    	b.is_execution = '1' and b.tran_flow_id = (
+    	    	    	    	    	select
+    	    	    	    	    	    	tran_flow_id 
+    	    	    	    	    	from
+    	    	    	    	    	    	tsp_task a 
+    	    	    	    	    	where
+    	    	    	    	    	    	a.task_num = #task_num# 
+    	    	    	    	) and b.corporate_code = #corporate_code#
+    	    	    	) 
+    	    	    	and c.system_code = #system_code# and c.corporate_code = #corporate_code# 
+    	    	    	and c.execution_code = '1'
+    	]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="system_code" jdbcType="VARCHAR" javaType="KBaseType.U_LEIXIN10" mode="in" longname="系统标识号" parameterType="condition"/>
+            <parameter property="corporate_code" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人代码" parameterType="condition"/>
+            <parameter property="task_num" jdbcType="VARCHAR" javaType="KBaseType.U_PILJYLSH" mode="in" longname="批量任务批次号" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="BaseType.U_LONGIN"/>
+    </select>
+    <select cache="none" method="selectFirst" type="sql" id="selApbEodtFlowtp" longname="查询日终批量日期管理表得到日终流程类型">
+        <sql><![CDATA[
+    	select
+    	    	flowtp 
+    	from
+    	    	apb_eodt 
+    	where
+    	    	flowid =(
+    	    	    	select
+    	    	    	    	tran_flow_id 
+    	    	    	from
+    	    	    	    	tsp_task 
+    	    	    	where
+    	    	    	    	task_num=#task_num# 
+    	    	) and corpno=#corpno# 
+    	    	and systcd=#systcd# and flowdt =#flowdt#
+    	]]></sql>
+        <sql type="oracle"><![CDATA[
+    	select
+    	    	flowtp 
+    	from
+    	    	apb_eodt 
+    	where
+    	    	flowid =(
+    	    	    	select
+    	    	    	    	tran_flow_id 
+    	    	    	from
+    	    	    	    	tsp_task 
+    	    	    	where
+    	    	    	    	task_num=#task_num# 
+    	    	) and corpno=#corpno# 
+    	    	and systcd=#systcd# and flowdt =#flowdt#
+    	]]></sql>
+        <sql type="mysql"><![CDATA[
+    	select
+    	    	flowtp 
+    	from
+    	    	apb_eodt 
+    	where
+    	    	flowid =(
+    	    	    	select
+    	    	    	    	tran_flow_id 
+    	    	    	from
+    	    	    	    	tsp_task 
+    	    	    	where
+    	    	    	    	task_num=#task_num# 
+    	    	) and corpno=#corpno# 
+    	    	and systcd=#systcd# and flowdt =#flowdt#
+    	]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="task_num" jdbcType="VARCHAR" javaType="KBaseType.U_PILJYLSH" mode="in" longname="批量任务批次号" parameterType="condition"/>
+            <parameter property="corpno" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人号" parameterType="condition"/>
+            <parameter property="systcd" jdbcType="VARCHAR" javaType="BaseType.U_SYSTCD" mode="in" longname="系统代码" parameterType="condition"/>
+            <parameter property="flowdt" jdbcType="VARCHAR" javaType="BaseType.U_DATE08" mode="in" longname="批量日终管理日期" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="BaseEnumType.E_EODTP"/>
+    </select>
+    <select cache="none" method="selectOne" type="sql" id="selApsEodtDetlfortal" longname="查询批量明细表得到总数">
+        <sql><![CDATA[
+    	select
+    	    	a.txntal,a.txnsuc,a.dcnste 
+    	from
+    	    	aps_eodt_detl a 
+    	where
+    	    	a.corpno= #corpno# and a.flowid = #flowid# 
+    	    	and a.flowdt = #flowdt# and a.dcnnum = #dcnnum# 
+    	    	and a.systcd = #systcd# 
+    	]]></sql>
+        <sql type="oracle"><![CDATA[
+    	select
+    	    	a.txntal,a.txnsuc,a.dcnste 
+    	from
+    	    	aps_eodt_detl a 
+    	where
+    	    	a.corpno= #corpno# and a.flowid = #flowid# 
+    	    	and a.flowdt = #flowdt# and a.dcnnum = #dcnnum# 
+    	    	and a.systcd = #systcd# 
+    	]]></sql>
+        <sql type="mysql"><![CDATA[
+    	select
+    	    	a.txntal,a.txnsuc,a.dcnste 
+    	from
+    	    	aps_eodt_detl a 
+    	where
+    	    	a.corpno= #corpno# and a.flowid = #flowid# 
+    	    	and a.flowdt = #flowdt# and a.dcnnum = #dcnnum# 
+    	    	and a.systcd = #systcd# 
+    	]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="corpno" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人号" parameterType="condition"/>
+            <parameter property="flowid" jdbcType="VARCHAR" javaType="KBaseType.U_PLJYLCBS" mode="in" longname="批量日终流程ID" parameterType="condition"/>
+            <parameter property="flowdt" jdbcType="VARCHAR" javaType="BaseType.U_DATE08" mode="in" longname="批量日终管理日期" parameterType="condition"/>
+            <parameter property="dcnnum" jdbcType="VARCHAR" javaType="BaseType.U_DCNNO" mode="in" longname="DCN编号" parameterType="condition"/>
+            <parameter property="systcd" jdbcType="VARCHAR" javaType="BaseType.U_SYSTCD" mode="in" longname="系统代码" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="ApBook.ApQueryTna"/>
+    </select>
+    <select cache="none" method="selectAll" type="sql" id="selRulecds" longname="查询规则配置表规则编号">
+        <sql><![CDATA[
+    	select
+    	    	rulecd 
+    	from
+    	    	app_rule 
+    	where
+    	    	grupcd = #grupcd# and corpno = #corpno# 
+    	order by
+    	    	rulesq
+    	]]></sql>
+        <sql type="mysql"><![CDATA[
+    	select
+    	    	rulecd 
+    	from
+    	    	app_rule 
+    	where
+    	    	grupcd = #grupcd# and corpno = #corpno# 
+    	order by
+    	    	rulesq
+    	]]></sql>
+        <sql type="oracle"><![CDATA[
+    	select
+    	    	rulecd 
+    	from
+    	    	app_rule 
+    	where
+    	    	grupcd = #grupcd# and corpno = #corpno# 
+    	order by
+    	    	rulesq
+    	]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="corpno" ref="BaseDict.Comm.corpno" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人代码" parameterType="condition"/>
+            <parameter property="grupcd" jdbcType="VARCHAR" javaType="BaseType.U_CHAR40" mode="in" longname="规则分组代码" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="java.lang.String"/>
+    </select>
+    <select cache="none" method="selectAll" type="sql" id="selAppSydtforDate" longname="查询当前交易日期下的法人列表">
+        <sql><![CDATA[
+    	SELECT
+    	    	a.corpno 
+    	from
+    	    	app_corp a 
+    	where
+    	    	a.corpno in(
+    	    	    	SELECT
+    	    	    	    	b.corpno 
+    	    	    	FROM
+    	    	    	    	app_sydt b 
+    	    	    	WHERE
+    	    	    	    	b.systdt = #systdt# 
+    	    	) 
+    	]]></sql>
+        <sql type="mysql"><![CDATA[
+    	SELECT
+    	    	a.corpno 
+    	from
+    	    	app_corp a 
+    	where
+    	    	a.corpno in(
+    	    	    	SELECT
+    	    	    	    	b.corpno 
+    	    	    	FROM
+    	    	    	    	app_sydt b 
+    	    	    	WHERE
+    	    	    	    	b.systdt = #systdt# 
+    	    	) 
+    	]]></sql>
+        <sql type="oracle"><![CDATA[
+    	SELECT
+    	    	a.corpno 
+    	from
+    	    	app_corp a 
+    	where
+    	    	a.corpno in(
+    	    	    	SELECT
+    	    	    	    	b.corpno 
+    	    	    	FROM
+    	    	    	    	app_sydt b 
+    	    	    	WHERE
+    	    	    	    	b.systdt = #systdt# 
+    	    	) 
+    	]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="systdt" jdbcType="VARCHAR" javaType="BaseType.U_DATE08" mode="in" longname="交易日期" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="BaseType.U_CORPNO"/>
+    </select>
+    <select cache="none" method="selectAll" type="sql" id="selAppSydtforDateDED" longname="查询上次交易日期下的法人列表">
+        <sql><![CDATA[
+    	SELECT
+    	    	a.corpno 
+    	from
+    	    	app_corp a 
+    	where
+    	    	a.corpno in(
+    	    	    	SELECT
+    	    	    	    	b.corpno 
+    	    	    	FROM
+    	    	    	    	app_sydt b 
+    	    	    	WHERE
+    	    	    	    	b.lastdt = #lastdt# 
+    	    	) 
+    	]]></sql>
+        <sql type="mysql"><![CDATA[
+    	SELECT
+    	    	a.corpno 
+    	from
+    	    	app_corp a 
+    	where
+    	    	a.corpno in(
+    	    	    	SELECT
+    	    	    	    	b.corpno 
+    	    	    	FROM
+    	    	    	    	app_sydt b 
+    	    	    	WHERE
+    	    	    	    	b.lastdt = #lastdt# 
+    	    	) 
+    	]]></sql>
+        <sql type="oracle"><![CDATA[
+    	SELECT
+    	    	a.corpno 
+    	from
+    	    	app_corp a 
+    	where
+    	    	a.corpno in(
+    	    	    	SELECT
+    	    	    	    	b.corpno 
+    	    	    	FROM
+    	    	    	    	app_sydt b 
+    	    	    	WHERE
+    	    	    	    	b.lastdt = #lastdt# 
+    	    	) 
+    	]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="lastdt" jdbcType="VARCHAR" javaType="BaseType.U_DATE08" mode="in" longname="上次交易日期" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="BaseType.U_CORPNO"/>
+    </select>
+    <select cache="none" method="selectAll" type="sql" id="selApsEodtDetlById" longname="查询批量日终管理明细表">
+        <sql><![CDATA[
+    	SELECT
+    	    	* 
+    	FROM
+    	    	aps_eodt_detl a 
+    	WHERE
+    	    	a.flowdt =#flowdt# AND a.flowid =#flowid# 
+    	    	AND a.systcd= #systcd# AND a.corpno=#corpno#
+    	]]></sql>
+        <sql type="mysql"><![CDATA[
+    	SELECT
+    	    	* 
+    	FROM
+    	    	aps_eodt_detl a 
+    	WHERE
+    	    	a.flowdt =#flowdt# AND a.flowid =#flowid# 
+    	    	AND a.systcd= #systcd# AND a.corpno=#corpno#
+    	]]></sql>
+        <sql type="oracle"><![CDATA[
+    	SELECT
+    	    	* 
+    	FROM
+    	    	aps_eodt_detl a 
+    	WHERE
+    			a.flowdt =#flowdt# AND a.flowid =#flowid# 
+    	    	AND a.systcd= #systcd# AND a.corpno=#corpno#
+    	]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="flowdt" jdbcType="VARCHAR" javaType="BaseType.U_DATE08" mode="in" longname="批量日终管理日期" parameterType="condition"/>
+            <parameter property="flowid" jdbcType="VARCHAR" javaType="KBaseType.U_PLJYLCBS" mode="in" longname="批量日终流程ID" parameterType="condition"/>
+            <parameter property="systcd" jdbcType="VARCHAR" javaType="BaseType.U_SYSTCD" mode="in" longname="系统代码" parameterType="condition"/>
+            <parameter property="corpno" ref="BaseDict.Comm.corpno" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人代码" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="SysPublicTable.ApsEodtDetl"/>
+    </select>
+    <select cache="none" method="selectAll" type="sql" id="selKsysPllcdyById" longname="查询批量流程定义表">
+        <sql><![CDATA[
+    	select
+    	    	* 
+    	from
+    	    	tsp_flow_definition a 
+    	where
+    	    	a.system_code = #systcd# and a.corporate_code = #corpno# 
+    	    	and a.tran_flow_id like #flowid#
+    	]]></sql>
+        <sql type="mysql"><![CDATA[
+    	select
+    	    	* 
+    	from
+    	    	tsp_flow_definition a 
+    	where
+    	    	a.system_code = #systcd# and a.corporate_code = #corpno# 
+    	    	and a.tran_flow_id like #flowid#
+    	]]></sql>
+        <sql type="oracle"><![CDATA[
+    	select
+    	    	* 
+    	from
+    	    	tsp_flow_definition a 
+    	where
+    	    	a.system_code = #systcd# and a.corporate_code = #corpno# 
+    	    	and a.tran_flow_id like #flowid#
+    	]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="flowid" jdbcType="VARCHAR" javaType="KBaseType.U_PLJYLCBS" mode="in" longname="批量日终流程ID" parameterType="condition"/>
+            <parameter property="systcd" jdbcType="VARCHAR" javaType="BaseType.U_SYSTCD" mode="in" longname="系统代码" parameterType="condition"/>
+            <parameter property="corpno" ref="BaseDict.Comm.corpno" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人代码" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="KSysBatchTable.tsp_flow_definition"/>
+    </select>
+    <select cache="none" method="selectAll" type="sql" id="selApb_eodt" longname="查询批日终批量日期管理表">
+        <sql><![CDATA[
+    	select
+    	    	* 
+    	from
+    	    	apb_eodt a 
+    	where
+    	    	a.systcd = #systcd# and a.flowid = #flowid#
+    	]]></sql>
+        <sql type="mysql"><![CDATA[
+    	select
+    	    	* 
+    	from
+    	    	apb_eodt a 
+    	where
+    	    	a.systcd = #systcd# and a.flowid = #flowid#
+    	]]></sql>
+        <sql type="oracle"><![CDATA[
+    	select
+    	    	* 
+    	from
+    	    	apb_eodt a 
+    	where
+    	    	a.systcd = #systcd# and a.flowid = #flowid#
+    	]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="systcd" jdbcType="VARCHAR" javaType="BaseType.U_SYSTCD" mode="in" longname="系统代码" parameterType="condition"/>
+            <parameter property="flowid" jdbcType="VARCHAR" javaType="KBaseType.U_PLJYLCBS" mode="in" longname="批量日终流程ID" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="SysPublicTable.ApbEodt"/>
+    </select>
+    <select cache="none" method="selectFirst" type="sql" id="selKsysJykzhqCount" longname="查询批量流程下的有效交易个数">
+        <sql><![CDATA[
+    	select
+    	    	count(*) 
+    	from
+    	    	tsp_tran_controller c 
+    	where
+    	    	tran_group_id in (
+    	    	    	select 
+    	    	    	    	tran_group_id 
+    	    	    	from
+    	    	    	    	tsp_flow_step_controller b 
+    	    	    	where
+    	    	    	    	b.is_execution = '1' and b.tran_flow_id = #tran_flow_id# and b.corporate_code = #corporate_code#
+    	    	    	) 
+    	    	    	and c.system_code = #system_code# and c.corporate_code = #corporate_code# 
+    	    	    	and c.execution_code = '1'
+    	]]></sql>
+        <sql type="mysql"><![CDATA[
+    	select
+    	    	count(*) 
+    	from
+    	    	tsp_tran_controller c 
+    	where
+    	    	tran_group_id in (
+    	    	    	select
+    	    	    	    	tran_group_id 
+    	    	    	from
+    	    	    	    	tsp_flow_step_controller b 
+    	    	    	where
+    	    	    	    	b.is_execution = '1' and b.tran_flow_id = #tran_flow_id# and b.corporate_code = #corporate_code#
+    	    	    	) 
+    	    	    	and c.system_code = #system_code# and c.corporate_code = #corporate_code# 
+    	    	    	and c.execution_code = '1'
+    	]]></sql>
+        <sql type="oracle"><![CDATA[
+    	select
+    	    	count(*) 
+    	from
+    	    	tsp_tran_controller c 
+    	where
+    	    	tran_group_id in (
+    	    	    	select
+    	    	    	    	tran_group_id 
+    	    	    	from
+    	    	    	    	tsp_flow_step_controller b 
+    	    	    	where
+    	    	    	    	b.is_execution = '1' and b.tran_flow_id = #tran_flow_id# and b.corporate_code = #corporate_code#
+    	    	    	) 
+    	    	    	and c.system_code = #system_code# and c.corporate_code = #corporate_code# 
+    	    	    	and c.execution_code = '1'
+    	]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="system_code" jdbcType="VARCHAR" javaType="KBaseType.U_LEIXIN10" mode="in" longname="系统标识号" parameterType="condition"/>
+            <parameter property="corporate_code" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人代码" parameterType="condition"/>
+            <parameter property="tran_flow_id" jdbcType="VARCHAR" javaType="KBaseType.U_PLJYLCBS" mode="in" longname="批量流程ID" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="BaseType.U_LONGIN"/>
+    </select>
+    <select cache="none" method="selectOne" type="sql" id="selApsEodtDetlRecord" longname="查询批量明细表全记录">
+        <sql><![CDATA[
+    	select
+    	    	*
+    	from
+    	    	aps_eodt_detl a 
+    	where
+    	    	a.corpno= #corpno# and a.flowid = #flowid# 
+    	    	and a.flowdt = #flowdt# and a.dcnnum = #dcnnum# 
+    	    	and a.systcd = #systcd# 
+    	]]></sql>
+        <sql type="mysql"><![CDATA[
+    	select
+    	    	*
+    	from
+    	    	aps_eodt_detl a 
+    	where
+    	    	a.corpno= #corpno# and a.flowid = #flowid# 
+    	    	and a.flowdt = #flowdt# and a.dcnnum = #dcnnum# 
+    	    	and a.systcd = #systcd# 
+    	]]></sql>
+        <sql type="oracle"><![CDATA[
+    	select
+    	    	*
+    	from
+    	    	aps_eodt_detl a 
+    	where
+    	    	a.corpno= #corpno# and a.flowid = #flowid# 
+    	    	and a.flowdt = #flowdt# and a.dcnnum = #dcnnum# 
+    	    	and a.systcd = #systcd# 
+    	]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="corpno" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人号" parameterType="condition"/>
+            <parameter property="flowid" jdbcType="VARCHAR" javaType="KBaseType.U_PLJYLCBS" mode="in" longname="批量日终流程ID" parameterType="condition"/>
+            <parameter property="flowdt" jdbcType="VARCHAR" javaType="BaseType.U_DATE08" mode="in" longname="批量日终管理日期" parameterType="condition"/>
+            <parameter property="dcnnum" jdbcType="VARCHAR" javaType="BaseType.U_DCNNO" mode="in" longname="DCN编号" parameterType="condition"/>
+            <parameter property="systcd" jdbcType="VARCHAR" javaType="BaseType.U_SYSTCD" mode="in" longname="系统代码" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="SysPublicTable.ApsEodtDetl"/>
+    </select>
+    <select cache="none" method="selectOne" type="sql" id="countAppCorpByCorplv" longname="统计对应级别的法人数量">
+        <sql><![CDATA[select count(1) from  app_corp where corplv = #corplv#]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="corplv" jdbcType="VARCHAR" javaType="ApBaseEnumType.E_CORPLEVEL" mode="in" longname="法人级别" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="java.lang.Integer"/>
+    </select>
+    <select cache="none" method="selectAll" type="sql" id="selAllShardingInfo" longname="获取分表所有信息">
+        <sql><![CDATA[select * from sharding_info ]]></sql>
+        <parameterMap class="java.util.Map"/>
+        <resultMap class="KnpParaTable.ShardingInfo"/>
+    </select>
+    <select cache="none" method="selectAll" type="sql" id="selShardingGroup" longname="获取所有分组">
+        <sql><![CDATA[SELECT shardinggp from sharding_info GROUP BY shardinggp;]]></sql>
+        <parameterMap class="java.util.Map"/>
+        <resultMap class="java.lang.String"/>
+    </select>
+    <select cache="none" method="selectAll" type="sql" id="selShardingKeyByGroup" longname="根据分组获取分组下的所有分表位">
+        <sql><![CDATA[SELECT shardingid from sharding_info where shardinggp=#shardinggp#]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="shardinggp" jdbcType="VARCHAR" javaType="BaseType.U_CHAR20" mode="in" longname="分组号" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="java.lang.String"/>
+    </select>
+</sqls>

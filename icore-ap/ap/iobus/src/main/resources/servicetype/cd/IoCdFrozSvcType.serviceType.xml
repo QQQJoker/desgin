@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType id="IoCdFrozSvcType" kind="business" longname="单位账户冻结/止付服务" package="cn.sunline.ltts.busi.iobus.servicetype.cd" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <service id="CdUpdAcctStatusWord" name="prcCdUpdAcctStatusWord" longname="更新账户状态字">
+        <interface>
+            <input packMode="false">
+                <field id="acctno" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="账号" ref="BaseDict.Comm.acctno"/>
+                <field id="crcycd" type="BaseType.U_CRCYCD" required="false" multi="false" array="false" longname="币种" ref="BaseDict.Comm.crcycd"/>
+                <field id="froztp" type="DpEnumType.E_FROZTP" required="false" multi="false" array="false" longname="冻结业务类型" ref="DpDict.Froz.froztp"/>
+                <field id="frlmtp" type="DpEnumType.E_FRLMTP" required="false" multi="false" array="false" longname="限制类型" ref="DpDict.Froz.frlmtp"/>
+                <field id="frozst" type="DpEnumType.E_FROZST" required="false" multi="false" array="false" longname="冻结状态" ref="DpDict.Froz.frozst"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="CdRegiYzFroz" name="prcCdRegiYzFroz" longname="登记验资止付登记簿">
+        <interface>
+            <input packMode="false">
+                <field id="frozdt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="冻结日期"/>
+                <field id="frozsq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="冻结流水"/>
+                <field id="acctno" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="子账户"/>
+                <field id="frozno" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="冻结编号" ref="DpDict.Froz.frozno"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="IoDpQryCdFrozInfos" name="qryFrozCdInfoList" longname="冻结止付信息详情查询">
+        <interface>
+            <input packMode="true">
+                <field id="custac" type="BaseType.U_CUSTAC" required="false" multi="false" array="false" longname="电子账号"/>
+                <field id="cardno" type="BaseType.U_CARDNO" required="false" multi="false" array="false" longname="交易卡号" ref="BaseDict.Comm.cardno"/>
+                <field id="qrfrtp" type="DpEnumType.E_QRFRTP" required="false" multi="false" array="false" longname="查询冻结类型"/>
+                <field id="pageno" type="BaseType.U_INTEGE" required="false" multi="false" array="false" longname="页数"/>
+                <field id="pgsize" type="BaseType.U_INTEGE" required="false" multi="false" array="false" longname="页容量"/>
+                <field id="tranam" type="BaseType.U_TRANAM" required="false" multi="false" array="false" longname="交易金额" ref="BaseDict.Comm.tranam"/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="frozInfoList" type="IoDpFrozComplexType.IoDpQryFrozInfoList" required="false" multi="true" array="false" longname="冻结止付信息列表"/>
+                <field id="counts" type="BaseType.U_INTEGE" required="false" multi="false" array="false" longname="总笔数"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoSelFrozInfoByFrozno" name="IoSelFrozInfoByFrozno" longname="根据冻结编号和冻结序号查询冻结信息">
+        <interface>
+            <input packMode="true">
+                <field id="frozno" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="冻结编号" ref="DpDict.Froz.frozno"/>
+                <field id="frozsq" type="BaseType.U_LONGIN" required="false" multi="false" array="false" longname="冻结序号" ref="DpDict.Froz.frozsq"/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="frozin" type="IoDpFrozComplexType.IoDpFrozIf" required="false" multi="false" array="false" longname="冻结信息"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+</serviceType>

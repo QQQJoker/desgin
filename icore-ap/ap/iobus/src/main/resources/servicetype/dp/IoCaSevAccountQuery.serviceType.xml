@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType id="IoCaSevAccountQuery" kind="business" longname="电子账户分户账明细账查询服务" package="cn.sunline.ltts.busi.iobus.servicetype.dp" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <service id="IoCaSevLedgerQuery" name="qryAcctLedger" longname="柜面分户账查询">
+        <interface>
+            <input packMode="false">
+                <field id="cplLedger" type="IoCaTypGenEAccountInfo.IoCaQryLedgerInfosIn" required="false" multi="false" array="false" longname="柜面分户账查询输入接口"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="ledgerInfoList" type="IoCaTypGenEAccountInfo.IoCaQryLedgerInfosOut" required="false" multi="false" array="false" longname="柜面分户账查询信息输出"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoCaQueryDpAcctInfo" name="qryDpAcctInfo" longname="查询电子账户存款子账户信息">
+        <interface>
+            <input packMode="false">
+                <field id="cplQracctIn" type="IoCaTypGenEAccountInfo.IoCaQryAcctIn" required="false" multi="false" array="false" longname="柜面分户账户子账户信息查询输入"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="cplDpacctInfos" type="IoCaTypGenEAccountInfo.IoCaDpacctInfoList" required="false" multi="false" array="false" longname="存款类子账户信息"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoCaClientLedgerQuery" name="qryClientLedger" longname="客户端分户账户查询">
+        <interface>
+            <input packMode="false">
+                <field id="cardno" type="BaseType.U_CARDNO" required="false" multi="false" array="false" longname="电子账号"/>
+                <field id="idtftp" type="BaseEnumType.E_IDTFTP" required="false" multi="false" array="false" longname="证件类型"/>
+                <field id="idtfno" type="BaseType.U_IDTFNO" required="false" multi="false" array="false" longname="证件号码"/>
+                <field id="custid" type="BaseType.U_CUSTID" required="false" multi="false" array="false" longname="用户ID" ref="BaseDict.Comm.custid"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="cilentLedgerOut" type="IoCaTypGenEAccountInfo.IoCaClientLedgerOut" required="false" multi="false" array="false" longname="客户端分户账户信息输出"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoCaQryDpAcctInfo" name="queryDpAcctInfo" longname="查询电子账明细信息">
+        <interface>
+            <input packMode="false">
+                <field id="custac" type="BaseType.U_CUACNO" required="false" multi="false" array="false" longname="电子账号" ref="CaDict.Eacct.custac"/>
+                <field id="begndt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="起始日期" ref="DpDict.Depr.begndt"/>
+                <field id="endate" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="截止日期" ref="FnDict.Fnfc.endate"/>
+                <field id="pageno" type="BaseType.U_INTEGE" required="false" multi="false" array="false" longname="页码"/>
+                <field id="pgsize" type="BaseType.U_INTEGE" required="false" multi="false" array="false" longname="页容量"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="infos" type="IoCaTypGenEAccountInfo.IoCaDpAcctfos" required="false" multi="true" array="false" longname="电子账户明细信息"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoSelEffectAcctnoByCrcycd" name="selEffectAcctnoByCrcycd" longname="查询机构币种下有效结算子户记录数">
+        <interface>
+            <input packMode="false">
+                <field id="brchno" type="BaseType.U_BRCHNO" required="false" multi="false" array="false" longname="机构号" ref="BaseDict.Comm.brchno"/>
+                <field id="crcycd" type="BaseType.U_CRCYCD" required="false" multi="false" array="false" longname="币种" ref="BaseDict.Comm.crcycd"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="count" type="BaseType.U_LONGIN" required="false" multi="false" array="false" longname="记录数"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+</serviceType>

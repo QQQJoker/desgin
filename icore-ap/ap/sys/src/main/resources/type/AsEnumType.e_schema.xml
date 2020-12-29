@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema id="AsEnumType" package="cn.sunline.ltts.busi.sys.type" longname="资产证券化枚举类型定义" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description><![CDATA[]]></description>
+    <restrictionType id="E_ASTSTA" longname="资产状态" base="BaseType.U_CHAR01" pattern="">
+        <enumeration id="DFB" value="3" longname="待封包"/>
+        <enumeration id="YFB" value="4" longname="已封包"/>
+        <enumeration id="YZR" value="5" longname="已转让"/>
+        <enumeration id="YSH" value="8" longname="已赎回"/>
+        <description><![CDATA[]]></description>
+    </restrictionType>
+    <restrictionType id="E_ABSTOP" longname="资产操作" base="BaseType.U_CHAR01" pattern="" maxLength="1" minLength="1">
+        <enumeration id="FB" value="4" longname="封包"/>
+        <enumeration id="ZR" value="5" longname="转让"/>
+        <enumeration id="JB" value="3" longname="解包"/>
+        <enumeration id="SH" value="8" longname="赎回"/>
+        <description><![CDATA[]]></description>
+    </restrictionType>
+</schema>

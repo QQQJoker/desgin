@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema id="LnProdComplex" package="cn.sunline.ltts.busi.ln.type" longname="贷款产品复合类型" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description><![CDATA[贷款产品复合类型]]></description>
+    <complexType id="LnTranEvet" longname="交易事件信息对象" dict="false" abstract="false" introduct="false">
+        <element id="traevt" longname="交易事件" type="LnBaseType.U_TRAEVT" ref="LnDict.LNF.traevt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="evtsig" longname="事件说明" type="BaseType.U_SMRYDS" ref="LnDict.LNF.evtsig" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="desctx" longname="说明" type="BaseType.U_CHAR80" ref="LnDict.LNF.desctx" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="smrycd" longname="摘要代码" type="BaseType.U_SMRYCD" ref="BaseDict.Comm.smrycd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="smrytx" longname="摘要说明" type="BaseType.U_CHAR80" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="remark" longname="备注信息" type="BaseType.U_LONGDS" ref="LnDict.LNF.remark" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="lncfno" longname="贷款借据号" type="LnBaseType.U_LNCFNO" ref="LnDict.LNF.lncfno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+</schema>

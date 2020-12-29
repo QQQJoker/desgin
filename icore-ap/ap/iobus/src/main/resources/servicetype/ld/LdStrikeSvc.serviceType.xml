@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType id="LdStrikeSvc" kind="business" longname="贴现冲正服务" package="cn.sunline.ltts.busi.iobus.ld.servicetype" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <service id="LdChargeStrike" name="LdChargeStrike" longname="贴现记账服务冲正">
+        <interface>
+            <input packMode="false">
+                <field id="trandt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="交易日期"/>
+                <field id="transq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="交易流水"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+</serviceType>

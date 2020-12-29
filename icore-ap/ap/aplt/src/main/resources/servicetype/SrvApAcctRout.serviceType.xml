@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType id="SrvApAcctRout" kind="business" longname="账号路由服务" package="cn.sunline.ltts.busi.aplt.servicetype" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <service id="GetAcctCorpno" name="getAcctCorpno" longname="获取账户所属法人">
+        <interface>
+            <input packMode="false">
+                <field id="acctno" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="账号" ref="BaseDict.Comm.acctno"/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="corpno" type="BaseType.U_CORPNO" required="false" multi="false" array="false" longname="法人代码" ref="BaseDict.Comm.corpno"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+</serviceType>

@@ -1,0 +1,9 @@
+<menu id="batchReportmenu" longname="批量报表配置">
+	<menu id="day" longname="日报">
+	</menu>
+	<menu id="month" longname="月报">
+		<item id="ln51" tranid="ln51" longname="贷款交易清单"/>
+	</menu>
+	<menu id="year" longname="年报">
+	</menu>
+</menu>

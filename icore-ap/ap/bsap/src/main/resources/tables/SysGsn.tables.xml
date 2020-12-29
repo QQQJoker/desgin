@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema id="SysGsn" package="cn.sunline.ltts.busi.aplt.tables" longname="系统通用序号表" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description><![CDATA[System General Serial Number]]></description>
+    <table id="AppSndf" name="app_sndf" longname="序号定义表" category="2" virtual="false" abstract="false">
+        <fields>
+            <field id="sncode" longname="序号编号" type="BaseType.U_SEQCODE" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="snname" longname="序号名称" type="BaseType.U_CHAR40" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="bycorp" longname="是否按法人生成" type="BaseEnumType.E_YES___" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="bydcnn" longname="是否按DCN生成" type="BaseEnumType.E_YES___" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="bydate" longname="是否按日期生成" type="BaseEnumType.E_YES___" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="minval" longname="起始序号" type="BaseType.U_LONGIN" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="maxval" longname="最大序号" type="BaseType.U_LONGIN" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="snlenn" longname="长度" type="BaseType.U_INTEGE" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="stepsz" longname="步长" type="BaseType.U_INTEGE" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="isolat" longname="是否独立事务" type="BaseEnumType.E_YES___" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="cachsz" longname="缓存数量" type="BaseType.U_INTEGE" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="snrule" longname="组成规则" type="BaseType.U_CHAR200" primarykey="false" final="false" nullable="false" desc="通过OGNL格式，如：SQ${trandt}${dcnnoo}${corpno}${systcd}${curval}" identity="false" allowSubType="true"/>
+            <field id="corpno" longname="默认法人代码" type="BaseType.U_CORPNO" primarykey="false" final="false" default="000" nullable="true" desc="仅不按法人时使用" identity="false" allowSubType="true"/>
+            <field id="dcnnoo" longname="默认DCN号" type="BaseType.U_DCNNO" primarykey="false" final="false" default="000" nullable="true" desc="仅不按DCN时使用" identity="false" allowSubType="true"/>
+            <field id="trandt" longname="默认日期" type="BaseType.U_DATE08" primarykey="false" final="false" default="19000101" nullable="true" desc="仅不按日期时使用" identity="false" allowSubType="true"/>
+            <field id="systcd" longname="所属系统代码" type="BaseType.U_SYSTCD" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="isdigt" longname="是否数字" type="BaseEnumType.E_YES___" primarykey="false" final="false" default="0" nullable="false" identity="false" allowSubType="true"/>
+            <field id="sndesc" longname="序号描述" type="BaseType.U_CHAR80" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="unique" fields="sncode" operate="selectOne updateOne"/>
+            <index id="odb2" type="index" fields="systcd" operate="selectAll"/>
+        </odbindexes>
+        <indexes>
+            <index id="app_sndf_uk1" type="unique" fields="sncode">
+                <ddls/>
+            </index>
+            <index id="app_sndf_idx2" type="index" fields="systcd">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+    <table id="ApbSnvl" name="apb_snvl" longname="序号值表" category="2" virtual="false" abstract="false">
+        <fields>
+            <field id="sncode" longname="序号编号" type="BaseType.U_SEQCODE" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="corpno" longname="法人代码" type="BaseType.U_CORPNO" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="trandt" longname="序号日期" type="BaseType.U_DATE08" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="systcd" longname="系统代码" type="BaseType.U_SYSTCD" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="dcnnoo" longname="DCN编号" type="BaseType.U_DCNNO" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="curval" longname="当前序号" type="BaseType.U_LONGIN" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls>
+            <ddl dbType="mysql" depend="false">
+				  PARTITION BY RANGE columns (trandt) (  
+				  PARTITION p20150401 VALUES LESS THAN ('20150401'),
+		  		  PARTITION p20150402 VALUES LESS THAN ('20150402'),
+		          PARTITION p20150403 VALUES LESS THAN ('20150403')
+				)
+			</ddl>
+        </ddls>
+        <odbindexes>
+            <index id="odb1" type="unique" fields="sncode trandt systcd dcnnoo corpno" operate="selectOne updateOne selectOneWithLock"/>
+        </odbindexes>
+        <indexes>
+            <index id="apb_snvl_uk1" type="unique" fields="sncode trandt systcd dcnnoo corpno">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+    <table id="ApbSnvm" name="apb_snvm" longname="序号值服务器号段表" category="2" virtual="false" abstract="false">
+        <fields>
+            <field id="sncode" longname="序号编号" type="BaseType.U_SEQCODE" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="corpno" longname="法人代码" type="BaseType.U_CORPNO" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="trandt" longname="序号日期" type="BaseType.U_DATE08" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="systcd" longname="系统代码" type="BaseType.U_SYSTCD" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="dcnnoo" longname="DCN编号" type="BaseType.U_DCNNO" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="vmidxx" longname="JVM标识" type="BaseType.U_VMIDXX" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="curval" longname="当前序号" type="BaseType.U_LONGIN" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="maxval" longname="最大序号" type="BaseType.U_LONGIN" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="usstat" longname="是否使用中" type="BaseEnumType.E_YES___" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls>
+            <ddl dbType="mysql" depend="false">
+				  PARTITION BY RANGE columns (trandt) (  
+				  PARTITION p20150401 VALUES LESS THAN ('20150401'),
+		  		  PARTITION p20150402 VALUES LESS THAN ('20150402'),
+		          PARTITION p20150403 VALUES LESS THAN ('20150403')
+				)
+			</ddl>
+        </ddls>
+        <odbindexes>
+            <index id="odb1" type="unique" fields="sncode trandt systcd dcnnoo corpno vmidxx" operate="selectOne updateOne selectOneWithLock"/>
+            <index id="odb2" type="index" fields="vmidxx usstat" operate="selectAll"/>
+        </odbindexes>
+        <indexes>
+            <index id="apb_snvm_uk1" type="unique" fields="sncode trandt systcd dcnnoo corpno vmidxx">
+                <ddls/>
+            </index>
+            <index id="apb_snvm_idx2" type="index" fields="vmidxx usstat">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+</schema>

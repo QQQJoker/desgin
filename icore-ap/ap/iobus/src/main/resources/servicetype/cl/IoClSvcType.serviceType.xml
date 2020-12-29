@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType id="IoClSvcType" kind="business" longname="额度服务" package="cn.sunline.ltts.busi.iobus.servicetype.cl" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <service id="IoClCalculate" name="ioClCalculate" longname="额度计算">
+        <interface>
+            <input packMode="false">
+                <field id="ioClCalInput" type="IoClCalculateType.IoClCalculateInput" required="false" multi="false" array="false" longname="额度计算输入"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="clCalculateOutput" type="IoClCalculateType.IoClCalculateOutput" required="false" multi="false" array="false" longname="额度计算输出"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoUsableClSel" name="ioUsableClSel" longname="可用额度查询">
+        <interface>
+            <input packMode="false">
+                <field id="ioClSelInput" type="IoClCalculateType.IoClLevel" required="false" multi="false" array="false" longname="额度查询输入"/>
+            </input>
+            <output asParm="false" packMode="true">
+                <field id="usabcl" type="BaseType.U_ACBLTP" required="false" multi="false" array="false" longname="可用额度" ref="ClDict.CL.usabcl"/>
+                <field id="crdlam" type="BaseType.U_ACBLTP" required="false" multi="false" array="false" longname="额度金额" ref="ClDict.CL.crdlam"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoClFreeze" name="ioClFreeze" longname="额度冻结">
+        <interface>
+            <input packMode="false">
+                <field id="ioClFreezeInput" type="IoClCalculateType.IoClFreezeInput" required="false" multi="false" array="false" longname="额度冻结输入"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="usabcl" type="BaseType.U_ACBLTP" required="false" multi="false" array="false" longname="可用额度" ref="ClDict.CL.usabcl"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoClAdd" name="addClData" longname="新增额度服务">
+        <interface>
+            <input packMode="false">
+                <field id="addClListInfo" alias="所需数据集合" type="IoClAdd.AddClInfo" required="false" multi="false" array="false" longname="所需数据集合"/>
+            </input>
+            <output asParm="false" packMode="true">
+                <field id="crdlno" type="BaseType.U_CHAR20" required="false" multi="false" array="false" longname="额度编号" ref="ClDict.CL.crdlno"/>
+                <field id="status" type="ClEnumType.E_STATUS" required="false" multi="false" array="false" longname="有效状态" ref="ClDict.CL.status"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoClAdjust" name="adjustCl" longname="调整额度服务">
+        <interface>
+            <input packMode="false">
+                <field id="field" type="IoClAdd.AdjustClInfo" required="false" multi="false" array="false" longname="调整额度复合类型输入接口"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoClTemp" name="addTempClInfo" longname="新增临时额度服务">
+        <interface>
+            <input packMode="false">
+                <field id="addTempInfo" type="IoClAdd.AddTempClInfo" required="false" multi="false" array="false" longname="新增临时额度输入接口"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoClUnfreeze" name="clUnfreeze" longname="额度解冻服务">
+        <interface>
+            <input packMode="false">
+                <field id="ioUnfreezeInput" type="IoClCalculateType.IoUnfreezeInput" required="false" multi="false" array="false" longname="额度解冻输入接口"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="usabcl" type="BaseType.U_ACBLTP" required="false" multi="false" array="false" longname="可用额度" ref="ClDict.CL.usabcl"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+</serviceType>

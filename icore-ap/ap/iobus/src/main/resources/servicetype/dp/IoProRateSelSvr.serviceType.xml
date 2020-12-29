@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType id="IoProRateSelSvr" kind="business" longname="金融基础产品利率代码查询" package="cn.sunline.ltts.busi.iobus.servicetype.dp" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description><![CDATA[金融基础产品利率代码查询]]></description>
+    <service id="ProRateSelSvr" name="proratecosel" longname="金融基础产品利率代码查询">
+        <description><![CDATA[]]></description>
+        <interface>
+            <input packMode="true">
+                <field id="brchno" type="BaseType.U_BRCHNO" required="false" multi="false" array="false" longname="机构号" ref="PbDict.Brch.brchno"/>
+                <field id="prodcd" type="BaseType.U_PRODCD" required="false" multi="false" array="false" longname="产品编号" ref="DpDict.Prod.prodcd"/>
+                <field id="intrcd" type="BaseType.U_INRTNO" required="false" multi="false" array="false" longname="利率编号" ref="DpDict.Prod.intrcd"/>
+                <field id="intrna" type="BaseType.U_CHAR30" required="false" multi="false" array="false" longname="利率名称" ref="PbDict.Intr.intrna"/>
+                <field id="prodna" type="BaseType.U_CHAR80" required="false" fixed="" default="" multi="false" array="false" longname="产品名称" desc="" ref=""/>
+                <field id="start" type="BaseType.U_INTEGE" required="false" fixed="" default="" multi="false" array="false" longname="页码" desc="" ref=""/>
+                <field id="count" type="BaseType.U_INTEGE" required="false" fixed="" default="" multi="false" array="false" longname="页容量" desc="" ref=""/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="result" type="IoProRateSel.ProRateSelOut" required="false" multi="true" array="false" longname="产品利率 代码输出"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+</serviceType>

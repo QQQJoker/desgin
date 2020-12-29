@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<sqls id="ApSynFile" longname="系统批量数据迁移" package="cn.sunline.ltts.busi.aplt.namedsql" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <select cache="none" method="selectAll" type="sql" id="selAppDataMoveInfo" longname="所有数据迁移信息">
+        <sql desc="查询数据迁移参数表，用记遍历生成文件。"><![CDATA[select * from app_data_move where dacdcn = #cdcnno#]]></sql>
+        <sql type="mysql" desc="查询数据迁移参数表，用记遍历生成文件。"><![CDATA[select * from app_data_move where dacdcn = #cdcnno#]]></sql>
+        <sql type="oracle" desc="查询数据迁移参数表，用记遍历生成文件。"><![CDATA[select * from app_data_move where dacdcn = #cdcnno#]]></sql>
+        <sql type="db2" desc="查询数据迁移参数表，用记遍历生成文件。"><![CDATA[select * from app_data_move where dacdcn = #cdcnno#]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="cdcnno" ref="BaseDict.Comm.cdcnno" jdbcType="VARCHAR" javaType="BaseType.U_DCNNO" mode="in" longname="DCN编号" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="SysSynFileTables.AppDataMove"/>
+    </select>
+    <select cache="none" method="selectAll" type="sql" id="selAppDataMoveInput" longname="需要导入数据项">
+        <sql desc="查询数据迁移参数表"><![CDATA[select * from app_data_move where dardcn=#cdcnno#]]></sql>
+        <sql type="mysql" desc="查询数据迁移参数表"><![CDATA[select * from app_data_move where dardcn=#cdcnno#]]></sql>
+        <sql type="oracle" desc="查询数据迁移参数表"><![CDATA[select * from app_data_move where dardcn=#cdcnno#]]></sql>
+        <sql type="db2" desc="查询数据迁移参数表"><![CDATA[select * from app_data_move where dardcn=#cdcnno#]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="cdcnno" ref="BaseDict.Comm.cdcnno" jdbcType="VARCHAR" javaType="BaseType.U_DCNNO" mode="in" longname="DCN编号" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="SysSynFileTables.AppDataMove"/>
+    </select>
+    <update method="update" id="updateAppDateMove" longname="更新下次文件的生成名后缀">
+        <sql><![CDATA[update app_data_move set unikey=#unikey# where dacdcn=#dacdcn#]]></sql>
+        <sql type="mysql"><![CDATA[update app_data_move set unikey=#unikey# where dacdcn=#dacdcn#]]></sql>
+        <sql type="oracle"><![CDATA[update app_data_move set unikey=#unikey# where dacdcn=#dacdcn#]]></sql>
+        <sql type="db2"><![CDATA[update app_data_move set unikey=#unikey# where dacdcn=#dacdcn#]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="unikey" jdbcType="VARCHAR" javaType="string" mode="in" longname="主键" parameterType="condition"/>
+            <parameter property="dacdcn" jdbcType="VARCHAR" javaType="string" mode="in" longname="导入DCN" parameterType="condition"/>
+        </parameterMap>
+    </update>
+</sqls>

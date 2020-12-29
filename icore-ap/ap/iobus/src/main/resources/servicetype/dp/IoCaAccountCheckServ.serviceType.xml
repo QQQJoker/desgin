@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="IoCaAccountCheckServ" kind="business" longname="个人账户通用检查服务定义" package="cn.sunline.ltts.busi.iobus.servicetype.dp" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <service id="IoCaChkCmacctCredit" name="chkDpacctCredit" longname="一借一贷个人账户入账检查">
+        <interface>
+            <input packMode="false">
+                <field id="input" type="IoCaAccountCheck.IoCaChkCmacctInput" required="false" multi="false" array="false" longname="入账检查输入"/>
+            </input>
+            <output asParm="true" packMode="false">
+                <field id="output" type="IoCaAccountCheck.IoCaChkCmacctOutput" required="false" multi="false" array="false" longname="入账检查输出参数"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="IoCaChkCmacctPayout" name="chkDpacctPayout" longname="一借一贷个人账户出账检查">
+        <interface>
+            <input packMode="false">
+                <field id="input" type="IoCaAccountCheck.IoCaChkCmacctInput" required="false" multi="false" array="false" longname="入账检查输入"/>
+            </input>
+            <output asParm="true" packMode="false">
+                <field id="output" type="IoCaAccountCheck.IoCaChkCmacctOutput" required="false" multi="false" array="false" longname="入账检查输出参数"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+</serviceType>

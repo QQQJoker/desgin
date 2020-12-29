@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType id="IoLgForeginServiceType" kind="business" longname="保函对外服务" package="cn.sunline.ltts.busi.iobus.servicetype.lg" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <service id="isNomalLgByCardno" name="isNomalLgByCardno" longname="根据账号查询是否有正常的保函">
+        <interface>
+            <input packMode="false">
+                <field id="apacno" type="BaseType.U_CARDNO" required="false" multi="false" array="false" longname="申请人账号" ref="LgDict.INF.apacno"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="isnolg" type="BaseEnumType.E_YES___" required="false" multi="false" array="false" longname="是否存在正常保函"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+</serviceType>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema id="ComFaApFile" package="cn.sunline.ltts.busi.aplt.type" longname="文件批量相关复合类型" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <complexType id="ApFileIn" longname="文件批量申请输入" dict="false" abstract="false" introduct="false">
+        <element id="busi_batch_code" longname="batch business code" type="GlBaseType.U_BYTE32" ref="GlDict.A.busi_batch_code" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="busi_batch_id" longname="batch business id" type="GlBaseType.U_BYTE10" ref="GlDict.A.busi_batch_id" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="file_server_path" longname="file server path" type="GlBaseType.U_SHORTDESC" ref="GlDict.A.file_server_path" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="file_name" longname="file name" type="GlBaseType.U_MIDDESC" ref="GlDict.A.file_name" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="timing_process_ind" longname="Timing processing indication" type="GlEnumType.E_YESORNO" ref="GlDict.A.timing_process_ind" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="timing_process_time" longname="Timing processing time" type="GlBaseType.U_DATETIME" ref="GlDict.A.timing_process_time" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="ApRecvFileIn" longname="文件接收输入数据集" dict="false" abstract="false" introduct="false">
+        <element id="file_id" longname="file id" type="GlBaseType.U_BYTE20" ref="GlDict.A.file_id" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="file_name" longname="file name" type="GlBaseType.U_MIDDESC" ref="GlDict.A.file_name" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="file_server_path" longname="file server path" type="GlBaseType.U_SHORTDESC" ref="GlDict.A.file_server_path" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="file_local_path" longname="file local path" type="GlBaseType.U_SHORTDESC" ref="GlDict.A.file_local_path" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="ApDataGroupNo" longname="按散列值分组" dict="false" abstract="false" introduct="false">
+        <element id="hash_value" longname="hash value" type="GlBaseType.U_LONG" ref="GlDict.A.hash_value" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="ApSendFileIn" longname="文件发送输入数据集" dict="false" abstract="false" introduct="false">
+        <element id="file_id" longname="file id" type="GlBaseType.U_BYTE20" ref="GlDict.A.file_id" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="file_name" longname="file name" type="GlBaseType.U_MIDDESC" ref="GlDict.A.file_name" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="file_server_path" longname="file server path" type="GlBaseType.U_SHORTDESC" ref="GlDict.A.file_server_path" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="file_local_path" longname="file local path" type="GlBaseType.U_SHORTDESC" ref="GlDict.A.file_local_path" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="append_ok_ind" longname="append success file indication" type="GlEnumType.E_YESORNO" ref="GlDict.A.append_ok_ind" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="ApBatchResultOut" longname="文件批量处理结果输出" dict="false" abstract="false" introduct="false">
+        <element id="success_total_count" longname="success total count" type="GlBaseType.U_LONG" ref="GlDict.A.success_total_count" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="success_total_amt" longname="success total amount" type="BaseType.U_TRANAM" ref="GlDict.A.success_total_amt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="file_handling_status" longname="file deal status" type="GlEnumType.E_FILEDEALSTATUS" ref="GlDict.A.file_handling_status" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="file_name" longname="file name" type="GlBaseType.U_MIDDESC" ref="GlDict.A.file_name" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="file_server_path" longname="file server path" type="GlBaseType.U_SHORTDESC" ref="GlDict.A.file_server_path" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="ApBatchSend" longname="文件发送簿信息" dict="false" abstract="false" introduct="false">
+        <element id="file_id" longname="file id" type="GlBaseType.U_BYTE20" ref="GlDict.A.file_id" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="file_name" longname="file name" type="GlBaseType.U_MIDDESC" ref="GlDict.A.file_name" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="file_server_path" longname="file server path" type="GlBaseType.U_SHORTDESC" ref="GlDict.A.file_server_path" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="file_local_path" longname="file local path" type="GlBaseType.U_SHORTDESC" ref="GlDict.A.file_local_path" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="send_ind" longname="send indication" type="GlEnumType.E_YESORNO" ref="GlDict.A.send_ind" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="append_ok_ind" longname="append success file indication" type="GlEnumType.E_YESORNO" ref="GlDict.A.append_ok_ind" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="hash_value" longname="hash value" type="GlBaseType.U_LONG" ref="GlDict.A.hash_value" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="send_count" longname="file send count" type="GlBaseType.U_LONG" ref="GlDict.A.send_count" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="ApBatchRecv" longname="文件接收薄信息" dict="false" abstract="false" introduct="false">
+        <element id="file_id" longname="file id" type="GlBaseType.U_BYTE20" ref="GlDict.A.file_id" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="file_name" longname="file name" type="GlBaseType.U_MIDDESC" ref="GlDict.A.file_name" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="file_server_path" longname="file server path" type="GlBaseType.U_SHORTDESC" ref="GlDict.A.file_server_path" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="file_local_path" longname="file local path" type="GlBaseType.U_SHORTDESC" ref="GlDict.A.file_local_path" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="receive_ind" longname="receive indication" type="GlEnumType.E_YESORNO" ref="GlDict.A.receive_ind" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="hash_value" longname="hash value" type="GlBaseType.U_LONG" ref="GlDict.A.hash_value" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="recevice_count" longname="file recevice count" type="GlBaseType.U_LONG" ref="GlDict.A.recevice_count" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="ApRemoteFileList" longname="远程文件" dict="false" abstract="false" introduct="false">
+        <element id="file_name" longname="file name" type="GlBaseType.U_MIDDESC" ref="GlDict.A.file_name" required="false" multi="true" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+        <complexType id="ApBatchResultNumber" longname="批量处理结果数" dict="false" abstract="false" introduct="false">
+        <element id="succnm" longname="成功笔数" type="BaseType.U_LONGIN" ref="BaseDict.Comm.succnm" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="failnm" longname="失败笔数" type="BaseType.U_LONGIN" ref="BaseDict.Comm.failnm" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="ApProdAccountingInfo" longname="产品事件解析入账流水信息" dict="false" abstract="false" introduct="false">
+        <element id="trxn_date" longname="交易日期" type="GlBaseType.U_DATE" ref="GlDict.A.trxn_date" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="sys_no" longname="系统编号" type="GlBaseType.U_SYSNO" ref="GlDict.A.sys_no" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trxn_seq" longname="交易流水" type="BaseType.U_SEQUNO" ref="GlDict.A.trxn_seq" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+</schema>

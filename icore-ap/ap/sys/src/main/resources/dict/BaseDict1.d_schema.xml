@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema id="BaseDict1" package="cn.sunline.ltts.busi.sys.dict" longname="公用字典" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <complexType id="Comm1" longname="公共" dict="true" abstract="false" introduct="false">
+        <element id="crcycd" longname="币种" type="BaseType.U_CRCYCD" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="drtram" longname="借方发生额" type="BaseType2.U_TRANAM" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="crtram" longname="贷方发生额" type="BaseType2.U_TRANAM" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+</schema>

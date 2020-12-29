@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<flowtran id="edappl" longname="产品属性规则" kind="2" package="cn.sunline.ltts.busi.aptran.trans" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <interface package="cn.sunline.ltts.busi.aptran.trans.intf">
+        <input packMode="true">
+            <fields id="aprule" required="true" multi="true" longname="产品规则" array="false">
+                <field id="grupcd" type="BaseType.U_CHAR40" required="false" multi="false" array="false" longname="规则分组代码"/>
+                <field id="rulesq" type="BaseType.U_INTEGE" required="false" multi="false" array="false" longname="组内序号"/>
+                <field id="rulecd" type="BaseType.U_CHAR40" required="false" multi="false" array="false" longname="规则编号"/>
+                <field id="contxt" type="BaseType.U_CHAR400" required="false" multi="false" array="false" longname="规则表达式"/>
+                <field id="ruletx" type="BaseType.U_CHAR80" required="false" multi="false" array="false" longname="规则说明"/>
+            </fields>
+            <field id="btchno" type="BaseType.U_CHAR40" required="false" multi="false" array="false" longname="批次号"/>
+            <field id="datatp" type="ApBaseEnumType.E_SHXSZBZ" required="false" multi="false" array="false" longname="数据操作类型"/>
+            <field id="optype" type="ApBaseEnumType.E_JYCHLIBZ" required="false" multi="false" array="false" longname="操作类型"/>
+            <field id="chckus" type="BaseType.U_USERID" required="false" multi="false" array="false" longname="操作柜员"/>
+        </input>
+        <output asParm="true" packMode="false"/>
+        <property packMode="false"/>
+        <printer packMode="true"/>
+    </interface>
+    <flow>
+        <method method="edappl" id="edappl" longname="产品属性规则录入、复核、直通"/>
+    </flow>
+</flowtran>

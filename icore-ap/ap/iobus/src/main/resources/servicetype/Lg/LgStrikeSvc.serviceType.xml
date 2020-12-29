@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType id="LgStrikeSvc" kind="business" longname="保函冲正服务" package="cn.sunline.ltts.busi.iobus.servicetype.lg" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <service id="LgStrikeClsCps" name="LgStrikeClsCps" longname="保函赔付注销冲正">
+        <interface>
+            <input packMode="false">
+                <field id="cmsqno" type="LgBaseType.U_CMSQNO" required="false" multi="false" array="false" longname="出账号" ref="LgDict.INF.cmsqno"/>
+                <field id="lgacno" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="保函编号" ref="LgDict.INF.lgacno"/>
+                <field id="trandt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="交易日期"/>
+                <field id="transq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="交易流水"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="LgStrikeLgOpen" name="LgStrikeLgOpen" longname="保函开立冲正">
+        <interface>
+            <input packMode="false">
+                <field id="cmsqno" type="LgBaseType.U_CMSQNO" required="false" multi="false" array="false" longname="出账号" ref="LgDict.INF.cmsqno"/>
+                <field id="lgacno" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="保函编号" ref="LgDict.INF.lgacno"/>
+                <field id="trandt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="交易日期"/>
+                <field id="transq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="交易流水"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+</serviceType>

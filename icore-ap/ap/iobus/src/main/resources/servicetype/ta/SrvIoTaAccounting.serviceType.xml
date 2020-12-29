@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType id="SrvIoTaAccounting" kind="business" longname="内部户账务" package="cn.sunline.ltts.busi.iobus.servicetype.ta" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <service id="regAccountingEvent" name="regAccountingEvent" longname="会计事件登记">
+        <interface>
+            <input packMode="false">
+                <field id="ioAccountingEventIn" type="ComIoTaAccounting.IoTaAccountingEventIn" required="false" multi="false" array="false" longname="会计事件登记输入"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="checkBalance" name="checkBalance" longname="账务平衡检查">
+        <interface>
+            <input packMode="false"/>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="checkAccouting" name="checkAccouting" longname="内部户记账检查（不含待销账）">
+        <interface>
+            <input packMode="false">
+                <field id="checkAccoutingIn" type="ComIoTaAccounting.IoTaBookAccountingIn" required="false" multi="false" array="false" longname="内部户记账检查"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="checkOut" type="ComIoTaAccounting.IoTaAccountingCheckOut" required="false" multi="false" array="false" longname="记账检查输出"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="checkSuspense" name="checkSuspense" longname="待销账记账检查">
+        <interface>
+            <input packMode="false">
+                <field id="checkSusInfo" type="ComIoTaAccounting.IoTaBookSuspenseIn" required="false" multi="false" array="false" longname="待销账记账输入"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="checkOut" type="ComIoTaAccounting.IoTaAccountingCheckOut" required="false" multi="false" array="false" longname="待销账记账输出"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="analyAccountType" name="analyAccountType" longname="资金记账分析">
+        <interface>
+            <input packMode="false">
+                <field id="ioAccountAnalyIn" type="ComIoTaAccounting.IoTaAccountAnalyIn" required="false" multi="false" array="false" longname="资金记账分析输入"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="ioAccountAnalyOut" type="ComIoTaAccounting.IoTaAccountAnalyOut" required="false" multi="false" array="false" longname="资金记账分析输出"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="bookAccountSet" name="bookAccountSet" longname="账套记账">
+        <interface>
+            <input packMode="false">
+                <field id="bookAccountSetIn" type="ComIoTaAccounting.IoTaBookAccountSetIn" required="false" multi="false" array="false" longname="账套记账输入"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="bookAccountingWithNoCheck" name="bookAccountingWithNoCheck" longname="内部户记账（不包含挂销账）（不含检查）">
+        <interface>
+            <input packMode="false">
+                <field id="bookAccountingIn" type="ComIoTaAccounting.IoTaBookAccountingIn" required="false" multi="false" array="false" longname="内部户记账输入"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="bookAccountingOut" type="ComIoTaAccounting.IoTaBookAccountingOut" required="false" multi="false" array="false" longname="内部户记账输出"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="bookAccountingWithCheck" name="bookAccountingWithCheck" longname="内部户记账（不含挂销账）（含检查）">
+        <interface>
+            <input packMode="false">
+                <field id="bookAccountingIn" type="ComIoTaAccounting.IoTaBookAccountingIn" required="false" multi="false" array="false" longname="内部户记账输入"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="bookAccountingOut" type="ComIoTaAccounting.IoTaBookAccountingOut" required="false" multi="false" array="false" longname="内部户记账检查输出"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="bookSuspenseWithNoCheck" name="bookSuspenseWithNoCheck" longname="挂销账记账（不含检查）">
+        <interface>
+            <input packMode="false">
+                <field id="bookSuspenIn" type="ComIoTaAccounting.IoTaBookSuspenseIn" required="false" multi="false" array="false" longname="挂销账记账输入"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="bookSsuepenseOut" type="ComIoTaAccounting.IoTaBookSuspenseOut" required="false" multi="false" array="false" longname="挂销账记输出"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="bookSuspenseWithCheck" name="bookSuspenseWithCheck" longname="挂销账记账（含检查）">
+        <interface>
+            <input packMode="false">
+                <field id="bookSuspenseIn" type="ComIoTaAccounting.IoTaBookSuspenseIn" required="false" multi="false" array="false" longname="挂销账记账输入"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="bookSuspenseOut" type="ComIoTaAccounting.IoTaBookSuspenseOut" required="false" multi="false" array="false" longname="挂销账记账输出"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="bookAccountList" name="bookAccountList" longname="多记录记账">
+        <interface>
+            <input packMode="false">
+                <field id="accountList" type="ComIoTaAccounting.IoTaAccountListIn" required="false" multi="true" array="false" longname="多记录记账输入"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="getAcctBaseInfo" name="getAcctBaseInfo" longname="根据账号查询账户名称和机构信息">
+        <interface>
+            <input packMode="false">
+                <field id="queryIn" type="ComIoTaAccounting.IoTaGetAcctBaseInfoIn" required="false" multi="false" array="false" longname="查询输入"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="queryOut" type="ComIoTaAccounting.IoTaGetAcctBaseInfoOut" required="false" multi="false" array="false" longname="queryOut"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="regAccure" name="regAccure" longname="登记计提">
+        <interface>
+            <input packMode="false">
+                <field id="input" type="ComIoTaAccounting.IoTaRecordAccure" required="false" multi="false" array="false" longname="登记计提输入"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="regLedgerBal" name="regLedgerBal" longname="登记分户账余额">
+        <interface>
+            <input packMode="false">
+                <field id="input" type="ComIoTaAccounting.IoTaRegLedgerBal" required="false" multi="false" array="false" longname="登记分户账余额输入"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    
+</serviceType>

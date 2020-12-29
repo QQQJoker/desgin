@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema id="KcDict" package="cn.sunline.ltts.busi.sys.dict" longname="合作商定价" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description><![CDATA[合作商定价]]></description>
+    <complexType id="KCM" longname="合作商定价" dict="true" abstract="false" introduct="false">
+        <element id="defncd" longname="合作商号" type="BaseType.U_CHAR10" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="merccd" longname="商户号" type="BaseType.U_CHAR10" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="mercna" longname="商户名称" type="BaseType.U_CHAR100" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="pmercd" longname="上级商户号" type="BaseType.U_CHAR10" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="corefg" longname="是否核心商户" type="BaseEnumType.E_YES___" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="relatp" longname="上下游标志" type="KcEnumType.E_RELATP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="remark" longname="描述" type="BaseType.U_CHAR100" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cmtype" longname="合作商关系类型" type="KcEnumType.E_CMTYPE" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="mercid" longname="标识号" type="BaseType.U_CHAR20" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="merctp" longname="合作类型" type="KcEnumType.E_CMTYPE" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="busicd" longname="业务种类编号" type="KcEnumType.E_BUSICD" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tmplcd" longname="产品定价号" type="BaseType.U_CHAR20" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cminfo" longname="定价信息" type="BaseType.U_LONGDS" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tmplna" longname="定价模版名称" type="BaseType.U_CHAR50" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tmpltp" longname="模板分类" type="KcEnumType.E_TMPLTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="datetm" longname="时间戳" type="dateTime" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="propcd" longname="属性key" type="BaseType.U_CHAR20" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="propna" longname="属性描述" type="BaseType.U_CHAR100" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="proptp" longname="属性类型" type="KcEnumType.E_PROPTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="sortno" longname="顺序号" type="BaseType.U_LONGIN" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="proptb" longname="属性表" type="BaseType.U_CHAR20" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="propcl" longname="属性字段" type="BaseType.U_CHAR20" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="propvw" longname="查询页面" type="BaseType.U_CHAR100" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="propmt" longname="维护页面" type="BaseType.U_CHAR100" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="actvcd" longname="活动号" type="BaseType.U_CHAR100" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="actvna" longname="活动名称" type="BaseType.U_CHAR100" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="statdt" longname="开始日期" type="BaseType.U_DATE08" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="endxdt" longname="结束日期" type="BaseType.U_DATE08" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="maxxam" longname="最大金额" type="BaseType.U_TRANAM" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="minxam" longname="最小金额" type="BaseType.U_TRANAM" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="isvald" longname="是否有效" type="BaseEnumType.E_YES___" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="suittp" longname="适用类型" type="KcEnumType.E_SUITTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="suitno" longname="适用号" type="BaseType.U_CHAR100" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+</schema>

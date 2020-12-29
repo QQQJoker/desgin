@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema id="GlEnumType" package="cn.sunline.ltts.busi.sys.type" longname="基础限制类型" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description><![CDATA[总账系统用基础数据类型]]></description>
+    <restrictionType id="E_TABLETYPE" longname="数据库表分类" base="string" maxLength="1">
+        <enumeration id="PARAMETER" value="P" longname="参数表"/>
+        <enumeration id="BUSINESS" value="B" longname="业务表"/>
+    </restrictionType>
+    <restrictionType id="E_ENCTYPE" longname="加密类型" base="string" maxLength="20">
+        <enumeration id="DES" value="DES" longname="DES加密"/>
+        <enumeration id="TRIPDES" value="TRIPDES" longname="3DES加密"/>
+        <enumeration id="AES" value="AES" longname="AES加密"/>
+    </restrictionType>
+    <restrictionType id="E_YESORNO" longname="是否" base="string" maxLength="1">
+        <enumeration id="YES" value="Y" longname="是"/>
+        <enumeration id="NO" value="N" longname="否"/>
+    </restrictionType>
+    <restrictionType id="E_TRXNTYPE" longname="交易类型" base="string" maxLength="1">
+        <enumeration id="QUERY" value="Q" longname="查询交易"/>
+        <enumeration id="FINANCIAL" value="F" longname="金融交易"/>
+        <enumeration id="MAINTAIN" value="M" longname="非金融交易"/>
+        <enumeration id="PARAMETER" value="P" longname="参数维护交易"/>
+    </restrictionType>
+    <restrictionType id="E_SEQBUILDCLASS" longname="流水组建类别" base="string" maxLength="1">
+        <enumeration id="RECOGNITION" value="A" longname="序号识别段"/>
+        <enumeration id="SEQUENCE" value="B" longname="序号"/>
+        <enumeration id="CHECKBIT" value="C" longname="校验位"/>
+    </restrictionType>
+    <restrictionType id="E_PADDINGMODE" longname="补位方式" base="string" maxLength="1">
+        <enumeration id="LEFT" value="L" longname="左补位"/>
+        <enumeration id="RIGHT" value="R" longname="右补位"/>
+    </restrictionType>
+    <restrictionType id="E_DATAOPERATE" longname="数据操作类型" base="string" maxLength="1">
+        <enumeration id="ADD" value="A" longname="新增"/>
+        <enumeration id="MODIFY" value="M" longname="修改"/>
+        <enumeration id="DELETE" value="D" longname="删除"/>
+    </restrictionType>
+    <restrictionType id="E_DEBITCREDIT" longname="借贷方向" base="string" maxLength="1">
+        <enumeration id="DEBIT" value="D" longname="借方"/>
+        <enumeration id="CREDIT" value="C" longname="贷方"/>
+        <enumeration id="RV" value="R" longname="收"/>
+        <enumeration id="PY" value="P" longname="付"/>
+    </restrictionType>
+    <restrictionType id="E_TRXNSTATUS" longname="交易状态" base="string" maxLength="1">
+        <enumeration id="NORMAL" value="N" longname="正常"/>
+        <enumeration id="REVERSED" value="R" longname="已冲正"/>
+    </restrictionType>
+    <restrictionType id="E_HOLIDAYCLASS" longname="假日分类" base="string" maxLength="1">
+        <enumeration id="PERSONAL" value="1" longname="个人"/>
+        <enumeration id="CORPORATE" value="2" longname="公司"/>
+        <enumeration id="NONE" value="N" longname="不区分"/>
+    </restrictionType>
+    <restrictionType id="E_CUSTOMERTYPE" longname="客户类型" base="string" maxLength="1">
+        <enumeration id="PERSONAL" value="1" longname="个人"/>
+        <enumeration id="CORPORATE" value="2" longname="公司"/>
+        <enumeration id="FI" value="3" longname="同业"/>
+    </restrictionType>
+    <restrictionType id="E_CHECKBITTYPE" longname="校验位类型" base="string" maxLength="2">
+        <enumeration id="CHNIDCARD18" value="01" longname="中国居民身份证(18位)"/>
+    </restrictionType>
+    <restrictionType id="E_OWNERLEVEL" longname="属主层级" base="string" maxLength="4">
+        <enumeration id="CUSTOMER" value="CUST" longname="客户"/>
+        <enumeration id="CARD" value="CARD" longname="卡"/>
+        <enumeration id="ACCOUNT" value="ACCT" longname="账户"/>
+        <enumeration id="SUB_ACCTOUNT" value="SBAC" longname="子账户"/>
+    </restrictionType>
+    <restrictionType id="E_LIMITCTRLCLASS" longname="限额控制分类" base="string" maxLength="1">
+        <enumeration id="SINGLE_AMOUNT" value="A" longname="单次金额"/>
+        <enumeration id="CUMULATIVE_AMOUNT" value="B" longname="累计金额"/>
+        <enumeration id="CUMULATIVE_NUMBER" value="C" longname="累计次数"/>
+    </restrictionType>
+    <restrictionType id="E_CYCLETYPE" longname="周期类型" base="string" maxLength="1">
+        <enumeration id="DAY" value="D" longname="日"/>
+        <enumeration id="WEEK" value="W" longname="周"/>
+        <enumeration id="MONTH" value="M" longname="月"/>
+        <enumeration id="QUARTER" value="Q" longname="季"/>
+        <enumeration id="HALF_YEAR" value="H" longname="半年"/>
+        <enumeration id="YEAR" value="Y" longname="年"/>
+    </restrictionType>
+    <restrictionType id="E_OPERATOR" longname="数据匹配运算符" base="string" maxLength="4">
+        <enumeration id="EQUAL" value="EQ" longname="相等"/>
+        <enumeration id="NO_EQUAL" value="NE" longname="不相等"/>
+        <enumeration id="IN" value="IN" longname="包含"/>
+        <enumeration id="NO_IN" value="NI" longname="不包含"/>
+        <enumeration id="GREATER_THAN" value="GT" longname="大于"/>
+        <enumeration id="LESS_THAN" value="LT" longname="小于"/>
+        <enumeration id="GREATER_THAN_OR_EQUAL" value="GTEQ" longname="大于等于"/>
+        <enumeration id="LESS_THAN_OR_EQUAL" value="LTEQ" longname="小于等于"/>
+        <enumeration id="REQULAR_EXPRESSION" value="EXP" longname="正则表达式"/>
+    </restrictionType>
+    <restrictionType id="E_REVERSALYPE" longname="冲正类型" base="string" maxLength="1">
+        <enumeration id="BUSINESS" value="B" longname="业务型冲正"/>
+        <enumeration id="TECHNOLOGY" value="T" longname="技术型冲正"/>
+    </restrictionType>
+    <restrictionType id="E_BRCHSCOPE" longname="机构关系涉及范围" base="string" maxLength="1">
+        <enumeration id="ENTITY" value="R" longname="实体"/>
+        <enumeration id="VIRTUAL" value="V" longname="虚拟"/>
+        <enumeration id="ALL" value="B" longname="全部"/>
+    </restrictionType>
+    <restrictionType id="E_REVERSAL_RESULT" longname="冲账结果" base="string" maxLength="1">
+        <enumeration id="REVERSE_SUCC" value="10" longname="冲账成功"/>
+        <enumeration id="REVERSAL_SUCC" value="20" longname="冲正成功"/>
+        <enumeration id="REVERSED" value="21" longname="原交易已冲账"/>
+        <enumeration id="NOTEXIST" value="22" longname="原交易不存在"/>
+        <enumeration id="EXCEPTION" value="23" longname="业务异常"/>
+    </restrictionType>
+    <restrictionType id="E_ACCTROUTETYPE" longname="账号路由分类" base="string" maxLength="1">
+        <enumeration id="CARD" value="A" longname="卡"/>
+        <enumeration id="DEPOSIT" value="B" longname="存款账号"/>
+        <enumeration id="NOSTRO" value="C" longname="存放同业账号"/>
+        <enumeration id="INSIDE" value="D" longname="内部账号"/>
+        <enumeration id="SUSPENSE" value="E" longname="挂销账号"/>
+        <enumeration id="NONE" value="*" longname="未知"/>
+    </restrictionType>
+    <restrictionType id="E_DIRPARMTYPE" longname="目录参数类型" base="string" maxLength="1">
+        <enumeration id="RUNENV" value="1" longname="公共变量"/>
+        <enumeration id="FIXED" value="2" longname="固定值"/>
+    </restrictionType>
+    <restrictionType id="E_ADDSUBTRACT" longname="增加减少" base="string" maxLength="1">
+        <enumeration id="ADD" value="A" longname="增加"/>
+        <enumeration id="SUBTRACT" value="B" longname="减少"/>
+    </restrictionType>
+    <restrictionType id="E_TRXNSEQMODE" longname="交易流水提供模式" base="string" maxLength="1">
+        <enumeration id="INTERFACE" value="A" longname="接口提供"/>
+        <enumeration id="AUTO" value="B" longname="自动产生"/>
+    </restrictionType>
+    <restrictionType id="E_FILEDEALSTATUS" longname="文件处理状态" base="string" maxLength="1" minLength="0">
+        <enumeration id="UNCHECK" value="A" longname="待校验"/>
+        <enumeration id="CHECKED" value="B" longname="已校验"/>
+        <enumeration id="SUCCESS" value="C" longname="已处理"/>
+        <enumeration id="FAILCHECK_OTHER" value="Q" longname="校验失败-其他异常"/>
+        <enumeration id="FAILCHECK_INSERT" value="X" longname="校验失败-导入明细表异常"/>
+        <enumeration id="FAILCHECK_FORMAT" value="Y" longname="校验失败-格式有误"/>
+        <enumeration id="FAILCHECK_UNEQUAL" value="Z" longname="校验失败-头体不符"/>
+    </restrictionType>
+    <restrictionType id="E_BATCHTYPE" longname="文件批量类型" base="string" maxLength="1">
+        <enumeration id="TRANBYONE" value="A" longname="一对一转账"/>
+        <enumeration id="FROZETYPE" value="B" longname="冻结解冻"/>
+        <enumeration id="ACCOUNTINGEVENT_WRITE" value="C" longname="会计事件写文件"/>
+        <enumeration id="ACCOUNTINGEVENT_DOWN" value="D" longname="会计事件入库"/>
+        <enumeration id="ACCRUE_WRITE" value="E" longname="存贷款计提数据写文件"/>
+        <enumeration id="ACCRUE_DOWN" value="F" longname="存贷款计提数据入库"/>
+        <enumeration id="LEDGER_WRITE" value="G" longname="分户账余额写文件"/>
+        <enumeration id="LEDGER_DOWN" value="H" longname="分户账余额入库"/>
+        <enumeration id="CHECK_WRITE" value="I" longname="对账文件写文件"/>
+        <enumeration id="CHECK_DOWN" value="J" longname="对账文件入库"/>
+        <enumeration id="PRODUCT_EVENT_WRITE" value="K" longname="产品事件写文件"/>
+        <enumeration id="PRODUCT_EVENT_DOWN" value="L" longname="产品事件入库"/>
+        <enumeration id="SCENE_EVENT_WRITE" value="M" longname="场景事件写文件"/>
+        <enumeration id="SCENE_EVENT_DOWN" value="N" longname="场景事件入库"/>
+        <enumeration id="LN_LEDGER_WRITE" value="O" longname="贷款分户账余额写文件"/>
+        <enumeration id="LN_LEDGER_DOWN" value="P" longname="贷款分户账余额入库"/>
+        <enumeration id="LN_CHECK_WRITE" value="Q" longname="贷款对账文件写文件"/>
+        <enumeration id="LN_CHECK_DOWN" value="R" longname="贷款对账文件入库"/>
+    </restrictionType>
+    <restrictionType id="E_FOREXQUOTTYPE" longname="牌价种类" base="string" maxLength="1">
+        <enumeration id="BUYSELL" value="B" longname="买卖价"/>
+        <enumeration id="MIDDLE" value="M" longname="中间价"/>
+    </restrictionType>
+    <restrictionType id="E_RULETYPE" longname="规则类型" base="string" maxLength="1">
+        <enumeration id="SIMPLE" value="A" longname="简单规则"/>
+        <enumeration id="SCENE" value="B" longname="场景规则"/>
+    </restrictionType>
+    <restrictionType id="E_CASHEXCHPRICE" longname="钞汇价标志" base="string" maxLength="1">
+        <enumeration id="CASH" value="C" longname="现钞价"/>
+        <enumeration id="EXCHANGE" value="E" longname="现汇价"/>
+    </restrictionType>
+    <restrictionType id="E_FILEPROCTYPE" longname="文件处理类别" base="string" maxLength="1">
+        <enumeration id="RECV_REQUEST" value="A" longname="接受请求"/>
+        <enumeration id="SEND_DATA" value="B" longname="外发数据"/>
+    </restrictionType>
+    <restrictionType id="E_FILERECVWAY" longname="文件接受方式" base="string" maxLength="1">
+        <enumeration id="ONLINE_INTERFACE" value="1" longname="联机接口"/>
+        <enumeration id="APPOINT_DIURECTORY" value="2" longname="约定目录"/>
+    </restrictionType>
+    <restrictionType id="E_MAINTENANCEFLAG" longname="维护标识" base="string" maxLength="1">
+        <enumeration id="INV" value="0" longname="不变"/>
+        <enumeration id="ADD" value="1" longname="新增"/>
+        <enumeration id="UPD" value="2" longname="更新"/>
+        <enumeration id="DEL" value="3" longname="删除"/>
+    </restrictionType>
+    <restrictionType id="E_REPORTTYPE" longname="report type" base="string" maxLength="1">
+        <enumeration id="BUSI_REPORT" value="1" longname="report report"/>
+        <enumeration id="AUDIT_REPORT" value="2" longname="audit report"/>
+        <enumeration id="MERGE_REPORT" value="3" longname="merge report"/>
+        <enumeration id="TRIAL_REPORT" value="4" longname="trial report"/>
+        <enumeration id="REAL_TIME_REPORT" value="5" longname="real-time report"/>
+    </restrictionType>
+    <restrictionType id="E_REPORTFILETYPE" longname="report file type" base="GlBaseType.U_BYTE5" tags="AC">
+        <enumeration id="HTML" value="html" longname="html type"/>
+        <enumeration id="PDF" value="pdf" longname="pdf type"/>
+        <enumeration id="XML" value="xml" longname="xml type"/>
+        <enumeration id="TXT" value="txt" longname="txt type"/>
+        <enumeration id="EXCEL" value="excel" longname="excel type"/>
+        <enumeration id="RTF" value="rtf" longname="rtf type"/>
+        <enumeration id="DOCX" value="docx" longname="docx type"/>
+    </restrictionType>
+    <restrictionType id="E_REBUWA" longname="红蓝字" base="BaseType.U_CHAR01">
+        <enumeration id="N" value="0" longname="正常"/>
+        <enumeration id="R" value="1" longname="红字"/>
+        <enumeration id="B" value="2" longname="蓝字"/>
+    </restrictionType>
+    <restrictionType id="E_MERGETYPE" longname="并账文件类型" base="string" maxLength="2">
+        <enumeration id="OKFILE" value="01" longname="标志文件"/>
+        <enumeration id="OCCUR" value="02" longname="发生额文件"/>
+    </restrictionType>
+    <restrictionType id="E_FILEPROTOCOL" longname="文件传输协议" base="string" maxLength="10">
+        <enumeration id="LOCAL" value="local" longname="共享文件目录"/>
+        <enumeration id="FTP" value="ftp" longname="ftp文件服务器"/>
+        <enumeration id="SFTP" value="sftp" longname="sftp文件服务器"/>
+    </restrictionType>
+    <restrictionType id="E_ACCOUNT_STATUS" longname="贷款账户状态" base="BaseType.U_CHAR02">
+        <enumeration id="NORMAL" value="01" longname="正常"/>
+        <enumeration id="CLOACC" value="02" longname="本金逾期90天"/>
+        <enumeration id="VERCANED" value="03" longname="利息逾期90天"/>
+    </restrictionType>
+    <restrictionType id="E_RED_REVERSE_FLAG" longname="红字标识" base="BaseType.U_CHAR01">
+        <enumeration id="YES" value="Y" longname="是"/>
+        <enumeration id="NO" value="N" longname="否"/>
+    </restrictionType>
+    <restrictionType id="E_ACCRUAL_FLAG" longname="应计非应计状态" base="BaseType.U_CHAR01">
+        <enumeration id="YJ" value="0" longname="应计"/>
+        <enumeration id="FYJ" value="1" longname="非应计"/>
+    </restrictionType>
+    <restrictionType id="E_DEAL_STATUS" longname="应计非应计状态" base="BaseType.U_CHAR01">
+        <enumeration id="TODO" value="3" longname="待处理未通知"/>
+        <enumeration id="SUCCESS" value="1" longname="已处理"/>
+        <enumeration id="FAIL" value="0" longname="处理失败"/>
+        <enumeration id="DONOT" value="4" longname="不处理"/>
+    </restrictionType>
+    <restrictionType id="E_AMOUNT_DIRECTION_SIGN" longname="金额方向标志" base="BaseType.U_CHAR01">
+        <enumeration id="POSITIVE" value="P" longname="正数"/>
+        <enumeration id="NEGATIVE" value="N" longname="负数"/>
+        <enumeration id="ORIGINAL" value="O" longname="原始"/>
+    </restrictionType>
+</schema>

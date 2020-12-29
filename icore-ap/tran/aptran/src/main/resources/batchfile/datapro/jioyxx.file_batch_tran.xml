@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<file_batch_transaction id="jioyxx" longname="交易信息表数仓抽数" kind="write" package="cn.sunline.ltts.busi.aptran.batchfile.datapro" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <fileTemplate id="jioyxx" longname="交易信息表数仓抽数" mode="fixAndSplitor" splitor="&amp;" splitorAsEnd="true" encoding="GBK">
+        <header id="Header" longname="文件头" startline="1"/>
+        <body id="Body" longname="文件体" mapping="java.util.Map" mode="fixAndSplitor" splitor="&amp;" startline="1">
+            <field id="prcscd" type="BaseType.U_PRCSCD" longname="交易码" length="60" leftPadding="false" padding=" " ref="BaseDict.Comm.prcscd"/>
+            <field id="tranna" type="BaseType.U_SHORDS" longname="交易名称" length="400" leftPadding="false" padding=" " ref="BaseDict.Comm.tranna"/>
+            <field id="trantp" type="ApBaseEnumType.E_TRANTP" longname="交易类型" length="2" leftPadding="false" padding=" " ref="BaseDict.Comm.trantp"/>
+            <field id="vermac" type="BaseEnumType.E_YES___" longname="验MAC标志" length="2" leftPadding="false" padding=" " ref="BaseDict.Comm.vermac"/>
+            <field id="verpin" type="BaseEnumType.E_YES___" longname="验PIN标志" length="2" leftPadding="false" padding=" " ref="BaseDict.Comm.verpin"/>
+            <field id="sacotg" type="BaseEnumType.E_YES___" longname="当日抹账允许标志" length="2" leftPadding="false" padding=" " ref="BaseDict.Comm.sacotg"/>
+            <field id="necotg" type="BaseEnumType.E_YES___" longname="隔日抹账允许标志" length="2" leftPadding="false" padding=" " ref="BaseDict.Comm.necotg"/>
+            <field id="inprcd" type="BaseType.U_PRCSCD" longname="内部处理码" length="60" leftPadding="false" padding=" " ref="BaseDict.Comm.inprcd"/>
+            <field id="meunas" type="BaseType.U_CHAR10" longname="菜单归属" length="20" leftPadding="false" padding=" " ref="BaseDict.Comm.meunas"/>
+            <field id="allofg" type="BaseEnumType.E_YES___" longname="是否允许执行" length="2" leftPadding="false" padding=" " ref="BaseDict.Comm.allofg"/>
+            <field id="resqfg" type="BaseEnumType.E_YES___" longname="是否登记包流水日志" length="2" leftPadding="false" padding=" " ref="BaseDict.Comm.resqfg"/>
+            <field id="overtm" type="BaseType.U_DATELG" longname="超时时间" length="19" leftPadding="false" padding=" " ref="BaseDict.Comm.overtm"/>
+            <field id="loglev" type="BaseType.U_CHAR08" longname="日志级别" length="16" leftPadding="false" padding=" " ref="BaseDict.Comm.loglev"/>
+            <field id="thspty" type="ApBaseEnumType.E_THSPTY" longname="事务传播方式" length="64" leftPadding="false" padding=" " ref="BaseDict.Comm.thspty"/>
+            <field id="enrefg" type="BaseEnumType.E_YES___" longname="是否启用路由" length="2" leftPadding="false" padding=" " ref="BaseDict.Comm.enrefg"/>
+        </body>
+        <foot id="Foot" longname="文件尾" startline="1"/>
+    </fileTemplate>
+    <interface package="cn.sunline.ltts.busi.aptran.batchfile.datapro.intf">
+        <input packMode="true">
+            <field id="filesq" type="BaseType.U_CHAR40" required="false" multi="false" array="false" longname="批量交易批次号"/>
+            <field id="acctdt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="交易日期"/>
+            <field id="busseq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="业务流水"/>
+        </input>
+        <output asParm="true" packMode="false"/>
+        <property packMode="true"/>
+        <printer packMode="false"/>
+    </interface>
+</file_batch_transaction>

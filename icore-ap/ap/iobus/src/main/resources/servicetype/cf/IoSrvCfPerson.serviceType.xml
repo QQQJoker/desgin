@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="IoSrvCfPerson" kind="business" longname="个人客户对外服务定义" package="cn.sunline.ltts.busi.iobus.servicetype.cf" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <service id="IoSaveCifCust" name="saveCifCust" longname="新增个人客户">
+        <interface>
+            <input packMode="true">
+                <field id="custno" type="BaseType.U_CUSTNO" required="false" multi="false" array="false" longname="客户号" ref="BaseDict.Comm.custno"/>
+                <field id="custna" type="BaseType.U_ACCTNA" required="false" multi="false" array="false" longname="客户名称" ref="BaseDict.Comm.custna"/>
+                <field id="idtftp" type="BaseEnumType.E_IDTFTP" required="false" multi="false" array="false" longname="证件类型" ref="BaseDict.Comm.idtftp"/>
+                <field id="idtfno" type="BaseType.U_IDTFNO" required="false" multi="false" array="false" longname="证件号" ref="BaseDict.Comm.idtfno"/>
+                <field id="teleno" type="BaseType.U_TELENO" required="false" multi="false" array="false" longname="电话号码" ref="BaseDict.Comm.teleno"/>
+                <field id="brchno" type="BaseType.U_BRCHNO" required="false" multi="false" array="false" longname="机构号" ref="BaseDict.Comm.brchno"/>
+                <field id="custid" type="BaseType.U_CUSTID" required="false" multi="false" array="false" longname="用户ID" ref="BaseDict.Comm.custid"/>
+                <field id="emails" type="BaseType.U_CHAR200" required="false" multi="false" array="false" longname="邮箱"/>
+                <field id="postcd" type="BaseType.U_CHAR10" required="false" multi="false" array="false" longname="邮编"/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="custno" type="BaseType.U_CUSTNO" required="false" multi="false" array="false" longname="客户号" ref="BaseDict.Comm.custno"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="IoGetCifCust" name="getCifCust" longname="获取个人客户信息">
+        <description><![CDATA[输入客户号或证件类型+证件号]]></description>
+        <interface>
+            <input packMode="true">
+                <field id="custno" type="BaseType.U_CUSTNO" required="false" multi="false" array="false" longname="客户号" ref="BaseDict.Comm.custno"/>
+                <field id="idtftp" type="BaseEnumType.E_IDTFTP" required="false" multi="false" array="false" longname="证件类型" ref="BaseDict.Comm.idtftp"/>
+                <field id="idtfno" type="BaseType.U_IDTFNO" required="false" multi="false" array="false" longname="证件号" ref="BaseDict.Comm.idtfno"/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="custno" type="BaseType.U_CUSTNO" required="false" multi="false" array="false" longname="客户号" ref="BaseDict.Comm.custno"/>
+                <field id="custna" type="BaseType.U_ACCTNA" required="false" multi="false" array="false" longname="客户名称" ref="BaseDict.Comm.custna"/>
+                <field id="idtftp" type="BaseEnumType.E_IDTFTP" required="false" multi="false" array="false" longname="证件类型" ref="BaseDict.Comm.idtftp"/>
+                <field id="idtfno" type="BaseType.U_IDTFNO" required="false" multi="false" array="false" longname="证件号" ref="BaseDict.Comm.idtfno"/>
+                <field id="birthd" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="出生日期"/>
+                <field id="sextyp" type="BaseEnumType.E_SEXTYP" required="false" multi="false" array="false" longname="性别"/>
+                <field id="addrcd" type="BaseType.U_CHAR06" required="false" multi="false" array="false" longname="所在行政区代码"/>
+                <field id="teleno" type="BaseType.U_TELENO" required="false" multi="false" array="false" longname="电话号码" ref="BaseDict.Comm.teleno"/>
+                <field id="emails" type="BaseType.U_CHAR200" required="false" multi="false" array="false" longname="邮箱"/>
+                <field id="postcd" type="BaseType.U_CHAR10" required="false" multi="false" array="false" longname="邮编"/>
+                <field id="addres" type="BaseType.U_CHAR400" required="false" multi="false" array="false" longname="地址"/>
+                <field id="brchno" type="BaseType.U_BRCHNO" required="false" multi="false" array="false" longname="机构号" ref="BaseDict.Comm.brchno"/>
+                <field id="opendt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="开户日期"/>
+                <field id="opensq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="开户流水"/>
+                <field id="closdt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="销户日期"/>
+                <field id="clossq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="销户流水"/>
+                <field id="custst" type="BaseEnumType.E_ACCTST" required="false" multi="false" array="false" longname="客户状态"/>
+                <field id="timetm" type="ApBaseType.U_TMSTMP" required="false" multi="false" array="false" longname="时间戳" ref="ApDict.Aplt.timetm"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="IoUpdateCifCust" name="updateCifCust" longname="修改客户信息">
+        <description><![CDATA[根据客户号或证件类型+证件号修改客户信息]]></description>
+        <interface>
+            <input packMode="true">
+                <field id="custno" type="BaseType.U_CUSTNO" required="false" multi="false" array="false" longname="客户号" ref="BaseDict.Comm.custno"/>
+                <field id="custna" type="BaseType.U_ACCTNA" required="false" multi="false" array="false" longname="客户名称" ref="BaseDict.Comm.custna"/>
+                <field id="idtftp" type="BaseEnumType.E_IDTFTP" required="false" multi="false" array="false" longname="证件类型" ref="BaseDict.Comm.idtftp"/>
+                <field id="idtfno" type="BaseType.U_IDTFNO" required="false" multi="false" array="false" longname="证件号" ref="BaseDict.Comm.idtfno"/>
+                <field id="birthd" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="出生日期"/>
+                <field id="sextyp" type="BaseEnumType.E_SEXTYP" required="false" multi="false" array="false" longname="性别"/>
+                <field id="addrcd" type="BaseType.U_CHAR06" required="false" multi="false" array="false" longname="所在行政区代码"/>
+                <field id="teleno" type="BaseType.U_TELENO" required="false" multi="false" array="false" longname="电话号码" ref="BaseDict.Comm.teleno"/>
+                <field id="emails" type="BaseType.U_CHAR200" required="false" multi="false" array="false" longname="邮箱"/>
+                <field id="postcd" type="BaseType.U_CHAR10" required="false" multi="false" array="false" longname="邮编"/>
+                <field id="addres" type="BaseType.U_CHAR400" required="false" multi="false" array="false" longname="地址"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="IoUpdateCifCustAudit" name="updateCifCustAudit" longname="修改客户信息带有审计">
+        <description><![CDATA[根据客户号或证件类型+证件号修改客户信息]]></description>
+        <interface>
+            <input packMode="true">
+                <field id="custno" type="BaseType.U_CUSTNO" required="false" multi="false" array="false" longname="客户号" ref="BaseDict.Comm.custno"/>
+                <field id="custna" type="BaseType.U_ACCTNA" required="false" multi="false" array="false" longname="客户名称" ref="BaseDict.Comm.custna"/>
+                <field id="idtftp" type="BaseEnumType.E_IDTFTP" required="false" multi="false" array="false" longname="证件类型" ref="BaseDict.Comm.idtftp"/>
+                <field id="idtfno" type="BaseType.U_IDTFNO" required="false" multi="false" array="false" longname="证件号" ref="BaseDict.Comm.idtfno"/>
+                <field id="birthd" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="出生日期"/>
+                <field id="sextyp" type="BaseEnumType.E_SEXTYP" required="false" multi="false" array="false" longname="性别"/>
+                <field id="addrcd" type="BaseType.U_CHAR06" required="false" multi="false" array="false" longname="所在行政区代码"/>
+                <field id="teleno" type="BaseType.U_TELENO" required="false" multi="false" array="false" longname="电话号码" ref="BaseDict.Comm.teleno"/>
+                <field id="emails" type="BaseType.U_CHAR200" required="false" multi="false" array="false" longname="邮箱"/>
+                <field id="postcd" type="BaseType.U_CHAR10" required="false" multi="false" array="false" longname="邮编"/>
+                <field id="addres" type="BaseType.U_CHAR400" required="false" multi="false" array="false" longname="地址"/>
+                <field id="agisln" type="BaseEnumType.E_YES___" required="false" multi="false" array="false" longname="证件是否长期有效"/>
+                <field id="agstdt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="证件生效日期"/>
+                <field id="agendt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="证件失效日期"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="IoExistsCifCust" name="existsCifCust" longname="检查个人客户信息是否存在">
+        <interface>
+            <input packMode="true">
+                <field id="custno" type="BaseType.U_CUSTNO" required="false" multi="false" array="false" longname="客户号" ref="BaseDict.Comm.custno"/>
+                <field id="idtftp" type="BaseEnumType.E_IDTFTP" required="false" multi="false" array="false" longname="证件类型" ref="BaseDict.Comm.idtftp"/>
+                <field id="idtfno" type="BaseType.U_IDTFNO" required="false" multi="false" array="false" longname="证件号" ref="BaseDict.Comm.idtfno"/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="existflag" type="boolean" required="false" multi="false" array="false" longname="存在标志"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="IoGetRemotePersonIdinfo" name="getRemotePersonIdinfo" longname="获取个人客户证件信息">
+        <interface>
+            <input packMode="false">
+                <field id="cardno" type="BaseType.U_CARDNO" required="false" multi="false" array="false" longname="交易卡号" ref="BaseDict.Comm.cardno"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="cifCust" type="IoCfPerson.CifCust" required="false" multi="false" array="false" longname="个人客户信息"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="IoGetLocalPersonIdinfo" name="getLocalPersonIdinfo" longname="获取个人客户证件信息(本地)">
+        <interface>
+            <input packMode="false">
+                <field id="cardno" type="BaseType.U_CARDNO" required="false" multi="false" array="false" longname="交易卡号" ref="BaseDict.Comm.cardno"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="cifCust" type="IoCfPerson.CifCust" required="false" multi="false" array="false" longname="个人客户信息"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+</serviceType>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType id="IoInAccount" kind="business" longname="内部户记账相关服务" package="cn.sunline.ltts.busi.iobus.servicetype.in" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description><![CDATA[记账检查
+记账处理
+财务平衡（检查会计流水登记簿）]]></description>
+    <service id="IoInAcdr" name="ioInAcdr" longname="内部户借方服务定义">
+        <interface>
+            <input packMode="false">
+                <field id="input" type="InacTransComplex.IaAcdrInfo" required="false" multi="false" array="false" longname="交易输入参数"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="output" alias="输出参数" type="InacTransComplex.IaTransOutPro" required="false" multi="false" array="false" longname="输出参数"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoInAccr" name="ioInAccr" longname="内部户贷方服务定义">
+        <interface>
+            <input packMode="false">
+                <field id="input" type="InacTransComplex.IaAcdrInfo" required="false" multi="false" array="false" longname="交易输入参数"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="output" alias="输出参数" type="InacTransComplex.IaTransOutPro" required="false" multi="false" array="false" longname="输出参数"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoInAcrv" name="ioInAcrv" longname="内部户收方服务定义">
+        <interface>
+            <input packMode="false">
+                <field id="input" type="InacTransComplex.IaAcdrInfo" required="false" multi="false" array="false" longname="交易输入参数"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="output" alias="输出参数" type="InacTransComplex.IaTransOutPro" required="false" multi="false" array="false" longname="输出参数"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoInAcpv" name="ioInAcpv" longname="内部户付方服务定义">
+        <interface>
+            <input packMode="false">
+                <field id="input" type="InacTransComplex.IaAcdrInfo" required="false" multi="false" array="false" longname="交易输入参数"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="output" alias="输出参数" type="InacTransComplex.IaTransOutPro" required="false" multi="false" array="false" longname="输出参数"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoInAccrAdm" name="IoInAccrAdm" longname="内部户贷方服务定义（外调）">
+        <interface>
+            <input packMode="false">
+                <field id="input" type="InacTransComplex.IaAcdrInfo" required="false" multi="false" array="false" longname="交易输入参数"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="output" alias="输出参数" type="InacTransComplex.IaTransOutPro" required="false" multi="false" array="false" longname="输出参数"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoInAcdrAdm" name="IoInAcdrAdm" longname="内部户借方服务定义（外调）">
+        <interface>
+            <input packMode="false">
+                <field id="input" type="InacTransComplex.IaAcdrInfo" required="false" multi="false" array="false" longname="交易输入参数"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="output" alias="输出参数" type="InacTransComplex.IaTransOutPro" required="false" multi="false" array="false" longname="输出参数"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoInAcrvAdm" name="ioInAcrvAdm" longname="内部户收方服务定义(外调)">
+        <interface>
+            <input packMode="false">
+                <field id="input" type="InacTransComplex.IaAcdrInfo" required="false" multi="false" array="false" longname="交易输入参数"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="output" alias="输出参数" type="InacTransComplex.IaTransOutPro" required="false" multi="false" array="false" longname="输出参数"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoInAcpvAdm" name="ioInAcpvAdm" longname="内部户付方服务定义(外调)">
+        <interface>
+            <input packMode="false">
+                <field id="input" type="InacTransComplex.IaAcdrInfo" required="false" multi="false" array="false" longname="交易输入参数"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="output" alias="输出参数" type="InacTransComplex.IaTransOutPro" required="false" multi="false" array="false" longname="输出参数"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+</serviceType>

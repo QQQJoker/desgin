@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType id="IoCmqServType" kind="business" longname="cmq消息服务" package="cn.sunline.ltts.busi.iobus.servicetype.od" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <service id="userDefi" name="userDefi" longname="用户自定义实现">
+        <interface>
+            <input packMode="false">
+                <field id="ordrno" type="OdBaseType.U_ORDRNO" required="false" multi="false" array="false" longname="订单编号" ref="OdDict.Order.ordrno"/>
+                <field id="purcid" type="OdBaseType.U_CUSTID" required="false" multi="false" array="false" longname="购买人ID" ref="OdDict.Order.purcid"/>
+            </input>
+            <output asParm="true" packMode="true"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+</serviceType>

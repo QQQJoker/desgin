@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="IoCdQryTableSvcType" kind="business" longname="查询对公账户表对外服务" package="cn.sunline.ltts.busi.iobus.servicetype.cd" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <service id="kna_corp_cust_selectOne_odb1" name="kna_corp_cust_selectOne" longname="根据电子账号查对公账户信息">
+        <interface>
+            <input packMode="false">
+                <field id="custac" type="BaseType.U_CUSTAC" required="false" multi="false" array="false" longname="电子账号"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="cplCorpCust" type="CdTablesType.IoCdKnaCorpCust" required="false" multi="false" array="false" longname="对公账户信息"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="kna_corp_cust_selectOne_odb3" name="kna_corp_cust_selectOne_odb3" longname="根据客户号查对公账户信息">
+        <interface>
+            <input packMode="false">
+                <field id="custno" type="BaseType.U_CUSTNO" required="false" multi="false" array="false" longname="电子账号"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="cplCorpCust" type="CdTablesType.IoCdKnaCorpCust" required="false" multi="true" array="false" longname="对公账户信息"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="knc_acid_selectOne_odb1" name="knc_acid_selectOne_odb1" longname="根据数据种类和内容获取客户与标识对应信息">
+        <interface>
+            <input packMode="false">
+                <field id="datatp" type="PbEnumType.E_DATATP" required="false" multi="false" array="false" longname="数据种类"/>
+                <field id="datavl" type="BaseType.U_CHAR40" required="false" multi="false" array="false" longname="数据内容"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="field" type="CdTablesType.IoCdkncAcid" required="false" multi="false" array="false" longname="客户与标识对应复合类型"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="CdSelUnitAcctInfo" name="prcCdSelUnitAcctInfo" longname="查询单位账户信息">
+        <interface>
+            <input packMode="false">
+                <field id="custac" type="BaseType.U_CHAR32" required="false" multi="false" array="false" longname="客户账号" ref="BaseDict.Comm.custac"/>
+                <field id="acctno" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="账号" ref="BaseDict.Comm.acctno"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="ioUnitAcctInfo" type="CdTablesType.IoUnitAcctInfo" required="false" multi="false" array="false" longname="单位账户信息"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="CdUnitAcctStatus" name="prcCdUnitAcctStatus" longname="查询单位账户状态字">
+        <interface>
+            <input packMode="false"/>
+            <output asParm="true" packMode="true"/>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="kna_corp_acdc_selectOne_odb5" name="kna_corp_acdc_selectOne_odb5" longname="根据凭证类型和号码查询对公卡客户账号对照表">
+        <interface>
+            <input packMode="false">
+                <field id="dcmttp" type="BaseType.U_DCMTTP" required="false" multi="false" array="false" longname="凭证类型"/>
+                <field id="dcmtno" type="BaseType.U_DCMTNO" required="false" multi="false" array="false" longname="凭证号"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="cplCorpAcdc" type="IoDcmtComplexType.knAcdCorpInfo" required="false" multi="false" array="false" longname="对公卡客户对照信息"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="prcSelAcctAllInfo" name="prcSelAcctAllInfo" longname="单位账户详细信息查询">
+        <interface>
+            <input packMode="true">
+                <field id="cardno" type="BaseType.U_CARDNO" required="false" multi="false" array="false" longname="卡号"/>
+                <field id="idtftp" type="BaseEnumType.E_IDTFTP" required="false" multi="false" array="false" longname="证件类型"/>
+                <field id="idtfno" type="BaseType.U_MIDTNO" required="false" multi="false" array="false" longname="证件号码"/>
+            </input>
+            <output asParm="true" packMode="true">
+                <fields id="cdQrcpacList" scope="CdProdSvc.CdQrcpacList" required="false" multi="true" longname="账户详细信息查询" array="false">
+                    <field id="custac" type="BaseType.U_CHAR32" required="false" multi="false" array="false" longname="客户账号"/>
+                    <field id="custna" type="BaseType.U_ACCTNA" required="false" multi="false" array="false" longname="客户姓名"/>
+                    <field id="idtftp" type="BaseEnumType.E_IDTFTP" required="false" multi="false" array="false" longname="证件类型"/>
+                    <field id="idtfno" type="BaseType.U_MIDTNO" required="false" multi="false" array="false" longname="证件号码"/>
+                    <field id="corpst" type="CdEnumType.E_DPACST" required="false" multi="false" array="false" longname="账户状态"/>
+                    <field id="acstsz" type="BaseType.U_CHAR20" required="false" multi="false" array="false" longname="账户状态字"/>
+                    <field id="crcycd" type="BaseType.U_CRCYCD" required="false" multi="false" array="false" longname="币种"/>
+                    <field id="csextg" type="BaseEnumType.E_CSEXTG" required="false" multi="false" array="false" longname="钞汇属性"/>
+                    <field id="onlnbl" type="BaseType.U_ACBLTP" required="false" multi="false" array="false" longname="当前余额"/>
+                    <field id="acctbl" type="BaseType.U_TRANAM" required="false" multi="false" array="false" longname="可支取余额"/>
+                    <field id="brchno" type="BaseType.U_BRCHNO" required="false" multi="false" array="false" longname="账户所属机构"/>
+                    <field id="openbr" type="BaseType.U_BRCHNO" required="false" multi="false" array="false" longname="开户机构"/>
+                    <field id="opendt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="开户日期"/>
+                    <field id="closdt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="销户日期"/>
+                    <field id="custid" type="BaseType.U_CUSTID" required="false" multi="false" array="false" longname="用户ID"/>
+                    <field id="custcd" type="BaseType.U_CHAR20" required="false" multi="false" array="false" longname="客户内码"/>
+                    <field id="spectp" type="BaseEnumType.E_SPECTP" required="false" multi="false" array="false" longname="负债账户性质"/>
+                    <field id="custno" type="BaseType.U_CUSTNO" required="false" multi="false" array="false" longname="客户号"/>
+                    <field id="acctno" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="负债账号"/>
+                    <field id="cardno" type="BaseType.U_CARDNO" required="false" multi="false" array="false" longname="卡号"/>
+                    <field id="usebal" type="BaseType.U_TRANAM" required="false" multi="false" array="false" longname="可用余额"/>
+                    <field id="closbr" type="BaseType.U_BRCHNO" required="false" multi="false" array="false" longname="销户机构"/>
+                </fields>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="kna_corp_acdc_selectone_odb1" name="kna_corp_acdc_selectone_odb1" longname="根据卡号查询电子帐号">
+        <interface>
+            <input packMode="false">
+                <field id="cardno" type="BaseType.U_CARDNO" required="false" multi="false" array="false" longname="交易卡号" ref="BaseDict.Comm.cardno"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="knAcdCorpInfo" type="IoDcmtComplexType.knAcdCorpInfo" required="false" multi="false" array="false" longname="对公卡账户表信息"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="kna_cpac_select" name="kna_cpac_select" longname="单位活期账户信息复合类型">
+        <interface>
+            <input packMode="false">
+                <field id="custac" type="BaseType.U_CUSTAC" required="false" multi="false" array="false" longname="电子账号"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="knacpac" type="CdTablesType.IoCdKnaCpac" required="false" multi="false" array="false" longname="单位活期账户信息复合类型"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="kna_cpac_selectone_odb1" name="kna_cpac_selectone_odb1" longname="根据负债账户查询账户信息">
+        <interface>
+            <input packMode="false">
+                <field id="acctno" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="负债账号"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="ioUnitAcctInfo" type="CdTablesType.IoUnitAcctInfo" required="false" multi="false" array="false" longname="单位账户信息"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="selKnaCorpAcct" name="selKnaCorpAcct" longname="获取对公活期账户详情信息">
+        <interface>
+            <input packMode="false">
+                <field id="custac" type="BaseType.U_CHAR32" required="false" multi="false" array="false" longname="客户账号" ref="BaseDict.Comm.custac"/>
+            </input>
+            <output asParm="true" packMode="false">
+                <field id="acctOut" type="DpProdSvc.QryDpAcctOut" required="false" multi="false" array="false" longname="输出对公详情数据"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="checkKnaCorpAcct" name="checkKnaCorpAcct" longname="校验单位活期账户">
+        <interface>
+            <input packMode="false">
+                <field id="cardno" type="BaseType.U_CARDNO" required="false" multi="false" array="false" longname="交易卡号" ref="BaseDict.Comm.cardno"/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="custac" type="BaseType.U_CHAR32" required="false" multi="false" array="false" longname="客户账号" ref="BaseDict.Comm.custac"/>
+                <field id="acctno" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="账号" ref="BaseDict.Comm.acctno"/>
+            </output>
+            <property packMode="true"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="kdl_cnfx_update" name="kdl_cnfx_update" longname="更新质押换证登记簿">
+        <interface>
+            <input packMode="false">
+                <field id="kdlCnfxInfos" type="CdTablesType.IoKdlCnfx" required="false" multi="false" array="false" longname="质押换证信息"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="selknacorpsplt" name="selknacorpsplt" longname="查询单位账户补充信息表">
+        <interface>
+            <input packMode="false">
+                <field id="acctno" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="子账号"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="splt" type="CdTablesType.knacorpsplt" required="false" multi="false" array="false" longname="单位账户补充信息"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="kna_corp_accs_selectOne_odb1" name="kna_corp_accs_selectOne_odb1" longname="查询负债账号客户账号对照表">
+        <interface>
+            <input packMode="false">
+                <field id="acctno" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="负债账号"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="ioCdknaCorpAccs" type="CdTablesType.IoCdknaCorpAccs" required="false" multi="false" array="false" longname="对公负债账号客户账号对照表复合类型"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="selSumKnaCorp" name="selSumKnaCorp" longname="获取账户余额">
+        <interface>
+            <input packMode="false">
+                <field id="cardno" type="BaseType.U_CARDNO" required="false" multi="false" array="false" longname="交易卡号" ref="BaseDict.Comm.cardno"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="tranam" type="BaseType.U_TRANAM" required="false" multi="false" array="false" longname="交易金额" ref="BaseDict.Comm.tranam"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="kna_corp_acdc_selectByCustac" name="kna_corp_acdc_selectByCustac" longname="根据电子账户查询对外暴露账号">
+        <interface>
+            <input packMode="false">
+                <field id="custac" type="BaseType.U_CUACNO" required="false" multi="false" array="false" longname="单位账号"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="cardno" type="BaseType.U_CARDNO" required="false" multi="false" array="false" longname="绑定卡号"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="selCdsBalInfo" name="selCdsBalInfo" longname="单位账户余额信息批量查询">
+        <interface>
+            <input packMode="true">
+                <field id="acctss" type="CdProdSvc.BalCdUnac" required="false" multi="true" array="false" longname="卡号集"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="balinf" type="CdProdSvc.BalCdUnac" required="false" multi="true" array="false" longname="余额信息"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="SelKnaCorpSa" name="selKnaCorpSa" longname="获取对公活期账户（一般，基准）">
+        <interface>
+            <input packMode="true">
+                <field id="cardno" type="BaseType.U_CARDNO" required="false" multi="false" array="false" longname="交易卡号" ref="BaseDict.Comm.cardno"/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="custna" type="BaseType.U_ACCTNA" required="false" multi="false" array="false" longname="客户名称" ref="BaseDict.Comm.custna"/>
+                <field id="idtftp" type="BaseEnumType.E_IDTFTP" required="false" multi="false" array="false" longname="证件类型" ref="DpDict.Acct.idtftp"/>
+                <field id="idtfno" type="BaseType.U_IDTFNO" required="false" multi="false" array="false" longname="证件号码" ref="DpDict.Acct.idtfno"/>
+                <field id="dcmttp" type="BaseType.U_CHAR08" required="false" multi="false" array="false" longname="联凭证种类"/>
+                <field id="dcmtno" type="BaseType.U_CHAR08" required="false" multi="false" array="false" longname="编号" ref="PbDict.Dcmt.dcmtno"/>
+                <field id="crcycd" type="BaseType.U_CRCYCD" required="false" multi="false" array="false" longname="币种" ref="BaseDict.Comm.crcycd"/>
+                <field id="csextg" type="BaseEnumType.E_CSEXTG" required="false" multi="false" array="false" longname="钞汇标志"/>
+                <field id="drawfs" type="CtEnumType.E_DRAWFS" required="false" multi="false" array="false" longname="支取方式"/>
+                <field id="onlnbl" type="BaseType.U_ACBLTP" required="false" multi="false" array="false" longname="当前账户余额" ref="DpDict.Acct.onlnbl"/>
+                <field id="acctbl" type="BaseType.U_ACBLTP" required="false" multi="false" array="false" longname="账户余额"/>
+                <field id="opendt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="开户日期" ref="CaDict.Eacct.opendt"/>
+                <field id="acctno" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="账号" ref="BaseDict.Comm.acctno"/>
+                <field id="custac" type="BaseType.U_CHAR32" required="false" multi="false" array="false" longname="客户账号" ref="BaseDict.Comm.custac"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="kna_cpfa_select_one_idx1" name="kna_cpfa_select_one_idx1" longname="获取对公定期负债账户信息">
+        <interface>
+            <input packMode="false">
+                <field id="acctno" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="账号" ref="BaseDict.Comm.acctno"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="cdKnaCfpa" type="CdTablesType.IoCdKnaCfpa" required="false" multi="false" array="false" longname="单位定期账户信息"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="kna_corp_acdc_selectone_odb6" name="kna_corp_acdc_selectone_odb6" longname="获取凭证种类凭证号">
+        <interface>
+            <input packMode="false">
+                <field id="custac" type="BaseType.U_CHAR32" required="false" multi="false" array="false" longname="客户账号" ref="BaseDict.Comm.custac"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="knAcdCorpInfo" type="IoDcmtComplexType.knAcdCorpInfo" required="false" multi="false" array="false" longname="对公卡账户表信息"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="getLstAcmatuCpfaData" name="getLstAcmatuCpfaData" longname="查询对公定期到期数据">
+        <interface>
+            <input packMode="false">
+                <field id="acctst" type="BaseEnumType.E_DPACST" required="false" multi="false" array="false" longname="子账户状态"/>
+                <field id="corpno" type="BaseType.U_CORPNO" required="false" multi="false" array="false" longname="法人代码"/>
+                <field id="matudt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="到期日期"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="acdata" type="CdTablesType.AcmatuData" required="false" multi="true" array="false" longname="存款产品到期处理数据集"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+</serviceType>

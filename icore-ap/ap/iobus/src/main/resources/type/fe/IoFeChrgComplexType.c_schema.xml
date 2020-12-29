@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema id="IoFeChrgComplexType" package="cn.sunline.ltts.busi.iobus.type.fe" longname="公共计费对外服务接口" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description><![CDATA[公共计费对外服务接口]]></description>
+    <complexType id="IoCgCalFee_OUT" longname="统一收费记账输出" dict="false" abstract="false" introduct="false">
+        <element id="cgpyrv" longname="费用收付标志" type="FeEnumType.E_CGPYRV" ref="FeDict.Chrg.cgpyrv" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="modtyp" longname="所属模块" type="FeEnumType.E_MODUTP" ref="FeDict.Chrg.modtyp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custno" longname="客户号" type="BaseType.U_CUSTNO" ref="PbDict.Teller.custno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custac" longname="客户账号" type="BaseType.U_ACCTNO" ref="FeDict.Chrg.custac" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acchnm" longname="账户中文名" type="BaseType.U_ACCTNA" ref="FeDict.Chrg.acchnm" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="chrgcy" longname="收费币种" type="BaseType.U_CRCYCD" ref="FeDict.Chrg.chrgcy" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="accgac" longname="实际扣费账号" type="BaseType.U_ACCTNO" ref="FeDict.Chrg.accgac" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="recvam" longname="应收费用金额" type="FeBaseType.U_TRANAM" ref="FeDict.Chrg.recvam" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="spcgam" longname="应付费用金额" type="FeBaseType.U_TRANAM" ref="FeDict.Chrg.spcgam" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acclam" longname="实收费用金额" type="FeBaseType.U_TRANAM" ref="FeDict.Chrg.acclam" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="apcgam" longname="实付费用金额" type="FeBaseType.U_TRANAM" ref="FeDict.Chrg.apcgam" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="arrgam" longname="欠费金额" type="FeBaseType.U_TRANAM" ref="FeDict.Chrg.arrgam" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="totamt" longname="合计金额" type="FeBaseType.U_TOTLAM" ref="FeDict.Chrg.totamt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="amount" longname="数量" type="FeBaseType.U_LONGIN" ref="FeDict.Chrg.amount" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="lstFeexx" longname="费用信息" type="IoFeChrgComplexType.IoCgFEEINFO" required="false" multi="true" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="listnm" longname="费用信息" type="IoFeChrgComplexType.IoCgFEEINFO" required="false" multi="true" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoCgCalFee_IN" longname="统一收费记账输入" dict="false" abstract="false" introduct="false">
+        <element id="modtyp" longname="所属模块" type="FeEnumType.E_MODUTP" ref="FeDict.Chrg.modtyp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="prodcd" longname="产品代码" type="BaseType.U_CHAR32" ref="PbDict.Dcmt.prodcd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custno" longname="用户ID" type="BaseType.U_CHAR14" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custac" longname="客户账号" type="BaseType.U_ACCTNO" ref="FeDict.Chrg.custac" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="scencd" longname="场景代码" type="FeBaseType.U_SCENCD" ref="FeDict.Chrg.scencd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trancy" longname="交易币种" type="BaseType.U_CRCYCD" ref="FeDict.Chrg.trancy" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="csexfg" longname="钞汇标志" type="BaseEnumType.E_CSEXTG" ref="FeDict.Chrg.csexfg" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="seqnum" longname="顺序号" type="BaseType.U_CUACNO" ref="FeDict.Chrg.seqnum" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="dcmttp" longname="凭证种类" type="BaseType.U_DCMTTP" ref="FeDict.Chrg.dcmttp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tranam" longname="交易金额" type="FeBaseType.U_ANUM" ref="FeDict.Chrg.tranam" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="amount" longname="数量" type="FeBaseType.U_LONGIN" ref="FeDict.Chrg.amount" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="chevno" longname="收费事件编号" type="BaseType.U_CHAR300" ref="FeDict.Chrg.chevno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="chrgcd" longname="费种代码" type="FeBaseType.U_CHRGCD" ref="FeDict.Chrg.chrgcd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="chgflg" longname="记账标志" type="PbEnumType.E_CHGFLG" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="chrgpd" longname="收费周期" type="FeBaseType.U_WEEKPD" ref="FeDict.Chrg.chrgpd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="lastdt" longname="上一扣费日期" type="FeBaseType.U_DATE08" ref="FeDict.Chrg.lastdt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="chrgcy" longname="收费币种" type="BaseType.U_CRCYCD" ref="FeDict.Chrg.chrgcy" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="spcham" longname="指定收费金额" type="FeBaseType.U_TRANAM" ref="FeDict.Chrg.spcham" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="dvidam" longname="收费分成金额" type="FeBaseType.U_TRANAM" ref="FeDict.Chrg.dvidam" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="csprcd" longname="现金项目代码" type="PbEnumType.E_CSPRCD" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cstrfg" longname="现转标志" type="BaseEnumType.E_CSTRFG" ref="BaseDict.Comm.cstrfg" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="totflg" longname="是否汇总记账标志" type="FeEnumType.E_YES___" ref="FeDict.Chrg.totflg" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="chrgsr" longname="计费金额来源" type="FeEnumType.E_CHRGSR" ref="FeDict.Chrg.chrgsr" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tranbr" longname="交易机构" type="BaseType.U_BRCHNO" ref="FeDict.Chrg.tranbr" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="oubrno" longname="转出行机构号" type="BaseType.U_BRCHNO" ref="FeDict.Chrg.oubrno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="inbrno" longname="转入行机构号" type="BaseType.U_BRCHNO" ref="FeDict.Chrg.inbrno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="dioage" longname="分润方一机构号" type="BaseType.U_BRCHNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="diwage" longname="分润方二机构号" type="BaseType.U_BRCHNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ditage" longname="分润方三机构号" type="BaseType.U_BRCHNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="difage" longname="分润方四机构号" type="BaseType.U_BRCHNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="diopro" longname="分润方一比例" type="FeBaseType.U_INSTRT" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="diwpro" longname="分润方二比例" type="FeBaseType.U_INSTRT" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ditpro" longname="分润方三比例" type="FeBaseType.U_INSTRT" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="difpro" longname="分润方四比例" type="FeBaseType.U_INSTRT" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="isdivi" longname="是否分润" type="FeEnumType.E_ISDIVI" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="smrycd" longname="摘要代码" type="FeBaseType.U_SMRYCD" ref="FeDict.Chrg.smrycd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cplKfzhu" longname="当扣费帐户与交易帐户不一致时,用于指定扣费帐号" type="IoFeChrgComplexType.IoCgKFZHINFO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="smryds" longname="摘要描述" type="FeBaseType.U_SMRYDS" ref="FeDict.Chrg.smryds" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="remark" longname="备注信息" type="BaseType.U_LONGDS" ref="FeDict.Chrg.remark" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="predim" longname="优惠维度列表" type="IoFeChrgComplexType.CgPreDiInfo" required="false" multi="true" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoCgKFZHINFO" longname="扣费账户信息" dict="false" abstract="false" introduct="false">
+        <element id="custac" longname="客户账号" type="BaseType.U_ACCTNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="crcycd" longname="货币代号" type="BaseType.U_CRCYCD" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="csexfg" longname="钞汇标志" type="BaseEnumType.E_CSEXTG" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cgsbsq" longname="扣费子账户序号" type="BaseType.U_CUACNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoCgFEEINFO" longname="费用信息" dict="false" abstract="false" introduct="false">
+        <element id="trandt" longname="交易日期" type="FeBaseType.U_DATE08" ref="FeDict.Chrg.trandt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trnseq" longname="柜员流水" type="FeBaseType.U_TRNSEQ" ref="FeDict.Chrg.trnseq" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="sequno" longname="序号" type="FeBaseType.U_SENOTP" ref="FeDict.Chrg.sequno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cgpyrv" longname="费用收付标志" type="FeEnumType.E_CGPYRV" ref="FeDict.Chrg.cgpyrv" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="chrgcd" longname="费种代码" type="FeBaseType.U_CHRGCD" ref="FeDict.Chrg.chrgcd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="chrgna" longname="费种代码名称" type="BaseType.U_CHAR80" ref="FeDict.Chrg.chrgna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trancy" longname="交易币种" type="BaseType.U_CRCYCD" ref="FeDict.Chrg.trancy" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="clchcy" longname="计费币种" type="BaseType.U_CRCYCD" ref="FeDict.Chrg.clchcy" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="clcham" longname="计算费用金额" type="FeBaseType.U_TRANAM" ref="FeDict.Chrg.clcham" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cgscam" longname="费用应收金额" type="FeBaseType.U_TRANAM" ref="FeDict.Chrg.cgscam" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="favoir" longname="优惠比率" type="BaseType.U_RATEVL" ref="FeDict.Chrg.favoir" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="chrgcy" longname="收费币种" type="BaseType.U_CRCYCD" ref="FeDict.Chrg.chrgcy" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="recvam" longname="应收费用金额" type="FeBaseType.U_TRANAM" ref="FeDict.Chrg.recvam" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acclam" longname="实收费用金额" type="FeBaseType.U_TRANAM" ref="FeDict.Chrg.acclam" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="arrgam" longname="欠费金额" type="FeBaseType.U_TRANAM" ref="FeDict.Chrg.arrgam" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="dvidam" longname="收费分成金额" type="FeBaseType.U_TRANAM" ref="FeDict.Chrg.dvidam" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="dioage" longname="转出行分成机构号" type="BaseType.U_BRCHNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="diwage" longname="转入行分成机构号" type="BaseType.U_BRCHNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ditage" longname="交易行分成机构号" type="BaseType.U_BRCHNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="difage" longname="备用行分成机构号" type="BaseType.U_BRCHNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="dioamo" longname="转出行分成金额" type="FeBaseType.U_TRANAM" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="diwamo" longname="转入行分成金额" type="FeBaseType.U_TRANAM" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ditamo" longname="交易行分成金额" type="FeBaseType.U_TRANAM" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="difamo" longname="备用行分成金额" type="FeBaseType.U_TRANAM" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="sysacn" longname="系统账号" type="BaseType.U_ACCTNO" ref="FeDict.Chrg.sysacn" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="chgpln" longname="费用计划" type="FeBaseType.U_PLANCD" ref="FeDict.Chrg.chgpln" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="chrgpd" longname="收费周期" type="FeBaseType.U_WEEKPD" ref="FeDict.Chrg.chrgpd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="dedudt" longname="扣费日期" type="FeBaseType.U_DATE08" ref="FeDict.Chrg.dedudt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="recvfg" longname="收讫标志" type="BaseEnumType.E_GTAMFG" ref="FeDict.Chrg.recvfg" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cgfacd" longname="收费核算业务编号" type="BaseType.U_BUSINO" ref="FeDict.Chrg.cgfacd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cghacd" longname="收费挂账业务编号" type="BaseType.U_BUSINO" ref="FeDict.Chrg.cghacd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="subnum" longname="科目号" type="BaseType.U_ITEMCD" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="intacc" longname="内部帐对应顺序号" type="FeBaseType.U_INTACC" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="prmark" longname="对应产品标志" type="FeBaseType.U_PRMARK" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="pronum" longname="产品编号" type="FeBaseType.U_PRONUM" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trinfo" longname="交易信息" type="FeBaseType.U_TRINFO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acclev" longname="对账级别" type="FeEnumType.E_ACCLEV" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="amount" longname="数量" type="FeBaseType.U_LONGIN" ref="FeDict.Chrg.amount" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tranam" longname="交易金额" type="FeBaseType.U_ANUM" ref="FeDict.Chrg.tranam" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="dircam" longname="优惠后应收金额" type="FeBaseType.U_TRANAM" ref="FeDict.Chrg.dircam" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoCgScenDimInfo" longname="场景收费维度信息" dict="false" abstract="false" introduct="false">
+        <element id="dimecg" longname="维度类别" type="FeBaseType.U_DIMECG" ref="FeDict.Chrg.dimecg" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="dimevl" longname="维度值" type="BaseType.U_CHAR32" ref="FeDict.Chrg.dimevl" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoCgScenAnalyse_IN" longname="场景分析输入信息" dict="false" abstract="false" introduct="false">
+        <element id="module" longname="模块" type="FeEnumType.E_MODULE" ref="FeDict.Chrg.module" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="evetcd" longname="事件编号" type="BaseType.U_CHAR32" ref="FeDict.Chrg.evetcd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="scencd" longname="场景代码" type="FeBaseType.U_SCENCD" ref="FeDict.Chrg.scencd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="evetus" longname="事件用途" type="FeEnumType.E_EVETUS" ref="FeDict.Chrg.evetus" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="dimlst" longname="维度信息" type="IoFeChrgComplexType.IoCgScenDimInfo" required="false" multi="true" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoCgFrmFeeHD" longname="费用打印（表格信息）" dict="false" abstract="false" introduct="false">
+        <element id="chrgcd" longname="费种代码" type="FeBaseType.U_CHRGCD" ref="FeDict.Chrg.chrgcd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="chrgna" longname="费种代码名称" type="BaseType.U_CHAR80" ref="FeDict.Chrg.chrgna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="feeamt" longname="手续费金额" type="FeBaseType.U_TRANAM" ref="FeDict.Chrg.feeamt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cgpyrv" longname="费用收付标志" type="FeEnumType.E_CGPYRV" ref="FeDict.Chrg.cgpyrv" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="recvfg" longname="收讫标志" type="BaseEnumType.E_GTAMFG" ref="FeDict.Chrg.recvfg" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="arrgam" longname="欠费金额" type="FeBaseType.U_TRANAM" ref="FeDict.Chrg.arrgam" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoCgFFEEHD" longname="收费打印" dict="false" abstract="false" introduct="false">
+        <element id="trnnam" longname="交易名称" type="BaseType.U_CHAR200" ref="FeDict.Chrg.trnnam" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="chacno" longname="收费客户账号" type="BaseType.U_ACCTNO" ref="FeDict.Chrg.chacno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acctno" longname="账号" type="BaseType.U_ACCTNO" ref="FeDict.Chrg.acctno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cuscnm" longname="客户中文名" type="BaseType.U_CHINNA" ref="FeDict.Chrg.cuscnm" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="chrgcy" longname="收费币种" type="BaseType.U_CRCYCD" ref="FeDict.Chrg.chrgcy" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="totamt" longname="合计金额" type="FeBaseType.U_TOTLAM" ref="FeDict.Chrg.totamt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cstrfg" longname="现转标志" type="BaseEnumType.E_CSTRFG" ref="BaseDict.Comm.cstrfg" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="smryds" longname="摘要描述" type="FeBaseType.U_SMRYDS" ref="FeDict.Chrg.smryds" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="amount" longname="数量" type="FeBaseType.U_LONGIN" ref="FeDict.Chrg.amount" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="lstFEEHD" longname="收费表格信息" type="IoFeChrgComplexType.IoCgFrmFeeHD" required="false" multi="true" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="remark" longname="备注信息" type="BaseType.U_LONGDS" ref="FeDict.Chrg.remark" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cgpyrv" longname="费用收付标志" type="FeEnumType.E_CGPYRV" ref="FeDict.Chrg.cgpyrv" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoCgJfsrInfo" longname="计费输入信息" dict="false" abstract="false" introduct="false">
+        <element id="modtyp" longname="所属模块" type="PbEnumType.E_MODUTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custac" longname="客户账号" type="BaseType.U_ACCTNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="subseq" longname="子账户序号" type="BaseType.U_CUACNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trancy" longname="交易币种" type="BaseType.U_CRCYCD" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="csexfg" longname="钞汇标志" type="BaseEnumType.E_CSEXTG" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="deduac" longname="扣费账号" type="BaseType.U_ACCTNO" ref="FeDict.Chrg.deduac" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cgsbsq" longname="扣费子账户序号" type="BaseType.U_CUACNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="deducy" longname="扣费币种" type="BaseType.U_CRCYCD" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="chevno" longname="收费事件编号" type="PbBaseType.U_CHAR30" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cgcsfg" longname="扣费钞汇标志" type="BaseEnumType.E_CSEXTG" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="brchno" longname="机构号" type="BaseType.U_BRCHNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="oubrno" longname="转出行机构号" type="BaseType.U_BRCHNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="inbrno" longname="转入行机构号" type="BaseType.U_BRCHNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tranam" longname="交易金额" type="PbBaseType.U_TRANAM" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="amount" longname="数量" type="PbBaseType.U_LONGIN" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cletam" longname="收费金额" type="PbBaseType.U_TRANAM" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="prodcd" longname="产品号" type="BaseType.U_PRODCD" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cstrfg" longname="现转标志" type="BaseEnumType.E_CSTRFG" ref="BaseDict.Comm.cstrfg" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="smrycd" longname="摘要代码" type="PbBaseType.U_SMRYCD" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="smryds" longname="摘要描述" type="PbBaseType.U_SMRYDS" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="remark" longname="备注信息" type="BaseType.U_LONGDS" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoCgCalAcct_IN" longname="通用转帐收费输入结构" dict="false" abstract="false" introduct="false">
+        <element id="modtyp" longname="所属模块" type="PbEnumType.E_MODUTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custno" longname="客户号" type="BaseType.U_CUSTNO" ref="PbDict.Teller.custno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custac" longname="客户账号" type="BaseType.U_ACCTNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="seqnum" longname="顺序号" type="BaseType.U_CUACNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trancy" longname="交易币种" type="BaseType.U_CRCYCD" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="chgflg" longname="记账标志" type="PbEnumType.E_CHGFLG" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="scencd" longname="场景代码" type="PbBaseType.U_SCENCD" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="chrgcd" longname="收费代码" type="PbBaseType.U_CHRGCD" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="chevno" longname="收费事件编号" type="PbBaseType.U_CHAR30" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tranam" longname="交易金额" type="PbBaseType.U_TRANAM" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="amount" longname="数量" type="PbBaseType.U_LONGIN" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="chrgcy" longname="收费币种" type="BaseType.U_CRCYCD" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="chrgsr" longname="收费金额来源" type="PbEnumType.E_CHRGSR" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="spcham" longname="指定收费金额" type="PbBaseType.U_TRANAM" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="totflg" longname="是否汇总记账标志" type="PbEnumType.E_YES___" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="accgac" longname="实际扣费账号" type="BaseType.U_ACCTNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cgsbsq" longname="扣费子账户序号" type="BaseType.U_CUACNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="accgcy" longname="实际扣费币种" type="BaseType.U_CRCYCD" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tranbr" longname="交易机构" type="BaseType.U_BRCHNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="smrycd" longname="摘要代码" type="PbBaseType.U_SMRYCD" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="smryds" longname="摘要描述" type="PbBaseType.U_SMRYDS" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="remark" longname="备注信息" type="BaseType.U_LONGDS" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoCgDisamtInfo" longname="费用优惠信息明细" dict="false" abstract="false" introduct="false">
+        <element id="trandt" longname="优惠日期" type="BaseType.U_DATE08" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="chrgna" longname="收费代码名称" type="BaseType.U_CHAR80" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="recvam" longname="应收费用金额" type="PbBaseType.U_TRANAM" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="dircam" longname="优惠后应收金额" type="PbBaseType.U_TRANAM" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="distam" longname="优惠金额" type="PbBaseType.U_TRANAM" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoCgPldfOut" longname="优惠计划定义信息输出" dict="false" abstract="false" introduct="false">
+        <element id="count" longname="记录数" type="BaseType.U_INTEGE" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="infos" longname="记录列表" type="IoFeChrgComplexType.IoCgPldfList" required="false" multi="true" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoCgPldfList" longname="优惠计划定义信息列表" dict="false" abstract="false" introduct="false">
+        <element id="diplcd" longname="优惠计划代码" type="BaseType.U_CHAR08" ref="FeDict.Chrg.diplcd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="planna" longname="计划名称" type="BaseType.U_CHAR80" ref="FeDict.Chrg.planna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="brchno" longname="机构号" type="BaseType.U_BRCHNO" ref="FeDict.Chrg.brchno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="fadmmp" longname="优惠维度MAP" type="BaseType.U_CARDNO" ref="FeDict.Chrg.fadmmp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="dimecg" longname="维度类别" type="FeBaseType.U_DIMECG" ref="FeDict.Chrg.dimecg" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="expmsg" longname="说明信息" type="BaseType.U_CHAR80" ref="FeDict.Chrg.expmsg" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ildmch" longname="关联维度值字符" type="BaseType.U_CHAR32" ref="FeDict.Chrg.ildmch" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="efctdt" longname="生效日期" type="FeBaseType.U_DATE08" ref="FeDict.Chrg.efctdt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="inefdt" longname="失效日期" type="FeBaseType.U_DATE08" ref="FeDict.Chrg.inefdt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="explan" longname="备注" type="BaseType.U_CHAR80" ref="FeDict.Chrg.explan" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="CgPreDiInfo" longname="优惠维度信息" dict="false" abstract="false" introduct="false">
+        <element id="dimecg" longname="维度类别" type="FeBaseType.U_DIMECG" ref="FeDict.Chrg.dimecg" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="dimevl" longname="维度值" type="BaseType.U_CHAR32" ref="FeDict.Chrg.dimevl" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoCgCplj" longname="优惠计划明细信息" dict="false" abstract="false" introduct="false">
+        <element id="diplcd" longname="优惠计划代码" type="BaseType.U_CHAR08" ref="FeDict.Chrg.diplcd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="planna" longname="计划名称" type="BaseType.U_CHAR80" ref="FeDict.Chrg.planna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="dimecg" longname="维度类别" type="FeBaseType.U_DIMECG" ref="FeDict.Chrg.dimecg" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="relvfg" longname="关联标志" type="BaseEnumType.E_RELVFG" ref="FeDict.Chrg.relvfg" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="fadmvl" longname="关联维度值" type="BaseType.U_CHAR32" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ildmdn" longname="关联维度值下限" type="BaseType.U_ACBLTP" ref="FeDict.Chrg.ildmdn" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ildmup" longname="关联维度值上限" type="BaseType.U_ACBLTP" ref="FeDict.Chrg.ildmup" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="dimena" longname="维度类别名称" type="FeBaseType.U_CHAR8S" ref="FeDict.Chrg.dimena" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="expmsg" longname="维度值名称" type="FeBaseType.U_SHORDS" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="seqnum" longname="顺序号" type="BaseType.U_CUACNO" ref="FeDict.Chrg.seqnum" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoCgCaab" longname="费种代码核算属性输出" dict="false" abstract="false" introduct="false">
+        <element id="chrgcd" longname="费种代码" type="FeBaseType.U_CHRGCD" ref="FeDict.Chrg.chrgcd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="subnum" longname="科目号" type="BaseType.U_ITEMCD" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="intacc" longname="内部帐对应顺序号" type="FeBaseType.U_INTACC" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="scencd" longname="场景代码" type="FeBaseType.U_SCENCD" ref="FeDict.Chrg.scencd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="prmark" longname="对应产品标志" type="FeBaseType.U_PRMARK" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="pronum" longname="产品编号" type="FeBaseType.U_PRONUM" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trinfo" longname="交易信息" type="FeBaseType.U_TRINFO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="chrgna" longname="费种代码名称" type="BaseType.U_CHAR80" ref="FeDict.Chrg.chrgna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="scends" longname="场景名称" type="FeBaseType.U_LONGDS" ref="FeDict.Chrg.scends" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acclev" longname="对账级别" type="FeEnumType.E_ACCLEV" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoCgFmex" longname="标准费率输出" dict="false" abstract="false" introduct="false">
+        <element id="chrgna" longname="费种代码名称" type="BaseType.U_CHAR80" ref="FeDict.Chrg.chrgna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="fmunam" longname="公式名称" type="BaseType.U_CHAR200" ref="FeDict.Chrg.fmunam" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="chrgcd" longname="费种代码" type="FeBaseType.U_CHRGCD" ref="FeDict.Chrg.chrgcd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="chrgfm" longname="计费公式代码" type="FeBaseType.U_FOMUCD" ref="FeDict.Chrg.chrgfm" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="efctdt" longname="生效日期" type="FeBaseType.U_DATE08" ref="FeDict.Chrg.efctdt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="inefdt" longname="失效日期" type="FeBaseType.U_DATE08" ref="FeDict.Chrg.inefdt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="seqnum" longname="顺序号" type="BaseType.U_CUACNO" ref="FeDict.Chrg.seqnum" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoCgDiva" longname="维度值信息输出" dict="false" abstract="false" introduct="false">
+        <element id="dimena" longname="维度类别名称" type="FeBaseType.U_CHAR8S" ref="FeDict.Chrg.dimena" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="dimecg" longname="维度类别" type="FeBaseType.U_DIMECG" ref="FeDict.Chrg.dimecg" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="seqnum" longname="顺序号" type="BaseType.U_CUACNO" ref="FeDict.Chrg.seqnum" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="dimevl" longname="维度值" type="BaseType.U_CHAR32" ref="FeDict.Chrg.dimevl" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="expmsg" longname="维度值名称" type="FeBaseType.U_SHORDS" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="waytyp" longname="维度类型" type="FeEnumType.E_WAYTYP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoCgSedt" longname="场景代码明细输出" dict="false" abstract="false" introduct="false">
+        <element id="evetna" longname="事件名称" type="FeBaseType.U_MIDDDS" ref="FeDict.Chrg.evetna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="dimena" longname="维度类别名称" type="FeBaseType.U_CHAR8S" ref="FeDict.Chrg.dimena" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="expmsg" longname="维度值名称" type="FeBaseType.U_SHORDS" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="scencd" longname="场景代码" type="FeBaseType.U_SCENCD" ref="FeDict.Chrg.scencd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="scends" longname="场景名称" type="FeBaseType.U_LONGDS" ref="FeDict.Chrg.scends" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="evetcd" longname="事件编号" type="BaseType.U_CHAR32" ref="FeDict.Chrg.evetcd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="dimecg" longname="维度类别" type="FeBaseType.U_DIMECG" ref="FeDict.Chrg.dimecg" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="dimevl" longname="维度值" type="BaseType.U_CHAR32" ref="FeDict.Chrg.dimevl" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="remark" longname="备注信息" type="BaseType.U_LONGDS" ref="FeDict.Chrg.remark" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoCgSecd" longname="场景计费输出" dict="false" abstract="false" introduct="false">
+        <element id="scends" longname="场景名称" type="FeBaseType.U_LONGDS" ref="FeDict.Chrg.scends" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="chrgna" longname="费种代码名称" type="BaseType.U_CHAR80" ref="FeDict.Chrg.chrgna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="seqnum" longname="顺序号" type="BaseType.U_CUACNO" ref="FeDict.Chrg.seqnum" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="scencd" longname="场景代码" type="FeBaseType.U_SCENCD" ref="FeDict.Chrg.scencd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="chrgcd" longname="费种代码" type="FeBaseType.U_CHRGCD" ref="FeDict.Chrg.chrgcd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="remark" longname="备注信息" type="BaseType.U_LONGDS" ref="FeDict.Chrg.remark" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoCgSpex" longname="单一优惠输出" dict="false" abstract="false" introduct="false">
+        <element id="dimena" longname="维度类别名称" type="FeBaseType.U_CHAR8S" ref="FeDict.Chrg.dimena" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="chrgna" longname="费种代码名称" type="BaseType.U_CHAR80" ref="FeDict.Chrg.chrgna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="chrgcd" longname="费种代码" type="FeBaseType.U_CHRGCD" ref="FeDict.Chrg.chrgcd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="brchno" longname="机构号" type="BaseType.U_BRCHNO" ref="FeDict.Chrg.brchno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="fasttp" longname="单一优惠起点类型" type="FeEnumType.E_FASTTP" ref="FeDict.Chrg.fasttp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="fastam" longname="单一优惠起点" type="BaseType.U_ACBLTP" ref="FeDict.Chrg.fastam" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="fatype" longname="维度类别" type="BaseType.U_CHAR08" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="favalu" longname="优惠值" type="FeBaseType.U_SHORDS" ref="FeDict.Chrg.favalu" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="favoir" longname="单一优惠比例" type="BaseType.U_RATEVL" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="efctdt" longname="生效日期" type="FeBaseType.U_DATE08" ref="FeDict.Chrg.efctdt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="inefdt" longname="失效日期" type="FeBaseType.U_DATE08" ref="FeDict.Chrg.inefdt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="expmsg" longname="说明信息" type="BaseType.U_CHAR80" ref="FeDict.Chrg.expmsg" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoCgCpdt" longname="超额优惠明细输出" dict="false" abstract="false" introduct="false">
+        <element id="smfana" longname="超额优惠代码名称" type="BaseType.U_CNSMSP" ref="FeDict.Chrg.smfana" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="smfacd" longname="超额起点" type="BaseType.U_CHAR08" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="smstrt" longname="累积起点" type="BaseType.U_ACBLTP" ref="FeDict.Chrg.smstrt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="smfapc" longname="优惠比例" type="BaseType.U_RATEVL" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="efctdt" longname="生效日期" type="FeBaseType.U_DATE08" ref="FeDict.Chrg.efctdt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="inefdt" longname="失效日期" type="FeBaseType.U_DATE08" ref="FeDict.Chrg.inefdt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="smblup" longname="累积交易额限制" type="BaseType.U_ACBLTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="explan" longname="备注" type="BaseType.U_CHAR80" ref="FeDict.Chrg.explan" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="brchno" longname="机构号" type="BaseType.U_BRCHNO" ref="BaseDict.Comm.brchno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoCgCpal" longname="超额优惠解析输出" dict="false" abstract="false" introduct="false">
+        <element id="dimena" longname="维度类别名称" type="FeBaseType.U_CHAR8S" ref="FeDict.Chrg.dimena" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="smfana" longname="超额优惠代码名称" type="BaseType.U_CNSMSP" ref="FeDict.Chrg.smfana" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="chrgna" longname="费种代码名称" type="BaseType.U_CHAR80" ref="FeDict.Chrg.chrgna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="chrgcd" longname="费种代码" type="FeBaseType.U_CHRGCD" ref="FeDict.Chrg.chrgcd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="fadmtp" longname="维度类别" type="BaseType.U_CHAR08" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="explan" longname="备注" type="BaseType.U_CHAR80" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="smfacd" longname="超额优惠代码" type="BaseType.U_CHAR08" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="efctdt" longname="生效日期" type="FeBaseType.U_DATE08" ref="FeDict.Chrg.efctdt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="inefdt" longname="失效日期" type="FeBaseType.U_DATE08" ref="FeDict.Chrg.inefdt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="dimevl" longname="维度值" type="BaseType.U_CHAR32" ref="FeDict.Chrg.dimevl" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="brchno" longname="机构号" type="BaseType.U_BRCHNO" ref="BaseDict.Comm.brchno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="expmsg" longname="维度值名称" type="FeBaseType.U_SHORDS" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoCgCple" longname="优惠计划解析输出" dict="false" abstract="false" introduct="false">
+        <element id="chrgna" longname="费种代码名称" type="BaseType.U_CHAR80" ref="FeDict.Chrg.chrgna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="planna" longname="优惠计划名称" type="BaseType.U_CHAR80" ref="FeDict.Chrg.planna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="chrgcd" longname="费种代码" type="FeBaseType.U_CHRGCD" ref="FeDict.Chrg.chrgcd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="diplcd" longname="优惠计划代码" type="BaseType.U_CHAR08" ref="FeDict.Chrg.diplcd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="fasttp" longname="优惠起点类型" type="FeEnumType.E_FASTTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="fastam" longname="优惠起点" type="BaseType.U_ACBLTP" required="false" default="0.0" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="favoir" longname="优惠比例" type="BaseType.U_RATEVL" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="efctdt" longname="生效日期" type="FeBaseType.U_DATE08" ref="FeDict.Chrg.efctdt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="inefdt" longname="失效日期" type="FeBaseType.U_DATE08" ref="FeDict.Chrg.inefdt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="explan" longname="备注" type="BaseType.U_CHAR80" ref="FeDict.Chrg.explan" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="brchno" longname="机构号" type="BaseType.U_BRCHNO" ref="BaseDict.Comm.brchno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoCgCrsp" longname="收费分润输出" dict="false" abstract="false" introduct="false">
+        <element id="chrgna" longname="费种代码名称" type="BaseType.U_CHAR80" ref="FeDict.Chrg.chrgna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="chrgcd" longname="费种代码" type="FeBaseType.U_CHRGCD" ref="FeDict.Chrg.chrgcd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="crcycd" longname="币种" type="BaseType.U_CRCYCD" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="indvrt" longname="转入行分成比率" type="BaseType.U_RATECD" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="oudvrt" longname="转出行分成比率" type="BaseType.U_RATECD" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trdvrt" longname="交易行分成比率" type="BaseType.U_RATECD" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="spavrt" longname="备用行分成比率" type="BaseType.U_RATECD" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="efctdt" longname="生效日期" type="FeBaseType.U_DATE08" ref="FeDict.Chrg.efctdt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="inefdt" longname="失效日期" type="FeBaseType.U_DATE08" ref="FeDict.Chrg.inefdt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoCgCmdt" longname="计费公式明细输出" dict="false" abstract="false" introduct="false">
+        <element id="chrgfm" longname="计费公式代码" type="FeBaseType.U_FOMUCD" ref="FeDict.Chrg.chrgfm" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="brchno" longname="机构号" type="BaseType.U_BRCHNO" ref="PbDict.Brch.brchno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="crcycd" longname="币种" type="BaseType.U_CRCYCD" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="limiam" longname="档次区间下限" type="BaseType.U_ACBLTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cufetp" longname="计费类型" type="FeEnumType.E_CUFETP" ref="FeDict.Chrg.cufetp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="chrgrt" longname="计费比例" type="FeBaseType.U_RATVAL" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="pecgam" longname="计费单价" type="FeBaseType.U_TOTLAM" ref="FeDict.Chrg.pecgam" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="fmunam" longname="公式名称" type="BaseType.U_CHAR200" ref="FeDict.Chrg.fmunam" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cgmnam" longname="最低金额" type="BaseType.U_ACBLTP" ref="FeDict.Chrg.cgmnam" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cgmxam" longname="最高金额" type="BaseType.U_ACBLTP" ref="FeDict.Chrg.cgmxam" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="remark" longname="备注信息" type="BaseType.U_LONGDS" ref="FeDict.Chrg.remark" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoScenInfo" longname="场景代码信息输出" dict="false" abstract="false" introduct="false">
+        <element id="scencd" longname="场景代码" type="FeBaseType.U_SCENCD" ref="FeDict.Chrg.scencd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="scends" longname="场景名称" type="FeBaseType.U_LONGDS" ref="FeDict.Chrg.scends" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoKcpChrg" longname="费种代码定义信息列表" dict="false" abstract="false" introduct="false">
+     	<element id="chrgcd" longname="费种代码" type="FeBaseType.U_CHRGCD" ref="FeDict.Chrg.chrgcd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="chrgna" longname="费种代码名称" type="BaseType.U_CHAR80" ref="FeDict.Chrg.chrgna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="fetype" longname="费种大类" type="FeEnumType.E_FETYPE" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cvcyfg" longname="币种兑换" type="FeEnumType.E_CVCYFG" ref="FeDict.Chrg.cvcyfg" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="mndecm" longname="最低小数位数" type="FeBaseType.U_LONGIN" ref="FeDict.Chrg.mndecm" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="carrtp" longname="四舍五入方式" type="FeEnumType.E_CARRTP" ref="FeDict.Chrg.carrtp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cufesr" longname="收费金额来源" type="FeEnumType.E_CUFESR" ref="FeDict.Chrg.cufesr" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="lysptp" longname="分层方式" type="FeEnumType.E_LYSPTP" ref="FeDict.Chrg.lysptp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="felytp" longname="计费分层取值类型" type="FeEnumType.E_FELYTP" ref="FeDict.Chrg.felytp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cgfacd" longname="收费核算业务编号" type="BaseType.U_BUSINO" ref="FeDict.Chrg.cgfacd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cghacd" longname="收费挂账业务编号" type="BaseType.U_BUSINO" ref="FeDict.Chrg.cghacd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="bllwtp" longname="余额不足处理方式" type="FeEnumType.E_BLLWTP" ref="FeDict.Chrg.bllwtp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cractm" longname="宽限期" type="BaseType.U_CHAR08" ref="FeDict.Chrg.cractm" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="isfavo" longname="是否允许优惠" type="FeEnumType.E_ISFAVO" ref="FeDict.Chrg.isfavo" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="mnfvrt" longname="最低优惠比例" type="FeBaseType.U_RATVAL" ref="FeDict.Chrg.mnfvrt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="mxfvrt" longname="最高优惠比例" type="FeBaseType.U_RATVAL" ref="FeDict.Chrg.mxfvrt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="fedive" longname="收费分润标志" type="FeEnumType.E_FEDIVE" ref="FeDict.Chrg.fedive" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="scencd" longname="场景代码" type="FeBaseType.U_SCENCD" ref="FeDict.Chrg.scencd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="chrgtp" longname="收取方式" type="FeEnumType.E_FASTTP" ref="FeDict.Chrg.chrgtp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="chrgsr" longname="收费金额来源" type="FeEnumType.E_CHRGSR" ref="FeDict.Chrg.chrgsr" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="chrgpd" longname="收费周期" type="FeBaseType.U_WEEKPD" ref="FeDict.Chrg.chrgpd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="plcgct" longname="损益入账控制" type="BaseType.U_CHAR01" ref="FeDict.Chrg.plcgct" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cgpyrv" longname="费用收付标志" type="FeEnumType.E_CGPYRV" ref="FeDict.Chrg.cgpyrv" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="crcycd" longname="货币代号" type="BaseType.U_CRCYCD" ref="FeDict.Chrg.crcycd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="brchno" longname="机构号" type="BaseType.U_BRCHNO" ref="FeDict.Chrg.brchno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="fepecd" longname="滞纳金收费代码" type="FeBaseType.U_CHRGCD" ref="FeDict.Chrg.fepecd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="fepefg" longname="是否重复计算滞纳金" type="FeEnumType.E_YES___" ref="FeDict.Chrg.fepefg" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cjsign" longname="县辖维护标志" type="FeEnumType.E_CJSIGN" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="efctdt" longname="生效日期" type="FeBaseType.U_DATE08" ref="FeDict.Chrg.efctdt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="inefdt" longname="失效日期" type="FeBaseType.U_DATE08" ref="FeDict.Chrg.inefdt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="debkpd" longname="欠费扣费周期" type="FeBaseType.U_WEEKPD" ref="FeDict.Chrg.debkpd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="preway" longname="优惠方式" type="FeEnumType.E_PREWAY" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="prertt" longname="优惠返还时间" type="FeEnumType.E_PRERTT" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+     </complexType>
+</schema>

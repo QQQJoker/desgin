@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<sqls id="TaskMain" longname="任务sql集合" package="cn.sunline.ltts.busi.aptran.namedsql" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description><![CDATA[任务sql集合]]></description>
+    <select cache="none" method="selectAll" type="sql" id="selTaskInfos" longname="查询任务运行信息">
+        <sql type="oracle"><![CDATA[select * from tsp_task a where (#task_num# is null or task_num = #task_num#) and (#tran_date# is null or a.tran_date = #tran_date#) and (#tran_group_id# is null or a.tran_group_id = #tran_group_id#) and (#tran_id# is null or a.tran_id  = #tran_id#)]]></sql>
+        <sql type="mysql"><![CDATA[select * from tsp_task a where (#task_num# is null or task_num = #task_num#) and (#tran_date# is null or a.tran_date = #tran_date#) and (#tran_group_id# is null or a.tran_group_id = #tran_group_id#) and (#tran_id# is null or a.tran_id  = #tran_id#)]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="task_num" ref="KsDict.BtDict.task_num" jdbcType="VARCHAR" javaType="KBaseType.U_PILJYLSH" mode="in" longname="批量任务批次号" parameterType="condition"/>
+            <parameter property="tran_date" ref="KsDict.BtDict.tran_date" jdbcType="VARCHAR" javaType="KBaseType.U_RIQILEIX" mode="in" longname="交易日期" parameterType="condition"/>
+            <parameter property="tran_group_id" ref="KsDict.BtDict.tran_group_id" jdbcType="VARCHAR" javaType="KBaseType.U_PILJYZBS" mode="in" longname="批量交易组ID" parameterType="condition"/>
+            <parameter property="tran_id" ref="KsDict.BtDict.tran_id" jdbcType="VARCHAR" javaType="KBaseType.U_PLJIOYMA" mode="in" longname="批量交易ID" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="TaskInfo.Task"/>
+    </select>
+    <select cache="none" method="selectAll" type="sql" id="selBatchTransDefine" longname="查询批量交易定义信息">
+        <sql type="oracle"><![CDATA[select * from tsp_tran_controller a where ( #tran_group_id# is null or a.tran_group_id = #tran_group_id#) and ( #step_id# is null or a.step_id = #step_id#) and ( #tran_code# is null or a.tran_code = #tran_code#)]]></sql>
+        <sql type="mysql"><![CDATA[select * from tsp_tran_controller a where ( #tran_group_id# is null or a.tran_group_id = #tran_group_id#) and ( #step_id# is null or a.step_id = #step_id#) and ( #tran_code# is null or a.tran_code = #tran_code#)]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="tran_group_id" ref="KsDict.BtDict.tran_group_id" jdbcType="VARCHAR" javaType="KBaseType.U_PILJYZBS" mode="in" longname="批量交易组ID" parameterType="condition"/>
+            <parameter property="step_id" ref="KsDict.BtDict.step_id" jdbcType="VARCHAR" javaType="KBaseType.U_TYSZLEIX" mode="in" longname="步骤号" parameterType="condition"/>
+            <parameter property="tran_code" ref="KsDict.BtDict.tran_code" jdbcType="VARCHAR" javaType="KBaseType.U_PLJIOYMA" mode="in" longname="批量交易码" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="TaskInfo.BatchTranDefine"/>
+    </select>
+    <select cache="none" method="selectFirst" type="sql" id="selKsysPlrenw" longname="查询批量任务表">
+        <sql><![CDATA[select * from tsp_task where tran_flow_id = #tran_flow_id# order by task_num desc]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="tran_flow_id" jdbcType="VARCHAR" javaType="string" mode="in" longname="批量流程" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="KSysBatchTable.tsp_task"/>
+    </select>
+    <update method="update" id="updKsysPlrenw" longname="修改批量任务表状态">
+        <sql><![CDATA[update tsp_task set tran_state = #tran_state# where task_num = #task_num# ]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="tran_state" jdbcType="VARCHAR" javaType="string" mode="in" parameterType="condition"/>
+            <parameter property="task_num" jdbcType="VARCHAR" javaType="string" mode="in" parameterType="condition"/>
+        </parameterMap>
+    </update>
+</sqls>

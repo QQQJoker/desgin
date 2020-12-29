@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<flowtran id="qrtkif" longname="查询批量任务信息" kind="1" package="cn.sunline.ltts.busi.aptran.trans" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <interface package="cn.sunline.ltts.busi.aptran.trans.intf">
+        <input packMode="true">
+            <field id="tkgpid" type="string" required="false" multi="false" array="false" longname="批量交易组" desc="批量交易组"/>
+            <field id="tkstep" type="string" required="false" multi="false" array="false" longname="批量交易步骤号" desc="批量交易步骤号"/>
+            <field id="tkprcd" type="BaseType.U_PRCSCD" required="false" multi="false" array="false" longname="批量交易处理码" desc="批量交易处理码"/>
+        </input>
+        <output asParm="true" packMode="true">
+            <field id="bttrif" type="TaskInfo.BatchTranQueryOt" required="false" multi="false" array="false" longname="批量交易定义" desc="批量交易定义"/>
+        </output>
+        <property packMode="false"/>
+        <printer packMode="false"/>
+    </interface>
+    <flow>
+        <method method="queryBatchTranDefine" id="queryBatchTranDefine" longname="查询批量交易定义" desc="查询批量交易定义"/>
+    </flow>
+</flowtran>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<sqls id="ApDataSourceCheck" longname="数据源检测" package="cn.sunline.ltts.busi.aplt.namedsql" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <select cache="none" method="selectOne" type="sql" id="selAdgDelay" longname="查询灾备库同步延迟时间">
+        <sql type="db2"><![CDATA[select (primary_log_time - standby_replay_log_time) as delay from table(mon_get_hadr(NULL)) where standby_id='2']]></sql>
+        <parameterMap class="java.util.Map"/>
+        <resultMap class="long"/>
+    </select>
+</sqls>

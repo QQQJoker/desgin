@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema id="ClEnumType" package="cn.sunline.ltts.busi.sys.type" longname="额度限制类型" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description><![CDATA[额度限制类型]]></description>
+    <restrictionType id="E_CYCLFG" longname="循环标志" base="BaseType.U_CHAR01">
+        <enumeration id="YES" value="Y" longname="是"/>
+        <enumeration id="NO" value="N" longname="否"/>
+    </restrictionType>
+    <restrictionType id="E_FREEZE" longname="释放额度" base="BaseType.U_CHAR01">
+        <enumeration id="JQSF" value="1" longname="结清释放"/>
+        <enumeration id="YESF" value="2" longname="余额释放"/>
+    </restrictionType>
+    <restrictionType id="E_CLMODE" longname="额度模式" base="BaseType.U_CHAR01">
+        <enumeration id="SINGLE" value="1" longname="单人"/>
+        <enumeration id="SOME" value="2" longname="多人"/>
+    </restrictionType>
+    <restrictionType id="E_CLLEVL" longname="额度级别" base="BaseType.U_CHAR01">
+        <enumeration id="ACCT" value="A" longname="账户"/>
+        <enumeration id="CLENT" value="M" longname="客户"/>
+        <enumeration id="PROD" value="P" longname="产品"/>
+        <enumeration id="CARD" value="C" longname="卡"/>
+        <enumeration id="TRANS" value="T" longname="交易"/>
+        <enumeration id="VIRTU" value="V" longname="虚拟"/>
+    </restrictionType>
+    <restrictionType id="E_BUSICD" longname="业务种类编号" base="BaseType.U_CHAR01">
+        <enumeration id="LOAN" value="L" longname="贷款"/>
+        <enumeration id="CARD" value="C" longname="卡"/>
+        <enumeration id="CHARGES" value="F" longname="费用"/>
+    </restrictionType>
+    <restrictionType id="E_UPDTFG" longname="是否向上递归" base="BaseType.U_CHAR01">
+         <enumeration id="YES" value="Y" longname="是"/>
+        <enumeration id="NO" value="N" longname="否"/>
+    </restrictionType>
+    <restrictionType id="E_STATUS" longname="有效状态" base="BaseType.U_CHAR01">
+         <enumeration id="YES" value="Y" longname="有效"/>
+        <enumeration id="NO" value="N" longname="无效"/>
+        <enumeration id="VALID" value="F" longname="冻结"/>
+    </restrictionType>
+    <restrictionType id="E_ADDEFG" longname="增减标志" base="BaseType.U_CHAR01">
+         <enumeration id="ADD" value="A" longname="增加"/>
+        <enumeration id="SUB" value="D" longname="扣减"/>
+    </restrictionType>
+    <restrictionType id="E_ADDEGF" longname="增减标志" base="BaseType.U_CHAR01">
+        <enumeration id="ADDDDD" value="A" longname="增加"/>
+        <enumeration id="DEDUCT" value="D" longname="扣减"/>
+    </restrictionType>
+    <restrictionType id="E_ISBDAM" longname="是否超出额度金额" base="BaseType.U_CHAR01">
+        <enumeration id="Y" value="Y" longname="是"/>
+        <enumeration id="N" value="N" longname="否"/>
+    </restrictionType>
+</schema>

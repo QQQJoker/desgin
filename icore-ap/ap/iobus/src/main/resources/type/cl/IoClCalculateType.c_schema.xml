@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema id="IoClCalculateType" package="cn.sunline.ltts.busi.iobus.type.cl" longname="额度计算复合类型定义" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <complexType id="IoClCalculateInput" longname="额度计算输入" dict="false" abstract="false" introduct="false">
+        <element id="trandt" longname="交易时间" type="BaseType.U_DATE08" ref="ClDict.CL.trandt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tranam" longname="交易金额" type="BaseType.U_ACBLTP" ref="ClDict.CL.tranam" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trancy" longname="交易币种" type="BaseType.U_CRCYCD" ref="ClDict.CL.trancy" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="addefg" longname="增减标志" type="ClEnumType.E_ADDEFG" ref="ClDict.CL.addefg" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ioClLevel" longname="额度级别输入" type="IoClCalculateType.IoClLevel" required="false" multi="true" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoClLevel" longname="额度级别输入" dict="false" abstract="false" introduct="false">
+        <element id="custno" longname="客户号 " type="BaseType.U_CUSTNO" ref="ClDict.CL.custno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="crdlno" longname="额度编号" type="BaseType.U_CHAR20" ref="ClDict.CL.crdlno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="lncfno" longname="借据号" type="BaseType.U_CHAR40" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="busino" longname="产品号/账号/卡号/上级客户号/交易渠道" type="BaseType.U_CHAR20" ref="ClDict.CL.busino" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoClFreezeInput" longname="额度冻结输入" dict="false" abstract="false" introduct="false">
+        <element id="custno" longname="客户号 " type="BaseType.U_CUSTNO" ref="ClDict.CL.custno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="crdlno" longname="额度编号" type="BaseType.U_CHAR20" ref="ClDict.CL.crdlno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="amount" longname="冻结额度" type="BaseType.U_TRANAM" ref="ClDict.CL.amount" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="crcycd" longname="币种" type="BaseType.U_CRCYCD" ref="BaseDict.Comm.crcycd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="stardt" longname="生效日期" type="BaseType.U_DATE08" ref="ClDict.CL.stardt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="busino" longname="产品号/账号/卡号/上级客户号/交易渠道" type="BaseType.U_CHAR20" ref="ClDict.CL.busino" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="effedt" longname="失效日期" type="BaseType.U_DATE08" ref="ClDict.CL.effedt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="status" longname="有效状态" type="ClEnumType.E_STATUS" ref="ClDict.CL.status" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoClExpire" longname="额度到期跑批查询额度表和临时额度表数据" dict="false" abstract="false" introduct="false">
+        <element id="custno" longname="客户号 " type="BaseType.U_CUSTNO" ref="ClDict.CL.custno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="crdlno" longname="额度编号" type="BaseType.U_CHAR20" ref="ClDict.CL.crdlno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="busino" longname="产品号/账号/卡号/上级客户号/交易渠道" type="BaseType.U_CHAR20" ref="ClDict.CL.busino" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="isamnt" longname="是否为额度正式表" type="BaseType.U_CHAR01" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="amotem" longname="临时额度" type="BaseType.U_TRANAM" ref="ClDict.CL.amotem" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tempid" longname="主键顺序号" type="BaseType.U_LONGIN" ref="ClDict.CL.tempid" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoUnfreezeInput" longname="额度解冻输入" dict="false" abstract="false" introduct="false">
+        <element id="freezd" longname="主键顺序号" type="BaseType.U_LONGIN" ref="ClDict.CL.freezd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="busino" longname="产品号/账号/卡号/上级客户号/交易渠道" type="BaseType.U_CHAR20" ref="ClDict.CL.busino" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custno" longname="客户号 " type="BaseType.U_CUSTNO" ref="ClDict.CL.custno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="crdlno" longname="额度编号" type="BaseType.U_CHAR20" ref="ClDict.CL.crdlno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="unfrzd" longname="解冻金额" type="BaseType.U_TRANAM" ref="ClDict.CL.unfrzd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="crcycd" longname="币种" type="BaseType.U_CRCYCD" ref="BaseDict.Comm.crcycd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoClCalculateOutput" longname="额度计算输出" dict="false" abstract="false" introduct="false">
+        <element id="usabcl" longname="可用额度" type="BaseType.U_ACBLTP" ref="ClDict.CL.usabcl" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="crdlno" longname="额度编号" type="BaseType.U_CHAR20" ref="ClDict.CL.crdlno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+</schema>

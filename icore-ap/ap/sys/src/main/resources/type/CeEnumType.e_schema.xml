@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema id="CeEnumType" package="cn.sunline.ltts.busi.ce.type" longname="凭证限制类型" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <restrictionType id="E_CHEQST" longname="支票状态" base="string" maxLength="1">
+        <enumeration id="ALL" value="%" longname="全部"/>
+        <enumeration id="USED" value="0" longname="已使用"/>
+        <enumeration id="NORMAL" value="1" longname="正常"/>
+        <enumeration id="RPLS" value="2" longname="挂失"/>
+        <enumeration id="B_BKOT" value="3" longname="回收作废"/>
+        <enumeration id="CNTR" value="4" longname="已签发"/>
+        <enumeration id="C_SPAY" value="A" longname="法院止付"/>
+        <enumeration id="C_BKOT" value="B" longname="法院作废"/>
+    </restrictionType>
+    <restrictionType id="E_RPLSFS" longname="挂失方式(支票)" base="string" maxLength="1">
+        <enumeration id="PTGS" value="1" longname="普通挂失"/>
+        <enumeration id="FYZF" value="2" longname="法院止付"/>
+    </restrictionType>
+    <restrictionType id="E_URCHTP" longname="解挂撤销类型" base="string" maxLength="1">
+        <enumeration id="JGCX" value="1" longname="普通解挂撤销"/>
+        <enumeration id="ZFCX" value="2" longname="止付解挂撤销"/>
+        <enumeration id="FYZF" value="3" longname="票据法院作废"/>
+    </restrictionType>
+    <restrictionType id="E_CAMVTP" longname="在途查询类型" base="BaseType.U_CHAR01">
+        <enumeration id="TORECV" value="1" longname="在途对方接收"/>
+        <enumeration id="OURSRECV" value="2" longname="在途我方接收"/>
+    </restrictionType>
+    <restrictionType id="E_STATUS" longname="状态(支票)" base="string" maxLength="1">
+        <enumeration id="WHXCL" value="0" longname="未后续处理"/>
+        <enumeration id="JCGS" value="1" longname="解除挂失"/>
+        <enumeration id="FYZF" value="2" longname="法院作废"/>
+    </restrictionType>
+    <restrictionType id="E_DCTPTP" longname="凭证管理类型" base="string" maxLength="1">
+		<enumeration id="ALL" value="%" longname="全部" />
+		<enumeration id="_1" value="1" longname="全行统一管理" />
+		<enumeration id="_2" value="2" longname="分行各自管理" />
+		<enumeration id="_3" value="3" longname="法人各自管理" />
+		<enumeration id="_4" value="4" longname="指定范围管理" />
+	</restrictionType>
+	<restrictionType id="E_MVSBTP" longname="凭证调出子类" base="string" maxLength="1">
+		<enumeration id="M2T" value="1" longname="库管调出到柜员" />
+		<enumeration id="T2M" value="2" longname="柜员调出到库管" />
+		<enumeration id="T2T" value="3" longname="柜员调出到柜员" />
+		<enumeration id="FTS" value="4" longname="总行到分行" />
+		<enumeration id="STG" value="5" longname="分行到支行" />
+		<enumeration id="GTS" value="6" longname="支行到分行" />
+		<enumeration id="STF" value="7" longname="分行到总行" />
+	</restrictionType>
+	<restrictionType id="E_ACCSTP" longname="凭证补充表存取类型" base="string" maxLength="1">
+		<enumeration id="NOEX" value="0" longname="无补充表" />
+		<enumeration id="CARD" value="1" longname="卡补充表" />
+		<enumeration id="BOOK" value="2" longname="折补充表" />
+	</restrictionType>
+		<restrictionType id="E_PLEDGE" longname="质押方式" base="string" maxLength="2">
+	    <enumeration id="DR" value="DR" longname="止付后质押"/>
+	    <enumeration id="CD" value="CD" longname="置换后质押"/>
+	    <enumeration id="NO" value="NO" longname="不能质押"/>
+	</restrictionType>
+</schema>

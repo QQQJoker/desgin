@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="IoRegisterBookStrike" kind="business" longname="通用一借一贷登记簿冲正" package="cn.sunline.edsp.busi.iobus.servicetype.ue" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <service id="IoRegisterAcInOutBookStrike" name="registerAcInOutBookStrike" longname="通用一借一贷登记簿冲正">
+        <interface>
+            <input packMode="false">
+                <field id="transq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="交易流水"/>
+                <field id="trandt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="交易日期"/>
+                <field id="status" type="BaseEnumType.E_TRANST" required="false" default="#dict.BaseEnumType.E_TRANST().STRIK" multi="false" array="false" longname="交易状态" desc="默认冲账"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+</serviceType>

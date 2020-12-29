@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="IoDpAccountLimit" package="cn.sunline.ltts.busi.iobus.type.ca" longname="账户限额服务输入输出复合类型" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <complexType id="IoKupCurtLimt" longname="组合额度类型明细表复合类型" dict="false" abstract="false" introduct="false">
+        <element id="cmqttp" longname="组合额度类型" type="BaseType.U_CHAR04" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="limttp" longname="额度明细类型" type="BaseType.U_CHAR04" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoKupCurtCmqt" longname="组合额度类型表复合类型" dict="false" abstract="false" introduct="false">
+        <element id="cmqttp" longname="组合额度类型" type="BaseType.U_CHAR04" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cmqttx" longname="组合额度说明" type="BaseType.U_CHAR80" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoKupCurtServ" longname="组合渠道类型明细表复合类型" dict="false" abstract="false" introduct="false">
+        <element id="cmsvtp" longname="组合渠道类型" type="BaseType.U_CHAR04" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="servtp" longname="渠道类型明细" type="BaseType.U_CHAR04" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoKupCurtCmsv" longname="组合渠道类型复核类型" dict="false" abstract="false" introduct="false">
+        <element id="cmsvtp" longname="组合渠道类型" type="BaseType.U_CHAR04" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="servtx" longname="组合渠道说明" type="BaseType.U_CHAR80" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoKubTsscAcct" longname="账户额度累计信息表复合类型" dict="false" abstract="false" introduct="false">
+        <element id="custac" longname="电子账号" type="PbBaseType.U_CUSTAC" ref="QtDict.Qt.custac" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acctrt" longname="账号路由类型" type="BaseEnumType.E_ACCTROUTTYPE" ref="BaseDict.Comm.acctrt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="limttp" longname="额度类型" type="QtEnumType.E_LIMTTP" ref="QtDict.Qt.limttp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="servtp" longname="渠道" type="BaseEnumType.E_SERVTP" ref="PbDict.Intr.servtp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="accttp" longname="账户分类" type="BaseEnumType.E_ACCATP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="sbactp" longname="子账户类型" type="QtEnumType.E_SBACTP" ref="QtDict.Qt.sbactp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="pytltp" longname="支付工具" type="QtEnumType.E_PYTLTP" ref="QtDict.Qt.pytltp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="lastdt" longname="最后交易日期" type="BaseType.U_DATE08" ref="QtDict.Qt.lastdt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="dytlam" longname="日累计交易金额" type="BaseType.U_TRANAM" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="dytltm" longname="日累计交易次数" type="BaseType.U_LONGIN" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="mhtlam" longname="月累计交易金额" type="BaseType.U_TRANAM" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="mhtltm" longname="月累计交易次数" type="BaseType.U_LONGIN" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="yrtlam" longname="年累计交易金额" type="BaseType.U_TRANAM" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="yrtltm" longname="年累计交易次数" type="BaseType.U_LONGIN" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+</schema>

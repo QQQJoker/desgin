@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema id="ApSmsEnumType" package="cn.sunline.ltts.busi.sys.type" longname="短信发送枚举类型" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <restrictionType id="E_APPTTP" longname="交易类型" base="ApBaseType.U_LEIXIN02">
+        <enumeration id="REDPACKET" value="01" longname="红包"/>
+        <enumeration id="COUPONS" value="02" longname="卡券"/>
+        <enumeration id="RECHARGE" value="09" longname="充值"/>
+        <enumeration id="FINANCING" value="10" longname="理财"/>
+        <enumeration id="CUACCH" value="11" longname="账户状态变更"/>
+        <enumeration id="CAPICH" value="12" longname="资金变动"/>
+        <enumeration id="LNLOAN" value="13" longname="贷款"/>
+        <enumeration id="DRAWME" value="14" longname="提现"/>
+        <enumeration id="PAYINTER" value="15" longname="付息"/>
+        <enumeration id="TRANSFER" value="16" longname="转账"/>
+    </restrictionType>
+    <restrictionType id="E_CLIKTP" longname="点击类型" base="ApBaseType.U_LEIXIN01">
+        <enumeration id="NO" value="0" longname="不跳转"/>
+        <enumeration id="YES" value="1" longname="跳转"/>
+    </restrictionType>
+    <restrictionType id="E_SMSMODEL" longname="短信模板" base="BaseType.U_CHAR10" maxLength="10">
+        <enumeration id="TRANININ" value="01" longname="行内入金(行内出金冲正)"/>
+        <enumeration id="TRANINOUT" value="02" longname="行外入金(行外出金冲正)"/>
+        <enumeration id="TRANOTIN" value="03" longname="行内出金(行内入金冲正)"/>
+        <enumeration id="TRANOTOUT" value="04" longname="行外出金(行外入金冲正)"/>
+        <enumeration id="SDPRODFAIL" value="05" longname="产品预不成立"/>
+        <enumeration id="SDPRODSUCC" value="06" longname="产品预成立"/>
+    </restrictionType>
+</schema>

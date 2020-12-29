@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="SysCommFieldTable" package="cn.sunline.ltts.busi.aplt.tables" longname="表公共字段" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <table id="KapComm" name="kap_comm" longname="公共字段" tableType="ORDINARY" category="0" virtual="false" abstract="true">
+        <fields>
+            <field id="corpno" longname="法人代码" type="BaseType.U_CORPNO" ref="ApDict.Aplt.corpno" primarykey="true" final="true" nullable="false" identity="false" allowSubType="true"/>
+            <field id="tmstmp" longname="创建时间戳" type="ApBaseType.U_TMSTMP" ref="ApDict.Aplt.tmstmp" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="userid" longname="创建柜员号" type="BaseType.U_USERID" ref="ApDict.Aplt.userid" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="updttm" longname="修改时间戳" type="ApBaseType.U_TMSTMP" ref="ApDict.Aplt.updttm" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="updtus" longname="修改柜员号" type="BaseType.U_USERID" ref="ApDict.Aplt.updtus" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes/>
+        <indexes/>
+    </table>
+    <table id="KapCommSharid" name="KapCommSharid" longname="分片表公共字段" tableType="ORDINARY" virtual="false" abstract="false">
+        <fields>
+            <field id="corpno" longname="法人代码" type="BaseType.U_CORPNO" ref="ApDict.Aplt.corpno" primarykey="true" final="true" nullable="false" identity="false" allowSubType="true"/>
+            <field id="tmstmp" longname="创建时间戳" type="ApBaseType.U_TMSTMP" ref="ApDict.Aplt.tmstmp" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="userid" longname="创建柜员号" type="BaseType.U_USERID" ref="ApDict.Aplt.userid" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="updttm" longname="修改时间戳" type="ApBaseType.U_TMSTMP" ref="ApDict.Aplt.updttm" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="updtus" longname="修改柜员号" type="BaseType.U_USERID" ref="ApDict.Aplt.updtus" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="sharid" longname="分片键" type="BaseType.U_SHARID" ref="ApDict.Aplt.sharid" primarykey="true" final="true" nullable="false" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+    </table>
+    <table id="KapCommCif" name="KapCommCif" longname="用户中心公共字段" tableType="ORDINARY" category="0" virtual="false" abstract="true">
+        <fields>
+            <field id="corpno" longname="法人代码" type="BaseType.U_CORPNO" ref="ApDict.Aplt.corpno" primarykey="false" final="true" nullable="false" identity="false" allowSubType="true"/>
+            <field id="tmstmp" longname="创建时间戳" type="ApBaseType.U_TMSTMP" ref="ApDict.Aplt.tmstmp" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="cretus" longname="创建柜员" type="BaseType.U_OPERUS" ref="BaseDict.Comm.cretus" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="updttm" longname="修改时间戳" type="ApBaseType.U_TMSTMP" ref="ApDict.Aplt.updttm" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="updtus" longname="修改柜员号" type="BaseType.U_USERID" ref="ApDict.Aplt.updtus" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes/>
+        <indexes/>
+    </table>
+    <table id="KapCommSync" name="kap_comm_sync" longname="带版本公共字段" tableType="ORDINARY" category="0" virtual="false" abstract="true">
+        <fields>
+            <field id="corpno" longname="法人代码" type="BaseType.U_CORPNO" ref="ApDict.Aplt.corpno" primarykey="true" final="true" nullable="false" identity="false" allowSubType="true"/>
+            <field id="recdver" longname="记录版本号" type="BaseType.U_RECDVER" ref="BaseDict.Comm.recdver" primarykey="false" final="true" nullable="false" identity="false" allowSubType="true"/>
+            <field id="tmstmp" longname="时间戳" type="ApBaseType.U_TMSTMP" ref="ApDict.Aplt.tmstmp" primarykey="false" final="true" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes/>
+        <indexes/>
+    </table>
+    <table id="KapCommSpec" name="kap_comm_spec" longname="全法人共享模式公共字段" tableType="ORDINARY" category="0" virtual="false" abstract="true">
+        <fields>
+            <field id="corpno" longname="法人代码" type="BaseType.U_CORPNO" ref="ApDict.Aplt.corpno" primarykey="true" final="true" nullable="false" identity="false" allowSubType="true"/>
+            <field id="tmstmp" longname="时间戳" type="ApBaseType.U_TMSTMP" ref="ApDict.Aplt.tmstmp" primarykey="false" final="true" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes/>
+        <indexes/>
+    </table>
+</schema>

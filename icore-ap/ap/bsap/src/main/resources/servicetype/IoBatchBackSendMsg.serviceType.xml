@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType id="IoBatchBackSendMsg" kind="business" longname="批量回调发送短信服务" package="cn.sunline.ltts.busi.bsap.servicetype" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <service id="BatchExceptionSendMsg" name="batchExceptionSendMsg" longname="批量回调点异常短信处理">
+        <interface>
+            <input packMode="false">
+                <field id="smscType" alias="短信对象" type="ApMessageComplexType.SMSCType" required="false" multi="false" array="true" longname="短信对象"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+</serviceType>

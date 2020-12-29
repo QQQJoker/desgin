@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema id="FdBaseEnumType" package="cn.sunline.ltts.busi.sys.type" longname="基金枚举类型" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <restrictionType id="E_BTCHTP" longname="批次类型" base="BaseType.U_CHAR01" tags="none">
+        <enumeration id="FDPFUP" value="0" longname="基金收益更新"/>
+        <enumeration id="FDBKPF" value="1" longname="垫资收益"/>
+        <enumeration id="DFPFUP" value="2" longname="保险收益更新收益"/>
+    </restrictionType>
+    <restrictionType id="E_BTCHST" longname="批次状态" base="BaseType.U_CHAR01" tags="none">
+        <enumeration id="WAIT" value="0" longname="待处理"/>
+        <enumeration id="PROCESS" value="1" longname="处理中"/>
+        <enumeration id="SUCCESS" value="2" longname="处理成功"/>
+        <enumeration id="FAIL" value="3" longname="处理失败"/>
+    </restrictionType>
+    <restrictionType id="E_CARRTP" longname="四舍五入方式" base="BaseType.U_CHAR01" maxLength="1" minLength="1">
+        <enumeration id="IGNORE" value="0" longname="不处理" desc="不处理"/>
+        <enumeration id="ROUND" value="1" longname="四舍五入" desc="四舍五入"/>
+        <enumeration id="CARRY" value="2" longname="进位" desc="进位"/>
+        <enumeration id="TRUNCATION" value="3" longname="舍位" desc="舍位"/>
+    </restrictionType>
+    <restrictionType id="E_LINKER" longname="基金对接平台类型" base="BaseType.U_CHAR02">
+        <enumeration id="SZT" value="00" longname="深证通"/>
+    </restrictionType>
+    <restrictionType id="E_MATDIS" longname="基金到期处理" base="BaseType.U_CHAR01">
+        <enumeration id="RENEW" value="0" longname="续存"/>
+        <enumeration id="OUT" value="1" longname="转出"/>
+    </restrictionType>
+    <restrictionType id="E_CHECKRESULT" longname="基金对账结果" base="BaseType.U_CHAR01" maxLength="1">
+        <enumeration id="SAME" value="0" longname="结果一致"/>
+        <enumeration id="CHYESFUNDNO" value="1" longname="渠道有，基金公司无"/>
+        <enumeration id="CHNOFUNDYES" value="2" longname="渠道无，基金公司有"/>
+        <enumeration id="NOSAME" value="3" longname="要素不一致"/>
+        <enumeration id="UNKNOWN" value="u" longname="未知"/>
+    </restrictionType>
+    <restrictionType id="E_CHARFG" longname="收费方式" base="BaseType.U_CHAR01">
+        <enumeration id="INFO" value="0" longname="申购费前端收费"/>
+        <enumeration id="ARFT" value="1" longname="申购费后端收费"/>
+        <enumeration id="NO" value="2" longname="无申购费，按保有量收费"/>
+    </restrictionType>
+    <restrictionType id="E_SHARFG" longname="分红方式" base="BaseType.U_CHAR01">
+        <enumeration id="REU" value="0" longname="红利再投资"/>
+        <enumeration id="OUT" value="1" longname="现金分红"/>
+    </restrictionType>
+    <restrictionType id="E_TRANTP" longname="交易类型" base="BaseType.U_CHAR01">
+        <enumeration id="SG" value="1" longname="申购"/>
+        <enumeration id="SH" value="2" longname="赎回"/>
+    </restrictionType>
+    <restrictionType id="E_RELLAG" longname="清算任务标志" base="BaseType.U_CHAR02">
+        <enumeration id="SG" value="0" longname="申购"/>
+        <enumeration id="SH" value="1" longname="赎回"/>
+        <enumeration id="FH" value="2" longname="分红"/>
+        <enumeration id="SF" value="3" longname="手续费"/>
+    </restrictionType>
+    <restrictionType id="E_KEFLAG" longname="清算标志" base="BaseType.U_DATE02">
+        <enumeration id="WQS" value="0" longname="未清算"/>
+        <enumeration id="YQS" value="1" longname="已清算"/>
+    </restrictionType>
+    <restrictionType id="E_FPFLAG" longname="任务分配标志" base="BaseType.U_CHAR01">
+        <enumeration id="YES" value="1" longname="已分配"/>
+        <enumeration id="NO" value="0" longname="未分配"/>
+    </restrictionType>
+    <restrictionType id="E_TYLIDT" longname="清算类型" base="BaseType.U_CHAR01">
+        <enumeration id="INSU" value="INSU" longname="投保"/>
+        <enumeration id="SURD" value="SURD" longname="赎回"/>
+        <enumeration id="ADDPREM" value="ADDPREM" longname="追加"/>
+    </restrictionType>
+    <restrictionType id="E_TRTP03" longname="基金交易类型" base="BaseType.U_CHAR03" tags="none">
+        <enumeration id="NORMAL" value="022" longname="申购"/>
+        <enumeration id="CANCEL" value="020" longname="认购"/>
+        <enumeration id="STRIKE" value="024" longname="赎回"/>
+    </restrictionType>
+    <restrictionType id="E_TACLER" longname="TA基金清算类别" base="BaseType.U_CHAR01" tags="none">
+        <enumeration id="SG" value="0" longname="申购"/>
+        <enumeration id="SH" value="1" longname="赎回"/>
+    </restrictionType>
+</schema>

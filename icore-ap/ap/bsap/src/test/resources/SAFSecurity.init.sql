@@ -1,0 +1,6 @@
+insert into `cbmain`.`ksys_cxzjsl` ( `xitongbs`, `farendma`, `chxizjbz`, `zhongwmc`, `zujianlx`, `zujiansx`, `shifoudl`, `shifoutb`, `miaoshxi`) values ( '010', '999', 'SAFSecurityComponent.SAFSecurity', 'SAF加密平台', 'BaseComp.Security', 'SAFSecurityComponent.AbstractSAFSecurity', '1', '1', '基于SAF加密平台的加密组件实现');
+
+insert into `cbmain`.`ksys_zjslsx` ( `xitongbs`, `farendma`, `chxizjbz`, `shuximic`, `shuxingz`) values ( '010', '999', 'SAFSecurityComponent.SAFSecurity', 'ipaddr', '222.173.11.50');
+insert into `cbmain`.`ksys_zjslsx` ( `xitongbs`, `farendma`, `chxizjbz`, `shuximic`, `shuxingz`) values ( '010', '999', 'SAFSecurityComponent.SAFSecurity', 'macvor', 'www.sunline.cn');
+insert into `cbmain`.`ksys_zjslsx` ( `xitongbs`, `farendma`, `chxizjbz`, `shuximic`, `shuxingz`) values ( '010', '999', 'SAFSecurityComponent.SAFSecurity', 'portnm', '10092');
+insert into `cbmain`.`ksys_zjslsx` ( `xitongbs`, `farendma`, `chxizjbz`, `shuximic`, `shuxingz`) values ( '010', '999', 'SAFSecurityComponent.SAFSecurity', 'timeou', '10000');

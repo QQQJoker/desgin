@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType id="LcStrikeSvc" kind="business" longname="卡贷通冲正服务定义" package="cn.sunline.ltts.busi.iobus.servicetype.lc" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <service id="LcStkLcregi" name="LcStkLcregi" longname="卡贷通垫款冲正服务">
+        <interface>
+            <input packMode="false">
+                <field id="trandt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="交易日期" ref="BaseDict.Comm.trandt"/>
+                <field id="transq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="交易流水" ref="BaseDict.Comm.transq"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+</serviceType>

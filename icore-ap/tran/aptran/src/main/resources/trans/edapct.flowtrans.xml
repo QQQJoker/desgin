@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<flowtran id="edapct" longname="产品属性控制" kind="2" package="cn.sunline.ltts.busi.aptran.trans" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <interface package="cn.sunline.ltts.busi.aptran.trans.intf">
+        <input packMode="true">
+            <field id="prodcd" type="BaseType.U_PRODCD" required="false" multi="false" array="false" longname="产品代码"/>
+            <field id="btchno" type="BaseType.U_CHAR40" required="false" multi="false" array="false" longname="批次号"/>
+            <field id="datatp" type="ApBaseEnumType.E_SHXSZBZ" required="false" multi="false" array="false" longname="数据操作类型"/>
+            <field id="optype" type="ApBaseEnumType.E_JYCHLIBZ" required="false" multi="false" array="false" longname="操作类型"/>
+            <field id="chckus" type="BaseType.U_USERID" required="false" multi="false" array="false" longname="操作柜员"/>
+            <fields id="prodpp" required="false" multi="true" longname="产品属性" array="false">
+                <field id="tablcd" type="BaseType.U_CHAR40" required="false" multi="false" array="false" longname="属性表名"/>
+                <field id="fildcd" type="BaseType.U_CHAR10" required="false" multi="false" array="false" longname="属性代码"/>
+                <field id="fildnm" type="BaseType.U_CHAR40" required="false" multi="false" array="false" longname="属性名称"/>
+                <field id="fildtp" type="BaseEnumType.E_FILDTP" required="false" multi="false" array="false" longname="属性类型"/>
+                <field id="finlfg" type="BaseEnumType.E_YES___" required="false" multi="false" array="false" longname="是否固定值"/>
+                <field id="nullfg" type="BaseEnumType.E_NULLFG" required="false" multi="false" array="false" longname="空值是否覆盖"/>
+                <field id="fildvl" type="BaseType.U_CHAR400" required="false" multi="false" array="false" longname="属性默认值"/>
+                <field id="fildmu" type="BaseEnumType.E_YES___" required="false" multi="false" array="false" longname="是否多值限制"/>
+                <field id="fildcv" type="BaseType.U_CHAR400" required="false" multi="false" array="false" longname="属性限制值"/>
+                <field id="fildtx" type="BaseType.U_CHAR80" required="false" multi="false" array="false" longname="属性描述"/>
+                <field id="nullab" type="BaseEnumType.E_YES___" required="false" multi="false" array="false" longname="是否可控"/>
+                <field id="enmuid" type="BaseType.U_CHAR40" required="false" multi="false" array="false" longname="枚举FULLID"/>
+                <field id="tempcd" type="BaseType.U_CHAR10" required="false" multi="false" array="false" longname="产品模板代码"/>
+            </fields>
+        </input>
+        <output asParm="true" packMode="false"/>
+        <property packMode="false"/>
+        <printer packMode="true"/>
+    </interface>
+    <flow>
+        <method method="edapct" id="edapct" longname="产品属性控制申请"/>
+    </flow>
+</flowtran>

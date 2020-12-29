@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema id="IoApBatchFileStruct" package="cn.sunline.ltts.busi.ap.iobus.type" longname="批量文件相关复合类型定义" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description><![CDATA[批量文件相关复合类型定义]]></description>
+    <complexType id="IoApPlwjXinxIn" longname="批量文件登记输入信息" dict="false" abstract="false" introduct="false">
+        <element id="cudcnno" longname="当前DCN号" type="BaseType.U_CHAR08" ref="BaseDict.Comm.cudcnno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trandt" longname="交易日期" type="BaseType.U_DATE08" ref="BaseDict.Comm.trandt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="fileid" longname="文件ID号" type="BaseType.U_FILEID" ref="BaseDict.Comm.fileid" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="filena" longname="文件名称" type="BaseType.U_CHAR32" ref="BaseDict.Comm.filena" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="btfltp" longname="批量文件类别" type="BaseEnumType.E_BTFLTP" ref="BaseDict.Comm.btfltp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="totanm" longname="总笔数" type="BaseType.U_LONGIN" ref="BaseDict.Comm.totanm" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="filepr" longname="文件属性信息" type="BaseType.U_LONGDS" ref="BaseDict.Comm.filepr" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cdcnno" longname="DCN编号" type="BaseType.U_DCNNO" ref="BaseDict.Comm.cdcnno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoApPlwjXinxInfo" longname="批量文件信息" dict="false" abstract="false" introduct="false">
+        <element id="cdcnno" longname="DCN编号" type="BaseType.U_DCNNO" ref="BaseDict.Comm.cdcnno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trandt" longname="交易日期" type="BaseType.U_DATE08" ref="BaseDict.Comm.trandt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="fileid" longname="文件ID号" type="BaseType.U_FILEID" ref="BaseDict.Comm.fileid" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="filena" longname="文件名称" type="BaseType.U_CHAR32" ref="BaseDict.Comm.filena" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="btfltp" longname="批量文件类别" type="BaseEnumType.E_BTFLTP" ref="BaseDict.Comm.btfltp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="readct" longname="已读取笔数" type="BaseType.U_LONGIN" ref="BaseDict.Comm.readct" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="recdno" longname="记录次序号" type="BaseType.U_SENOTP" ref="BaseDict.Comm.recdno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="btflst" longname="批量文件状态标志" type="BaseEnumType.E_BTFLST" ref="BaseDict.Comm.btflst" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="hostdt" longname="主机日期" type="BaseType.U_DATE08" ref="BaseDict.Comm.hostdt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="filepr" longname="文件属性信息" type="BaseType.U_LONGDS" ref="BaseDict.Comm.filepr" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoApWjplrwxxInfo" longname="文件批量任务信息" dict="false" abstract="false" introduct="false">
+        <element id="entrno" longname="委托号" type="BaseType.U_SHORDS" ref="BaseDict.Comm.entrno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cdcnno" longname="DCN编号" type="BaseType.U_DCNNO" ref="BaseDict.Comm.cdcnno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="mdcnno" longname="主调DCN号" type="BaseType.U_DCNNO" ref="BaseDict.Comm.mdcnno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="btflmd" longname="批量文件类型" type="BaseType.U_CHAR04" ref="BaseDict.Comm.btflmd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="bttrno" longname="批量交易组编号" type="BaseType.U_SHORDS" ref="BaseDict.Comm.bttrno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="btlach" longname="批量发起渠道" type="BaseType.U_CHAR04" ref="BaseDict.Comm.btlach" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="btladt" longname="批量发起日期" type="BaseType.U_DATE08" ref="BaseDict.Comm.btladt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trandt" longname="交易日期" type="BaseType.U_DATE08" ref="BaseDict.Comm.trandt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="totanm" longname="总笔数" type="BaseType.U_LONGIN" ref="BaseDict.Comm.totanm" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="succnm" longname="成功笔数" type="BaseType.U_LONGIN" ref="BaseDict.Comm.succnm" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="failnm" longname="失败笔数" type="BaseType.U_LONGIN" ref="BaseDict.Comm.failnm" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="startm" longname="开始时间" type="BaseType.U_DATELG" ref="BaseDict.Comm.startm" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="endttm" longname="结束时间" type="BaseType.U_DATELG" ref="BaseDict.Comm.endttm" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="flbtst" longname="文件批量状态" type="ApBaseEnumType.E_FLBTST" ref="BaseDict.Comm.flbtst" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="btstsq" longname="批量发起流水" type="BaseType.U_SEQUNO" ref="BaseDict.Comm.btstsq" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="filetx" longname="文件信息" type="BaseType.U_LONGDS" ref="BaseDict.Comm.filetx" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="locaph" longname="本地文件路径" type="BaseType.U_LONGDS" ref="BaseDict.Comm.locaph" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="errotx" longname="错误信息" type="BaseType.U_LONGDS" ref="BaseDict.Comm.errotx" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="errosk" longname="错误堆栈" type="BaseType.U_CHAR4000" ref="BaseDict.Comm.errosk" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoApTotlInfo" longname="批量主表总记录数和处理总数" dict="false" abstract="false" introduct="false">
+        <element id="totanm" longname="总笔数" type="BaseType.U_LONGIN" ref="BaseDict.Comm.totanm" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="distnm" longname="处理总笔数" type="BaseType.U_LONGIN" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="ApBtchResultInfo" longname="代发代扣结果复合类型" dict="false" abstract="false" introduct="false">
+        <element id="agntcn" longname="签约编号" type="BaseType.U_CNTRNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="btchno" longname="批量交易批次号" type="BaseType.U_CHAR40" ref="BaseDict.Comm.btchno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="agcntp" longname="项目类型" type="DpEnumType.E_AGCNTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="inacno" longname="代理账号" type="BaseType.U_ACCTNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="inacna" longname="代理户名" type="BaseType.U_ACCTNA" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acctno" longname="单位账号" type="BaseType.U_ACCTNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acctna" longname="单位名称" type="BaseType.U_ACCTNA" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="busseq" longname="业务流水号" type="BaseType.U_CHAR40" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trandt" longname="交易日期" type="BaseType.U_DATE08" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acctdt" longname="业务日期" type="BaseType.U_DATE08" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="totanm" longname="总笔数" type="BaseType.U_LONGIN" ref="BaseDict.Comm.totanm" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="distnm" longname="处理总笔数" type="BaseType.U_LONGIN" ref="BaseDict.Comm.distnm" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="succnm" longname="成功笔数" type="BaseType.U_LONGIN" ref="BaseDict.Comm.succnm" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="failnm" longname="失败笔数" type="BaseType.U_LONGIN" ref="BaseDict.Comm.failnm" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="totaam" longname="总金额" type="BaseType.U_TRANAM" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="succam" longname="成功金额" type="BaseType.U_TRANAM" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="failam" longname="失败金额" type="BaseType.U_TRANAM" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="btfest" longname="批量文件状态" type="ApBaseEnumType.E_BTFEST" ref="BaseDict.Comm.btfest" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="filetx" longname="文件信息" type="BaseType.U_LONGDS" ref="BaseDict.Comm.filetx" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="errotx" longname="错误信息" type="BaseType.U_LONGDS" ref="BaseDict.Comm.errotx" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="smrycd" longname="摘要代码" type="BaseType.U_SMRYCD" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="remark" longname="备注" type="BaseType.U_LONGDS" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="DpKapbWjplxxb" longname="文件批量信息表复合类型" dict="false" abstract="false" introduct="false">
+        <element id="agntcn" longname="签约编号" type="BaseType.U_CNTRNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="btchno" longname="批量交易批次号" type="BaseType.U_CHAR40" ref="BaseDict.Comm.btchno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="busseq" longname="业务流水号" type="BaseType.U_CHAR40" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trandt" longname="交易日期" type="BaseType.U_DATE08" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acctdt" longname="业务日期" type="BaseType.U_DATE08" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="filetp" longname="文件类型" type="ApBaseEnumType.E_FILETP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="endtdt" longname="业务结束日期" type="BaseType.U_DATE08" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="totanm" longname="总笔数" type="BaseType.U_LONGIN" ref="BaseDict.Comm.totanm" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="distnm" longname="处理总笔数" type="BaseType.U_LONGIN" ref="BaseDict.Comm.distnm" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="succnm" longname="成功笔数" type="BaseType.U_LONGIN" ref="BaseDict.Comm.succnm" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="failnm" longname="失败笔数" type="BaseType.U_LONGIN" ref="BaseDict.Comm.failnm" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="totaam" longname="总金额" type="BaseType.U_TRANAM" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="succam" longname="成功金额" type="BaseType.U_TRANAM" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="failam" longname="失败金额" type="BaseType.U_TRANAM" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="btfest" longname="批量文件状态" type="ApBaseEnumType.E_BTFEST" ref="BaseDict.Comm.btfest" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="filetx" longname="文件信息" type="BaseType.U_LONGDS" ref="BaseDict.Comm.filetx" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="errotx" longname="错误信息" type="BaseType.U_LONGDS" ref="BaseDict.Comm.errotx" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="downph" longname="下载路径" type="BaseType.U_LONGDS" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="downna" longname="下载文件名" type="BaseType.U_FILENA" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="upfeph" longname="返回文件路径" type="BaseType.U_LONGDS" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="upfena" longname="返回文件名" type="BaseType.U_FILENA" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="locaph" longname="文件本地路径" type="BaseType.U_LONGDS" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="smrycd" longname="摘要码" type="BaseType.U_CHAR02" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="remark" longname="备注" type="BaseType.U_LONGDS" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+</schema>

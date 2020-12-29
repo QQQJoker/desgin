@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<sqls id="ApMsgNsql" longname="异步消息命名SQL" package="cn.sunline.ltts.amsg.namedsql" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <select cache="none" method="selectOne" type="sql" id="selTopiMessCountByAffaid" longname="根据事务ID获取消息条数">
+        <sql><![CDATA[select count(*) from aps_topi_mess where affaid=#affaid# and corpno=#corpno#]]></sql>
+        <sql type="mysql"><![CDATA[select count(*) from aps_topi_mess where affaid=#affaid# and corpno=#corpno#]]></sql>
+        <sql type="oracle"><![CDATA[select count(*) from aps_topi_mess where affaid=#affaid# and corpno=#corpno#]]></sql>
+        <sql type="db2"><![CDATA[select count(*) from aps_topi_mess where affaid=#affaid# and corpno=#corpno#]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="affaid" jdbcType="VARCHAR" javaType="string" mode="in" longname="事务ID" parameterType="condition"/>
+            <parameter property="corpno" ref="ApDict.Aplt.corpno" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人代码" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="java.lang.Integer"/>
+    </select>
+    <update method="update" id="upTopiDetlByAffaidAndDetlsq" longname="根据事务ID和序号更新订阅明细">
+        <sql><![CDATA[update aps_topi_detl set iscons=#iscons#,tacorp=#tacorp#,tardcn=#tardcn#,tsyscd=#tsyscd#,constm=#constm#,status=#status#,tmstmp=#tmstmp# where affaid=#affaid# and detlsq=#detlsq# and corpno=#corpno#]]></sql>
+        <sql type="mysql"><![CDATA[update aps_topi_detl set iscons=#iscons#,tacorp=#tacorp#,tardcn=#tardcn#,tsyscd=#tsyscd#,constm=#constm#,status=#status#,tmstmp=#tmstmp# where affaid=#affaid# and detlsq=#detlsq# and corpno=#corpno#]]></sql>
+        <sql type="oracle"><![CDATA[update aps_topi_detl set iscons=#iscons#,tacorp=#tacorp#,tardcn=#tardcn#,tsyscd=#tsyscd#,constm=#constm#,status=#status#,tmstmp=#tmstmp# where affaid=#affaid# and detlsq=#detlsq# and corpno=#corpno#]]></sql>
+        <sql type="db2"><![CDATA[update aps_topi_detl set iscons=#iscons#,tacorp=#tacorp#,tardcn=#tardcn#,tsyscd=#tsyscd#,constm=#constm#,status=#status#,tmstmp=#tmstmp# where affaid=#affaid# and detlsq=#detlsq# and corpno=#corpno#]]></sql>
+        <parameterMap class="ApAmsg.ApsTopiDetl"/>
+    </update>
+    <select cache="none" method="selectOne" type="sql" id="selTopiDetlCountByAffaid" longname="根据事务ID获取订阅者数量">
+        <sql><![CDATA[select count(*) from aps_topi_detl where affaid=#affaid# and corpno=#corpno#]]></sql>
+        <sql type="mysql"><![CDATA[select count(*) from aps_topi_detl where affaid=#affaid# and corpno=#corpno#]]></sql>
+        <sql type="oracle"><![CDATA[select count(*) from aps_topi_detl where affaid=#affaid# and corpno=#corpno#]]></sql>
+        <sql type="db2"><![CDATA[select count(*) from aps_topi_detl where affaid=#affaid# and corpno=#corpno#]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="affaid" jdbcType="VARCHAR" javaType="string" mode="in" longname="事务ID" parameterType="condition"/>
+            <parameter property="corpno" ref="ApDict.Aplt.corpno" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人代码" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="java.lang.Integer"/>
+    </select>
+    <select cache="none" method="selectAll" type="sql" id="selApsMessUndoByGroupId" longname="根据分组ID查询未处理消息表">
+        <sql type="mysql"><![CDATA[select * from aps_mess_undo where groupid >= #minGroupId# and groupid < #maxGroupId# and corpno=#corpno# limit 1000]]></sql>
+        <sql type="oracle"><![CDATA[select * from aps_mess_undo where groupid >= #minGroupId# and groupid < #maxGroupId# and corpno=#corpno# and rownum <= 1000]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="minGroupId" jdbcType="VARCHAR" javaType="int" mode="in" parameterType="condition"/>
+            <parameter property="maxGroupId" jdbcType="VARCHAR" javaType="int" mode="in" parameterType="condition"/>
+            <parameter property="corpno" ref="ApDict.Aplt.corpno" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人代码" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="ApAmsg.ApsMessUndo"/>
+    </select>
+    <select cache="none" method="selectAll" type="sql" id="selNowApsShorundoByGroupId" longname="根据分组ID查询实时未处理短信表">
+        <sql type="mysql"><![CDATA[select * from aps_shor_undo where messst != '0' and messty !='0' and groupid >= #minGroupId# and groupid < #maxGroupId# and corpno=#corpno# limit 1000]]></sql>
+        <sql type="oracle"><![CDATA[select * from aps_shor_undo where messst != '0' and messty !='0' and groupid >= #minGroupId# and groupid < #maxGroupId# and corpno=#corpno# and rownum <= 1000]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="minGroupId" jdbcType="VARCHAR" javaType="int" mode="in" parameterType="condition"/>
+            <parameter property="maxGroupId" jdbcType="VARCHAR" javaType="int" mode="in" parameterType="condition"/>
+            <parameter property="corpno" ref="ApDict.Aplt.corpno" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人代码" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="ApAmsg.ApsShorUndo"/>
+    </select>
+    <select cache="none" method="selectAll" type="sql" id="selWaitApsShorundoByGroupId" longname="根据分组ID查询非实时未处理短信表">
+        <sql type="mysql"><![CDATA[select * from aps_shor_undo where messst != '0' and messty ='0' and  groupid >= #minGroupId# and groupid < #maxGroupId# and corpno=#corpno# limit 1000]]></sql>
+        <sql type="oracle"><![CDATA[select * from aps_shor_undo where messst != '0' and messty ='0' and  groupid >= #minGroupId# and groupid < #maxGroupId# and corpno=#corpno# and rownum <= 1000]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="minGroupId" jdbcType="VARCHAR" javaType="int" mode="in" parameterType="condition"/>
+            <parameter property="maxGroupId" jdbcType="VARCHAR" javaType="int" mode="in" parameterType="condition"/>
+            <parameter property="corpno" ref="ApDict.Aplt.corpno" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人代码" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="ApAmsg.ApsShorUndo"/>
+    </select>
+    <select cache="none" method="selectOne" type="sql" id="selApsMessHdMQMaxSeqByTopcId" longname="查询MQ消息处理表最大序号">
+        <sql type="mysql"><![CDATA[select max(messeq) from aps_mess_hdmq where transq = #transq# and topcid = #topcid#]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="transq" ref="BaseDict.Comm.transq" jdbcType="VARCHAR" javaType="BaseType.U_SEQUNO" mode="in" longname="交易流水" parameterType="condition"/>
+            <parameter property="topcid" ref="ApDict.Aplt.topcid" jdbcType="VARCHAR" javaType="BaseType.U_CHAR20" mode="in" longname="消息主题ID" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="int"/>
+    </select>
+    <select cache="none" method="selectAll" type="sql" id="selApsMessHdMQToProcess" longname="查询未发送MQ消息">
+        <sql type="mysql"><![CDATA[select * from aps_mess_hdmq where handst in (#handst#,#hands1#) and corpno = #corpno#]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="handst" jdbcType="VARCHAR" javaType="SPEnumType.E_PROCSTATUS" mode="in" longname="处理状态" parameterType="condition"/>
+            <parameter property="hands1" jdbcType="VARCHAR" javaType="SPEnumType.E_PROCSTATUS" mode="in" longname="处理状态" parameterType="condition"/>
+            <parameter property="corpno" ref="ApDict.Aplt.corpno" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人代码" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="ApAmsg.ApsMessHdMQ"/>
+    </select>
+</sqls>

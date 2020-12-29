@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<errorConf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="LgError" longname="保函错误码" package="cn.sunline.ltts.busi.sys.errors" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <errors id="LgComm" longname="通用错误码">
+        <error id="E0001" type="error" message="[${msg}]" errorCode="010L0353">
+            <parameter id="msg" type="BaseType.U_CHAR200" longname="错误信息"/>
+        </error>
+        <error id="E0002" type="error" message="[${msg}]不能为空" errorCode="010L0354">
+            <parameter id="msg" type="BaseType.U_CHAR200" longname="名称"/>
+        </error>
+        <error id="E0003" type="error" message="出账机构与交易机构不一致" errorCode="010L0355"/>
+        <error id="E0004" type="error" message="出账日期与交易日期不一致" errorCode="010L0356"/>
+        <error id="E0005" type="error" message="出账信息不存在" errorCode="010L0357"/>
+        <error id="E0006" type="error" message="出账信息已处理或已失效" errorCode="010L0358"/>
+        <error id="E0007" type="error" message="交易日期必须与出账日期一致" errorCode="010L0359"/>
+        <error id="E0008" type="error" message="保函信息不存在" errorCode="010L0360"/>
+        <error id="E0009" type="error" message="保函信金额必须大于0" errorCode="010L0361"/>
+        <error id="E0010" type="error" message="起始日期不能小于交易日期" errorCode="010L0362"/>
+        <error id="E0011" type="error" message="到期日期必须大于起始日期" errorCode="010L0363"/>
+        <error id="E0012" type="error" message="保函金额必须大于0" errorCode="010L0364"/>
+        <error id="E0013" type="error" message="费用不能小于0" errorCode="010L0365"/>
+        <error id="E0014" type="error" message="币种不能为空" errorCode="010L0366"/>
+        <error id="E0015" type="error" message="币种不存在" errorCode="010L0367"/>
+        <error id="E0016" type="error" message="[${msg}]与出账表中的信息不一致" errorCode="010L0368">
+            <parameter id="msg" type="BaseType.U_CHAR80" longname="参数名"/>
+        </error>
+        <error id="E0017" type="error" message="币种不正确" errorCode="010L0369"/>
+        <error id="E0018" type="error" message="输入保函金额与出账登记的保函金额不一致" errorCode="010L0370"/>
+        <error id="E0019" type="error" message="输入到期日与出账登记的到期日不一致" errorCode="010L0371"/>
+        <error id="E0020" type="error" message="输入收费金额与出账登记的收费金额不一致" errorCode="010L0372"/>
+        <error id="E0021" type="error" message="保函出账信息不存在" errorCode="010L0373"/>
+        <error id="E0022" type="error" message="未处理的保函才能进行开立处理" errorCode="010L0374"/>
+        <error id="E0023" type="error" message="收费时交易类别不能为空" errorCode="010L0375"/>
+        <error id="E0024" type="error" message="通知单编号对应的出账信息已存在" errorCode="010L0376"/>
+        <error id="E0025" type="error" message="保函编号和客户号不能同时为空" errorCode="010L0377"/>
+        <error id="E0026" type="error" message="保函参数未设置" errorCode="010L0378"/>
+        <error id="E0027" type="error" message="赔付注销时，交易金额必须大于0" errorCode="010L0379"/>
+        <error id="E0028" type="error" message="冻结流水不能为空" errorCode="010L0380"/>
+        <error id="E0029" type="error" message="冻结日期不能为空" errorCode="010L0381"/>
+        <error id="E0030" type="error" message="注销方式为注销时，赔付金额必须等于0" errorCode="010L0382"/>
+        <error id="E0031" type="error" message="注销方式为赔付注销时，赔付金额必须大于0" errorCode="010L0383"/>
+        <error id="E0032" type="error" message="保证金补充金额必须大于0" errorCode="010L0384"/>
+        <error id="E0033" type="error" message="保函编号生成规则未设置" errorCode="010L0385"/>
+        <error id="E0034" type="error" message="保函打印次数未设置" errorCode="010L0386"/>
+        <error id="E0035" type="error" message="赔付注销不允许冲正" errorCode="010L0387"/>
+        <error id="E0036" type="error" message="保函应解款项业务编码未配置" errorCode="010L0388"/>
+        <error id="E0037" type="error" message="申请人账号与主表信息不一致" errorCode="010L0389"/>
+        <error id="E0038" type="error" message="保证金账号与主表信息不一致" errorCode="010L0390"/>
+        <error id="E0039" type="error" message="保证金账号为空时，[${msg}]必须为空" errorCode="010L0391">
+            <parameter id="msg" type="BaseType.U_CHAR200" longname="名称"/>
+        </error>
+        <error id="E0040" type="error" message="保证金账号为空时，保证金金额必须为0" errorCode="010L0392"/>
+        <error id="E0041" type="error" message="[${msg}]不存在" errorCode="010L0393">
+            <parameter id="msg" type="BaseType.U_CHAR200" longname="名称"/>
+        </error>
+        <error id="E0042" type="error" message="冻结账号与保证金账号不一致" errorCode="010L0394"/>
+        <error id="E0043" type="error" message="冻结起始日期大于保函出账日期" errorCode="010L0395"/>
+        <error id="E0044" type="error" message="冻结结束日期小于保函到期日" errorCode="010L0396"/>
+        <error id="E0045" type="error" message="保证金金额与冻结金额不一致" errorCode="010L0397"/>
+        <error id="E0046" type="error" message="保函印花税率未配置" errorCode="010L0398"/>
+        <error id="E0047" type="error" message="保证金账号与申请人账号不能相同" errorCode="010L0399"/>
+        <error id="E0048" type="error" message="保函开立已使用过此冻结编号和冻结序号" errorCode="010L0400"/>
+        <error id="E0049" type="error" message="保证金补充金额必须大于0" errorCode="010L0401"/>
+        <error id="E0050" type="error" message="账号不能为空" errorCode="010L0402"/>
+        <error id="E0051" type="error" message="保证金金额不能小于0" errorCode="010L0403"/>
+        <error id="E0052" type="error" message="保函状态异常" errorCode="010L0404"/>
+        <error id="E0053" type="error" message="保证金账号与申请人账号不属于同一个人" errorCode="010L0405"/>
+        <error id="E0054" type="error" message="暂只支持对公账户" errorCode="010L0406"/>
+        <error id="E0055" type="error" message="必须为保函保证金账户" errorCode="010L0407"/>
+    </errors>
+</errorConf>

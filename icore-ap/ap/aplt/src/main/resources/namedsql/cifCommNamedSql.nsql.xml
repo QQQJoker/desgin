@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<sqls xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="cifCommNamedSql" longname="用户客户信息系统公共sql" package="cn.sunline.ltts.busi.aplt.namedsql" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <select cache="none" method="selectOne" type="sql" id="selCifFileRgstCountsByBusseq" longname="查询请求文件是否已交互">
+        <sql type="mysql"><![CDATA[
+    	select
+    	    	count(1) counts 
+    	from
+    	    	cif_file_rgst 
+    	where
+    	    	busseq = #busseq# and source = #source# 
+    	    	and target = #target#
+    	]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="busseq" jdbcType="VARCHAR" javaType="string" mode="in" longname="业务流水" parameterType="condition"/>
+            <parameter property="source" jdbcType="VARCHAR" javaType="string" mode="in" longname="源系统" parameterType="condition"/>
+            <parameter property="target" jdbcType="VARCHAR" javaType="string" mode="in" longname="目标系统" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="int"/>
+    </select>
+    <select cache="none" method="selectOne" type="sql" id="sel_filergst_by_busseq" longname="查询请求文件登记簿">
+        <sql type="mysql"><![CDATA[
+    	select
+    	    	count(1) counts 
+    	from
+    	    	cif_file_rgst 
+    	where
+    	    	filest = #filest# and busseq = #busseq# 
+    	    	and source = #source# and target = #target#
+    	]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="filest" jdbcType="VARCHAR" javaType="string" mode="in" longname="文件登记状态" parameterType="condition"/>
+            <parameter property="busseq" jdbcType="VARCHAR" javaType="string" mode="in" longname="业务流水" parameterType="condition"/>
+            <parameter property="source" jdbcType="VARCHAR" javaType="string" mode="in" longname="源系统标识" parameterType="condition"/>
+            <parameter property="target" jdbcType="VARCHAR" javaType="string" mode="in" longname="目标系统标识" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="int"/>
+    </select>
+    <update method="update" id="upd_filergst_by_busseq" longname="更新请求文件登记簿">
+        <sql type="mysql"><![CDATA[
+    	update
+    	    	cif_file_rgst 
+    	set
+    	    	filest = #status#,gmt_modified=now() 
+    	where
+    	    	filest = #filest# and busseq = #busseq# 
+    	    	and source = #source# and target = #target# 
+    	]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="status" jdbcType="VARCHAR" javaType="string" mode="in" longname="文件登记状态" parameterType="condition"/>
+            <parameter property="filest" jdbcType="VARCHAR" javaType="string" mode="in" longname="文件登记状态" parameterType="condition"/>
+            <parameter property="busseq" jdbcType="VARCHAR" javaType="string" mode="in" longname="业务流水" parameterType="condition"/>
+            <parameter property="source" jdbcType="VARCHAR" javaType="string" mode="in" longname="源系统" parameterType="condition"/>
+            <parameter property="target" jdbcType="VARCHAR" javaType="string" mode="in" longname="目标系统" parameterType="condition"/>
+        </parameterMap>
+    </update>
+    <update method="update" id="updSendFileRgst" longname="更新发送文件登记簿">
+        <sql type="mysql"><![CDATA[
+    	update
+    	    	cif_file_rgst 
+    	set
+    	    	filest = #filest#,busseq = #busseq#,descri = #descri# ,gmt_modified=#dateti#
+    	where
+    	    	tranno = #tranno# 
+    	]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="tranno" jdbcType="VARCHAR" javaType="string" mode="in" longname="流水" parameterType="condition"/>
+            <parameter property="filest" jdbcType="VARCHAR" javaType="string" mode="in" longname="文件登记状态" parameterType="condition"/>
+            <parameter property="busseq" jdbcType="VARCHAR" javaType="string" mode="in" longname="业务流水" parameterType="condition"/>
+            <parameter property="descri" jdbcType="VARCHAR" javaType="string" mode="in" longname="结果描述" parameterType="condition"/>
+            <parameter property="dateti" jdbcType="VARCHAR" javaType="string" mode="in" longname="系统当前时间" parameterType="condition"/>
+        </parameterMap>
+    </update>
+</sqls>

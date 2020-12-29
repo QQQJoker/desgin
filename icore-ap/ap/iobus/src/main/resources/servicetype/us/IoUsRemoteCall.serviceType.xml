@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="IoUsRemoteCall" kind="business" longname="用户外调其他系统服务" package="cn.sunline.edsp.busi.iobus.servicetype" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <service id="loginRiskJudgeCall" name="loginRiskJudgeCall" longname="登陆外调风控校验">
+        <interface>
+            <input packMode="true">
+                <field id="businessNo" type="CfBaseType.U_BUSINESSNO" required="false" multi="false" array="false" longname="流水号" ref="CfDict.icif.businessNo"/>
+                <field id="eventCode" type="CfEnumType.E_EVENTCODE" required="false" multi="false" array="false" longname="事件编码" ref="CfDict.icif.eventCode"/>
+                <field id="userId" type="CfBaseType.U_USERID" required="false" multi="false" array="false" longname="用户编码" ref="CfDict.icif.userId"/>
+                <field id="operateTime" type="CfBaseType.U_DATE23" required="false" multi="false" array="false" longname="操作时间" ref="CfDict.icif.operateTime"/>
+                <field id="terminal" type="CfEnumType.E_OPTERM" required="false" multi="false" array="false" longname="操作终端" ref="CfDict.icif.terminal"/>
+                <field id="userMobile" type="CfBaseType.U_PHONNO" required="false" multi="false" array="false" longname="用户手机号" ref="CfDict.icif.userMobile"/>
+                <field id="userLevel" type="CfEnumType.E_USERLV" required="false" multi="false" array="false" longname="用户级别" ref="CfDict.icif.userLevel"/>
+                <field id="loginType" type="CfEnumType.E_LOGNTY" required="false" multi="false" array="false" longname="登录类型" ref="CfDict.icif.loginType"/>
+                <field id="thirdparty" type="CfEnumType.E_THRDPT" required="false" multi="false" array="false" longname="第三方授权平台" ref="CfDict.icif.thirdparty"/>
+                <field id="clientIp" type="CfBaseType.U_USERIP" required="false" multi="false" array="false" longname="用户ip" ref="CfDict.icif.clientIp"/>
+                <field id="deviceId" type="CfBaseType.U_DECENO" required="false" multi="false" array="false" longname="设备id" ref="CfDict.icif.deviceId"/>
+                <field id="certType" type="CfEnumType.E_IDTFTP" required="false" multi="false" array="false" longname="证件类型" ref="CfDict.icif.certType"/>
+                <field id="certNo" type="CfBaseType.U_IDTFNO" required="false" multi="false" array="false" longname="证件号" ref="CfDict.icif.certNo"/>
+                <field id="msgVerification" type="CfEnumType.E_ISCKMS" required="false" multi="false" array="false" longname="本次登录是否已验短" ref="CfDict.icif.msgVerification"/>
+                <field id="sliderVerification" type="CfEnumType.E_ISCKBK" required="false" multi="false" array="false" longname="本次登录是否已滑块" ref="CfDict.icif.sliderVerification"/>
+                <field id="verifyInfoType" type="CfEnumType.E_VATYPE" required="false" multi="false" array="false" longname="本次登录验密方式" ref="CfDict.icif.verifyInfoType"/>
+                <field id="pwdErrCount" type="CfBaseType.U_PWCUNT" required="false" multi="false" array="false" longname="密码错误次数" ref="CfDict.icif.pwdErrCount"/>
+                <field id="certStatus" type="CfEnumType.E_CERTST" required="false" multi="false" array="false" longname="数字证书状态" ref="CfDict.icif.certStatus"/>
+                <field id="browerName" type="CfBaseType.U_BROWNM" required="false" multi="false" array="false" longname="浏览器名称" ref="CfDict.icif.browerName"/>
+                <field id="browerVersion" type="CfBaseType.U_BROWVE" required="false" multi="false" array="false" longname="浏览器版本" ref="CfDict.icif.browerVersion"/>
+                <field id="appName" type="CfBaseType.U_APPNAM" required="false" multi="false" array="false" longname="app的应用名称" ref="CfDict.icif.appName"/>
+                <field id="appVersion" type="CfBaseType.U_APPVER" required="false" multi="false" array="false" longname="app版本号" ref="CfDict.icif.appVersion"/>
+                <field id="appToken" type="CfBaseType.U_APPTOK" required="false" multi="false" array="false" longname="appToken" ref="CfDict.icif.appToken"/>
+                <field id="longitude" type="CfBaseType.U_LGTUDE" required="false" multi="false" array="false" longname="经度" ref="CfDict.icif.longitude"/>
+                <field id="latitude" type="CfBaseType.U_LATUDE" required="false" multi="false" array="false" longname="纬度" ref="CfDict.icif.latitude"/>
+                <field id="locateProvince" type="CfBaseType.U_PROVCD" required="false" multi="false" array="false" longname="定位省" ref="CfDict.icif.locateProvince"/>
+                <field id="locateCity" type="CfBaseType.U_CITYCD" required="false" multi="false" array="false" longname="定位市" ref="CfDict.icif.locateCity"/>
+                <field id="trackdata" type="CfBaseType.U_TKDATA" required="false" multi="false" array="false" longname="埋点数据" ref="CfDict.icif.trackdata"/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="eventCode" type="CfEnumType.E_EVENTCODE" required="false" multi="false" array="false" longname="事件编码" ref="CfDict.icif.eventCode"/>
+                <field id="businessNo" type="CfBaseType.U_BUSINESSNO" required="false" multi="false" array="false" longname="流水号" ref="CfDict.icif.businessNo"/>
+                <field id="responseCode" type="CfEnumType.E_LGRKCD" required="false" multi="false" array="false" longname="返回码" ref="CfDict.icif.responseCode"/>
+                <field id="responseMsg" type="CfBaseType.U_RESMSG" required="false" multi="false" array="false" longname="返回信息" ref="CfDict.icif.responseMsg"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="custOpenCall" name="custOpenCall" longname="外调客户开户">
+        <interface>
+            <input packMode="true">
+                <fields id="cust" required="false" multi="false" longname="客户信息" array="false">
+                    <field id="custcn" type="EcBaseType.U_NAMECN" required="false" multi="false" array="false" longname="客户中文名称" ref="EcDict.cust.custcn"/>
+                    <field id="custen" type="EcBaseType.U_NAMEEN" required="false" multi="false" array="false" longname="客户英文名称" ref="EcDict.cust.custen"/>
+                    <field id="custlc" type="EcBaseType.U_NAMECN" required="false" multi="false" array="false" longname="最近曾用中文名" ref="EcDict.cust.custlc"/>
+                    <field id="custle" type="EcBaseType.U_NAMEEN" required="false" multi="false" array="false" longname="最近曾用英文名" ref="EcDict.cust.custle"/>
+                    <field id="jonttg" type="EcBaseType.U_JONTTG" required="false" multi="false" array="false" longname="联网核查标志" ref="EcDict.cust.jonttg"/>
+                    <field id="facefg" type="EcEnumType.E_ISORNT" required="false" multi="false" array="false" longname="人脸核查标志" ref="EcDict.cust.facefg"/>
+                    <field id="gender" type="BaseEnumType.E_SEXTYP" required="false" multi="false" array="false" longname="性别"/>
+                    <field id="brthdt" type="EcBaseType.U_BRTHDT" required="false" multi="false" array="false" longname="出生日期" ref="EcDict.cust.brthdt"/>
+                    <field id="age" type="EcBaseType.U_NUMBER" required="false" multi="false" array="false" longname="年龄" ref="EcDict.cust.age"/>
+                    <field id="custtp" type="EcEnumType.E_CUSTTP" required="false" multi="false" array="false" longname="客户类别" ref="EcDict.cust.custtp"/>
+                    <field id="custlv" type="EcEnumType.E_CUSTLV" required="false" multi="false" array="false" longname="客户级别" ref="EcDict.cust.custlv"/>
+                    <field id="lawbno" type="EcBaseType.U_LAWBNO" required="false" multi="false" array="false" longname="法人行号" ref="EcDict.cust.lawbno"/>
+                    <field id="hedurl" type="BaseType.U_CHAR500" required="false" multi="false" array="false" longname="客户头像url"/>
+                    <field id="cerurl" type="BaseType.U_CHAR500" required="false" multi="false" array="false" longname="客户身份证影像url"/>
+                    <field id="aceurl" type="BaseType.U_CHAR500" required="false" multi="false" array="false" longname="客户身份证反面影像url"/>
+                    <field id="hedseq" type="BaseType.U_CHAR1024" required="false" multi="false" array="false" longname="客户头像流水"/>
+                    <field id="cerseq" type="BaseType.U_CHAR1024" required="false" multi="false" array="false" longname="客户身份证正面影像流水"/>
+                    <field id="aceseq" type="BaseType.U_CHAR1024" required="false" multi="false" array="false" longname="客户身份证反面影像流水"/>
+                    <field id="county" type="BaseType.U_COUNCD" required="false" multi="false" array="false" longname="国籍"/>
+                    <field id="rgstad" type="EcBaseType.U_RGSTAD" required="false" multi="false" array="false" longname="地区代码" ref="EcDict.cust.rgstad"/>
+                    <field id="nation" type="CfEnumType.E_NATION" required="false" multi="false" array="false" longname="民族"/>
+                    <field id="wedlok" type="EcEnumType.E_WEDLOK" required="false" multi="false" array="false" longname="婚姻状况" ref="EcDict.cust.wedlok"/>
+                    <field id="plvscd" type="EcEnumType.E_PLVSCD" required="false" multi="false" array="false" longname="政治面貌" ref="EcDict.cust.plvscd"/>
+                    <field id="health" type="EcEnumType.E_HEALTH" required="false" multi="false" array="false" longname="健康状况" ref="EcDict.cust.health"/>
+                    <field id="fvrttx" type="EcBaseType.U_FAVTTX" required="false" multi="false" array="false" longname="个人爱好" ref="EcDict.cust.fvrttx"/>
+                    <field id="degree" type="EcEnumType.E_DEGREE" required="false" multi="false" array="false" longname="最高学位" ref="EcDict.cust.degree"/>
+                    <field id="edctbk" type="EcEnumType.E_EDCTBK" required="false" multi="false" array="false" longname="最高学历" ref="EcDict.cust.edctbk"/>
+                    <field id="school" type="EcBaseType.U_SCHOOL" required="false" multi="false" array="false" longname="毕业院校" ref="EcDict.cust.school"/>
+                    <field id="isfarm" type="CfBaseType.U_CHAR2" required="false" multi="false" array="false" longname="是否农户"/>
+                    <field id="nwhock" type="EcBaseType.U_CUSTNO" required="false" multi="false" array="false" longname="现有负债" ref="EcDict.cust.nwhock"/>
+                    <field id="incmyr" type="EcBaseType.U_INCMYR" required="false" multi="false" array="false" longname="个人年收入" ref="EcDict.cust.incmyr"/>
+                    <field id="hmincm" type="EcBaseType.U_HMIMCM" required="false" multi="false" array="false" longname="每月家庭收入" ref="EcDict.cust.hmincm"/>
+                    <field id="workdy" type="EcBaseType.U_NUMBER" required="false" multi="false" array="false" longname="工作年限" ref="EcDict.cust.workdy"/>
+                    <field id="opctid" type="BaseEnumType.E_WORKTP" required="false" multi="false" array="false" longname="职业"/>
+                    <field id="rolena" type="EcEnumType.E_ROLENA" required="false" multi="false" array="false" longname="职称" ref="EcDict.cust.rolena"/>
+                    <field id="wkexis" type="EcEnumType.E_ISORNT" required="false" multi="false" array="false" longname="是否有工作单位" ref="EcDict.cust.wkexis"/>
+                    <field id="wkutna" type="EcBaseType.U_WKUTNA" required="false" multi="false" array="false" longname="工作单位名称" ref="EcDict.cust.wkutna"/>
+                    <field id="wkstat" type="EcEnumType.E_WKSTAT" required="false" multi="false" array="false" longname="工作单位性质" ref="EcDict.cust.wkstat"/>
+                    <field id="ispart" type="EcEnumType.E_ISORNT" required="false" multi="false" array="false" longname="是否我行股东" ref="EcDict.cust.ispart"/>
+                    <field id="usertg" type="BaseType.U_CHAR02" required="false" multi="false" array="false" longname="是否我行员工"/>
+                    <field id="tttrib" type="EcBaseType.U_TTTRIB" required="false" multi="false" array="false" longname="综合贡献度" ref="EcDict.cust.tttrib"/>
+                    <field id="ttrema" type="EcBaseType.U_TTREMA" required="false" multi="false" array="false" longname="客户总积分" ref="EcDict.cust.ttrema"/>
+                    <field id="risklv" type="EcEnumType.E_RISKLV" required="false" multi="false" array="false" longname="风险等级" ref="EcDict.cust.risklv"/>
+                    <field id="iscuar" type="EcEnumType.E_ISORNT" required="false" multi="false" array="false" longname="是否担保客户" ref="EcDict.cust.iscuar"/>
+                    <field id="iscred" type="EcEnumType.E_ISORNT" required="false" multi="false" array="false" longname="是否授信客户" ref="EcDict.cust.iscred"/>
+                    <field id="crdlev" type="EcBaseType.U_CRDLEV" required="false" multi="false" array="false" longname="信用等级" ref="EcDict.cust.crdlev"/>
+                    <field id="crdamt" type="EcBaseType.U_CRDAMT" required="false" multi="false" array="false" longname="信用额度" ref="EcDict.cust.crdamt"/>
+                    <field id="isblak" type="EcEnumType.E_ISORNT" required="false" multi="false" array="false" longname="是否黑名单客户" ref="EcDict.cust.isblak"/>
+                    <field id="custst" type="EcEnumType.E_CUSTST" required="false" multi="false" array="false" longname="客户状态" ref="EcDict.cust.custst"/>
+                    <field id="remark" type="EcBaseType.U_REMARK" required="false" multi="false" array="false" longname="备注" ref="EcDict.cust.remark"/>
+                </fields>
+                <fields id="cert" required="false" multi="false" longname="证件信息" array="false">
+                    <field id="certtp" type="BaseEnumType.E_IDTFTP" required="false" multi="false" array="false" longname="证件类型"/>
+                    <field id="certno" type="EcBaseType.U_IDTFNO" required="false" multi="false" array="false" longname="证件号码" ref="EcDict.cert.certno"/>
+                    <field id="visadt" type="EcBaseType.U_DATEST" required="false" multi="false" array="false" longname="证件签发日期" ref="EcDict.cert.visadt"/>
+                    <field id="endate" type="EcBaseType.U_DATEST" required="false" multi="false" array="false" longname="证件到期日期 " ref="EcDict.cert.endate"/>
+                    <field id="mainfg" type="EcEnumType.E_ISORNT" required="false" multi="false" array="false" longname="是否主证件号" ref="EcDict.cert.mainfg"/>
+                    <field id="liisau" type="EcBaseType.U_LIISAU" required="false" multi="false" array="false" longname="发证机关" ref="EcDict.cert.liisau"/>
+                    <field id="others" type="EcBaseType.U_OTHERS" required="false" multi="false" array="false" longname="证件其他信息" ref="EcDict.cert.others"/>
+                    <field id="idtfst" type="EcEnumType.E_IDTFST" required="false" multi="false" array="false" longname="证件状态" ref="EcDict.cert.idtfst"/>
+                    <field id="idcdad" type="EcBaseType.U_ADDRESS" required="false" multi="false" array="false" longname="证件地址" ref="EcDict.cert.idcdad"/>
+                    <field id="duetpe" type="EcEnumType.E_DUETPE" required="false" multi="false" array="false" longname="证件有效期状态" ref="EcDict.cert.duetpe"/>
+                </fields>
+                <fields id="relaList" required="false" multi="true" longname="联系人集合" array="false">
+                    <field id="ctrecd" type="EcEnumType.E_ASSORS" required="false" multi="false" array="false" longname="客户关系代码" ref="EcDict.relation.ctrecd"/>
+                    <field id="contna" type="EcBaseType.U_CUSTNA" required="false" multi="false" array="false" longname="联系人姓名" ref="EcDict.relation.contna"/>
+                    <field id="idtftp" type="BaseEnumType.E_IDTFTP" required="false" multi="false" array="false" longname="联系人证件类型" ref="EcDict.relation.idtftp"/>
+                    <field id="idtfno" type="EcBaseType.U_IDTFNO" required="false" multi="false" array="false" longname="联系人证件号码" ref="EcDict.relation.idtfno"/>
+                    <field id="validt" type="EcBaseType.U_DATEST" required="false" multi="false" array="false" longname="证件有效期" ref="EcDict.relation.validt"/>
+                    <field id="worktx" type="BaseEnumType.E_WORKTP" required="false" multi="false" array="false" longname="联系人职业" ref="EcDict.relation.worktx"/>
+                    <field id="cgendr" type="BaseEnumType.E_SEXTYP" required="false" multi="false" array="false" longname="联系人性别" ref="EcDict.relation.cgendr"/>
+                    <field id="cbirth" type="EcBaseType.U_DATEST" required="false" multi="false" array="false" longname="出生日期" ref="EcDict.relation.cbirth"/>
+                    <field id="wechat" type="EcBaseType.U_WECHAT" required="false" multi="false" array="false" longname="微信号" ref="EcDict.relation.wechat"/>
+                    <field id="conttl" type="EcBaseType.U_MOBITL" required="false" multi="false" array="false" longname="联系电话" ref="EcDict.relation.conttl"/>
+                    <field id="othrtl" type="EcBaseType.U_MOBITL" required="false" multi="false" array="false" longname="其他电话" ref="EcDict.relation.othrtl"/>
+                    <field id="faxitl" type="EcBaseType.U_MOBITL" required="false" multi="false" array="false" longname="传真" ref="EcDict.relation.faxitl"/>
+                    <field id="e_mail" type="EcBaseType.U_E_MAIL" required="false" multi="false" array="false" longname="电子邮件" ref="EcDict.relation.e_mail"/>
+                    <field id="websit" type="EcBaseType.U_WEBSIT" required="false" multi="false" array="false" longname="网站" ref="EcDict.relation.websit"/>
+                    <field id="homads" type="EcBaseType.U_ADDRESS" required="false" multi="false" array="false" longname="居住地址" ref="EcDict.relation.homads"/>
+                    <field id="homacd" type="EcBaseType.U_POSTNO" required="false" multi="false" array="false" longname="居住地址邮编" ref="EcDict.relation.homacd"/>
+                    <field id="hometl" type="EcBaseType.U_MOBITL" required="false" multi="false" array="false" longname="家庭电话" ref="EcDict.relation.hometl"/>
+                    <field id="cofmad" type="EcBaseType.U_ADDRESS" required="false" multi="false" array="false" longname="家庭地址" ref="EcDict.relation.cofmad"/>
+                    <field id="cofmpo" type="EcBaseType.U_POSTNO" required="false" multi="false" array="false" longname="家庭地址邮编" ref="EcDict.relation.cofmpo"/>
+                    <field id="wkutna" type="EcBaseType.U_WKUTNA" required="false" multi="false" array="false" longname="工作单位名称" ref="EcDict.relation.wkutna"/>
+                    <field id="offitl" type="EcBaseType.U_MOBITL" required="false" multi="false" array="false" longname="工作单位电话" ref="EcDict.relation.offitl"/>
+                    <field id="workad" type="EcBaseType.U_ADDRESS" required="false" multi="false" array="false" longname="工作单位地址" ref="EcDict.relation.workad"/>
+                    <field id="wkadpo" type="EcBaseType.U_POSTNO" required="false" multi="false" array="false" longname="工作单位地址邮编" ref="EcDict.relation.wkadpo"/>
+                    <field id="remark" type="EcBaseType.U_REMARK" required="false" multi="false" array="false" longname="详细说明" ref="EcDict.relation.remark"/>
+                    <field id="county" type="EcEnumType.E_COUNTY" required="false" multi="false" array="false" longname="国籍" ref="EcDict.relation.county"/>
+                    <field id="jonttg" type="EcBaseType.U_JONTTG" required="false" multi="false" array="false" longname="联网核查标志" ref="EcDict.relation.jonttg"/>
+                    <field id="cocuno" type="EcBaseType.U_CUSTNO" required="false" multi="false" array="false" longname="关联客户号" ref="EcDict.relation.cocuno"/>
+                </fields>
+                <fields id="addrList" required="false" multi="true" longname="地址信息" array="false">
+                    <field id="addrtp" type="EcEnumType.E_ADDRTP" required="false" multi="false" array="false" longname="地址类别" ref="EcDict.addr.addrtp"/>
+                    <field id="addrct" type="EcBaseType.U_ADDRESS" required="false" multi="false" array="false" longname="详细地址" ref="EcDict.addr.addrct"/>
+                    <field id="addct1" type="EcBaseType.U_ADDCT1" required="false" multi="false" array="false" longname="省" ref="EcDict.addr.addct1"/>
+                    <field id="addct2" type="EcBaseType.U_ADDCT2" required="false" multi="false" array="false" longname="市" ref="EcDict.addr.addct2"/>
+                    <field id="addct3" type="EcBaseType.U_ADDCT3" required="false" multi="false" array="false" longname="区（县）" ref="EcDict.addr.addct3"/>
+                    <field id="zip_cd" type="EcBaseType.U_POSTNO" required="false" multi="false" array="false" longname="地址邮编" ref="EcDict.addr.zip_cd"/>
+                </fields>
+                <fields id="teleList" required="false" multi="true" longname="联系信息" array="false">
+                    <field id="teletp" type="EcEnumType.E_TELETP" required="false" multi="false" array="false" longname="联系方式类型" ref="EcDict.tele.teletp"/>
+                    <field id="ismain" type="EcEnumType.E_ISORNT" required="false" multi="false" array="false" longname="是否主联系方式" ref="EcDict.tele.ismain"/>
+                    <field id="teleno" type="EcBaseType.U_MOBITL" required="false" multi="false" array="false" longname="联系号码" ref="EcDict.tele.teleno"/>
+                    <field id="islgin" type="EcEnumType.E_ISORNT" required="false" multi="false" array="false" longname="是否注册联系方式" ref="EcDict.tele.islgin"/>
+                </fields>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="issucc" type="EcEnumType.E_ISSUCC" required="false" multi="false" array="false" longname="是否成功" ref="EcDict.param.issucc"/>
+                <field id="custno" type="EcBaseType.U_CUSTNO" required="false" multi="false" array="false" longname="客户号" ref="EcDict.cust.custno"/>
+                <field id="failms" type="EcBaseType.U_FAILMS" required="false" multi="false" array="false" longname="错误提示" ref="EcDict.param.failms"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="custInfoMobifyCIFCall" name="custInfoMobifyCall" longname="外调修改客户信息">
+        <interface>
+            <input packMode="true">
+                <fields id="cust" required="false" multi="false" longname="客户信息" array="false">
+                    <field id="custcn" type="EcBaseType.U_NAMECN" required="false" multi="false" array="false" longname="客户中文名称" ref="EcDict.cust.custcn"/>
+                    <field id="custen" type="EcBaseType.U_NAMEEN" required="false" multi="false" array="false" longname="客户英文名称" ref="EcDict.cust.custen"/>
+                    <field id="custlc" type="EcBaseType.U_NAMECN" required="false" multi="false" array="false" longname="最近曾用中文名" ref="EcDict.cust.custlc"/>
+                    <field id="custle" type="EcBaseType.U_NAMEEN" required="false" multi="false" array="false" longname="最近曾用英文名" ref="EcDict.cust.custle"/>
+                    <field id="jonttg" type="EcBaseType.U_JONTTG" required="false" multi="false" array="false" longname="联网核查标志" ref="EcDict.cust.jonttg"/>
+                    <field id="facefg" type="EcEnumType.E_ISORNT" required="false" multi="false" array="false" longname="人脸核查标志" ref="EcDict.cust.facefg"/>
+                    <field id="gender" type="BaseEnumType.E_SEXTYP" required="false" multi="false" array="false" longname="性别"/>
+                    <field id="brthdt" type="EcBaseType.U_BRTHDT" required="false" multi="false" array="false" longname="出生日期" ref="EcDict.cust.brthdt"/>
+                    <field id="age" type="EcBaseType.U_NUMBER" required="false" multi="false" array="false" longname="年龄" ref="EcDict.cust.age"/>
+                    <field id="custtp" type="EcEnumType.E_CUSTTP" required="false" multi="false" array="false" longname="客户类别" ref="EcDict.cust.custtp"/>
+                    <field id="custlv" type="EcEnumType.E_CUSTLV" required="false" multi="false" array="false" longname="客户级别" ref="EcDict.cust.custlv"/>
+                    <field id="lawbno" type="EcBaseType.U_LAWBNO" required="false" multi="false" array="false" longname="法人行号" ref="EcDict.cust.lawbno"/>
+                    <field id="hedurl" type="EcBaseType.U_HEDURL" required="false" multi="false" array="false" longname="客户头像url" ref="EcDict.cust.hedurl"/>
+                    <field id="county" type="BaseType.U_COUNCD" required="false" multi="false" array="false" longname="国籍"/>
+                    <field id="rgstad" type="EcBaseType.U_RGSTAD" required="false" multi="false" array="false" longname="地区代码" ref="EcDict.cust.rgstad"/>
+                    <field id="nation" type="CfEnumType.E_NATION" required="false" multi="false" array="false" longname="民族"/>
+                    <field id="wedlok" type="EcEnumType.E_WEDLOK" required="false" multi="false" array="false" longname="婚姻状况" ref="EcDict.cust.wedlok"/>
+                    <field id="plvscd" type="EcEnumType.E_PLVSCD" required="false" multi="false" array="false" longname="政治面貌" ref="EcDict.cust.plvscd"/>
+                    <field id="health" type="EcEnumType.E_HEALTH" required="false" multi="false" array="false" longname="健康状况" ref="EcDict.cust.health"/>
+                    <field id="fvrttx" type="EcBaseType.U_FAVTTX" required="false" multi="false" array="false" longname="个人爱好" ref="EcDict.cust.fvrttx"/>
+                    <field id="degree" type="EcEnumType.E_DEGREE" required="false" multi="false" array="false" longname="最高学位" ref="EcDict.cust.degree"/>
+                    <field id="edctbk" type="EcEnumType.E_EDCTBK" required="false" multi="false" array="false" longname="最高学历" ref="EcDict.cust.edctbk"/>
+                    <field id="school" type="EcBaseType.U_SCHOOL" required="false" multi="false" array="false" longname="毕业院校" ref="EcDict.cust.school"/>
+                    <field id="isfarm" type="CfBaseType.U_CHAR2" required="false" multi="false" array="false" longname="是否农户"/>
+                    <field id="nwhock" type="EcBaseType.U_CUSTNO" required="false" multi="false" array="false" longname="现有负债" ref="EcDict.cust.nwhock"/>
+                    <field id="incmyr" type="EcBaseType.U_INCMYR" required="false" multi="false" array="false" longname="个人年收入" ref="EcDict.cust.incmyr"/>
+                    <field id="hmincm" type="EcBaseType.U_HMIMCM" required="false" multi="false" array="false" longname="每月家庭收入" ref="EcDict.cust.hmincm"/>
+                    <field id="workdy" type="EcBaseType.U_NUMBER" required="false" multi="false" array="false" longname="工作年限" ref="EcDict.cust.workdy"/>
+                    <field id="opctid" type="BaseEnumType.E_WORKTP" required="false" multi="false" array="false" longname="职业"/>
+                    <field id="rolena" type="EcEnumType.E_ROLENA" required="false" multi="false" array="false" longname="职称" ref="EcDict.cust.rolena"/>
+                    <field id="wkexis" type="EcEnumType.E_ISORNT" required="false" multi="false" array="false" longname="是否有工作单位" ref="EcDict.cust.wkexis"/>
+                    <field id="wkutna" type="EcBaseType.U_WKUTNA" required="false" multi="false" array="false" longname="工作单位名称" ref="EcDict.cust.wkutna"/>
+                    <field id="wkstat" type="EcEnumType.E_WKSTAT" required="false" multi="false" array="false" longname="工作单位性质" ref="EcDict.cust.wkstat"/>
+                    <field id="ispart" type="EcEnumType.E_ISORNT" required="false" multi="false" array="false" longname="是否我行股东" ref="EcDict.cust.ispart"/>
+                    <field id="usertg" type="BaseType.U_CHAR02" required="false" multi="false" array="false" longname="是否我行员工"/>
+                    <field id="tttrib" type="EcBaseType.U_TTTRIB" required="false" multi="false" array="false" longname="综合贡献度" ref="EcDict.cust.tttrib"/>
+                    <field id="ttrema" type="EcBaseType.U_TTREMA" required="false" multi="false" array="false" longname="客户总积分" ref="EcDict.cust.ttrema"/>
+                    <field id="risklv" type="EcEnumType.E_RISKLV" required="false" multi="false" array="false" longname="风险等级" ref="EcDict.cust.risklv"/>
+                    <field id="iscuar" type="EcEnumType.E_ISORNT" required="false" multi="false" array="false" longname="是否担保客户" ref="EcDict.cust.iscuar"/>
+                    <field id="iscred" type="EcEnumType.E_ISORNT" required="false" multi="false" array="false" longname="是否授信客户" ref="EcDict.cust.iscred"/>
+                    <field id="crdlev" type="EcBaseType.U_CRDLEV" required="false" multi="false" array="false" longname="信用等级" ref="EcDict.cust.crdlev"/>
+                    <field id="crdamt" type="EcBaseType.U_CRDAMT" required="false" multi="false" array="false" longname="信用额度" ref="EcDict.cust.crdamt"/>
+                    <field id="isblak" type="EcEnumType.E_ISORNT" required="false" multi="false" array="false" longname="是否黑名单客户" ref="EcDict.cust.isblak"/>
+                    <field id="custst" type="EcEnumType.E_CUSTST" required="false" multi="false" array="false" longname="客户状态" ref="EcDict.cust.custst"/>
+                    <field id="remark" type="EcBaseType.U_REMARK" required="false" multi="false" array="false" longname="备注" ref="EcDict.cust.remark"/>
+                    <field id="custno" type="EcBaseType.U_CUSTNO" required="false" multi="false" array="false" longname="客户号" ref="EcDict.acct.custno"/>
+                    <field id="cerurl" type="BaseType.U_CHAR500" required="false" multi="false" array="false" longname="客户身份证影像url"/>
+                    <field id="aceurl" type="BaseType.U_CHAR500" required="false" multi="false" array="false" longname="客户身份证反面影像url"/>
+                    <field id="hedseq" type="BaseType.U_CHAR1024" required="false" multi="false" array="false" longname="客户头像流水"/>
+                    <field id="cerseq" type="BaseType.U_CHAR1024" required="false" multi="false" array="false" longname="客户身份证正面影像流水"/>
+                    <field id="aceseq" type="BaseType.U_CHAR1024" required="false" multi="false" array="false" longname="客户身份证反面影像流水"/>
+                </fields>
+                <fields id="cert" required="false" multi="false" longname="证件信息" array="false">
+                    <field id="certtp" type="BaseEnumType.E_IDTFTP" required="false" multi="false" array="false" longname="证件类型"/>
+                    <field id="certno" type="EcBaseType.U_IDTFNO" required="false" multi="false" array="false" longname="证件号码" ref="EcDict.cert.certno"/>
+                    <field id="visadt" type="EcBaseType.U_DATEST" required="false" multi="false" array="false" longname="证件签发日期" ref="EcDict.cert.visadt"/>
+                    <field id="endate" type="EcBaseType.U_DATEST" required="false" multi="false" array="false" longname="证件到期日期 " ref="EcDict.cert.endate"/>
+                    <field id="mainfg" type="EcEnumType.E_ISORNT" required="false" multi="false" array="false" longname="是否主证件号" ref="EcDict.cert.mainfg"/>
+                    <field id="liisau" type="EcBaseType.U_LIISAU" required="false" multi="false" array="false" longname="发证机关" ref="EcDict.cert.liisau"/>
+                    <field id="others" type="EcBaseType.U_OTHERS" required="false" multi="false" array="false" longname="证件其他信息" ref="EcDict.cert.others"/>
+                    <field id="idtfst" type="EcEnumType.E_IDTFST" required="false" multi="false" array="false" longname="证件状态" ref="EcDict.cert.idtfst"/>
+                    <field id="idcdad" type="EcBaseType.U_ADDRESS" required="false" multi="false" array="false" longname="证件地址" ref="EcDict.cert.idcdad"/>
+                    <field id="duetpe" type="EcEnumType.E_DUETPE" required="false" multi="false" array="false" longname="证件有效期状态" ref="EcDict.cert.duetpe"/>
+                </fields>
+                <fields id="relaList" required="false" multi="true" longname="联系人集合" array="false">
+                    <field id="ctrecd" type="EcEnumType.E_ASSORS" required="false" multi="false" array="false" longname="客户关系代码" ref="EcDict.relation.ctrecd"/>
+                    <field id="contna" type="EcBaseType.U_CUSTNA" required="false" multi="false" array="false" longname="联系人姓名" ref="EcDict.relation.contna"/>
+                    <field id="idtftp" type="BaseEnumType.E_IDTFTP" required="false" multi="false" array="false" longname="联系人证件类型" ref="EcDict.relation.idtftp"/>
+                    <field id="idtfno" type="EcBaseType.U_IDTFNO" required="false" multi="false" array="false" longname="联系人证件号码" ref="EcDict.relation.idtfno"/>
+                    <field id="validt" type="EcBaseType.U_DATEST" required="false" multi="false" array="false" longname="证件有效期" ref="EcDict.relation.validt"/>
+                    <field id="worktx" type="BaseEnumType.E_WORKTP" required="false" multi="false" array="false" longname="联系人职业" ref="EcDict.relation.worktx"/>
+                    <field id="cgendr" type="BaseEnumType.E_SEXTYP" required="false" multi="false" array="false" longname="联系人性别" ref="EcDict.relation.cgendr"/>
+                    <field id="cbirth" type="EcBaseType.U_DATEST" required="false" multi="false" array="false" longname="出生日期" ref="EcDict.relation.cbirth"/>
+                    <field id="wechat" type="EcBaseType.U_WECHAT" required="false" multi="false" array="false" longname="微信号" ref="EcDict.relation.wechat"/>
+                    <field id="conttl" type="EcBaseType.U_MOBITL" required="false" multi="false" array="false" longname="联系电话" ref="EcDict.relation.conttl"/>
+                    <field id="othrtl" type="EcBaseType.U_MOBITL" required="false" multi="false" array="false" longname="其他电话" ref="EcDict.relation.othrtl"/>
+                    <field id="faxitl" type="EcBaseType.U_MOBITL" required="false" multi="false" array="false" longname="传真" ref="EcDict.relation.faxitl"/>
+                    <field id="e_mail" type="EcBaseType.U_E_MAIL" required="false" multi="false" array="false" longname="电子邮件" ref="EcDict.relation.e_mail"/>
+                    <field id="websit" type="EcBaseType.U_WEBSIT" required="false" multi="false" array="false" longname="网站" ref="EcDict.relation.websit"/>
+                    <field id="homads" type="EcBaseType.U_ADDRESS" required="false" multi="false" array="false" longname="居住地址" ref="EcDict.relation.homads"/>
+                    <field id="homacd" type="EcBaseType.U_POSTNO" required="false" multi="false" array="false" longname="居住地址邮编" ref="EcDict.relation.homacd"/>
+                    <field id="hometl" type="EcBaseType.U_MOBITL" required="false" multi="false" array="false" longname="家庭电话" ref="EcDict.relation.hometl"/>
+                    <field id="cofmad" type="EcBaseType.U_ADDRESS" required="false" multi="false" array="false" longname="家庭地址" ref="EcDict.relation.cofmad"/>
+                    <field id="cofmpo" type="EcBaseType.U_POSTNO" required="false" multi="false" array="false" longname="家庭地址邮编" ref="EcDict.relation.cofmpo"/>
+                    <field id="wkutna" type="EcBaseType.U_WKUTNA" required="false" multi="false" array="false" longname="工作单位名称" ref="EcDict.relation.wkutna"/>
+                    <field id="offitl" type="EcBaseType.U_MOBITL" required="false" multi="false" array="false" longname="工作单位电话" ref="EcDict.relation.offitl"/>
+                    <field id="workad" type="EcBaseType.U_ADDRESS" required="false" multi="false" array="false" longname="工作单位地址" ref="EcDict.relation.workad"/>
+                    <field id="wkadpo" type="EcBaseType.U_POSTNO" required="false" multi="false" array="false" longname="工作单位地址邮编" ref="EcDict.relation.wkadpo"/>
+                    <field id="remark" type="EcBaseType.U_REMARK" required="false" multi="false" array="false" longname="详细说明" ref="EcDict.relation.remark"/>
+                    <field id="county" type="EcEnumType.E_COUNTY" required="false" multi="false" array="false" longname="国籍" ref="EcDict.relation.county"/>
+                    <field id="jonttg" type="EcBaseType.U_JONTTG" required="false" multi="false" array="false" longname="联网核查标志" ref="EcDict.relation.jonttg"/>
+                    <field id="cocuno" type="EcBaseType.U_CUSTNO" required="false" multi="false" array="false" longname="关联客户号" ref="EcDict.relation.cocuno"/>
+                </fields>
+                <fields id="addrList" required="false" multi="true" longname="地址信息" array="false">
+                    <field id="addrtp" type="EcEnumType.E_ADDRTP" required="false" multi="false" array="false" longname="地址类别" ref="EcDict.addr.addrtp"/>
+                    <field id="addrct" type="EcBaseType.U_ADDRESS" required="false" multi="false" array="false" longname="详细地址" ref="EcDict.addr.addrct"/>
+                    <field id="addct1" type="EcBaseType.U_ADDCT1" required="false" multi="false" array="false" longname="省" ref="EcDict.addr.addct1"/>
+                    <field id="addct2" type="EcBaseType.U_ADDCT2" required="false" multi="false" array="false" longname="市" ref="EcDict.addr.addct2"/>
+                    <field id="addct3" type="EcBaseType.U_ADDCT3" required="false" multi="false" array="false" longname="区（县）" ref="EcDict.addr.addct3"/>
+                    <field id="zip_cd" type="EcBaseType.U_POSTNO" required="false" multi="false" array="false" longname="地址邮编" ref="EcDict.addr.zip_cd"/>
+                </fields>
+                <fields id="teleList" required="false" multi="true" longname="联系信息" array="false">
+                    <field id="teletp" type="EcEnumType.E_TELETP" required="false" multi="false" array="false" longname="联系方式类型" ref="EcDict.tele.teletp"/>
+                    <field id="ismain" type="EcEnumType.E_ISORNT" required="false" multi="false" array="false" longname="是否主联系方式" ref="EcDict.tele.ismain"/>
+                    <field id="teleno" type="EcBaseType.U_MOBITL" required="false" multi="false" array="false" longname="联系号码" ref="EcDict.tele.teleno"/>
+                    <field id="islgin" type="EcEnumType.E_ISORNT" required="false" multi="false" array="false" longname="是否注册联系方式" ref="EcDict.tele.islgin"/>
+                </fields>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="issucc" type="EcEnumType.E_ISSUCC" required="false" multi="false" array="false" longname="是否成功" ref="EcDict.param.issucc"/>
+                <field id="custno" type="EcBaseType.U_CUSTNO" required="false" multi="false" array="false" longname="客户号" ref="EcDict.cust.custno"/>
+                <field id="failms" type="EcBaseType.U_FAILMS" required="false" multi="false" array="false" longname="错误提示" ref="EcDict.param.failms"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="custInfoModifyNasCall" name="custInfoModifyNasCall" longname="外调修改客户信息">
+        <interface>
+            <input packMode="true">
+                <field id="custno" type="BaseType.U_CUSTNO" required="false" multi="false" array="false" longname="客户号"/>
+                <field id="custna" type="BaseType.U_ACCTNA" required="false" multi="false" array="false" longname="客户名称"/>
+                <field id="idtftp" type="BaseEnumType.E_IDTFTP" required="false" multi="false" array="false" longname="证件类型"/>
+                <field id="idtfno" type="BaseType.U_IDTFNO" required="false" multi="false" array="false" longname="证件号码"/>
+                <field id="birthd" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="出生日期"/>
+                <field id="sextyp" type="BaseEnumType.E_SEXTYP" required="false" multi="false" array="false" longname="性别"/>
+                <field id="cuslvl" type="PbEnumType.E_CUSLVL" required="false" multi="false" array="false" longname="客户级别"/>
+                <field id="emplcu" type="BaseEnumType.E_YES___" required="false" multi="false" array="false" longname="是否行内员工"/>
+                <field id="addrcd" type="BaseType.U_CHAR50" required="false" multi="false" array="false" longname="所在行政区代码"/>
+                <field id="teleno" type="BaseType.U_IDTFNO" required="false" multi="false" array="false" longname="电话号码"/>
+                <field id="emails" type="BaseType.U_CHAR200" required="false" multi="false" array="false" longname="邮箱"/>
+                <field id="postcd" type="BaseType.U_CHAR10" required="false" multi="false" array="false" longname="邮编"/>
+                <field id="addres" type="BaseType.U_CHAR400" required="false" multi="false" array="false" longname="地址"/>
+                <field id="custst" type="BaseEnumType.E_ACCTST" required="false" multi="false" array="false" longname="客户状态"/>
+                <field id="agisln" type="BaseEnumType.E_YES___" required="false" multi="false" array="false" longname="是否长期有效"/>
+                <field id="agstdt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="生效日期"/>
+                <field id="agendt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="到期日期"/>
+                <field id="cutycd" type="BaseType.U_COUNCD" required="false" multi="false" array="false" longname="国籍"/>
+                <field id="prsnpr" type="BaseEnumType.E_PRSNPR" required="false" multi="false" array="false" longname="存款人类别"/>
+                <field id="worktp" type="BaseEnumType.E_WORKTP" required="false" multi="false" array="false" longname="职业"/>
+                <field id="worktx" type="BaseType.U_CHAR200" required="false" multi="false" array="false" longname="工作单位"/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="transq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="主交易流水" ref="DpDict.Acct.transq"/>
+                <field id="trandt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="交易日期" ref="DpDict.Acct.trandt"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="custDelTelInfoCall" name="custDelTelInfoCall" longname="外调客户删除联系人信息">
+        <interface>
+            <input packMode="true">
+	            <field id="custno" type="EcBaseType.U_CUSTNO" required="false" multi="false" array="false" longname="客户号" ref="EcDict.tele.custno"/>
+	            <field id="teleno" type="EcBaseType.U_MOBITL" required="false" multi="false" array="false" longname="联系号码" ref="EcDict.tele.teleno"/>
+	        </input>
+	        <output asParm="true" packMode="true">
+	            <field id="issucc" type="EcEnumType.E_ISSUCC" required="false" multi="false" array="false" longname="是否成功" ref="EcDict.param.issucc"/>
+	            <field id="failms" type="EcBaseType.U_FAILMS" required="false" multi="false" array="false" longname="错误提示" ref="EcDict.param.failms"/>
+	        </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+</serviceType>

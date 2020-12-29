@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema id="CcBaseType" package="cn.sunline.ltts.busi.sys.type" longname="类信用卡基础类型定义" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description><![CDATA[]]></description>
+    <restrictionType id="U_ACCTLM" longname="账户额度代码" base="string" pattern="" maxLength="20" fractionDigits="0">
+        <description><![CDATA[]]></description>
+    </restrictionType>
+    <restrictionType id="U_ACCTNO" longname="账户编号" base="string" pattern="" maxLength="20" fractionDigits="0">
+        <description><![CDATA[]]></description>
+    </restrictionType>
+    <restrictionType id="U_ACCTTP" longname="账户类型" base="string" pattern="" maxLength="1" fractionDigits="0">
+        <description><![CDATA[]]></description>
+    </restrictionType>
+    <restrictionType id="U_ACTIBR" longname="活动号" base="string" pattern="" maxLength="50" fractionDigits="0">
+        <description><![CDATA[]]></description>
+    </restrictionType>
+    <restrictionType id="U_AGECDX" longname="账龄" base="string" pattern="" maxLength="1" fractionDigits="0">
+        <description><![CDATA[]]></description>
+    </restrictionType>
+    <restrictionType id="U_BEGNBL" longname="期初余额" base="decimal" pattern="" maxLength="15" fractionDigits="2">
+        <description><![CDATA[]]></description>
+    </restrictionType>
+    <restrictionType id="U_CDUEAM" longname="当期最小还款额" base="decimal" pattern="" maxLength="15" fractionDigits="2">
+        <description><![CDATA[]]></description>
+    </restrictionType>
+    <restrictionType id="U_CREADT" longname="创建日期" base="dateString" pattern="" maxLength="22" fractionDigits="0">
+        <description><![CDATA[]]></description>
+    </restrictionType>
+    <restrictionType id="U_CURRBL" longname="当前余额" base="decimal" pattern="" maxLength="15" fractionDigits="2">
+        <description><![CDATA[]]></description>
+    </restrictionType>
+    <restrictionType id="U_CURRCD" longname="币种" base="string" maxLength="3" fractionDigits="0"/>
+    <restrictionType id="U_DUEAMT" longname="最小还款额" base="decimal" maxLength="15" fractionDigits="2"/>
+    <restrictionType id="U_GENDER" longname="性别" base="string" maxLength="1" fractionDigits="0"/>
+    <restrictionType id="U_GRACBL" longname="全部应还款额" base="decimal" maxLength="15" fractionDigits="0"/>
+    <restrictionType id="U_JPAVER" longname="乐观锁版本号" base="string" maxLength="11" fractionDigits="0"/>
+    <restrictionType id="U_LOCKCD" longname="锁定码" base="string" maxLength="32" fractionDigits="0"/>
+    <restrictionType id="U_LTPMDT" longname="上个还款日期" base="dateString" pattern="" maxLength="8" fractionDigits="0">
+        <description><![CDATA[]]></description>
+    </restrictionType>
+    <restrictionType id="U_LTSTDT" longname="上个账单日期" base="dateString" pattern="" maxLength="8" fractionDigits="0">
+        <description><![CDATA[]]></description>
+    </restrictionType>
+    <restrictionType id="U_MCCITY" longname="商户地市" base="string" maxLength="40" fractionDigits="0"/>
+    <restrictionType id="U_MCCNTY" longname="商户国家" base="string" maxLength="40" fractionDigits="0"/>
+    <restrictionType id="U_MCCODE" longname="商户号" base="string" maxLength="40" fractionDigits="0"/>
+    <restrictionType id="U_MOBILE" longname="移动电话" base="string" maxLength="20" fractionDigits="0"/>
+    <restrictionType id="U_ORGNBR" longname="机构号" base="string" maxLength="40" fractionDigits="0"/>
+    <restrictionType id="U_PDU1AM" longname="上个月最小还款额" base="decimal" maxLength="15" fractionDigits="2"/>
+    <restrictionType id="U_PDU2AM" longname="上2个月最小还款额" base="decimal" maxLength="15" fractionDigits="2"/>
+    <restrictionType id="U_PDU3AM" longname="上3个月最小还款额" base="decimal" maxLength="15" fractionDigits="2"/>
+    <restrictionType id="U_PDU4AM" longname="上4个月最小还款额" base="decimal" maxLength="15" fractionDigits="2"/>
+    <restrictionType id="U_PDU5AM" longname="上5个月最小还款额" base="decimal" maxLength="15" fractionDigits="2"/>
+    <restrictionType id="U_PDU6AM" longname="上6个月最小还款额" base="decimal" maxLength="15" fractionDigits="2"/>
+    <restrictionType id="U_PDU7AM" longname="上7个月最小还款额" base="decimal" maxLength="15" fractionDigits="2"/>
+    <restrictionType id="U_PDU8AM" longname="上8个月最小还款额" base="decimal" maxLength="15" fractionDigits="2"/>
+    <restrictionType id="U_PLANBR" longname="信用计划号" base="string" maxLength="20" fractionDigits="0"/>
+    <restrictionType id="U_PMDUDT" longname="到期还款日期" base="dateString" pattern="" maxLength="8" fractionDigits="0">
+        <description><![CDATA[]]></description>
+    </restrictionType>
+    <restrictionType id="U_PRODCD" longname="产品代码" base="string" pattern="" maxLength="6" fractionDigits="0">
+        <description><![CDATA[]]></description>
+    </restrictionType>
+    <restrictionType id="U_REFNBR" longname="发起方交易流水号" base="string" pattern="" maxLength="32" fractionDigits="0">
+        <description><![CDATA[]]></description>
+    </restrictionType>
+    <restrictionType id="U_STMTDT" longname="账单日期" base="dateString" pattern="" maxLength="8" fractionDigits="0">
+        <description><![CDATA[]]></description>
+    </restrictionType>
+    <restrictionType id="U_TXNSEQ" longname="交易流水号" base="string" pattern="" maxLength="20" fractionDigits="0">
+        <description><![CDATA[]]></description>
+    </restrictionType>
+    <restrictionType id="U_USNAME" longname="姓名" base="string" pattern="" maxLength="80" fractionDigits="0">
+        <description><![CDATA[]]></description>
+    </restrictionType>
+    <restrictionType id="U_DECIM2" longname="金额2位小数" base="decimal" pattern="" maxLength="15" fractionDigits="2">
+        <description><![CDATA[]]></description>
+    </restrictionType>
+    <restrictionType id="U_DECIM4" longname="金额4位小数" base="decimal" pattern="" maxLength="15" fractionDigits="4">
+        <description><![CDATA[]]></description>
+    </restrictionType>
+    <restrictionType id="U_DECIM6" longname="金额6位小数" base="decimal" pattern="" maxLength="15" fractionDigits="6">
+        <description><![CDATA[]]></description>
+    </restrictionType>
+    <restrictionType id="U_LTBTDT" longname="上一个批量日期" base="dateString" pattern="" maxLength="8" fractionDigits="0">
+        <description><![CDATA[]]></description>
+    </restrictionType>
+    <restrictionType id="U_DATE22" longname="时间类型" base="dateString" pattern="" maxLength="22">
+        <description><![CDATA[]]></description>
+    </restrictionType>
+    <restrictionType id="U_LOGMOD" longname="入账类型" base="string" pattern="" maxLength="6">
+        <description><![CDATA[]]></description>
+    </restrictionType>
+</schema>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceImpl id="ApFileDayendBatchDisableImpl" longname="文件批量日终期间不可运行服务实现" serviceType="BatchCondition" package="cn.sunline.ltts.busi.aplt.serviceimpl.fbat" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description><![CDATA[文件批量日终期间不可运行服务实现]]></description>
+</serviceImpl>

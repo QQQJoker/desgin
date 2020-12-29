@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<errorConf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="FcError" longname="投资模块错误码" package="cn.sunline.ltts.busi.sys.errors" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <description><![CDATA[]]></description>
+    <errors id="FcAcct" longname="投资错误码">
+        <description><![CDATA[]]></description>
+        <error id="E0001" type="error" message="[${msg}]不能为空" errorCode="010F0013">
+            <parameter id="msg" type="BaseType.U_CHAR200" longname="错误信息"/>
+        </error>
+        <error id="E0002" type="error" message="产品[${prodcd}]未定义" errorCode="010F0014">
+            <parameter id="prodcd" type="BaseType.U_PRODCD" longname="字符串报错"/>
+        </error>
+        <error id="E0003" type="error" message="产品[${prodcd}]状态非正常" errorCode="010F0015">
+            <parameter id="prodcd" type="BaseType.U_PRODCD" longname="字符串报错"/>
+        </error>
+        <error id="E0004" type="error" message="产品[${prodcd}]未生效" errorCode="010F0016">
+            <parameter id="prodcd" type="BaseType.U_PRODCD" longname="字符串报错"/>
+        </error>
+        <error id="E0005" type="error" message="产品[${prodcd}]已失效" errorCode="010F0017">
+            <parameter id="prodcd" type="BaseType.U_PRODCD" longname="字符串报错"/>
+        </error>
+        <error id="E0006" type="error" message="电子账号[${acctno}]不存在" errorCode="010F0018">
+            <parameter id="acctno" type="BaseType.U_ACCTNO" longname="字符串报错"/>
+        </error>
+        <error id="E0007" type="error" message="客户[${zhongwmc}]信息未建立" errorCode="010F0019">
+            <parameter id="zhongwmc" type="BaseType.U_CHINNA" longname="字符串报错"/>
+        </error>
+        <error id="E0008" type="error" message="客户[${acctno}]账户不存在" errorCode="010F0020">
+            <parameter id="acctno" type="BaseType.U_ACCTNO" longname="字符串报错"/>
+        </error>
+        <error id="E0009" type="error" message="客户[${acctno}]账户状态不是正常状态" errorCode="010F0021">
+            <parameter id="acctno" type="BaseType.U_ACCTNO" longname="字符串报错"/>
+        </error>
+        <error id="E0010" type="error" message="客户[${acctno}]账户，待还本金和利息未结清不能销户" errorCode="010F0022">
+            <parameter id="acctno" type="BaseType.U_ACCTNO" longname="字符串报错"/>
+        </error>
+        <error id="E0011" type="error" message="客户[${acctno}]账户状态不是销户状态" errorCode="010F0023">
+            <parameter id="acctno" type="BaseType.U_ACCTNO" longname="字符串报错"/>
+        </error>
+        <error id="E0012" type="error" message="投资账户[${acctno}]主表记录不存在" errorCode="010F0024">
+            <parameter id="acctno" type="BaseType.U_ACCTNO" longname="字符串报错"/>
+        </error>
+        <error id="E0013" type="error" message="投资账户[${acctno}]已销户" errorCode="010F0025">
+            <parameter id="acctno" type="BaseType.U_ACCTNO" longname="字符串报错"/>
+        </error>
+        <error id="E0014" type="error" message="投资账户[${acctno}]状态非正常" errorCode="010F0026">
+            <parameter id="acctno" type="BaseType.U_ACCTNO" longname="字符串报错"/>
+        </error>
+        <error id="E0015" type="error" message="产品唯一规则[${onlyfg}]非法" errorCode="010F0027">
+            <parameter id="onlyfg" type="FcEnumType.E_ONLYFG" longname="字符串报错"/>
+        </error>
+        <error id="E0016" type="error" message="投资金额必须大于0" errorCode="010F0028"/>
+        <error id="E0017" type="error" message="标的[${zhongwmc}]状态非筹集中，不允许投标" errorCode="010F0029">
+            <parameter id="zhongwmc" type="BaseType.U_CHINNA" longname="字符串报错"/>
+        </error>
+        <error id="E0018" type="error" message="收款计划推送消息中待还款总额与待收款不一致" errorCode="010F0030"/>
+        <error id="E0019" type="error" message="标的[${subjcd}]+期数[${schdno}]对应的收款计划记录不存在" errorCode="010F0031">
+            <parameter id="subjcd" type="BaseType.U_CHAR32" longname="标的编号"/>
+            <parameter id="schdno" type="BaseType.U_SHORIN" longname="收款期数"/>
+        </error>
+        <error id="E0020" type="error" message="日期[${clerdt}]+标的[${subjcd}]+期数[${schdno}]对应的回款待分配任务记录不存在" errorCode="010F0032">
+            <parameter id="clerdt" type="BaseType.U_DATE08" longname="生成日期"/>
+            <parameter id="subjcd" type="BaseType.U_CHAR32" longname="标的编号"/>
+            <parameter id="schdno" type="BaseType.U_SHORIN" longname="收款期数"/>
+        </error>
+        <error id="E0021" type="error" message="日期[${clerdt}]+标的[${subjcd}]+期数[${schdno}]对应的回款待分配任务已分配，请勿重复提交" errorCode="010F0033">
+            <parameter id="clerdt" type="BaseType.U_DATE08" longname="生成日期"/>
+            <parameter id="subjcd" type="BaseType.U_CHAR32" longname="标的编号"/>
+            <parameter id="schdno" type="BaseType.U_SHORIN" longname="收款期数"/>
+        </error>
+        <error id="E0022" type="error" message="标的[${subjcd}]已经处理，不能重复处理" errorCode="010F0034">
+            <parameter id="subjcd" type="BaseType.U_CHAR32" longname="标的编号"/>
+        </error>
+        <error id="E9999" type="error" message="[${msg}]" errorCode="010F0035">
+            <parameter id="msg" type="BaseType.U_SHORDS" longname="错误信息主体"/>
+        </error>
+        <error id="E0023" type="error" message="收款计划推送消息中待收本金与客户投资本金不一致" errorCode="010F0036"/>
+    </errors>
+</errorConf>

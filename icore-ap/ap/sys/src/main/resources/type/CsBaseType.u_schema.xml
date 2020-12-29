@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema id="CsBaseType" package="cn.sunline.ltts.busi.sys.type"
+	longname="代销模块基础类型" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	
+	<restrictionType id="U_MERTCD" longname="电商编码" base="string" maxLength="40" minLength="1" />
+    <restrictionType id="U_MDTRSQ" longname="渠道流水" base="string" maxLength="40" fractionDigits="0"/>
+
+</schema>

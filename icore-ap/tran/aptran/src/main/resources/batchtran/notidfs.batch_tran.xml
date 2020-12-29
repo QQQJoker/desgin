@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<batch_transaction id="notidfs" longname="系统换日后通知文件子系统" package="cn.sunline.ltts.busi.aptran.batchtran" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <interface package="cn.sunline.ltts.busi.aptran.batchtran">
+        <input packMode="true"/>
+        <output asParm="true" packMode="false"/>
+        <property packMode="true"/>
+        <printer packMode="false"/>
+    </interface>
+</batch_transaction>

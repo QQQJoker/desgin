@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<flowtran xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="api111" longname="通用冲账" kind="account" package="cn.sunline.ltts.busi.aptran.trans" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <description><![CDATA[通用冲账（输入主交易流水，然后逐个DCN 流水进行冲账处理）
+抹账标志：当日并且外围要抹账才抹，其他一律不处理]]></description>
+    <interface package="cn.sunline.ltts.busi.aptran.transdef">
+        <input packMode="true">
+            <field id="trandt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="原交易日期"/>
+            <field id="transq" type="BaseType.U_SEQUNO" required="true" multi="false" array="false" longname="原始主交易流水" desc="原主交易流水"/>
+            <field id="stacps" type="BaseEnumType.E_STACPS" required="false" multi="false" array="false" longname="冲正冲账分类" ref="BaseDict.Comm.stacps"/>
+            <field id="vobkfg" type="ApBaseEnumType.E_VOBKFG" required="false" multi="false" array="false" longname="凭证回冲标志" desc="是否冲回凭证" ref="BaseDict.Comm.vobkfg"/>
+            <field id="ismani" type="BaseEnumType.E_YES___" required="false" multi="false" array="false" longname="是否人工处理标志"/>
+            <field id="reason" type="BaseType.U_SHORDS" required="false" multi="false" array="false" longname="错账原因" desc="冲账原因"/>
+            <field id="corrfg" type="ApBaseEnumType.E_CORRFG" required="false" multi="false" array="false" longname="抹账标志" ref="BaseDict.Comm.corrfg"/>
+            <field id="acctdt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="会计日期"/>
+            <field id="cardno" type="BaseType.U_CARDNO" required="false" multi="false" array="false" longname="交易卡号" ref="BaseDict.Comm.cardno"/>
+            <field id="custac" type="BaseType.U_CHAR32" required="false" multi="false" array="false" longname="客户账号" ref="BaseDict.Comm.custac"/>
+            <field id="servcd" type="BaseEnumType.E_SERVTP" required="false" multi="false" array="false" longname="渠道代码"/>
+            <field id="servdt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="渠道日期"/>
+            <field id="servsq" type="BaseType.U_CHAR30" required="false" multi="false" array="false" longname="渠道流水号"/>
+            <field id="servtp" type="BaseEnumType.E_SERVTP" required="false" multi="false" array="false" longname="业务系统代码"/>
+            <field id="mntrdt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="业务系统日期"/>
+            <field id="mntrsq" type="BaseType.U_CHAR30" required="false" multi="false" array="false" longname="业务系统流水号"/>
+        </input>
+        <output asParm="true" packMode="true">
+            <field id="rvrtcd" type="ApBaseType.U_LEIXIN32" required="false" multi="false" array="false" longname="冲正返回码" ref="ApDict.Aplt.rvrtcd"/>
+            <field id="rvrttx" type="ApBaseType.U_DNMIAOSH" required="false" multi="false" array="false" longname="处理信息"/>
+            <field id="mntrsq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="主交易流水"/>
+            <field id="mntrdt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="主交易日期"/>
+            <field id="mntrtm" type="BaseType.U_TRTMCH" required="false" multi="false" array="false" longname="主交易时间"/>
+            <field id="smrycd" type="BaseType.U_SMRYCD" required="false" multi="false" array="false" longname="摘要代码" ref="BaseDict.Comm.smrycd"/>
+            <fields id="acvoch" scope="AcVouchType.AccountVouch" required="false" multi="true" longname="会计凭证" array="false">
+                <field id="acctno" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="账号"/>
+                <field id="acctna" type="BaseType.U_ACCTNA" required="false" multi="false" array="false" longname="账号户名"/>
+                <field id="amntcd" type="BaseEnumType.E_AMNTCD" required="false" multi="false" array="false" longname="记账方向"/>
+                <field id="tranam" type="BaseType.U_ACBLTP" required="false" multi="false" array="false" longname="交易金额"/>
+                <field id="dtitcd" type="BaseType.U_DTITCD" required="false" multi="false" array="false" longname="核算口径"/>
+                <field id="crcycd" type="BaseType.U_CRCYCD" required="false" multi="false" array="false" longname="币种"/>
+                <field id="ispaya" type="InEnumType.E_ISPAYA" required="false" multi="false" array="false" longname="是否采用销账管理"/>
+            </fields>
+        </output>
+        <property packMode="true">
+            <field id="maindt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="当前核心日期"/>
+            <field id="mainsq" type="BaseType.U_SEQUNO" required="true" multi="false" array="false" longname="当前核心流水"/>
+        </property>
+        <printer packMode="true"/>
+    </interface>
+    <flow>
+        <method method="strike" id="strike" longname="冲账处理" desc="冲账处理"/>
+        <method method="sendMsg" id="sendMsg" longname="短信发送"/>
+    </flow>
+    <outMapping by_interface="false"/>
+    <propertyToPrinterMapping by_interface="false"/>
+    <outToPrinterMapping by_interface="false"/>
+</flowtran>

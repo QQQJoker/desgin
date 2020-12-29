@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema id="WaEnumType" package="cn.sunline.ltts.busi.sys.type" longname="亲情钱包限制类型" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description><![CDATA[]]></description>
+    <restrictionType id="E_OPENST" longname="开通状态" base="string" pattern="" maxLength="1">
+        <enumeration id="WAITING" value="0" longname="待确认"/>
+        <enumeration id="SUCCESSFUL" value="1" longname="开通成功"/>
+        <enumeration id="REFUSE" value="2" longname="对方拒绝"/>
+        <enumeration id="CHECKING" value="3" longname="待核查身份中"/>
+        <enumeration id="FAIL" value="4" longname="核查失败"/>
+        <enumeration id="CLOSE" value="5" longname="关闭"/>
+        <enumeration id="DELETE" value="6" longname="删除"/>
+        <description><![CDATA[]]></description>
+    </restrictionType>
+    <restrictionType id="E_RELTST" longname="亲情钱包状态" base="string" pattern="" maxLength="1">
+        <enumeration id="WAITING" value="0" longname="待确认"/>
+        <enumeration id="SUCCESSFUL" value="1" longname="开通成功"/>
+        <enumeration id="CLOSE" value="2" longname="关闭"/>
+        <description><![CDATA[]]></description>
+    </restrictionType>
+    <restrictionType id="E_CLOSTX" longname="关闭原因" base="string" pattern="" maxLength="1">
+        <enumeration id="OTHER" value="1" longname="解除"/>
+        <enumeration id="UNCONFIRMED" value="2" longname="两天未确认关闭"/>
+        <enumeration id="REJECTS" value="3" longname="对方拒绝"/>
+        <description><![CDATA[]]></description>
+    </restrictionType>
+    <restrictionType id="E_CLOSFG" longname="关闭人标志" base="string" pattern="" maxLength="1">
+        <enumeration id="CUCLOS" value="1" longname="创建人关闭"/>
+        <enumeration id="ELCLOS" value="2" longname="关联人关闭"/>
+        <description><![CDATA[]]></description>
+    </restrictionType>
+    <restrictionType id="E_DELEFG" longname="删除人类别" base="string" pattern="" maxLength="1">
+        <enumeration id="CUDELE" value="1" longname="创建人删除"/>
+        <enumeration id="ELDELE" value="2" longname="关联人删除"/>
+        <enumeration id="DELETE" value="3" longname="双方删除"/>
+        <description><![CDATA[]]></description>
+    </restrictionType>
+    <restrictionType id="E_WARETP" longname="亲情钱包请求类型" base="string" pattern="" maxLength="1">
+        <enumeration id="FAMWAL" value="0" longname="亲情钱包创建"/>
+        <enumeration id="FAMPLE" value="1" longname="亲情钱包求开通"/>
+        <description><![CDATA[]]></description>
+    </restrictionType>
+    <restrictionType id="E_UPFLAG" longname="合约变更方式" base="string" pattern="" maxLength="1">
+        <enumeration id="SIGN" value="1" longname="签约"/>
+        <enumeration id="MODI" value="2" longname="修改"/>
+        <enumeration id="SURR" value="3" longname="解约"/>
+        <description><![CDATA[]]></description>
+    </restrictionType>
+</schema>

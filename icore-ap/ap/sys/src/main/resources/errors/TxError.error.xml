@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<errorConf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="TxError" longname="营改增错误信息" package="cn.sunline.ltts.busi.sys.errors" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <errors id="Tx" longname="营改增错误信息">
+        <error id="E0001" type="error" message="核算代码不能为空！" errorCode="01040587"/>
+        <error id="E0002" type="error" message="开票类型不能为空！" errorCode="01040588"/>
+        <error id="E0003" type="error" message="科目不能为空！" errorCode="01040589"/>
+        <error id="E0004" type="error" message="税率不能为空！" errorCode="01040590"/>
+        <error id="E0005" type="error" message="删除[价税分离配置表]失败，无对应记录！" errorCode="01040591"/>
+    </errors>
+</errorConf>

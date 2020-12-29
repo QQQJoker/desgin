@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<flowtran id="ap0000" longname="参数维护交易" kind="maintain" package="cn.sunline.ltts.busi.aptran.trans" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description><![CDATA[参数维护交易]]></description>
+    <interface package="cn.sunline.ltts.busi.aptran.transdef">
+        <input packMode="false">
+            <field id="canshubm" type="ApBaseType.U_SJKBMNGC" required="false" multi="false" array="false" longname="参数表名" ref="ApDict.Aplt.canshubm"/>
+            <field id="caozuolx" type="ApBaseEnumType.E_CARDCZBZ" required="false" multi="false" array="false" longname="操作类型" ref="ApDict.Aplt.caozuolx"/>
+            <field id="shujubao" type="ApBaseType.U_CHMIAOSH" required="false" multi="false" array="false" longname="数据包" ref="ApDict.Aplt.shujubao"/>
+            <field id="corpno" type="BaseType.U_CORPNO" required="true" multi="false" array="false" longname="法人代码" ref="ApDict.Aplt.corpno"/>
+            <field id="qishibis" type="ApBaseType.U_CHANZXLX" required="false" multi="false" array="false" longname="起始笔数" ref="ApDict.Aplt.qishibis"/>
+            <field id="chxunbis" type="ApBaseType.U_CHANZXLX" required="false" multi="false" array="false" longname="查询笔数" ref="ApDict.Aplt.chxunbis"/>
+        </input>
+        <output asParm="false" packMode="false">
+            <field id="shujubao" type="ApBaseType.U_CHMIAOSH" required="false" multi="false" array="false" longname="数据包" ref="ApDict.Aplt.shujubao"/>
+        </output>
+        <property packMode="false"/>
+        <printer packMode="false"/>
+    </interface>
+    <flow id="" test="" longname="" desc="">
+        <service mappingToProperty="false" serviceName="ApServiceApply.ApParaMatainProc" id="ApParaMatainProc" test="" longname="参数维护" desc="参数维护">
+            <in_mappings by_interface="true">
+                <mapping src="canshubm" dest="cplApParaMatainIn.canshubm" by_interface="true" on_top="true"/>
+                <mapping src="caozuolx" dest="cplApParaMatainIn.caozuolx" by_interface="true" on_top="true"/>
+                <mapping src="corpno" dest="cplApParaMatainIn.corpno" by_interface="true" on_top="true"/>
+                <mapping src="qishibis" dest="cplApParaMatainIn.qishibis" by_interface="true" on_top="true"/>
+                <mapping src="shujubao" dest="cplApParaMatainIn.shujubao" by_interface="true" on_top="true"/>
+                <mapping src="chxunbis" dest="cplApParaMatainIn.chxunbis" by_interface="true" on_top="true"/>
+            </in_mappings>
+            <out_mappings by_interface="false">
+                <mapping src="shujubao" dest="shujubao" by_interface="true" on_top="true"/>
+            </out_mappings>
+        </service>
+    </flow>
+    <outMapping by_interface="false"/>
+    <propertyToPrinterMapping by_interface="false"/>
+    <outToPrinterMapping by_interface="false"/>
+</flowtran>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema id="LnLendComplexType" package="cn.sunline.ltts.busi.ln.type" longname="贷款放款复合类型" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <complexType id="LnLendGrantIn" longname="贷款放款输入对象" dict="false" abstract="false" introduct="false">
+        <element id="acctno" longname="贷款账号" type="BaseType.U_ACCTNO" ref="LnDict.LNF.acctno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="lnacno" longname="贷款入账账号" type="BaseType.U_ACCTNO" ref="LnDict.LNF.lnacno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acstno" longname="贷款入账账号子序号" type="BaseType.U_ACSENO" ref="LnDict.LNF.acstno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="loantp" longname="贷款放款方式" type="LnEnumType.E_LOANTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cgacfg" longname="入客户账标志" type="LnEnumType.E_CGACFG" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="lnacct" longname="贷款会计要素结构" type="LnAcctComplexType.LnTran" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="toacct" longname="对方账号" type="BaseType.U_ACCTNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tosbac" longname="对方账号子序号" type="LnBaseType.U_SBACTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="toacna" longname="对方户名" type="BaseType.U_ACCTNA" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tobkno" longname="对方行号" type="LnBaseType.U_BANKNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tocgrt" longname="转入对方比例" type="BaseType.U_RATEVL" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custac" longname="电子账号" type="BaseType.U_CUACNO" ref="LnDict.LNF.custac" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="repyls" longname="还款列表" type="IoRouteType.SubRepayList" required="false" multi="true" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="feeamt" longname="合作方手续费金额" type="PbBaseType.U_TRANAM" required="false" default="0.0" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="iscorp" longname="对公账户标志" type="BaseEnumType.E_YES___" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="LnLendGrantOut" longname="贷款放款输出对象" dict="false" abstract="false" introduct="false">
+        <element id="acctno" longname="贷款账号" type="BaseType.U_ACCTNO" ref="LnDict.LNF.acctno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="lncfno" longname="贷款借据号" type="LnBaseType.U_LNCFNO" ref="LnDict.LNF.lncfno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="transq" longname="交易流水" type="BaseType.U_SEQUNO" ref="LnDict.LNF.transq" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="lncfam" longname="放款金额" type="LnBaseType.U_ACBLTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="lnacno" longname="贷款入账账号" type="BaseType.U_ACCTNO" ref="LnDict.LNF.lnacno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="clavbl" longname="可用额度" type="LnBaseType.U_ACBLTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cntrno" longname="合同号" type="LnBaseType.U_CNTRNO" required="false" default="''" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="LnChangeSchdDealIn" longname="自定义还款计划变更输入" dict="false" abstract="false" introduct="false">
+        <element id="lncfno" longname="贷款借据号" type="LnBaseType.U_LNCFNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="termno" longname="本期期数" type="LnBaseType.U_LONGIN" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="stardt" longname="起始日期" type="LnBaseType.U_DATE08" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="endxdt" longname="到期日期" type="LnBaseType.U_DATE08" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="initam" longname="本金" type="LnBaseType.U_ACBLTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="initin" longname="利息" type="LnBaseType.U_ACINTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ysxxfe" longname="费用" type="LnBaseType.U_ACINTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="LnLendCustomIn" longname="自定义计划贷款放款输入" dict="false" abstract="false" introduct="false">
+        <element id="acctno" alias="ACCTNO" longname="电子账户" type="BaseType.U_ACCTNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="passwd" alias="PASSWD" longname="密码" type="BaseType.U_TRANPW" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="scenid" alias="SCENID" longname="场景信息" type="BaseType.U_CHAR40" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="servtp" alias="SERVTP" longname="交易渠道" type="BaseType.U_SERVTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="servno" alias="SERVNO" longname="交易渠道号" type="BaseType.U_CHAR50" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="clerdt" alias="CLERDT" longname="清算日期" type="BaseType.U_DATE08" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="instdt" alias="INSTDT" longname="起息日期" type="BaseType.U_DATE08" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="matudt" alias="MATUDT" longname="到期日期" type="BaseType.U_DATE08" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="transq" alias="TRANSQ" longname="交易流水号" type="BaseType.U_SEQUNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="merchn" alias="MERCHN" longname="合作商号" type="BaseType.U_CHAR40" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="actvcd" alias="ACTVCD" longname="活动代码" type="BaseType.U_CHAR40" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="mccity" alias="MCCITY" longname="商户国家" type="BaseType.U_CHAR40" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="mcarea" alias="MCAREA" longname="商户地市" type="BaseType.U_CHAR40" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="crcycd" alias="CRCYCD" longname="币种" type="BaseType.U_CRCYCD" ref="BaseDict.Comm.crcycd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tranam" alias="TRANAM" longname="交易金额" type="BaseType.U_TRANAM" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="prodtp" alias="PRODTP" longname="产品类型" type="DpEnumType.E_PRODTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="prodcd" alias="PRODCD" longname="产品代码" type="BaseType.U_PRODCD" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="lncfno" alias="LNCFNO" longname="借据号" type="BaseType.U_ACCTNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trgtbr" alias="TRGTBR" longname="对方行号" type="BaseType.U_BRCHNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trgtac" alias="TRGTAC" longname="对方账号" type="BaseType.U_ACCTNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trgtfn" alias="TRGTFN" longname="对方账户分支机构" type="BaseType.U_FIINCD" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trgtna" alias="TRGTNA" longname="对方户名" type="BaseType.U_CHAR50" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tocgrt" longname="转入对方比例" type="BaseType.U_RATEVL" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="termfm" alias="TERMFM" longname="贷款期限" type="BaseType.U_DEADLI" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="feeamt" longname="合作方手续费金额" type="PbBaseType.U_TRANAM" required="false" default="0.0" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="lnrtir" longname="正常利率" type="LnBaseType.U_INSTRT" required="false" default="0.0" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="pirtir" longname="逾期利率" type="LnBaseType.U_INSTRT" ref="LnDict.LNF.pirtir" required="false" default="0.0" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="schdtp" longname="还款方式" type="LnEnumType.E_SCHDTP" ref="LnDict.LNF.schdtp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="schdls" longname="还款计划列表" type="LnLendComplexType.LnLendCustomLnbSchd" required="false" multi="true" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cardno" longname="交易卡号" type="BaseType.U_CARDNO" ref="BaseDict.Comm.cardno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="LnLendCustomOut" longname="自定义计划贷款放款输出" dict="false" abstract="false" introduct="false">
+        <element id="acctno" longname="贷款账号" type="BaseType.U_ACCTNO" ref="LnDict.LNF.acctno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="lncfno" longname="贷款借据号" type="LnBaseType.U_LNCFNO" ref="LnDict.LNF.lncfno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="transq" longname="交易流水" type="BaseType.U_SEQUNO" ref="LnDict.LNF.transq" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="lncfam" longname="放款金额" type="LnBaseType.U_ACBLTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="lnacno" longname="贷款入账账号" type="BaseType.U_ACCTNO" ref="LnDict.LNF.lnacno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="clavbl" longname="可用额度" type="LnBaseType.U_ACBLTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trandt" longname="交易日期" type="LnBaseType.U_DATE08" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cntrno" longname="贷款合同号" type="LnBaseType.U_CNTRNO" required="false" default="''" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="LnLendCustomLnbSchd" longname="自定义计划贷款期供信息" dict="false" abstract="false" introduct="false">
+        <element id="termno" longname="本期期数" type="LnBaseType.U_LONGIN" ref="LnDict.LNF.termno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="stardt" longname="起始日期" type="LnBaseType.U_DATE08" ref="LnDict.LNF.stardt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="endxdt" longname="到期日期" type="LnBaseType.U_DATE08" ref="LnDict.LNF.endxdt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="initam" longname="初始本金" type="LnBaseType.U_ACBLTP" ref="LnDict.LNF.initam" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="initin" longname="初始利息" type="LnBaseType.U_ACINTP" ref="LnDict.LNF.initin" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ysxxfe" longname="应收费用" type="LnBaseType.U_ACINTP" ref="LnDict.LNF.ysxxfe" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="LnCtomRefundOut" longname="自定义贷款退款服务输出" dict="false" abstract="false" introduct="false">
+        <element id="clavbl" longname="可用额度" type="BaseType.U_ACBLTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="transq" longname="入账流水" type="BaseType.U_SEQUNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trandt" longname="入账日期" type="BaseType.U_DATE08" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="extrbl" longname="退款多余金额" type="BaseType.U_ACBLTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="clrefd" longname="退款本金" type="BaseType.U_ACBLTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="LnCtomRefundIn" longname="自定义贷款退款服务输入" dict="false" abstract="false" introduct="false">
+        <element id="lncfno" longname="贷款借据号" type="LnBaseType.U_LNCFNO" ref="LnDict.LNF.lncfno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="refdam" longname="退款金额" type="LnBaseType.U_ACBLTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+</schema>

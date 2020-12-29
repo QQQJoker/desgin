@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType id="IoCaSevAliasBindChange" kind="business" longname="电子账户账户别名绑定服务" package="cn.sunline.ltts.busi.iobus.servicetype.dp" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <service id="IoSevAliasBinding" name="addBindAlias" longname="电子账户绑定账户别名服务">
+        <interface>
+            <input packMode="false">
+                <field id="cardno" type="BaseType.U_CARDNO" required="false" multi="false" array="false" longname="电子账号"/>
+                <field id="acalno" type="BaseType.U_CHAR30" required="false" multi="false" array="false" longname="账户别名" ref="CaDict.Eacct.acalno"/>
+                <field id="acaltp" type="CaEnumType.E_ACALTP" required="false" multi="false" array="false" longname="账户别名类型" ref="CaDict.Eacct.acaltp"/>
+                <field id="custac" type="BaseType.U_CUSTAC" required="false" multi="false" array="false" longname="电子账号ID"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoSecAliasChange" name="ChangeBindAlias" longname="电子账户账户别名变更服务">
+        <interface>
+            <input packMode="false">
+                <field id="cardno" type="BaseType.U_CARDNO" required="false" multi="false" array="false" longname="电子账号"/>
+                <field id="custid" type="BaseType.U_CUSTID" required="false" multi="false" array="false" longname="用户ID" ref="BaseDict.Comm.custid"/>
+                <field id="acalno" type="BaseType.U_CHAR30" required="false" multi="false" array="false" longname="账户别名" ref="CaDict.Eacct.acalno"/>
+                <field id="acaltp" type="CaEnumType.E_ACALTP" required="false" multi="false" array="false" longname="账户别名类型" ref="CaDict.Eacct.acaltp"/>
+                <field id="odalno" type="BaseType.U_CHAR30" required="false" multi="false" array="false" longname="原账户别名"/>
+                <field id="custac" type="BaseType.U_CUSTAC" required="false" multi="false" array="false" longname="电子账号ID"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+</serviceType>

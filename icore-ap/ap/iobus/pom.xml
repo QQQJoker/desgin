@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>iobus</artifactId>
+	<name>iobus服务总线模块</name>
+	<description></description>
+
+	<parent>
+		<groupId>cn.sunline.ltts.business</groupId>
+		<artifactId>icore-parent</artifactId>
+		<version>3.0.0-SNAPSHOT</version>
+		<relativePath>../../pom.xml</relativePath>
+	</parent>
+
+	<properties>
+		<edsp-module>true</edsp-module>
+		<access-rule>
+			*/**
+		</access-rule>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>cn.sunline.ltts.business</groupId>
+			<artifactId>sys</artifactId>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>cn.sunline.adp.maven</groupId>
+				<artifactId>adp-maven-plugin</artifactId>
+				<version>${adp.maven.version}</version>
+				<configuration>
+					<generateArgs>
+						<genJsf>true</genJsf>
+						<jsfbuild>true</jsfbuild>
+					</generateArgs>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>build</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>

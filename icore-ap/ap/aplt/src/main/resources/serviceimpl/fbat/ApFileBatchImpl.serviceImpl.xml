@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceImpl id="ApFileBatchImpl" longname="通用文件批量业务服务实现" serviceType="IoApFileBatch" package="cn.sunline.ltts.busi.aplt.serviceimpl.fbat" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType id="IoSrvPbQueryType" kind="business" longname="公共模块查询服务" package="cn.sunline.ltts.busi.iobus.servicetype.pb" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description><![CDATA[公共模块查询服务]]></description>
+    <service id="CustCardInfo" name="CustCardInfo" longname="查询客户证件有效期信息">
+        <interface>
+            <input packMode="false">
+                <field id="ccextp" type="PbEnumType.E_CUEXQRTP" required="false" multi="false" array="false" longname="客户证件有效期查询类型" ref="PbDict.cust.ccextp"/>
+                <field id="brchno" type="BaseType.U_BRCHNO" required="false" multi="false" array="false" longname="机构号" ref="PbDict.Brch.brchno"/>
+                <field id="pageno" type="BaseType.U_LONGIN" required="true" multi="false" array="false" longname="页数" ref="PbDict.Comm.pageno"/>
+                <field id="record" type="BaseType.U_LONGIN" required="true" multi="false" array="false" longname="每页记录数" ref="PbDict.Comm.record"/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="output" type="IoPbQueryComplexType.CustCardInfoOut" required="false" multi="true" array="false" longname="客户证件有效期信息"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="IoQryCashTran" name="IoQryCashTran" longname="查询现金收付日记账">
+        <interface>
+            <input packMode="true">
+                <field id="pageno" type="BaseType.U_LONGIN" required="true" multi="false" array="false" longname="页数" ref="PbDict.Comm.pageno"/>
+                <field id="record" type="BaseType.U_LONGIN" required="true" multi="false" array="false" longname="每页记录数" ref="PbDict.Comm.record"/>
+                <field id="tranbr" type="BaseType.U_BRCHNO" required="true" multi="false" array="false" longname="交易机构" ref="PbDict.Cash.tranbr"/>
+                <field id="trandt" type="BaseType2.U_DATE08" required="true" multi="false" array="false" longname="交易日期" ref="PbDict1.Cash.trandt"/>
+                <field id="tranus" type="BaseType.U_USERID" required="false" multi="false" array="false" longname="交易柜员" ref="PbDict.Cash.tranus"/>
+                <field id="crcycd" type="BaseType.U_CRCYCD" required="true" multi="false" array="false" longname="币种" ref="PbDict.Cash.crcycd"/>
+                <field id="amntcd" type="BaseEnumType.E_AMNTCD" required="false" multi="false" array="false" longname="借贷方向" ref="PbDict.Cash.amntcd"/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="output" type="IoCashComplexType.IoQryCashTranOut" required="false" multi="true" array="false" longname="查询现金收付日记账输出"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="IoQueryTranLog" name="queryTranLog" longname="查询交易日志信息">
+        <interface>
+            <input packMode="true">
+                <field id="aptrtp" type="BaseEnumType.E_APTRTP" required="false" multi="false" array="false" longname="交易类型"/>
+                <field id="brchno" type="BaseType.U_BRCHNO" required="false" multi="false" array="false" longname="机构号" ref="BaseDict.Comm.brchno"/>
+                <field id="userid" type="BaseType.U_USERID" required="false" multi="false" array="false" longname="柜员代号" ref="PbDict.Teller.userid"/>
+                <field id="systdt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="交易日期" ref="BaseDict.Comm.systdt"/>
+                <field id="pageno" type="BaseType.U_LONGIN" required="true" multi="false" array="false" longname="页数" ref="PbDict.Comm.pageno"/>
+                <field id="record" type="BaseType.U_LONGIN" required="true" multi="false" array="false" longname="每页记录数" ref="PbDict.Comm.record"/>
+                
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="tranLogs" type="IoPbQueryComplexType.pbKnsTranDetl" required="false" multi="true" array="false" longname="交易日志"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+</serviceType>

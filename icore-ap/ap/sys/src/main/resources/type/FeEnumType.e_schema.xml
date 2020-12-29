@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema id="FeEnumType" package="cn.sunline.ltts.busi.sys.type" longname="计费中心枚举类型" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <restrictionType id="E_MNTNTP" longname="维护类别" base="string" maxLength="1">
+        <enumeration id="add" value="1" longname="新增"/>
+        <enumeration id="modify" value="2" longname="修改"/>
+        <enumeration id="del" value="3" longname="删除"/>
+    </restrictionType>
+    <restrictionType id="E_CVCYFG" longname="币种兑换标志" base="BaseType.U_CHAR01">
+        <enumeration id="YES" value="1" longname="是"/>
+        <enumeration id="NO" value="0" longname="否"/>
+    </restrictionType>
+    <restrictionType id="E_SERVTP" longname="交易渠道类型" base="BaseType.U_CHAR04" maxLength="3" minLength="3">
+        <enumeration id="CNT" value="000" longname="柜面" desc="柜面"/>
+        <enumeration id="SECOND" value="001" longname="二代支付" desc="二代支付"/>
+        <enumeration id="FARMER_CLEAR" value="002" longname="农信银" desc="农信银"/>
+        <enumeration id="FINAMG" value="003" longname="理财" desc="理财"/>
+        <enumeration id="ECGVBD" value="004" longname="电子国债" desc="电子国债"/>
+        <enumeration id="FINASY" value="005" longname="财务系统" desc="财务系统"/>
+        <enumeration id="TIPS" value="006" longname="tips" desc="tips"/>
+        <enumeration id="UNPY_CENTER" value="007" longname="银联总中心" desc="银联总中心"/>
+        <enumeration id="ATM" value="008" longname="本行ATM" desc="本行ATM"/>
+        <enumeration id="INFRCYPY" value="009" longname="境内外币支付" desc="境内外币支付"/>
+        <enumeration id="SWIFT" value="010" longname="swift" desc="swift"/>
+        <enumeration id="UNPY_HEBEI" value="011" longname="河北银联" desc="河北银联"/>
+        <enumeration id="GL" value="012" longname="会计系统" desc="会计系统"/>
+        <enumeration id="CREDIT_LOAN" value="013" longname="信贷系统" desc="信贷系统"/>
+        <enumeration id="PHONE" value="015" longname="电话银行" desc="电话银行"/>
+        <enumeration id="MESSAGE" value="016" longname="短信平台" desc="短信平台"/>
+        <enumeration id="E_BANK" value="017" longname="网上银行" desc="网上银行"/>
+        <enumeration id="ENCRCYT" value="018" longname="支付密码核验系统" desc="支付密码核验系统"/>
+        <enumeration id="FUND" value="019" longname="基金" desc="基金"/>
+        <enumeration id="SCHOOLE_CARD" value="020" longname="校园卡" desc="校园卡"/>
+        <enumeration id="POS" value="022" longname="本行POS" desc="本行POS"/>
+        <enumeration id="FRONT" value="023" longname="大前置" desc="大前置"/>
+        <enumeration id="GLOBAL" value="024" longname="国际结算" desc="国际结算"/>
+        <enumeration id="SEAL" value="025" longname="验印系统" desc="验印系统"/>
+        <enumeration id="FRONT_UNPY" value="026" longname="银联前置" desc="银联前置"/>
+        <enumeration id="INTERMEDIARY" value="027" longname="中间业务" desc="中间业务"/>
+        <enumeration id="PAPER" value="028" longname="票据系统" desc="票据系统"/>
+        <enumeration id="IDENTIFY" value="029" longname="身份核查" desc="身份核查"/>
+        <enumeration id="MOBILE" value="030" longname="手机银行" desc="手机银行"/>
+        <enumeration id="WEIBANK" value="031" longname="微信银行" desc="微信银行"/>
+        <enumeration id="AUTHOR" value="032" longname="集中授权" desc="集中授权"/>
+        <enumeration id="LAUNDER" value="033" longname="反洗钱" desc="反洗钱"/>
+        <enumeration id="REGULATORY" value="034" longname="监管报送" desc="监管报送"/>
+        <enumeration id="HR" value="035" longname="人力资源" desc="人力资源"/>
+        <enumeration id="HX" value="800" longname="核心系统" desc="核心系统"/>
+        <enumeration id="BATCH" value="990" longname="交易批量" desc="交易批量"/>
+        <enumeration id="BATCH_GL" value="992" longname="会计批量" desc="会计批量"/>
+        <enumeration id="NOT_CNT" value="998" longname="非柜面渠道" desc="非柜面渠道"/>
+        <enumeration id="ALL" value="999" longname="全部" desc="全部"/>
+    </restrictionType>
+    <restrictionType id="E_CGSMTP" longname="收费累积类型" base="BaseType.U_CHAR01" maxLength="1">
+        <enumeration id="TIMES" value="1" longname="次数"/>
+        <enumeration id="AMOUNT" value="2" longname="金额"/>
+    </restrictionType>
+    <restrictionType id="E_ISFAVO" longname="是否允许优惠" base="BaseType.U_CHAR01">
+        <enumeration id="YES" value="1" longname="是"/>
+        <enumeration id="NO" value="0" longname="否"/>
+    </restrictionType>
+    <restrictionType id="E_CHRGTP" longname="收取方式" base="BaseType.U_CHAR01" maxLength="1" minLength="1">
+        <enumeration id="AUTO" value="1" longname="自动收取" desc="自动收取"/>
+        <enumeration id="BTCH" value="2" longname="批量收取" desc="批量收取"/>
+        <enumeration id="MANUAL" value="3" longname="手工收取" desc="手工收取"/>
+    </restrictionType>
+    <restrictionType id="E_MODULE" longname="模块" base="BaseType.U_CHAR02" maxLength="2" minLength="2">
+        <enumeration id="CA" value="CA" longname="现金" desc="现金"/>
+        <enumeration id="CD" value="CD" longname="卡" desc="卡"/>
+        <enumeration id="CE" value="CE" longname="凭证" desc="凭证"/>
+        <enumeration id="CL" value="CL" longname="授信额度" desc="授信额度"/>
+        <enumeration id="CO" value="CO" longname="抵质押物" desc="抵质押物"/>
+        <enumeration id="DA" value="DA" longname="抵债资产" desc="抵债资产"/>
+        <enumeration id="OB" value="OB" longname="资产表外业务" desc="资产表外业务"/>
+        <enumeration id="BA" value="BA" longname="承兑汇票" desc="承兑汇票"/>
+        <enumeration id="DC" value="DC" longname="贴现" desc="贴现"/>
+        <enumeration id="LC" value="LC" longname="国内信用证" desc="国内信用证"/>
+        <enumeration id="DP" value="DP" longname="存款" desc="存款"/>
+        <enumeration id="FN" value="FN" longname="理财" desc="理财"/>
+        <enumeration id="TL" value="TL" longname="柜员" desc="柜员"/>
+        <enumeration id="BR" value="BR" longname="机构" desc="机构"/>
+        <enumeration id="CI" value="CI" longname="客户" desc="客户"/>
+        <enumeration id="FX" value="FX" longname="外汇" desc="外汇"/>
+        <enumeration id="GL" value="GL" longname="总账" desc="总账"/>
+        <enumeration id="IV" value="IV" longname="投资" desc="投资"/>
+        <enumeration id="FA" value="FA" longname="会计核算" desc="会计核算"/>
+        <enumeration id="FM" value="FM" longname="资金" desc="资金"/>
+        <enumeration id="FI" value="FI" longname="固定资产" desc="固定资产"/>
+        <enumeration id="IA" value="IA" longname="内部帐户" desc="内部帐户"/>
+        <enumeration id="BB" value="BB" longname="同业拆借" desc="同业拆借"/>
+        <enumeration id="LN" value="LN" longname="贷款" desc="贷款"/>
+        <enumeration id="IB" value="IB" longname="中间业务" desc="中间业务"/>
+        <enumeration id="MS" value="MS" longname="股金" desc="股金"/>
+        <enumeration id="ND" value="ND" longname="国债" desc="国债"/>
+        <enumeration id="ST" value="ST" longname="结算" desc="结算"/>
+        <enumeration id="TF" value="TF" longname="国际结算" desc="国际结算"/>
+        <enumeration id="TA" value="TA" longname="资金头寸" desc="资金头寸"/>
+        <enumeration id="CG" value="CG" longname="费用" desc="费用"/>
+        <enumeration id="IT" value="IT" longname="利率" desc="利率"/>
+    </restrictionType>
+    <restrictionType id="E_MODUTP" longname="所属模块" base="BaseType.U_CHAR01">
+        <enumeration id="DP" value="0" longname="存款" desc="存款"/>
+        <enumeration id="LN" value="1" longname="贷款" desc="贷款"/>
+        <enumeration id="CREDIT_CARD" value="2" longname="类信用卡" desc="类信用卡"/>
+    </restrictionType>
+    <restrictionType id="E_EVETUS" longname="事件用途" base="BaseType.U_CHAR02">
+        <enumeration id="SF" value="SF" longname="收费"/>
+    </restrictionType>
+    <restrictionType id="E_CUFETP" longname="计费类型" base="BaseType.U_CHAR01" maxLength="1" minLength="1">
+        <enumeration id="R" value="R" longname="比例" desc="比例"/>
+        <enumeration id="S" value="S" longname="单价(与数量有关)" desc="单价(与数量有关)"/>
+        <enumeration id="N" value="N" longname="单价(与数量无关)" desc="单价(与数量无关)"/>
+        <enumeration id="M" value="M" longname="自定义公式" desc="自定义公式"/>
+    </restrictionType>
+    <restrictionType id="E_WAYTYP" longname="维度类型" base="BaseType.U_CHAR02" maxLength="2" minLength="2">
+        <enumeration id="SCENE" value="01" longname="费用场景维度" desc="费用场景维度"/>
+        <enumeration id="PRIVILEGE_FEE" value="02" longname="费用优惠维度" desc="费用优惠维度"/>
+        <enumeration id="PRIVILEGE_INRT" value="03" longname="利率优惠维度" desc="利率优惠维度"/>
+    </restrictionType>
+    <restrictionType id="E_VALUSR" longname="字段值来源" base="BaseType.U_CHAR01">
+        <enumeration id="FIX" value="0" longname="固定值" desc="固定值"/>
+        <enumeration id="RETURN" value="1" longname="函数代码返回值" desc="函数代码返回值"/>
+        <enumeration id="INERFACE" value="2" longname="接口字段值" desc="接口字段值"/>
+    </restrictionType>
+    <restrictionType id="E_ACTTYP" longname="客户账号类型" base="BaseType.U_CHAR01">
+        <enumeration id="XTZH" value="0" longname="系统账号"/>
+        <enumeration id="KA" value="1" longname="卡"/>
+        <enumeration id="HQYBT" value="2" longname="活期一本通"/>
+        <enumeration id="DQYBT" value="3" longname="定期一本通"/>
+        <enumeration id="CZ" value="4" longname="存折"/>
+        <enumeration id="CD" value="5" longname="存单"/>
+        <enumeration id="LCZH" value="6" longname="理财账户"/>
+        <enumeration id="GJZH" value="7" longname="股金账户"/>
+        <enumeration id="DKZH" value="8" longname="贷款账户"/>
+        <enumeration id="NBZ" value="9" longname="内部账"/>
+        <enumeration id="AIO" value="A" longname="AIO账户"/>
+        <enumeration id="YHT" value="B" longname="一号通"/>
+        <enumeration id="CXYBT" value="F" longname="储蓄一本通"/>
+        <enumeration id="GZ" value="G" longname="国债"/>
+        <enumeration id="DZGZ" value="N" longname="电子储蓄国债"/>
+        <enumeration id="DXZ" value="X" longname="待销账"/>
+        <enumeration id="KJZH" value="K" longname="会计账户"/>
+        <enumeration id="DZZH" value="D" longname="电子账户"/>
+        <enumeration id="DECD" value="E" longname="大额存单"/>
+    </restrictionType>
+    <restrictionType id="E_CUSTTP" longname="客户类型" base="BaseType.U_CHAR02" maxLength="2" minLength="2">
+        <enumeration id="BANK" value="00" longname="同业客户" desc="同业客户"/>
+        <enumeration id="PSON" value="01" longname="对私客户" desc="对私客户"/>
+        <enumeration id="CORP" value="02" longname="对公客户" desc="对公客户"/>
+        <enumeration id="FUTURE" value="09" longname="潜在客户" desc="潜在客户"/>
+    </restrictionType>
+    <restrictionType id="E_CALSTS" longname="计费状态" base="BaseType.U_CHAR01">
+        <enumeration id="ALL" value="%" longname="所有"/>
+        <enumeration id="CANCLE" value="0" longname="已取消"/>
+        <enumeration id="ACCOUNTED" value="1" longname="已扣收"/>
+        <enumeration id="HUNG" value="2" longname="挂账"/>
+        <enumeration id="STRIKED" value="9" longname="已冲账"/>
+        <subenums>
+            <subenum id="E_CALSTS_ACCOUNTED" enums="CANCLE,ACCOUNTED,STRIKED" longname="已收费"/>
+            <subenum id="E_CALSTS_NOT_ACCT" enums="HUNG" longname="未收费"/>
+        </subenums>
+    </restrictionType>
+    <restrictionType id="E_CUSLVL" longname="客户级别" base="BaseType.U_CHAR02">
+        <enumeration id="WXZD" value="00" longname="全辖重点客户"/>
+        <enumeration id="QYZD" value="01" longname="区域级重点客户"/>
+        <enumeration id="YBKH" value="02" longname="一般客户"/>
+        <enumeration id="ZDYX" value="03" longname="重点营销客户"/>
+        <enumeration id="SHUIM" value="10" longname="睡眠客户"/>
+        <enumeration id="DSYBKH" value="11" longname="一般客户"/>
+        <enumeration id="ZIJ" value="12" longname="紫金客户"/>
+        <enumeration id="HUGJ" value="13" longname="黄金客户"/>
+        <enumeration id="BAIJ" value="14" longname="白金客户"/>
+    </restrictionType>
+    <restrictionType id="E_PROFLG" longname="处理标志" base="BaseType.U_CHAR01">
+        <enumeration id="Z" value="0" longname="增加"/>
+        <enumeration id="S" value="1" longname="删除"/>
+        <enumeration id="G" value="2" longname="修改"/>
+    </restrictionType>
+    <restrictionType id="E_DVIDST" longname="分成状态" base="BaseType.U_CHAR01">
+        <enumeration id="NO" value="0" longname="待分成"/>
+        <enumeration id="AL" value="1" longname="已分成"/>
+        <enumeration id="FAL" value="2" longname="分成失败"/>
+    </restrictionType>
+    <restrictionType id="E_PDUNIT" longname="周期单位" base="BaseType.U_CHAR01" maxLength="1">
+        <enumeration id="DAY" value="D" longname="天"/>
+        <enumeration id="WEEK" value="W" longname="周"/>
+        <enumeration id="MONTH" value="M" longname="月"/>
+        <enumeration id="SEASON" value="S" longname="季"/>
+        <enumeration id="HALFYEAR" value="H" longname="半年"/>
+        <enumeration id="YEAR" value="Y" longname="年"/>
+    </restrictionType>
+    <restrictionType id="E_PKDETP" longname="扣费方式" base="BaseType.U_CHAR01" maxLength="1">
+        <enumeration id="REAL" value="1" longname="周期内第一笔交易"/>
+        <enumeration id="FIRST" value="2" longname="周期头"/>
+        <enumeration id="LAST" value="3" longname="周期尾"/>
+    </restrictionType>
+    <restrictionType id="E_FAVOTP" longname="优惠策略" base="BaseType.U_CHAR01" maxLength="1">
+        <enumeration id="whole" value="1" longname="整包控制"/>
+        <enumeration id="detail" value="2" longname="明细控制"/>
+    </restrictionType>
+    <restrictionType id="E_PKFATP" longname="套餐优惠类型" base="BaseType.U_CHAR01" maxLength="1">
+        <enumeration id="none" value="N" longname="无意义"/>
+        <enumeration id="whole" value="0" longname="全程优惠"/>
+        <enumeration id="toN" value="1" longname="优惠到第n笔"/>
+        <enumeration id="fromN" value="2" longname="从第n笔开始"/>
+    </restrictionType>
+    <restrictionType id="E_SMBDTP" longname="累积主体类型" base="BaseType.U_CHAR01" maxLength="1">
+        <enumeration id="ACCTNO" value="1" longname="账号"/>
+        <enumeration id="CUSTNO" value="2" longname="客户"/>
+    </restrictionType>
+    <restrictionType id="E_FASTTP" longname="费用优惠起点类型" base="BaseType.U_CHAR01" maxLength="1" minLength="1">
+        <enumeration id="AMT" value="1" longname="按金额" desc="按金额"/>
+        <enumeration id="NUM" value="2" longname="按笔数" desc="按笔数"/>
+    </restrictionType>
+    <restrictionType id="E_RECDST" longname="记录状态" base="BaseType.U_CHAR01">
+        <enumeration id="NORMAL" value="0" longname="正常"/>
+        <enumeration id="DELETE" value="1" longname="删除"/>
+    </restrictionType>
+    <restrictionType id="E_CGPYRV" longname="费用收付标志" base="BaseType.U_CHAR01" maxLength="1" minLength="1">
+        <enumeration id="RECIVE" value="0" longname="收费" desc="收费"/>
+        <enumeration id="PAY" value="1" longname="付费" desc="付费"/>
+    </restrictionType>
+    <restrictionType id="E_CARRTP" longname="四舍五入方式" base="BaseType.U_CHAR01" maxLength="1" minLength="1">
+        <enumeration id="IGNORE" value="0" longname="不处理" desc="不处理"/>
+        <enumeration id="ROUND" value="1" longname="四舍五入" desc="四舍五入"/>
+        <enumeration id="CARRY" value="2" longname="进位" desc="进位"/>
+        <enumeration id="TRUNCATION" value="3" longname="舍位" desc="舍位"/>
+    </restrictionType>
+    <restrictionType id="E_CUFESR" longname="计费金额来源" base="BaseType.U_CHAR01" maxLength="1" minLength="1">
+        <enumeration id="TRANAM" value="A" longname="交易金额" desc="交易金额"/>
+        <enumeration id="OVAMNT" value="B" longname="透支金额" desc="透支金额"/>
+        <enumeration id="MANUAL" value="I" longname="手输金额" desc="手输金额"/>
+    </restrictionType>
+    <restrictionType id="E_CHRGSR" longname="收费金额来源" base="BaseType.U_CHAR01" maxLength="1" minLength="1">
+        <enumeration id="INPUT" value="2" longname="输入" desc="输入"/>
+        <enumeration id="CALCULATE" value="1" longname="计算" desc="计算"/>
+    </restrictionType>
+    <restrictionType id="E_LYSPTP" longname="分层方式" base="BaseType.U_CHAR01" maxLength="1" minLength="1">
+        <enumeration id="NO" value="0" longname="不分层" desc="不分层"/>
+        <enumeration id="OVAMNT" value="1" longname="全额" desc="全额"/>
+        <enumeration id="MANUAL" value="2" longname="超额" desc="超额"/>
+    </restrictionType>
+    <restrictionType id="E_FELYTP" longname="收费分层取值类型" base="BaseType.U_CHAR01" maxLength="1" minLength="1">
+        <enumeration id="AMT" value="1" longname="按金额" desc="按金额"/>
+        <enumeration id="NUM" value="2" longname="按笔数" desc="按笔数"/>
+    </restrictionType>
+    <restrictionType id="E_BLLWTP" longname="余额不足处理方式" base="BaseType.U_CHAR01" maxLength="1" minLength="1">
+        <enumeration id="OWE" value="0" longname="失败算欠费" desc="失败算欠费"/>
+        <enumeration id="ONLNBL" value="1" longname="扣剩余部分" desc="扣剩余部分"/>
+        <enumeration id="GRACE_PERIOD" value="2" longname="宽限期扣" desc="宽限期扣"/>
+        <enumeration id="NEXT_CYCLE" value="3" longname="下周期扣" desc="下周期扣"/>
+        <enumeration id="IGNORE" value="4" longname="不扣" desc="不扣"/>
+        <enumeration id="ONLNBL_OWE" value="5" longname="扣剩余部分,不足算欠费" desc="扣剩余部分,不足算欠费"/>
+        <enumeration id="SWITCH_FAILE" value="9" longname="转扣费失败" desc="转扣费失败"/>
+    </restrictionType>
+    <restrictionType id="E_FEDIVE" longname="收费分润标志" base="BaseType.U_CHAR01" maxLength="1" minLength="1">
+        <enumeration id="NO" value="0" longname="不分成" desc="不分成"/>
+        <enumeration id="YES" value="1" longname="分成" desc="分成"/>
+    </restrictionType>
+    <restrictionType id="E_YES___" longname="是否标志" base="BaseType.U_CHAR01">
+        <enumeration id="YES" value="1" longname="是"/>
+        <enumeration id="NO" value="0" longname="否"/>
+    </restrictionType>
+    <restrictionType id="E_FETYPE" longname="费种大类" base="BaseType.U_CHAR02">
+        <enumeration id="gb" value="01" longname="工本费"/>
+        <enumeration id="sx" value="02" longname="手续费"/>
+        <enumeration id="hh" value="03" longname="汇划费"/>
+        <enumeration id="yd" value="04" longname="邮电费"/>
+        <enumeration id="fw" value="05" longname="服务费"/>
+        <enumeration id="gl" value="06" longname="管理费(年费)"/>
+        <enumeration id="fm" value="07" longname="罚没费"/>
+        <enumeration id="wy" value="08" longname="违约金"/>
+        <enumeration id="xh" value="09" longname="信函费"/>
+        <enumeration id="xf" value="80" longname="税费"/>
+    </restrictionType>
+    <restrictionType id="E_OPTFLG" longname="操作标志" base="BaseType.U_CHAR01">
+        <enumeration id="ADD" value="0" longname="增加"/>
+        <enumeration id="UPD" value="1" longname="修改"/>
+        <enumeration id="DEL" value="2" longname="删除"/>
+        <enumeration id="SEL" value="3" longname="查询"/>
+    </restrictionType>
+    <restrictionType id="E_CJSIGN" longname="县辖维护标志" base="BaseType.U_CHAR01">
+        <enumeration id="NO" value="0" longname="否"/>
+        <enumeration id="YES" value="1" longname="是"/>
+    </restrictionType>
+    <restrictionType id="E_PREWAY" longname="优惠方式" base="BaseType.U_CHAR02">
+        <enumeration id="imm" value="01" longname="即时优惠"/>
+        <enumeration id="tim" value="02" longname="定时优惠"/>
+    </restrictionType>
+    <restrictionType id="E_PRERTT" longname="优惠返还时间" base="BaseType.U_CHAR02">
+        <enumeration id="month" value="01" longname="月末"/>
+        <enumeration id="jimo" value="02" longname="季末"/>
+        <enumeration id="year" value="03" longname="年末"/>
+    </restrictionType>
+    <restrictionType id="E_RECTST" longname="记录状态" base="BaseType.U_CHAR01">
+        <enumeration id="normal" value="0" longname="正常"/>
+        <enumeration id="delete" value="1" longname="已删除"/>
+    </restrictionType>
+    <restrictionType id="E_ISDIVI" longname="是否分润" base="BaseType.U_CHAR01" maxLength="1" minLength="1">
+        <enumeration id="NO" value="0" longname="否" desc="不分润"/>
+        <enumeration id="YES" value="1" longname="是" desc="分润"/>
+    </restrictionType>
+    <restrictionType id="E_ACCLEV" longname="对账级别" base="BaseType.U_CHAR01">
+        <enumeration id="lord" value="1" longname="归属总账机构"/>
+        <enumeration id="dist" value="2" longname="县级清算中心"/>
+        <enumeration id="prov" value="3" longname="省级清算中心"/>
+    </restrictionType>
+</schema>

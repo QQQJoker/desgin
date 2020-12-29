@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType id="IoDpStrikeSvcType" kind="business" longname="负债相关冲正服务" package="cn.sunline.ltts.busi.iobus.servicetype.dp" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <service id="ProcCloseStrike" name="procCloseStrike" longname="销户冲正">
+        <interface>
+            <input packMode="true">
+                <field id="strikeInput" type="IoStrikeType.ProcCloseStrikeInput" required="false" multi="false" array="false" longname="输入参数"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="ProcSaveStrike" name="procSaveStrike" longname="存入冲正">
+        <interface>
+            <input packMode="true">
+                <field id="strikeInput" type="IoStrikeType.ProcSaveStrikeInput" required="false" multi="false" array="false" longname="输入参数"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="ProcDrawStrike" name="procDrawStrike" longname="支取冲正">
+        <interface>
+            <input packMode="true">
+                <field id="strikeInput" type="IoStrikeType.ProcDrawStrikeInput" required="false" multi="false" array="false" longname="输入参数"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="ProcSaveIoBillStrike" name="procSaveIoBillStrike" longname="出入金登记簿冲正">
+        <interface>
+            <input packMode="false">
+                <field id="fronsq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="前置流水"/>
+                <field id="frondt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="前置日期"/>
+                <field id="status" type="BaseEnumType.E_TRANST" required="false" default="#dict.BaseEnumType.E_TRANST().STRIK" multi="false" array="false" longname="交易状态" desc="默认冲账"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="ProcKnlCaryStrike" name="procKnlCaryStrike" longname="电子账户转电子账户登记簿冲正">
+        <interface>
+            <input packMode="false">
+                <field id="fronsq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="前置流水"/>
+                <field id="frondt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="前置日期"/>
+                <field id="status" type="BaseEnumType.E_TRANST" required="false" default="#dict.BaseEnumType.E_TRANST().STRIK" multi="false" array="false" longname="交易状态" desc="默认冲账"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="ProcAccConStrike" name="procAccConStrike" longname="电子账户消费登记薄冲正">
+        <interface>
+            <input packMode="false">
+                <field id="fronsq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="前置流水"/>
+                <field id="frondt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="前置日期"/>
+                <field id="status" type="BaseEnumType.E_TRANST" required="false" default="#dict.BaseEnumType.E_TRANST().STRIK" multi="false" array="false" longname="交易状态" desc="默认冲账"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="ProcOpenSubAcctStrike" name="procOpenSubAcctStrike" longname="负债子账户开户冲正">
+        <interface>
+            <input packMode="false">
+                <field id="custac" type="BaseType.U_CUACNO" required="false" multi="false" array="false" longname="客户账号" ref="DpDict.Acct.custac"/>
+                <field id="acctno" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="负债账号" ref="DpDict.Acct.acctno"/>
+                <field id="retrdt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="原交易日期"/>
+                <field id="retrsq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="原交易流水"/>
+                <field id="fcflag" type="DpEnumType.E_FCFLAG" required="false" multi="false" array="false" longname="定活标志"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="ProcCloseAcctStrike" name="procCloseAcctStrike" longname="结算账户销户冲正">
+        <interface>
+            <input packMode="false">
+                <field id="strike" type="IoApStrikeType.IoApRegBook" required="false" multi="false" array="false" longname="冲正参数"/>
+                <field id="colour" type="BaseEnumType.E_COLOUR" required="false" multi="false" array="false" longname="红蓝标志"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="ProcInstAdjustStrike" name="procInstAdjustStrike" longname="利息调整冲正">
+        <interface>
+            <input packMode="false">
+                <field id="transq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="交易流水"/>
+                <field id="trandt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="交易日期"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="ProcKnbSlepStrike" name="procKnbSlepStrike" longname="休眠登记簿冲正服务">
+        <interface>
+            <input packMode="false">
+                <field id="trandt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="处理结果"/>
+                <field id="trantm" type="BaseType.U_TIME06" required="false" multi="false" array="false" longname="处理日期"/>
+                <field id="custac" type="BaseType.U_CUSTAC" required="false" multi="false" array="false" longname="处理时间"/>
+                <field id="slepst" type="CaEnumType.E_SLEPST" required="false" multi="false" array="false" longname="休眠状态"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="ProcKnbClacStrike" name="procKnbClacStrike" longname="销户登记簿冲正">
+        <interface>
+            <input packMode="false">
+                <field id="clossq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="销户流水"/>
+                <field id="custac" type="BaseType.U_CUSTAC" required="false" multi="false" array="false" longname="电子账号"/>
+                <field id="clstat" type="DpEnumType.E_CLSTAT" required="false" multi="false" array="false" longname="销户状态"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="ProcKnlIoblCupsStrike" name="procKnlIoblCupsStrike" longname="银联来账交易登记簿冲正">
+        <interface>
+            <input packMode="false">
+                <field id="mntrsq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="主交易流水"/>
+                <field id="trandt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="交易日期"/>
+                <field id="istrcf" type="BaseEnumType.E_YES___" required="false" multi="false" array="false" longname="是否转入确认挂账"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="ProcCnapreStrikeHold" name="procCnapreStrikeHold" longname="大小额冲正挂账">
+        <interface>
+            <input packMode="false">
+                <field id="knlCnapot" type="IoDpTable.InknlcnapotDetl" required="false" multi="false" array="false" longname="大小额登记簿记录"/>
+                <field id="errmes" type="BaseType.U_CHAR1000" required="false" multi="false" array="false" longname="错误消息"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="ProcCnapreStrikeDieb" name="procCnapreStrikeDieb" longname="大小额隔日冲正">
+        <interface>
+            <input packMode="false">
+                <field id="knlCnapot" type="IoDpTable.InknlcnapotDetl" required="false" multi="false" array="false" longname="大小额登记信息"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="ProcStrkpyIobl" name="procStrkpyIobl" longname="出入金支付冲正">
+        <interface>
+            <input packMode="false">
+                <field id="iobl" type="IoDpTable.IoKnlIobl" required="false" multi="false" array="false" longname="出入金登记簿"/>
+                <field id="ioflag" type="DpEnumType.E_IOFLAG" required="false" multi="false" array="false" longname="出入金标志"/>
+                <field id="errmsg" type="BaseType.U_CHAR1000" required="false" multi="false" array="false" longname="错误描述"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="ProcStrkpySpnd" name="procStrkpySpnd" longname="消费交易支付冲正">
+        <interface>
+            <input packMode="false">
+                <field id="spnd" type="IoDpTable.ioKnlSpnd" required="false" multi="false" array="false" longname="消费缴费登记簿"/>
+                <field id="ioflag" type="DpEnumType.E_IOFLAG" required="false" multi="false" array="false" longname="出入金标志"/>
+                <field id="errmsg" type="BaseType.U_CHAR1000" required="false" multi="false" array="false" longname="错误描述"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="ProcRegi" name="ProcRegi" longname="订单冲正">
+        <interface>
+            <input packMode="false">
+                <field id="cordno" type="BaseType.U_CHAR40" required="false" multi="false" array="false" longname="子订单号" ref="DpDict.Ordr.cordno"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="CustAcStrike" name="CustAcStrike" longname="电子账户开户冲正">
+        <interface>
+            <input packMode="false">
+                <field id="custac" type="BaseType.U_CUACNO" required="false" multi="false" array="false" longname="客户账号" ref="DpDict.Acct.custac"/>
+                <field id="cardno" type="BaseType.U_CARDNO" required="false" multi="false" array="false" longname="负债账号" ref="DpDict.Acct.cardno"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="getKnsTranOdb1" name="getKnsTranOdb1" longname="查询主交易流水表">
+        <interface>
+            <input packMode="false">
+                <field id="prtrsq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="交易流水"/>
+                <field id="prtrdt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="原交易日期"/>
+                <field id="cdcnno" type="BaseType.U_DCNNO" required="false" multi="false" array="false" longname="DCN编号"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="knstran" type="IoCaTable.IoCaKnsTran" required="false" multi="false" array="false" longname="销户登记簿复合类型"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+</serviceType>

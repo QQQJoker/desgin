@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<errorConf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="AksError" longname="aks error" package="cn.sunline.clwj.zdbank.busi.aks.errors" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <errors id="aksConn" longname="aks conn">
+        <error id="A0001" type="error" message="AKS encrypt failed return null"/>
+        <error id="A0002" type="error" message="AKS decrypt failed return null"/>
+    </errors>
+</errorConf>

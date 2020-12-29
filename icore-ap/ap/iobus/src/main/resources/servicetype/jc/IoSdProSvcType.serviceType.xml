@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType id="IoSdProSvcType" kind="business" longname="结构性存款产品服务接口" package="cn.sunline.ltts.busi.iobus.servicetype.jc" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <service id="IoAddJJCKPro" name="addJJCKPro" longname="新增结构性存款产品">
+        <interface>
+            <input packMode="true">
+                <field id="jjprod" type="BaseType.U_PRODCD" required="false" multi="false" array="false" longname="产品编号"/>
+                <field id="prodtp" type="DpEnumType.E_PRODCT" required="false" multi="false" array="false" longname="业务中类" ref="DpDict.Prod.prodtp"/>
+                <field id="pddpfg" type="DpEnumType.E_FCFLAG" required="false" multi="false" array="false" longname="业务小类" ref="DpDict.Prod.pddpfg"/>
+                <field id="debttp" type="BaseEnumType.E_DEBTTP" required="false" multi="false" array="false" longname="业务细类" ref="DpDict.Prod.debttp"/>
+                <field id="risklv" type="SdBaseEnumType.E_RISKLV" required="false" multi="false" array="false" longname="风险等级"/>
+                <field id="pdtype" type="SdBaseEnumType.E_PDTYPE" required="false" multi="false" array="false" longname="产品类型"/>
+                <field id="perntp" type="SdBaseEnumType.E_PERNTP" required="false" multi="false" array="false" longname="适合人员"/>
+                <field id="mjbgdt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="募集开始日期"/>
+                <field id="mjendt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="募集结束日期"/>
+                <field id="bgindt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="成立开始日期"/>
+                <field id="matudt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="成立到期日期"/>
+                <field id="pdterm" type="BaseType.U_LONGIN" required="false" multi="false" array="false" longname="产品实际天数"/>
+                <field id="expinr" type="BaseType.U_INSTRT" required="false" multi="false" array="false" longname="成立利率"/>
+                <field id="mininr" type="BaseType.U_INSTRT" required="false" multi="false" array="false" longname="最低收益率"/>
+                <field id="maxinr" type="BaseType.U_INSTRT" required="false" multi="false" array="false" longname="最高收益率"/>
+                <field id="brkinr" type="BaseType.U_INSTRT" required="false" multi="false" array="false" longname="违约利率"/>
+                <field id="sprdam" type="BaseType.U_TRANAM" required="false" multi="false" array="false" longname="起存金额"/>
+                <field id="stplv" type="BaseType.U_TRANAM" required="false" multi="false" array="false" longname="步长值"/>
+                <field id="iscasp" type="BaseEnumType.E_YES___" required="false" multi="false" array="false" longname="可否提前终止"/>
+                <field id="iscacl" type="BaseEnumType.E_YES___" required="false" multi="false" array="false" longname="募集期可否撤单"/>
+                <field id="minamt" type="BaseType.U_TRANAM" required="false" multi="false" array="false" longname="募集成立最小金额"/>
+            </input>
+            <output asParm="true" packMode="true"/>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="IoSyncJJckEvet" name="syncJJckEvet" longname="同步产品事件至子节点">
+        <interface>
+            <input packMode="true">
+                <field id="jjprod" type="BaseType.U_PRODCD" required="false" multi="false" array="false" longname="产品编号"/>
+                <field id="prodna" type="BaseType.U_CHAR100" required="false" multi="false" array="false" longname="产品名称"/>
+                <field id="pdevst" type="SdBaseEnumType.E_PDEVST" required="false" multi="false" array="false" longname="产品事件状态"/>
+                <field id="bgindt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="成立开始日期"/>
+                <field id="matudt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="成立到期日期"/>
+                <field id="dufudt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="提前兑付日期"/>
+                <field id="expinr" type="BaseType.U_INSTRT" required="false" multi="false" array="false" longname="成立利率"/>
+                <field id="mininr" type="BaseType.U_INSTRT" required="false" multi="false" array="false" longname="最低收益率"/>
+                <field id="maxinr" type="BaseType.U_INSTRT" required="false" multi="false" array="false" longname="最高收益率"/>
+                <field id="brkinr" type="BaseType.U_INSTRT" required="false" multi="false" array="false" longname="违约利率"/>
+                <field id="sysccd" type="BaseType.U_CHAR04" required="false" multi="false" array="false" longname="系统标识"/>
+                <field id="trandt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="交易日期"/>
+                <field id="trantm" type="BaseType.U_DATE06" required="false" multi="false" array="false" longname="交易时间"/>
+                <field id="remark" type="BaseType.U_CHAR2000" required="false" multi="false" array="false" longname="备注"/>
+                <field id="issync" type="BaseEnumType.E_YES___" required="false" multi="false" array="false" longname="是否同步"/>
+            </input>
+            <output asParm="false" packMode="true">
+                <field id="jjprod" type="BaseType.U_PRODCD" required="false" multi="false" array="false" longname="产品编号"/>
+                <field id="syncst" type="BaseEnumType.E_FAIL__" required="false" multi="false" array="false" longname="同步标识"/>
+            </output>
+            <property packMode="true"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+</serviceType>

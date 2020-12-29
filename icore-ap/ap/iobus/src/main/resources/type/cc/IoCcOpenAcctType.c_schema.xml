@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema id="IoCcOpenAcctType" package="cn.sunline.ltts.busi.iobus.type.cc" longname="类信用卡开户复合类型" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description><![CDATA[]]></description>
+    <complexType id="IoCcInputType" longname="类信用卡开户输入信息" dict="false" abstract="false" introduct="false">
+        <element id="elacct" longname="电子账号编号" type="BaseType.U_CHAR35" ref="CcDict.Lion.elacct" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custid" longname="客户编号" type="BaseType.U_CUSTNO" ref="CcDict.Lion.custid" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="usname" longname="姓名" type="CcBaseType.U_USNAME" ref="CcDict.Lion.usname" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="mobile" longname="移动电话" type="CcBaseType.U_MOBILE" ref="CcDict.Lion.mobile" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="prodcd" longname="产品代码" type="CcBaseType.U_PRODCD" ref="CcDict.Lion.prodcd" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="currcd" longname="币种" type="BaseType.U_CRCYCD" ref="CcDict.Lion.currcd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ddtype" longname="约定还款类型" type="CcEnumType.E_DDTYPE" ref="CcDict.Lion.ddtype" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="clprcd" longname="额度产品号" type="BaseType.U_CHAR20" ref="" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="otbamt" longname="可用额度" type="CcBaseType.U_DECIM2" ref="CcDict.Lion.otbamt" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cshotb" longname="取现可用额度" type="CcBaseType.U_DECIM4" ref="CcDict.Lion.cshotb" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="freotb" longname="随借随还额度" type="CcBaseType.U_DECIM2" ref="CcDict.Lion.freotb" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <description><![CDATA[]]></description>
+    </complexType>
+</schema>

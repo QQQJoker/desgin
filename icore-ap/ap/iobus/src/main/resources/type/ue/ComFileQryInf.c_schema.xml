@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="ComFileQryInf" package="cn.sunline.edsp.busi.ue.type.account" longname="通用记账文件相关复合类型" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <description><![CDATA[通用记账文件相关复合类型]]></description>
+    <complexType id="ComFIleOut" longname="通用对账文件输出" dict="false" abstract="false" introduct="false">
+        <element id="fileph" longname="文件路径" type="BaseType.U_LONGDS" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="totcnt" longname="总笔数" type="BaseType.U_LONGIN" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="filena" longname="文件名称" type="BaseType.U_FILENA" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="totamt" longname="总金额" type="BaseType.U_TRANAM" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="fileok" longname="标志文件名称" type="BaseType.U_FILENA" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="filesq" longname="文件批次号" type="BaseType.U_CHAR40" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+</schema>

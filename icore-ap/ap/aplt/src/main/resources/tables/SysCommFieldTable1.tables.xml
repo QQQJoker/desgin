@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="SysCommFieldTable1" package="cn.sunline.ltts.busi.aplt.tables" longname="表公共字段" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <table id="kap_comm3" name="kap_comm3" longname="系统公共字段" tableType="ORDINARY" category="0" virtual="false" abstract="true">
+        <fields>
+            <field id="corpno" longname="交易法人代码" type="SlBaseType.U_CORPNO" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="datetm" longname="维护日期" type="BaseType2.U_DATE08" ref="ApDict1.Aplt.datetm" primarykey="false" final="true" nullable="true" identity="false" allowSubType="true"/>
+            <field id="timetm" longname="时间戳" type="ApBaseType2.U_JYSIJNZX" primarykey="false" final="true" default="0" nullable="true" identity="false" allowSubType="true"/>
+            <field id="gmt_create" longname="创建时间" type="BaseType2.U_GMTTIM" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="gmt_modified" longname="修改时间" type="BaseType2.U_GMTTIM" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+    </table>
+    <table id="kap_comm1" name="kap_comm1" longname="系统公共字段1" tableType="ORDINARY" category="0" virtual="false" abstract="true">
+        <fields>
+            <field id="corpno" longname="交易法人代码" type="SlBaseType.U_CORPNO" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="tranus" longname="创建操作员" type="SlBaseType.U_TRANUS" primarykey="false" final="true" nullable="true" identity="false" allowSubType="true"/>
+            <field id="updtus" longname="修改操作员" type="SlBaseType.U_TRANUS" primarykey="false" final="true" nullable="true" identity="false" allowSubType="true"/>
+            <field id="tranbr" longname="创建机构" type="SlBaseType.U_TRANBR" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="updtbr" longname="修改机构" type="SlBaseType.U_TRANBR" primarykey="false" final="true" nullable="true" identity="false" allowSubType="true"/>
+            <field id="crtime" longname="创建时间" type="SlBaseType.U_TIMEDT" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="uptime" longname="修改时间" type="SlBaseType.U_TIMEDT" primarykey="false" final="true" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+    </table>
+    <table id="kap_comm2" name="kap_comm2" longname="系统公共字段2" tableType="ORDINARY" category="0" virtual="false" abstract="true">
+        <fields>
+            <field id="corpno" longname="交易法人代码" type="SlBaseType.U_CORPNO" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="tranus" longname="创建操作员" type="SlBaseType.U_TRANUS" primarykey="false" final="true" nullable="true" identity="false" allowSubType="true"/>
+            <field id="updtus" longname="修改操作员" type="SlBaseType.U_TRANUS" primarykey="false" final="true" nullable="true" identity="false" allowSubType="true"/>
+            <field id="tranbr" longname="创建机构" type="SlBaseType.U_TRANBR" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="updtbr" longname="修改机构" type="SlBaseType.U_TRANBR" primarykey="false" final="true" nullable="true" identity="false" allowSubType="true"/>
+            <field id="crtime" longname="创建时间" type="SlBaseType.U_CHAR20" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true">
+            	<generatorRule generatorTime="insert" generatorValue="date_format(now(),'%Y-%m-%d %H:%i:%S')"/>
+            </field>
+            <field id="uptime" longname="修改时间" type="SlBaseType.U_CHAR20" primarykey="false" final="true" nullable="true" identity="false" allowSubType="true">
+            	<generatorRule generatorTime="update" generatorValue="date_format(now(),'%Y-%m-%d %H:%i:%S')"/>
+            </field>
+        </fields>
+        <ddls/>
+    </table>
+</schema>

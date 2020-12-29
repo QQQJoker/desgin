@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType id="IoLaSvcType" kind="business" longname="银承相关服务" package="cn.sunline.ltts.busi.iobus.servicetype" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <service id="IoUpdatelapcn" name="updatelapcn" longname="合同信息维护">
+        <interface>
+            <input packMode="true">
+                <field id="acptcn" type="LaBaseType.U_ACPTCN" required="true" multi="false" array="false" longname="承兑协议号"/>
+                <field id="billnm" type="int" required="true" multi="false" array="false" longname="汇票总数"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="laupcnOuter" type="IoLaComplexType.IoUpdateLaucnOuput" required="false" multi="true" array="false" longname="合同信息维护输出"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="isAcctnoCl" name="isAcctnoCl" longname="检查账号是否有银承汇票方面的账务">
+        <interface>
+            <input packMode="false">
+                <field id="custac" type="BaseType.U_CUACNO" required="false" multi="false" array="false" longname="账号"/>
+                <field id="acctno" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="子账号"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+</serviceType>

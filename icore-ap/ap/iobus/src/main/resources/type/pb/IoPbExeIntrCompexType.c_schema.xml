@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema id="IoPbExeIntrCompexType" package="cn.sunline.ltts.busi.iobus.type.pb" longname="执行利率监控复合类型" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description><![CDATA[执行利率监控复合类型]]></description>
+    <complexType id="ExeIntrCompexType" longname="执行利率监控复合类型" dict="false" abstract="false" introduct="false">
+        <element id="prodcd" longname="产品编号" type="BaseType.U_PRODCD" ref="FcDict.Fnac.prodcd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="prodna" longname="产品名称" type="BaseType.U_CHINNA" ref="FcDict.Fnac.prodna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="brchno" longname="机构号" type="BaseType.U_BRCHNO" ref="PbDict.Intr.brchno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="crcycd" longname="币种" type="BaseType.U_CRCYCD" ref="PbDict.Intr.crcycd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="rfirtm" longname="存期" type="BaseEnumType.E_TERMCD" ref="PbDict.Intr.rfirtm" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="amtmax" longname="金额区间最大值" type="PbBaseType.U_ANUM" ref="PbDict.Intr.amtmax" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="amtmin" longname="金额区间最小值" type="PbBaseType.U_ANUM" ref="PbDict.Intr.amtmin" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frtmax" longname="浮动百分比上限" type="BaseType.U_RATECD" ref="PbDict.Intr.frtmax" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frtmin" longname="浮动百分比下限" type="BaseType.U_RATECD" ref="PbDict.Intr.frtmin" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="flmxsc" longname="浮动点数上限" type="BaseType.U_RATECD" ref="PbDict.Intr.flmxsc" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="flmnsc" longname="浮动点数下限" type="BaseType.U_RATECD" ref="PbDict.Intr.flmnsc" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ivlmax" longname="执行利率上线" type="BaseType.U_RATECD" ref="PbDict.Intr.ivlmax" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ivlmin" longname="执行利率下线" type="BaseType.U_RATECD" ref="PbDict.Intr.ivlmin" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="ExeIntrCompexTypeOut" longname="执行利率监控复合类型(加记录数)" dict="false" abstract="false" introduct="false">
+        <element id="infos" longname="执行利率监控输出" type="IoPbExeIntrCompexType.ExeIntrCompexType" required="false" multi="true" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="count" longname="记录数" type="long" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+</schema>

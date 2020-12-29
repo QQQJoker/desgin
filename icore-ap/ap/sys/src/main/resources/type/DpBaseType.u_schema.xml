@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema id="DpBaseType" package="cn.sunline.ltts.busi.sys.type" longname="存款基础类型" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <restrictionType id="U_FGLIST" longname="假币金额集合" base="string" maxLength="200"/>
+    <restrictionType id="U_BLCODE" longname="冠字号码" base="string" maxLength="12"/>
+    <restrictionType id="U_CUINME" longname="计息方法代码" base="string" maxLength="4"  fractionDigits="0" desc=""/>
+</schema>

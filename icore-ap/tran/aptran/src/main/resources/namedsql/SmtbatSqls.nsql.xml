@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<sqls id="SmtbatSqls" longname="文件批量相关SQL" package="cn.sunline.ltts.busi.aptran.namedsql" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <select cache="none" method="selectAll" type="sql" id="selWjplsubByBtfest" longname="根据状态查询文件子表">
+        <sql><![CDATA[select * from kapb_wjplsub where btfest = #btfest# limit 100]]></sql>
+        <sql type="mysql"><![CDATA[select * from kapb_wjplsub where btfest = #btfest# limit 100]]></sql>
+        <sql type="oracle"><![CDATA[select * from kapb_wjplsub where btfest = #btfest# and rownum <= 100]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="btfest" jdbcType="VARCHAR" javaType="ApBaseEnumType.E_BTFEST" mode="in" longname="状态" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="SysFileTables.kapb_wjplsub"/>
+    </select>
+    <select cache="none" method="selectAll" type="sql" id="selWjplxxbByBtfest" longname="根据状态查询文件表">
+        <sql><![CDATA[select * from kapb_wjplxxb where btfest = #btfest# limit 100]]></sql>
+        <sql type="mysql"><![CDATA[select * from kapb_wjplxxb where btfest = #btfest# limit 100]]></sql>
+        <sql type="oracle"><![CDATA[select * from kapb_wjplxxb where btfest = #btfest# and rownum <= 100]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="btfest" jdbcType="VARCHAR" javaType="ApBaseEnumType.E_BTFEST" mode="in" longname="状态" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="SysFileTables.kapb_wjplxxb"/>
+    </select>
+    <select cache="none" method="selectOne" type="sql" id="selWjplsubCountByBtchno" longname="根据批次号统计记录">
+        <sql><![CDATA[select count(*) as cnt from kapb_wjplsub where btchno = #btchno# and btfest = nvl(#btfest#,btfest)]]></sql>
+        <sql type="mysql"><![CDATA[select count(*) as cnt from kapb_wjplsub where btchno = #btchno# and btfest = ifnull(#btfest#,btfest)]]></sql>
+        <sql type="oracle"><![CDATA[select count(*) as cnt from kapb_wjplsub where btchno = #btchno# and btfest = nvl(#btfest#,btfest)]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="btchno" jdbcType="VARCHAR" javaType="BaseType.U_CHAR40" mode="in" longname="批量交易批次号" parameterType="condition"/>
+            <parameter property="btfest" jdbcType="VARCHAR" javaType="ApBaseEnumType.E_BTFEST" mode="in" longname="状态" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="int"/>
+    </select>
+
+</sqls>

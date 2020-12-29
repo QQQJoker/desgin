@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="IoAcFaCheckServ" kind="business" longname="业务数据汇总对接核算服务" package="cn.sunline.edsp.busi.iobus.servicetype.ac" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <service id="IoAcInsGlCheckRecord" name="insGlCheckRecord" longname="单笔登记核对文件记录">
+        <interface>
+            <input packMode="false">
+                <field id="record" type="IoAcFaCheckType.IoAcCheckRecord" required="false" multi="false" array="false" longname="总分核对汇总数据"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="IoAcInsBatchGlCheckRecord" name="insBatchGlCheckRecord" longname="单笔登记核对文件记录">
+        <interface>
+            <input packMode="false">
+                <field id="record" type="IoAcFaCheckType.IoAcCheckRecord" required="false" multi="true" array="false" longname="总分核对汇总数据"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+</serviceType>

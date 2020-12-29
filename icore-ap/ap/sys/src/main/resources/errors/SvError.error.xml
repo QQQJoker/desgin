@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<errorConf id="SvError" longname="服务错误码" package="cn.sunline.ltts.busi.sys.errors" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <errors id="StrikeError" longname="冲正服务错误码">
+        <error id="E0001" type="error" message="不能隔日冲正" errorCode="StrikeError.E0001"/>
+        <error id="E9999" type="error" message="[${msg}]" errorCode="StrikeError.E9999">
+            <parameter id="msg" type="string"/>
+        </error>
+    </errors>
+</errorConf>

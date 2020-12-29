@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="TrxAmsgEnvs" package="cn.sunline.ltts.busi.sys.parm" longname="异步公共变量" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <description><![CDATA[异步公共变量]]></description>
+    <complexType id="Sys" longname="系统头" abstract="false" introduct="false">
+        <odbindexes/>
+        <element id="mtopic" longname="消息主题" type="BaseType.U_PRCSCD" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="langcd" longname="语言代码" type="BaseType.U_LANGCD" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="erorcd" longname="错误代码" type="BaseType.U_CHAR32" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="erortx" longname="错误信息" type="BaseType.U_CHAR1000" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="Request" longname="公共请求变量" extension="TrxBaseEnvs.RequestComm" abstract="false" introduct="false">
+        <element id="mtopic" longname="消息主题" type="BaseType.U_PRCSCD" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="inpudt" longname="上送交易日期" type="BaseType.U_DATE08" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="inpusq" longname="上送系统流水号" type="BaseType.U_SEQUNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="mntrsq" longname="主交易流水号" type="BaseType.U_SEQUNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trandt" longname="交易日期" type="BaseType.U_DATE08" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="transq" longname="交易流水号" type="BaseType.U_SEQUNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="busisq" longname="业务流水号" type="BaseType.U_SEQUNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="inpucd" longname="上送系统编号" type="BaseType.U_SYSTCD" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="servtp" longname="交易渠道" type="BaseEnumType.E_SERVTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="servno" longname="交易渠道号" type="BaseType.U_CHAR50" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="corpno" longname="法人代码" type="BaseType.U_CORPNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tranbr" longname="交易机构" type="BaseType.U_BRCHNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tranus" longname="交易柜员" type="BaseType.U_USERID" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="RunAmsgEnvs" longname="公共运行变量" abstract="false" introduct="false">
+        <element id="mtopic" longname="消息主题" type="BaseType.U_PRCSCD" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="inpudt" longname="上送交易日期" type="BaseType.U_DATE08" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="inpusq" longname="上送系统流水号" type="BaseType.U_SEQUNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="mntrsq" longname="主交易流水号" type="BaseType.U_SEQUNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trandt" longname="交易日期" type="BaseType.U_DATE08" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="transq" longname="交易流水号" type="BaseType.U_SEQUNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="busisq" longname="业务流水号" type="BaseType.U_SEQUNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="inpucd" longname="上送系统编号" type="BaseType.U_SYSTCD" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="servtp" longname="交易渠道" type="BaseEnumType.E_SERVTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="servno" longname="交易渠道号" type="BaseType.U_CHAR50" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="corpno" longname="法人代码" type="BaseType.U_CORPNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tranbr" longname="交易机构" type="BaseType.U_BRCHNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tranus" longname="交易柜员" type="BaseType.U_USERID" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="Response" longname="公共响应变量" abstract="false" introduct="false">
+        <element id="msgid" longname="消息流水号" type="BaseType.U_SEQUNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+</schema>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType id="RpAdBatchTaskCallBack" kind="business" longname="批量交易控制服务定义" package="cn.sunline.ltts.busi.bsap.servicetype" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <service id="ProcessException" name="processException" longname="异常处理">
+        <interface>
+            <input packMode="false">
+                <field id="task_num" type="KBaseType.U_PILJYLSH" required="false" multi="false" array="false" longname="批量任务批次号" ref="KsDict.BtDict.task_num"/>
+                <field id="error_message" type="KBaseType.U_CUOWXINX" required="false" multi="false" array="false" longname="错误信息" ref="KsDict.BtDict.error_message"/>
+                <field id="error_stack" type="KBaseType.U_CUOWDUIZ" required="false" multi="false" array="false" longname="错误堆栈" ref="KsDict.BtDict.error_stack"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="DoFinally" name="doFinally" longname="批量交易执行结束后执行（无论成功或者失败）">
+        <interface>
+            <input packMode="false">
+                <field id="task_num" type="KBaseType.U_PILJYLSH" required="false" multi="false" array="false" longname="批量任务批次号" ref="KsDict.BtDict.task_num"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+</serviceType>

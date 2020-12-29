@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<constantConf id="ApltContants" longname="应用平台常量管理" package="cn.sunline.ltts.busi.icmp.aplt.constant" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <constants id="aplt" longname="应用平台常量">
+        <constant id="L_RpsServiceImpl_0001" message="------外调失败 e = %s------"/>
+        <constant id="L_RpsServiceImpl_0002" message="------外调返回错误码:%s，错误信息:%s------"/>
+        <constant id="L_RpsServiceImpl_0003" message="------远程调用失败:%s------"/>
+        <constant id="L_RpsServiceImpl_0004" message="------newfile: %s--------------filemd------------%s"/>
+        <constant id="L_RpsServiceImpl_0005" message=" 共享目录文件路径 = %s    本地文件路径 = %s- "/>
+        <constant id="L_RpsServiceImpl_0006" message="------newfile: %s-----filemd-----%s----- Oldfilemd ---%s"/>
+        <constant id="L_RpsServiceImpl_0007" message="------   rebusseq： ---%s"/>
+        <constant id="L_RpsServiceImpl_0008" message="------   重发超限登记预警表    重发次数 ---%s"/>
+        <constant id="L_ExcelTools_0001" message="------   文件类型不是EXCEL！"/>
+    </constants>
+</constantConf>

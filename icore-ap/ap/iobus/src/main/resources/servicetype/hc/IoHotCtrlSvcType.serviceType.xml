@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType id="IoHotCtrlSvcType" kind="business" longname="热点控制相关服务" package="cn.sunline.ltts.busi.iobus.servicetype.hc" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <service id="IoChkHotCtrl" name="chkHotCtrl" longname="热点控制占用">
+        <interface>
+            <input packMode="false">
+                <field id="hotinp" type="IoHotCtrlType.IoChkHotCtrlIn" required="false" multi="false" array="false" longname="热点账户输入要素"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="IoHotCtrlLmocFail" name="hotCtrlLmocFail" longname="占用额度失败">
+        <interface>
+            <input packMode="false">
+                <field id="hotinp" type="IoHotCtrlType.IoChkHotCtrlIn" required="false" multi="false" array="false" longname="热点账户输入要素"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="SelHcpDefn" name="selHcpDefn" longname="查询热点定义信息">
+        <interface>
+            <input packMode="false">
+                <field id="acctno" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="账号" ref="BaseDict.Comm.acctno"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="hcflag" type="BaseEnumType.E_YES___" required="false" multi="false" array="false" longname="是否标志"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="addHcbFile" name="addHcbFile" longname="添加文件记录">
+        <interface>
+            <input packMode="false">
+                <field id="filein" type="IoHotCtrlType.IohcbFileIn" required="false" multi="false" array="false" longname="文件记录输入要素"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+</serviceType>

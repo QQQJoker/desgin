@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<plugin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="aplt" displayName="业务插件" activator="cn.sunline.ltts.busi.aplt.plugin.BizPlugin" order="5000302" enable="true" failOnInitError="true" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <extension-points/>
+    <extensions>
+<!--         <extension id="online.callback.aplt" name="aplt 联机回调的实现" point="online.callback" enable="true" singleton="false" errorProcessMode="throwError">
+            <clazzImpl>cn.sunline.ltts.busi.aplt.impl.TransactionProcessCallBackImpl</clazzImpl>
+        </extension> -->
+        <extension id="online.callback.aplt" name="aplt 联机回调的实现" point="OnlineEnginePlugin.callback" enable="true" singleton="true" errorProcessMode="throwError">
+            <clazzImpl>cn.sunline.ltts.busi.aplt.spi.TransactionProcessCallBackImpl</clazzImpl>
+        </extension>
+        <extension id="batch.callback.aplt" name="aplt 批量回调的实现" point="batch.callback" enable="true" singleton="true" errorProcessMode="throwError">
+            <clazzImpl>cn.sunline.ltts.busi.aplt.impl.BatchTransactionProcessCallBackImpl</clazzImpl>
+        </extension>
+<!--         <extension id="record.icoreImpl" name="分布式插件产生的记录扩展互联网核心扩展实现" point="dtsp.record" enable="true" singleton="true" errorProcessMode="throwError">
+            <clazzImpl>cn.sunline.ltts.busi.aplt.impl.IRecordManagerICore</clazzImpl>
+        </extension> -->
+<!--         <extension id="registry.impl" name="服务注册管理扩展实现" point="service.registry" enable="true" singleton="true" errorProcessMode="throwError">
+            <clazzImpl>cn.sunline.ltts.busi.aplt.impl.RPCRemoteServiceProcessICore</clazzImpl>
+        </extension> -->
+        <extension id="basp.process.icore" name="应用平台基础扩展点互联网核心实现" point="bsap.process" enable="true" singleton="true" errorProcessMode="throwError">
+            <clazzImpl>cn.sunline.ltts.busi.aplt.impl.BsapProcessManagerICore</clazzImpl>
+        </extension>
+<!--         <extension id="dao.callback.impl" name="DAO回调点扩展实现" point="core.dao.callback" enable="true" singleton="true" errorProcessMode="throwError">
+        <extension id="executor.rpc.old.version.impl" name="服务执行器扩展实现(支持外调老版本的架构)" point="service.executor" enable="true" singleton="true" errorProcessMode="throwError">
+            <clazzImpl>cn.sunline.ltts.busi.aplt.impl.RPCOldVersionRemoteServiceExecutor</clazzImpl>
+        </extension>
+        <extension id="dao.callback.impl" name="DAO回调点扩展实现" point="core.dao.callback" enable="true" singleton="true" errorProcessMode="throwError">
+            <clazzImpl>cn.sunline.ltts.busi.aplt.impl.DaoProcessCallBackImplAplt</clazzImpl>
+        </extension> -->
+    </extensions>
+    <components/>
+</plugin>

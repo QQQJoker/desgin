@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType id="IoWaSrvWalletAccountType" kind="business" longname="亲情钱包账户服务" package="cn.sunline.ltts.busi.iobus.servicetype" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <service id="IoWaAddWaRelt" name="addWaRelt" longname="新增亲情关系">
+        <interface>
+            <input packMode="false">
+                <field id="cplWaRela" type="WaAcctType.freltInfo" required="false" multi="false" array="false" longname="亲情钱包账户关联关系输入信息"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="reltid" type="BaseType.U_CHAR30" required="false" multi="false" array="false" longname="亲情关系ID"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoWaAddWaQuot" name="addWaQuot" longname="新增亲情钱包额度信息">
+        <interface>
+            <input packMode="false">
+                <field id="cplWaQuot" type="WaAcctType.fquotInfo" required="false" multi="false" array="false" longname="亲情钱包额度输入信息"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoWaQryWaInfo" name="qryWalInfo" longname="亲情钱包统计查询">
+        <interface>
+            <input packMode="false">
+                <field id="custid" type="BaseType.U_CUSTID" required="false" multi="false" array="false" longname="用户ID" ref="BaseDict.Comm.custid"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="waInfoOut" type="WaAcctType.IoWaReltOut" required="false" multi="false" array="false" longname="亲情钱包统计查询输出信息"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoWaQryWaDetailInfo" name="qryWaDetailInfo" longname="亲情钱包明细查询">
+        <interface>
+            <input packMode="false">
+                <field id="custac" type="BaseType.U_CUSTAC" required="false" multi="false" array="false" longname="创建人电子账号ID"/>
+                <field id="elacct" type="BaseType.U_CUSTAC" required="false" multi="false" array="false" longname="关联人电子账号"/>
+                <field id="start" type="BaseType.U_INTEGE" required="false" multi="false" array="false" longname="页码"/>
+                <field id="count" type="BaseType.U_INTEGE" required="false" multi="false" array="false" longname="页容量"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="waDetailOuts" type="WaAcctType.QryWaDetailOut" required="false" multi="true" array="false" longname="亲情钱包明细信息"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoWaDesc" name="IoWaDesc" longname="亲情钱包详情查询">
+        <interface>
+            <input packMode="false">
+                <field id="reltid" alias="亲情关系ID" type="BaseType.U_CHAR80" required="false" multi="false" array="false" longname="亲情关系ID"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="waDescOut" type="WaAcctType.WaDescOut" required="false" multi="false" array="false" longname="亲情钱包详情信息"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoWaQryWactInfo" name="qryWactInfo" longname="查询可用亲情钱包信息">
+        <interface>
+            <input packMode="false">
+                <field id="custac" type="BaseType.U_CUSTAC" required="false" multi="false" array="false" longname="电子账号" ref="FnDict.Fnfc.custac"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="infos" type="WaAcctType.IoQryWactInfo" required="false" multi="true" array="false" longname="可用亲情钱包信息"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoWaQryMyWact" name="qryMyWact" longname="查询创建的亲情钱包明细">
+        <interface>
+            <input packMode="false">
+                <field id="custac" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="电子账号ID"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="wact" type="WaAcctType.IoQryWactInfo" required="false" multi="true" array="false" longname="亲情钱包明细"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoWaCloseWa" name="ioWaCloseWa" longname="亲情钱包两天未确认自动关闭">
+        <interface>
+            <input packMode="false">
+                <field id="trandt" type="PbBaseType.U_DATE08" required="false" multi="false" array="false" longname="交易日期"/>
+                <field id="reltst" type="WaEnumType.E_RELTST" required="false" multi="false" array="false" longname="亲情钱包状态"/>
+                <field id="clostx" type="WaEnumType.E_CLOSTX" required="false" multi="false" array="false" longname="关闭原因"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoWaSubQuota" name="ioWaSubQuota" longname="亲情钱包额度扣减">
+        <interface>
+            <input packMode="false">
+                <field id="acctno" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="负债账号" ref="WaDict.WaAcc.acctno"/>
+                <field id="tranam" type="BaseType.U_TRANAM" required="false" multi="false" array="false" longname="交易金额" ref="BaseDict.Comm.tranam"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoWaRevQuota" name="ioWaRevQuota" longname="亲情钱包额度恢复">
+        <interface>
+            <input packMode="false">
+                <field id="acctno" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="负债账号" ref="WaDict.WaAcc.acctno"/>
+                <field id="tranam" type="BaseType.U_TRANAM" required="false" multi="false" array="false" longname="原交易金额"/>
+                <field id="otradt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="原交易日期"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoWaContract" name="ioWaContract" longname="亲情钱包合约登记">
+        <interface>
+            <input packMode="false">
+                <field id="reltid" type="BaseType.U_RELTID" required="false" multi="false" array="false" longname="亲情关系ID" ref="WaDict.WaAcc.reltid"/>
+                <field id="upflag" type="WaEnumType.E_UPFLAG" required="false" multi="false" array="false" longname="合约变更方式" ref="WaDict.WaAcc.upflag"/>
+                <field id="closfg" type="WaEnumType.E_CLOSFG" required="false" multi="false" array="false" longname="关闭人标志" ref="WaDict.WaAcc.closfg"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoWaSendContract" name="sendWaContract" longname="亲情钱包合约发送MQ">
+        <interface>
+            <input packMode="false">
+                <field id="reltid" type="BaseType.U_RELTID" required="false" multi="false" array="false" longname="亲情关系ID" ref="WaDict.WaAcc.reltid"/>
+                <field id="upflag" type="WaEnumType.E_UPFLAG" required="false" multi="false" array="false" longname="合约变更方式" ref="WaDict.WaAcc.upflag"/>
+                <field id="closfg" type="WaEnumType.E_CLOSFG" required="false" multi="false" array="false" longname="关闭人标志" ref="WaDict.WaAcc.closfg"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoWaCloseCust" name="ioWaCloseCust" longname="客户关联关系关闭">
+        <interface>
+            <input packMode="false">
+                <field id="elacct" type="BaseType.U_CUSTNO" required="false" multi="false" array="false" longname="客户号"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="kna_cust_selectOne" name="kna_cust_selectOne" longname="根据客户号查询电子账号信息">
+        <interface>
+            <input packMode="false">
+                <field id="custno" type="BaseType.U_CUSTNO" required="false" multi="false" array="false" longname="客户号" ref="BaseDict.Comm.custno"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="tblKnaCust" type="IoCaTable.IoCaKnaCust" required="false" multi="false" array="false" longname="电子账户表复核类型"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="IoWaKnaReltCount" name="IoWaKnaReltCount" longname="待确认的亲情钱包关系个数">
+        <interface>
+            <input packMode="false">
+                <field id="custac" type="BaseType.U_CHAR32" required="false" multi="false" array="false" longname="客户账号" ref="BaseDict.Comm.custac"/>
+                <field id="reltst" type="WaEnumType.E_RELTST" required="false" multi="false" array="false" longname="亲情钱包状态" ref="WaDict.WaAcc.reltst"/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="num" type="BaseType.U_INTEGE" required="false" multi="false" array="false" longname="钱包关系个数"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+</serviceType>

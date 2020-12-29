@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType id="IoApFileExtractor" kind="business" longname="文件抽取器服务类型，不同文件类型都需要实现此服务类型。" package="cn.sunline.ltts.busi.iobus.servicetype.ap.fbat" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <service id="extractFile" name="extractFile" longname="文件抽取">
+        <interface>
+            <input packMode="false">
+                <field id="input" type="IoApFileBatchType.ExtractFileIn" required="false" multi="false" array="false" longname="文件抽取请求类型"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="output" type="IoApFileBatchType.ExtractFileOut" required="false" multi="false" array="false" longname="文件抽取响应类型"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+</serviceType>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema id="OpEnumType" package="cn.sunline.ltts.busi.sys.type" longname="支付枚举类型" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description><![CDATA[支付用基础数据类型]]></description>
+    <restrictionType id="E_PYFLAG" longname="支付状态" base="BaseType.U_CHAR01">
+        <enumeration id="YZF" value="1" longname="已支付"/>
+        <enumeration id="YTK" value="2" longname="已退款"/>
+        <enumeration id="YCZ" value="3" longname="已冲正"/>
+    </restrictionType>
+    <restrictionType id="E_SERVTP" longname="渠道号" base="BaseType.U_CHAR30">
+        <enumeration id="XMXJ" value="XMXJ" longname="小马理财"/>
+        <enumeration id="BYXF" value="BYXF" longname="包银消费"/>
+    </restrictionType>
+    <restrictionType id="E_BTSTUS" longname="批次处理状态" base="BaseType.U_CHAR01">
+        <enumeration id="CLZ" value="1" longname="处理中"/>
+        <enumeration id="ERR" value="2" longname="处理错误"/>
+        <enumeration id="SUC" value="3" longname="处理成功"/>
+    </restrictionType>
+    <restrictionType id="E_CLSTUS" longname="资金清算状态" base="BaseType.U_CHAR01">
+        <enumeration id="NO" value="1" longname="未清算"/>
+        <enumeration id="AL" value="2" longname="已清算"/>
+        <enumeration id="NOASGN" value="3" longname="已清算待分配"/>
+        <enumeration id="ALASGN" value="4" longname="已分配"/>
+    </restrictionType>
+    <restrictionType id="E_CLERTP" longname="清算类型" base="BaseType.U_CHAR01" tags="none">
+        <enumeration id="PAY" value="1" longname="付"/>
+        <enumeration id="RCV" value="2" longname="收"/>
+        <enumeration id="REF" value="3" longname="退"/>
+    </restrictionType>
+    <restrictionType id="E_ORDRST" longname="订单状态" base="BaseType.U_CHAR01" tags="none">
+        <enumeration id="SUCCESS" value="1" longname="成功"/>
+        <enumeration id="STRIKE" value="2" longname="已冲正"/>
+    </restrictionType>
+    <restrictionType id="E_SERVCD" longname="渠道号" base="BaseType.U_CHAR30">
+        <enumeration id="ZFPT" value="ZFPT" longname="支付平台"/>
+        <enumeration id="BYUN" value="BYUN" longname="包银联合贷"/>
+    </restrictionType>
+    <restrictionType id="E_TRANTP" longname="交易类型" base="BaseType.U_CHAR30">
+        <enumeration id="PAY" value="1" longname="支付"/>
+        <enumeration id="IO" value="2" longname="出入金"/>
+        <enumeration id="CLER" value="3" longname="清算"/>
+    </restrictionType>
+    <restrictionType id="E_PYSTS" longname="支付状态" base="BaseType.U_CHAR01">
+        <enumeration id="SUCCESS" value="1" longname="成功"/>
+        <enumeration id="FAILD" value="2" longname="失败"/>
+        <enumeration id="STRIKE" value="3" longname="已冲正"/>
+    </restrictionType>
+    <restrictionType id="E_STATUS" longname="交易状态" base="BaseType.U_CHAR30">
+        <enumeration id="SUCCESS" value="1" longname="成功"/>
+        <enumeration id="FAILD" value="2" longname="失败"/>
+        <enumeration id="STRIKE" value="3" longname="已冲正"/>
+    </restrictionType>
+    <restrictionType id="E_ACCSTS" longname="账户状态" base="BaseType.U_CHAR30">
+        <enumeration id="NORMAL" value="1" longname="正常"/>
+        <enumeration id="CLOSE" value="2" longname="关闭"/>
+        <enumeration id="FROZ" value="3" longname="冻结"/>
+    </restrictionType>
+    <restrictionType id="E_CHNNAL" longname="汇款类型" base="BaseType.U_CHAR30">
+        <enumeration id="DAE" value="1225" longname="大额"/>
+        <enumeration id="XIAOE" value="1238" longname="小额"/>
+        <enumeration id="CHAOWANG" value="1216" longname="超网"/>
+        <enumeration id="BAOSHANG" value="1200" longname="包商"/>
+    </restrictionType>
+    <restrictionType id="E_PASSFG" longname="交易状态" base="BaseType.U_CHAR30">
+        <enumeration id="BJM" value="0" longname="不加密"/>
+        <enumeration id="JM" value="1" longname="加密"/>
+    </restrictionType>
+    <restrictionType id="E_QYFLAG" longname="放款(还款)查询状态" base="BaseType.U_CHAR01">
+        <enumeration id="FKQY" value="1" longname="放款查询"/>
+        <enumeration id="HKQY" value="2" longname="还款查询"/>
+    </restrictionType>
+    <restrictionType id="E_KEHUZHLX" longname="客户账号类型" base="BaseType.U_CHAR01">
+        <enumeration id="DQYBT" value="3" longname="定期一本通"/>
+        <enumeration id="CUNZHE" value="4" longname="存折"/>
+        <enumeration id="CUNDAN" value="5" longname="存单"/>
+        <enumeration id="LICAI" value="6" longname="理财账户"/>
+        <enumeration id="GUJIN" value="7" longname="股金账户"/>
+        <enumeration id="LOAN" value="8" longname="贷款账户"/>
+        <enumeration id="INNER" value="9" longname="内部账"/>
+        <enumeration id="AIO" value="A" longname="AIO账户"/>
+        <enumeration id="YIHAOT" value="B" longname="一号通"/>
+        <enumeration id="CHUXU" value="F" longname="储蓄一本通"/>
+        <enumeration id="GUOZHAI" value="G" longname="国债"/>
+        <enumeration id="DZCXGZ" value="N" longname="电子储蓄国债"/>
+        <enumeration id="DAIXIAOZ" value="X" longname="待销账"/>
+        <enumeration id="KUAIJI" value="K" longname="会计账户"/>
+        <enumeration id="CUSTAC" value="D" longname="电子账户"/>
+        <enumeration id="DAECD" value="E" longname="大额存单"/>
+    </restrictionType>
+    <restrictionType id="E_MIMAZLEI" longname="密码种类" base="BaseType.U_CHAR02" byCharacter="false">
+        <enumeration id="BYM" value="00" longname="不验密"/>
+        <enumeration id="JYMM" value="11" longname="交易密码"/>
+        <enumeration id="DHYHZFMM" value="22" longname="电话银行支付密码"/>
+        <enumeration id="DGZHMM" value="33" longname="对公账号密码"/>
+        <enumeration id="KHCXMM" value="44" longname="客户查询密码"/>
+    </restrictionType>
+</schema>

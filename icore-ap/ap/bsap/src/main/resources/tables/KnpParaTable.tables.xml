@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="KnpParaTable" package="cn.sunline.ltts.busi.sys.tables" longname="系统参数表" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <table id="KnpPara" name="knp_para" longname="公共业务参数" tableType="ORDINARY" category="2" virtual="false" changelog="false" abstract="false">
+        <fields>
+            <field id="corpno" longname="法人代码" type="BaseType.U_CORPNO" primarykey="true" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="parmcd" longname="参数代码" type="BaseType.U_CHAR40" primarykey="true" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="pmkey1" longname="参数键值1" type="BaseType.U_CHAR40" primarykey="true" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="pmkey2" longname="参数键值2" type="BaseType.U_CHAR40" primarykey="true" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="pmkey3" longname="参数键值3" type="BaseType.U_CHAR40" primarykey="true" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="pmval1" longname="参数值1" type="BaseType.U_CHAR100" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="pmval2" longname="参数值2" type="BaseType.U_CHAR100" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="pmval3" longname="参数值3" type="BaseType.U_CHAR100" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="pmval4" longname="参数值4" type="BaseType.U_CHAR100" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="pmval5" longname="参数值5" type="BaseType.U_CHAR100" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="tmstmp" longname="时间戳" type="ApBaseType.U_TMSTMP" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="unique" fields="parmcd pmkey1 pmkey2 pmkey3 corpno" operate="selectOne deleteOne updateOne"/>
+            <index id="odb2" type="index" fields="parmcd" operate="selectAll"/>
+            <index id="odb3" type="index" fields="parmcd pmkey1 pmkey3" operate="selectAll"/>
+            <index id="odb4" type="index" fields="parmcd pmkey1" operate="selectAll"/>
+        </odbindexes>
+        <indexes>
+            <index id="knp_para_uk1" type="unique" fields="parmcd pmkey1 pmkey2 pmkey3 corpno">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+    <table id="pss_mobile_recd" name="pss_mobile_recd" longname="短信接收人员信息登记表" tableType="ORDINARY" virtual="false" abstract="false">
+        <fields>
+            <field id="rcvena" longname="接收人姓名" type="BaseType2.U_CHAR40" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="tpcode" longname="电话号码" type="BaseType2.U_CHAR40" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="trantp" longname="交易类型,1:联机;2:批量" type="BaseType2.U_CHAR40" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="param1" longname="参数1" type="BaseType2.U_CHAR50" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="param2" longname="参数2" type="BaseType2.U_CHAR50" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="param3" longname="参数3" type="BaseType2.U_CHAR50" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="param4" longname="参数4" type="BaseType2.U_CHAR50" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="param5" longname="参数5" type="BaseType2.U_CHAR50" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="mobile_recd_odb1" type="unique" fields="tpcode" operate="selectOne"/>
+            <index id="mobile_recd_odb2" type="index" fields="trantp param1" operate="selectAll"/>
+        </odbindexes>
+        <indexes>
+            <index id="mobile_recd_db1" type="unique" fields="tpcode">
+                <ddls/>
+            </index>
+            <index id="mobile_recd_db2" type="index" fields="trantp param1">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+    <table id="slb_bath_wjxx" name="slb_bath_wjxx" longname="文件批量信息表" tableType="ORDINARY" virtual="false" abstract="false">
+        <fields>
+            <field id="btchno" longname="批量交易批次号" type="BaseType2.U_CHAR40" primarykey="false" final="false" default="''" nullable="true" identity="false" allowSubType="true"/>
+            <field id="filesq" longname="文件批次号" type="BaseType2.U_CHAR40" primarykey="false" final="false" default="''" nullable="true" identity="false" allowSubType="true"/>
+            <field id="xitong" longname="系统标识" type="SlEnumType.E_XITONG" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="filetp" longname="文件类型" type="BaseEnumType2.E_FILETP" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="totanm" longname="总笔数" type="BaseType2.U_LONGIN" primarykey="false" final="false" default="0" nullable="true" identity="false" allowSubType="true"/>
+            <field id="distnm" longname="处理总笔数" type="BaseType2.U_LONGIN" primarykey="false" final="false" default="0" nullable="true" identity="false" allowSubType="true"/>
+            <field id="succnm" longname="成功笔数" type="BaseType2.U_LONGIN" primarykey="false" final="false" default="0" nullable="true" identity="false" allowSubType="true"/>
+            <field id="totlam" longname="总金额" type="SlBaseType.U_DECIM2" primarykey="false" final="false" default="0.00" nullable="true" identity="false" allowSubType="true"/>
+            <field id="succam" longname="成功总金额" type="SlBaseType.U_DECIM2" primarykey="false" final="false" default="0.00" nullable="true" identity="false" allowSubType="true"/>
+            <field id="failnm" longname="失败笔数" type="BaseType2.U_LONGIN" primarykey="false" final="false" default="0" nullable="true" identity="false" allowSubType="true"/>
+            <field id="btfest" longname="批量文件状态" type="BaseEnumType2.E_BTFEST" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="filetx" longname="文件信息" type="BaseType2.U_LONGDS" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="drclcs" longname="当日处理次数" type="BaseType2.U_CHAR05" primarykey="false" final="false" default="''" nullable="true" identity="false" allowSubType="true"/>
+            <field id="errotx" longname="错误信息" type="BaseType2.U_LONGDS" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="downph" longname="下载路径" type="BaseType2.U_LONGDS" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="downna" longname="下载文件名" type="BaseType2.U_CHAR4000" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="upfeph" longname="返回文件路径" type="BaseType2.U_CHAR200" primarykey="false" final="false" default="''" nullable="true" identity="false" allowSubType="true"/>
+            <field id="upfena" longname="返回文件名" type="BaseType.U_CHAR80" primarykey="false" final="false" default="''" nullable="true" identity="false" allowSubType="true"/>
+            <field id="crdate" longname="创建日期" type="BaseType2.U_CHAR08" primarykey="false" final="false" default="''" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="unique" fields="btchno" operate="selectOne updateOne"/>
+        </odbindexes>
+        <indexes>
+            <index id="slb_bath_wjxx_idx" type="unique" fields="btchno">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+    <table id="oda_conf" name="oda_conf" longname="批量文件配置表" tableType="ORDINARY" virtual="false" abstract="false">
+        <fields>
+            <field id="filetp" longname="文件类型" type="OdEnumType.E_DATAID" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="source" longname="来源系统标识" type="OdEnumType.E_SYSCCD" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="target" longname="目标系统标识" type="OdEnumType.E_SYSCCD" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="filena" longname="文件名称" type="BaseType2.U_CHAR100" primarykey="false" final="false" default="''" nullable="true" identity="false" allowSubType="true"/>
+            <field id="coding" longname="文件编码" type="BaseType2.U_CHAR10" primarykey="false" final="false" default="''" nullable="true" identity="false" allowSubType="true"/>
+            <field id="issued" longname="是否分发文件" type="BaseEnumType2.E_YES___" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="bachtp" longname="文件批量类型" type="OdEnumType.E_BATFTP" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="bachcd" longname="批量交易码" type="BaseType2.U_CHAR16" primarykey="false" final="false" default="''" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="unique" fields="filetp" operate="selectOne"/>
+        </odbindexes>
+        <indexes>
+            <index id="knp_conf_idx1" type="unique" fields="filetp"/>
+        </indexes>
+    </table>
+    <table id="oda_wjplxxb" name="oda_wjplxxb" longname="文件批量信息表" param="true" tableType="ORDINARY" category="2" virtual="false" changelog="false" abstract="false">
+        <fields>
+            <field id="btchno" longname="批量交易批次号" type="BaseType2.U_CHAR40" primarykey="false" final="false" default="''" nullable="true" identity="false" allowSubType="true"/>
+            <field id="busseq" longname="业务流水号" type="BaseType2.U_CHAR40" primarykey="false" final="false" default="''" nullable="true" identity="false" allowSubType="true"/>
+            <field id="dataid" longname="数据类型id" type="OdEnumType.E_DATAID" ref="OdDict.Order.dataid" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="totanm" longname="总笔数" type="BaseType2.U_LONGIN" primarykey="false" final="false" default="0" nullable="true" identity="false" allowSubType="true"/>
+            <field id="distnm" longname="处理总笔数" type="BaseType2.U_LONGIN" primarykey="false" final="false" default="0" nullable="true" identity="false" allowSubType="true"/>
+            <field id="succnm" longname="成功笔数" type="BaseType2.U_LONGIN" primarykey="false" final="false" default="0" nullable="true" identity="false" allowSubType="true"/>
+            <field id="failnm" longname="失败笔数" type="BaseType2.U_CUSTNO" primarykey="false" final="false" default="''" nullable="true" identity="false" allowSubType="true"/>
+            <field id="totlam" longname="总金额" type="BaseType2.U_TRANAM" primarykey="false" final="false" default="0.00" nullable="true" identity="false" allowSubType="true"/>
+            <field id="succam" longname="成功总金额" type="BaseType2.U_TRANAM" primarykey="false" final="false" default="0.00" nullable="true" identity="false" allowSubType="true"/>
+            <field id="btfest" longname="批量文件状态" type="BaseEnumType2.E_BTFEST" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="filetx" longname="文件信息" type="BaseType2.U_LONGDS" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="errotx" longname="错误信息" type="BaseType2.U_LONGDS" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="downph" longname="下载路径" type="BaseType2.U_LONGDS" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="downna" longname="下载文件名" type="BaseType2.U_CHAR100" primarykey="false" final="false" default="''" nullable="true" identity="false" allowSubType="true"/>
+            <field id="upfeph" longname="返回文件路径" type="BaseType2.U_LONGDS" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="upfena" longname="返回文件名" type="BaseType2.U_CHAR100" primarykey="false" final="false" default="''" nullable="true" identity="false" allowSubType="true"/>
+            <field id="trandt" longname="交易日期" type="BaseType2.U_DATE08" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="sequno" longname="文件序号" type="BaseType2.U_CHAR02" primarykey="false" final="false" default="''" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="unique" fields="btchno" operate="selectOne deleteOne updateOne selectOneWithLock"/>
+            <index id="odb2" type="index" fields="busseq" operate="selectAll"/>
+        </odbindexes>
+        <indexes>
+            <index id="oda_wjplxxb_idx1" type="unique" fields="btchno">
+                <ddls/>
+            </index>
+            <index id="oda_wjplxxb_idx2" type="index" fields="busseq">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+    <table id="oda_bach" name="oda_bach" longname="文件批量任务表" tableType="ORDINARY" category="2" virtual="false" abstract="false">
+        <fields>
+            <field id="filesq" longname="批量交易批次号" type="BaseType2.U_CHAR40" primarykey="false" final="false" default="''" nullable="false" identity="false" allowSubType="true"/>
+            <field id="busisq" longname="批量提交流水号" type="BaseType2.U_SEQUNO" primarykey="false" final="false" default="''" nullable="true" identity="false" allowSubType="true"/>
+            <field id="trandt" longname="批量交易日期" type="BaseType2.U_DATE08" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="acctdt" longname="会计日期" type="BaseType2.U_DATE08" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="dataid" longname="数据标识ID" type="OdEnumType.E_DATAID" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="source" longname="源系统标识" type="OdEnumType.E_SYSCCD" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="target" longname="目标系统标识" type="OdEnumType.E_SYSCCD" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="filenm" longname="文件名" type="BaseType2.U_CHAR100" primarykey="false" final="false" default="''" nullable="true" identity="false" allowSubType="true"/>
+            <field id="flpath" longname="文件目录" type="BaseType2.U_CHAR200" primarykey="false" final="false" default="''" nullable="true" identity="false" allowSubType="true"/>
+            <field id="datast" longname="数据状态" type="OdEnumType.E_FLBTST" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="errotx" longname="错误信息" type="BaseType2.U_LONGDS" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="status" longname="状态" type="BaseType2.U_CHAR02" primarykey="false" final="false" default="''" nullable="true" identity="false" allowSubType="true"/>
+            <field id="descrp" longname="描述" type="BaseType2.U_CHAR40" primarykey="false" final="false" default="''" nullable="true" identity="false" allowSubType="true"/>
+            <field id="filemd" longname="文件md5标识" type="BaseType2.U_CHAR40" primarykey="false" final="false" default="''" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="unique" fields="filesq acctdt" operate="selectOne updateOne selectOneWithLock"/>
+            <index id="odb2" type="index" fields="busisq" operate="selectAll"/>
+            <index id="odb3" type="unique" fields="filesq" operate="selectOne"/>
+            <index id="odb4" type="index" fields="trandt dataid source target" operate="selectFirst selectAll"/>
+            <index id="odb5" type="unique" fields="filesq trandt" operate="selectOne"/>
+        </odbindexes>
+        <indexes>
+            <index id="kapb_wjplrwb_idx1" type="unique" fields="filesq">
+                <ddls/>
+            </index>
+            <index id="kapb_wjplrwb_idx2" type="index" fields="busisq">
+                <ddls/>
+            </index>
+            <index id="kapb_wjplrwb_idx3" type="index" fields="trandt dataid source target">
+                <ddls/>
+            </index>
+            <index id="kapb_wjplrwb_idx4" type="index" fields="filesq trandt">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+    <table id="slb_bath_wjsj" name="slb_bath_wjsj" longname="数据交互批量管理表" tableType="ORDINARY" virtual="false" abstract="false">
+        <fields>
+            <field id="fileid" longname="文件数据流水" type="BaseType2.U_CHAR40" primarykey="true" final="false" default="''" nullable="true" identity="false" allowSubType="true"/>
+            <field id="source" longname="源系统标识" type="SlEnumType.E_XITONG" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="target" longname="目标系统标识" type="SlEnumType.E_XITONG" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="dataid" longname="数据类型" type="BaseType2.U_CHAR40" primarykey="false" final="false" default="''" nullable="true" identity="false" allowSubType="true"/>
+            <field id="busseq" longname="业务流水" type="BaseType2.U_CHAR40" primarykey="false" final="false" default="''" nullable="true" identity="false" allowSubType="true"/>
+            <field id="acctdt" longname="会计日期" type="BaseType2.U_CHAR08" primarykey="false" final="false" default="''" nullable="true" identity="false" allowSubType="true"/>
+            <field id="status" longname="交互状态" type="BaseType2.U_CHAR01" primarykey="false" final="false" default="''" nullable="true" identity="false" allowSubType="true"/>
+            <field id="descri" longname="结果描述" type="BaseType2.U_CHAR1024" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="filist" longname="文件集合" type="BaseType2.U_CHAR4000" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="clflag" longname="处理状态" type="BaseEnumType2.E_YNFLAG" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="unique" fields="fileid" operate="selectOne"/>
+        </odbindexes>
+        <indexes>
+            <index id="kapb_plrw_orge_idx" type="unique" fields="fileid">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+    <table id="oda_qtcn" name="oda_qtcn" longname="额度映射表" tableType="ORDINARY" virtual="false" abstract="false">
+        <fields>
+            <field id="prodid" longname="可售产品ID" type="OdBaseType.U_SPRDID" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="quotid" longname="总额度id" type="BaseType2.U_CHAR40" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="edutpe" longname="额度类型" type="BaseEnumType2.E_EDUTPE" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="traned" longname="交易类型" type="PbEnumType2.E_TRANTP" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="edpara" longname="额度参数" type="BaseType2.U_CHAR20" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="unique" fields="prodid quotid" operate="selectOne updateOne"/>
+            <index id="odb2" type="index" fields="prodid" operate="selectAll"/>
+        </odbindexes>
+        <indexes>
+            <index id="oda_main_idx1" type="unique" fields="prodid quotid">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+    <table id="online_tran_record" name="online_tran_record" longname="联机外调交易记录表，外发失败需要重新外发" tableType="ORDINARY" virtual="false" abstract="false">
+        <fields>
+            <field id="transq" longname="交易流水" type="BaseType2.U_CHAR40" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="trandt" longname="交易日期" type="BaseType2.U_DATE08" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="source" longname="源系统" type="SlEnumType.E_XITONG" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="target" longname="目标系统" type="SlEnumType.E_XITONG" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="busiid" longname="服务ID" type="BaseType2.U_CHAR20" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="params" longname="外调参数" type="BaseType2.U_CHAR4000" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="states" longname="处理状态" type="SlEnumType.E_CWFLAG" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="remark" longname="备注信息" type="BaseType2.U_CHAR1000" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="astrnm" longname="重发次数" type="OdBaseType.U_ASTRNM" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="record_odb_idx1" type="index" fields="states"/>
+            <index id="record_odb_idx2" type="unique" fields="transq trandt" operate="selectOne updateOne"/>
+        </odbindexes>
+        <indexes>
+            <index id="record_db_idx1" type="unique" fields="transq trandt">
+                <ddls/>
+            </index>
+            <index id="record_db_idx2" type="index" fields="states">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+    <table id="ShardingInfo" name="sharding_info" longname="表分片信息表" tableType="ORDINARY" virtual="false" abstract="false">
+        <fields>
+            <field id="shardingid" longname="分片ID" type="BaseType.U_CHAR20" primarykey="false" final="false" nullable="true" desc="分片表的名称" identity="false" allowSubType="true"/>
+            <field id="shardinggp" longname="分片组" type="BaseType.U_CHAR20" primarykey="false" final="false" nullable="true" desc="分片表所属的数据库" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="unique" fields="shardingid" operate="selectOne"/>
+            <index id="odb2" type="index" fields="shardinggp" operate="selectAll"/>
+        </odbindexes>
+        <indexes>
+            <index id="sharding_info_uk1" type="primarykey" fields="shardingid">
+                <ddls/>
+            </index>
+            <index id="sharding_info_idx1" type="index" fields="shardinggp">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+</schema>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType id="IoApBatchFile" kind="interface" longname="批量文件信息登记" package="cn.sunline.ltts.busi.ap.iobus.servicetype" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description><![CDATA[批量文件信息登记]]></description>
+    <service id="IoApPlwjChaxList" name="selPlwjXinxList" longname="批量文件信息列表查询">
+        <interface>
+            <input packMode="false">
+                <field id="btflst" type="BaseEnumType.E_BTFLST" required="false" multi="false" array="false" longname="批量文件状态标志" ref="BaseDict.Comm.btflst"/>
+                <field id="btfltp" type="BaseEnumType.E_BTFLTP" required="false" multi="false" array="false" longname="批量文件类别" ref="BaseDict.Comm.btfltp"/>
+                <field id="qishibis" type="ApBaseType.U_CHANZXLX" required="false" multi="false" array="false" longname="起始笔数"/>
+                <field id="chxunbis" type="ApBaseType.U_CHANZXLX" required="false" multi="false" array="false" longname="查询笔数"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="lstPlwjXinx" type="IoApBatchFileStruct.IoApPlwjXinxInfo" required="false" multi="true" array="false" longname="批量文件列表信息"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+</serviceType>

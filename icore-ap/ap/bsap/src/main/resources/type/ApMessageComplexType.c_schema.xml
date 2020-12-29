@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema id="ApMessageComplexType" package="cn.sunline.ltts.busi.bsap.type" longname="异步消息复合类型定义" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <complexType id="AppTopiDefiCType" longname="消息主题定义表复合类型" dict="false" abstract="false" introduct="false">
+        <element id="topcid" longname="消息主题ID" type="BaseType.U_CHAR20" ref="ApDict.Aplt.topcid" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="topicn" longname="主题名称" type="BaseType.U_CHAR40" ref="ApDict.Aplt.topicn" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="systcd" longname="系统编号" type="BaseType.U_SYSTCD" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="metype" longname="消息类型" type="BaseEnumType.E_METYPE" ref="ApDict.Aplt.metype" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="msgmod" longname="消息模式" type="BaseEnumType.E_MSGMOD" ref="BaseDict.Comm.msgmod" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="conscy" longname="消息事务一致性粒度" type="BaseEnumType.E_CONSCY" ref="BaseDict.Comm.conscy" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="msgact" longname="消息处理方式" type="BaseEnumType.E_MSGACT" ref="ApDict.Aplt.msgact" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ismein" longname="是否短信接口" type="BaseEnumType.E_YES___" ref="ApDict.Aplt.ismein" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="svcimp" longname="跨节点消息处理" type="BaseType.U_CHAR200" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="meteid" longname="短信模板ID" type="BaseType.U_CHAR20" ref="ApDict.Aplt.meteid" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="istodb" longname="源消息是否入库" type="BaseEnumType.E_YES___" ref="ApDict.Aplt.istodb" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="istrya" longname="是否重试" type="BaseEnumType.E_YES___" ref="ApDict.Aplt.istrya" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tragti" longname="重试次数" type="BaseType.U_RETRTM" ref="ApDict.Aplt.tragti" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tragst" longname="重试策略" type="BaseType.U_CHAR20" ref="ApDict.Aplt.tragst" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="svcopt" longname="消息发送服务数据范围" type="BaseEnumType.E_SVCOPT" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="svceid" longname="消息发送服务ID" type="BaseType.U_CHAR200" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="svcebd" longname="消息发送服务绑定" type="BaseType.U_CHAR200" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="SQLCType" longname="参数SQL对象" dict="false" abstract="false" introduct="false">
+        <element id="effcnt" longname="实际影响记录数" type="BaseType.U_TTUSCT" required="false" default="0" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tabnam" longname="相关表" type="BaseType.U_CHAR80" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="sqlpam" longname="SQL参数" type="object" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="sqlfid" longname="SQLID" type="BaseType.U_CHAR40" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="sqlstr" longname="SQL语句" type="BaseType.U_CHAR200" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="ReceiptCType" longname="回执对象" dict="false" abstract="false" introduct="false">
+        <element id="affaid" longname="事务ID" type="BaseType.U_CHAR40" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="topcid" longname="消息主题ID" type="BaseType.U_CHAR20" ref="ApDict.Aplt.topcid" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="messid" longname="消息ID" type="BaseType.U_CHAR40" ref="ApDict.Aplt.messid" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ccopno" longname="消费法人" type="BaseType.U_CORPNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cdcnno" longname="消费DCN" type="BaseType.U_DCNNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="csyscd" longname="消费系统" type="BaseType.U_SYSTCD" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="constm" longname="消费时间" type="BaseType.U_DATE22" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="status" longname="消费状态" type="ApBaseEnumType.E_SYNCST" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="SMSCType" longname="短信对象" dict="false" abstract="false" introduct="false">
+        <element id="meteid" longname="短信模板ID" type="BaseType.U_CHAR20" ref="ApDict.Aplt.meteid" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="nacode" longname="国家代码" type="BaseType.U_CHAR40" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="mobile" longname="手机号码" type="BaseType.U_TELENO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="msgparm" longname="消息参数" type="BaseType.U_SMSPARM" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="msgopt" longname="异步消息发送标志" type="BaseEnumType.E_MSGOPT" ref="BaseDict.Comm.msgopt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="messty" longname="是否实时发送" type="BaseEnumType.E_YES___" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+</schema>

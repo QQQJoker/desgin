@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<batch_transaction xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="ap6003" longname="添加表分区" package="cn.sunline.clwj.hist.batchtran" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <interface package="cn.sunline.edsp.busi.bsap.batchtran.intf">
+        <input packMode="true"/>
+        <output asParm="true" packMode="true"/>
+        <property packMode="true"/>
+        <printer packMode="true"/>
+    </interface>
+</batch_transaction>

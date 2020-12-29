@@ -1,0 +1,26 @@
+#modify(如果按目录或者整个项目提交,请粘贴在此处)
+modules/ap/aplt/src/main/java/cn/sunline/ltts/busi/aplt/impl/TransactionProcessCallBackImpl.java
+modules/ap/aplt/src/main/java/cn/sunline/ltts/busi/aplt/tools/CommTools.java
+modules/tran/aptran/src/main/java/cn/sunline/ltts/busi/aplt/trans/bzrv/ap0010.java
+modules/ap/sys/src/main/resources/dict/ApDict.d_schema.xml
+modules/ap/sys/src/main/resources/parm/TrxEnvs.schema.xml
+
+
+
+#add
+
+#delete
+
+#table(多个表名请隔行书写,务必将建表脚本同时提交)
+
+#sequence(多个sequence名隔行书写,务必将sequence脚本同时提交)
+
+
+#sql(多条sql语句请隔行书写,如提交insert语句,insert/values必须分两行书写; 如plsql中导出的多条insert语句,请在下面#sqlfile中登记)
+
+
+#sqlfile(plsql导出的标准sql语句,在此列出其文件名;如导出文件为kcdp_cpjcsx.sql,则在此写kcdp_cpjcsx)
+
+
+#datafile(列出导入数据表名,务必将以"|"分隔的数据文件同时提交【文件名以"。unl"结尾】;如导入文件为kcdp_konzcs.unl,则在此写kcdp_konzcs)
+

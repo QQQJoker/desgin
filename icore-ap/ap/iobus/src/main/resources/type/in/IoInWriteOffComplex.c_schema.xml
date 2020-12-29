@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema id="IoInWriteOffComplex" package="cn.sunline.ltts.busi.iobus.type" longname="内部户冲正输入参数" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description><![CDATA[内部户冲正输入参数]]></description>
+    <complexType id="IavccmRbInput" longname="套平入账冲正输入" dict="false" abstract="false" introduct="false">
+        <element id="transq" longname="交易流水" type="BaseType.U_SEQUNO" ref="InDict.inac.transq" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trandt" longname="交易日期" type="BaseType.U_DATE08" ref="InDict.inac.trandt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="NestcmRbInput" longname="隔日错账冲正信息冲正输入" dict="false" abstract="false" introduct="false">
+        <element id="transq" longname="交易流水" type="BaseType.U_SEQUNO" ref="InDict.inac.transq" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trandt" longname="交易日期" type="BaseType.U_DATE08" ref="InDict.inac.trandt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoCheckBlanaceStrike" longname="平衡检查清算补账冲正" dict="false" abstract="false" introduct="false">
+        <element id="trandt" longname="交易日期" type="BaseType.U_DATE08" ref="BaseDict.Comm.trandt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="transq" longname="交易流水" type="BaseType.U_SEQUNO" ref="BaseDict.Comm.transq" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <description><![CDATA[]]></description>
+    </complexType>
+    <complexType id="KnsStrkInput" longname="隔日错账冲正客户账入账输入" dict="false" abstract="false" introduct="false">
+		<element id="prtrdt" longname="原交易日期" type="BaseType.U_DATE08" ref="InDict.wrac.prtrdt" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+        <element id="prtrsq" longname="原交易流水" type="BaseType.U_SEQUNO" ref="InDict.wrac.prtrsq" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+        <element id="wronbr" longname="原错账机构" type="BaseType.U_WRONBR" ref="InDict.wrac.wronbr" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+        <element id="numbsq" longname="套号" type="BaseType.U_SEQUNO" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+        <element id="serlno" longname="序号" type="BaseType.U_INTEGE" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+        <element id="wronte" longname="原错账经办柜员" type="BaseType.U_USERID" ref="InDict.wrac.wronte" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        <element id="reason" longname="错账原因" type="BaseType.U_SHORDS" ref="InDict.wrac.reason" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        <element id="adamcl" longname="调整积数" type="BaseType.U_ACMLBL" ref="InDict.wrac.adamcl" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        <element id="adinst" longname="调整利息" type="BaseType.U_TRANAM" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        <element id="custac" longname="账号1" type="BaseType.U_ACCTNO" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+        <element id="acctna" longname="内部户名称" type="BaseType.U_ACCTNA" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        <element id="crcycd" longname="币种" type="BaseType.U_CRCYCD" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        <element id="csextg" longname="钞汇属性" type="BaseEnumType.E_CSEXTG" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        <element id="acctbl" longname="余额" type="BaseType.U_BALANC" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        <element id="bldire" longname="账户余额方向" type="InEnumType.E_BLNCDN" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        <element id="rebuwo" longname="红蓝字" type="InEnumType.E_REBUWA" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        <element id="amntcd" longname="借贷标志" type="BaseEnumType.E_AMNTCD" ref="BaseDict.Comm.amntcd" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        <element id="happbl" longname="发生额" type="BaseType.U_HAPPBL" ref="InDict.wrac.happbl" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        <element id="charlg" longname="挂销账标志" type="InEnumType.E_PAYATP" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        <element id="trandt" longname="交易日期" type="BaseType.U_DATE08" ref="InDict.inac.trandt" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+        <element id="transq" longname="交易流水" type="BaseType.U_SEQUNO" ref="InDict.inac.transq" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+        <element id="tranus" longname="操作柜员" type="BaseType.U_USERID" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+        <element id="strkst" longname="错账冲正状态" type="InEnumType.E_STRKST" ref="InDict.wrac.strkst" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        <element id="chckus" longname="复核柜员" type="BaseType.U_USERID" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        <element id="trantp" longname="交易类型" type="BaseEnumType.E_STTRTP" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        <element id="ussqno" longname="柜员流水号" type="BaseType.U_SEQUNO" ref="DpDict.Acct.ussqno" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        <element id="ussrdt" longname="柜员日期" type="PbBaseType.U_DATE08" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        <element id="auttel" longname="授权柜员" type="FeBaseType.U_USERID" ref="FeDict.Chrg.auttel" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        <element id="authseq" longname="授权流水" type="BaseType.U_CHAR32" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+    </complexType>
+</schema>

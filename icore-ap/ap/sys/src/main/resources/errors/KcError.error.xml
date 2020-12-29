@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<errorConf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="KcError" longname="合作商定价错误码" package="cn.sunline.ltts.busi.sys.errors" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <errors id="KcmComm" longname="合作商定价">
+        <error id="E0001" type="error" message="[${param}]不能为空" errorCode="010K0000">
+            <parameter id="param" type="BaseType.U_CHAR100" longname="输入参数"/>
+        </error>
+        <error id="E0002" type="error" message="[${msg}]" errorCode="010K0001">
+            <parameter id="msg" type="BaseType.U_CHAR100" longname="错误信息"/>
+        </error>
+    </errors>
+</errorConf>

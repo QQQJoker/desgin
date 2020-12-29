@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<flowtran id="qractp" longname="查询账号类型" kind="1" package="cn.sunline.ltts.busi.aptran.trans" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description><![CDATA[查询账号类型]]></description>
+    <interface package="cn.sunline.ltts.busi.aptran.trans.intf">
+        <input packMode="false">
+            <field id="acctno" type="BaseType.U_ACCTNO" required="true" multi="false" array="false" longname="账号"/>
+        </input>
+        <output asParm="true" packMode="true">
+            <field id="accttp" type="ApBaseEnumType.E_ACCTTP" required="false" multi="false" array="false" longname="账户类型" ref=""/>
+        </output>
+        <property packMode="false"/>
+        <printer packMode="false"/>
+    </interface>
+    <flow id="" test="" longname="" desc="">
+        <service serviceName="IoApAccount.queryAccountType" id="queryAccountType" test="" longname="查询账号类型" desc="查询账号类型">
+            <in_mappings by_interface="true">
+                <mapping src="acctno" dest="acctno" desc="" by_interface="true" on_top="true"/>
+            </in_mappings>
+            <out_mappings by_interface="true">
+                <mapping src="accttp" dest="accttp" desc="" by_interface="true" on_top="true"/>
+            </out_mappings>
+        </service>
+    </flow>
+</flowtran>

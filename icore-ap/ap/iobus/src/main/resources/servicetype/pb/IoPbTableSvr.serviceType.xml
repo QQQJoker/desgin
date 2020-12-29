@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType id="IoPbTableSvr" kind="business" longname="公共模块表基础操作服务" package="cn.sunline.ltts.busi.iobus.servicetype" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description><![CDATA[公共模块中各表的基础查询，新增，修改，删除的服务在此定义后，提供给提前模块调用]]></description>
+    <service id="kub_brch_selectOne_odb1" name="kub_brch_selectOne_odb1" longname="根据机构号查询机构信息表">
+        <interface>
+            <input packMode="false">
+                <field id="brchno" type="BaseType.U_BRCHNO" required="false" multi="false" array="false" longname="机构号" ref="PbDict.Brch.brchno"/>
+                <field id="isable" type="boolean" required="false" multi="false" array="false" longname="是否抛出异常"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="field" type="IoPbTable.IoPbKubBrch" required="false" multi="false" array="false" longname="机构信息表结构复合类型"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IntrDao_selBankIntrByTerm" name="IntrDao_selBankIntrByTerm" longname="按照存期和币种查询生效期内的行内利率">
+        <interface>
+            <input packMode="false">
+                <field id="trandt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="交易日期" ref="InDict.inac.trandt"/>
+                <field id="depttm" type="BaseEnumType.E_TERMCD" required="false" multi="false" array="false" longname="存期" ref="DpDict.Prod.depttm"/>
+                <field id="isable" type="boolean" required="false" multi="false" array="false" longname="是否抛出异常"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="field" type="IoIntrComplexType.BankIntrInfo" required="false" multi="true" array="false" longname="浮动利率简单信息"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IntrDao_selRfir" name="IntrDao_selRfir" longname="查询参考利率信息">
+        <interface>
+            <input packMode="false">
+                <field id="rfirtm" type="BaseEnumType.E_TERMCD" required="false" multi="false" array="false" longname="存期" ref="PbDict.Intr.rfirtm"/>
+                <field id="efctdt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="生效日期" ref="PbDict.Intr.efctdt"/>
+                <field id="rfircd" type="BaseType.U_INTRCD" required="false" multi="false" array="false" longname="基础利率代码" ref="PbDict.Intr.rfircd"/>
+                <field id="isable" type="boolean" required="false" multi="false" array="false" longname="是否抛出异常"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="field" type="IoIntrComplexType.DpInstRfir" required="false" multi="false" array="false" longname="参考利率"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="kub_brch_selectOne_odb2" name="kub_brch_selectOne_odb2" longname="根据机构查法人代码">
+        <interface>
+            <input packMode="false">
+                <field id="brchno" type="BaseType.U_BRCHNO" required="false" multi="false" array="false" longname="机构号" ref="PbDict.Brch.brchno"/>
+                <field id="isable" type="boolean" required="false" multi="false" array="false" longname="是否抛出异常"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="field" type="IoPbTable.IoPbKubBrchfa" required="false" multi="false" array="false" longname="法人"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="insertKpsMntn" name="insertKpsMntn" longname="新增维护登记簿信息">
+        <interface>
+            <input packMode="false">
+                <field id="kpsMntn" type="IoPbTable.IoKpsMntn" required="false" multi="false" array="false" longname="维护登记簿"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="insertKpsMntnDetl" name="insertKpsMntnDetl" longname="新增维护明细登记簿信息">
+        <interface>
+            <input packMode="false">
+                <field id="ioKpsMntnDetl" type="IoPbTable.IoKpsMntnDetl" required="false" multi="false" array="false" longname="维护明细登记簿"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="insertCmbMntn" name="insertCmbMntn" longname="新增柜员维护登记簿信息">
+        <interface>
+            <input packMode="false">
+                <field id="ioCmbMntn" type="IoPbTable.IoCmbMntn" required="false" multi="false" array="false" longname="基础信息维护登记簿"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+</serviceType>

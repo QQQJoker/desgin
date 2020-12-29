@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType id="IoQtInscut" kind="business" longname="客户限额" package="cn.sunline.ltts.busi.iobus.servicetype" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description><![CDATA[新增客户限额]]></description>
+    <service id="AddCustLimit" name="addcustlimit" longname="新增客户限额">
+        <interface>
+            <input packMode="true">
+                <field id="infos" type="IoQtCustLimitInfo.IoCustLimitAddIn" required="false" multi="true" array="false" longname="新增客户限额输入"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="ModCustLimit" name="modcustlimit" longname="修改客户限额">
+        <interface>
+            <input packMode="true">
+                <field id="infos" type="IoQtCustLimitInfo.IoCustLimitIn" required="false" multi="true" array="false" longname="修改客户限额输入"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="DelCustLimit" name="delcustlimit" longname="删除客户限额">
+        <interface>
+            <input packMode="true">
+                <field id="infos" type="IoQtCustLimitInfo.IoCustLimitdelIn" required="false" multi="true" array="false" longname="删除客户限额输入"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="SelCustLimit" name="selcustlimit" longname="查询客户限额">
+        <interface>
+            <input packMode="true">
+                <field id="brchno" type="BaseType.U_BRCHNO" required="false" multi="false" array="false" longname="机构号" ref="PbDict.Brch.brchno"/>
+                <field id="acctrt" type="BaseEnumType.E_ACCTROUTTYPE" required="false" multi="false" array="false" longname="账号路由类型" ref="BaseDict.Comm.acctrt"/>
+                <field id="limttp" type="BaseType.U_CHAR04" required="false" multi="false" array="false" longname="额度类型"/>
+                <field id="limtkd" type="QtEnumType.E_LIMTKD" required="false" multi="false" array="false" longname="额度种类" ref="QtDict.Qt.limtkd"/>
+                <field id="servtp" type="BaseType.U_CHAR04" required="false" multi="false" array="false" longname="渠道"/>
+                <field id="custlv" type="QtEnumType.E_CUSTLV" required="false" multi="false" array="false" longname="客户等级" ref="QtDict.Qt.custlv"/>
+                <field id="risklv" type="QtEnumType.E_RISKLV" required="false" multi="false" array="false" longname="风险承受等级" ref="QtDict.Qt.risklv"/>
+                <field id="pageno" type="BaseType.U_INTEGE" required="false" multi="false" array="false" longname="当前页数"/>
+                <field id="pgsize" type="BaseType.U_INTEGE" required="false" multi="false" array="false" longname="每页记录数"/>
+            </input>
+            <output asParm="true" packMode="false">
+                <field id="result" type="IoQtCustLimitInfo.CusLimitInfoOut" required="false" multi="false" array="false" longname="客户额度信息查询输出"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+</serviceType>

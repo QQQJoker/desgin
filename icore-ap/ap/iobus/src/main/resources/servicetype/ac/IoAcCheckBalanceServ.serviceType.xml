@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="IoAcCheckBalanceServ" kind="business" longname="检查交易平衡性服务定义" package="cn.sunline.ltts.busi.iobus.servicetype.ac" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <description><![CDATA[检查交易平衡性服务定义]]></description>
+    <service id="IoAcCheckBalance" name="checkBalance" longname="检验平衡性">
+        <interface>
+            <input packMode="false">
+                <field id="trandt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="交易日期" ref="InDict.inac.trandt"/>
+                <field id="transq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="主交易流水" ref="DpDict.Acct.transq"/>
+                <field id="clactp" type="BaseEnumType.E_CLACTP" required="false" multi="false" array="false" longname="清算账户类型"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoAcStrikeCheckBalanceClear" name="strikeCheckBalanceClear" longname="平衡检查中的清算补账冲正">
+        <interface>
+            <input packMode="false">
+                <field id="checkstrike" type="IoInWriteOffComplex.IoCheckBlanaceStrike" required="false" multi="false" array="false" longname="平衡检查中的清算补账冲正"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoAcCheckBalanceLsam" name="checkBalanceLsam" longname="大小额来往帐及冲正平衡性检查">
+        <interface>
+            <input packMode="false">
+                <field id="trandt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="交易日期" ref="InDict.inac.trandt"/>
+                <field id="transq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="主交易流水" ref="DpDict.Acct.transq"/>
+                <field id="clactp" type="BaseEnumType.E_CLACTP" required="false" multi="false" array="false" longname="清算账户类型"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoAcCheckStrikeBalance" name="checkStrikeBalance" longname="冲正专用平衡性检查方法">
+        <interface>
+            <input packMode="false">
+                <field id="trandt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="交易日期" ref="InDict.inac.trandt"/>
+                <field id="transq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="主交易流水" ref="DpDict.Acct.transq"/>
+                <field id="clactp" type="BaseEnumType.E_CLACTP" required="false" multi="false" array="false" longname="清算账户类型"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoAcDealDcnClerAcsq" name="dealDcnClerAcsq" longname="管理节点与零售节点流水清算">
+        <interface>
+            <input packMode="false">
+                <field id="trandt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="交易日期" ref="BaseDict.Comm.trandt"/>
+                <field id="transq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="交易流水" ref="BaseDict.Comm.transq"/>
+                <field id="dtitcd" type="BaseType.U_DTITCD" required="false" multi="false" array="false" longname="核算代码" ref="FcDict.Fnac.dtitcd"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+</serviceType>

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="BaseType2" package="cn.sunline.ltts.busi.sys.type" longname="公共基础数据类型" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <description><![CDATA[公用列表数据类型。]]></description>
+    <restrictionType id="U_SPDATE" longname="特殊日期" base="dateString" maxLength="8"/>
+    <restrictionType id="U_SPDTLG" longname="特殊时间长" base="dateString" maxLength="8"/>
+    <restrictionType id="U_SPDTSH" longname="特殊时间短" base="dateString" maxLength="6"/>
+    <restrictionType id="U_CORPNO" longname="法人代码" base="string" maxLength="4"/>
+    <restrictionType id="U_CUACNO" longname="客户账号" base="string" maxLength="35"/>
+    <restrictionType id="U_CARDNO" longname="卡号" base="string" maxLength="40"/>
+    <restrictionType id="U_BRCHNO" longname="部门号" base="string" maxLength="10"/>
+    <restrictionType id="U_BRCHNA" longname="部门名称" base="string" maxLength="200"/>
+    <restrictionType id="U_ACCTNO" longname="系统账号" base="string" maxLength="40"/>
+    <restrictionType id="U_ACCTNA" longname="账户中文名称" base="string" maxLength="100"/>
+    <restrictionType id="U_ACCTEN" longname="账户英文名称" base="string" maxLength="200"/>
+    <restrictionType id="U_CORPNA" longname="对公客户名" base="string" maxLength="200"/>
+    <restrictionType id="U_CHINNA" longname="中文名称" base="string" maxLength="200"/>
+    <restrictionType id="U_ENGLNA" longname="英文名称" base="string" maxLength="200"/>
+    <restrictionType id="U_ACSENO" longname="账号子序号" base="string" maxLength="8"/>
+    <restrictionType id="U_TRANPW" longname="交易密码" base="string" maxLength="40"/>
+    <restrictionType id="U_USERID" longname="柜员号" base="string" maxLength="32"/>
+    <restrictionType id="U_CNSMSP" longname="中文简写" base="string" maxLength="50"/>
+    <restrictionType id="U_BTCHNO" longname="批次号" base="string" maxLength="8"/>
+    <restrictionType id="U_LONGDS" longname="长描述" base="string" maxLength="1000"/>
+    <restrictionType id="U_MIDDDS" longname="中描述" base="string" maxLength="400"/>
+    <restrictionType id="U_SHORDS" longname="短描述" base="string" maxLength="200"/>
+    <restrictionType id="U_DATAIN" longname="报文字段" base="string" maxLength="2000"/>
+    <restrictionType id="U_INTRCD" longname="利率代码" base="string" maxLength="20"/>
+    <restrictionType id="U_DATE02" longname="日期类型2位" base="string" maxLength="2"/>
+    <restrictionType id="U_DATE04" longname="日期类型4位" base="string" maxLength="4"/>
+    <restrictionType id="U_DATE06" longname="日期类型6位" base="dateString" maxLength="6"/>
+    <restrictionType id="U_DATE08" longname="日期类型8位" base="dateString" maxLength="8"/>
+    <restrictionType id="U_DATE22" longname="日期类型22位" base="string" maxLength="22"/>
+    <restrictionType id="U_CHAR01" longname="字符类型1位" base="string" maxLength="1"/>
+    <restrictionType id="U_CHAR02" longname="字符类型2位" base="string" maxLength="2"/>
+    <restrictionType id="U_CHAR03" longname="字符类型3位" base="string" maxLength="3"/>
+    <restrictionType id="U_CHAR04" longname="字符类型4位" base="string" maxLength="4"/>
+    <restrictionType id="U_CHAR06" longname="字符类型6位" base="string" maxLength="6"/>
+    <restrictionType id="U_CHAR08" longname="字符类型8位" base="string" maxLength="8"/>
+    <restrictionType id="U_CHAR10" longname="字符类型10位" base="string" maxLength="10"/>
+    <restrictionType id="U_CHAR20" longname="字符类型20位" base="string" maxLength="20"/>
+    <restrictionType id="U_CHAR15" longname="字符类型15位" base="string" maxLength="15"/>
+    <restrictionType id="U_CHAR18" longname="字符类型18位" base="string" maxLength="18"/>
+    <restrictionType id="U_CHAR25" longname="字符类型25位" base="string" maxLength="25"/>
+    <restrictionType id="U_CHAR30" longname="字符类型30位" base="string" maxLength="30"/>
+    <restrictionType id="U_CHAR32" longname="字符类型32位" base="string" maxLength="32"/>
+    <restrictionType id="U_CHAR35" longname="字符类型35位" base="string" maxLength="35"/>
+    <restrictionType id="U_CHAR40" longname="字符类型40位" base="string" maxLength="40"/>
+    <restrictionType id="U_CHAR50" longname="字符类型50位" base="string" maxLength="50"/>
+    <restrictionType id="U_CHAR80" longname="字符类型80位" base="string" maxLength="80"/>
+    <restrictionType id="U_CHAR100" longname="字符类型100位" base="string" maxLength="100"/>
+    <restrictionType id="U_CHAR200" longname="字符类型200位" base="string" maxLength="200"/>
+    <restrictionType id="U_CHAR300" longname="字符类型300位" base="string" maxLength="300"/>
+    <restrictionType id="U_CHAR400" longname="字符类型400位" base="string" maxLength="400"/>
+    <restrictionType id="U_CHAR1000" longname="字符类型1000位" base="string" maxLength="1000"/>
+    <restrictionType id="U_CHAR2000" longname="字符类型2000位" base="string" maxLength="2000"/>
+    <restrictionType id="U_CHAR4000" longname="字符类型4000位" base="string" maxLength="4000"/>
+    <restrictionType id="U_TRANAM" longname="交易金额类" base="decimal" maxLength="17" fractionDigits="2"/>
+    <restrictionType id="U_ACBLTP" longname="账户余额类" base="decimal" maxLength="21" fractionDigits="2"/>
+    <restrictionType id="U_CIBLTP" longname="计息余额类" base="decimal" maxLength="28" fractionDigits="9">
+        <description><![CDATA[计息涉及到平均余额，平均余额为总积数除以天数， 2位精度不够，会引起计算的积数和账户余额对应积数不符, 并且其精度应该还要比利息字段高1-2位才合理]]></description>
+    </restrictionType>
+    <restrictionType id="U_INSTRT" longname="利率" base="decimal" maxLength="11" fractionDigits="6"/>
+    <restrictionType id="U_EXCHRT" longname="汇率" base="decimal" maxLength="12" fractionDigits="7"/>
+    <restrictionType id="U_TAXRAT" longname="税率" base="decimal" maxLength="8" fractionDigits="6"/>
+    <restrictionType id="U_TOTAIN" longname="累计利息值" base="decimal" maxLength="20" fractionDigits="7"/>
+    <restrictionType id="U_SPINRT" longname="特殊利率" base="decimal" maxLength="18" fractionDigits="10"/>
+    <restrictionType id="U_SENOTP" longname="序号类型" base="long" maxLength="19"/>
+    <restrictionType id="U_INTEGE" longname="整型" base="integer" maxLength="8"/>
+    <restrictionType id="U_SHORIN" longname="短整型" base="long" maxLength="3"/>
+    <restrictionType id="U_LONGIN" longname="长整型" base="long" maxLength="19"/>
+    <restrictionType id="U_RATECD" longname="百分比" base="decimal" maxLength="21" fractionDigits="2"/>
+    <restrictionType id="U_CRCYCD" longname="货币代号" base="string" maxLength="2"/>
+    <restrictionType id="U_LNCFNO" longname="借据号" base="string" maxLength="30"/>
+    <restrictionType id="U_CNTRNO" longname="合同号" base="string" maxLength="30"/>
+    <restrictionType id="U_CUSTNO" longname="客户号" base="string" maxLength="16"/>
+    <restrictionType id="U_PRODCD" longname="产品号" base="string" maxLength="10"/>
+    <restrictionType id="U_DEADLI" longname="期限" base="string" maxLength="6"/>
+    <restrictionType id="U_PERIOD" longname="周期/频率" base="string" maxLength="8"/>
+    <restrictionType id="U_SEQUNO" longname="流水号" base="string" maxLength="32"/>
+    <restrictionType id="U_RATEVL" longname="比率" base="decimal" maxLength="5" fractionDigits="2"/>
+    <restrictionType id="U_DCMTTP" longname="凭证种类" base="string" maxLength="4"/>
+    <restrictionType id="U_DCBTNO" longname="凭证批号" base="string" maxLength="4"/>
+    <restrictionType id="U_DCSRNO" longname="凭证序号" base="string" maxLength="8"/>
+    <restrictionType id="U_DCMTNO" longname="凭证号" base="string" maxLength="22"/>
+    <restrictionType id="U_INRTNO" longname="利率编号" base="string" maxLength="20"/>
+    <restrictionType id="U_FEENUM" longname="费用编号" base="string" maxLength="10"/>
+    <restrictionType id="U_TERMCD" longname="存期" base="string" maxLength="6"/>
+    <restrictionType id="U_ACCOCT" longname="会计特征" base="string" maxLength="8"/>
+    <restrictionType id="U_FEPLCD" longname="费用计划代码" base="string" maxLength="6"/>
+    <restrictionType id="U_GOVNCD" longname="国别代码" base="string" maxLength="10"/>
+    <restrictionType id="U_BUSICD" longname="业务代号" base="string" maxLength="6"/>
+    <restrictionType id="U_ACCTTP" longname="账户分类代码" base="string" maxLength="3"/>
+    <restrictionType id="U_SERVTP" longname="交易渠道" base="string" maxLength="4"/>
+    <restrictionType id="U_PRCSCD" longname="交易码" base="string" maxLength="10"/>
+    <restrictionType id="U_FIINCD" longname="金融机构代码" base="string" maxLength="32"/>
+    <restrictionType id="U_CROPCD" longname="组织机构代码" base="string" maxLength="10" minLength="10"/>
+    <restrictionType id="U_TXRGCD" longname="税务登记号" base="string" maxLength="10"/>
+    <restrictionType id="U_IDTFNO" longname="证件号码" base="string" maxLength="20"/>
+    <restrictionType id="U_BUSINO" longname="业务编号" base="string" maxLength="30"/>
+    <restrictionType id="U_SMRYCD" longname="摘要代码" base="string" maxLength="10"/>
+    <restrictionType id="U_SMRYDS" longname="摘要描述" base="string" maxLength="80"/>
+    <restrictionType id="U_SESSID" longname="会话ID" base="string" maxLength="20"/>
+    <restrictionType id="U_LTTSCD" longname="处理码" base="string" maxLength="60"/>
+    <restrictionType id="U_BTFLID" longname="批量文件ID" base="string" maxLength="1000"/>
+    <restrictionType id="U_CSBXNO" longname="尾箱代号" base="string" maxLength="8"/>
+    <restrictionType id="U_TRTMCH" longname="交易时间字符" base="string" maxLength="16"/>
+    <restrictionType id="U_TABLCD" longname="数据库表名" base="string" maxLength="30"/>
+    <restrictionType id="U_DTITCD" longname="核算代码" base="string" maxLength="20"/>
+    <restrictionType id="U_DTITPF" longname="核算规则" base="string" maxLength="20"/>
+    <restrictionType id="U_ITEMCD" longname="科目号" base="string" maxLength="20"/>
+    <restrictionType id="U_ACMLBL" longname="积数" base="decimal" maxLength="21" fractionDigits="2"/>
+    <restrictionType id="U_BICNUM" longname="银行BIC号码" base="string" maxLength="11"/>
+    <restrictionType id="U_BUSITP" longname="业务分类" base="string" maxLength="10"/>
+    <restrictionType id="U_TRACK1" longname="一磁道信息" base="string" maxLength="40"/>
+    <restrictionType id="U_TRACK2" longname="二磁道信息" base="string" maxLength="40"/>
+    <restrictionType id="U_TRACK3" longname="三磁道信息" base="string" maxLength="120"/>
+    <restrictionType id="U_ICSCRP" longname="IC卡脚本信息" base="string" maxLength="500"/>
+    <restrictionType id="U_DOMF55" longname="F55域信息" base="string" maxLength="512"/>
+    <restrictionType id="U_PRINIF" longname="打印信息" base="string" maxLength="255"/>
+    <restrictionType id="U_CLASPH" longname="类路径" base="string" maxLength="200" minLength="16">
+        <description><![CDATA[生成类或自定义类的class路径]]></description>
+    </restrictionType>
+    <restrictionType id="U_STTRLV" longname="冲正级别" base="string" maxLength="1" minLength="1">
+        <description><![CDATA[0,1]]></description>
+    </restrictionType>
+    <restrictionType id="U_BLDTFG" longname="是否账单明细" base="string" maxLength="1" minLength="1"/>
+    <restrictionType id="U_DELAFG" longname="表记录删除标志" base="string" maxLength="1" minLength="1"/>
+    <restrictionType id="U_FILDNA" longname="字段名称" base="string" maxLength="100" minLength="4"/>
+    <restrictionType id="U_STTRFG" longname="冲正相关标志" base="string" maxLength="1" minLength="1"/>
+    <restrictionType id="U_FDUPTP" longname="字段更新方式" base="string" maxLength="1" minLength="1"/>
+    <restrictionType id="U_FSSTFG" longname="字段特殊值冲正标志" base="string" maxLength="1" minLength="1"/>
+    <restrictionType id="U_SPVLLS" longname="特殊值列表" base="string" maxLength="800"/>
+    <restrictionType id="U_FVSTFG" longname="字段变值可冲标志" base="string" maxLength="1" minLength="1"/>
+    <restrictionType id="U_VRSTTP" longname="变值覆盖方式" base="string" maxLength="1" minLength="1"/>
+    <restrictionType id="U_TBSTFG" longname="表是否允许冲正标志" base="string" maxLength="1" minLength="1"/>
+    <restrictionType id="U_STTRTP" longname="冲账方式" base="string" maxLength="1" minLength="1"/>
+    <restrictionType id="U_FINGER" longname="指纹" base="string" maxLength="512"/>
+    <restrictionType id="U_ATTRIB" longname="属性位" base="string" maxLength="255">
+        <description><![CDATA[用来存储二进制的属性位]]></description>
+    </restrictionType>
+    <restrictionType id="U_CSACTP" longname="客户账号类型" base="string" maxLength="10"/>
+    <restrictionType id="U_BSSVCD" longname="业务服务码" base="string" maxLength="100"/>
+    <restrictionType id="U_RMSRID" longname="RMB服务ID" base="string" maxLength="10"/>
+    <restrictionType id="U_RMSCID" longname="RMB场景ID" base="string" maxLength="10"/>
+    <restrictionType id="U_SBSYID" longname="所属子系统ID" base="string" maxLength="20"/>
+    <restrictionType id="U_MAPTYP" longname="键-值对容器类型" base="map"/>
+    <restrictionType id="U_BTTRSQ" longname="获取批量交易流水" base="string" maxLength="100" minLength="10"/>
+    <restrictionType id="U_TXRTNO" longname="税率编号" base="string" maxLength="20"/>
+    <restrictionType id="U_DATELG" longname="交易时间整型" base="long" maxLength="19"/>
+    <restrictionType id="U_IPADDR" longname="IP地址" base="long" maxLength="19"/>
+    <restrictionType id="U_FUNDCD" longname="基金代码" base="string" maxLength="10"/>
+    <restrictionType id="U_FUNDNO" longname="基金公司代码" base="string" maxLength="10"/>
+    <restrictionType id="U_URL___" longname="URL地址" base="string" maxLength="255"/>
+    <restrictionType id="U_SERVPT" longname="端口号" base="long" maxLength="6"/>
+    <restrictionType id="U_TELENO" longname="电话号码" base="string" maxLength="14"/>
+    <restrictionType id="U_OPCFNO" longname="基本户开户核准号" base="string" maxLength="15"/>
+    <restrictionType id="U_DCMTLT" longname="长度" base="int" maxLength="2"/>
+    <restrictionType id="U_CHAR12" longname="12微字符串" base="string" maxLength="12"/>
+    <restrictionType id="U_CHAR05" longname="字符类型5位" base="string" maxLength="5"/>
+    <restrictionType id="U_DCUTNM" longname="凭证单价" base="decimal" maxLength="18" fractionDigits="4"/>
+    <restrictionType id="U_EBDCNM" longname="长度" base="int" maxLength="8"/>
+    <restrictionType id="U_INITLN" longname="起始行号" base="int" maxLength="8"/>
+    <restrictionType id="U_EVPGLN" longname="每页行数" base="int" maxLength="8"/>
+    <restrictionType id="U_EVBKLN" longname="每本总行数" base="int" maxLength="8"/>
+    <restrictionType id="U_TTUSCT" longname="累计使用次数" base="int" maxLength="8"/>
+    <restrictionType id="U_PAYCRP" longname="第三方支付公司ID" base="string" maxLength="40" minLength="1"/>
+    <restrictionType id="U_MRCHNO" longname="商户号" base="string" maxLength="40" minLength="1"/>
+    <restrictionType id="U_FYUSID" longname="富友用户id" base="string" maxLength="40" minLength="1"/>
+    <restrictionType id="U_FYPRID" longname="富友项目编号" base="string" maxLength="50" minLength="1"/>
+    <restrictionType id="U_WEKYIE" longname="七日年化收益率" base="decimal" maxLength="11" fractionDigits="4"/>
+    <restrictionType id="U_CHAR14" longname="14字符类型" base="string" maxLength="14"/>
+    <restrictionType id="U_CHAR1024" longname="字符类型1024" base="string" maxLength="1024"/>
+    <restrictionType id="U_CHAR16" longname="字符类型16位" base="string" maxLength="16"/>
+    <restrictionType id="U_CHAR128" longname="字符类型128位" base="string" maxLength="128"/>
+    <restrictionType id="U_PROPID" longname="属性ID" base="string" maxLength="21"/>
+    <restrictionType id="U_GMTTIM" longname="GMT时间类型" base="dateTime" maxLength="6"/>
+</schema>

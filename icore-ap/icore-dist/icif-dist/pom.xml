@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<parent>
+		<groupId>cn.sunline.icif.business</groupId>
+		<artifactId>icif-parent</artifactId>
+		<version>4.0.0-SNAPSHOT</version>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>icif-dist</artifactId>
+	<name>icif-dist</name>
+	<properties>
+		<edsp-maven-genshell-version>1.1.1-RELEASE</edsp-maven-genshell-version>
+		<!-- 如果生产环境只有一个服务可调大配置：-Xms5120m -Xmx5120m   -->
+		<shell.vmOpts>
+			-server  -Xms5120m -Xmx5120m -XX:PermSize=512m -XX:MaxPermSize=1024m -XX:+UseFastAccessorMethods -XX:+UseCompressedOops -XX:+DisableExplicitGC -XX:+ExplicitGCInvokesConcurrent -XX:ParallelGCThreads=10
+			-XX:-UseAdaptiveSizePolicy -Xmn1024m -XX:SurvivorRatio=6
+			-XX:+UseConcMarkSweepGC -XX:+CMSParallelRemarkEnabled -XX:+UseCMSCompactAtFullCollection
+			-XX:+UseCMSInitiatingOccupancyOnly -XX:CMSInitiatingOccupancyFraction=70
+			-XX:+PrintGCApplicationStoppedTime -XX:+PrintGCApplicationConcurrentTime
+			-verbose:gc -XX:+PrintGCTimeStamps -XX:+PrintGCDateStamps   -Xloggc:$BASEDIR/log/$VMID/ltts_gc_`date +%s`.log
+			-XX:-TraceClassUnloading -XX:+PrintGCDetails -Dlanguage.conf=cn
+			-Dlog4j2.is.webapp=false  -Dlog4j2.enable.threadlocals=true -DenableLog=true
+			-Dlog4j.initialReusableMsgSize=300
+			-DAsyncLoggerConfig.RingBufferSize=524288
+			-Dio.netty.eventLoopThreads=2
+		</shell.vmOpts>
+		<ltts-module>true</ltts-module>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>cn.sunline.icif.business</groupId>
+			<artifactId>icif-sys</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>cn.sunline.icif.business</groupId>
+			<artifactId>icif-aplt</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>cn.sunline.icif.business</groupId>
+			<artifactId>icif-iobus</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>cn.sunline.icif.business</groupId>
+			<artifactId>us</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>cn.sunline.icif.business</groupId>
+			<artifactId>ustran</artifactId>
+		</dependency>
+	</dependencies>
+	<packaging>pom</packaging>
+</project>

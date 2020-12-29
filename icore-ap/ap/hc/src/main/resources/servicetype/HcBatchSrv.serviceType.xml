@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType id="HcBatchSrv" kind="business" longname="热点账户批量服务" package="cn.sunline.ltts.busi.hc.servicetype" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <service id="HcBatchReport" name="prcHcBatchReport" longname="热点账户日终汇总上日明细">
+        <interface>
+            <input packMode="false">
+                <field id="cplHcBatchReportIn" type="HcBatchType.HcBatchReportIn" required="false" multi="false" array="false" longname="热点账户日终汇总上日明细输入信息"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="HcDataMerging" name="prcHcDataMerging" longname="热点控制定时文件导入">
+        <interface>
+            <input packMode="false">
+                <field id="fileph" type="BaseType.U_CHAR32" required="false" multi="false" array="false" longname="文件路径" ref="OpDict.Op.fileph"/>
+                <field id="tablnm" type="HcBaseType.U_CHAR08" required="false" multi="false" array="false" longname="分标号"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+</serviceType>

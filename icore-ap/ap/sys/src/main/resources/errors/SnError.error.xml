@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<errorConf id="SnError" longname="承接神码错误码" package="cn.sunline.ltts.busi.sys.errors" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <errors id="SnComm" longname="承接神码错误码">
+        <error id="BNAS0001" type="error" message="不支持的交易类型"/>
+        <error id="BNAS0002" type="error" message="流水[${transq}]已存在">
+            <parameter id="transq" type="BaseType.U_SEQUNO" longname="流水号"/>
+        </error>
+        <error id="BNAS0003" type="error" message="操作类型不能为空"/>
+        <error id="BNAS0004" type="error" message="费种代码不能为空"/>
+        <error id="BNAS0005" type="error" message="不支持的业务场景"/>
+        <error id="BNAS0006" type="error" message="渠道[${servtp}]暂不支持">
+            <parameter id="servtp" type="BaseEnumType.E_SERVTP" longname="渠道代码"/>
+        </error>
+        <error id="ONLYCARD01" type="error" message="该业务已完成"/>
+    </errors>
+    <errors id="SnAcct" longname="承接神码账户错误码">
+        <error id="E0001" type="error" message="指定参数不能为空"/>
+        <error id="E0002" type="error" message="查询[${table}]信息不存在">
+            <parameter id="table" type="BaseType.U_SHORDS"/>
+        </error>
+        <error id="E0003" type="error" message="描述信息：[${info}]">
+            <parameter id="info" type="BaseType.U_SHORDS"/>
+        </error>
+        <error id="E0004" type="error" message="交易金额不能为负"/>
+        <error id="E0005" type="error" message="输入参数：[${param}]不能为空">
+            <parameter id="param" type="BaseType.U_SHORDS" longname="参数名"/>
+        </error>
+        <error id="E0006" type="error" message="[${param}]账户不存在">
+            <parameter id="param" type="BaseType.U_SHORDS" longname="参数名"/>
+        </error>
+        <error id="E0007" type="error" message="密码错误"/>
+    </errors>
+    <errors id="SnCups" longname="银联统一错误码">
+        <error id="CUPS0001" type="error" message="交易密码不正确，当前错误次数[${pwerct}]，剩余错误次数[${maxerr}]">
+            <parameter id="pwerct" type="BaseType.U_INTEGE" longname="错误次数"/>
+            <parameter id="maxerr" type="BaseType.U_INTEGE" longname="剩余错误次数"/>
+        </error>
+        <error id="CUPS0002" type="error" message="交易密码超过最大错误次数[${maxerr}]，已被冻结">
+            <parameter id="maxerr" type="BaseType.U_INTEGE" longname="最大错误次数"/>
+        </error>
+        <error id="CUPS0003" type="error" message="金额与原交易金额不符"/>
+        <error id="CUPS0004" type="error" message="该账号已挂失！"/>
+        <error id="CUPS0005" type="error" message="该账号未开立或已销户！"/>
+        <error id="CUPS0006" type="error" message="输入户名与账户不符！"/>
+        <error id="CUPS0007" type="error" message="流水[${transq}]交易记录不存在或失败！">
+            <parameter id="transq" type="BaseType.U_SEQUNO" longname="流水号"/>
+        </error>
+    </errors>
+</errorConf>

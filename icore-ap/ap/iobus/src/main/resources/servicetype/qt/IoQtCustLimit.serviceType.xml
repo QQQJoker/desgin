@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType id="IoQtCustLimit" kind="business" longname="移动前端限额维护" package="cn.sunline.ltts.busi.iobus.servicetype.qt" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description><![CDATA[移动前端限额维护]]></description>
+    <service id="CustLimitSel" name="custlimitsel" longname="移动前端客户认证限额查询">
+        <interface>
+            <input packMode="true">
+                <field id="brchno" type="BaseType.U_BRCHNO" required="false" multi="false" array="false" longname="机构号" ref="PbDict.Brch.brchno"/>
+                <field id="risklv" type="QtEnumType.E_RISKLV" required="false" multi="false" array="false" longname="风险承受等级" ref="QtDict.Qt.risklv"/>
+                <field id="custid" type="BaseType.U_CUSTID" required="false" multi="false" array="false" longname="用户ID" ref="BaseDict.Comm.custid"/>
+                <field id="custac" type="PbBaseType.U_CUSTAC" required="false" multi="false" array="false" longname="电子账号" ref="QtDict.Qt.custac"/>
+                <field id="custlv" type="QtEnumType.E_CUSTLV" required="false" multi="false" array="false" longname="客户等级" ref="QtDict.Qt.custlv"/>
+                <field id="acctrt" type="BaseEnumType.E_ACCTROUTTYPE" required="false" multi="false" array="false" longname="账号路由类型" ref="BaseDict.Comm.acctrt"/>
+                <field id="servtp" type="QtEnumType.E_SERVTP" required="false" multi="false" array="false" longname="渠道" ref="QtDict.Qt.servtp"/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="sglm01" type="BaseType.U_TRANAM" required="false" multi="false" array="false" longname="单笔交易支付限额(系统设置)" ref="QtDict.Qt.sglm01"/>
+                <field id="dllm01" type="BaseType.U_TRANAM" required="false" multi="false" array="false" longname="日累计交易支付限额(系统设置)" ref="QtDict.Qt.dllm01"/>
+                <field id="sglm02" type="BaseType.U_TRANAM" required="false" multi="false" array="false" longname="单笔交易支付限额(客户设置)" ref="QtDict.Qt.sglm02"/>
+                <field id="dllm02" type="BaseType.U_TRANAM" required="false" multi="false" array="false" longname="日累计交易支付限额(客户设置)" ref="QtDict.Qt.dllm02"/>
+                <field id="sglm03" type="BaseType.U_TRANAM" required="false" multi="false" array="false" longname="单笔交易转账限额(系统设置)" ref="QtDict.Qt.sglm03"/>
+                <field id="dllm03" type="BaseType.U_TRANAM" required="false" multi="false" array="false" longname="日累计交易转账限额(系统设置)" ref="QtDict.Qt.dllm03"/>
+                <field id="sglm04" type="BaseType.U_TRANAM" required="false" multi="false" array="false" longname="单笔交易转账限额(客户设置)" ref="QtDict.Qt.sglm04"/>
+                <field id="dllm04" type="BaseType.U_TRANAM" required="false" multi="false" array="false" longname="日累计交易转账限额(客户设置)" ref="QtDict.Qt.dllm04"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="CustLimitUpd" name="custlimitupd" longname="移动前端客户认证限额修改">
+        <interface>
+            <input packMode="true">
+                <field id="brchno" type="BaseType.U_BRCHNO" required="false" multi="false" array="false" longname="机构号" ref="PbDict.Brch.brchno"/>
+                <field id="custid" type="BaseType.U_CUSTID" required="false" multi="false" array="false" longname="用户ID" ref="BaseDict.Comm.custid"/>
+                <field id="custlv" type="QtEnumType.E_CUSTLV" required="false" multi="false" array="false" longname="客户等级" ref="QtDict.Qt.custlv"/>
+                <field id="risklv" type="QtEnumType.E_RISKLV" required="false" multi="false" array="false" longname="风险承受等级" ref="QtDict.Qt.risklv"/>
+                <field id="acctrt" type="BaseEnumType.E_ACCTROUTTYPE" required="false" multi="false" array="false" longname="账号路由类型" ref="BaseDict.Comm.acctrt"/>
+                <field id="servtp" type="QtEnumType.E_SERVTP" required="false" multi="false" array="false" longname="渠道" ref="QtDict.Qt.servtp"/>
+                <field id="custac" type="PbBaseType.U_CUSTAC" required="false" multi="false" array="false" longname="电子账号" ref="QtDict.Qt.custac"/>
+                <field id="sglm02" type="BaseType.U_TRANAM" required="false" multi="false" array="false" longname="单笔交易支付限额(客户设置)" ref="QtDict.Qt.sglm02"/>
+                <field id="dllm02" type="BaseType.U_TRANAM" required="false" multi="false" array="false" longname="日累计交易支付限额(客户设置)" ref="QtDict.Qt.dllm02"/>
+                <field id="sglm04" type="BaseType.U_TRANAM" required="false" multi="false" array="false" longname="单笔交易转账限额(客户设置)" ref="QtDict.Qt.sglm04"/>
+                <field id="dllm04" type="BaseType.U_TRANAM" required="false" multi="false" array="false" longname="日累计交易转账限额(客户设置)" ref="QtDict.Qt.dllm04"/>
+                <field id="sglm06" type="BaseType.U_TRANAM" required="false" multi="false" array="false" longname="单笔交易取现限额(客户设置)" ref="QtDict.Qt.sglm06"/>
+                <field id="dllm06" type="BaseType.U_TRANAM" required="false" multi="false" array="false" longname="日累计交易取现限额(客户设置)" ref="QtDict.Qt.dllm06"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoSelAuthApp" name="selAuthApp" longname="移动前端查询认证方式限额">
+        <interface>
+            <input packMode="true">
+                <field id="brchno" type="BaseType.U_BRCHNO" required="false" multi="false" array="false" longname="机构号" ref="PbDict.Brch.brchno"/>
+                <field id="acctrt" type="BaseEnumType.E_ACCTROUTTYPE" required="false" multi="false" array="false" longname="账号路由类型" ref="BaseDict.Comm.acctrt"/>
+                <field id="servtp" type="QtEnumType.E_SERVTP" required="false" multi="false" array="false" longname="渠道" ref="QtDict.Qt.servtp"/>
+                <field id="risklv" type="QtEnumType.E_RISKLV" required="false" multi="false" array="false" longname="风险承受等级" ref="QtDict.Qt.risklv"/>
+                <field id="authtp" type="BaseType.U_CHAR100" required="false" multi="false" array="false" longname="认证方式"/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="sglm01" type="BaseType.U_TRANAM" required="false" multi="false" array="false" longname="单笔交易支付限额"/>
+                <field id="dllm01" type="BaseType.U_TRANAM" required="false" multi="false" array="false" longname="日累计交易支付限额"/>
+                <field id="sglm02" type="BaseType.U_TRANAM" required="false" multi="false" array="false" longname="单笔交易转账限额"/>
+                <field id="dllm02" type="BaseType.U_TRANAM" required="false" multi="false" array="false" longname="日累计交易转账限额"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+</serviceType>

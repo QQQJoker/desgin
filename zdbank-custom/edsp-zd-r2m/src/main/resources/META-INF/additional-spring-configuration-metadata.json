@@ -1,0 +1,27 @@
+{"properties": [
+  {
+    "name": "adp.r2m.ccprovider.password",
+    "type": "java.lang.String",
+    "description": "A description for 'adp.r2m.zk-provider.password'"
+  },
+  {
+    "name": "adp.r2m.ccprovider.token",
+    "type": "java.lang.String",
+    "description": "A description for 'adp.r2m.ccprovider.token'"
+  },
+  {
+    "name": "adp.r2m.ccprovider.address",
+    "type": "java.lang.String",
+    "description": "A description for 'adp.r2m.ccprovider.address'"
+  },
+  {
+    "name": "adp.r2m.ccprovider.appName",
+    "type": "java.lang.String",
+    "description": "A description for 'adp.r2m.ccprovider.appName'"
+  },
+  {
+    "name": "adp.r2m.enabled",
+    "type": "java.lang.String",
+    "description": "A description for 'adp.r2m.enabled'"
+  }
+]}

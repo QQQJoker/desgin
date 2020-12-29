@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType id="IoOrderSysFileSevType" kind="business" longname="订单系统与销售工厂文件交互管理服务" package="cn.sunline.ltts.busi.iobus.servicetype.sl" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <service id="getOrderSysFileInfo" name="getOrderSysFileInfo" longname="订单系统与销售工厂文件交互">
+        <interface>
+            <input packMode="false">
+                <field id="dataid" type="BaseType2.U_CHAR50" required="false" default="''" multi="false" array="false" longname="文件数据类型"/>
+                <field id="acctdt" type="BaseType2.U_CHAR08" required="false" default="''" multi="false" array="false" longname="交易日期"/>
+                <field id="filenm" type="BaseType2.U_CHAR100" required="false" default="''" multi="false" array="false" longname="文件名称"/>
+                <field id="flpath" type="BaseType2.U_CHAR100" required="false" default="''" multi="false" array="false" longname="文件路径"/>
+                <field id="params" type="BaseType2.U_CHAR400" required="false" default="''" multi="false" array="false" longname="附加参数"/>
+                <field id="busseq" type="BaseType2.U_CHAR40" required="false" default="''" multi="false" array="false" longname="业务流水"/>
+                <field id="source" type="BaseType2.U_CHAR10" required="false" default="''" multi="false" array="false" longname="原系统ID"/>
+                <field id="target" type="BaseType2.U_CHAR10" required="false" default="''" multi="false" array="false" longname="目标系统ID"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="quotaControlInAndUp" name="quotaControlInAndUp" longname="额度维护（销售工厂发起）">
+        <interface>
+            <input packMode="true">
+                <field id="prodid" type="BaseType2.U_CHAR40" required="false" multi="false" array="false" longname="产品ID"/>
+                <field id="opertp" type="BaseEnumType2.E_OPERTP" required="false" multi="false" array="false" longname="操作类型"/>
+                <field id="pclist" type="IoOdTypeInfo.quotaConInfo" required="false" multi="true" array="false" longname="额度控制列表"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+</serviceType>

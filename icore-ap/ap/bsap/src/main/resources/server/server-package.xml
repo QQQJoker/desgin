@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- [Template id=系统报文登记配置 longname=系统报文登记配置] -->
+<pckgConfig regFlag="${是否登记|true}" asynFlag="${是否异步|true}" asynType="${异步方式|BQ}" useClobTab="${是否启用大字段副表|false}"
+	allFlag="${是否登记上下报文|true}" threadNum="${异步线程数|2}" quequeSize="${异步队列深度|500}" 
+	byInsertBatch="${是否批量登记|true}" batchSize="${批量登记笔数|50}"/>
+<!-- [End] -->

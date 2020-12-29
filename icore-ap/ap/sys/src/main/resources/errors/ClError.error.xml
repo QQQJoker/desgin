@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<errorConf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="ClError" longname="额度相关错误码" package="cn.sunline.ltts.busi.sys.errors" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <errors id="Clca" longname="额度计算">
+        <error id="E0001" type="error" message="[${msg}]" errorCode="010C0000">
+            <parameter id="msg" type="BaseType.U_CHAR100" longname="错误信息"/>
+        </error>
+        <error id="E0002" type="error" message="查不到客户号为：[${custno}]，额度编号为[${crdlno}] 额度类型编号为[${cltpcd}] 的记录" errorCode="010C0001">
+            <parameter id="custno" type="BaseType.U_CHAR100" longname="客户号"/>
+            <parameter id="crdlno" type="BaseType.U_CHAR100" longname="额度编号"/>
+            <parameter id="cltpcd" type="BaseType.U_CHAR100" longname="额度类型编号"/>
+        </error>
+        <error id="E0003" type="error" message="额度编号为[${crdlon}]的记录已经失效" errorCode="010C0002">
+            <parameter id="crdlon" type="BaseType.U_CHAR100" longname="额度编号"/>
+        </error>
+        <error id="E0004" type="error" message="额度列表不能为空！" errorCode="010C0003"/>
+        <error id="E0005" type="error" message="当前客户不存在萨摩耶产品额度！" errorCode="010C0004"/>
+        <error id="E0006" type="error" message="当前客户存在多个产品额度，不能进行额度调整！" errorCode="010C0005"/>
+    </errors>
+    <errors id="Einser" longname="新增额度">
+        <description><![CDATA[新增额度错误文件]]></description>
+        <error id="E0001" type="error" message="[${msg}]" errorCode="010C0006">
+            <parameter id="msg" type="BaseType.U_CHAR200" longname="错误提示"/>
+        </error>
+        <error id="E0002" type="error" message="所输入数据有误！(上级额度百分比与指定额度金额不能共存)" errorCode="010C0007"/>
+        <error id="E0003" type="error" message="所输入数据有误！(上级额度百分比与指定额度金额不能同时为空)" errorCode="010C0008"/>
+        <error id="E0004" type="error" message="临时额度币种需要和额度币种保持一致！" errorCode="010C0009"/>
+        <error id="E0005" type="error" message="临时额度失效日期不可超出额度失效日期！" errorCode="010C0010"/>
+        <error id="E0006" type="error" message="查询额度控制消费贷产品配置参数异常！" errorCode="010C0011"/>
+        <error id="E0007" type="error" message="根据客户号查询电子账户表出现异常！" errorCode="010C0012"/>
+        <error id="E0008" type="error" message="额度产品号：[${prodcd}]无效，请核对！" errorCode="010C0013">
+            <parameter id="prodcd" type="BaseType.U_PRODCD" longname="额度产品号"/>
+        </error>
+        <error id="E0009" type="error" message="额度产品号:[${prodcd}],额度级别:[${cllevl}],产品号/账号/卡号/上级客户号/交易渠道:[${busino}],在额度结构表中不存在，请核对!" errorCode="010C0014">
+            <parameter id="prodcd" type="BaseType.U_PRODCD" longname="额度产品号"/>
+            <parameter id="cllevl" type="BaseType.U_CHAR100" longname="额度级别"/>
+            <parameter id="busino" type="BaseType.U_BUSINO" longname="产品号/账号/卡号/上级客户号/交易渠道"/>
+        </error>
+        <error id="E0010" type="error" message="客户号：[${custno}],额度编号：[${crdlno}],产品号/账号/卡号/上级客户号/交易渠道号：[${busino}],在额度表中不存在，请核对!" errorCode="010C0015">
+            <parameter id="custno" type="BaseType.U_CUSTNO" longname="客户号"/>
+            <parameter id="crdlno" type="BaseType.U_CHAR100" longname="额度编号"/>
+            <parameter id="busino" type="BaseType.U_BUSINO" longname="产品号/账号/卡号/上级客户号/交易渠道号"/>
+        </error>
+        <error id="E0011" type="error" message="额度产品号:[${prodcd}],在额度结构表中不存在，请核对!" errorCode="010C0016">
+            <parameter id="prodcd" type="BaseType.U_PRODCD" longname="额度产品号"/>
+        </error>
+        <error id="E0012" type="error" message="授信额度不能超过[${pmval1}]!" errorCode="010C0017">
+            <parameter id="pmval1" type="BaseType.U_CHAR100" longname="参数1"/>
+        </error>
+        <error id="E0013" type="error" message="个人消费贷产品授信额度申请与已用额度之和不能超过[${pmval1}]!" errorCode="010C0018">
+            <parameter id="pmval1" type="BaseType.U_CHAR100" longname="参数1"/>
+        </error>
+    </errors>
+    <errors id="CL" longname="额度通用">
+        <description><![CDATA[额度通用错误码]]></description>
+        <error id="E0001" type="error" message="币种不能为空！" errorCode="010C0019"/>
+        <error id="E0002" type="error" message="产品号/账号/卡号/上级客户号/交易渠道 不能为空!" errorCode="010C0020"/>
+        <error id="E0003" type="error" message="此额度还未生效!" errorCode="010C0021"/>
+        <error id="E0004" type="error" message="此额度已被冻结或未生效！" errorCode="010C0022"/>
+        <error id="E0005" type="error" message="当前页数为空！" errorCode="010C0023"/>
+        <error id="E0006" type="error" message="额度编号 不能为空！" errorCode="010C0024"/>
+        <error id="E0007" type="error" message="额度产品号不能为空！" errorCode="010C0025"/>
+        <error id="E0008" type="error" message="额度级别不能为空！" errorCode="010C0026"/>
+        <error id="E0009" type="error" message="额度金额不能为空！" errorCode="010C0027"/>
+        <error id="E0010" type="error" message="额度类型编号不能为空！" errorCode="010C0028"/>
+        <error id="E0011" type="error" message="额度失效日期异常，失效日期必须大于当前日期！" errorCode="010C0029"/>
+        <error id="E0012" type="error" message="交易金额不能为空！" errorCode="010C0030"/>
+        <error id="E0013" type="error" message="客户号不存在！" errorCode="010C0031"/>
+        <error id="E0014" type="error" message="客户号不能为空！" errorCode="010C0032"/>
+        <error id="E0015" type="error" message="失效日期不能为空！" errorCode="010C0033"/>
+        <error id="E0016" type="error" message="每页记录数不能为空！" errorCode="010C0034"/>
+        <error id="E0017" type="error" message="可用额度余额不足!" errorCode="010C0035"/>
+        <error id="E0018" type="error" message="冻结额度不能为空!" errorCode="010C0036"/>
+        <error id="E0019" type="error" message="此额度已经过了有效期，不能继续使用！" errorCode="010C0037"/>
+        <!--  <error id="E0020" type="error" message="交易金额不能为空！"/>  -->
+        <error id="E0021" type="error" message="交易卡号不能为空！" errorCode="010C0038"/>
+        <error id="E0022" type="error" message="解冻金额 不能为空！" errorCode="010C0039"/>
+        <error id="E0023" type="error" message="增减标志不能为空！" errorCode="010C0040"/>
+        <error id="E0024" type="error" message="已存在有效的额度产品！" errorCode="010C0041"/>
+        <error id="E0025" type="error" message="交易时间不能为空！" errorCode="010C0042"/>
+        <error id="E0026" type="error" message="所要解冻的额度不存在！" errorCode="010C0043"/>
+        <error id="E0027" type="error" message="新增额度金额需大于0！" errorCode="010C0044"/>
+        <error id="E0028" type="error" message="客户号为:[${custno}],不能查询到唯一的额度记录！" errorCode="010C0045">
+            <parameter id="custno" type="BaseType.U_CUSTNO" longname="客户号"/>
+        </error>
+        <error id="E0029" type="error" message="所要解冻的额度不存在！" errorCode="010C0046"/>
+        <error id="E0030" type="error" message="剩余冻结额度小于请求的解冻金额！" errorCode="010C0047"/>
+        <error id="E0031" type="error" message="删除[额度产品表]失败，无对应记录!" errorCode="010C0048"/>
+        <error id="E0032" type="error" message="删除[额度级别配置]失败，无对应记录!" errorCode="010C0049"/>
+        <error id="E0033" type="error" message="删除[额度结构配置]失败，无对应记录！" errorCode="010C0050"/>
+        <error id="E0034" type="error" message="币种出现异常！" errorCode="010C0051"/>
+        <error id="E0035" type="error" message="有效状态异常！" errorCode="010C0052"/>
+        <error id="E0036" type="error" message="本次交易日期不能大于失效日期，请确认！" errorCode="010C0053"/>
+        <error id="E0037" type="error" message="该额度产品号已存在额度结构根节点[${cltpcd}]！" errorCode="010C0054">
+            <parameter id="cltpcd" type="BaseType.U_CHAR10" longname="根节点"/>
+        </error>
+    </errors>
+</errorConf>

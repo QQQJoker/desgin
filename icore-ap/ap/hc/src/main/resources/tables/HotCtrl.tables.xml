@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema id="HotCtrl" package="cn.sunline.ltts.busi.hc.tables" longname="热点控制相关表" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <table id="HcpType" name="hcp_type" longname="热点类型表" virtual="false" extension="SysCommFieldTable.KapComm" abstract="false">
+        <fields>
+            <field id="hctype" longname="热点类型" type="HcEnumType.E_HCTYPE" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="hcmold" longname="控制类型" type="HcEnumType.E_HCMOLD" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="ctrlwy" longname="控制方式" type="HcEnumType.E_CTRLWY" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="hcdspt" longname="热点描述" type="HcBaseType.U_LONGDS" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="unique" fields="hctype" operate="selectOne deleteOne updateOne"/>
+        </odbindexes>
+        <indexes>
+            <index id="hc_type_uk1" type="unique" fields="hctype corpno">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+    <table id="HcpDefn" name="hcp_defn" longname="热点定义表" virtual="false" extension="SysCommFieldTable.KapComm" abstract="false">
+        <fields>
+            <field id="hcmain" longname="热点主体号" type="HcBaseType.U_CHAR30" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="hctype" longname="热点类型" type="HcEnumType.E_HCTYPE" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="gropnm" longname="分组号" type="HcBaseType.U_CHAR02" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="effcdt" longname="生效日期" type="HcBaseType.U_DATE08" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="expidt" longname="失效日期" type="HcBaseType.U_DATE08" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="hcstas" longname="热点状态" type="HcEnumType.E_HCSTAS" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="blncdr" longname="余额方向" type="BaseEnumType.E_BLNCDR" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="unique" fields="hcmain" operate="selectOne deleteOne updateOne"/>
+        </odbindexes>
+        <indexes>
+            <index id="hc_defn_uk1" type="unique" fields="hcmain corpno">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+    <table id="HcpSydt" name="hcp_sydt" longname="热点日期表" virtual="false" abstract="false">
+        <fields>
+            <field id="corpno" longname="法人代码" type="BaseType.U_CORPNO" ref="ApDict.Aplt.corpno" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="hcbfdt" longname="热点上上日期" type="HcBaseType.U_DATE08" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="hclsdt" longname="热点上日日期" type="HcBaseType.U_DATE08" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="hcsydt" longname="热点日期" type="HcBaseType.U_DATE08" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="hcnxdt" longname="热点下日日期" type="HcBaseType.U_DATE08" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="hcafdt" longname="热点下下日期" type="HcBaseType.U_DATE08" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="timetm" longname="时间戳" type="ApBaseType.U_TMSTMP" ref="ApDict.Aplt.timetm" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="unique" fields="corpno" operate="selectOne updateOne selectOneWithLock" cache="trans"/>
+        </odbindexes>
+        <indexes>
+            <index id="hc_sydt_uk1" type="unique" fields="corpno">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+    <table id="HcbSumy" name="hcb_sumy" longname="热点额度节点汇总表" virtual="false" extension="SysCommFieldTable.KapComm" abstract="false">
+        <fields>
+            <field id="trandt" longname="交易日期" type="BaseType.U_DATE08" ref="BaseDict.Comm.trandt" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="hctype" longname="热点类型" type="HcEnumType.E_HCTYPE" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="hcmain" longname="热点主体号" type="HcBaseType.U_CHAR30" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="amntcd" longname="余额方向" type="BaseEnumType.E_AMNTCD" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="cdcnno" longname="DCN编号" type="BaseType.U_DCNNO" ref="BaseDict.Comm.cdcnno" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="summam" longname="汇总金额" type="HcBaseType.U_TRANAM" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <indexes>
+            <index id="hc_cl_sumy_idx1" type="index" fields="trandt cdcnno hcmain hctype corpno">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+    <table id="HcbNris" name="hcb_nris" longname="热点额度未释放差错表" virtual="false" extension="SysCommFieldTable.KapComm" abstract="false">
+        <fields>
+            <field id="trandt" longname="交易日期" type="BaseType.U_DATE08" ref="BaseDict.Comm.trandt" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="transq" longname="交易流水" type="BaseType.U_SEQUNO" ref="BaseDict.Comm.transq" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="detlsq" longname="交易明细序号" type="HcBaseType.U_SEQUNO" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="hctype" longname="热点类型" type="HcEnumType.E_HCTYPE" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="hcmain" longname="热点主体号" type="HcBaseType.U_CHAR30" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="amntcd" longname="余额方向" type="BaseEnumType.E_AMNTCD" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="tranam" longname="交易金额" type="BaseType.U_TRANAM" ref="BaseDict.Comm.tranam" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="nestyn" longname="是否冲正" type="HcEnumType.E_NESTYN" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="cdcnno" longname="DCN编号" type="BaseType.U_DCNNO" ref="BaseDict.Comm.cdcnno" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="dealss" longname="处理状态" type="HcEnumType.E_DEALSS" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <indexes>
+            <index id="hc_not_rels_uk1" type="unique" fields="trandt transq cdcnno corpno">
+                <ddls/>
+            </index>
+            <index id="hc_not_rels_uk2" type="unique" fields="trandt detlsq cdcnno corpno">
+                <ddls/>
+            </index>
+            <index id="hc_not_rels_idx1" type="index" fields="hctype hcmain cdcnno corpno">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+    <table id="HcbFailSumy" name="hcb_fail_sumy" longname="热点额度汇总差错表" virtual="false" extension="SysCommFieldTable.KapComm" abstract="false">
+        <fields>
+            <field id="tranam" longname="交易金额" type="BaseType.U_TRANAM" ref="BaseDict.Comm.tranam" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="hctype" longname="热点类型" type="HcEnumType.E_HCTYPE" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="hcmain" longname="热点主体号" type="HcBaseType.U_CHAR30" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="cdcnno" longname="DCN编号" type="BaseType.U_DCNNO" ref="BaseDict.Comm.cdcnno" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="ajstdt" longname="调整方向" type="BaseEnumType.E_AMNTCD" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="ajstam" longname="调整金额" type="HcBaseType.U_TRANAM" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <indexes>
+            <index id="hc_fail_sumy_idx1" type="index" fields="hctype hcmain cdcnno corpno">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+    <table id="HcbBlce" name="hcb_blce" longname="余额表" virtual="false" extension="SysCommFieldTable.KapComm" abstract="false">
+        <fields>
+            <field id="hcacct" longname="账户或产品号" type="HcBaseType.U_CHAR30" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="balnce" longname="余额" type="HcBaseType.U_TRANAM" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="unique" fields="hcacct" operate="selectOne deleteOne updateOne"/>
+        </odbindexes>
+        <indexes>
+            <index id="hc_blce_uk1" type="unique" fields="hcacct corpno">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+    <table id="HcbBlceDetl" name="hcb_blce_detl" longname="余额明细表" virtual="false" extension="SysCommFieldTable.KapComm" abstract="false">
+        <fields>
+            <field id="trandt" longname="交易日期" type="BaseType.U_DATE08" ref="BaseDict.Comm.trandt" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="transq" longname="交易流水" type="BaseType.U_SEQUNO" ref="BaseDict.Comm.transq" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="hcacct" longname="账户或产品号" type="HcBaseType.U_CHAR30" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="tranam" longname="交易金额" type="BaseType.U_TRANAM" ref="BaseDict.Comm.tranam" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="amntcd" longname="余额方向" type="BaseEnumType.E_AMNTCD" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="remain" longname="交易后余额" type="HcBaseType.U_TRANAM" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="detlss" longname="处理状态" type="HcEnumType.E_DETLSS" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes/>
+        <indexes>
+            <index id="hc_blce_detl_uk1" type="unique" fields="trandt transq hcacct corpno">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+    <table id="HcbFile" name="hcb_file" longname="热点同步文件记录表" virtual="false" extension="SysCommFieldTable.KapComm" abstract="false">
+        <fields>
+            <field id="flpath" longname="文件路径" type="HcBaseType.U_CHAR30" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="flname" longname="文件名" type="HcBaseType.U_CHAR30" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="hsread" longname="是否读取" type="HcEnumType.E_HSREAD" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="trandt" longname="日期" type="HcBaseType.U_DATE08" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+
+            <field id="tablnm" longname="分表号" type="HcBaseType.U_CHAR08" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="index" fields="hsread tablnm" operate="selectAll"/>
+            <index id="odb2" type="unique" fields="flname trandt" operate="selectOne deleteOne updateOne"/>
+        </odbindexes>
+        <indexes>
+            <index id="hcb_file_uk1" type="unique" fields="flname trandt corpno">
+                <ddls/>
+            </index>
+            <index id="hcb_file_idx1" type="index" fields="hsread tablnm corpno">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+</schema>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema id="ApGenCodeRule" package="cn.sunline.ltts.busi.aplt.type" longname="编码规则生成用复合类型" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description><![CDATA[编码规则生成用复合类型]]></description>
+    <complexType id="ApSeqTypeStru" longname="序号种类结构" dict="false" abstract="false" introduct="false">
+        <odbindexes/>
+        <element id="sequnm" longname="序号" type="BaseType.U_SENOTP" ref="ApDict.Aplt.sequnm" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="xhaoczbz" longname="序号操作标志" type="ApBaseType.U_CHANZXLX" ref="ApDict.Aplt.xhaoczbz" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="ApCodeRuleForm" longname="编码规则表格结构" dict="false" abstract="false" introduct="false">
+        <element id="sequnm" longname="序号" type="BaseType.U_SENOTP" ref="ApDict.Aplt.sequnm" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="nolist" longname="编码组成列表" type="ApBaseEnumType.E_NOLIST" ref="BaseDict.Comm.nolist" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="bmzcmios" longname="编码组成中文描述" type="ApBaseType.U_DNMIAOSH" ref="ApDict.Aplt.bmzcmios" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="qisweizh" longname="起始位置" type="ApBaseType.U_CHANZXLX" ref="ApDict.Aplt.qisweizh" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="zcchangd" longname="组成长度" type="ApBaseType.U_CHANZXLX" ref="ApDict.Aplt.zcchangd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="buweizhi" longname="补位值" type="ApBaseType.U_DNMIAOSH" ref="ApDict.Aplt.buweizhi" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="filltp" longname="补位方式" type="ApBaseEnumType.E_FILLTP" ref="BaseDict.Comm.filltp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="mkuptp" longname="组成类型" type="ApBaseEnumType.E_ACMPTP" ref="BaseDict.Comm.mkuptp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="spprtp" longname="特殊处理标志" type="ApBaseEnumType.E_SPPRTP" ref="BaseDict.Comm.spprtp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="ApCodeRuleIn" longname="编码规则输入结构" dict="false" abstract="false" introduct="false">
+        <element id="cswhczbz" longname="参数维护操作标志" type="ApBaseEnumType.E_CARDCZBZ.E_CARDCZBZ_WH" ref="ApDict.Aplt.cswhczbz" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="noctcd" longname="编码生成代码" type="BaseType.U_CHAR10" ref="ApDict.Aplt.noctcd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="bmchangd" longname="编码长度" type="ApBaseType.U_CHANZXLX" ref="ApDict.Aplt.bmchangd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="suoshumk" longname="所属模块" type="ApBaseEnumType.E_SUOSHUMK" ref="ApDict.Aplt.suoshumk" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="czzhouqi" longname="重置周期" type="ApBaseEnumType.E_QIXIANDW.E_QIXIANDW_CZZQ" ref="ApDict.Aplt.czzhouqi" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="noctds" longname="编码生成码描述" type="BaseType.U_CHAR200" ref="ApDict.Aplt.noctds" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="lstbmgzxx" longname="编码规则组成表格输入信息" type="ApGenCodeRule.ApCodeRuleForm" required="false" multi="true" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="ApCodeRuleOut" longname="编码规则输出结构" dict="false" abstract="false" introduct="false">
+        <element id="noctcd" longname="编码生成代码" type="BaseType.U_CHAR10" ref="ApDict.Aplt.noctcd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="bmchangd" longname="编码长度" type="ApBaseType.U_CHANZXLX" ref="ApDict.Aplt.bmchangd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="suoshumk" longname="所属模块" type="ApBaseEnumType.E_SUOSHUMK" ref="ApDict.Aplt.suoshumk" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="czzhouqi" longname="重置周期" type="ApBaseEnumType.E_QIXIANDW.E_QIXIANDW_CZZQ" ref="ApDict.Aplt.czzhouqi" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="noctds" longname="编码生成码描述" type="BaseType.U_CHAR200" ref="ApDict.Aplt.noctds" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="lstbmgzxx" longname="编码规则组成输出信息" type="ApGenCodeRule.ApCodeRuleForm" required="false" multi="true" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+</schema>

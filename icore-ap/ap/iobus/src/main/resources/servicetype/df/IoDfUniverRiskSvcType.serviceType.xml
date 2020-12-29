@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType id="IoDfUniverRiskSvcType" kind="business" longname="万能险服务相关" package="cn.sunline.ltts.busi.iobus.servicetype.df" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <service id="IoDfInsuBuyAppl" name="insuBuyAppl" longname="核保申请登记">
+        <interface>
+            <input packMode="false">
+                <field id="orderr" type="IoDfUniverRiskType.IoDfUniverRiskOrder" required="false" multi="false" array="false" longname="订单"/>
+                <field id="itemin" type="IoDfUniverRiskType.IoDfUniverRiskItem" required="false" multi="false" array="false" longname="险种"/>
+                <field id="basein" type="IoDfUniverRiskType.IoDfUniverRiskBase" required="false" multi="false" array="false" longname="基本信息"/>
+                <field id="hldins" type="IoDfUniverRiskType.IoDfUniverRiskInsuredList" required="false" multi="false" array="false" longname="被保人"/>
+                <field id="beneft" type="IoDfUniverRiskType.IoDfUniverRiskBenefitList" required="false" multi="false" array="false" longname="收益人"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoDfInsuPayed" name="insuPayed" longname="承保信息登记">
+        <interface>
+            <input packMode="false">
+                <field id="custac" type="BaseType.U_CUACNO" required="false" multi="false" array="false" longname="客户账号" ref="DpDict.Acct.custac"/>
+                <field id="ordrid" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="订单号" ref="DpDict.Insu.ordrid"/>
+                <field id="propno" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="投保单号" ref="DpDict.Insu.propno"/>
+                <field id="polino" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="保单号" ref="DpDict.Insu.polino"/>
+                <field id="premum" type="BaseType.U_ACBLTP" required="false" multi="false" array="false" longname="总保费"/>
+                <field id="crcycd" type="BaseType.U_CRCYCD" required="false" multi="false" array="false" longname="币种" ref="PbDict.Intr.crcycd"/>
+                <field id="hdpdtm" type="BaseType.U_DATE22" required="false" multi="false" array="false" longname="出单时间"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoDfInsuBackAppl" name="insuBackAppl" longname="退保申请登记">
+        <interface>
+            <input packMode="false">
+                <field id="ordrid" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="订单号"/>
+                <field id="refuid" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="退保订单号"/>
+                <field id="refuno" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="保全号"/>
+                <field id="rebktm" type="BaseType.U_DATE22" required="false" multi="false" array="false" longname="退保回调时间"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoQryDfHoldDetlLst" name="qryDfHoldDetlLst" longname="保单详细列表查询">
+        <interface>
+            <input packMode="false">
+                <field id="custac" type="BaseType.U_CUACNO" required="false" multi="false" array="false" longname="客户账号" ref="DpDict.Acct.custac"/>
+                <field id="crcycd" type="BaseType.U_CRCYCD" required="false" multi="false" array="false" longname="币种" ref="PbDict.Intr.crcycd"/>
+                <field id="skuucd" type="BaseType.U_CHAR04" required="false" multi="false" array="false" longname="sku码"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="ordrls" type="IoDfUniverRiskType.IoDfUniverRiskHoldDetlList" required="false" multi="false" array="false" longname="订单信息列表"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoQryInsuBeneLst" name="qryInsuBeneLst" longname="通过订单查询受益人和被保人信息列表">
+        <interface>
+            <input packMode="false">
+                <field id="custac" type="BaseType.U_CUACNO" required="false" multi="false" array="false" longname="客户账号" ref="DpDict.Acct.custac"/>
+                <field id="ordrid" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="订单号"/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="hldins" type="IoDfUniverRiskType.IoDfUniverRiskInsuredList" required="false" multi="false" array="false" longname="被保人"/>
+                <field id="beneft" type="IoDfUniverRiskType.IoDfUniverRiskBenefitList" required="false" multi="false" array="false" longname="收益人"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoQryInsuOrderDetail" name="qryInsuOrderDetail" longname="查询保险订单明细">
+        <interface>
+            <input packMode="false">
+                <field id="custac" type="BaseType.U_CUACNO" required="false" multi="false" array="false" longname="客户账号" ref="DpDict.Acct.custac"/>
+                <field id="ordrid" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="订单号"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="ordrdl" type="IoDfUniverRiskType.IoDfInsuDetailInfo" required="false" multi="false" array="false" longname="保险订单明细"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoUptInsuStatus" name="uptInsuStatus" longname="修改保单状态">
+        <interface>
+            <input packMode="false">
+                <field id="custac" type="BaseType.U_CUACNO" required="false" multi="false" array="false" longname="客户账号" ref="DpDict.Acct.custac"/>
+                <field id="polino" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="保单号" ref="DpDict.Insu.polino"/>
+                <field id="ordrid" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="订单号"/>
+                <field id="insust" type="BaseEnumType.E_INSUST" required="false" multi="false" array="false" longname="保单状态" ref="DpDict.Insu.insust"/>
+                <field id="tranam" type="BaseType.U_TRANAM" required="false" multi="false" array="false" longname="交易金额" ref="DpDict.Acct.tranam"/>
+                <field id="keepdt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="清算日期" ref="DpDict.Acct.keepdt"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="updttm" type="BaseType.U_DATE22" required="false" multi="false" array="false" longname="状态修改时间"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoQryInsuOrderDayLst" name="qryInsuOrderDayLst" longname="按日期查询保单列表">
+        <interface>
+            <input packMode="false">
+                <field id="trandt" type="LnBaseType.U_DATE08" required="false" multi="false" array="false" longname="交易日期" ref="LnDict.LNF.trandt"/>
+                <field id="startt" type="BaseType.U_LONGIN" required="false" multi="false" array="false" longname="起始记录数" ref="PbDict.Comm.startt"/>
+                <field id="record" type="BaseType.U_LONGIN" required="false" multi="false" array="false" longname="每页记录数" ref="PbDict.Comm.record"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="outLst" type="IoDfUniverRiskType.IoDfUniverRiskHoldDetlTblList" required="false" multi="false" array="false" longname="保单详细列表"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoUptInsuInfo" name="uptInsuInfo" longname="修改保单信息">
+        <interface>
+            <input packMode="false">
+                <field id="ordrid" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="订单号" ref="DpDict.Insu.ordrid"/>
+                <field id="refuid" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="退保订单号" ref="DpDict.Insu.refuid"/>
+                <field id="refuno" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="保全号" ref="DpDict.Insu.refuno"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoDfQryInsuBal" name="qryInsuBal" longname="查询保险账户余额">
+        <interface>
+            <input packMode="false">
+                <field id="custac" type="BaseType.U_CUACNO" required="false" multi="false" array="false" longname="客户账号" ref="DpDict.Acct.custac"/>
+                <field id="skuucd" type="BaseType.U_CHAR04" required="false" multi="false" array="false" longname="sku码"/>
+            </input>
+            <output asParm="false" packMode="true">
+                <field id="insucm" type="BaseType.U_ACBLTP" required="false" multi="false" array="false" longname="累计收益" ref="DfDict.Insu.insucm"/>
+                <field id="acctcm" type="BaseType.U_ACBLTP" required="false" multi="false" array="false" longname="账户价值" ref="DfDict.Insu.acctcm"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoDfInsuBackPay" name="insuBackPay" longname="退保记账处理">
+        <interface>
+            <input packMode="false">
+                <field id="polino" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="保单号" ref="DpDict.Insu.polino"/>
+                <field id="tranam" type="BaseType.U_TRANAM" required="false" multi="false" array="false" longname="交易金额" ref="DpDict.Acct.tranam"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="cplOut" type="IoDfUniverRiskType.IoDfInsuBackOut" required="false" multi="false" array="false" longname="退保输出"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoDfInsuBuyPay" name="insuBuyPay" longname="保险申购记账处理">
+        <interface>
+            <input packMode="false">
+                <field id="cpbyin" type="IoDfUniverRiskType.IoDfInsuBuyIn" required="false" multi="false" array="false" longname="保险申购输入"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="cplOut" type="IoDfUniverRiskType.IoDfInsuBuyOut" required="false" multi="false" array="false" longname="保险申购输出"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoDfQryInsuReturnInfo" name="qryInsu" longname="查询退保中的保单明细">
+        <interface>
+            <input packMode="false">
+                <field id="trandt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="交易日期" ref="DpDict.Acct.trandt"/>
+                <field id="pageno" type="BaseType.U_LONGIN" required="false" multi="false" array="false" longname="页数" ref="PbDict.Comm.pageno"/>
+                <field id="record" type="BaseType.U_LONGIN" required="false" multi="false" array="false" longname="每页记录数" ref="PbDict.Comm.record"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="dfinru" type="IoDfUniverRiskType.IoDfInsuReturnInfoList" required="false" multi="false" array="false" longname="退保客户应退明细列表"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="genDfCustFiles" name="genDfCustFiles" longname="理财保险导出数据文件">
+        <interface>
+            <input packMode="false">
+                <field id="lstrdt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="上次交易日期" ref="DpDict.Acct.lstrdt"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoQryProdInfoList" name="qryProdInfoList" longname="查询保险产品信息">
+        <interface>
+            <input packMode="false">
+                <field id="custac" type="BaseType.U_CUACNO" required="false" multi="false" array="false" longname="电子账号" ref="LnDict.LNF.custac"/>
+            </input>
+            <output asParm="false" packMode="true">
+                <field id="totlcm" type="BaseType.U_ACBLTP" required="false" multi="false" array="false" longname="昨日总收益"/>
+                <field id="prodInfoList" type="IoDfUniverRiskType.IoDfProdInfoList" required="false" multi="true" array="false" longname="保险产品信息列表"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoQryPoliInfoList" name="qryPoliInfoLst" longname="查询产品保单明细信息">
+        <interface>
+            <input packMode="false">
+                <field id="custac" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="电子账号"/>
+                <field id="skucod" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="险种Sku代码"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="poliInfoList" type="IoDfUniverRiskType.IoDfpoliInfoO" required="false" multi="false" array="false" longname="产品保单信息外层"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoQryPdEarnInfoList" name="qryPdEarnInfoList" longname="查询收益明细">
+        <interface>
+            <input packMode="false">
+                <field id="acctno" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="保险账号"/>
+                <field id="skucod" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="险种Sku代码"/>
+                <field id="polino" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="保单号"/>
+                <field id="isprod" type="BaseEnumType.E_YES___" required="false" multi="false" array="false" longname="是否按产品"/>
+                <field id="startt" type="BaseType.U_LONGIN" required="false" default="0" multi="false" array="false" longname="起始记录数" ref="PbDict.Comm.startt"/>
+                <field id="record" type="BaseType.U_LONGIN" required="false" default="0" multi="false" array="false" longname="每页记录数" ref="PbDict.Comm.record"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="earnList" type="IoDfUniverRiskType.IoDfpdEarnInfoO" required="false" multi="false" array="false" longname="收益明细信息外层"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoDfGhBuyAppl" name="ghBuyAppl" longname="核保申请登记（国华华瑞）">
+        <description><![CDATA[]]></description>
+        <interface>
+            <input packMode="false">
+                <field id="orderr" type="IoDfUniverRiskType.IoDfUniverRiskOrder" required="false" multi="false" array="false" longname="订单"/>
+                <field id="itemin" type="IoDfUniverRiskType.IoDfUniverRiskItem" required="false" multi="false" array="false" longname="险种"/>
+                <field id="basein" type="IoDfUniverRiskType.IoDfUniverRiskBase" required="false" multi="false" array="false" longname="基本信息"/>
+                <field id="hldins" type="IoDfUniverRiskType.IoDfUniverRiskInsuredList" required="false" multi="false" array="false" longname="被保人"/>
+                <field id="beneft" type="IoDfUniverRiskType.IoDfUniverRiskBenefitList" required="false" multi="false" array="false" longname="收益人"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoDfGhBackAppl" name="ghBackAppl" longname="退保申请登记（国华华瑞）">
+        <description><![CDATA[]]></description>
+        <interface>
+            <input packMode="false">
+                <field id="custac" type="BaseType.U_CUACNO" required="false" multi="false" array="false" longname="电子账号"/>
+                <field id="ordrid" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="订单号"/>
+                <field id="refuno" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="保全号"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+</serviceType>

@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema id="SysPropTable" package="cn.sunline.ltts.busi.aplt.tables" longname="系统产品属性限制定义表" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <table id="AppEnum" name="app_enum" longname="枚举列表" category="1" virtual="false" changelog="false" abstract="false">
+        <fields>
+            <field id="fullid" longname="FULLID" type="BaseType.U_CHAR40" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="enumid" longname="枚举ID" type="BaseType.U_CHAR10" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="enumnm" longname="枚举名称" type="BaseType.U_CHAR80" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="enummd" longname="所属模块" type="BaseType.U_CHAR02" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="enumtp" longname="枚举类型" type="BaseType.U_CHAR20" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="enumtx" longname="枚举说明" type="BaseType.U_CHAR40" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="unique" fields="fullid" operate="selectOne updateOne"/>
+        </odbindexes>
+        <indexes>
+            <index id="app_enum_uk1" type="unique" fields="fullid">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+    <table id="AppEnumValu" name="app_enum_valu" longname="枚举值" category="1" virtual="false" changelog="false" abstract="false">
+        <fields>
+            <field id="fullid" longname="FULLID" type="BaseType.U_CHAR40" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="valuid" longname="枚举值ID" type="BaseType.U_CHAR20" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="enumvl" longname="枚举值" type="BaseType.U_CHAR40" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="valutx" longname="枚举值描述" type="BaseType.U_CHAR40" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <odbindexes>
+            <index id="odb1" type="unique" fields="fullid valuid" operate="selectOne updateOne"/>
+        </odbindexes>
+        <indexes>
+            <index id="app_enum_valu_uk1" type="unique" fields="fullid valuid">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+    <table id="AppProdTemp" name="app_prod_temp" longname="产品模板表" category="1" virtual="false" extension="SysCommFieldTable.KapComm" changelog="false" abstract="false">
+        <fields>
+            <field id="tempcd" longname="产品模板代码" type="BaseType.U_CHAR10" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="temptp" longname="模板分类" type="BaseType.U_CHAR01" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="tempnm" longname="模板名称" type="BaseType.U_CHAR40" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="temptx" longname="模板描述" type="BaseType.U_CHAR80" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="unique" fields="tempcd" operate="selectOne updateOne"/>
+        </odbindexes>
+        <indexes>
+            <index id="app_prod_temp_uk1" type="unique" fields="tempcd">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+    <table id="AppPropTemp" name="app_prop_temp" longname="属性模板表" category="1" virtual="false" extension="SysCommFieldTable.KapComm" changelog="false" abstract="false">
+        <fields>
+            <field id="tempcd" longname="产品模板代码" type="BaseType.U_CHAR10" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="tablcd" longname="属性表名" type="BaseType.U_CHAR40" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="fildcd" longname="属性代码" type="BaseType.U_CHAR10" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="fildnm" longname="属性名称" type="BaseType.U_CHAR40" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="fildtp" longname="属性类型" type="BaseType.U_CHAR01" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="finlfg" longname="是否固定值" type="BaseEnumType.E_YES___" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="nullfg" longname="空值是否覆盖" type="BaseEnumType.E_YES___" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="fildvl" longname="属性默认值" type="BaseType.U_CHAR400" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="fildmu" longname="是否多值限制" type="BaseEnumType.E_YES___" primarykey="false" final="false" nullable="true" desc="若多值，在值字段使用逗号分隔" identity="false" allowSubType="true"/>
+            <field id="fildcv" longname="属性限制值" type="BaseType.U_CHAR400" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="nullab" longname="是否可控" type="BaseEnumType.E_YES___" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="enmuid" longname="枚举FULLID" type="BaseType.U_CHAR40" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="fildtx" longname="属性描述" type="BaseType.U_CHAR80" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="unique" fields="tempcd tablcd fildcd" operate="selectOne updateOne"/>
+            <index id="odb2" type="index" fields="tempcd tablcd" operate="selectAll"/>
+        </odbindexes>
+        <indexes>
+            <index id="app_prop_temp_uk1" type="unique" fields="tempcd tablcd fildcd">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+    <table id="AppPropCtrl" name="app_prop_ctrl" longname="产品属性控制表" category="1" virtual="false" extension="SysCommFieldTable.KapComm" changelog="false" abstract="false">
+        <fields>
+            <field id="prodcd" longname="产品代码" type="BaseType.U_CHAR18" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="tablcd" longname="属性表名" type="BaseType.U_CHAR40" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="fildcd" longname="属性代码" type="BaseType.U_CHAR10" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="fildnm" longname="属性名称" type="BaseType.U_CHAR40" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="fildtp" longname="属性类型" type="BaseEnumType.E_FILDTP" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="finlfg" longname="是否固定值" type="BaseEnumType.E_YES___" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="nullfg" longname="空值是否覆盖" type="BaseEnumType.E_NULLFG" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="fildvl" longname="属性默认值" type="BaseType.U_CHAR400" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="fildmu" longname="是否多值限制" type="BaseEnumType.E_YES___" primarykey="false" final="false" nullable="true" desc="若多值，在值字段使用逗号分隔" identity="false" allowSubType="true"/>
+            <field id="fildcv" longname="属性限制值" type="BaseType.U_CHAR400" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="fildtx" longname="属性描述" type="BaseType.U_CHAR80" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="nullab" longname="是否可控" type="BaseEnumType.E_YES___" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="enmuid" longname="枚举FULLID" type="BaseType.U_CHAR40" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="tempcd" longname="产品模板代码" type="BaseType.U_CHAR10" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="unique" fields="prodcd tablcd fildcd" operate="selectOne deleteOne updateOne"/>
+            <index id="odb2" type="index" fields="prodcd tablcd" operate="selectAll"/>
+        </odbindexes>
+        <indexes>
+            <index id="app_prop_ctrl_uk1" type="unique" fields="prodcd tablcd fildcd">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+    <table id="AppMeta" name="app_meta" longname="规则元数据表" category="1" virtual="false" changelog="false" abstract="false">
+        <fields>
+            <field id="metacd" longname="规则元数据代码" type="BaseType.U_CHAR20" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="metasr" longname="规则元数据来源" type="BaseEnumType.E_METASR" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="metavl" longname="规则元数据值" type="BaseType.U_CHAR40" primarykey="false" final="false" nullable="true" desc="支持多层结构(分隔符号'.'，如：表lnf_lend.lendmd)" identity="false" allowSubType="true"/>
+            <field id="metatx" longname="规则元数据描述" type="BaseType.U_CHAR40" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="unique" fields="metacd" operate="selectOne deleteOne updateOne"/>
+        </odbindexes>
+        <indexes>
+            <index id="app_meta_uk1" type="unique" fields="metacd">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+    <table id="AppRule" name="app_rule" longname="规则配置表" category="1" virtual="false" extension="SysCommFieldTable.KapComm" changelog="false" abstract="false">
+        <fields>
+            <field id="grupcd" longname="规则分组代码" type="BaseType.U_CHAR40" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="rulesq" longname="组内序号" type="BaseType.U_INTEGE" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="rulecd" longname="规则编号" type="BaseType.U_CHAR40" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="contxt" longname="规则表达式" type="BaseType.U_CHAR4000" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="ruletx" longname="规则说明" type="BaseType.U_CHAR1000" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="unique" fields="grupcd rulesq" operate="selectOne updateOne"/>
+            <index id="odb2" type="unique" fields="grupcd rulecd" operate="selectOne deleteOne updateOne"/>
+            <index id="odb3" type="index" fields="grupcd" operate="selectAll"/>
+        </odbindexes>
+        <indexes>
+            <index id="app_rule_uk1" type="unique" fields="grupcd rulesq">
+                <ddls/>
+            </index>
+            <index id="app_rule_uk2" type="unique" fields="grupcd rulecd">
+                <ddls/>
+            </index>
+        </indexes>
+        <description><![CDATA[<field id="chkopt" longname="检查类型" type="BaseEnumType.E_CHKOPT" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+<field id="chkval" longname="检查值" type="BaseType.U_CHAR400" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+ <field id="fildtp" longname="结果类型" type="BaseEnumType.E_FILDTP" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>]]></description>
+    </table>
+    <table id="AppRuleAppl" name="app_rule_appl" longname="规则配置申请表" virtual="false" extension="SysCommFieldTable.KapComm" abstract="false">
+        <fields>
+            <field id="btchno" longname="批次号" type="BaseType.U_CHAR40" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="grupcd" longname="规则分组代码" type="BaseType.U_CHAR40" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="rulesq" longname="组内序号" type="BaseType.U_INTEGE" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="optype" longname="操作类型" type="ApBaseEnumType.E_JYCHLIBZ" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="datatp" longname="数据操作类型" type="ApBaseEnumType.E_SHXSZBZ" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="rulecd" longname="规则编号" type="BaseType.U_CHAR40" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="contxt" longname="规则表达式" type="BaseType.U_CHAR400" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="ruletx" longname="规则说明" type="BaseType.U_CHAR80" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="trandt" longname="录入日期" type="BaseType.U_DATE08" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="transq" longname="录入流水号" type="BaseType.U_SEQUNO" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="userid" longname="录入人员" type="BaseType.U_USERID" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="chckdt" longname="复核日期" type="BaseType.U_DATE08" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="chcksq" longname="复核流水号" type="BaseType.U_SEQUNO" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="chckus" longname="复核用户" type="BaseType.U_USERID" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="unique" fields="btchno grupcd datatp rulecd" operate="selectOne updateOne deleteOne"/>
+            <index id="odb2" type="unique" fields="btchno grupcd rulesq datatp" operate="selectOne updateOne deleteOne"/>
+            <index id="odb3" type="index" fields="transq trandt" operate="selectAll"/>
+            <index id="odb4" type="index" fields="btchno" operate="selectAll"/>
+        </odbindexes>
+        <indexes>
+            <index id="app_rule_appl_uk1" type="unique" fields="btchno rulecd grupcd datatp corpno">
+                <ddls/>
+            </index>
+            <index id="app_rule_appl_uk2" type="unique" fields="btchno grupcd rulesq datatp corpno">
+                <ddls/>
+            </index>
+            <index id="app_rule_appl_idx1" type="index" fields="transq trandt">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+    <table id="AppPropCtrlAppl" name="app_prop_ctrl_appl" longname="产品属性控制申请" virtual="false" extension="SysCommFieldTable.KapComm" abstract="false">
+        <fields>
+            <field id="btchno" longname="批次号" type="BaseType.U_CHAR40" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="optype" longname="操作类型" type="ApBaseEnumType.E_JYCHLIBZ" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="datatp" longname="数据操作类型" type="ApBaseEnumType.E_SHXSZBZ" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="prodcd" longname="产品代码" type="BaseType.U_CHAR18" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="tablcd" longname="属性表名" type="BaseType.U_CHAR40" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="fildcd" longname="属性代码" type="BaseType.U_CHAR10" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="fildnm" longname="属性名称" type="BaseType.U_CHAR40" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="fildtp" longname="属性类型" type="BaseEnumType.E_FILDTP" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="finlfg" longname="是否固定值" type="BaseEnumType.E_YES___" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="nullfg" longname="空值是否覆盖" type="BaseEnumType.E_NULLFG" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="fildvl" longname="属性默认值" type="BaseType.U_CHAR400" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="fildmu" longname="是否多值限制" type="BaseEnumType.E_YES___" primarykey="false" final="false" nullable="true" desc="若多值，在值字段使用逗号分隔" identity="false" allowSubType="true"/>
+            <field id="fildcv" longname="属性限制值" type="BaseType.U_CHAR400" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="fildtx" longname="属性描述" type="BaseType.U_CHAR80" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="nullab" longname="是否可控" type="BaseEnumType.E_YES___" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="enmuid" longname="枚举FULLID" type="BaseType.U_CHAR40" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="tempcd" longname="产品模板代码" type="BaseType.U_CHAR10" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="trandt" longname="录入日期" type="BaseType.U_DATE08" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="transq" longname="录入流水号" type="BaseType.U_SEQUNO" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="userid" longname="录入人员" type="BaseType.U_USERID" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="chckdt" longname="复核日期" type="BaseType.U_DATE08" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="chcksq" longname="复核流水号" type="BaseType.U_SEQUNO" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="chckus" longname="复核用户" type="BaseType.U_USERID" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="unique" fields="btchno datatp prodcd tablcd fildcd" operate="selectOne updateOne"/>
+            <index id="odb2" type="index" fields="trandt transq" operate="selectAll"/>
+            <index id="odb3" type="index" fields="btchno" operate="selectAll"/>
+        </odbindexes>
+        <indexes>
+            <index id="app_prop_ctrl_appl_uk1" type="unique" fields="btchno datatp prodcd tablcd fildcd corpno">
+                <ddls/>
+            </index>
+            <index id="app_prop_ctrl_appl_idx1" type="index" fields="transq trandt corpno">
+                <ddls/>
+            </index>
+            <index id="app_prop_ctrl_appl_idx2" type="index" fields="btchno corpno">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+</schema>

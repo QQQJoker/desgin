@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<errorConf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="LcError" longname="卡贷通错误码" package="cn.sunline.ltts.busi.sys.errors" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <errors id="LcComm" longname="卡贷通错误信息">
+        <error id="E0001" type="error" message="客户信息不存在" errorCode="010L0326"/>
+        <error id="E0002" type="error" message="[${msg}]不能为空" errorCode="010L0327">
+            <parameter id="msg" type="BaseType.U_CHAR200" longname="参数信息"/>
+        </error>
+        <error id="E0003" type="error" message="出账日期必须等于交易日期" errorCode="010L0328"/>
+        <error id="E0004" type="error" message="签约失效日期必须大于交易日期" errorCode="010L0329"/>
+        <error id="E0005" type="error" message="授信额度必须大于0" errorCode="010L0330"/>
+        <error id="E0006" type="error" message="卡贷通签约信息不存在" errorCode="010L0331"/>
+        <error id="E0007" type="error" message="卡贷通对应贷款未还本金为负" errorCode="010L0332"/>
+        <error id="E0008" type="error" message="账户[${cardno}]处于销户状态，不允许签约" errorCode="010L0333">
+            <parameter id="cardno" type="BaseType.U_CARDNO" longname="卡号"/>
+        </error>
+        <error id="E0009" type="error" message="贷款产品信息不存在" errorCode="010L0334"/>
+        <error id="E0010" type="error" message="输入的币种和贷款产品的币种不一致" errorCode="010L0335"/>
+        <error id="E0011" type="error" message="客户的授信额度不能大于产品的最大放款金额" errorCode="010L0336"/>
+        <error id="E0012" type="error" message="出账号[${cmsqno}]已被使用" errorCode="010L0337">
+            <parameter id="cmsqno" type="LcBaseType.U_CMSQNO" longname="出账号"/>
+        </error>
+        <error id="E0013" type="error" message="[${transq}]流水已经登记" errorCode="010L0338">
+            <parameter id="transq" type="BaseType.U_SEQUNO" longname="流水号"/>
+        </error>
+        <error id="E0014" type="error" message="交易金额大于剩余的可用金额" errorCode="010L0339"/>
+        <error id="E0015" type="error" message="业务编码未配置" errorCode="010L0340"/>
+        <error id="E0016" type="error" message="[${cardno}]未授权签约卡贷通" errorCode="010L0341">
+            <parameter id="cardno" type="BaseType.U_CARDNO" longname="卡号"/>
+        </error>
+        <error id="E0017" type="error" message="非一卡通账户不允许签约" errorCode="010L0342"/>
+        <error id="E0018" type="error" message="账户对应的子账户非结算户，不允许签约" errorCode="010L0343"/>
+        <error id="E0019" type="error" message="[${cardno}]已签约卡贷通" errorCode="010L0344">
+            <parameter id="cardno" type="BaseType.U_CARDNO"/>
+        </error>
+        <error id="E0020" type="error" message="卡贷通处理后账务不平" errorCode="010L0345"/>
+        <error id="E0021" type="error" message="垫款金额为负" errorCode="010L0346"/>
+    </errors>
+</errorConf>

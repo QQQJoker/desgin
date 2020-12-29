@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="IoAcAccountServ" kind="business" longname="交易会计流水处理服务" package="cn.sunline.ltts.busi.iobus.servicetype.ac" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <service id="IoAccountting" name="ioAccountting" longname="登记会计流水">
+        <interface>
+            <input packMode="false">
+                <field id="cplIoAccounttingIntf" type="IoAcServType.IoAccounttingIntf" required="false" multi="false" array="false" longname="记账接口"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoAccounttingHot" name="ioAccounttingHot" longname="热点登记会计流水">
+        <interface>
+            <input packMode="false">
+                <field id="cplIoAccounttingIntf" type="IoAcServType.IoAccounttingIntf" required="false" multi="true" array="false" longname="记账接口"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoQueryKnsAcsq" name="queryKnsAcsq" longname="查询会计记账流水信息">
+        <interface>
+            <input packMode="false">
+                <field id="bgindt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="起始交易日期"/>
+                <field id="endddt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="终止交易日期"/>
+                <field id="acctno" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="账号"/>
+                <field id="transq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="主交易流水" ref="DpDict.Acct.transq"/>
+                <field id="corpno" type="BaseType.U_CORPNO" required="false" multi="false" array="false" longname="法人代码" ref="ApDict.Aplt.corpno"/>
+                <field id="pageno" type="int" required="false" multi="false" array="false" longname="页码"/>
+                <field id="pgsize" type="int" required="false" multi="false" array="false" longname="页容量"/>
+                <field id="cardno" type="BaseType.U_CARDNO" required="false" multi="false" array="false" longname="卡号" ref="DpDict.Acct.cardno"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="knsAcsqInfoList" type="IoAcServType.IoKnsAcsqInfo" required="false" multi="true" array="false" longname="会计记账流水信息集合"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoRegistKnsAcsqCler" name="registKnsAcsqCler" longname="登记会计流水清算信息">
+        <interface>
+            <input packMode="false">
+                <field id="clearinfo" type="IoAcServType.IoAccountClearInfo" required="false" multi="false" array="false" longname="会计流水清算信息"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoQueryKnsAcsqCler" name="queryKnsAcsqCler" longname="查询会计流水清算信息">
+        <interface>
+            <input packMode="false">
+                <field id="trandt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="交易日期" ref="BaseDict.Comm.trandt"/>
+                <field id="mntrsq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="主交易流水" ref="DpDict.Froz.mntrsq"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="clearinfo" type="IoAcServType.IoAccountClearInfo" required="false" multi="true" array="false" longname="会计清算流水信息"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoRegistKnsAcsqClin" name="registKnsAcsqClin" longname="登记系统内跨法人会计流水清算信息">
+        <interface>
+            <input packMode="false">
+                <field id="clearinfo" type="IoAcServType.IoAccountClearInfo" required="false" multi="false" array="false" longname="会计流水清算信息"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoQueryKnsAcsqByUserid" name="qryKnsAcsqByUserid" longname="分页查询会计流水信息(外调)">
+        <interface>
+            <input packMode="true">
+                <field id="cdcnno" type="BaseType.U_DCNNO" required="false" multi="false" array="false" longname="DCN编号" ref="BaseDict.Comm.cdcnno"/>
+                <field id="trandt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="交易日期" ref="BaseDict.Comm.trandt"/>
+                <field id="tranus" type="BaseType.U_USERID" required="false" multi="false" array="false" longname="交易柜员" ref="BaseDict.Comm.tranus"/>
+                <field id="pageno" type="long" required="false" multi="false" array="false" longname="页数"/>
+                <field id="pagsiz" type="long" required="false" multi="false" array="false" longname="页容量"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="acsqList" type="IoAcServType.KnsAcsqTempList" required="false" multi="true" array="false" longname="会计流水临时表"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="IoInsertKnaAcsqTemp" name="insKnaAcsqTemp" longname="查询各个节点会计流水信息写入会计流水临时表中">
+        <interface>
+            <input packMode="true">
+                <field id="trandt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="交易日期" ref="BaseDict.Comm.trandt"/>
+                <field id="tranus" type="BaseType.U_USERID" required="false" multi="false" array="false" longname="交易柜员" ref="BaseDict.Comm.tranus"/>
+                <field id="pageno" type="long" required="false" multi="false" array="false" longname="页数"/>
+                <field id="pagsiz" type="long" required="false" multi="false" array="false" longname="页容量"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="IoQueryAdmKnsAcsq" name="queryAdmKnsAcsq" longname="查询ADM节点会计流水">
+        <interface>
+            <input packMode="true">
+                <field id="trandt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="交易日期" ref="BaseDict.Comm.trandt"/>
+                <field id="tranus" type="BaseType.U_USERID" required="false" multi="false" array="false" longname="交易柜员" ref="BaseDict.Comm.tranus"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="acsqList" type="IoAcServType.KnsAcsqTempList" required="false" multi="true" array="false" longname="会计流水临时表"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="IoQueryKnaAcsqTemp" name="qyrKnaAcsqTemp" longname="查询柜员交易流水">
+        <interface>
+            <input packMode="true">
+                <field id="trandt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="交易日期" ref="BaseDict.Comm.trandt"/>
+                <field id="tranus" type="BaseType.U_USERID" required="false" multi="false" array="false" longname="交易柜员" ref="BaseDict.Comm.tranus"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="tellAcsqList" type="IoAcServType.IoAcsqOutput" required="false" multi="true" array="false" longname="柜员交易流水信息"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="IoInsertKnaTranTemp" name="insKnaTranTemp" longname="查询各个节点交易流水信息写入交易流水临时表中">
+        <interface>
+            <input packMode="true">
+                <field id="trandt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="交易日期" ref="BaseDict.Comm.trandt"/>
+                <field id="tranus" type="BaseType.U_USERID" required="false" multi="false" array="false" longname="交易柜员" ref="BaseDict.Comm.tranus"/>
+                <field id="pageno" type="long" required="false" multi="false" array="false" longname="页数"/>
+                <field id="pagsiz" type="long" required="false" multi="false" array="false" longname="页容量"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="IoDpAddKnsAcsq" name="addKnsAcsq" longname="登记会计流水对外服务">
+        <interface>
+            <input packMode="false">
+                <field id="knsAcsqInfo" type="IoAcServType.IoDpTabKnsAcsq" required="false" multi="false" array="false" longname="会计流水信息"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="IoQueryKnsAcsqClin" name="qryKnsAcsqClin" longname="查询系统内法人清算流水">
+        <interface>
+            <input packMode="false">
+                <field id="trandt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="交易日期" ref="BaseDict.Comm.trandt"/>
+                <field id="mntrsq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="主交易流水" ref="DpDict.Froz.mntrsq"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="cplClearInfo" type="IoAcServType.IoAccountClearInfo" required="false" multi="true" array="false" longname="会计流水清算信息"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IogetKnsAcsq" name="getKnsAcsq" longname="查询会计流水记录">
+        <interface>
+            <input packMode="false">
+                <field id="bgindt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="起始交易日期"/>
+                <field id="endddt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="终止交易日期"/>
+                <field id="acctno" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="账号"/>
+                <field id="mntrsq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="主交易流水"/>
+                <field id="cardno" type="BaseType.U_CARDNO" required="false" multi="false" array="false" longname="卡号" ref="DpDict.Acct.cardno"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="knsAcsqInfoList" type="IoAcServType.IoKnsAcsqInfo" required="false" multi="true" array="false" longname="会计记账流水信息集合"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoGetCmKnsAcsq" name="getCmKnsAcsq" longname="获取会计流水表信息">
+        <interface>
+            <input packMode="false">
+                <field id="transq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="交易流水" ref="BaseDict.Comm.transq"/>
+                <field id="stadat" type="PbBaseType.U_DATE08" required="false" multi="false" array="false" longname="起始日期" ref="PbDict.Charge.stadat"/>
+                <field id="enddat" type="PbBaseType.U_DATE08" required="false" multi="false" array="false" longname="终止日期" ref="PbDict.Charge.enddat"/>
+                <field id="pageno" type="BaseType.U_INTEGE" required="false" multi="false" array="false" longname="页码"/>
+                <field id="pgsize" type="BaseType.U_INTEGE" required="false" multi="false" array="false" longname="页容量"/>
+                <field id="dcnno" type="BaseType.U_DCNNO" required="false" multi="false" array="false" longname="dcn编号"/>
+                <field id="busisq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="业务流水" ref="BaseDict.Comm.busisq"/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="knsAcsqInfoList" type="IoAcServType.IoKnsAcsqInfo" required="false" multi="true" array="false" longname="会计记账流水信息"/>
+                <field id="counts" type="long" required="false" multi="false" array="false" longname="总条数"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="getAdmKnsAcsq" name="getAdmKnsAcsq" longname="获取会计流水表信息">
+        <interface>
+            <input packMode="false">
+                <field id="transq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="交易流水" ref="BaseDict.Comm.transq"/>
+                <field id="stadat" type="PbBaseType.U_DATE08" required="false" multi="false" array="false" longname="起始日期" ref="PbDict.Charge.stadat"/>
+                <field id="enddat" type="PbBaseType.U_DATE08" required="false" multi="false" array="false" longname="终止日期" ref="PbDict.Charge.enddat"/>
+                <field id="pageno" type="BaseType.U_INTEGE" required="false" multi="false" array="false" longname="页码"/>
+                <field id="pgsize" type="BaseType.U_INTEGE" required="false" multi="false" array="false" longname="页容量"/>
+                <field id="busisq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="业务流水" ref="BaseDict.Comm.busisq"/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="knsAcsqInfoList" type="IoAcServType.IoKnsAcsqInfo" required="false" multi="true" array="false" longname="会计记账流水信息"/>
+                <field id="counts" type="long" required="false" multi="false" array="false" longname="总条数"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="IoGetKnsAcsqByMntrsq" name="getKnsAcsqByMntrsq" longname="会计流水查询">
+        <interface>
+            <input packMode="false">
+                <field id="trandt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="交易日期" ref="BaseDict.Comm.trandt"/>
+                <field id="transq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="交易流水" ref="BaseDict.Comm.transq"/>
+                <field id="corpno" type="BaseType.U_CORPNO" required="false" multi="false" array="false" longname="法人代码" ref="BaseDict.Comm.corpno"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="lstKnsAcsq" type="IoAcServType.IoKnsAcsqInfo" required="false" multi="true" array="false" longname="会计流水信息"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+</serviceType>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<errorConf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="EcError" longname="客户中心错误码" package="cn.sunline.edsp.busi.sys.errors" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <errors id="EcErMsg" longname="客户中心错误文件">
+        <error id="E0001" type="error" message="[${msg}]" errorCode="06060001">
+            <parameter id="msg" type="EcBaseType.U_FAILMS" longname="错误提示"/>
+        </error>
+        <error id="E0002" type="error" message="[${colmnm}]缺失" errorCode="06060002">
+            <parameter id="colmnm" type="EcBaseType.U_COLMNM" longname="字段名"/>
+        </error>
+        <error id="E0003" type="error" message="权限错误，渠道[${outsfg}]没有[${trancd}]交易的权限" errorCode="06060003">
+            <parameter id="outsfg" type="EcBaseType.U_OUTSFG"/>
+            <parameter id="trancd" type="EcBaseType.U_TRANCD"/>
+        </error>
+        <error id="E0004" type="error" message="权限错误，渠道[${outsfg}]没有对[${tablnm}]表[${colunm}字段的[${exectp}权限]]" errorCode="06060004">
+            <parameter id="outsfg" type="EcBaseType.U_OUTSFG"/>
+            <parameter id="tablnm" type="EcBaseType.U_TABLNM"/>
+            <parameter id="colunm" type="EcBaseType.U_COLMNM"/>
+            <parameter id="exectp" type="EcEnumType.E_EXECTP"/>
+        </error>
+        <error id="E0005" type="error" message="客户${custno}已存在" errorCode="06060005">
+            <parameter id="custno" type="EcBaseType.U_CUSTNO" longname="客户号"/>
+        </error>
+        <error id="E0006" type="error" message="客户${custno}不存在" errorCode="06060006">
+            <parameter id="custno" type="EcBaseType.U_CUSTNO" longname="客户号"/>
+        </error>
+        <error id="E0008" type="error" message="证件${certsr}不存在" errorCode="06060008">
+            <parameter id="certsr" type="EcBaseType.U_TABLPK" longname="证件编号"/>
+        </error>
+        <error id="E0009" type="error" message="联系人${constr}不存在" errorCode="06060009">
+            <parameter id="constr" type="EcBaseType.U_CONSTR" longname="联系人编号"/>
+        </error>
+        <error id="E0010" type="error" message="地址${addrsr}不存在" errorCode="06060010">
+            <parameter id="addrsr" type="EcBaseType.U_TABLPK" longname="地址编号"/>
+        </error>
+        <error id="E0011" type="error" message="联系方式${telesr}不存在" errorCode="06060011">
+            <parameter id="telesr" type="EcBaseType.U_TABLPK" longname="联系方式编号"/>
+        </error>
+        <error id="E0020" type="error" message="[${colmnm}]参数未配置" errorCode="06060020">
+            <parameter id="colmnm" type="EcBaseType.U_COLMNM" longname="字段名"/>
+        </error>
+        <error id="E0040" type="error" message="数据错误，证件信息缺失" errorCode="06060040"/>
+        <error id="E0050" type="error" message="[${mobitl}]不是正确的手机号格式" errorCode="06060050">
+            <parameter id="mobitl" type="EcBaseType.U_MOBITL" longname="手机号"/>
+        </error>
+        <error id="E0051" type="error" message="[${certno}]不是正确的[$certtp]格式" errorCode="06060051">
+            <parameter id="certtp" type="BaseEnumType.E_IDTFTP" longname="证件类型"/>
+            <parameter id="certno" type="EcBaseType.U_IDTFNO" longname="证件号"/>
+        </error>
+        <error id="E0052" type="error" message="[${e_mail}]不是正确的邮箱格式" errorCode="06060052">
+            <parameter id="e_mail" type="EcBaseType.U_E_MAIL" longname="邮箱号"/>
+        </error>
+        <error id="E0053" type="error" message="[${datest}]不是正确的[${format}]日期格式" errorCode="06060053">
+            <parameter id="datest" type="EcBaseType.U_DATEST"/>
+            <parameter id="format" type="EcBaseType.U_DATEST"/>
+        </error>
+        <error id="E0054" type="error" message="[${timest}]不是正确的[${format}]时间格式" errorCode="06060054">
+            <parameter id="timest" type="EcBaseType.U_TIMEST"/>
+            <parameter id="format" type="EcBaseType.U_TIMEST"/>
+        </error>
+        <error id="E0061" type="error" message="原密码不能为空" errorCode="06060061"/>
+        <error id="E0062" type="error" message="新密码不能为空" errorCode="06060062"/>
+        <error id="E0063" type="error" message="新旧密码不能相同" errorCode="06060063"/>
+        <error id="E0064" type="error" message="密码未设置" errorCode="06060064"/>
+        <error id="E0065" type="error" message="密码已注销" errorCode="06060065"/>
+        <error id="E0066" type="error" message="密码验证失败" errorCode="06060066"/>
+        <error id="E0067" type="error" message="密码错误" errorCode="06060067"/>
+        <error id="E0068" type="error" message="密码错误超过规定次数，请明日再试" errorCode="06060068"/>
+        <error id="E0069" type="error" message="只能修改数字密码" errorCode="06060069"/>
+        <error id="E0070" type="error" message="设备不匹配,不能执行此操作" errorCode="06060070"/>
+        <error id="E0071" type="error" message="免密额度超出范围" errorCode="06060071"/>
+        <error id="E0081" type="error" message="收款人信息已注销" errorCode="06060081"/>
+        <error id="E0082" type="error" message="存在未解约合约" errorCode="06060082"/>
+        <error id="E0098" type="error" message="已存在，请勿重复操作" errorCode="06060098"/>
+        <error id="E0099" type="error" message="查询无数据" errorCode="06060099"/>
+        <error id="E0100" type="error" message="系统数据错误" errorCode="06060100"/>
+    </errors>
+</errorConf>

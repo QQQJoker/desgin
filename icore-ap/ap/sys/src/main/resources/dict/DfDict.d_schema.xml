@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema id="DfDict" package="cn.sunline.ltts.busi.sys.dict" longname="理财模块" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <complexType id="Insu" longname="保险" dict="true" abstract="false" introduct="false">
+        <element id="insucm" longname="累计收益" type="BaseType.U_ACBLTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acctcm" longname="账户价值" type="BaseType.U_ACBLTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+</schema>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType id="IoLnStrikeSvcType" kind="business" longname="贷款冲正服务接口" package="cn.sunline.ltts.busi.iobus.servicetype" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <service id="ProcLoanPaymentStrike" name="procLoanPaymentStrike" longname="贷款还款冲正服务">
+        <interface>
+            <input packMode="false">
+                <field id="info" type="IoLnStrikeType.ProcLnRepayStrikeIn" required="false" multi="false" array="false" longname="贷款还款冲正服务输入"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="ProcLnLendStrike" name="prcLnLendStrike" longname="贷款放款冲正">
+        <interface>
+            <input packMode="false">
+                <field id="cplLnLendStrike" type="IoLnStrikeType.ProcLnLendStrikeInput" required="false" multi="false" array="false" longname="贷款放款冲正服务输入"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoLnbzexStkSvc" name="IoLnbzexStkSvc" longname="委托贷款豁免冲正">
+        <interface>
+            <input packMode="false">
+                <field id="trandt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="交易日期" ref="BaseDict.Comm.trandt"/>
+                <field id="transq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="交易流水" ref="BaseDict.Comm.transq"/>
+                <field id="lncfno" type="LnBaseType.U_LNCFNO" required="false" multi="false" array="false" longname="贷款借据号" ref="LnDict.LNF.lncfno"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="IoLnInExamptStk" name="IoLnInExamptStk" longname="贷款利息免除冲正">
+        <interface>
+            <input packMode="false">
+            	<field id="trandt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="交易日期" ref="BaseDict.Comm.trandt"/>
+                <field id="transq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="交易流水" ref="BaseDict.Comm.transq"/>
+                <field id="lncfno" type="LnBaseType.U_LNCFNO" required="false" multi="false" array="false" longname="贷款借据号" ref="LnDict.LNF.lncfno"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+</serviceType>

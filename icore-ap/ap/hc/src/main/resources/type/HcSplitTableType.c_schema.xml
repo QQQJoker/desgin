@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema id="HcSplitTableType" package="cn.sunline.ltts.busi.hc.type" longname="热点账户分表类型" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<complexType id="HcbLmoc" longname="热点额度占用表复合类型" dict="false" abstract="false" introduct="false" >
+	    <element id="trandt" longname="交易日期" type="BaseType.U_DATE08" ref="BaseDict.Comm.trandt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+	    <element id="transq" longname="交易流水" type="BaseType.U_SEQUNO" ref="BaseDict.Comm.transq" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+	    <element id="detlsq" longname="交易明细序号" type="HcBaseType.U_SEQUNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+	    <element id="hctype" longname="热点类型" type="HcEnumType.E_HCTYPE" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+	    <element id="hcmain" longname="热点主体号" type="HcBaseType.U_CHAR30" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+	    <element id="tranam" longname="交易金额" type="BaseType.U_TRANAM" ref="BaseDict.Comm.tranam" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+	    <element id="amntcd" longname="余额方向" type="BaseEnumType.E_AMNTCD" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+	    <element id="dealss" longname="状态" type="HcEnumType.E_DEALSS" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+	</complexType>
+
+</schema>

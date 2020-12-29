@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<batch_transaction xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="ap35" longname="定时执行日终换日前流程" package="cn.sunline.ltts.busi.aptran.batchtran.dayend" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <interface package="cn.sunline.ltts.busi.aplt.batchtran.dayend.intf">
+        <input packMode="true">
+            <field id="tran_flow_id" type="KBaseType.U_PLJYLCBS" required="true" default="&quot;ONLINE&quot;" multi="false" array="false" longname="批量交易流程ID" ref="KsDict.BtDict.tran_flow_id"/>
+            <field id="query_date" type="KBaseType.U_BZRIQILX" required="true" multi="false" array="false" longname="查询日期" ref="KsDict.BtDict.query_date"/>
+            <field id="corpno" type="BaseType.U_CORPNO" required="true" multi="false" array="false" longname="法人代码" ref="ApDict.Aplt.corpno"/>
+        </input>
+        <output asParm="true" packMode="false"/>
+        <property packMode="true"/>
+        <printer packMode="false"/>
+    </interface>
+</batch_transaction>

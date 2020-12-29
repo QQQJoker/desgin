@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<flowtran id="smtbat" longname="提交批量文件交易" kind="2" package="cn.sunline.ltts.busi.aptran.trans" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <interface package="cn.sunline.ltts.busi.aptran.trans.intf">
+        <input packMode="true">
+            <field id="source" type="ApBaseEnumType.E_SYSCCD" required="false" multi="false" array="false" longname="来源系统标识"/>
+            <field id="target" type="ApBaseEnumType.E_SYSCCD" required="false" multi="false" array="false" longname="目标系统标识"/>
+            <field id="acctdt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="业务开始日期"/>
+            <field id="endtdt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="业务结束日期"/>
+            <field id="dataid" type="ApBaseEnumType.E_FILETP" required="false" multi="false" array="false" longname="数据类型"/>
+            <field id="busseq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="业务流水"/>
+            <field id="brchno" type="BaseType.U_BRCHNO" required="false" multi="false" array="false" longname="原机构号"/>
+            <field id="lsleix" type="BaseType.U_CHAR01" required="false" multi="false" array="false" longname="流水类型"/>
+            <field id="crcycn" type="BaseType.U_CRCYCD" required="false" multi="false" array="false" longname="币种"/>
+            <field id="fileList" type="IoApFileBatchType.BatchFileSubmit" required="false" multi="true" array="false" longname="文件集合"/>
+        </input>
+        <output asParm="true" packMode="true">
+            <field id="busseq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="交易流水"/>
+            <field id="filesq" type="BaseType.U_CHAR40" required="false" multi="false" array="false" longname="文件批次号"/>
+            <field id="fileph" type="BaseType.U_FILEPH" required="false" multi="false" array="false" longname="文件路径"/>
+            <field id="filena" type="BaseType.U_FILENA" required="false" multi="false" array="false" longname="文件名称"/>
+            <field id="okfile" type="BaseType.U_FILENA" required="false" multi="false" array="false" longname="okfile名称"/>
+        </output>
+        <property packMode="false"/>
+        <printer packMode="false"/>
+    </interface>
+    <flow>
+        <service mappingToProperty="false" serviceName="SmtbatSvc.smtbat" id="smtbat" longname="文件批量提交">
+            <in_mappings by_interface="true">
+                <mapping src="acctdt" dest="acctdt" by_interface="true" on_top="true"/>
+                <mapping src="busseq" dest="busseq" by_interface="true" on_top="true"/>
+                <mapping src="dataid" dest="dataid" by_interface="true" on_top="true"/>
+                <mapping src="fileList" dest="fileList" by_interface="true" on_top="true"/>
+                <mapping src="source" dest="source" by_interface="true" on_top="true"/>
+                <mapping src="target" dest="target" by_interface="true" on_top="true"/>
+            </in_mappings>
+            <out_mappings by_interface="true">
+                <mapping src="busseq" dest="busseq" by_interface="true" on_top="true"/>
+                <mapping src="fileph" dest="fileph" by_interface="true" on_top="true"/>
+                <mapping src="filena" dest="filena" by_interface="true" on_top="true"/>
+                <mapping src="okfile" dest="okfile" by_interface="true" on_top="true"/>
+            </out_mappings>
+        </service>
+    </flow>
+    <outMapping/>
+    <propertyToPrinterMapping/>
+    <outToPrinterMapping/>
+</flowtran>

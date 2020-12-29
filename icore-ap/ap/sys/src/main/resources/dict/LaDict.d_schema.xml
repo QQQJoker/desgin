@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema id="LaDict" package="cn.sunline.ltts.busi.sys.dict" longname="银承字典" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <complexType id="INF" longname="银承" dict="true" abstract="false" introduct="false">
+        <element id="cmsqno" longname="出账号" type="LaBaseType.U_CMSQNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="recvdt" longname="出账日期" type="BaseType.U_DATE08" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acptcn" longname="承兑协议号" type="LaBaseType.U_ACPTCN" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cnptbr" longname="承兑机构" type="BaseType.U_BRCHNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="pyerac" longname="申请人结算账号" type="BaseType.U_ACCTNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tranam" longname="出票金额" type="BaseType.U_TRANAM" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="havetp" longname="保证金标志" type="LaEnumType.E_HAVETP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="grettp" longname="保证金类型" type="LaEnumType.E_GRETTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="billnm" longname="票据总张数" type="BaseType.U_INTEGE" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="gretam" longname="保证金金额" type="BaseType.U_TRANAM" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="bltype" longname="票据类型" type="LaEnumType.E_BLTYPE" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cnsttp" longname="担保方式" type="LaEnumType.E_CNSTTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="applbr" longname="申请机构" type="BaseType.U_BRCHNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="issubr" longname="签发机构" type="BaseType.U_BRCHNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custmg" longname="客户经理号码" type="LaBaseType.U_CUSTMG" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="issufs" longname="签发方式" type="LaEnumType.E_ISSUFS" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="agbkcd" longname="代签行编号" type="LaBaseType.U_AGBKCD" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="matudt" longname="到期日期" type="BaseType.U_DATE08" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="gretac" longname="保证金账号" type="BaseType.U_ACCTNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="pyerna" longname="申请人户名" type="BaseType.U_ACCTNA" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cnsntp" longname="发出托收类型" type="LaEnumType.E_CNSNTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acptam" longname="金额" type="BaseType.U_TRANAM" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="pyerbn" longname="付款行行名" type="LaBaseType.U_BANKNA" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="signdt" longname="凭证签发日期" type="BaseType.U_DATE08" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="arivdt" longname="到达日期" type="BaseType.U_DATE08" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acptno" longname="汇票号码" type="LaBaseType.U_ACPTNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="pyeeac" longname="收款人账号" type="BaseType.U_ACCTNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="pyeena" longname="收款人户名" type="BaseType.U_ACCTNA" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="pyeebn" longname="托收行行名" type="BaseType.U_BRCHNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="pyeebr" longname="托收行行号" type="BaseType.U_BANKNA" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="lncfno" longname="借据号" type="BaseType.U_LNCFNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="grteam" longname="保证金" type="BaseType.U_TRANAM" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="nwptno" longname="替换汇票号码" type="LaBaseType.U_ACPTNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="pyertg" longname="备款方式" type="LaEnumType.E_PYERTG" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="dscrtx" longname="备注" type="BaseType.U_SHORDS" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="crcycd" longname="币种" type="BaseEnumType.E_CRCYCD" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cnsnst" longname="发出托收状态" type="LaEnumType.E_CNSNST" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tsllsq" longname="托收登记号" type="LaBaseType.U_COLLID" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="retntp" longname="保证金处理类型" type="LaEnumType.E_RETNTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="sttsdt" longname="冲账日期" type="BaseType.U_DATE08" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="sttssq" longname="冲账流水" type="BaseType.U_SEQUNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="adgrbr" longname="补存部门" type="BaseType.U_BRCHNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="collid" longname="托收登记号" type="LaBaseType.U_COLLID" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="dshntx" longname="拒付原因" type="BaseType.U_SHORDS" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="initam" longname="银承协议总额" type="BaseType.U_TRANAM" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="nwptac" longname="备用账户" type="BaseType.U_CARDNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="nwptna" longname="备用账户户名" type="BaseType.U_ACCTNA" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+</schema>

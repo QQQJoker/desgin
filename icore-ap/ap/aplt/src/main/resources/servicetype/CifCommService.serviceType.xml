@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType id="CifCommService" kind="business" longname="客户信息通用服务" package="cn.sunline.ltts.busi.aplt.servicetype" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <service id="FileInteractiveReqByServer" name="FileInteractiveReqByServer" longname="文件交互请求封装服务">
+        <interface>
+            <input packMode="true">
+                <field id="source" type="CfEnumType.E_SYSNAME" required="false" multi="false" array="false" longname="原系统标识" ref="CfDict.param.source"/>
+                <field id="target" type="CfEnumType.E_SYSNAME" required="false" multi="false" array="false" longname="目标系统标识" ref="CfDict.param.target"/>
+                <field id="dataid" type="CfBaseType.U_CHAR50" required="false" multi="false" array="false" longname="数据类型" ref="CfDict.param.dataid"/>
+                <field id="busseq" type="CfBaseType.U_CHAR50" required="false" multi="false" array="false" longname="业务流水" ref="CfDict.param.busseq"/>
+                <field id="acctdt" type="CfBaseType.U_CHAR22" required="false" multi="false" array="false" longname="会计日期" ref="CfDict.param.acctdt"/>
+                <field id="status" type="CfEnumType.E_FLJHST" required="false" multi="false" array="false" longname="文件交互状态" ref="CfDict.param.status"/>
+                <field id="descri" type="CfBaseType.U_CHAR80" required="false" multi="false" array="false" longname="文件交互结果描述" ref="CfDict.param.descri"/>
+                <field id="fileList" type="IoUsComplexType.CifFilePlat" required="false" multi="true" array="false" longname="数据集合"/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="busseq" type="BaseType.U_CHAR40" required="false" multi="false" array="false" longname="业务流水"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="BatchFileInteractive" name="BatchFileInteractive" longname="批量文件接收交互">
+        <interface>
+            <input packMode="true">
+                <field id="source" type="CfEnumType.E_SYSNAME" required="false" multi="false" array="false" longname="原系统标识" ref="CfDict.param.source"/>
+                <field id="target" type="CfEnumType.E_SYSNAME" required="false" multi="false" array="false" longname="目标系统标识" ref="CfDict.param.target"/>
+                <field id="dataid" type="BaseType.U_CHAR40" required="false" multi="false" array="false" longname="数据类型"/>
+                <field id="busseq" type="BaseType.U_CHAR40" required="false" multi="false" array="false" longname="业务流水"/>
+                <field id="acctdt" type="BaseType.U_CHAR08" required="false" multi="false" array="false" longname="会计日期"/>
+                <field id="fllist" type="IoUsComplexType.CifFilePlat" required="false" multi="true" array="false" longname="文件集合"/>
+            </input>
+            <output asParm="true" packMode="true"/>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+</serviceType>

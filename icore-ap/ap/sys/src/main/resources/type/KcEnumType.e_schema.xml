@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema id="KcEnumType" package="cn.sunline.ltts.busi.sys.type" longname="合作商枚举类型" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <restrictionType id="E_RELATP" longname="上下游标志" base="BaseType.U_CHAR01" tags="none">
+        <enumeration id="UP" value="1" longname="相对核心商户上游客户"/>
+        <enumeration id="DOWN" value="2" longname="相对核心商户下游客户"/>
+    </restrictionType>
+    <restrictionType id="E_CMTYPE" longname="合作商关系类型" base="BaseType.U_CHAR01" tags="none">
+        <enumeration id="CYCLE" value="1" longname="圈"/>
+        <enumeration id="LINK" value="2" longname="链"/>
+        <enumeration id="TREE" value="3" longname="树"/>
+    </restrictionType>
+    <restrictionType id="E_BUSICD" longname="业务种类编号" base="BaseType.U_CHAR01" tags="none">
+        <enumeration id="LOAN" value="L" longname="贷款"/>
+        <enumeration id="CARD" value="C" longname="卡"/>
+        <enumeration id="FEE" value="F" longname="费用"/>
+    </restrictionType>
+    <restrictionType id="E_PROPTP" longname="属性类型" base="BaseType.U_CHAR01" tags="none">
+        <enumeration id="PERMISSION" value="1" longname="权限类"/>
+        <enumeration id="PRODUCT" value="2" longname="产品属性"/>
+    </restrictionType>
+    <restrictionType id="E_TMPLTP" longname="活动模板分类" base="BaseType.U_CHAR01" tags="none">
+        <enumeration id="COOPERAT" value="1" longname="合作商"/>
+        <enumeration id="ACTIVE" value="2" longname="活动"/>
+    </restrictionType>
+    <restrictionType id="E_SUITTP" longname="活动适用类型" base="BaseType.U_CHAR01" tags="none">
+        <enumeration id="COOPERAT" value="M" longname="合作商户"/>
+        <enumeration id="BRANCH" value="B" longname="机构"/>
+        <enumeration id="CUSTTP" value="C" longname="客户类型"/>
+        <enumeration id="SERVTP" value="S" longname="渠道类型"/>
+        <enumeration id="SERVNO" value="N" longname="渠道号"/>
+    </restrictionType>
+</schema>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType id="IoRouteSvcType" kind="business" longname="交易路由服务" package="cn.sunline.ltts.busi.iobus.servicetype.serv" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description><![CDATA[]]></description>
+    <service id="ProcConsumeRoute" name="procConsumeRoute" longname="消费交易路由">
+        <description><![CDATA[]]></description>
+        <interface>
+            <input packMode="true">
+                <field id="input" type="IoRouteType.ProcConsumeInput" required="false" fixed="" default="" multi="false" array="false" longname="输入参数" desc="" ref=""/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="ouput" type="IoRouteType.ProcConsumeOutput" required="false" fixed="" default="" multi="false" array="false" longname="输出参数" desc="" ref=""/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="ProcRepayRoute" name="procRepayRoute" longname="还款交易路由">
+        <description><![CDATA[]]></description>
+        <interface>
+            <input packMode="true">
+                <field id="input" type="IoRouteType.ProcRepayInput" required="false" fixed="" default="" multi="false" array="false" longname="输入参数" desc="" ref=""/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="ouput" type="IoRouteType.ProcRepayOutput" required="false" fixed="" default="" multi="false" array="false" longname="输出参数" desc="" ref=""/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="ProcRouteSign" name="procRouteSign" longname="路由签约">
+        <description><![CDATA[]]></description>
+        <interface>
+            <input packMode="false">
+                <field id="custac" type="BaseType.U_CUACNO" required="false" fixed="" default="" multi="false" array="false" longname="电子账号" desc="" ref=""/>
+                <field id="signtp" type="DpEnumType.E_PRODTP" required="false" fixed="" default="" multi="false" array="false" longname="业务种类" desc="" ref=""/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+</serviceType>

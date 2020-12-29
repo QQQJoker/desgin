@@ -1,0 +1,901 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="IoDpFrozComplexType" package="cn.sunline.ltts.busi.iobus.type.dp" longname="冻结止付复合类型" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <complexType id="IoDpStopPayIn" longname="司法冻结输入接口" dict="false" abstract="false" introduct="false">
+        <element id="froztp" longname="冻结业务类型" type="DpEnumType.E_FROZTP" ref="DpDict.Froz.froztp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frlmtp" longname="限制类型" type="DpEnumType.E_FRLMTP" ref="DpDict.Froz.frlmtp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozow" longname="冻结主体类型" type="DpEnumType.E_FROZOW" ref="DpDict.Froz.frozow" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozcd" longname="冻结分类码" type="BaseType.U_CHAR08" ref="DpDict.Froz.frozcd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frcttp" longname="冻结证明文书类别" type="BaseType.U_SHORDS" ref="DpDict.Froz.frcttp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozwy" longname="冻解方式" type="DpEnumType.E_FROZWY" ref="DpDict.Froz.frozwy" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozno" longname="冻结编号" type="BaseType.U_SEQUNO" ref="DpDict.Froz.frozno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cardno" longname="电子账号" type="BaseType.U_CARDNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="fricfg" longname="是否定期子账户冻结" type="BaseEnumType.E_YES___" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acctno" longname="定期子账号" type="BaseType.U_ACCTNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custna" longname="客户名称" type="BaseType.U_ACCTNA" ref="DpDict.Acct.custna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="crcycd" longname="币种" type="BaseType.U_CRCYCD" ref="BaseDict.Comm.crcycd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="csextg" longname="账户钞汇标志" type="BaseEnumType.E_CSEXTG" ref="DpDict.Acct.csextg" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frctno" longname="冻结通知书编号" type="BaseType.U_SHORDS" ref="DpDict.Froz.frctno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozam" longname="冻结金额" type="BaseType.U_TRANAM" ref="DpDict.Froz.frozam" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozdt" longname="冻结日期" type="BaseType.U_DATE08" ref="DpDict.Froz.frozdt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="freddt" longname="冻结终止日期" type="BaseType.U_DATE08" ref="DpDict.Froz.freddt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frexog" longname="冻结执法部门" type="BaseEnumType.E_LAWCOP" ref="DpDict.Froz.frexog" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frogna" longname="冻结执法部门名称" type="BaseType.U_SHORDS" ref="DpDict.Froz.frogna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frna01" longname="冻结执法人员1姓名" type="BaseType.U_CUSTNA" ref="DpDict.Froz.frna01" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="idtp01" longname="执法人员1证件种类" type="BaseEnumType.E_IDTFTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="idno01" longname="执法人员1证件号码" type="BaseType.U_IDTFNO" ref="DpDict.Froz.idno01" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frna02" longname="冻结执法人员2姓名" type="BaseType.U_CUSTNA" ref="DpDict.Froz.frna02" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="idtp02" longname="执法人员2证件种类" type="BaseEnumType.E_IDTFTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="idno02" longname="执法人员2证件号码" type="BaseType.U_IDTFNO" ref="DpDict.Froz.idno02" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frreas" longname="冻结原因" type="BaseType.U_SHORDS" ref="DpDict.Froz.frreas" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="remark" longname="备注" type="BaseType.U_SHORTS" ref="DpDict.Froz.remark" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoDpStopPayOt" longname="司法冻结输出接口" dict="false" abstract="false" introduct="false">
+        <element id="trandt" longname="交易日期" type="BaseType.U_DATE08" ref="DpDict.Froz.trandt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tranbr" longname="交易机构" type="BaseType.U_BRCHNO" ref="DpDict.Froz.tranbr" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="transq" longname="主交易流水" type="BaseType.U_SEQUNO" ref="DpDict.Acct.transq" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cardno" longname="电子账号" type="BaseType.U_CARDNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custno" longname="客户号" type="BaseType.U_CUSTNO" ref="DpDict.Acct.custno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custna" longname="客户名称" type="BaseType.U_ACCTNA" ref="DpDict.Acct.custna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozno" longname="冻结编号" type="BaseType.U_SEQUNO" ref="DpDict.Froz.frozno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozwy" longname="冻解方式" type="DpEnumType.E_FROZWY" ref="DpDict.Froz.frozwy" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozam" longname="冻结金额" type="BaseType.U_TRANAM" ref="DpDict.Froz.frozam" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frctno" longname="冻结通知书编号" type="BaseType.U_SHORDS" ref="DpDict.Froz.frctno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="onlnbl" longname="当前账户余额" type="BaseType.U_ACBLTP" ref="DpDict.Acct.onlnbl" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="freddt" longname="冻结终止日期" type="BaseType.U_DATE08" ref="DpDict.Froz.freddt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frogna" longname="冻结执法部门名称" type="BaseType.U_SHORDS" ref="DpDict.Froz.frogna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frna01" longname="冻结执法人员1姓名" type="BaseType.U_CUSTNA" ref="DpDict.Froz.frna01" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="idno01" longname="执法人员1证件号码" type="BaseType.U_IDTFNO" ref="DpDict.Froz.idno01" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frna02" longname="冻结执法人员2姓名" type="BaseType.U_CUSTNA" ref="DpDict.Froz.frna02" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="idno02" longname="执法人员2证件号码" type="BaseType.U_IDTFNO" ref="DpDict.Froz.idno02" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frreas" longname="冻结原因" type="BaseType.U_SHORDS" ref="DpDict.Froz.frreas" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="remark" longname="备注" type="BaseType.U_SHORTS" ref="DpDict.Froz.remark" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozInfo" longname="在先冻结信息" type="IoDpFrozComplexType.IoFrozHistInfo" required="false" multi="true" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acctbl" longname="账户余额" type="BaseType.U_ACBLTP" ref="DpDict.Acct.acctbl" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoDpUnStopPayIn" longname="解冻输入接口" dict="false" abstract="false" introduct="false">
+        <element id="frozwy" longname="冻解方式" type="DpEnumType.E_FROZWY" ref="DpDict.Froz.frozwy" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="odfrno" longname="原冻结编号" type="BaseType.U_SEQUNO" ref="DpDict.Froz.odfrno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cardno" longname="电子账号" type="BaseType.U_CARDNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custna" longname="客户名称" type="BaseType.U_ACCTNA" ref="DpDict.Acct.custna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="crcycd" longname="币种" type="BaseType.U_CRCYCD" ref="BaseDict.Comm.crcycd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="csextg" longname="账户钞汇标志" type="BaseEnumType.E_CSEXTG" ref="DpDict.Acct.csextg" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ufctno" longname="解冻通知书编号" type="BaseType.U_SHORDS" ref="DpDict.Froz.ufctno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="unfram" longname="解冻金额" type="BaseType.U_TRANAM" ref="DpDict.Froz.unfram" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozdt" longname="冻结日期" type="BaseType.U_DATE08" ref="DpDict.Froz.frozdt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="freddt" longname="冻结终止日期" type="BaseType.U_DATE08" ref="DpDict.Froz.freddt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ufexog" longname="解冻执法部门" type="BaseEnumType.E_LAWCOP" ref="DpDict.Froz.ufexog" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frogna" longname="冻结执法部门名称" type="BaseType.U_SHORDS" ref="DpDict.Froz.frogna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ufcttp" longname="解冻证明文书类别" type="BaseType.U_SHORDS" ref="DpDict.Froz.ufcttp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ufna01" longname="解冻执法人员1姓名" type="BaseType.U_CUSTNA" ref="DpDict.Froz.ufna01" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="idtp01" longname="执法人员1证件种类" type="BaseEnumType.E_IDTFTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="idno01" longname="执法人员1证件号码" type="BaseType.U_IDTFNO" ref="DpDict.Froz.idno01" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ufna02" longname="解冻执法人员2姓名" type="BaseType.U_CUSTNA" ref="DpDict.Froz.ufna02" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="idtp02" longname="执法人员2证件种类" type="BaseEnumType.E_IDTFTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="idno02" longname="执法人员2证件号码" type="BaseType.U_IDTFNO" ref="DpDict.Froz.idno02" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ufreas" longname="解冻原因" type="BaseType.U_SHORDS" ref="DpDict.Froz.ufreas" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="remark" longname="解冻备注" type="BaseType.U_SHORTS" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoDpStFzIn" longname="系统冻结输入接口" dict="false" abstract="false" introduct="false">
+        <element id="cardno" longname="电子账号" type="BaseType.U_CARDNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acctno" longname="账号" type="BaseType.U_ACCTNO" ref="BaseDict.Comm.acctno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="crcycd" longname="币种" type="BaseType.U_CRCYCD" ref="BaseDict.Comm.crcycd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozam" longname="冻结金额" type="BaseType.U_TRANAM" ref="DpDict.Froz.frozam" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frlmtp" longname="限制类型" type="DpEnumType.E_FRLMTP" ref="DpDict.Froz.frlmtp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozno" longname="冻结编号" type="BaseType.U_SEQUNO" ref="DpDict.Froz.frozno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="froztp" longname="冻结业务类型" type="DpEnumType.E_FROZTP" ref="DpDict.Froz.froztp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="sprdid" longname="产品编号" type="BaseType.U_PRODCD" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="sprdvr" longname="版本号" type="BaseType.U_CHAR16" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="sprdna" longname="产品名称" type="BaseType.U_CHAR80" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="prodcd" longname="产品代码" type="BaseType.U_CHAR16" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ftrate" longname="预期年化收益率（最低）" type="BaseType.U_INSTRT" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ttrate" longname="预期年化收益率（最高）" type="BaseType.U_INSTRT" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="endday" longname="冻结终止日期" type="BaseType.U_DATE08" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="nolent" longname="冻结编号长度" type="BaseType.U_INTEGE" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoDpStFzOt" longname="系统冻结输出接口" dict="false" abstract="false" introduct="false">
+        <element id="remark" longname="备注" type="BaseType.U_SHORTS" ref="DpDict.Froz.remark" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozdt" longname="冻结日期" type="BaseType.U_DATE08" ref="DpDict.Froz.frozdt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozno" longname="冻结编号" type="BaseType.U_SEQUNO" ref="DpDict.Froz.frozno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="mntrsq" longname="主交易流水" type="BaseType.U_SEQUNO" ref="DpDict.Froz.mntrsq" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoDpStUfIn" longname="系统解冻输入接口" dict="false" abstract="false" introduct="false">
+        <element id="inpudt" longname="上送原交易日期" type="BaseType.U_DATE08" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="inpusq" longname="上送原交易流水" type="BaseType.U_SEQUNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="unfram" longname="解冻金额" type="BaseType.U_TRANAM" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozno" longname="冻结编号" type="BaseType.U_SEQUNO" ref="BaseDict.Comm.frozno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozsq" longname="冻结序号" type="BaseType.U_LONGIN" ref="DpDict.Froz.frozsq" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trandt" longname="交易日期" type="BaseType.U_DATE08" ref="BaseDict.Comm.trandt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="mntrsq" longname="主交易流水" type="BaseType.U_SEQUNO" ref="BaseDict.Comm.mntrsq" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoDpStUfOt" longname="系统解冻输出接口" dict="false" abstract="false" introduct="false">
+        <element id="remark" longname="备注" type="BaseType.U_SHORTS" ref="DpDict.Froz.remark" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoDpUnStopPayOt" longname="解冻输出接口" dict="false" abstract="false" introduct="false">
+        <element id="trandt" longname="交易日期" type="BaseType.U_DATE08" ref="DpDict.Froz.trandt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tranbr" longname="交易机构" type="BaseType.U_BRCHNO" ref="DpDict.Froz.tranbr" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cardno" longname="电子账号" type="BaseType.U_CARDNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custno" longname="客户号" type="BaseType.U_CUSTNO" ref="DpDict.Acct.custno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custna" longname="客户名称" type="BaseType.U_ACCTNA" ref="DpDict.Acct.custna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="odfrno" longname="原冻结编号" type="BaseType.U_SEQUNO" ref="DpDict.Froz.odfrno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozwy" longname="冻解方式" type="DpEnumType.E_FROZWY" ref="DpDict.Froz.frozwy" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="unfram" longname="解冻金额" type="BaseType.U_TRANAM" ref="DpDict.Froz.unfram" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ufctno" longname="解冻通知书编号" type="BaseType.U_SHORDS" ref="DpDict.Froz.ufctno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ufogna" longname="解冻执法部门名称" type="BaseType.U_SHORDS" ref="DpDict.Froz.ufogna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ufna01" longname="解冻执法人员1姓名" type="BaseType.U_CUSTNA" ref="DpDict.Froz.ufna01" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="idno01" longname="执法人员1证件号码" type="BaseType.U_IDTFNO" ref="DpDict.Froz.idno01" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ufna02" longname="解冻执法人员2姓名" type="BaseType.U_CUSTNA" ref="DpDict.Froz.ufna02" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="idno02" longname="执法人员2证件号码" type="BaseType.U_IDTFNO" ref="DpDict.Froz.idno02" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ufreas" longname="解冻原因" type="BaseType.U_SHORDS" ref="DpDict.Froz.ufreas" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="remark" longname="解冻备注" type="BaseType.U_SHORTS" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="freddt" longname="冻结终止日期" type="BaseType.U_DATE08" ref="DpDict.Froz.freddt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="onlnbl" longname="当前账户余额" type="BaseType.U_ACBLTP" ref="DpDict.Acct.onlnbl" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acctbl" longname="账户余额" type="BaseType.U_ACBLTP" ref="DpDict.Acct.acctbl" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoCtfrozPayIn" longname="续冻输入接口" dict="false" abstract="false" introduct="false">
+        <element id="frozwy" longname="冻解方式" type="DpEnumType.E_FROZWY" ref="DpDict.Froz.frozwy" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozno" longname="冻结编号" type="BaseType.U_SEQUNO" ref="DpDict.Froz.frozno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cardno" longname="电子账号" type="BaseType.U_CARDNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acctno" longname="子账号" type="BaseType.U_ACCTNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custna" longname="客户名称" type="BaseType.U_ACCTNA" ref="DpDict.Acct.custna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="crcycd" longname="币种" type="BaseType.U_CRCYCD" ref="BaseDict.Comm.crcycd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="csextg" longname="账户钞汇标志" type="BaseEnumType.E_CSEXTG" ref="DpDict.Acct.csextg" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frctno" longname="冻结通知书编号" type="BaseType.U_SHORDS" ref="DpDict.Froz.frctno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozam" longname="冻结金额" type="BaseType.U_TRANAM" ref="DpDict.Froz.frozam" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozdt" longname="冻结日期" type="BaseType.U_DATE08" ref="DpDict.Froz.frozdt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="freddt" longname="冻结终止日期" type="BaseType.U_DATE08" ref="DpDict.Froz.freddt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frexog" longname="冻结执法部门" type="BaseEnumType.E_LAWCOP" ref="DpDict.Froz.frexog" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frogna" longname="冻结执法部门名称" type="BaseType.U_SHORDS" ref="DpDict.Froz.frogna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frcttp" longname="冻结证明文书类别" type="BaseType.U_SHORDS" ref="DpDict.Froz.frcttp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frna01" longname="冻结执法人员1姓名" type="BaseType.U_CUSTNA" ref="DpDict.Froz.frna01" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="idtp01" longname="执法人员1证件种类" type="BaseEnumType.E_IDTFTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="idno01" longname="执法人员1证件号码" type="BaseType.U_IDTFNO" ref="DpDict.Froz.idno01" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frna02" longname="冻结执法人员2姓名" type="BaseType.U_CUSTNA" ref="DpDict.Froz.frna02" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="idtp02" longname="执法人员2证件种类" type="BaseEnumType.E_IDTFTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="idno02" longname="执法人员2证件号码" type="BaseType.U_IDTFNO" ref="DpDict.Froz.idno02" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ctfrre" longname="续冻原因" type="BaseType.U_SHORDS" ref="DpDict.Froz.ctfrre" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="remark" longname="备注" type="BaseType.U_SHORTS" ref="DpDict.Froz.remark" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoCtfrozPayOt" longname="续冻输出接口" dict="false" abstract="false" introduct="false">
+        <element id="trandt" longname="交易日期" type="BaseType.U_DATE08" ref="DpDict.Froz.trandt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tranbr" longname="交易机构" type="BaseType.U_BRCHNO" ref="DpDict.Froz.tranbr" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="transq" longname="主交易流水" type="BaseType.U_SEQUNO" ref="DpDict.Acct.transq" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cardno" longname="电子账号" type="BaseType.U_CARDNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custno" longname="客户号" type="BaseType.U_CUSTNO" ref="DpDict.Acct.custno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custna" longname="客户名称" type="BaseType.U_ACCTNA" ref="DpDict.Acct.custna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozno" longname="冻结编号" type="BaseType.U_SEQUNO" ref="DpDict.Froz.frozno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozwy" longname="冻解方式" type="DpEnumType.E_FROZWY" ref="DpDict.Froz.frozwy" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozam" longname="冻结金额" type="BaseType.U_TRANAM" ref="DpDict.Froz.frozam" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frctno" longname="冻结通知书编号" type="BaseType.U_SHORDS" ref="DpDict.Froz.frctno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozdt" longname="冻结日期" type="BaseType.U_DATE08" ref="DpDict.Froz.frozdt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="freddt" longname="冻结终止日期" type="BaseType.U_DATE08" ref="DpDict.Froz.freddt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frogna" longname="冻结执法部门名称" type="BaseType.U_SHORDS" ref="DpDict.Froz.frogna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frna01" longname="冻结执法人员1姓名" type="BaseType.U_CUSTNA" ref="DpDict.Froz.frna01" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="idno01" longname="执法人员1证件号码" type="BaseType.U_IDTFNO" ref="DpDict.Froz.idno01" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frna02" longname="冻结执法人员2姓名" type="BaseType.U_CUSTNA" ref="DpDict.Froz.frna02" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="idno02" longname="执法人员2证件号码" type="BaseType.U_IDTFNO" ref="DpDict.Froz.idno02" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frreas" longname="冻结原因" type="BaseType.U_SHORDS" ref="DpDict.Froz.frreas" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="remark" longname="备注" type="BaseType.U_SHORTS" ref="DpDict.Froz.remark" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="crcycd" longname="货币代号" type="BaseType.U_CRCYCD" ref="DpDict.Acct.crcycd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="onlnbl" longname="当前账户余额" type="BaseType.U_ACBLTP" ref="DpDict.Acct.onlnbl" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acctbl" longname="账户余额" type="BaseType.U_ACBLTP" ref="DpDict.Acct.acctbl" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoDpprovIn" longname="存款证明输入" dict="false" abstract="false" introduct="false">
+        <element id="deprtp" longname="存款证明书类型" type="BaseEnumType.E_DEPRTP" ref="DpDict.Depr.deprtp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="corpno" longname="法人代码" type="BaseType.U_CORPNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="deprbp" longname="存款证明交易类型" type="BaseEnumType.E_DEPRBP" ref="DpDict.Depr.deprbp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="deprnm" longname="存款证明书编号" type="BaseType.U_ACCTNO" ref="DpDict.Depr.deprnm" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ischge" longname="是否收费" type="BaseEnumType.E_DPCGFG" ref="DpDict.Depr.ischge" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cardno" longname="电子账号" type="BaseType.U_CARDNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acctno" longname="账号" type="BaseType.U_ACCTNO" ref="BaseDict.Comm.acctno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custna" longname="客户名" type="BaseType.U_CHINNA" ref="PbDict.Charge.custna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="crcycd" longname="币种" type="BaseType.U_CRCYCD" ref="PbDict.Intr.crcycd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="csextg" longname="账户钞汇标志" type="BaseEnumType.E_CSEXTG" ref="DpDict.Acct.csextg" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="depram" longname="证明金额" type="BaseType.U_TRANAM" ref="DpDict.Depr.depram" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="stcenm" longname="起始凭证号" type="BaseType.U_LONGIN" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="encenm" longname="终止凭证号" type="BaseType.U_LONGIN" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="number" longname="份数" type="BaseType.U_LONGIN" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="begndt" longname="起始日期" type="BaseType.U_DATE08" ref="DpDict.Depr.begndt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="enddat" longname="终止日期" type="BaseType.U_DATE08" ref="DpDict.Depr.enddat" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="opna01" longname="经办人1姓名" type="BaseType.U_CUSTNA" ref="DpDict.Froz.opna01" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="optp01" longname="经办人1证件种类" type="BaseEnumType.E_IDTFTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="opno01" longname="经办人1证件号码" type="BaseType.U_IDTFNO" ref="DpDict.Froz.opno01" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="fretxt" longname="费用信息" type="IoDpFrozComplexType.freeOfDeposit" required="false" multi="true" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="feeamt" longname="手续费金额" type="PbBaseType.U_TRANAM" ref="PbDict.Charge.feeamt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozno" longname="冻结编号" type="BaseType.U_SEQUNO" ref="BaseDict.Comm.frozno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoDpprovOut" longname="存款证明输出" dict="false" abstract="false" introduct="false">
+        <element id="deprtp" longname="存款证明书类型" type="BaseEnumType.E_DEPRTP" ref="DpDict.Depr.deprtp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="deprbp" longname="存款证明交易类型" type="BaseEnumType.E_DEPRBP" ref="DpDict.Depr.deprbp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="deprnm" longname="存款证明书编号" type="BaseType.U_ACCTNO" ref="DpDict.Depr.deprnm" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ischge" longname="是否收费" type="BaseEnumType.E_DPCGFG" ref="DpDict.Depr.ischge" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cardno" longname="电子账号" type="BaseType.U_CARDNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="depram" longname="证明金额" type="BaseType.U_TRANAM" ref="DpDict.Depr.depram" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="stcenm" longname="起始凭证号" type="long" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="encenm" longname="终止凭证号" type="long" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="number" longname="份数" type="long" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="begndt" longname="起始日期" type="BaseType.U_DATE08" ref="DpDict.Depr.begndt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="enddat" longname="终止日期" type="BaseType.U_DATE08" ref="DpDict.Depr.enddat" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="opna01" longname="经办人1姓名" type="BaseType.U_CUSTNA" ref="DpDict.Froz.opna01" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="optp01" longname="经办人1证件种类" type="BaseEnumType.E_IDTFTP" ref="DpDict.Froz.optp01" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="opno01" longname="经办人1证件号码" type="BaseType.U_IDTFNO" ref="DpDict.Froz.opno01" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custna" longname="客户名" type="BaseType.U_CHINNA" ref="PbDict.Charge.custna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tranbl" longname="余额" type="PbBaseType.U_TRANAM" ref="PbDict.Charge.tranbl" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="crcycd" longname="币种" type="BaseType.U_CRCYCD" ref="BaseDict.Comm.crcycd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="csextg" longname="账户钞汇标志" type="BaseEnumType.E_CSEXTG" ref="DpDict.Acct.csextg" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoDpStopayIn" longname="止付输入接口" dict="false" abstract="false" introduct="false">
+        <element id="frlmtp" longname="限制类型" type="DpEnumType.E_FRLMTP" ref="DpDict.Froz.frlmtp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozow" longname="冻结主体类型" type="DpEnumType.E_FROZOW" ref="DpDict.Froz.frozow" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozcd" longname="冻结分类码" type="BaseType.U_CHAR08" ref="DpDict.Froz.frozcd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frcttp" longname="冻结证明文书类别" type="BaseType.U_SHORDS" ref="DpDict.Froz.frcttp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="stoptp" longname="止付类型" type="DpEnumType.E_STOPTP" ref="DpDict.Froz.stoptp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="sptype" longname="止付类型12（对外）" type="DpEnumType.E_SPTYPE" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="stuntp" longname="止解方式" type="DpEnumType.E_STUNTP" ref="DpDict.Froz.stuntp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="stopms" longname="止付措施" type="DpEnumType.E_STOPMS" ref="DpDict.Froz.stopms" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="sttmle" longname="止付时间长度" type="BaseType.U_CHAR02" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cardno" longname="电子账号" type="BaseType.U_CARDNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custna" longname="客户名称" type="BaseType.U_ACCTNA" ref="DpDict.Acct.custna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acctno" longname="子账户" type="BaseType.U_ACCTNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="crcycd" longname="币种" type="BaseType.U_CRCYCD" ref="BaseDict.Comm.crcycd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="csextg" longname="账户钞汇标志" type="BaseEnumType.E_CSEXTG" ref="DpDict.Acct.csextg" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="stopam" longname="解/止付金额" type="BaseType.U_TRANAM" ref="DpDict.Froz.stopam" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="stbkno" longname="解/止付书编号" type="BaseType.U_SHORDS" ref="DpDict.Froz.stbkno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="sttmct" longname="止付时间计算" type="DpEnumType.E_STTMCT" ref="DpDict.Froz.sttmct" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="stoptm" longname="止付时间" type="BaseType.U_CHAR02" ref="DpDict.Froz.stoptm" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="stopdt" longname="止付日期" type="BaseType.U_DATE08" ref="DpDict.Froz.stopdt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="stpldt" longname="止付(质押)到期日" type="BaseType.U_DATE08" ref="DpDict.Froz.stpldt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="stdptp" longname="解/止付部门类型" type="BaseEnumType.E_LAWCOP" ref="DpDict.Froz.stdptp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="stladp" longname="解/止付执法部门" type="BaseType.U_LONGDS" ref="DpDict.Froz.stladp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frna01" longname="冻结执法人员1姓名" type="BaseType.U_CUSTNA" ref="DpDict.Froz.frna01" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="idtp01" longname="执法人员1证件种类" type="BaseEnumType.E_IDTFTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="idno01" longname="执法人员1证件号码" type="BaseType.U_IDTFNO" ref="DpDict.Froz.idno01" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frna02" longname="冻结执法人员2姓名" type="BaseType.U_CUSTNA" ref="DpDict.Froz.frna02" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="idtp02" longname="执法人员2证件种类" type="BaseEnumType.E_IDTFTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="idno02" longname="执法人员2证件号码" type="BaseType.U_IDTFNO" ref="DpDict.Froz.idno02" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="sfreas" longname="解/止付原因" type="BaseType.U_SHORDS" ref="DpDict.Froz.sfreas" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custop" longname="账户保护类型" type="DpEnumType.E_CUSTOP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cureas" longname="账户保护原因" type="DpEnumType.E_CUREAS" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoDpStopayOt" longname="止付输出接口" dict="false" abstract="false" introduct="false">
+        <element id="trandt" longname="交易日期" type="BaseType.U_DATE08" ref="DpDict.Froz.trandt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="transq" longname="主交易流水" type="BaseType.U_SEQUNO" ref="DpDict.Acct.transq" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="sttmct" longname="止付时间计算" type="DpEnumType.E_STTMCT" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tranbr" longname="交易机构" type="BaseType.U_BRCHNO" ref="DpDict.Froz.tranbr" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cardno" longname="电子账号" type="BaseType.U_CARDNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="sptype" longname="止付类型12（对外）" type="DpEnumType.E_SPTYPE" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custno" longname="客户号" type="BaseType.U_CUSTNO" ref="DpDict.Acct.custno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custna" longname="客户名称" type="BaseType.U_ACCTNA" ref="DpDict.Acct.custna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="stoptp" longname="止付类型" type="DpEnumType.E_STOPTP" ref="DpDict.Froz.stoptp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="crcycd" longname="币种" type="BaseType.U_CRCYCD" ref="BaseDict.Comm.crcycd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="csextg" longname="账户钞汇标志" type="BaseEnumType.E_CSEXTG" ref="DpDict.Acct.csextg" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozno" longname="冻结编号" type="BaseType.U_SEQUNO" ref="DpDict.Froz.frozno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="stuntp" longname="止解方式" type="DpEnumType.E_STUNTP" ref="DpDict.Froz.stuntp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="stopdt" longname="止付日期" type="BaseType.U_DATE08" ref="DpDict.Froz.stopdt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="stpldt" longname="止付(质押)到期日" type="BaseType.U_DATE08" ref="DpDict.Froz.stpldt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="stopms" longname="止付措施" type="DpEnumType.E_STOPMS" ref="DpDict.Froz.stopms" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="stopam" longname="解/止付金额" type="BaseType.U_TRANAM" ref="DpDict.Froz.stopam" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="stdptp" longname="解/止付部门类型" type="BaseEnumType.E_LAWCOP" ref="DpDict.Froz.stdptp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="stladp" longname="解/止付执法部门" type="BaseType.U_LONGDS" ref="DpDict.Froz.stladp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frna01" longname="冻结执法人员1姓名" type="BaseType.U_CUSTNA" ref="DpDict.Froz.frna01" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="idno01" longname="执法人员1证件号码" type="BaseType.U_IDTFNO" ref="DpDict.Froz.idno01" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frna02" longname="冻结执法人员2姓名" type="BaseType.U_CUSTNA" ref="DpDict.Froz.frna02" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="idno02" longname="执法人员2证件号码" type="BaseType.U_IDTFNO" ref="DpDict.Froz.idno02" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="sfreas" longname="解/止付原因" type="BaseType.U_SHORDS" ref="DpDict.Froz.sfreas" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="sttmle" longname="止付时间长度" type="BaseType.U_CHAR02" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custop" longname="账户保护类型" type="DpEnumType.E_CUSTOP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cureas" longname="账户保护原因" type="DpEnumType.E_CUREAS" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="onlnbl" longname="当前账户余额" type="BaseType.U_ACBLTP" ref="DpDict.Acct.onlnbl" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoDeductIn" longname="扣划输入接口" dict="false" abstract="false" introduct="false">
+        <odbindexes/>
+        <element id="cardno" longname="电子账号" type="BaseType.U_CARDNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acctno" longname="子账号" type="BaseType.U_ACCTNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="dedutp" longname="扣划类型" type="DpEnumType.E_DEDUTP" ref="DpDict.Froz.dedutp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custna" longname="客户名称" type="BaseType.U_ACCTNA" ref="DpDict.Acct.custna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="crcycd" longname="币种" type="BaseType.U_CRCYCD" ref="BaseDict.Comm.crcycd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="csextg" longname="账户钞汇标志" type="BaseEnumType.E_CSEXTG" ref="DpDict.Acct.csextg" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="deduam" longname="扣划金额" type="BaseType.U_TRANAM" ref="DpDict.Froz.deduam" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trantp" longname="交易类别" type="BaseEnumType.E_TRANTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozno" longname="冻结编号" type="BaseType.U_SEQUNO" ref="DpDict.Froz.frozno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozdt" longname="冻结日期" type="BaseType.U_DATE08" ref="DpDict.Froz.frozdt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ufctno" longname="解冻通知书编号" type="BaseType.U_SHORDS" ref="DpDict.Froz.ufctno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="dectno" longname="扣划通知书编号" type="BaseType.U_SHORDS" ref="DpDict.Froz.dectno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="deogtp" longname="有权机构类型" type="BaseEnumType.E_LAWCOP" ref="DpDict.Froz.deogtp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="deogna" longname="有权机构名称" type="BaseType.U_SHORDS" ref="DpDict.Froz.deogna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="opna01" longname="经办人1姓名" type="BaseType.U_CUSTNA" ref="DpDict.Froz.opna01" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="optp01" longname="经办人1证件种类" type="BaseEnumType.E_IDTFTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="opno01" longname="经办人1证件号码" type="BaseType.U_IDTFNO" ref="DpDict.Froz.opno01" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="opna02" longname="经办人2姓名" type="BaseType.U_CUSTNA" ref="DpDict.Froz.opna02" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="optp02" longname="经办人2证件种类" type="BaseEnumType.E_IDTFTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="opno02" longname="经办人2证件号码" type="BaseType.U_IDTFNO" ref="DpDict.Froz.opno02" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="monyto" longname="资金去向" type="DpEnumType.E_MONYTO" ref="DpDict.Froz.monyto" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="otheac" longname="对方账号" type="BaseType.U_CUACNO" ref="DpDict.Froz.otheac" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="othena" longname="对方户名" type="BaseType.U_ACCTNA" ref="DpDict.Froz.othena" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="othebk" longname="对方行名" type="BaseType.U_CHAR200" ref="DpDict.Froz.othebk" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="reason" longname="执法事由" type="BaseType.U_SHORDS" ref="DpDict.Froz.reason" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="remark" longname="备注" type="BaseType.U_SHORTS" ref="DpDict.Froz.remark" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoDeductOt" longname="扣划输出接口" dict="false" abstract="false" introduct="false">
+        <element id="trandt" longname="交易日期" type="BaseType.U_DATE08" ref="DpDict.Froz.trandt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tranbr" longname="交易机构" type="BaseType.U_BRCHNO" ref="DpDict.Froz.tranbr" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cardno" longname="电子账号" type="BaseType.U_CARDNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custno" longname="客户号" type="BaseType.U_CUSTNO" ref="DpDict.Acct.custno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custna" longname="客户名称" type="BaseType.U_ACCTNA" ref="DpDict.Acct.custna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="crcycd" longname="币种" type="BaseType.U_CRCYCD" ref="BaseDict.Comm.crcycd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="csextg" longname="账户钞汇标志" type="BaseEnumType.E_CSEXTG" ref="DpDict.Acct.csextg" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozno" longname="冻结编号" type="BaseType.U_SEQUNO" ref="DpDict.Froz.frozno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="dectno" longname="扣划通知书编号" type="BaseType.U_SHORDS" ref="DpDict.Froz.dectno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="deduno" longname="扣划编号" type="BaseType.U_SEQUNO" ref="DpDict.Froz.deduno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="deduam" longname="扣划金额" type="BaseType.U_TRANAM" ref="DpDict.Froz.deduam" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="otheac" longname="对方账号" type="BaseType.U_CUACNO" ref="DpDict.Froz.otheac" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="othena" longname="对方户名" type="BaseType.U_ACCTNA" ref="DpDict.Froz.othena" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="deogna" longname="有权机构名称" type="BaseType.U_SHORDS" ref="DpDict.Froz.deogna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="opna01" longname="经办人1姓名" type="BaseType.U_CUSTNA" ref="DpDict.Froz.opna01" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="opno01" longname="经办人1证件号码" type="BaseType.U_IDTFNO" ref="DpDict.Froz.opno01" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="opna02" longname="经办人2姓名" type="BaseType.U_CUSTNA" ref="DpDict.Froz.opna02" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="opno02" longname="经办人2证件号码" type="BaseType.U_IDTFNO" ref="DpDict.Froz.opno02" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="reason" longname="执法事由" type="BaseType.U_SHORDS" ref="DpDict.Froz.reason" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="remark" longname="备注" type="BaseType.U_SHORTS" ref="DpDict.Froz.remark" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acctno" longname="子账号" type="BaseType.U_ACCTNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acctna" longname="账户名" type="BaseType.U_ACCTNA" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="brchno" longname="机构号" type="BaseType.U_BRCHNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoDpUnStopayIn" longname="解止输入接口" dict="false" abstract="false" introduct="false">
+        <element id="frlmtp" longname="限制类型" type="DpEnumType.E_FRLMTP" ref="DpDict.Froz.frlmtp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozow" longname="冻结主体类型" type="DpEnumType.E_FROZOW" ref="DpDict.Froz.frozow" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozcd" longname="冻结分类码" type="BaseType.U_CHAR08" ref="DpDict.Froz.frozcd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frcttp" longname="冻结证明文书类别" type="BaseType.U_SHORDS" ref="DpDict.Froz.frcttp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="stoptp" longname="止付类型" type="DpEnumType.E_STOPTP" ref="DpDict.Froz.stoptp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="stopms" longname="止付措施" type="DpEnumType.E_STOPMS" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="sptype" longname="止付类型12（对外）" type="DpEnumType.E_SPTYPE" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="sttmle" longname="止付时间长度" type="BaseType.U_CHAR02" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="stpldt" longname="解止/质押到期日期" type="BaseType.U_ATTRIB" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="stuntp" longname="止解方式" type="DpEnumType.E_STUNTP" ref="DpDict.Froz.stuntp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="stopno" longname="止付序号" type="BaseType.U_SEQUNO" ref="DpDict.Froz.stopno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cardno" longname="电子账号" type="BaseType.U_CARDNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acctno" longname="子账号" type="BaseType.U_ACCTNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custna" longname="客户名称" type="BaseType.U_ACCTNA" ref="DpDict.Acct.custna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="crcycd" longname="币种" type="BaseType.U_CRCYCD" ref="BaseDict.Comm.crcycd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="csextg" longname="账户钞汇标志" type="BaseEnumType.E_CSEXTG" ref="DpDict.Acct.csextg" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="stopam" longname="解/止付金额" type="BaseType.U_TRANAM" ref="DpDict.Froz.stopam" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="stbkno" longname="解/止付书编号" type="BaseType.U_SHORDS" ref="DpDict.Froz.stbkno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="stdptp" longname="解/止付部门类型" type="BaseEnumType.E_LAWCOP" ref="DpDict.Froz.stdptp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="stladp" longname="解/止付执法部门" type="BaseType.U_LONGDS" ref="DpDict.Froz.stladp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frna01" longname="冻结执法人员1姓名" type="BaseType.U_CUSTNA" ref="DpDict.Froz.frna01" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="idtp01" longname="执法人员1证件种类" type="BaseEnumType.E_IDTFTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="idno01" longname="执法人员1证件号码" type="BaseType.U_IDTFNO" ref="DpDict.Froz.idno01" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frna02" longname="冻结执法人员2姓名" type="BaseType.U_CUSTNA" ref="DpDict.Froz.frna02" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="idtp02" longname="执法人员2证件种类" type="BaseEnumType.E_IDTFTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="idno02" longname="执法人员2证件号码" type="BaseType.U_IDTFNO" ref="DpDict.Froz.idno02" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="sfreas" longname="解/止付原因" type="BaseType.U_SHORDS" ref="DpDict.Froz.sfreas" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="stopdt" longname="止付日期" type="BaseType.U_DATE08" ref="DpDict.Froz.stopdt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custop" longname="账户保护类型" type="DpEnumType.E_CUSTOP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cureas" longname="账户保护原因" type="DpEnumType.E_CUREAS" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="remark" longname="备注" type="BaseType.U_SHORTS" ref="DpDict.Froz.remark" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoDpUnStopayOt" longname="解止输出接口" dict="false" abstract="false" introduct="false">
+        <element id="frlmtp" longname="限制类型" type="DpEnumType.E_FRLMTP" ref="DpDict.Froz.frlmtp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozow" longname="冻结主体类型" type="DpEnumType.E_FROZOW" ref="DpDict.Froz.frozow" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozcd" longname="冻结分类码" type="BaseType.U_CHAR08" ref="DpDict.Froz.frozcd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frcttp" longname="冻结证明文书类别" type="BaseType.U_SHORDS" ref="DpDict.Froz.frcttp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="sptype" longname="止付类型12（对外）" type="DpEnumType.E_SPTYPE" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="stoptp" longname="止付类型" type="DpEnumType.E_STOPTP" ref="DpDict.Froz.stoptp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="stuntp" longname="止解方式" type="DpEnumType.E_STUNTP" ref="DpDict.Froz.stuntp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="stopms" longname="止付措施" type="DpEnumType.E_STOPMS" ref="DpDict.Froz.stopms" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozno" longname="冻结编号" type="BaseType.U_SEQUNO" ref="DpDict.Froz.frozno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cardno" longname="电子账号" type="BaseType.U_CARDNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custna" longname="客户名称" type="BaseType.U_ACCTNA" ref="DpDict.Acct.custna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="crcycd" longname="币种" type="BaseType.U_CRCYCD" ref="BaseDict.Comm.crcycd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="csextg" longname="账户钞汇标志" type="BaseEnumType.E_CSEXTG" ref="DpDict.Acct.csextg" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="stopam" longname="解/止付金额" type="BaseType.U_TRANAM" ref="DpDict.Froz.stopam" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="stbkno" longname="解/止付书编号" type="BaseType.U_SHORDS" ref="DpDict.Froz.stbkno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="sttmct" longname="止付时间计算" type="DpEnumType.E_STTMCT" ref="DpDict.Froz.sttmct" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="stoptm" longname="止付时间" type="BaseType.U_CHAR02" ref="DpDict.Froz.stoptm" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="stopdt" longname="止付日期" type="BaseType.U_DATE08" ref="DpDict.Froz.stopdt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="stpldt" longname="止付(质押)到期日" type="BaseType.U_DATE08" ref="DpDict.Froz.stpldt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="stdptp" longname="解/止付部门类型" type="BaseEnumType.E_LAWCOP" ref="DpDict.Froz.stdptp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="stladp" longname="解/止付执法部门" type="BaseType.U_LONGDS" ref="DpDict.Froz.stladp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frna01" longname="冻结执法人员1姓名" type="BaseType.U_CUSTNA" ref="DpDict.Froz.frna01" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="idtp01" longname="执法人员1证件种类" type="BaseEnumType.E_IDTFTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="idno01" longname="执法人员1证件号码" type="BaseType.U_IDTFNO" ref="DpDict.Froz.idno01" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frna02" longname="冻结执法人员2姓名" type="BaseType.U_CUSTNA" ref="DpDict.Froz.frna02" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="idtp02" longname="执法人员2证件种类" type="BaseEnumType.E_IDTFTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="idno02" longname="执法人员2证件号码" type="BaseType.U_IDTFNO" ref="DpDict.Froz.idno02" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="sfreas" longname="解/止付原因" type="BaseType.U_SHORDS" ref="DpDict.Froz.sfreas" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custop" longname="账户保护类型" type="DpEnumType.E_CUSTOP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cureas" longname="账户保护原因" type="DpEnumType.E_CUREAS" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="onlnbl" longname="当前账户余额" type="BaseType.U_ACBLTP" ref="DpDict.Acct.onlnbl" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoDpFrozQrIn" longname="冻结查询输入接口" dict="false" abstract="false" introduct="false">
+        <element id="frozno" longname="冻结编号" type="BaseType.U_SEQUNO" ref="DpDict.Froz.frozno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cardno" longname="卡号" type="BaseType.U_CARDNO" ref="DpDict.Acct.cardno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custac" longname="客户账号" type="BaseType.U_CUACNO" ref="DpDict.Acct.custac" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custna" longname="客户名称" type="BaseType.U_ACCTNA" ref="DpDict.Acct.custna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="subsac" longname="子户号" type="BaseType.U_CUACNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="froztp" longname="冻结业务类型" type="DpEnumType.E_FROZTP" ref="DpDict.Froz.froztp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frlmtp" longname="限制类型" type="DpEnumType.E_FRLMTP" ref="DpDict.Froz.frlmtp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozam" longname="冻结金额" type="BaseType.U_TRANAM" ref="DpDict.Froz.frozam" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozst" longname="冻结状态" type="DpEnumType.E_FROZST" ref="DpDict.Froz.frozst" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="bgdate" longname="查询起始日期" type="BaseType.U_DATE08" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="eddate" longname="查询终止日期" type="BaseType.U_DATE08" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="bgrecd" longname="查询起始笔数" type="long" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="counts" longname="查询笔数" type="long" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoDpFrozQrOt" longname="冻结查询返回" dict="false" abstract="false" introduct="false">
+        <element id="lsfroz" longname="冻结信息" type="IoDpFrozComplexType.IoDpFrozIf" required="false" multi="true" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoDpFrozIf" longname="冻结详细信息" dict="false" abstract="false" introduct="false">
+        <element id="frozno" longname="冻结编号" type="BaseType.U_SEQUNO" ref="DpDict.Froz.frozno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custac" longname="客户账号" type="BaseType.U_CUACNO" ref="DpDict.Acct.custac" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="froztp" longname="冻结业务类型" type="DpEnumType.E_FROZTP" ref="DpDict.Froz.froztp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozcd" longname="冻结分类码" type="BaseType.U_CHAR08" ref="DpDict.Froz.frozcd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frlmtp" longname="限制类型" type="DpEnumType.E_FRLMTP" ref="DpDict.Froz.frlmtp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozow" longname="冻结主体类型" type="DpEnumType.E_FROZOW" ref="DpDict.Froz.frozow" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozlv" longname="冻结级别" type="BaseType.U_LONGIN" ref="DpDict.Froz.frozlv" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frctno" longname="冻结通知书编号" type="BaseType.U_SHORDS" ref="DpDict.Froz.frctno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frcttp" longname="冻结证明文书类别" type="BaseType.U_SHORDS" ref="DpDict.Froz.frcttp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frreas" longname="冻结原因" type="BaseType.U_SHORDS" ref="DpDict.Froz.frreas" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frexog" longname="冻结执法部门" type="BaseEnumType.E_LAWCOP" ref="DpDict.Froz.frexog" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frogna" longname="冻结执法部门名称" type="BaseType.U_SHORDS" ref="DpDict.Froz.frogna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="idtp01" longname="执法人员1证件种类" type="BaseEnumType.E_IDTFTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="idno01" longname="执法人员1证件号码" type="BaseType.U_IDTFNO" ref="DpDict.Froz.idno01" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frna01" longname="冻结执法人员1姓名" type="BaseType.U_CUSTNA" ref="DpDict.Froz.frna01" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="idtp02" longname="执法人员2证件种类" type="BaseEnumType.E_IDTFTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="idno02" longname="执法人员2证件号码" type="BaseType.U_IDTFNO" ref="DpDict.Froz.idno02" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frna02" longname="冻结执法人员2姓名" type="BaseType.U_CUSTNA" ref="DpDict.Froz.frna02" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tranbr" longname="交易机构" type="BaseType.U_BRCHNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tranus" longname="经办人" type="BaseType.U_USERID" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ckuser" longname="复核人" type="BaseType.U_USERID" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="pruser" longname="审批人" type="BaseType.U_USERID" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozdt" longname="冻结日期" type="BaseType.U_DATE08" ref="DpDict.Froz.frozdt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="froztm" longname="冻结时间" type="BaseType.U_TRTMCH" ref="DpDict.Froz.froztm" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frbgdt" longname="冻结起始日期" type="BaseType.U_DATE08" ref="DpDict.Froz.frbgdt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="freddt" longname="冻结终止日期" type="BaseType.U_DATE08" ref="DpDict.Froz.freddt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frspfg" longname="轮候冻结标志" type="BaseEnumType.E_YES___" ref="DpDict.Froz.frspfg" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="mntrsq" longname="主交易流水" type="BaseType.U_SEQUNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ussqno" longname="柜员流水号" type="BaseType.U_SEQUNO" ref="DpDict.Acct.ussqno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cptrcd" longname="对账代码" type="BaseType.U_PRCSCD" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="lttscd" longname="内部交易码" type="BaseType.U_LTTSCD" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="servtp" longname="交易渠道" type="BaseEnumType.E_SERVTP" ref="DpDict.Acct.servtp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozsq" longname="冻结序号" type="BaseType.U_LONGIN" ref="DpDict.Froz.frozsq" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frowid" longname="冻结主体ID" type="BaseType.U_ACCTNO" ref="DpDict.Froz.frowid" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frsbsq" longname="子冻结序号(同级别冻结序号)" type="BaseType.U_LONGIN" ref="DpDict.Froz.frsbsq" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozam" longname="冻结金额" type="BaseType.U_TRANAM" ref="DpDict.Froz.frozam" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozbl" longname="冻结余额" type="BaseType.U_TRANAM" ref="DpDict.Froz.frozbl" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozst" longname="冻结状态" type="DpEnumType.E_FROZST" ref="DpDict.Froz.frozst" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="DpSpecInfoListIn" longname="查询特殊业务信息输入接口" dict="false" abstract="false" introduct="false">
+        <element id="spectp" longname="特殊业务类型" type="DpEnumType.E_SPECTP" ref="DpDict.Froz.spectp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frexog" longname="冻结执法部门" type="BaseEnumType.E_LAWCOP" ref="DpDict.Froz.frexog" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="stopms" longname="止付措施" type="DpEnumType.E_STOPMS" ref="DpDict.Froz.stopms" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tranbr" longname="交易机构" type="BaseType.U_BRCHNO" ref="DpDict.Froz.tranbr" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="specno" longname="特殊业务编号" type="BaseType.U_CHAR16" ref="DpDict.Froz.specno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cardno" longname="电子账号" type="BaseType.U_CARDNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="specst" longname="特殊业务状态" type="DpEnumType.E_SPECST" ref="DpDict.Froz.specst" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="bgindt" longname="起始交易日期" type="BaseType.U_DATE08" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="endddt" longname="终止交易日期" type="BaseType.U_DATE08" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="pageno" longname="页数" type="BaseType.U_INTEGE" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="pgsize" longname="每页容量" type="BaseType.U_INTEGE" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="DpSpecInfoListOt" longname="特殊业务信息集合输出接口" dict="false" abstract="false" introduct="false">
+        <element id="count" longname="总记录数" type="integer" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="specinfos" longname="特殊业务信息" type="IoDpFrozComplexType.IoDpSpecInfo" required="false" multi="true" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoDpSpecInfo" longname="特殊业务信息" dict="false" abstract="false" introduct="false">
+        <element id="bgindt" longname="交易日期" type="BaseType.U_DATE08" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="froztp" longname="冻结业务类型" type="DpEnumType.E_FROZTP" ref="DpDict.Froz.froztp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frlmtp" longname="限制类型" type="DpEnumType.E_FRLMTP" ref="DpDict.Froz.frlmtp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="otsptp" longname="输出业务类型" type="DpEnumType.E_OTSPTP" ref="DpDict.Froz.otsptp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="specno" longname="特殊业务编号" type="BaseType.U_CHAR16" ref="DpDict.Froz.specno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cardno" longname="电子账号" type="BaseType.U_CARDNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custna" longname="客户名称" type="BaseType.U_ACCTNA" ref="DpDict.Acct.custna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tranam" longname="交易金额" type="BaseType.U_TRANAM" ref="DpDict.Acct.tranam" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="deogna" longname="有权机构名称" type="BaseType.U_SHORDS" ref="DpDict.Froz.deogna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="specst" longname="特殊业务状态" type="DpEnumType.E_SPECST" ref="DpDict.Froz.specst" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="specdt" longname="特殊业务解除日期" type="BaseType.U_DATE08" ref="DpDict.Froz.specdt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozsq" longname="冻结序号" type="BaseType.U_LONGIN" ref="DpDict.Froz.frozsq" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozst" longname="冻结状态" type="DpEnumType.E_FROZST" ref="DpDict.Froz.frozst" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="deprtp" longname="存款证明书类型" type="BaseEnumType.E_DEPRTP" ref="DpDict.Depr.deprtp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="deprbp" longname="存款证明交易类型" type="BaseEnumType.E_DEPRBP" ref="DpDict.Depr.deprbp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="odfrsq" longname="原冻结序号" type="BaseType.U_LONGIN" ref="DpDict.Froz.odfrsq" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoQrBackInfoIn" longname="冻结反馈机构输入信息" dict="false" abstract="false" introduct="false">
+        <element id="cardno" longname="电子账号" type="BaseType.U_CARDNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="pageno" longname="页数" type="BaseType.U_INTEGE" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="pgsize" longname="每页容量" type="BaseType.U_INTEGE" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoQrBackInfoOut" longname="冻结反馈机构输出信息" dict="false" abstract="false" introduct="false">
+        <element id="freddt" longname="冻结终止日期" type="BaseType.U_DATE08" ref="DpDict.Froz.freddt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frctno" longname="冻结通知书编号" type="BaseType.U_SHORDS" ref="DpDict.Froz.frctno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozam" longname="冻结金额" type="BaseType.U_TRANAM" ref="DpDict.Froz.frozam" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frogna" longname="冻结执法部门名称" type="BaseType.U_SHORDS" ref="DpDict.Froz.frogna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frexog" longname="冻结执法部门" type="BaseEnumType.E_LAWCOP" ref="DpDict.Froz.frexog" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="DpSpecInfoListForFrozIn" longname="查询冻解冻/解止付信息输入接口" dict="false" abstract="false" introduct="false">
+        <element id="frozno" longname="冻结编号" type="BaseType.U_SEQUNO" ref="DpDict.Froz.frozno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozsq" longname="冻结序号" type="BaseType.U_LONGIN" ref="DpDict.Froz.frozsq" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="unfrsq" longname="解冻序号" type="BaseType.U_LONGIN" ref="DpDict.Froz.unfrsq" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="DpSpecInfoListForFrozOt" longname="查询冻解冻/解止付信息输出接口" dict="false" abstract="false" introduct="false">
+        <element id="froztp" longname="冻结业务类型" type="DpEnumType.E_FROZTP" ref="DpDict.Froz.froztp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="otsptp" longname="输出业务类型" type="DpEnumType.E_OTSPTP" ref="DpDict.Froz.otsptp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozno" longname="冻结编号" type="BaseType.U_SEQUNO" ref="DpDict.Froz.frozno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cardno" longname="电子账号" type="BaseType.U_CARDNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="sptype" longname="止付类型12（外部）" type="DpEnumType.E_SPTYPE" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custna" longname="客户名称" type="BaseType.U_ACCTNA" ref="DpDict.Acct.custna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custno" longname="客户号" type="BaseType.U_CUSTNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="crcycd" longname="币种" type="BaseType.U_CRCYCD" ref="BaseDict.Comm.crcycd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="csextg" longname="账户钞汇标志" type="BaseEnumType.E_CSEXTG" ref="DpDict.Acct.csextg" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frbgdt" longname="冻结起始日期" type="BaseType.U_DATE08" ref="DpDict.Froz.frbgdt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="freddt" longname="冻结终止日期" type="BaseType.U_DATE08" ref="DpDict.Froz.freddt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frctno" longname="冻结通知书编号" type="BaseType.U_SHORDS" ref="DpDict.Froz.frctno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozam" longname="冻结金额" type="BaseType.U_TRANAM" ref="DpDict.Froz.frozam" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozbl" longname="冻结余额" type="BaseType.U_TRANAM" ref="DpDict.Froz.frozbl" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frogna" longname="冻结执法部门名称" type="BaseType.U_SHORDS" ref="DpDict.Froz.frogna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frna01" longname="冻结执法人员1姓名" type="BaseType.U_CUSTNA" ref="DpDict.Froz.frna01" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="idtp01" longname="执法人员1证件种类" type="BaseEnumType.E_IDTFTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="idno01" longname="执法人员1证件号码" type="BaseType.U_IDTFNO" ref="DpDict.Froz.idno01" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frna02" longname="冻结执法人员2姓名" type="BaseType.U_CUSTNA" ref="DpDict.Froz.frna02" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="idtp02" longname="执法人员2证件种类" type="BaseEnumType.E_IDTFTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="idno02" longname="执法人员2证件号码" type="BaseType.U_IDTFNO" ref="DpDict.Froz.idno02" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frreas" longname="冻结原因" type="BaseType.U_SHORDS" ref="DpDict.Froz.frreas" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="remark" longname="备注" type="BaseType.U_SHORTS" ref="DpDict.Froz.remark" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frexog" longname="冻结执法部门" type="BaseEnumType.E_LAWCOP" ref="DpDict.Froz.frexog" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tranus" longname="交易柜员" type="BaseType.U_USERID" ref="DpDict.Froz.tranus" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="stopms" longname="止付措施" type="DpEnumType.E_STOPMS" ref="DpDict.Froz.stopms" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tranbr" longname="交易机构" type="BaseType.U_BRCHNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="userid" longname="解冻柜员" type="BaseType.U_USERID" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="brchno" longname="机构号" type="BaseType.U_BRCHNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ufna01" longname="解冻执法人员1姓名" type="BaseType.U_CUSTNA" ref="DpDict.Froz.ufna01" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ufna02" longname="解冻执法人员2姓名" type="BaseType.U_CUSTNA" ref="DpDict.Froz.ufna02" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="idtp03" longname="解冻执法人员1证件种类" type="BaseEnumType.E_IDTFTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="idno03" longname="解冻执法人员1证件号码1" type="BaseType.U_IDTFNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="idtp04" longname="解冻执法人员2证件种类" type="BaseEnumType.E_IDTFTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="idno04" longname="执法人员2证件号码" type="BaseType.U_IDTFNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ufogna" longname="解冻执法部门名称" type="BaseType.U_SHORDS" ref="DpDict.Froz.ufogna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ufctno" longname="解冻通知书编号" type="BaseType.U_SHORDS" ref="DpDict.Froz.ufctno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="unfrdt" longname="解冻日期" type="BaseType.U_DATE08" ref="DpDict.Froz.unfrdt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="unfram" longname="解冻金额" type="BaseType.U_TRANAM" ref="DpDict.Froz.unfram" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="sttmct" longname="止付时间计算" type="DpEnumType.E_STTMCT" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="froztm" longname="冻结时间" type="BaseType.U_TRTMCH" ref="DpDict.Froz.froztm" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="unfrtm" longname="解冻时间" type="BaseType.U_TRTMCH" ref="DpDict.Froz.unfrtm" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acbrch" longname="账户所属机构" type="BaseType.U_BRCHNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cureas" longname="账户保护原因" type="DpEnumType.E_CUREAS" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="sttmle" longname="止付时间长度" type="BaseType.U_CHAR02" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="corpno" longname="法人代码" type="BaseType.U_CORPNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="DpSpecInfoListForDeduIn" longname="查询扣划信息输入接口" dict="false" abstract="false" introduct="false">
+        <element id="deduno" longname="扣划编号" type="BaseType.U_SEQUNO" ref="DpDict.Froz.deduno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="DpSpecInfoListForDeduOt" longname="查询扣划信息输出接口" dict="false" abstract="false" introduct="false">
+        <element id="spectp" longname="特殊业务类型" type="DpEnumType.E_SPECTP" ref="DpDict.Froz.spectp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="deduno" longname="扣划编号" type="BaseType.U_SEQUNO" ref="DpDict.Froz.deduno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cardno" longname="电子账号" type="BaseType.U_CARDNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custna" longname="客户名称" type="BaseType.U_ACCTNA" ref="DpDict.Acct.custna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="crcycd" longname="币种" type="BaseType.U_CRCYCD" ref="PbDict.Intr.crcycd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="csextg" longname="账户钞汇标志" type="BaseEnumType.E_CSEXTG" ref="DpDict.Acct.csextg" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="deduam" longname="扣划金额" type="BaseType.U_TRANAM" ref="DpDict.Froz.deduam" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="dectno" longname="扣划通知书编号" type="BaseType.U_SHORDS" ref="DpDict.Froz.dectno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozdt" longname="冻结日期" type="BaseType.U_DATE08" ref="DpDict.Froz.frozdt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="deogna" longname="有权机构名称" type="BaseType.U_SHORDS" ref="DpDict.Froz.deogna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="opna01" longname="经办人1姓名" type="BaseType.U_CUSTNA" ref="DpDict.Froz.opna01" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="optp01" longname="经办人1证件种类" type="BaseEnumType.E_IDTFTP" ref="DpDict.Froz.optp01" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="opno01" longname="经办人1证件号码" type="BaseType.U_IDTFNO" ref="DpDict.Froz.opno01" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="opna02" longname="经办人2姓名" type="BaseType.U_CUSTNA" ref="DpDict.Froz.opna02" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="optp02" longname="经办人2证件种类" type="BaseEnumType.E_IDTFTP" ref="DpDict.Froz.optp02" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="opno02" longname="经办人2证件号码" type="BaseType.U_IDTFNO" ref="DpDict.Froz.opno02" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="reason" longname="执法事由" type="BaseType.U_SHORDS" ref="DpDict.Froz.reason" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="remark" longname="备注" type="BaseType.U_SHORTS" ref="DpDict.Froz.remark" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tranbr" longname="交易机构" type="BaseType.U_BRCHNO" ref="DpDict.Froz.tranbr" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tranus" longname="交易柜员" type="BaseType.U_USERID" ref="DpDict.Froz.tranus" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozno" longname="冻结编号" type="BaseType.U_SEQUNO" ref="DpDict.Froz.frozno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="deogtp" longname="有权机构类型" type="BaseEnumType.E_LAWCOP" ref="DpDict.Froz.deogtp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="dedutp" longname="扣划类型" type="DpEnumType.E_DEDUTP" ref="DpDict.Froz.dedutp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="DpSpecInfoListForDeprIn" longname="查询存款证明信息输入接口" dict="false" abstract="false" introduct="false">
+        <element id="deprnm" longname="存款证明书编号" type="BaseType.U_ACCTNO" ref="DpDict.Depr.deprnm" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="deprtp" longname="存款证明书类型" type="BaseEnumType.E_DEPRTP" ref="DpDict.Depr.deprtp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="deprbp" longname="存款证明交易类型" type="BaseEnumType.E_DEPRBP" ref="DpDict.Depr.deprbp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="DpSpecInfoListForDeprOt" longname="查询存款证明信息输出接口" dict="false" abstract="false" introduct="false">
+        <element id="deprtp" longname="存款证明书类型" type="BaseEnumType.E_DEPRTP" ref="DpDict.Depr.deprtp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="deprnm" longname="存款证明书编号" type="BaseType.U_ACCTNO" ref="DpDict.Depr.deprnm" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cardno" longname="电子账号" type="BaseType.U_CARDNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custna" longname="客户名" type="BaseType.U_CHINNA" ref="PbDict.Charge.custna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="depram" longname="证明金额" type="BaseType.U_TRANAM" ref="DpDict.Depr.depram" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="crcycd" longname="货币代号" type="BaseType.U_CRCYCD" ref="PbDict.Charge.crcycd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="number" longname="份数" type="BaseType.U_LONGIN" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="begndt" longname="起始日期" type="BaseType.U_DATE08" ref="DpDict.Depr.begndt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="enddat" longname="终止日期" type="BaseType.U_DATE08" ref="DpDict.Depr.enddat" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="opna01" longname="经办人1姓名" type="BaseType.U_CUSTNA" ref="DpDict.Froz.opna01" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="optp01" longname="经办人1证件种类" type="BaseEnumType.E_IDTFTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="opno01" longname="经办人1证件号码" type="BaseType.U_IDTFNO" ref="DpDict.Froz.opno01" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tranbr" longname="交易机构" type="BaseType.U_BRCHNO" ref="PbDict.Charge.tranbr" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tranus" longname="交易柜员" type="PbBaseType.U_USERID" ref="PbDict.Charge.tranus" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="undodt" longname="撤销日期" type="BaseType.U_DATE08" ref="DpDict.Froz.undodt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="undonb" longname="回收份数" type="BaseType.U_LONGIN" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="undobr" longname="撤销柜员" type="BaseType.U_USERID" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="undois" longname="撤销机构" type="BaseType.U_BRCHNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="deprbp" longname="存款证明交易类型" type="BaseEnumType.E_DEPRBP" ref="DpDict.Depr.deprbp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoDpQryUnBalList" longname="查询电子账户不可用余额信息" dict="false" abstract="false" introduct="false">
+        <element id="froztp" longname="冻结业务类型" type="DpEnumType.E_FROZTP" ref="DpDict.Froz.froztp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozam" longname="冻结金额" type="BaseType.U_TRANAM" ref="DpDict.Froz.frozam" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozdt" longname="冻结日期" type="BaseType.U_DATE08" ref="DpDict.Froz.frozdt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="froztm" longname="冻结时间" type="BaseType.U_TRTMCH" ref="DpDict.Froz.froztm" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="remark" longname="备注" type="BaseType.U_SHORTS" ref="DpDict.Froz.remark" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoDpQryUnBalInfo" longname="查询电子账户不可用余额输出" dict="false" abstract="false" introduct="false">
+        <element id="cardno" longname="电子账号" type="BaseType.U_CARDNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="onlnbl" longname="当前余额" type="BaseType.U_ACBLTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acctbl" longname="可支取余额" type="BaseType.U_ACBLTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="unavbl" longname="不可用余额" type="BaseType.U_ACBLTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="unavaiInfoList" longname="不可用余额信息列表" type="IoDpFrozComplexType.IoDpQryUnBalList" required="false" multi="true" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoDpQryFrozInfoList" longname="冻结止付信息详情列表" dict="false" abstract="false" introduct="false">
+        <element id="frozno" longname="冻结编号" type="BaseType.U_SEQUNO" ref="DpDict.Froz.frozno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozdt" longname="冻结日期" type="BaseType.U_DATE08" ref="DpDict.Froz.frozdt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="froztm" longname="冻结时间" type="BaseType.U_TRTMCH" ref="DpDict.Froz.froztm" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frsptp" longname="冻结类型" type="DpEnumType.E_FRSPTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozam" longname="冻结金额" type="BaseType.U_TRANAM" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="crcycd" longname="币种" type="BaseType.U_CRCYCD" ref="BaseDict.Comm.crcycd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frexog" longname="冻结执法部门" type="BaseEnumType.E_LAWCOP" ref="DpDict.Froz.frexog" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frogna" longname="冻结执法部门名称" type="BaseType.U_SHORDS" ref="DpDict.Froz.frogna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="remark" longname="备注" type="BaseType.U_SHORTS" ref="DpDict.Froz.remark" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozbl" longname="冻结余额" type="BaseType.U_TRANAM" ref="DpDict.Froz.frozbl" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acctno" longname="子账号" type="BaseType.U_ACCTNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cardno" longname="账号" type="BaseType.U_CARDNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="freddt" longname="冻结终止日期" type="BaseType.U_DATE08" ref="DpDict.Froz.freddt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frlmtp" longname="限制类型" type="DpEnumType.E_FRLMTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozst" longname="冻结状态" type="DpEnumType.E_FROZST" ref="DpDict.Froz.frozst" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="csextg" longname="钞汇标志" type="BaseEnumType.E_CSEXTG" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="onlnbl" longname="账户余额" type="BaseType.U_ACBLTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozwy" longname="冻解方式" type="DpEnumType.E_FROZWY" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frreas" longname="冻结原因" type="BaseType.U_SHORDS" ref="DpDict.Froz.frreas" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custna" longname="户名" type="BaseType.U_CUSTNA" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custac" longname="客户账号" type="BaseType.U_ACCTNO" ref="PbDict.Charge.custac" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="isflag" longname="是否冲正" type="BaseEnumType.E_YES___" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="dedutp" longname="扣划类型" type="DpEnumType.E_DEDUTP" ref="DpDict.Froz.dedutp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trantp" longname="交易类别" type="BaseEnumType.E_TRANTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ufctno" longname="解冻通知书编号" type="BaseType.U_SHORDS" ref="DpDict.Froz.ufctno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frctno" longname="冻结通知书编号" type="BaseType.U_SHORDS" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="dectno" longname="扣划通知书编号" type="BaseType.U_SHORDS" ref="DpDict.Froz.dectno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="deogtp" longname="有权机构类型" type="BaseEnumType.E_LAWCOP" ref="DpDict.Froz.deogtp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="deogna" longname="有权机构名称" type="BaseType.U_SHORDS" ref="DpDict.Froz.deogna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="monyto" longname="资金去向" type="DpEnumType.E_MONYTO" ref="DpDict.Froz.monyto" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="otheac" longname="对方账号" type="BaseType.U_CUACNO" ref="DpDict.Froz.otheac" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="othena" longname="对方户名" type="BaseType.U_ACCTNA" ref="DpDict.Froz.othena" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="othebk" longname="对方行名" type="BaseType.U_CHAR200" ref="DpDict.Froz.othebk" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="reason" longname="执法事由" type="BaseType.U_SHORDS" ref="DpDict.Froz.reason" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trandt" longname="交易日期" type="BaseType.U_DATE08" ref="DpDict.Froz.trandt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tranbr" longname="交易机构" type="BaseType.U_BRCHNO" ref="DpDict.Froz.tranbr" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tranus" longname="交易柜员" type="BaseType.U_USERID" ref="DpDict.Froz.tranus" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ckuser" longname="复核人" type="BaseType.U_USERID" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="pruser" longname="审批人" type="BaseType.U_USERID" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozsq" longname="冻结序号" type="BaseType.U_LONGIN" ref="DpDict.Froz.frozsq" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoDpQryFrozTableInfo" longname="查询冻结止付信息详情" dict="false" abstract="false" introduct="false">
+        <element id="frozno" longname="冻结编号" type="BaseType.U_SEQUNO" ref="DpDict.Froz.frozno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozdt" longname="冻结日期" type="BaseType.U_DATE08" ref="DpDict.Froz.frozdt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="froztm" longname="冻结时间" type="BaseType.U_TRTMCH" ref="DpDict.Froz.froztm" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozbl" longname="冻结余额" type="BaseType.U_TRANAM" ref="DpDict.Froz.frozbl" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="crcycd" longname="币种" type="BaseType.U_CRCYCD" ref="BaseDict.Comm.crcycd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frexog" longname="冻结执法部门" type="BaseEnumType.E_LAWCOP" ref="DpDict.Froz.frexog" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frogna" longname="冻结执法部门名称" type="BaseType.U_SHORDS" ref="DpDict.Froz.frogna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="remark" longname="备注" type="BaseType.U_SHORTS" ref="DpDict.Froz.remark" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="csextg" longname="账户钞汇标志" type="BaseEnumType.E_CSEXTG" ref="DpDict.Acct.csextg" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozst" longname="冻结状态" type="DpEnumType.E_FROZST" ref="DpDict.Froz.frozst" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custna" longname="客户名称" type="BaseType.U_ACCTNA" ref="DpDict.Acct.custna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frreas" longname="冻结原因" type="BaseType.U_SHORDS" ref="DpDict.Froz.frreas" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="freddt" longname="冻结终止日期" type="BaseType.U_DATE08" ref="DpDict.Froz.freddt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozwy" longname="冻解方式" type="DpEnumType.E_FROZWY" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frlmtp" longname="限制类型" type="DpEnumType.E_FRLMTP" ref="DpDict.Froz.frlmtp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="stopms" longname="止付措施" type="DpEnumType.E_STOPMS" ref="DpDict.Froz.stopms" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="froztp" longname="冻结业务类型" type="DpEnumType.E_FROZTP" ref="DpDict.Froz.froztp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozam" longname="冻结金额" type="BaseType.U_TRANAM" ref="DpDict.Froz.frozam" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custac" longname="客户账号" type="BaseType.U_ACCTNO" ref="PbDict.Charge.custac" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="isflag" longname="是否冲正" type="BaseEnumType.E_YES___" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="dedutp" longname="扣划类型" type="DpEnumType.E_DEDUTP" ref="DpDict.Froz.dedutp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trantp" longname="交易类别" type="BaseEnumType.E_TRANTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ufctno" longname="解冻通知书编号" type="BaseType.U_SHORDS" ref="DpDict.Froz.ufctno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frctno" longname="冻结通知书编号" type="BaseType.U_SHORDS" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="dectno" longname="扣划通知书编号" type="BaseType.U_SHORDS" ref="DpDict.Froz.dectno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="deogtp" longname="有权机构类型" type="BaseEnumType.E_LAWCOP" ref="DpDict.Froz.deogtp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="deogna" longname="有权机构名称" type="BaseType.U_SHORDS" ref="DpDict.Froz.deogna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="monyto" longname="资金去向" type="DpEnumType.E_MONYTO" ref="DpDict.Froz.monyto" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="otheac" longname="对方账号" type="BaseType.U_CUACNO" ref="DpDict.Froz.otheac" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="othena" longname="对方户名" type="BaseType.U_ACCTNA" ref="DpDict.Froz.othena" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="othebk" longname="对方行名" type="BaseType.U_CHAR200" ref="DpDict.Froz.othebk" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="reason" longname="执法事由" type="BaseType.U_SHORDS" ref="DpDict.Froz.reason" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trandt" longname="交易日期" type="BaseType.U_DATE08" ref="DpDict.Froz.trandt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tranbr" longname="交易机构" type="BaseType.U_BRCHNO" ref="DpDict.Froz.tranbr" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tranus" longname="交易柜员" type="BaseType.U_USERID" ref="DpDict.Froz.tranus" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ckuser" longname="复核人" type="BaseType.U_USERID" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="pruser" longname="审批人" type="BaseType.U_USERID" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozsq" longname="冻结序号" type="BaseType.U_LONGIN" ref="DpDict.Froz.frozsq" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoDpAcStatusWord" longname="电子账户状态字" dict="false" abstract="false" introduct="false">
+        <element id="ptfroz" longname="部冻" type="BaseEnumType.E_YES___" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="brfroz" longname="借冻" type="BaseEnumType.E_YES___" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="dbfroz" longname="双冻" type="BaseEnumType.E_YES___" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ptstop" longname="部止" type="BaseEnumType.E_YES___" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="alstop" longname="全止" type="BaseEnumType.E_YES___" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="clstop" longname="客户止付" type="BaseEnumType.E_YES___" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="preaut" longname="预授权" type="BaseEnumType.E_YES___" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="billin" longname="开单" type="BaseEnumType.E_YES___" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="certdp" longname="存款证明" type="BaseEnumType.E_YES___" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="pledge" longname="质押" type="BaseEnumType.E_YES___" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="bkalsp" longname="银行止付全止" type="BaseEnumType.E_YES___" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="otalsp" longname="外部止付全止" type="BaseEnumType.E_YES___" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acstsz" longname="账户状态字" type="BaseType.U_CHAR20" ref="CaDict.Eacct.acstsz" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="freeOfDeposit" longname="开立补打手续费符合类型" dict="false" abstract="false" introduct="false">
+        <element id="chrgcd" longname="费种代码" type="FeBaseType.U_CHRGCD" ref="FeDict.Chrg.chrgcd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="chrgcy" longname="收费币种" type="BaseType.U_CRCYCD" ref="FeDict.Chrg.chrgcy" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trantp" longname="收费交易类型" type="PbEnumType.E_CGTRTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="chrgam" longname="交易金额" type="PbBaseType.U_TRANAM" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="servtp" longname="交易渠道" type="BaseEnumType.E_SERVTP" ref="DpDict.Froz.servtp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trinfo" longname="交易信息" type="BaseType.U_CHAR10" ref="PbDict.Dcmt.trinfo" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="prodcd" longname="产品代码" type="BaseType.U_CHAR32" ref="PbDict.Dcmt.prodcd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoFrozInfoOut" longname="冻结输出信息" dict="false" abstract="false" introduct="false">
+        <element id="custac" longname="电子账号" type="PbBaseType.U_CUSTAC" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozst" longname="冻结状态" type="DpEnumType.E_FROZST" ref="DpDict.Froz.frozst" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="froztp" longname="冻结业务类型" type="DpEnumType.E_FROZTP" ref="DpDict.Froz.froztp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozno" longname="冻结编号" type="BaseType.U_SEQUNO" ref="DpDict.Froz.frozno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozam" longname="冻结金额" type="BaseType.U_TRANAM" ref="DpDict.Froz.frozam" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="DpDeprInfo" longname="到期存款证明信息" dict="false" abstract="false" introduct="false">
+        <element id="deprsq" longname="存款证明流水号" type="BaseType.U_ACCTNO" ref="DpDict.Depr.deprsq" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="deprnm" longname="存款证明书编号" type="BaseType.U_ACCTNO" ref="DpDict.Depr.deprnm" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="corpno" longname="法人代码" type="BaseType.U_CORPNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="deprtp" longname="存款证明书类型" type="BaseEnumType.E_DEPRTP" ref="DpDict.Depr.deprtp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cardno" longname="电子账号" type="BaseType.U_CARDNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="deprbp" longname="存款证明交易类型" type="BaseEnumType.E_DEPRBP" ref="DpDict.Depr.deprbp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ischge" longname="是否收费" type="BaseEnumType.E_DPCGFG" ref="DpDict.Depr.ischge" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custac" longname="客户账号" type="BaseType.U_CUACNO" ref="DpDict.Acct.custac" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custna" longname="客户名称" type="BaseType.U_ACCTNA" ref="DpDict.Acct.custna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="depram" longname="证明金额" type="BaseType.U_TRANAM" ref="DpDict.Depr.depram" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="crcycd" longname="币种" type="BaseType.U_CRCYCD" ref="BaseDict.Comm.crcycd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="csexfg" longname="钞汇标志" type="BaseEnumType.E_CSEXTG" ref="PbDict.Charge.csexfg" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="stcenm" longname="起始凭证号" type="BaseType.U_LONGIN" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="encenm" longname="终止凭证号" type="BaseType.U_LONGIN" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="number" longname="份数" type="BaseType.U_LONGIN" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="begndt" longname="起始日期" type="BaseType.U_DATE08" ref="DpDict.Depr.begndt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="enddat" longname="终止日期" type="BaseType.U_DATE08" ref="DpDict.Depr.enddat" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trandt" longname="交易日期" type="BaseType.U_DATE08" ref="DpDict.Acct.trandt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="optp01" longname="经办人1证件种类" type="BaseEnumType.E_IDTFTP" ref="DpDict.Froz.optp01" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="opno01" longname="经办人1证件号码" type="BaseType.U_IDTFNO" ref="DpDict.Froz.opno01" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="opna01" longname="经办人1姓名" type="BaseType.U_CUSTNA" ref="DpDict.Froz.opna01" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tranbr" longname="交易营业机构" type="BaseType.U_BRCHNO" ref="DpDict.Acct.tranbr" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="servtp" longname="交易渠道" type="BaseEnumType.E_SERVTP" ref="DpDict.Froz.servtp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tranus" longname="交易柜员" type="BaseType.U_USERID" ref="DpDict.Froz.tranus" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="lttscd" longname="交易码" type="BaseType.U_PRCSCD" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="mntrsq" longname="主交易流水" type="BaseType.U_SEQUNO" ref="DpDict.Froz.mntrsq" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozno" longname="冻结编号" type="BaseType.U_SEQUNO" ref="DpDict.Froz.frozno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozsq" longname="冻结序号" type="BaseType.U_LONGIN" ref="DpDict.Froz.frozsq" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="froztp" longname="冻结业务类型" type="DpEnumType.E_FROZTP" ref="DpDict.Froz.froztp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozcd" longname="冻结分类码" type="BaseType.U_CHAR08" ref="DpDict.Froz.frozcd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frlmtp" longname="限制类型" type="DpEnumType.E_FRLMTP" ref="DpDict.Froz.frlmtp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozow" longname="冻结主体类型" type="DpEnumType.E_FROZOW" ref="DpDict.Froz.frozow" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozlv" longname="冻结级别" type="BaseType.U_LONGIN" ref="DpDict.Froz.frozlv" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frctno" longname="冻结通知书编号" type="BaseType.U_SHORDS" ref="DpDict.Froz.frctno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frcttp" longname="冻结证明文书类别" type="BaseType.U_SHORDS" ref="DpDict.Froz.frcttp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frreas" longname="冻结原因" type="BaseType.U_SHORDS" ref="DpDict.Froz.frreas" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frexog" longname="冻结执法部门" type="BaseEnumType.E_LAWCOP" ref="DpDict.Froz.frexog" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frogna" longname="冻结执法部门名称" type="BaseType.U_SHORDS" ref="DpDict.Froz.frogna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="idtp01" longname="执法人员1证件种类" type="BaseEnumType.E_IDTFTP" ref="DpDict.Froz.idtp01" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="idno01" longname="执法人员1证件号码" type="BaseType.U_IDTFNO" ref="DpDict.Froz.idno01" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frna01" longname="冻结执法人员1姓名" type="BaseType.U_CUSTNA" ref="DpDict.Froz.frna01" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="idtp02" longname="执法人员2证件种类" type="BaseEnumType.E_IDTFTP" ref="DpDict.Froz.idtp02" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="idno02" longname="执法人员2证件号码" type="BaseType.U_IDTFNO" ref="DpDict.Froz.idno02" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frna02" longname="冻结执法人员2姓名" type="BaseType.U_CUSTNA" ref="DpDict.Froz.frna02" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozdt" longname="冻结日期" type="BaseType.U_DATE08" ref="DpDict.Froz.frozdt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="froztm" longname="冻结时间" type="BaseType.U_TRTMCH" ref="DpDict.Froz.froztm" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frbgdt" longname="冻结起始日期" type="BaseType.U_DATE08" ref="DpDict.Froz.frbgdt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="freddt" longname="冻结终止日期" type="BaseType.U_DATE08" ref="DpDict.Froz.freddt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ussqno" longname="柜员流水号" type="BaseType.U_SEQUNO" ref="DpDict.Froz.ussqno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozst" longname="冻结状态" type="DpEnumType.E_FROZST" ref="DpDict.Froz.frozst" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="remark" longname="备注" type="BaseType.U_SHORTS" ref="DpDict.Froz.remark" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="stopms" longname="止付措施" type="DpEnumType.E_STOPMS" ref="DpDict.Froz.stopms" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoCustacInfo" longname="电子账户ID信息" dict="false" abstract="false" introduct="false">
+        <element id="custac" longname="客户账号" type="BaseType.U_CUACNO" ref="DpDict.Acct.custac" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="status" longname="状态" type="BaseEnumType.E_DPACST" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="corpno" longname="法人代码" type="BaseType.U_CORPNO" ref="ApDict.Aplt.corpno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoCustacDetl" longname="电子账户表信息" dict="false" abstract="false" introduct="false">
+        <element id="custac" longname="客户账号" type="BaseType.U_ACCTNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acctst" longname="账户状态" type="BaseEnumType.E_ACCTST" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custno" longname="客户号" type="BaseType.U_CUSTNO" ref="DpDict.Acct.custno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custna" longname="客户名称" type="BaseType.U_ACCTNA" ref="DpDict.Acct.custna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IofrozInfo" longname="冻结输出信息" dict="false" abstract="false" introduct="false">
+        <element id="tranam" longname="交易金额" type="BaseType.U_TRANAM" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozdt" longname="冻结日期" type="BaseType.U_DATE08" ref="DpDict.Froz.frozdt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frexog" longname="冻结执法部门" type="BaseEnumType.E_LAWCOP" ref="DpDict.Froz.frexog" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frogna" longname="冻结执法部门名称" type="BaseType.U_SHORDS" ref="DpDict.Froz.frogna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozsq" longname="冻结序号" type="PbBaseType.U_LONGIN" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="isflag" longname="是否续冻" type="BaseEnumType.E_YES___" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cardno" longname="卡号" type="BaseType.U_CARDNO" ref="DpDict.Acct.cardno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozno" longname="冻结编号" type="BaseType.U_SEQUNO" ref="DpDict.Froz.frozno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="stopms" longname="止付措施" type="DpEnumType.E_STOPMS" ref="DpDict.Froz.stopms" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="sttmle" longname="止付时间长度" type="BaseType.U_CHAR02" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="froztp" longname="冻结业务类型" type="DpEnumType.E_FROZTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frreas" longname="冻结原因" type="BaseType.U_SHORDS" ref="DpDict.Froz.frreas" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="freddt" longname="冻结终止日期" type="BaseType.U_DATE08" ref="DpDict.Froz.freddt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozwy" longname="冻解方式" type="DpEnumType.E_FROZWY" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoFrozHistInfo" longname="在先冻结信息" dict="false" abstract="false" introduct="false">
+        <element id="frogna" longname="冻结机构名称" type="BaseType.U_SHORDS" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frctno" longname="冻结通知书编号" type="BaseType.U_SHORDS" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="freddt" longname="冻结到期日" type="BaseType.U_DATE06" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozbl" longname="冻结余额" type="BaseType.U_TRANAM" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frlmtp" longname="冻结限制类型" type="DpEnumType.E_FRLMTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="otsptp" longname="业务类型" type="DpEnumType.E_OTSPTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoDpCustopInfo" longname="账户保护信息" dict="false" abstract="false" introduct="false">
+        <element id="custna" longname="客户名称" type="BaseType.U_ACCTNA" ref="DpDict.Acct.custna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="crcycd" longname="币种" type="BaseType.U_CRCYCD" ref="BaseDict.Comm.crcycd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="csextg" longname="账户钞汇标志" type="BaseEnumType.E_CSEXTG" ref="DpDict.Acct.csextg" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cureas" longname="账户保护原因" type="DpEnumType.E_CUREAS" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cuacst" longname="客户账户状态" type="CaEnumType.E_CUACST" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoFrozMsgInfo" longname="账户保护发送移动前端明细" dict="false" abstract="false" introduct="false">
+        <element id="brchno" longname="机构" type="BaseType.U_CHAR20" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tellno" longname="手机尾号" type="BaseType.U_CHAR04" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoAcToAcDelayInfo" longname="电子账户延迟转账登记簿信息" dict="false" abstract="false" introduct="false">
+        <element id="transq" longname="主交易流水" type="BaseType.U_SEQUNO" ref="DpDict.Acct.transq" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trandt" longname="交易日期" type="BaseType.U_DATE08" ref="DpDict.Acct.trandt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trantm" longname="交易时间" type="BaseType.U_TRTMCH" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acdate" longname="到账日期" type="BaseType.U_DATE08" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="actime" longname="到账时间" type="BaseType.U_TRTMCH" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="servtp" longname="交易渠道" type="BaseEnumType.E_SERVTP" ref="DpDict.Acct.servtp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="capitp" longname="资金交易类型" type="DpEnumType.E_CAPITP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cardno" longname="卡号" type="BaseType.U_CARDNO" ref="DpDict.Acct.cardno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cuacno" longname="转入方电子账户" type="BaseType.U_CUACNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acctno" longname="转入方子账号" type="BaseType.U_ACCTNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="brchno" longname="转入方账户所属机构" type="BaseType.U_BRCHNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="incorp" longname="转入方账户所属法人" type="BaseType.U_CORPNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tocorp" longname="转出方账户所属法人" type="BaseType.U_CORPNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tobrch" longname="转出方账号所属机构" type="BaseType.U_BRCHNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="toacct" longname="转出方账号/卡号" type="BaseType.U_ACCTNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="toscac" longname="转出方电子账户" type="BaseType.U_CUACNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="toacno" longname="转出方子账号" type="BaseType.U_ACCTNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="crcycd" longname="币种" type="BaseType.U_CRCYCD" ref="BaseDict.Comm.crcycd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trantp" longname="转账时效标志" type="DpEnumType.E_TRNESS" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tranam" longname="交易金额" type="BaseType.U_TRANAM" ref="DpDict.Acct.tranam" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="delayt" longname="转账状态" type="DpEnumType.E_DELAYT" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tlcgam" longname="收费总金额" type="BaseType.U_TRANAM" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoFrozDetlInfo" longname="冻结明细输出信息" dict="false" abstract="false" introduct="false">
+        <element id="corpno" longname="法人代码" type="BaseType.U_CORPNO" ref="BaseDict.Comm.corpno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozno" longname="冻结编号" type="BaseType.U_SEQUNO" ref="DpDict.Froz.frozno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozsq" longname="冻结序号" type="BaseType.U_LONGIN" ref="DpDict.Froz.frozsq" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozow" longname="冻结主体类型" type="DpEnumType.E_FROZOW" ref="DpDict.Froz.frozow" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frowid" longname="冻结主体ID" type="BaseType.U_ACCTNO" ref="DpDict.Froz.frowid" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frsbsq" longname="子冻结序号(同级别冻结序号)" type="BaseType.U_LONGIN" ref="DpDict.Froz.frsbsq" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozam" longname="冻结金额" type="BaseType.U_TRANAM" ref="DpDict.Froz.frozam" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozbl" longname="冻结余额" type="BaseType.U_TRANAM" ref="DpDict.Froz.frozbl" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozst" longname="冻结状态" type="DpEnumType.E_FROZST" ref="DpDict.Froz.frozst" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoAcctFrozInfo" longname="查询账户冻结信息" dict="false" abstract="false" introduct="false">
+        <element id="frozno" longname="冻结编号" type="BaseType.U_SEQUNO" ref="DpDict.Froz.frozno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="stopms" longname="止付措施" type="DpEnumType.E_STOPMS" ref="DpDict.Froz.stopms" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="froztp" longname="冻结业务类型" type="DpEnumType.E_FROZTP" ref="DpDict.Froz.froztp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozam" longname="冻结金额" type="BaseType.U_TRANAM" ref="DpDict.Froz.frozam" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frlmtp" longname="限制类型" type="DpEnumType.E_FRLMTP" ref="DpDict.Froz.frlmtp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="FrozSecArray" longname="二代支付冻结交易数组信息" dict="false" abstract="false" introduct="false">
+        <element id="optikw" longname="账户限制交易标志" type="SnBaseEnumType.E_FROPTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="resseq" longname="限制信息序号" type="BaseType.U_CHAR32" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="resttp" longname="限制类型" type="BaseType.U_CHAR03" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="stardt" longname="起始日期" type="BaseType.U_DATE08" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="enddat" longname="终止日期" type="BaseType.U_DATE08" ref="DpDict.Depr.enddat" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acterm" longname="帐户限制期限" type="BaseType.U_CHAR03" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="termtp" longname="期限类型" type="DpEnumType.E_CYCLES" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="restam" longname="限制金额" type="BaseType.U_TRANAM" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="remark" longname="摘要" type="BaseType.U_CHAR30" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+</schema>

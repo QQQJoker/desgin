@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="ApDict" package="cn.sunline.ltts.busi.sys.dict" longname="应用平台数据字典" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <description><![CDATA[应用平台数据字典]]></description>
+    <complexType id="Aplt" longname="应用平台数据字典定义" dict="true" abstract="false" introduct="false">
+        <element id="dwpath" longname="文件下载路径" type="BaseType.U_FILEPH" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="uppath" longname="文件上传路径" type="BaseType.U_FILEPH" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="grouid" longname="分组号" type="BaseType.U_CHAR40" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="corpno" longname="法人代码" type="BaseType.U_CORPNO" required="false" desc="法人代码" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="lttscd" longname="内部处理码" type="BaseType.U_LTTSCD" required="false" desc="法人代码" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="datetm" longname="维护日期" type="BaseType.U_DATE08" required="false" desc="时间戳" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="timetm" longname="时间戳" type="ApBaseType.U_TMSTMP" required="false" desc="时间戳" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="sequnm" longname="序号" type="BaseType.U_SENOTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="noctcd" longname="编码生成代码" type="BaseType.U_CHAR10" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="sqnmtp" longname="序号种类" type="BaseType.U_CHAR32" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="sqnmna" longname="序号名称" type="BaseType.U_CHAR200" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="noctds" longname="编码生成码描述" type="BaseType.U_CHAR200" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="bttype" longname="异步批量业务类型" type="ApBaseEnumType.E_BTTYPE" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="taskid" longname="批量交易批次号" type="BaseType.U_CHAR40" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tkgpid" longname="批量交易组ID" type="BaseType.U_CHAR20" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tkprcd" longname="批量交易代码" type="BaseType.U_CHAR20" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tmstmp" longname="创建时间戳" type="ApBaseType.U_TMSTMP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="mtdate" longname="维护日期" type="BaseType.U_DATE08" required="false" desc="维护日期" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="rvrtcd" longname="冲正返回码" type="ApBaseType.U_LEIXIN32" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="hostip" longname="主机IP地址" type="BaseType.U_IPADDR" required="false" multi="false" range="true" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="vmidxx" longname="应用虚拟机号" type="BaseType.U_VMIDXX" required="false" multi="false" range="true" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="pljylcbs" longname="批量交易流程标识" type="ApBaseType.U_LEIXIN32" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="pljypich" longname="批量交易批次号" type="ApBaseType.U_LEIXIN40" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="rizhixuh" longname="日志序号" type="BaseType.U_INTEGE" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="xitjyirq" longname="系统交易日期" type="BaseType.U_DATE08" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="jyksshij" longname="交易开始时间" type="BaseType.U_DATETIME" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="jyjsshij" longname="交易结束时间" type="BaseType.U_DATETIME" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="jykeyxbz" longname="交易可运行标识" type="ApBaseEnumType.E_SHIFOUBZ" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="xitongbh" longname="系统编号" type="ApBaseType.U_XITONGBH" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="pljioyma" longname="批量交易码" type="BaseType.U_CHAR20" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="buzhouha" longname="步骤号" type="BaseType.U_INTEGE" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="pzhcbzhi" longname="凭证回冲标志" type="ApBaseEnumType.E_PZHCBZHI" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="xitongbs" longname="系统标识号" type="ApBaseEnumType.E_XITONGBS" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="shujubao" longname="数据包" type="ApBaseType.U_CHMIAOSH" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="canshubm" longname="参数表名" type="ApBaseType.U_SJKBMNGC" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="caozuolx" longname="操作类型" type="ApBaseEnumType.E_CARDCZBZ" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="qishibis" longname="起始笔数" type="ApBaseType.U_CHANZXLX" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="zhzhibis" longname="终止笔数" type="ApBaseType.U_CHANZXLX" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="chxunbis" longname="查询笔数" type="ApBaseType.U_CHANZXLX" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="shjbianh" longname="事件编号" type="ApBaseType.U_LEIXIN10" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="chjqiybz" longname="场景启用标志" type="ApBaseEnumType.E_CHJQIYBZ" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="pipeiqdh" longname="匹配渠道号" type="ApBaseType.U_LEIXIN80" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ppeicxuh" longname="匹配次序号" type="ApBaseType.U_XUHAOOOO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="chjwddma" longname="场景维度代码" type="ApBaseType.U_YEWUBHAO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cjwddmmc" longname="场景维度代码名称" type="ApBaseType.U_LEIXIN32" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="chjjshbz" longname="场景结束标志" type="ApBaseEnumType.E_CHJJSHBZ" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cjppeiff" longname="场景匹配方法" type="ApBaseEnumType.E_CJPPEIFF" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cjwduzhi" longname="场景维度值" type="ApBaseType.U_LEIXIN32" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="changjdm" longname="场景代码" type="ApBaseType.U_LEIXIN10" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="changjms" longname="场景描述" type="ApBaseType.U_DNMIAOSH" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="xhaoczbz" longname="序号操作标志" type="ApBaseType.U_CHANZXLX" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="bmchangd" longname="编码长度" type="ApBaseType.U_CHANZXLX" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="zcchangd" longname="组成长度" type="ApBaseType.U_CHANZXLX" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="bmzcmios" longname="编码组成中文描述" type="ApBaseType.U_DNMIAOSH" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="qisweizh" longname="起始位置" type="ApBaseType.U_CHANZXLX" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="buweizhi" longname="补位值" type="ApBaseType.U_DNMIAOSH" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cswhczbz" longname="参数维护操作标志" type="ApBaseEnumType.E_CARDCZBZ.E_CARDCZBZ_WH" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="suoshumk" longname="所属模块" type="ApBaseEnumType.E_SUOSHUMK" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="czzhouqi" longname="重置周期" type="ApBaseEnumType.E_QIXIANDW.E_QIXIANDW_CZZQ" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="topcid" longname="消息主题ID" type="BaseType.U_CHAR20" required="false" desc="消息主题的唯一标识" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="topicn" longname="主题名称" type="BaseType.U_CHAR40" required="false" desc="消息主题的名称" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="sycode" longname="系统代码" type="BaseType.U_CHAR20" required="false" desc="一般为本系统的代码" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="metype" longname="消息类型" type="BaseEnumType.E_METYPE" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ismein" longname="是否短信接口" type="BaseEnumType.E_YES___" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="prcscd" longname="处理交易码" type="BaseType.U_PRCSCD" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="meteid" longname="短信模板ID" type="BaseType.U_CHAR20" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="metemp" longname="短信模板" type="BaseType.U_CHAR400" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="istodb" longname="源消息是否入库" type="BaseEnumType.E_YES___" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="istrya" longname="是否重试" type="BaseEnumType.E_YES___" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tragti" longname="重试次数" type="BaseType.U_RETRTM" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tragst" longname="重试策略" type="BaseType.U_CHAR20" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="issend" longname="是否直接发送短信" type="BaseEnumType.E_YES___" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="msgact" longname="消息处理方式" type="BaseEnumType.E_MSGACT" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="messeq" longname="消息序号" type="BaseType.U_CHAR20" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="sosyco" longname="源系统代码" type="BaseType.U_CHAR20" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="messid" longname="消息ID" type="BaseType.U_CHAR40" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="sdcnid" longname="源DCN号" type="BaseType.U_CHAR20" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="sovmid" longname="源VMID" type="BaseType.U_VMIDXX" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="sourip" longname="源主机" type="BaseType.U_IPADDR" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="devmid" longname="收到VMID" type="BaseType.U_VMIDXX" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="destip" longname="收到主机" type="BaseType.U_IPADDR" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="destdt" longname="收到时间" type="BaseType.U_CHAR20" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="prvmid" longname="处理VMID" type="BaseType.U_VMIDXX" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="excode" longname="异常错误码" type="BaseType.U_CHAR32" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="estack" longname="异常堆栈" type="BaseType.U_CHAR1000" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="md5chk" longname="MD5校验" type="BaseType.U_CHAR200" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="premod" longname="压缩方式" type="BaseType.U_CHAR20" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="mesobj" longname="消息对象类" type="BaseType.U_CHAR100" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="afpres" longname="消息压缩内容" type="BaseType.U_CHAR4000" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="medata" longname="消息明文内容" type="BaseType.U_CHAR4000" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="rulebf" longname="规则缓存数据区" type="object" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="sequcd" longname="流水号编号" type="BaseType.U_SEQCODE" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="sequds" longname="流水号描述" type="BaseType.U_SHORDS" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="sequno" longname="流水号" type="BaseType.U_LONGIN" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="idsegm" longname="标识段" type="BaseType.U_SEQCODE" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="passwd" longname="交易密码" type="BaseType.U_TRANPW" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="smstyp" longname="短信类型" type="BaseEnumType.E_SMSTYP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="chanid" longname="渠道编号" type="ApBaseType.U_CHANNEL" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="chades" longname="渠道描述" type="ApBaseType.U_DNMIAOSH" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="isdefu" longname="是否默认渠道标志" type="BaseEnumType.E_YES___" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="chruin" longname="渠道启运标志" type="BaseEnumType.E_YES___" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="rereei" longname="登记冲账事件标志" type="BaseEnumType.E_YES___" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="crrein" longname="跨渠道冲正标志" type="BaseEnumType.E_YES___" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="chaali" longname="渠道别名" type="BaseType.U_CHAR32" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="systid" longname="系统编号" type="BaseType.U_SYSCCD" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="sysnam" longname="系统名称" type="BaseType.U_SHORDS" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="insemo" longname="调用流水模式" type="ApBaseEnumType.E_INSEMO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cosyin" longname="核心子系统标志" type="BaseEnumType.E_YES___" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="glsyin" longname="gl子系统标志" type="BaseEnumType.E_YES___" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="userid" longname="创建柜员号" type="BaseType.U_USERID" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="updttm" longname="修改时间戳" type="ApBaseType.U_TMSTMP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="updtus" longname="修改柜员号" type="BaseType.U_USERID" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custno" longname="客户号码" type="BaseType.U_CUSTNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="sharid" longname="分片键" type="BaseType.U_SHARID" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="mshaid" longname="主分片健" type="BaseType.U_SHARID" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="validt" longname="生效日期" type="BaseType.U_DATE19" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="Bat" longname="批量应用平台数据字典定义" dict="true" abstract="false" introduct="false">
+        <element id="usersq" longname="柜员流水号" type="ApBaseType.U_USERSQ" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="pljyzbsh" longname="批量交易组标识" type="ApBaseType.U_DNMIAOSH" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="shujubsid" longname="数据标识ID" type="ApBaseType.U_LEIXIN80" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+</schema>

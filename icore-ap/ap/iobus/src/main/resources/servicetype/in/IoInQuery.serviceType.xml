@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="IoInQuery" kind="interface" longname="内部户查询服务" package="cn.sunline.ltts.busi.iobus.servicetype.in" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <service id="IoInacInfoQuery" name="InacInfoQuery" longname="内部户信息查询">
+        <interface>
+            <input packMode="false">
+                <field id="acctno" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="内部户账号" ref="InDict.inac.acctno"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="cplInacInfo" type="IoInQueryTypes.IoInacInfo" required="false" multi="false" array="false" longname="内部户信息"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoInacInfoQueryRoute" name="InacInfoQueryRoute" longname="内部户信息查询跨节点">
+        <interface>
+            <input packMode="false">
+                <field id="acctno" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="内部户账号" ref="InDict.inac.acctno"/>
+                <field id="cdcnno" type="BaseType.U_CHAR08" required="false" default="adm" multi="false" array="false" longname="DCN号"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="cplInacInfo" type="IoInQueryTypes.IoInacInfo" required="false" multi="false" array="false" longname="内部户信息"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoInacBalQuery" name="InacBalQuery" longname="内部户余额查询">
+        <interface>
+            <input packMode="false">
+                <field id="acctno" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="内部户账号" ref="InDict.inac.acctno"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="cpinbl" type="IoInQueryTypes.IoInAcctTmp" required="false" multi="false" array="false" longname="内部户余额信息"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="SelAllInacInfo" name="selAllInacInfo" longname="分页内部户信息">
+        <interface>
+            <input packMode="false">
+                <field id="start" type="int" required="false" multi="false" array="false" longname="开始位置"/>
+                <field id="pagect" type="int" required="false" multi="false" array="false" longname="页容量"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="inacInfo" type="IoInQueryTypes.InacInfoList" required="false" multi="false" array="false" longname="内部户信息"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoSelBusinoInfoWithPage" name="selBusinoInfoWithPage" longname="分页查询业务代码信息">
+        <interface>
+            <input packMode="false">
+                <field id="busino" type="BaseType.U_BUSINO" required="false" multi="false" array="false" longname="业务代码" ref="InDict.inac.busino"/>
+                <field id="busina" type="BaseType.U_CHAR80" required="false" multi="false" array="false" longname="业务代码中文名称说明" ref="InDict.inac.busina"/>
+                <field id="busitp" type="InEnumType.E_BUSITP" required="false" multi="false" array="false" longname="核算属性" ref="InDict.inac.busitp"/>
+                <field id="acbrlv" type="InEnumType.E_ACBRLV" required="false" multi="false" array="false" longname="核算机构级别" ref="InDict.inac.acbrlv"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="cplBusinoInfos" type="IoInQueryTypes.IoBusinoInfoList" required="false" multi="false" array="false" longname="业务编码信息集合"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoSelBzprtpInfoForDict" name="selBzprtpInfoForDict" longname="查询属性类型字典信息">
+        <interface>
+            <input packMode="false"/>
+            <output asParm="false" packMode="false">
+                <field id="cplBzprtpInfos" type="IoInQueryTypes.IoBzprtpInfoList" required="false" multi="false" array="false" longname="属性类型信息集合"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoSelItemcdInfoForDict" name="selItemcdInfoForDict" longname="查询科目字典信息">
+        <interface>
+            <input packMode="false"/>
+            <output asParm="false" packMode="false">
+                <field id="cplItemcdInfos" type="IoInQueryTypes.IoItemcdInfoList" required="false" multi="false" array="false" longname="科目信息集合"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoSelBzprtpInfoWithPage" name="selBzprtpInfoWithPage" longname="分页查询属性类型信息">
+        <interface>
+            <input packMode="false">
+                <field id="starno" type="integer" required="false" multi="false" array="false" longname="起始记录"/>
+                <field id="pageno" type="integer" required="false" multi="false" array="false" longname="页记录数"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="bzprtpInfos" type="IoInQueryTypes.IoBzprtpAllInfoList" required="false" multi="false" array="false" longname="属性类型信息集合"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoSelInacLastblQuery" name="selInacLastblQuery" longname="查询内部户上日余额">
+        <interface>
+            <input packMode="false">
+                <field id="acctno" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="内部户账号" ref="InDict.inac.acctno"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="inacLastbl" type="IoInQueryTypes.IoInacLastbl" required="false" multi="false" array="false" longname="内部户上日余额"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoSelTranInfoSyglbl" name="selTranInfoSyglbl" longname="获取内部户借/收方发生额">
+        <interface>
+            <input packMode="false">
+                <field id="acctno" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="内部户账号" ref="InDict.inac.acctno"/>
+                <field id="trandt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="交易日期" ref="InDict.inac.trandt"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="inacTranam" type="IoInQueryTypes.IoInacTranam" required="false" multi="false" array="false" longname="内部户交易金额"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoUpdInacEdbl" name="updInacEdbl" longname="更新内部户日终余额">
+        <interface>
+            <input packMode="false">
+                <field id="acctno" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="内部户账号" ref="InDict.inac.acctno"/>
+                <field id="dredbl" type="BaseType.U_ACBLTP" required="false" multi="false" array="false" longname="当日借方余额" ref="InDict.inac.dredbl"/>
+                <field id="credbl" type="BaseType.U_ACBLTP" required="false" multi="false" array="false" longname="当日贷方余额" ref="InDict.inac.credbl"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="rowNum" type="int" required="false" multi="false" array="false" longname="更新记录数"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoSelInacAcctno" name="selInacAcctno" longname="查询所有内部户账号">
+        <interface>
+            <input packMode="false"/>
+            <output asParm="false" packMode="false">
+                <field id="acctno" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="内部户账号" ref="InDict.inac.acctno"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoSelInacInfoByConditions" name="selInacInfoByConditions" longname="根据条件查询内部户">
+        <interface>
+            <input packMode="false">
+                <field id="acctno" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="内部户账号" ref="InDict.inac.acctno"/>
+                <field id="acctna" type="BaseType.U_ACCTNA" required="false" multi="false" array="false" longname="内部户名称" ref="InDict.inac.acctna"/>
+                <field id="crcycd" type="BaseType.U_CRCYCD" required="false" multi="false" array="false" longname="币种" ref="BaseDict.Comm.crcycd"/>
+                <field id="busino" type="BaseType.U_BUSINO" required="false" multi="false" array="false" longname="业务代码" ref="InDict.inac.busino"/>
+                <field id="brchno" type="BaseType.U_BRCHNO" required="false" multi="false" array="false" longname="机构号" ref="BaseDict.Comm.brchno"/>
+                <field id="qurytp" type="BaseEnumType.E_QURYTP" required="false" multi="false" array="false" longname="余额查询方式"/>
+                <field id="inactp" type="BaseEnumType.E_INACTP" required="false" multi="false" array="false" longname="内部户账户类型" ref="InDict.inac.inactp"/>
+                <field id="subsac" type="BaseType.U_CUACNO" required="false" multi="false" array="false" longname="子户号" ref="InDict.inac.subsac"/>
+                <field id="isrept" type="BaseEnumType.E_YES___" required="false" multi="false" array="false" longname="是否报表查询"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="ioInacInfo" type="IoInQueryTypes.IoInacInfo" required="false" multi="true" array="false" longname="内部户信息"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoSelInacInfoByBusino" name="selInacInfoByBusino" longname="根据业务代码查询内部户信息">
+        <interface>
+            <input packMode="false">
+                <field id="busino" type="BaseType.U_BUSINO" required="false" multi="false" array="false" longname="业务代码" ref="InDict.inac.busino"/>
+                <field id="brchno" type="BaseType.U_BRCHNO" required="false" multi="false" array="false" longname="机构号" ref="PbDict.Brch.brchno"/>
+                <field id="crcycd" type="BaseType.U_CRCYCD" required="false" multi="false" array="false" longname="币种" ref="BaseDict.Comm.crcycd"/>
+                <field id="subsac" type="BaseType.U_CUACNO" required="false" multi="false" array="false" longname="子户号" ref="InDict.inac.subsac"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="inacInfo" type="IoInQueryTypes.IoInacInfo" required="false" multi="false" array="false" longname="内部户信息"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="KnbLttlBatchInsert" name="knbLttlBatchInsert" longname="新增总账计提利息汇总文件明细">
+        <interface>
+            <input packMode="false">
+                <field id="batchinfo" type="IoDpTable.IoknblttlbatchInfo" required="false" multi="false" array="false" longname="新增总账计提利息汇总文件明细"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="count" type="int" required="false" multi="false" array="false" longname="影响记录条数"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoSelEffectAcctnoByCrcycd" name="selEffectAcctnoByCrcycd" longname="查询机构币种下是否存在有效账户">
+        <interface>
+            <input packMode="false">
+                <field id="crcycd" type="BaseType.U_CRCYCD" required="false" multi="false" array="false" longname="币种" ref="BaseDict.Comm.crcycd"/>
+                <field id="brchno" type="BaseType.U_BRCHNO" required="false" multi="false" array="false" longname="机构号" ref="BaseDict.Comm.brchno"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="count" type="BaseType.U_LONGIN" required="false" multi="false" array="false" longname="记录数"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoSelClrbalInfo" name="selClrbalInfo" longname="对账账户余额查询">
+        <interface>
+            <input packMode="false">
+                <field id="brchno" type="BaseType.U_BRCHNO" required="false" multi="false" array="false" longname="核算机构" ref="InDict.inac.brchno"/>
+                <field id="chckdt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="核对日期" ref="BaseDict.Comm.chckdt"/>
+                <field id="tranwy" type="InEnumType.E_TRANWY" required="false" multi="false" array="false" longname="对账模块"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="clrInfo" type="IoInQueryTypes.IoClrInfo" required="false" multi="true" array="false" longname="对账账户余额信息"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoInsKnsPaya" name="insKnsPaya" longname="新增挂账信息">
+        <interface>
+            <input packMode="false">
+                <field id="knsPaya" type="IoInTable.IoInKnsPaya" required="false" multi="false" array="false" longname="内部户挂账"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="selPaydStatus" name="selPaydStatus" longname="查询销账状态">
+        <interface>
+            <input packMode="false">
+                <field id="paydsq" type="BaseType.U_PAYASQ" required="false" multi="false" array="false" longname="销账序号"/>
+                <field id="payast" type="InEnumType.E_PAYAST" required="false" multi="false" array="false" longname="挂账状态"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="payaList" type="IoInQueryTypes.IoPayaSttInfo" required="false" multi="true" array="false" longname="挂账信息"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoInsKnsPayd" name="insKnsPayd" longname="新增销账信息">
+        <interface>
+            <input packMode="false">
+                <field id="knsPayd" type="IoInTable.IoInKnsPayd" required="false" multi="false" array="false" longname="销账信息"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoSelInacInfos" name="selInacInfos" longname="查询内部户信息">
+        <interface>
+            <input packMode="false">
+                <field id="acctno" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="内部户账号" ref="InDict.inac.acctno"/>
+                <field id="crcycd" type="BaseType.U_CRCYCD" required="false" multi="false" array="false" longname="币种" ref="BaseDict.Comm.crcycd"/>
+                <field id="brchno" type="BaseType.U_BRCHNO" required="false" multi="false" array="false" longname="机构号" ref="BaseDict.Comm.brchno"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="ioInacInfo" type="IoInQueryTypes.IoInacInfo" required="false" multi="true" array="false" longname="内部户信息"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoQueryGlKnpItem" name="queryKnpItem" longname="根据科目查询科目信息">
+        <interface>
+            <input packMode="false">
+                <field id="itemcd" type="BaseType.U_ITEMCD" required="false" multi="false" array="false" longname="科目" ref="InDict.inac.itemcd"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="ioGlKnpItem" type="IoInTable.IoGlKnpItem" required="false" multi="false" array="false" longname="科目信息"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="IoSelGlAcctMainInfo" name="qryGlAcctMainInfo" longname="查询内部账户主要信息">
+        <interface>
+            <input packMode="true">
+                <field id="acctno" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="内部户账号" ref="InDict.inac.acctno"/>
+                <field id="acctna" type="BaseType.U_ACCTNA" required="false" multi="false" array="false" longname="内部户名称" ref="InDict.inac.acctna"/>
+                <field id="brchno" type="BaseType.U_BRCHNO" required="false" multi="false" array="false" longname="核算机构" ref="InDict.inac.brchno"/>
+                <field id="busino" type="BaseType.U_BUSINO" required="false" multi="false" array="false" longname="业务代码" ref="InDict.inac.busino"/>
+                <field id="pgsize" type="integer" required="false" multi="false" array="false" longname="页容量"/>
+                <field id="pageno" type="integer" required="false" multi="false" array="false" longname="页数"/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="info" type="IoInQueryTypes.IoGlMainInfo" required="false" multi="true" array="false" longname="内部户相关信息"/>
+                <field id="count" type="long" required="false" multi="false" array="false" longname="总条数"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="IoSelGlAcctByStyle" name="qurGlAcctByStyle" longname="根据业务场景查询内部账户信息">
+        <interface>
+            <input packMode="false">
+                <field id="tranty" type="InEnumType.E_TRANTY" required="false" multi="false" array="false" longname="业务类型" ref="InDict.inac.tranty"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="inacInfo" type="IoInQueryTypes.IoInacInfo" required="false" multi="true" array="false" longname="内部户信息"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="IoSelGlAcctBySecno" name="qurGlAcctBySecno" longname="查询业务场景对应的通用内部账号">
+        <interface>
+            <input packMode="false">
+                <field id="scenno" type="BaseType.U_SCENNO" required="false" multi="false" array="false" longname="业务场景编号" ref="InDict.inac.scenno"/>
+                <field id="pmkey1" type="BaseType.U_CHAR40" required="false" multi="false" array="false" longname="参数键值1"/>
+                <field id="pmkey2" type="BaseType.U_CHAR40" required="false" multi="false" array="false" longname="参数键值2"/>
+                <field id="pmkey3" type="BaseType.U_CHAR40" required="false" multi="false" array="false" longname="参数键值3"/>
+                <field id="brchno" type="BaseType.U_BRCHNO" required="false" multi="false" array="false" longname="机构号" ref="BaseDict.Comm.brchno"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="acctInfos" type="IoInQueryTypes.IoSelGlAcctBySecnoOut" required="false" multi="false" array="false" longname="账户信息"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="IoSelGlKnaMapp" name="selGlKnaMapp" longname="内部户账户序号映射信息查询">
+        <interface>
+            <input packMode="true">
+                <field id="acctsq" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="账户序号"/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="acsqif" type="IoInTable.IoGlAcctMap" required="false" multi="false" array="false" longname="账户序号信息"/>
+                <field id="acctrt" type="BaseEnumType.E_ACCTROUTTYPE" required="false" multi="false" array="false" longname="账号路由类型"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="IoSelGlKnpBusiForBgdate" name="selGlKnpBusiForBgdate" longname="查询内部户产品基础属性表待停用的产品信息">
+        <interface>
+            <input packMode="false">
+                <field id="corpno" type="BaseType.U_CORPNO" required="false" multi="false" array="false" longname="法人代码" ref="BaseDict.Comm.corpno"/>
+                <field id="trandt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="交易日期"/>
+                <field id="iserror" type="boolean" required="false" multi="false" array="false" longname="是否抛错"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="busiIn" type="IoInTable.IoGlKnpBusi" required="false" multi="true" array="false" longname="内部户产品基础表"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="IoSelGlKnpBusiForEddate" name="selGlKnpBusiForEddate" longname="查询内部户产品基础属性表待停用的产品信息">
+        <interface>
+            <input packMode="false">
+                <field id="corpno" type="BaseType.U_CORPNO" required="false" multi="false" array="false" longname="法人代码" ref="BaseDict.Comm.corpno"/>
+                <field id="trandt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="交易日期"/>
+                <field id="prodst" type="BaseEnumType.E_PRODST" required="false" multi="false" array="false" longname="产品状态" ref="DpDict.Prod.prodst"/>
+                <field id="iserror" type="boolean" required="false" multi="false" array="false" longname="是否抛错"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="busiIn" type="IoInTable.IoGlKnpBusi" required="false" multi="true" array="false" longname="内部产品信息"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="IoUpdGlKnpBusiBusist" name="updGlKnpBusiBusist" longname="更新内部户产品基础属性表状态">
+        <interface>
+            <input packMode="false">
+                <field id="busist" type="BaseEnumType.E_PRODST" required="false" multi="false" array="false" longname="产品状态"/>
+                <field id="busino" type="BaseType.U_BUSINO" required="false" multi="false" array="false" longname="业务代码" ref="InDict.inac.busino"/>
+                <field id="corpno" type="BaseType.U_CORPNO" required="false" multi="false" array="false" longname="法人代码" ref="BaseDict.Comm.corpno"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="IoSelGlKnsGlvcByTransq" name="selGlKnsGlvcByTransq" longname="查询内部户交易记录是否存在">
+        <interface>
+            <input packMode="false">
+                <field id="corpno" type="BaseType.U_CORPNO" required="false" multi="false" array="false" longname="法人代码" desc="法人代码" ref="ApDict.Aplt.corpno"/>
+                <field id="transq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="交易流水"/>
+                <field id="isError" type="boolean" required="false" multi="false" array="false" longname="是否抛错"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="infnum" type="long" required="false" multi="false" array="false" longname="信息总数"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="IoCntGlKnsGlvcByTransq" name="cntGlKnpBusiByBusino" longname="根据产品查询状态正常的内部账户笔数">
+        <interface>
+            <input packMode="false">
+                <field id="corpno" type="BaseType.U_CORPNO" required="false" multi="false" array="false" longname="法人代码" desc="法人代码" ref="ApDict.Aplt.corpno"/>
+                <field id="busino" type="BaseType.U_BUSINO" required="false" multi="false" array="false" longname="业务代码"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="actnum" type="BaseType.U_INTEGE" required="false" multi="false" array="false" longname="内部账户笔数"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+</serviceType>

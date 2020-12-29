@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType id="IoAccChngbrSvc" kind="business" longname="电子账户变更机构服务" package="cn.sunline.ltts.busi.iobus.servicetype.dp" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description><![CDATA[]]></description>
+    <service id="Chngbr" name="changebr" longname="电子账户变更">
+        <description><![CDATA[]]></description>
+        <interface>
+            <input packMode="true">
+                <field id="cardno" type="BaseType.U_CARDNO" required="false" fixed="" default="" multi="false" array="false" longname="交易卡号" desc="" ref="BaseDict.Comm.cardno"/>
+                <field id="custac" type="BaseType.U_CUACNO" required="false" multi="false" array="false" longname="电子账号" ref="CaDict.Eacct.custac"/>
+                <field id="nwbrno" type="BaseType.U_CHAR80" required="false" multi="false" array="false" longname="新账户所属机构"/>
+                <field id="accatp" type="BaseEnumType.E_ACCATP" required="false" fixed="" default="" multi="false" array="false" longname="账户分类" desc="" ref="DpDict.Prod.accatp"/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="custid" type="BaseType.U_CUSTID" required="false" multi="false" array="false" longname="用户ID" ref="BaseDict.Comm.custid"/>
+                <field id="acalno" type="BaseType.U_CHAR30" required="false" fixed="" default="" multi="false" array="false" longname="账户别名" desc="" ref="CaDict.Eacct.acalno"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="judgeOpenJust" name="judgeOpenJust" longname="判断是否只发生过开户交易">
+        <description><![CDATA[]]></description>
+        <interface>
+            <input packMode="false">
+                <field id="custac" type="BaseType.U_CUACNO" required="false" fixed="" default="" multi="false" array="false" longname="电子账号" desc="" ref="CaDict.Eacct.custac"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="obopfg" type="BaseEnumType.E_YES___" required="false" fixed="" default="" multi="false" array="false" longname="是否只开过户标志" desc="" ref=""/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+</serviceType>

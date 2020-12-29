@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- [Template id=系统扩展配置 longname=系统扩展配置] -->
+<systemExtConfig allSubSystem="${所有子系统列表|01001}" localSubSystem="${本地调用子系统列表|01001}"/>
+<!-- [End] -->

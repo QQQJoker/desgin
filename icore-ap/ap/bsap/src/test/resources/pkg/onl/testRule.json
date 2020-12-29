@@ -1,0 +1,25 @@
+{
+	"input":{
+		"qrusid":"777",
+		"prcsna":"柜员基本信息查询"
+	},
+	"sys":{
+		"corpno":"999",
+		"pckgsq":"20170523010002401",
+		"prcscd":"testRule",
+		"prcsna":"testRule",
+		"tdcnno":"000",
+		"profile":{}
+	},
+	"comm_req":{
+		"tranus":"8010001",
+		"zjyilush":"25eea6697f91611a7b4ff839887a7ce2",
+		"servtp":"TM",
+		"inpusq":"201704280023212",
+		"inpudt":"20170428",
+		"inpucd":"01",
+		"jiaoyils":"25eea6697f91611a7b4ff839887a7ce2",
+		"tranbr":"801000",
+		"yewulush":"e5fa6be8b668dd210deaaea2f70ac20d"
+	}
+}

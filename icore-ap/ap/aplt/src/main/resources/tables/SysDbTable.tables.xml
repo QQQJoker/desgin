@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema id="SysDbTable" package="cn.sunline.ltts.busi.aplt.tables" longname="系统公共表" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description><![CDATA[系统公共表]]></description>
+    <table id="AppGldt" name="app_gldt" longname="会计系统日期参数表" category="1" virtual="false" changelog="false" abstract="false">
+        <fields>
+            <field id="corpno" longname="法人代码" type="BaseType.U_CORPNO" ref="ApDict.Aplt.corpno" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="bflsdt" longname="上上次交易日期" type="BaseType.U_DATE08" ref="BaseDict.Comm.bflsdt" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="lastdt" longname="上次交易日期" type="BaseType.U_DATE08" ref="BaseDict.Comm.lastdt" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="systdt" longname="交易日期" type="BaseType.U_DATE08" ref="BaseDict.Comm.systdt" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="nextdt" longname="下次交易日期" type="BaseType.U_DATE08" ref="BaseDict.Comm.nextdt" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="afnxdt" longname="下下次交易日期" type="BaseType.U_DATE08" ref="BaseDict.Comm.afnxdt" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="yreddt" longname="年终决算日期" type="BaseType.U_DATE08" ref="BaseDict.Comm.yreddt" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="parmvi" longname="参数版本" type="BaseType.U_CHAR32" ref="BaseDict.Comm.parmvi" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="timetm" longname="时间戳" type="ApBaseType.U_TMSTMP" ref="ApDict.Aplt.timetm" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="unique" fields="corpno" operate="selectOne updateOne selectOneWithLock"/>
+        </odbindexes>
+        <indexes>
+            <index id="app_gldt_uk1" type="unique" fields="corpno">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+    <table id="kapp_sjdyhz" name="kapp_sjdyhz" longname="事件汇总定义" category="2" virtual="false" abstract="false">
+        <fields>
+            <field id="evetno" longname="事件编号" type="BaseType.U_CHAR10" ref="BaseDict.Comm.evetno" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="evetna" longname="事件名称" type="BaseType.U_LONGDS" ref="BaseDict.Comm.evetna" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="blmodu" longname="所属模块" type="ApBaseEnumType.E_BLMODU" ref="BaseDict.Comm.blmodu" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <odbindexes>
+            <index id="odb1" type="unique" fields="evetno" operate="selectOne"/>
+        </odbindexes>
+        <indexes>
+            <index id="kapp_sjdyhz_uk1" type="unique" fields="evetno">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+    <table id="AppSmry" name="app_smry" longname="摘要代码参数表" category="1" virtual="false" extension="SysCommFieldTable.KapComm" abstract="false">
+        <fields>
+            <field id="smrycd" longname="摘要代码" type="BaseType.U_SMRYCD" ref="BaseDict.Comm.smrycd" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="smryds" longname="摘要描述" type="BaseType.U_SMRYDS" ref="BaseDict.Comm.smryds" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="remark" longname="说明" type="BaseType.U_MIDDDS" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="unique" fields="smrycd" operate="selectOne"/>
+        </odbindexes>
+        <indexes>
+            <index id="app_smry_uk1" type="unique" fields="smrycd corpno">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+    <table id="kapp_scenario_def" name="kapp_scenario_def" longname="业务场景定义" param="true" category="2" virtual="false" extension="SysCommFieldTable.KapComm" abstract="false">
+        <fields>
+            <field id="scenario_id" longname="场景代码" type="ApBaseType.U_LEIXIN32" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="scenario_desc" longname="场景描述" type="ApBaseType.U_DNMIAOSH" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+        </fields>
+        <odbindexes>
+            <index id="odb1" type="unique" fields="scenario_id" operate="selectOne" longname="主键"/>
+        </odbindexes>
+        <indexes>
+            <index id="kapp_scenario_def_uk1" type="unique" fields="scenario_id">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+    <table id="AppCldt" name="app_cldt" longname="清算日期参数表" virtual="false" abstract="false">
+        <fields>
+            <field id="corpno" longname="法人代码" type="BaseType.U_CORPNO" ref="ApDict.Aplt.corpno" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="bflsdt" longname="上上次交易日期" type="BaseType.U_DATE08" ref="BaseDict.Comm.bflsdt" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="lastdt" longname="上次交易日期" type="BaseType.U_DATE08" ref="BaseDict.Comm.lastdt" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="systdt" longname="交易日期" type="BaseType.U_DATE08" ref="BaseDict.Comm.systdt" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="nextdt" longname="下次交易日期" type="BaseType.U_DATE08" ref="BaseDict.Comm.nextdt" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="afnxdt" longname="下下次交易日期" type="BaseType.U_DATE08" ref="BaseDict.Comm.afnxdt" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="yreddt" longname="年终决算日期" type="BaseType.U_DATE08" ref="BaseDict.Comm.yreddt" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="clenum" longname="清算场次" type="BaseType.U_INTEGE" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="tmstmp" longname="时间戳" type="ApBaseType.U_TMSTMP" ref="ApDict.Aplt.tmstmp" primarykey="false" final="true" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="unique" fields="corpno" operate="selectOne updateOne selectOneWithLock"/>
+        </odbindexes>
+        <indexes>
+            <index id="app_cldt_uk1" type="unique" fields="corpno">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+    <table id="ApbAcctRout" name="apb_acct_rout" longname="账号路由登记簿" category="1" virtual="false" abstract="false">
+        <fields>
+            <field id="acctno" longname="账号" type="BaseType.U_ACCTNO" ref="BaseDict.Comm.acctno" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="acctrt" longname="账号路由类型" type="BaseEnumType.E_ACCTROUTTYPE" ref="BaseDict.Comm.acctrt" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="corpno" longname="法人代码" type="BaseType.U_CORPNO" ref="BaseDict.Comm.corpno" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="unique" fields="acctno" operate="selectOne deleteOne updateOne"/>
+        </odbindexes>
+        <indexes>
+            <index id="apb_acct_rout_uk1" type="unique" fields="acctno">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+    <table id="KnpAreaIdtp" name="knp_area_idtp" longname="身份证与人行地区代码映射表" virtual="false" abstract="false">
+        <fields>
+            <field id="addrcd" longname="身份证前6位地区代码" type="BaseType.U_CHAR06" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="provna" longname="省名称" type="BaseType.U_CHAR40" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="cityna" longname="城市名称" type="BaseType.U_CHAR40" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="rhpvcd" longname="省份代码" type="BaseType.U_CHAR06" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="rhadcd" longname="人行地区代码" type="BaseType.U_CHAR04" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="unique" fields="addrcd"/>
+        </odbindexes>
+        <indexes>
+            <index id="knp_area_idtp_idx1" type="unique" fields="addrcd">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+</schema>

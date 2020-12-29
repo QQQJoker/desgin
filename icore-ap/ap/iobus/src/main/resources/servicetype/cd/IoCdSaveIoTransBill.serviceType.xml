@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType id="IoCdSaveIoTransBill" kind="business" longname="出入金记录登记簿相关服务" package="cn.sunline.ltts.busi.iobus.servicetype.cd" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <service id="SaveIoBill" name="SaveIoBill" longname="记录出入金记录">
+        <interface>
+            <input packMode="true">
+                <field id="crcycd" type="BaseType.U_CRCYCD" required="false" multi="false" array="false" longname="货币代号" ref="PbDict.Intr.crcycd"/>
+                <field id="tranam" type="BaseType.U_ACBLTP" required="false" multi="false" array="false" longname="交易金额" ref="InDict.inac.tranam"/>
+                <field id="fronsq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="前置流水"/>
+                <field id="frondt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="前置日期"/>
+                <field id="fromtp" type="DpEnumType.E_IOFLAG" required="false" multi="false" array="false" longname="出入金方式"/>
+                <field id="capitp" type="DpEnumType.E_CAPITP" required="false" multi="false" array="false" longname="资金交易类型"/>
+                <field id="servtp" type="BaseType.U_SERVTP" required="false" multi="false" array="false" longname="交易渠道"/>
+                <field id="prcscd" type="BaseType.U_PRCSCD" required="false" multi="false" array="false" longname="处理码" ref="InDict.inac.prcscd"/>
+                <field id="acctna" type="BaseType.U_SHORDS" required="false" multi="false" array="false" longname="客户名称"/>
+                <field id="remark" type="BaseType.U_MIDDDS" required="false" multi="false" array="false" longname="备注信息"/>
+                <field id="ioflag" type="DpEnumType.E_IOFLAG" required="false" multi="false" array="false" longname="出入金标志"/>
+                <field id="transt" type="BaseEnumType.E_TRANST" required="false" multi="false" array="false" longname="交易状态"/>
+                <field id="keepdt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="清算日期" ref="DpDict.Acct.keepdt"/>
+                <field id="linkno" type="BaseType.U_CHAR40" required="false" multi="false" array="false" longname="连笔交易号" ref="PbDict.Comm.linkno"/>
+                <field id="busisq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="业务跟踪编号"/>
+                <field id="chckdt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="对账日期"/>
+                <field id="tlcgam" type="BaseType.U_TRANAM" required="false" multi="false" array="false" longname="收费总金额"/>
+                <field id="busino" type="BaseType.U_BUSINO" required="false" multi="false" array="false" longname="业务编码"/>
+                <field id="cardno" type="BaseType.U_CARDNO" required="false" multi="false" array="false" longname="转入方卡号/账号" ref="DpDict.Acct.cardno"/>
+                <field id="cuacno" type="BaseType.U_CUACNO" required="false" multi="false" array="false" longname="转入方电子账户"/>
+                <field id="acctno" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="转入方子账号"/>
+                <field id="brchno" type="BaseType.U_BRCHNO" required="false" multi="false" array="false" longname="转入方账户所属机构"/>
+                <field id="tobrch" type="BaseType.U_BRCHNO" required="false" multi="false" array="false" longname="转出方账号所属机构"/>
+                <field id="toacct" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="转出方账号/卡号"/>
+                <field id="toscac" type="BaseType.U_CUACNO" required="false" multi="false" array="false" longname="转出方电子账户"/>
+                <field id="toacno" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="转出方子账号"/>
+                <field id="incorp" type="BaseType.U_CORPNO" required="false" multi="false" array="false" longname="转入方法人代码"/>
+                <field id="otcorp" type="BaseType.U_CORPNO" required="false" multi="false" array="false" longname="转出方法人代码"/>
+                <field id="isspan" type="BaseEnumType.E_YES___" required="false" multi="false" array="false" longname="是否跨法人"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+</serviceType>

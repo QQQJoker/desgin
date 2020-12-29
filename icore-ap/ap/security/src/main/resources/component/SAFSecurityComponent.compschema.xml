@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<componentSchema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="SAFSecurityComponent" package="cn.sunline.clwj.security.component" longname="三味信安加密接口实现" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <abstractComponentInstance id="SAFSecurity" type="BaseComp.Security" longname="基于SAF加密平台的加密抽象组件"/>
+    <componentImplementation id="AbstractSAFSecurity" longname="基于SAF加密平台的加密组件实现" type="BaseComp.Security">
+        <implementation.java class="cn.sunline.ltts.busi.aplt.crypto.SAFSecurityImpl"/>
+        <properties>
+            <property name="ipaddr" type="string" longname="加密平台IP地址"/>
+            <property name="portnm" type="int" longname="加密平台端口号"/>
+            <property name="timeou" type="int" default="0" longname="超时时间"/>
+            <property name="macvor" type="string" longname="MAC向量"/>
+            <property name="encode" type="string" default="utf-8" longname="字符集" desc="字符集"/>
+        </properties>
+    </componentImplementation>
+</componentSchema>

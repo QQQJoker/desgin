@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType id="IoApDcnMessageProcess" kind="business" longname="跨节点消息处理" package="cn.sunline.ltts.amsg.servicetype" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <service id="process" name="process" longname="消息处理服务">
+        <interface>
+            <input packMode="false">
+                <field id="mtinfo" type="TrxBaseEnvs.MessageTotalInfo" required="false" multi="false" array="false" longname="消息信息"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="processMri" name="processMri" longname="消息处理服务MRI">
+        <interface>
+            <input packMode="false">
+                <field id="mrinfo" type="TrxBaseEnvs.MessageRealInfo" required="false" multi="false" array="false" longname="消息信息"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>    
+</serviceType>

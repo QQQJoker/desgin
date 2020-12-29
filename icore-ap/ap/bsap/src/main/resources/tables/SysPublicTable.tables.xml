@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="SysPublicTable" package="cn.sunline.ltts.busi.aplt.tables" longname="系统公共表" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <description><![CDATA[系统公共表]]></description>
+    <table id="AppSydt" name="app_sydt" longname="交易系统日期参数表" tableType="ORDINARY" category="1" virtual="false" changelog="false" abstract="false">
+        <fields>
+            <field id="corpno" longname="法人代码" type="BaseType.U_CORPNO" ref="ApDict.Aplt.corpno" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="bflsdt" longname="上上次交易日期" type="BaseType.U_DATE08" ref="BaseDict.Comm.bflsdt" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="lastdt" longname="上次交易日期" type="BaseType.U_DATE08" ref="BaseDict.Comm.lastdt" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="systdt" longname="交易日期" type="BaseType.U_DATE08" ref="BaseDict.Comm.systdt" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="nextdt" longname="下次交易日期" type="BaseType.U_DATE08" ref="BaseDict.Comm.nextdt" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="afnxdt" longname="下下次交易日期" type="BaseType.U_DATE08" ref="BaseDict.Comm.afnxdt" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="yreddt" longname="年终决算日期" type="BaseType.U_DATE08" ref="BaseDict.Comm.yreddt" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="parmvi" longname="参数版本" type="BaseType.U_CHAR32" ref="BaseDict.Comm.parmvi" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="timetm" longname="时间戳" type="ApBaseType.U_TMSTMP" ref="ApDict.Aplt.timetm" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="unique" fields="corpno" operate="selectOne deleteOne updateOne selectOneWithLock"/>
+        </odbindexes>
+        <indexes>
+            <index id="app_sydt_uk1" type="unique" fields="corpno ">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+    <table id="AppSequ" name="app_sequ" longname="流水号定义" tableType="ORDINARY" category="2" virtual="false" extension="SysCommFieldTable.KapComm" abstract="false">
+        <fields>
+            <field id="sequcd" longname="流水号编号" type="BaseType.U_SEQCODE" ref="ApDict.Aplt.sequcd" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="sequds" longname="流水号描述" type="BaseType.U_SHORDS" ref="ApDict.Aplt.sequds" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="intval" longname="初始值" type="BaseType.U_LONGIN" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="cachsz" longname="缓存大小" type="BaseType.U_LONGIN" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="seqlen" longname="增长大小" type="BaseType.U_LONGIN" primarykey="false" final="false" nullable="true" desc="单流水的长度，不含流水组建。当流水组建标志=Y的时候可以不填写。当只作为long型流水时可不填。" identity="false" allowSubType="true"/>
+            <field id="maxval" longname="最大值" type="BaseType.U_LONGIN" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="buidfg" longname="是否有组成规则" type="BaseEnumType.E_YES___" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="module" longname="模块" type="BaseType.U_CHAR10" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="unique" fields="sequcd corpno" operate="selectOne deleteOne"/>
+        </odbindexes>
+        <indexes>
+            <index id="app_sequ_uk1" type="unique" fields="sequcd,corpno">
+                <ddls/>
+            </index>
+        </indexes>
+        <description><![CDATA[系统使用的各类流水号都在此定义]]></description>
+    </table>
+    <table id="AppSequBuid" name="app_sequ_buid" longname="流水号组成定义" tableType="ORDINARY" category="2" virtual="false" extension="SysCommFieldTable.KapComm" abstract="false">
+        <fields>
+            <field id="sequcd" longname="流水号编号" type="BaseType.U_SEQCODE" ref="ApDict.Aplt.sequcd" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="datast" longname="序号" type="BaseType.U_LONGIN" primarykey="false" final="false" nullable="false" desc="按序号的次序组织编号" identity="false" allowSubType="true"/>
+            <field id="buidtp" longname="组成类型" type="ApBaseEnumType.E_SEQBUILDCLASS" primarykey="false" final="false" nullable="false" desc="序号、序号识别段、校验位" identity="false" allowSubType="true"/>
+            <field id="datamr" longname="数据区" type="BaseType.U_TABLENAME" primarykey="false" final="false" nullable="true" desc="序号无需填写；校验位无需填写以下信息" identity="false" allowSubType="true"/>
+            <field id="fildna" longname="字段名称" type="BaseType.U_FIELDNAME" primarykey="false" final="false" nullable="true" desc="序号无需填写；校验位无需填写以下信息" identity="false" allowSubType="true"/>
+            <field id="stposi" longname="起始位置" type="BaseType.U_LONGIN" primarykey="false" final="false" nullable="true" desc="校验位无需填写以下信息" identity="false" allowSubType="true"/>
+            <field id="cutlen" longname="截取长度" type="BaseType.U_LONGIN" primarykey="false" final="false" nullable="true" desc="校验位无需填写以下信息" identity="false" allowSubType="true"/>
+            <field id="padmod" longname="补充模式" type="ApBaseEnumType.E_PADDINGMODE" primarykey="false" final="false" nullable="true" desc="不足位数补位方式；校验位无需填写以下信息" identity="false" allowSubType="true"/>
+            <field id="padval" longname="补充值" type="BaseType.U_CHAR01" primarykey="false" final="false" nullable="true" desc="校验位无需填写以下信息" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="index" fields="sequcd corpno" sort="datast asc" operate="selectAll"/>
+        </odbindexes>
+        <indexes>
+            <index id="app_sequ_buid_uk1" type="unique" fields="sequcd,datast,corpno">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+    <table id="ApbSequ" name="apb_sequ" longname="序号登记簿" tableType="ORDINARY" category="2" virtual="false" extension="SysCommFieldTable.KapComm" abstract="false">
+        <fields>
+            <field id="sequcd" longname="流水号编号" type="BaseType.U_SEQCODE" ref="ApDict.Aplt.sequcd" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="sequds" longname="流水号描述" type="BaseType.U_SHORDS" ref="ApDict.Aplt.sequds" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="idsegm" longname="标识段" type="BaseType.U_SEQCODE" ref="ApDict.Aplt.idsegm" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="sequno" longname="流水号" type="BaseType.U_LONGIN" ref="ApDict.Aplt.sequno" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="unique" fields="sequcd idsegm corpno" operate="selectOne deleteOne updateOne selectOneWithLock"/>
+        </odbindexes>
+        <indexes>
+            <index id="apb_sequ_uk1" type="unique" fields="sequcd,idsegm,corpno">
+                <ddls/>
+            </index>
+        </indexes>
+        <description><![CDATA[流水号增长的信息在此记录]]></description>
+    </table>
+    <table id="AppCrcy" name="app_crcy" longname="货币参数表" tableType="ORDINARY" category="1" virtual="false" extension="SysCommFieldTable.KapComm" changelog="false" abstract="false">
+        <fields>
+            <field id="crcycd" longname="币种" type="BaseType.U_CRCYCD" ref="BaseDict.Comm.crcycd" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="crcyna" longname="贷币名称" type="BaseType.U_SHORDS" ref="BaseDict.Comm.crcyna" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="ccynum" longname="货币数字代码" type="BaseType.U_CHAR03" ref="BaseDict.Comm.ccynum" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="cntycd" longname="国别代码" type="BaseType.U_CNTYCD" ref="BaseDict.Comm.cntycd" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="ccymin" longname="币种精度位" type="BaseType.U_LONGIN" ref="BaseDict.Comm.ccymin" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="iamnun" longname="计息精度位" type="BaseType.U_LONGIN" ref="BaseDict.Comm.iamnun" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="chgeun" longname="货币找零位" type="BaseType.U_TRANAM" ref="BaseDict.Comm.chgeun" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="basefg" longname="是否本币标志" type="BaseEnumType.E_YES___" ref="BaseDict.Comm.basefg" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="unique" fields="crcycd" operate="selectOne deleteOne updateOne"/>
+        </odbindexes>
+        <indexes>
+            <index id="app_crcy_uk1" type="unique" fields="crcycd,corpno">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+    <table id="AppHold" name="app_hold" longname="节假日表" tableType="ORDINARY" category="1" virtual="false" extension="SysCommFieldTable.KapComm" changelog="true" abstract="false">
+        <fields>
+            <field id="holdcd" longname="节假日代码" type="BaseType.U_VATCOD" ref="BaseDict.Comm.holdcd" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="holdtp" longname="节假日类型" type="ApBaseEnumType.E_HOLIDAYTYPE" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="holday" longname="节假日" type="BaseType.U_DATE08" ref="BaseDict.Comm.holday" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="efctdt" longname="生效日期" type="BaseType.U_DATE08" ref="BaseDict.Comm.efctdt" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="remark" longname="备注信息" type="BaseType.U_LONGDS" ref="BaseDict.Comm.remark" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="filesq" longname="文件批次号" type="BaseType.U_CHAR40" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="unique" fields="holdcd holday" operate="selectOne deleteOne updateOne"/>
+            <index id="odb2" type="unique" fields="holdcd holdtp holday" operate="selectOne deleteOne updateOne"/>
+        </odbindexes>
+        <indexes>
+            <index id="app_hold_uk1" type="unique" fields="holdcd,holdtp,holday,corpno">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+    <table id="AppCorp" name="app_corp" longname="法人代码表" tableType="ORDINARY" category="1" virtual="false" changelog="false" abstract="false">
+        <fields>
+            <field id="corpno" longname="法人代码" type="BaseType.U_CORPNO" ref="ApDict.Aplt.corpno" primarykey="true" final="true" nullable="false" identity="false" allowSubType="true"/>
+            <field id="corpna" longname="法人中文名称" type="BaseType.U_CORPNA" ref="BaseDict.Comm.corpna" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="addres" longname="法人地址" type="BaseType.U_MIDDDS" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="corplv" longname="法人级别" type="ApBaseEnumType.E_CORPLEVEL" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="upcorp" longname="上级法人" type="BaseType.U_CORPNO" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="recdver" longname="记录版本号" type="BaseType.U_RECDVER" ref="BaseDict.Comm.recdver" primarykey="false" final="true" nullable="true" identity="false" allowSubType="true"/>
+            <field id="tmstmp" longname="时间戳" type="ApBaseType.U_TMSTMP" ref="ApDict.Aplt.tmstmp" primarykey="false" final="true" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="unique" fields="corpno" operate="selectOne deleteOne updateOne"/>
+            <index id="odb2" type="index" fields="corplv" operate="selectFirst selectAll"/>
+        </odbindexes>
+        <indexes>
+            <index id="app_corp_uk1" type="unique" fields="corpno">
+                <ddls/>
+            </index>
+            <index id="app_corp_idx1" type="index" fields="corplv">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+    <table id="AplParaAudt" name="apl_para_audt" longname="参数审计日志" tableType="ORDINARY" category="2" virtual="false" extension="SysCommFieldTable.KapComm" abstract="false">
+        <fields>
+            <field id="audseq" longname="参数审计流水" type="BaseType.U_SEQUNO" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="trandt" longname="交易日期" type="BaseType.U_DATE08" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="transq" longname="交易流水" type="BaseType.U_SEQUNO" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="busisq" longname="业务流水" type="BaseType.U_SEQUNO" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="prcscd" longname="交易代码" type="BaseType.U_PRCSCD" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="prcsna" longname="交易描述" type="BaseType.U_SHORDS" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="datatp" longname="数据操作类型" type="BaseEnumType.E_DMLTYP" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="tablna" longname="数据库表名" type="BaseType.U_TABLENAME" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="tablds" longname="数据库表描述" type="BaseType.U_SHORDS" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="pkyval" longname="主键值" type="BaseType.U_MIDDESC" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="userid" longname="操作柜员" type="BaseType.U_USERID" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <indexes>
+            <index id="apl_para_audt_uk1" type="unique" fields="audseq,corpno">
+                <ddls/>
+            </index>
+            <index id="apl_para_audt_idx1" type="index" fields="transq,corpno">
+                <ddls/>
+            </index>
+            <index id="apl_para_audt_idx2" type="index" fields="trandt,corpno">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+    <table id="AplParaAudtDetl" name="apl_para_audt_detl" longname="参数审计日志明细" tableType="ORDINARY" category="2" virtual="false" extension="SysCommFieldTable.KapComm" abstract="false">
+        <fields>
+            <field id="audseq" longname="参数审计流水" type="BaseType.U_SEQUNO" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="datast" longname="序号" type="BaseType.U_LONGIN" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="trandt" longname="交易日期" type="BaseType.U_DATE08" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="fildna" longname="字段名" type="BaseType.U_FIELDNAME" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="fildds" longname="字段名称" type="BaseType.U_SHORDS" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="befval" longname="修改前值" type="BaseType.U_CHAR4000" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="aftval" longname="修改后值" type="BaseType.U_CHAR4000" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="userid" longname="操作柜员" type="BaseType.U_USERID" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <indexes>
+            <index id="apl_para_audt_detl_uk1" type="unique" fields="audseq,datast,corpno">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+    <table id="AplBusiAudt" name="apl_busi_audt" longname="业务数据审计日志" tableType="ORDINARY" category="2" virtual="false" extension="SysCommFieldTable.KapComm" abstract="false">
+        <fields>
+            <field id="audseq" longname="业务审计流水" type="BaseType.U_SEQUNO" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="trandt" longname="交易日期" type="BaseType.U_DATE08" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="transq" longname="交易流水" type="BaseType.U_SEQUNO" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="busisq" longname="业务流水" type="BaseType.U_SEQUNO" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="prcscd" longname="交易代码" type="BaseType.U_PRCSCD" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="prcsna" longname="交易描述" type="BaseType.U_SHORDS" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="tablna" longname="数据库表名" type="BaseType.U_TABLENAME" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="tablds" longname="数据库表描述" type="BaseType.U_SHORDS" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="pkyval" longname="主键值" type="BaseType.U_MIDDESC" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="userid" longname="操作人员" type="BaseType.U_CARDNO" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="servtp" longname="渠道" type="BaseEnumType.E_SERVTP" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes/>
+        <indexes>
+            <index id="apl_busi_audt_uk1" type="unique" fields="audseq,corpno">
+                <ddls/>
+            </index>
+            <index id="apl_busi_audt_idx1" type="index" fields="transq,corpno">
+                <ddls/>
+            </index>
+            <index id="apl_busi_audt_idx2" type="index" fields="trandt,corpno">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+    <table id="AplBusiAudtDetl" name="apl_busi_audt_detl" longname="业务数据审计日志明细" tableType="ORDINARY" category="2" virtual="false" extension="SysCommFieldTable.KapComm" abstract="false">
+        <fields>
+            <field id="audseq" longname="参数审计流水" type="BaseType.U_SEQUNO" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="datast" longname="序号" type="BaseType.U_LONGIN" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="trandt" longname="交易日期" type="BaseType.U_DATE08" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="fildna" longname="字段名" type="BaseType.U_FIELDNAME" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="fildds" longname="字段名称" type="BaseType.U_SHORDS" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="befval" longname="修改前值" type="BaseType.U_CHAR4000" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="aftval" longname="修改后值" type="BaseType.U_CHAR4000" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="userid" longname="操作柜员" type="BaseType.U_USERID" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <indexes>
+            <index id="apl_busi_audt_detl_uk1" type="unique" fields="audseq,datast,corpno">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+    <table id="ApbEodt" name="apb_eodt" longname="日终批量日期管理表" tableType="ORDINARY" category="1" virtual="false" extension="SysCommFieldTable.KapComm" abstract="false">
+        <fields>
+            <field id="flowid" longname="批量日终流程ID" type="KBaseType.U_PLJYLCBS" primarykey="false" length="50" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="flowtp" longname="日终流程类型" type="BaseEnumType.E_EODTP" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="flowdt" longname="批量日终管理日期" type="BaseType.U_DATE08" primarykey="false" length="20" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="flowst" longname="批量流程日终状态" type="BaseEnumType.E_FLOWST" primarykey="false" length="20" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="systcd" longname="系统代码" type="BaseType.U_SYSTCD" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="unique" fields="flowid corpno" operate="selectOne deleteOne updateOne"/>
+        </odbindexes>
+        <indexes>
+            <index id="apb_eodt_uk1" type="unique" fields="flowid,corpno"/>
+        </indexes>
+    </table>
+    <table id="ApsEodtDetl" name="aps_eodt_detl" longname="日终批量执行明细表" tableType="ORDINARY" category="sys" virtual="false" extension="SysCommFieldTable.KapComm" abstract="false">
+        <fields>
+            <field id="flowid" longname="批量日终流程ID" type="KBaseType.U_PLJYLCBS" primarykey="false" length="50" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="flowdt" longname="批量日终管理日期" type="BaseType.U_DATE08" primarykey="false" length="20" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="dcnnum" longname="DCN编号" type="BaseType.U_DCNNO" primarykey="false" final="false" default="0" nullable="false" identity="false" allowSubType="true"/>
+            <field id="dcnste" longname="DCN调度状态" type="KBaseEnumType.E_PILJYZHT" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="txntal" longname="有效交易个数" type="BaseType.U_LONGIN" primarykey="false" final="false" default="0" nullable="false" identity="false" allowSubType="true"/>
+            <field id="txnsuc" longname="成功交易个数" type="BaseType.U_LONGIN" primarykey="false" final="false" default="0" nullable="false" identity="false" allowSubType="true"/>
+            <field id="pecent" longname="进度百分比" type="BaseType.U_RATECD" primarykey="false" final="false" default="0.00" nullable="false" identity="false" allowSubType="true"/>
+            <field id="systcd" longname="系统代码" type="BaseType.U_SYSTCD" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb_1" type="unique" fields="flowid flowdt corpno" operate="selectOne deleteOne updateOne selectOneWithLock"/>
+            <index id="odb_2" type="unique" fields="flowid flowdt dcnnum" operate="selectOne"/>
+        </odbindexes>
+        <indexes>
+            <index id="aps_eodt_detl_uk1" type="unique" fields="flowid,flowdt,corpno,dcnnum">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+    <table id="ApbDrss" name="apb_drss" longname="drs注册登记簿" tableType="ORDINARY" category="2" virtual="false" abstract="false">
+        <fields>
+            <field id="acctno" longname="账号" type="BaseType.U_ACCTNO" ref="BaseDict.Comm.acctno" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="drstyp" longname="组成路由类型" type="BaseType.U_SHORDS" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="corpno" longname="法人代码" type="BaseType.U_CORPNO" ref="BaseDict.Comm.corpno" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="cdcnno" longname="注册DCN号" type="BaseType.U_DCNNO" ref="BaseDict.Comm.cdcnno" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="status" longname="drs注册状态" type="BaseEnumType.E_DRSSTATUS" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="unique" fields="acctno" operate="selectOne deleteOne updateOne"/>
+        </odbindexes>
+        <indexes>
+            <index id="apb_drss_uk1" type="unique" fields="acctno">
+                <ddls/>
+            </index>
+        </indexes>
+        <description><![CDATA[系统使用的各类流水号都在此定义]]></description>
+    </table>
+    <table id="ApbDrss1" name="apb_drss1" longname="drs注册登记簿" tableType="ORDINARY" category="2" virtual="false" abstract="false">
+        <fields>
+            <field id="acctno" longname="账号" type="BaseType.U_ACCTNO" ref="BaseDict.Comm.acctno" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="drstyp" longname="组成路由类型" type="BaseType.U_SHORDS" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="corpno" longname="法人代码" type="BaseType.U_CORPNO" ref="BaseDict.Comm.corpno" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="cdcnno" longname="注册DCN号" type="BaseType.U_DCNNO" ref="BaseDict.Comm.cdcnno" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="status" longname="drs注册状态" type="BaseEnumType.E_DRSSTATUS" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="unique" fields="acctno" operate="selectOne deleteOne updateOne"/>
+        </odbindexes>
+        <indexes>
+            <index id="apb_drss1_uk1" type="unique" fields="acctno">
+                <ddls/>
+            </index>
+        </indexes>
+        <description><![CDATA[系统使用的各类流水号都在此定义]]></description>
+    </table>
+    <table id="ApbDrss2" name="apb_drss2" longname="drs注册登记簿" tableType="ORDINARY" category="2" virtual="false" abstract="false">
+        <fields>
+            <field id="acctno" longname="账号" type="BaseType.U_ACCTNO" ref="BaseDict.Comm.acctno" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="drstyp" longname="组成路由类型" type="BaseType.U_SHORDS" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="corpno" longname="法人代码" type="BaseType.U_CORPNO" ref="BaseDict.Comm.corpno" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="cdcnno" longname="注册DCN号" type="BaseType.U_DCNNO" ref="BaseDict.Comm.cdcnno" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="status" longname="drs注册状态" type="BaseEnumType.E_DRSSTATUS" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="unique" fields="acctno" operate="selectOne deleteOne updateOne"/>
+        </odbindexes>
+        <indexes>
+            <index id="apb_drss2_uk1" type="unique" fields="acctno">
+                <ddls/>
+            </index>
+        </indexes>
+        <description><![CDATA[系统使用的各类流水号都在此定义]]></description>
+    </table>
+    <table id="ApbDrss3" name="apb_drss3" longname="drs注册登记簿" tableType="ORDINARY" category="2" virtual="false" abstract="false">
+        <fields>
+            <field id="acctno" longname="账号" type="BaseType.U_ACCTNO" ref="BaseDict.Comm.acctno" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="drstyp" longname="组成路由类型" type="BaseType.U_SHORDS" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="corpno" longname="法人代码" type="BaseType.U_CORPNO" ref="BaseDict.Comm.corpno" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="cdcnno" longname="注册DCN号" type="BaseType.U_DCNNO" ref="BaseDict.Comm.cdcnno" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="status" longname="drs注册状态" type="BaseEnumType.E_DRSSTATUS" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="unique" fields="acctno" operate="selectOne deleteOne updateOne"/>
+        </odbindexes>
+        <indexes>
+            <index id="apb_drss3_uk1" type="unique" fields="acctno">
+                <ddls/>
+            </index>
+        </indexes>
+        <description><![CDATA[系统使用的各类流水号都在此定义]]></description>
+    </table>
+    <table id="ApbDrss4" name="apb_drss4" longname="drs注册登记簿" tableType="ORDINARY" category="2" virtual="false" abstract="false">
+        <fields>
+            <field id="acctno" longname="账号" type="BaseType.U_ACCTNO" ref="BaseDict.Comm.acctno" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="drstyp" longname="组成路由类型" type="BaseType.U_SHORDS" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="corpno" longname="法人代码" type="BaseType.U_CORPNO" ref="BaseDict.Comm.corpno" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="cdcnno" longname="注册DCN号" type="BaseType.U_DCNNO" ref="BaseDict.Comm.cdcnno" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="status" longname="drs注册状态" type="BaseEnumType.E_DRSSTATUS" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="unique" fields="acctno" operate="selectOne deleteOne updateOne"/>
+        </odbindexes>
+        <indexes>
+            <index id="apb_drss4_uk1" type="unique" fields="acctno">
+                <ddls/>
+            </index>
+        </indexes>
+        <description><![CDATA[系统使用的各类流水号都在此定义]]></description>
+    </table>
+    <table id="ApbDrss5" name="apb_drss5" longname="drs注册登记簿" tableType="ORDINARY" category="2" virtual="false" abstract="false">
+        <fields>
+            <field id="acctno" longname="账号" type="BaseType.U_ACCTNO" ref="BaseDict.Comm.acctno" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="drstyp" longname="组成路由类型" type="BaseType.U_SHORDS" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="corpno" longname="法人代码" type="BaseType.U_CORPNO" ref="BaseDict.Comm.corpno" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="cdcnno" longname="注册DCN号" type="BaseType.U_DCNNO" ref="BaseDict.Comm.cdcnno" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="status" longname="drs注册状态" type="BaseEnumType.E_DRSSTATUS" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="unique" fields="acctno" operate="selectOne deleteOne updateOne"/>
+        </odbindexes>
+        <indexes>
+            <index id="apb_drss5_uk1" type="unique" fields="acctno">
+                <ddls/>
+            </index>
+        </indexes>
+        <description><![CDATA[系统使用的各类流水号都在此定义]]></description>
+    </table>
+    <table id="ApbDrss6" name="apb_drss6" longname="drs注册登记簿" tableType="ORDINARY" category="2" virtual="false" abstract="false">
+        <fields>
+            <field id="acctno" longname="账号" type="BaseType.U_ACCTNO" ref="BaseDict.Comm.acctno" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="drstyp" longname="组成路由类型" type="BaseType.U_SHORDS" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="corpno" longname="法人代码" type="BaseType.U_CORPNO" ref="BaseDict.Comm.corpno" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="cdcnno" longname="注册DCN号" type="BaseType.U_DCNNO" ref="BaseDict.Comm.cdcnno" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="status" longname="drs注册状态" type="BaseEnumType.E_DRSSTATUS" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="unique" fields="acctno" operate="selectOne deleteOne updateOne"/>
+        </odbindexes>
+        <indexes>
+            <index id="apb_drss6_uk1" type="unique" fields="acctno">
+                <ddls/>
+            </index>
+        </indexes>
+        <description><![CDATA[系统使用的各类流水号都在此定义]]></description>
+    </table>
+    <table id="ApbDrss7" name="apb_drss7" longname="drs注册登记簿" tableType="ORDINARY" category="2" virtual="false" abstract="false">
+        <fields>
+            <field id="acctno" longname="账号" type="BaseType.U_ACCTNO" ref="BaseDict.Comm.acctno" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="drstyp" longname="组成路由类型" type="BaseType.U_SHORDS" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="corpno" longname="法人代码" type="BaseType.U_CORPNO" ref="BaseDict.Comm.corpno" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="cdcnno" longname="注册DCN号" type="BaseType.U_DCNNO" ref="BaseDict.Comm.cdcnno" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="status" longname="drs注册状态" type="BaseEnumType.E_DRSSTATUS" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="unique" fields="acctno" operate="selectOne deleteOne updateOne"/>
+        </odbindexes>
+        <indexes>
+            <index id="apb_drss7_uk1" type="unique" fields="acctno">
+                <ddls/>
+            </index>
+        </indexes>
+        <description><![CDATA[系统使用的各类流水号都在此定义]]></description>
+    </table>
+    <table id="AppChannel" name="app_channel" longname="应用渠道定义表" tableType="ORDINARY" virtual="false" extension="SysCommFieldTable.KapCommSync" abstract="false">
+        <fields>
+            <field id="chanid" longname="渠道编号" type="ApBaseType.U_CHANNEL" ref="ApDict.Aplt.chanid" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="chades" longname="渠道描述" type="ApBaseType.U_DNMIAOSH" ref="ApDict.Aplt.chades" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="isdefu" longname="是否默认渠道标志" type="BaseEnumType.E_YES___" ref="ApDict.Aplt.isdefu" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="chruin" longname="渠道启运标志" type="BaseEnumType.E_YES___" ref="ApDict.Aplt.chruin" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="rereei" longname="登记冲账事件标志" type="BaseEnumType.E_YES___" ref="ApDict.Aplt.rereei" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="crrein" longname="跨渠道冲正标志" type="BaseEnumType.E_YES___" ref="ApDict.Aplt.crrein" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="chaali" longname="渠道别名" type="BaseType.U_CHAR32" ref="ApDict.Aplt.chaali" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="unique" fields="chanid" operate="selectOne"/>
+        </odbindexes>
+        <indexes>
+            <index id="app_channel_pk1" type="primarykey" fields="chanid corpno">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+    <table id="AppSystem" name="app_system" longname="应用系统定义表" tableType="ORDINARY" virtual="false" extension="SysCommFieldTable.KapCommSync" abstract="false">
+        <fields>
+            <field id="systid" longname="系统编号" type="BaseType.U_SYSCCD" ref="ApDict.Aplt.systid" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="sysnam" longname="系统名称" type="BaseType.U_SHORDS" ref="ApDict.Aplt.sysnam" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="insemo" longname="调用流水模式" type="ApBaseEnumType.E_INSEMO" ref="ApDict.Aplt.insemo" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="cosyin" longname="核心子系统标志" type="BaseEnumType.E_YES___" ref="ApDict.Aplt.cosyin" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="glsyin" longname="gl子系统标志" type="BaseEnumType.E_YES___" ref="ApDict.Aplt.glsyin" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="unique" fields="systid" operate="selectOne"/>
+        </odbindexes>
+        <indexes>
+            <index id="app_system_pk1" type="primarykey" fields="systid corpno">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+</schema>

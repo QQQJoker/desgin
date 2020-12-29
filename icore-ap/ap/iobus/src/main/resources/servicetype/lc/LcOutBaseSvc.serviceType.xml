@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType id="LcOutBaseSvc" kind="business" longname="卡贷通对外基本服务，增改查等" package="cn.sunline.ltts.busi.iobus.servicetype.lc" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <service id="selLcSignInfo" name="selLcSignInfo" longname="查询卡贷通签约表">
+        <interface>
+            <input packMode="false">
+                <field id="cardno" alias="交易卡号" type="BaseType.U_CARDNO" required="true" multi="false" array="false" longname="交易卡号"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="output" type="LcOutSignInfo.SelLcaSignInfoOut" required="false" multi="false" array="false" longname="卡贷通签约表输出接口"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="updateLcSignInfo" name="updateLcSignInfo" longname="更新卡贷通签约表">
+        <interface>
+            <input packMode="false">
+                <field id="input" alias="签约信息" type="LcOutSignInfo.SelLcaSignInfoOut" required="true" multi="false" array="false" longname="签约信息"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="insertLcsBillInfo" name="insertLcsBillInfo" longname="登记卡贷通透支明细信息">
+        <interface>
+            <input packMode="true"/>
+            <output asParm="false" packMode="false"/>
+            <property packMode="true"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="insertLcsBusiRegi" name="insertLcsBusiRegi" longname="登记卡贷通交易明细表">
+        <interface>
+            <input packMode="true"/>
+            <output asParm="false" packMode="false"/>
+            <property packMode="true"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="LcAdvanSettle" name="LcAdvanSettle" longname="卡贷通垫款结清">
+        <interface>
+            <input packMode="true">
+                <field id="cardno" type="BaseType.U_CARDNO" required="false" multi="false" array="false" longname="交易卡号" ref="BaseDict.Comm.cardno"/>
+                <field id="tranam" type="BaseType.U_TRANAM" required="false" multi="false" array="false" longname="交易金额" ref="BaseDict.Comm.tranam"/>
+                <field id="acctna" type="BaseType.U_ACCTNA" required="false" multi="false" array="false" longname="账户名称" ref="BaseDict.Comm.acctna"/>
+                <field id="crcycd" type="BaseType.U_CRCYCD" required="false" multi="false" array="false" longname="币种" ref="BaseDict.Comm.crcycd"/>
+                <field id="lnanam" type="BaseType.U_TRANAM" required="false" multi="false" array="false" longname="垫款金额"/>
+            </input>
+            <output asParm="true" packMode="true"/>
+            <property packMode="true"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="SelLcAdvanInfo" name="SelLcAdvanInfo" longname="卡贷通垫款查询">
+        <interface>
+            <input packMode="true">
+                <field id="cardno" type="BaseType.U_CARDNO" required="false" multi="false" array="false" longname="交易卡号" ref="BaseDict.Comm.cardno"/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="tranam" type="BaseType.U_TRANAM" required="false" multi="false" array="false" longname="交易金额" ref="BaseDict.Comm.tranam"/>
+                <field id="cardno" type="BaseType.U_CARDNO" required="false" multi="false" array="false" longname="交易卡号" ref="BaseDict.Comm.cardno"/>
+                <field id="acctna" type="BaseType.U_ACCTNA" required="false" multi="false" array="false" longname="账户名称" ref="BaseDict.Comm.acctna"/>
+            </output>
+            <property packMode="true"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="IoSelQute" name="selQute" longname="查询卡贷通额度">
+        <interface>
+            <input packMode="false">
+                <field id="cadrin" type="DpProdSvc.CalDrawInput" required="false" multi="false" array="false" longname="计算支取金额输入信息"/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="credbl" type="BaseType.U_TRANAM" required="false" multi="false" array="false" longname="卡贷通扣减额度"/>
+                <field id="isthrw" type="BaseEnumType.E_YES___" required="false" multi="false" array="false" longname="是否报错"/>
+                <field id="alfroz" type="BaseEnumType.E_YES___" required="false" multi="false" array="false" longname="冻结允许标志"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+</serviceType>

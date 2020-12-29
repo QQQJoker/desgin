@@ -1,0 +1,702 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="CfEnumType" package="cn.sunline.ltts.busi.sys.type" longname="用户客户枚举数据类型" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <restrictionType id="E_GENDER" longname="性别" base="string" maxLength="1">
+        <enumeration id="NA" value="1" longname="男性"/>
+        <enumeration id="NV" value="2" longname="女性"/>
+        <enumeration id="WZ" value="3" longname="未知的性别"/>
+        <enumeration id="WS" value="4" longname="未说明的性别"/>
+        <subenums/>
+    </restrictionType>
+    <restrictionType id="E_USERLE" longname="用户级别" base="string" maxLength="1">
+        <enumeration id="YK" value="1" longname="游客"/>
+        <enumeration id="YH" value="2" longname="实名客户"/>
+        <enumeration id="PT" value="3" longname="金融A"/>
+        <enumeration id="HX" value="4" longname="金融B"/>
+        <enumeration id="JRC" value="5" longname="金融C"/>
+        <enumeration id="HXA" value="6" longname="核心A"/>
+        <enumeration id="HXB" value="7" longname="核心B"/>
+    </restrictionType>
+    <restrictionType id="E_USERST" longname="用户状态" base="string" maxLength="1">
+        <enumeration id="ZC" value="0" longname="正常"/>
+        <enumeration id="LS" value="1" longname="临时锁定"/>
+        <enumeration id="GM" value="2" longname="锁定"/>
+        <enumeration id="GQ" value="3" longname="身份证过期"/>
+    </restrictionType>
+    <restrictionType id="E_CHNLID" longname="渠道" base="string" maxLength="4" dbLength="4">
+        <enumeration id="APP" value="01" longname="招东APP"/>
+        <enumeration id="MINIPRO" value="02" longname="招东小程序"/>
+        <enumeration id="MINIVAULT" value="03" longname="小金库"/>
+        <enumeration id="JDLHD" value="04" longname="京东联合贷"/>
+        <enumeration id="BKMG" value="05" longname="后管"/>
+    </restrictionType>
+    <restrictionType id="E_SITETP" longname="地址类型" base="string" maxLength="2">
+        <enumeration id="SHDZ" value="99" longname="收货地址"/>
+        <enumeration id="LXDZ" value="01" longname="联系地址"/>
+    </restrictionType>
+    <restrictionType id="E_ISORNO" longname="是否" base="string" maxLength="1">
+        <enumeration id="N" value="0" longname="否"/>
+        <enumeration id="Y" value="1" longname="是"/>
+    </restrictionType>
+    <restrictionType id="E_QUESTP" longname="问题类型" base="string" maxLength="1">
+        <enumeration id="XT" value="1" longname="系统定义"/>
+        <enumeration id="ZD" value="2" longname="自定义"/>
+    </restrictionType>
+    <restrictionType id="E_IDTFTP" longname="证件类型" base="string" maxLength="3" dbLength="3">
+        <enumeration id="JM" value="100" longname="居民身份证"/>
+    </restrictionType>
+    <restrictionType id="E_VERIST" longname="核查状态" base="string" maxLength="1">
+        <enumeration id="DHC" value="0" longname="待核查"/>
+        <enumeration id="HCT" value="1" longname="核查通过"/>
+        <enumeration id="HCB" value="2" longname="核查不通过"/>
+    </restrictionType>
+    <restrictionType id="E_IPUTTP" longname="录入方式" base="string" maxLength="1">
+        <enumeration id="SGS" value="1" longname="手工输入"/>
+        <enumeration id="OCR" value="2" longname="OCR识别"/>
+        <enumeration id="RBY" value="3" longname="识别仪读取"/>
+        <enumeration id="SGP" value="4" longname="手工批量"/>
+    </restrictionType>
+    <restrictionType id="E_RQSYNO" longname="请求系统编号" base="string" maxLength="5">
+        <enumeration id="HXYW" value="10" longname="核心业务系统"/>
+        <enumeration id="ZHQD" value="14" longname="综合前端"/>
+        <enumeration id="CPXS" value="9B" longname="产品销售系统"/>
+        <enumeration id="HBGL" value="9C" longname="红包管理系统"/>
+        <enumeration id="KJGL" value="9D" longname="卡券管理系统"/>
+        <enumeration id="EDZX" value="9T" longname="额度中心系统"/>
+        <enumeration id="WDSP" value="210" longname="网贷审批系统"/>
+    </restrictionType>
+    <restrictionType id="E_BUTYPE" longname="核查业务类型" base="string" maxLength="1">
+        <enumeration id="KH" value="1" longname="开户"/>
+        <enumeration id="JH" value="2" longname="非活跃账户激活"/>
+        <enumeration id="SJ" value="3" longname="升级"/>
+        <enumeration id="HY" value="4" longname="信贷身份核验"/>
+        <enumeration id="RZ" value="5" longname="身份认证维护"/>
+        <enumeration id="QT" value="6" longname="柜面核查"/>
+    </restrictionType>
+    <restrictionType id="E_ACCTTP" longname="绑定账户类型" base="string" maxLength="1">
+        <enumeration id="CX" value="1" longname="储蓄卡 "/>
+        <enumeration id="JJ" value="2" longname="借记卡"/>
+        <enumeration id="CZ" value="3" longname="存折"/>
+    </restrictionType>
+    <restrictionType id="E_BINDST" longname="绑定状态" base="string" maxLength="1">
+        <enumeration id="BD" value="1" longname="绑定"/>
+        <enumeration id="JB" value="2" longname="解绑"/>
+    </restrictionType>
+    <restrictionType id="E_EAOPFG" longname="电子账户开通标识" base="string" maxLength="1">
+        <enumeration id="WKT" value="0" longname="未开通"/>
+        <enumeration id="YKH" value="1" longname="已开户"/>
+        <enumeration id="KHS" value="2" longname="开户失败"/>
+    </restrictionType>
+    <restrictionType id="E_AGREST" longname="协议状态" base="string" maxLength="1">
+        <enumeration id="SHI" value="0" longname="解约"/>
+        <enumeration id="SHE" value="1" longname="签约"/>
+    </restrictionType>
+    <restrictionType id="E_CTRYCD" longname="国家地区" base="string" maxLength="3">
+        <enumeration id="ZG" value="CHN" longname="中华人民共和国"/>
+        <enumeration id="ZT" value="TWN" longname="中国台湾"/>
+        <enumeration id="ZX" value="HKG" longname="中国香港特别行政区"/>
+        <enumeration id="ZA" value="MAC" longname="中国澳门特别行政区"/>
+        <enumeration id="OT" value="ZZZ" longname="其他未说明"/>
+    </restrictionType>
+    <restrictionType id="E_OPERST" longname="操作状态" base="string" maxLength="1">
+        <enumeration id="GMJS" value="0" longname="解锁"/>
+        <enumeration id="GMSD" value="1" longname="锁定"/>
+        <enumeration id="ZJGQ" value="2" longname="证件过期"/>
+    </restrictionType>
+    <restrictionType id="E_OPTYPE" longname="操作类型" base="string" maxLength="1">
+        <enumeration id="MODIFY" value="1" longname="维护"/>
+        <enumeration id="DELETE" value="2" longname="删除"/>
+        <enumeration id="LOCK" value="3" longname="锁定"/>
+        <enumeration id="UNLOCK" value="4" longname="解锁"/>
+    </restrictionType>
+    <restrictionType id="E_CAREER" longname="职业" base="string" maxLength="4">
+        <enumeration id="GJJG" value="01" longname="党的机关、国家机关、群众团体和社会组织、企事业单位负责人"/>
+        <enumeration id="ZYJS" value="02" longname="专业技术人员"/>
+        <enumeration id="BSRY" value="03" longname="办事人员和有关人员"/>
+        <enumeration id="SYFW" value="04" longname="社会生产服务和生活服务人员"/>
+        <enumeration id="NLMY" value="05" longname="农、林、牧、渔、水利业生产人员"/>
+        <enumeration id="SCYS" value="06" longname="生产制造和有关人员"/>
+        <enumeration id="JR" value="07" longname="军人"/>
+        <enumeration id="BBFL" value="08" longname="不便分类的其他从业人员"/>
+        <enumeration id="WZ" value="09" longname="未知"/>
+    </restrictionType>
+    <restrictionType id="E_NATION" longname="民族" base="string" maxLength="2">
+        <enumeration id="HAN" value="01" longname="汉族"/>
+        <enumeration id="MENGGU" value="02" longname="蒙古族"/>
+        <enumeration id="HUI" value="03" longname="回族"/>
+        <enumeration id="ZANG" value="04" longname="藏族"/>
+        <enumeration id="WEIWU" value="05" longname="维吾尔族"/>
+        <enumeration id="MIAO" value="06" longname="苗族"/>
+        <enumeration id="YI" value="07" longname="彝族"/>
+        <enumeration id="ZHUANG" value="08" longname="壮族"/>
+        <enumeration id="BUYI" value="09" longname="布依族"/>
+        <enumeration id="CHAO" value="10" longname="朝鲜族"/>
+        <enumeration id="MAN" value="11" longname="满族"/>
+        <enumeration id="TONG" value="12" longname="侗族"/>
+        <enumeration id="YAO" value="13" longname="瑶族"/>
+        <enumeration id="BAI" value="14" longname="白族"/>
+        <enumeration id="TUJIA" value="15" longname="土家族"/>
+        <enumeration id="HANI" value="16" longname="哈尼族"/>
+        <enumeration id="HASA" value="17" longname="哈萨克族"/>
+        <enumeration id="DAI" value="18" longname="傣族"/>
+        <enumeration id="LI" value="19" longname="黎族"/>
+        <enumeration id="LISU" value="20" longname="傈僳族"/>
+        <enumeration id="WA" value="21" longname="佤族"/>
+        <enumeration id="SHE" value="22" longname="畲族"/>
+        <enumeration id="GAOSHAN" value="23" longname="高山族"/>
+        <enumeration id="LAHU" value="24" longname="拉祜族"/>
+        <enumeration id="SHUI" value="25" longname="水族"/>
+        <enumeration id="DONGXIANG" value="26" longname="东乡族"/>
+        <enumeration id="NAXI" value="27" longname="纳西族"/>
+        <enumeration id="JINGPO" value="28" longname="景颇族"/>
+        <enumeration id="KEER" value="29" longname="柯尔克孜"/>
+        <enumeration id="TU" value="30" longname="土族"/>
+        <enumeration id="DAWO" value="31" longname="达斡尔族"/>
+        <enumeration id="MULAO" value="32" longname="仫佬族"/>
+        <enumeration id="QIANG" value="33" longname="羌族"/>
+        <enumeration id="BULANG" value="34" longname="布朗族"/>
+        <enumeration id="SALA" value="35" longname="撒拉族"/>
+        <enumeration id="MAONAN" value="36" longname="毛南族"/>
+        <enumeration id="GELAO" value="37" longname="仡佬族"/>
+        <enumeration id="XIBO" value="38" longname="锡伯族"/>
+        <enumeration id="ACHANG" value="39" longname="阿昌族"/>
+        <enumeration id="PUMI" value="40" longname="普米族"/>
+        <enumeration id="TAJI" value="41" longname="塔吉克族"/>
+        <enumeration id="NU" value="42" longname="怒族"/>
+        <enumeration id="WUZI" value="43" longname="乌孜别克"/>
+        <enumeration id="ELUO" value="44" longname="俄罗斯族"/>
+        <enumeration id="EWEN" value="45" longname="鄂温克族"/>
+        <enumeration id="DEANG" value="46" longname="德昂族"/>
+        <enumeration id="BAOAN" value="47" longname="保安族"/>
+        <enumeration id="YUGU" value="48" longname="裕固族"/>
+        <enumeration id="JING" value="49" longname="京族"/>
+        <enumeration id="TATA" value="50" longname="塔塔尔族"/>
+        <enumeration id="DULONG" value="51" longname="独龙族"/>
+        <enumeration id="ELUN" value="52" longname="鄂伦春族"/>
+        <enumeration id="HEZHE" value="53" longname="赫哲族"/>
+        <enumeration id="MENBA" value="54" longname="门巴族"/>
+        <enumeration id="LUOBA" value="55" longname="珞巴族"/>
+        <enumeration id="JINUO" value="56" longname="基诺族"/>
+        <enumeration id="QITA" value="97" longname="其他"/>
+        <enumeration id="WGUO" value="98" longname="外国血统"/>
+        <enumeration id="WZHI" value="99" longname="未知"/>
+    </restrictionType>
+    <restrictionType id="E_AGTYPE" longname="协议类型" base="string" maxLength="1">
+        <enumeration id="_1" value="1" longname="存款"/>
+        <enumeration id="_2" value="2" longname="贷款"/>
+        <enumeration id="_3" value="3" longname="理财"/>
+        <enumeration id="_4" value="4" longname="基金"/>
+        <enumeration id="_5" value="5" longname="保险"/>
+        <enumeration id="_6" value="6" longname="黄金"/>
+        <enumeration id="_66" value="66" longname="其他"/>
+    </restrictionType>
+    <restrictionType id="E_RESPTP" longname="响应超时类型" base="string" maxLength="1">
+        <enumeration id="KH" value="1" longname="开户"/>
+        <enumeration id="TZ" value="2" longname="通知身份证过期"/>
+        <enumeration id="GL" value="3" longname="ECIF渠道关联"/>
+    </restrictionType>
+    <restrictionType id="E_FLJHST" longname="文件交互状态" base="string" maxLength="1">
+        <enumeration id="S" value="S" longname="成功"/>
+        <enumeration id="F" value="F" longname="失败"/>
+        <enumeration id="O" value="O" longname="请求默认位"/>
+    </restrictionType>
+    <restrictionType id="E_FILEST" longname="文件登记状态" base="string" maxLength="2">
+        <enumeration id="DJ" value="00" longname="已登记（请求文件初始状态）"/>
+        <enumeration id="FS" value="01" longname="已发送（请求文件交互成功）"/>
+        <enumeration id="YD" value="02" longname="已应答（已收到请求返盘文件）"/>
+        <enumeration id="HZ" value="03" longname="已回执（对外系统请求文件成功应答）"/>
+        <enumeration id="SL" value="04" longname="已受理（收到文件初始状态）"/>
+        <enumeration id="CL" value="05" longname="已处理（收到文件已处理完成）"/>
+        <enumeration id="TZ" value="06" longname="已通知（返盘文件结果已通知DFS）"/>
+        <enumeration id="SB" value="07" longname="发送失败（请求文件交互失败）"/>
+        <enumeration id="WTZ" value="08" longname="待通知（通知失败待通知状态）"/>
+        <enumeration id="FSCS" value="09" longname="发送超时（请求文件交互超时）"/>
+    </restrictionType>
+    <restrictionType id="E_DELFLG" longname="删除标识" base="int">
+        <enumeration id="N" value="0" longname="正常"/>
+        <enumeration id="Y" value="1" longname="已删除"/>
+    </restrictionType>
+    <restrictionType id="E_CHNLTP" longname="渠道类型" base="string" maxLength="1" dbLength="1">
+        <enumeration id="HJ" value="1" longname="互金渠道"/>
+        <enumeration id="RA" value="2" longname="关联渠道"/>
+        <enumeration id="TR" value="3" longname="交易渠道"/>
+    </restrictionType>
+    <restrictionType id="E_CUSTLV" longname="客户等级" base="string" maxLength="2" dbLength="2">
+        <enumeration id="PK" value="11" longname="普卡客户"/>
+        <enumeration id="JK" value="12" longname="金卡客户"/>
+        <enumeration id="BJ" value="13" longname="白金卡客户"/>
+        <enumeration id="ZS" value="14" longname="钻石卡客户"/>
+        <enumeration id="SR" value="15" longname="私人银行卡客户"/>
+        <enumeration id="TZ" value="21" longname="调整型客户"/>
+        <enumeration id="PY" value="22" longname="培育型客户"/>
+        <enumeration id="YX" value="23" longname="有效基础客户"/>
+        <enumeration id="ZL" value="24" longname="战略基础客户"/>
+        <enumeration id="YZ" value="25" longname="优质基础客户"/>
+        <enumeration id="HNKH" value="26" longname="行内客户"/>
+        <enumeration id="HWKH" value="27" longname="行外客户"/>
+    </restrictionType>
+    <restrictionType id="E_CUSTTP" longname="客户类别" base="string" maxLength="1" dbLength="1">
+        <enumeration id="DS" value="1" longname="对私"/>
+        <enumeration id="DG" value="2" longname="对公"/>
+        <enumeration id="TY" value="6" longname="同业"/>
+    </restrictionType>
+    <restrictionType id="E_LISTTP" longname="名单类型" base="string" maxLength="2">
+        <enumeration id="BLACK" value="15" longname="互联网金融核心系统黑名单"/>
+        <enumeration id="WHITE" value="16" longname="互联网金融核心系统白名单"/>
+        <enumeration id="GRAY" value="17" longname="互联网金融核心系统灰名单"/>
+        <enumeration id="AMLBLACK" value="1" longname="反洗钱黑名单"/>
+        <enumeration id="AMLWHITE" value="2" longname="反洗钱白名单"/>
+        <enumeration id="FROHIGHC" value="3" longname="司法查控冻结名单"/>
+        <enumeration id="FROMOSTC" value="4" longname="司法查控扣划名单"/>
+        <enumeration id="NAMEHIGHC" value="5" longname="省高检查询名单"/>
+        <enumeration id="NAMEMOSTC" value="6" longname="最高检查询名单"/>
+        <enumeration id="FROPRO" value="7" longname="省公安厅查询、冻结、止付名单"/>
+        <enumeration id="FROPUB" value="8" longname="公安部查询、冻结、止付名单"/>
+        <enumeration id="FROBUR" value="9" longname="国家安全局查询、冻结、止付名单"/>
+        <enumeration id="FROKT" value="10" longname="国家电信诈骗中心黑灰名单"/>
+        <enumeration id="POORNAME" value="11" longname="贫困人员名单"/>
+        <enumeration id="BREAKNAME" value="12" longname="失信被执行人名单"/>
+        <enumeration id="OVERNAME" value="13" longname="本行贷款逾期客户名单"/>
+        <enumeration id="HARANAME" value="14" longname="电话骚扰名单"/>
+    </restrictionType>
+    <restrictionType id="E_LISTFR" longname="来源系统" base="string" maxLength="1">
+        <enumeration id="ECIF" value="1" longname="ECIF"/>
+        <enumeration id="ICIF" value="2" longname="ICIF"/>
+    </restrictionType>
+    <restrictionType id="E_LISTST" longname="名单状态" base="string" maxLength="1">
+        <enumeration id="SHEX" value="1" longname="生效"/>
+        <enumeration id="SHIX" value="2" longname="失效"/>
+    </restrictionType>
+    <restrictionType id="E_DECEFG" longname="设备标识" base="string" maxLength="1" dbLength="1">
+        <enumeration id="IOS" value="1" longname="苹果"/>
+        <enumeration id="AND" value="2" longname="安卓"/>
+    </restrictionType>
+    <restrictionType id="E_LGTYPE" longname="登录类型" base="string" maxLength="1" dbLength="1">
+        <enumeration id="MM" value="1" longname="密码验证"/>
+        <enumeration id="SS" value="2" longname="手势验证"/>
+        <enumeration id="SQ" value="3" longname="授权验证"/>
+        <enumeration id="ZW" value="4" longname="免密验证"/>
+        <enumeration id="SJ" value="5" longname="手机银行一键开户"/>
+        <enumeration id="QT" value="66" longname="其他"/>
+    </restrictionType>
+    <restrictionType id="E_LGRSTP" longname="手机银行登录结果" base="string" maxLength="5">
+        <enumeration id="AaAa" value="AaAa" longname="核心客户 交易密码关联"/>
+        <enumeration id="AaAa0" value="AaAa0" longname="普通客户 A短信验证"/>
+        <enumeration id="Axxa" value="Axxa" longname="核心客户 A交易密码关联"/>
+        <enumeration id="Axxa0" value="Axxa0" longname="普通客户 A短信验证"/>
+        <enumeration id="AxBa" value="AxBa" longname="核心客户 交易密码关联"/>
+        <enumeration id="AxBa0" value="AxBa0" longname="普通客户 B短信验证"/>
+        <enumeration id="AbBa" value="AbBa" longname="核心客户 交易密码关联"/>
+        <enumeration id="AbBa0" value="AbBa0" longname="普通客户 B短信验证"/>
+        <enumeration id="xxxa" value="xxxa" longname="静默建立用户 设置登录密码"/>
+        <enumeration id="Axxx" value="Axxx" longname="A短信验证 通过创建客户"/>
+        <enumeration id="xxBa" value="xxBa" longname="核心客户 交易密码关联"/>
+        <enumeration id="xxBa0" value="xxBa0" longname="普通客户 B短信验证"/>
+        <enumeration id="xxxx" value="xxxx" longname="静默用户 设置登录密码 创建客户"/>
+        <enumeration id="Abxa" value="Abxa" longname="手机号码已占用"/>
+        <enumeration id="Abxx" value="Abxx" longname="手机号码已占用"/>
+        <description><![CDATA[AaAa:核心客户 交易密码关联
+        AaAa0:普通客户 A短信验证
+        Axxa:核心客户 A短信验证 交易密码关联
+        Axxa0:普通客户 A短信验证
+        AxBa:B短信验证
+        AbBa:B短信验证
+        xxxa:静默建立用户
+        Axxx:A短信验证 通过创建客户
+        xxBa:B短信验证
+        xxxx:静默用户，创建客户
+        Abxa:手机号码已占用
+        Abxx:手机号码已占用]]></description>
+    </restrictionType>
+    <restrictionType id="E_OPACTP" longname="客户校验类型" base="string" maxLength="1">
+        <enumeration id="PT" value="1" longname="普通客户新建校验"/>
+        <enumeration id="SJ" value="2" longname="手机银行一键开户校验"/>
+        <enumeration id="QD" value="3" longname="合作渠道客户引入"/>
+    </restrictionType>
+    <restrictionType id="E_SENDST" longname="消息状态" base="string" maxLength="3" minLength="1">
+        <enumeration id="FAIL" value="1" longname="失败"/>
+        <enumeration id="SUCCESS" value="2" longname="成功"/>
+        <enumeration id="ONPROCESS" value="3" longname="待发送"/>
+    </restrictionType>
+    <restrictionType id="E_NOTETP" longname="消息类型" base="string" maxLength="3" minLength="1">
+        <enumeration id="MT" value="1" longname="营销活动"/>
+        <enumeration id="QS" value="2" longname="问卷调查"/>
+        <enumeration id="OT" value="3" longname="其他消息"/>
+    </restrictionType>
+    <restrictionType id="E_ULRSTA" longname="上下架状态" base="string" maxLength="3" minLength="1">
+        <enumeration id="normal" value="1" longname="正常"/>
+        <enumeration id="down" value="2" longname="已下架"/>
+    </restrictionType>
+    <restrictionType id="E_DPSTAT" longname="产品展示状态" base="string" maxLength="3" minLength="1">
+        <enumeration id="close" value="1" longname="关闭"/>
+        <enumeration id="open" value="2" longname="开启"/>
+    </restrictionType>
+    <restrictionType id="E_UPTOSW" longname="置顶顺序" base="int">
+        <enumeration id="NO" value="0" longname="不置顶"/>
+        <enumeration id="ONE" value="1" longname="一层置顶"/>
+        <enumeration id="TWO" value="2" longname="二层置顶"/>
+        <enumeration id="THREE" value="3" longname="三层置顶"/>
+        <enumeration id="FOUR" value="4" longname="四层置顶"/>
+    </restrictionType>
+    <restrictionType id="E_KTFLAG" longname="开通标志" base="string" maxLength="1">
+        <enumeration id="GB" value="0" longname="关闭"/>
+        <enumeration id="KT" value="1" longname="开通"/>
+    </restrictionType>
+    <restrictionType id="E_REGTYP" longname="注册方式" base="string" maxLength="1">
+        <enumeration id="PTZC" value="1" longname="普通注册 （本行无一类户）"/>
+        <enumeration id="BHZC" value="2" longname="绑定I类户注册   （网银、柜面、金农e助手）"/>
+    </restrictionType>
+    <restrictionType id="E_USERLV" longname="用户层级" base="string" maxLength="1">
+        <enumeration id="VISITOR" value="1" longname="游客"/>
+        <enumeration id="USER" value="2" longname="注册用户"/>
+        <enumeration id="CUSTOMER" value="3" longname="实名客户"/>
+        <enumeration id="CORECUST" value="4" longname="核心客户"/>
+    </restrictionType>
+    <restrictionType id="E_USERLL" longname="用户层级（后管）" base="string" maxLength="1">
+        <enumeration id="ALL" value="0" longname="全部"/>
+        <enumeration id="SM" value="1" longname="实名用户"/>
+        <enumeration id="JRA" value="2" longname="金融客户"/>
+        <enumeration id="HXA" value="3" longname="核心客户"/>
+    </restrictionType>
+    <restrictionType id="E_SIGNST" longname="签约状态" base="string" maxLength="1">
+        <enumeration id="JY" value="0" longname="解约"/>
+        <enumeration id="QY" value="1" longname="签约"/>
+    </restrictionType>
+    <restrictionType id="E_DETRTY" longname="设备交易类型" base="string" maxLength="1">
+        <enumeration id="BD" value="1" longname="绑定"/>
+        <enumeration id="HB" value="2" longname="换绑"/>
+    </restrictionType>
+    <restrictionType id="E_MAINFG" longname="主账号标志" base="string" maxLength="2">
+        <enumeration id="MAIN" value="00" longname="主账户"/>
+        <enumeration id="NOMAIN" value="01" longname="非主账户"/>
+    </restrictionType>
+    <restrictionType id="E_ADDCHL" longname="添加渠道" base="string" maxLength="2">
+        <enumeration id="GM" value="10" longname="柜面 "/>
+        <enumeration id="WSYH" value="11" longname="网上银行 "/>
+        <enumeration id="SJYH" value="12" longname="手机银行 "/>
+        <enumeration id="JNE" value="13" longname="金农e助手 "/>
+        <enumeration id="BST" value="14" longname="BST"/>
+        <enumeration id="HMB" value="15" longname="惠民宝"/>
+        <enumeration id="HG" value="16" longname="后管"/>
+    </restrictionType>
+    <restrictionType id="E_ACCTST" longname="账户状态" base="string" maxLength="2">
+        <enumeration id="JIAG" value="00" longname="加挂  "/>
+        <enumeration id="JIEG" value="01" longname="解挂 "/>
+    </restrictionType>
+    <restrictionType id="E_LGNWAY" longname="登录方式" base="string" maxLength="2">
+        <enumeration id="MMDL" value="01" longname="密码登录"/>
+        <enumeration id="SSDL" value="02" longname="手势登录"/>
+        <enumeration id="ZWDL" value="03" longname="指纹登录"/>
+        <enumeration id="MRDL" value="04" longname="面容登录"/>
+        <enumeration id="QT" value="99" longname="其他"/>
+    </restrictionType>
+    <restrictionType id="E_VATYPE" longname="验证类型" base="string" maxLength="2">
+        <enumeration id="SSYZ" value="1" longname="手势验证"/>
+        <enumeration id="ZWYZ" value="2" longname="指纹"/>
+        <enumeration id="RLYZ" value="3" longname="人脸"/>
+    </restrictionType>
+    <restrictionType id="E_ISCHCK" longname="是否预校验" base="string" maxLength="1">
+        <enumeration id="N" value="0" longname="不检查"/>
+        <enumeration id="Y" value="1" longname="检查"/>
+    </restrictionType>
+    <restrictionType id="E_ISSUCC" longname="是否检查成功" base="string" maxLength="1">
+        <enumeration id="fail" value="0" longname="失败"/>
+        <enumeration id="succ" value="1" longname="成功"/>
+    </restrictionType>
+    <restrictionType id="E_PWDTYP" longname="密码类型" base="string" maxLength="1">
+        <enumeration id="DLMM" value="1" longname="登录密码"/>
+        <enumeration id="SSMM" value="2" longname="手势密码"/>
+        <enumeration id="FCMM" value="3" longname="面容密码"/>
+        <enumeration id="ZWMM" value="4" longname="指纹密码"/>
+    </restrictionType>
+    <restrictionType id="E_CACCTP" longname="卡账户类型" base="string" maxLength="2">
+        <enumeration id="JJK" value="01" longname="借记卡"/>
+        <enumeration id="XYK" value="02" longname="信用卡"/>
+        <enumeration id="DZZH" value="03" longname="电子账户"/>
+        <enumeration id="LQB" value="04" longname="零钱包"/>
+    </restrictionType>
+    <restrictionType id="E_RECTYP" longname="收款人类型" base="string" maxLength="1">
+        <enumeration id="HNZH" value="0" longname="行内转账（账户）"/>
+        <enumeration id="HWPTKH" value="1" longname="行外转账（普通-跨行）"/>
+        <enumeration id="HWSSCW" value="2" longname="行外转账（实时-超网）"/>
+        <enumeration id="NXY" value="3" longname="农信银转账"/>
+        <enumeration id="HNSJH" value="4" longname="行内转账（手机号）"/>
+        <enumeration id="XYKHK" value="5" longname="信用卡还款"/>
+    </restrictionType>
+    <restrictionType id="E_CARDTY" longname="卡片类型" base="string" maxLength="1">
+        <enumeration id="CXK" value="S" longname="储蓄卡"/>
+        <enumeration id="XYK" value="C" longname="信用卡"/>
+    </restrictionType>
+    <restrictionType id="E_TOPTYP" longname="置顶标志" base="string" maxLength="1">
+        <enumeration id="ZD" value="0" longname="置顶"/>
+        <enumeration id="FZD" value="1" longname="非置顶"/>
+    </restrictionType>
+    <restrictionType id="E_TBSTAT" longname="同步状态" base="string" maxLength="1">
+        <enumeration id="FAIL" value="0" longname="失败"/>
+        <enumeration id="SUCCESS" value="1" longname="成功"/>
+    </restrictionType>
+    <restrictionType id="E_INFOTY" longname="信息类型" base="string" maxLength="1">
+        <enumeration id="HIST" value="1" longname="历史"/>
+        <enumeration id="COMM" value="2" longname="最近"/>
+    </restrictionType>
+    <restrictionType id="E_QRCHAL" longname="查询渠道" base="string" maxLength="2">
+        <enumeration id="ALL" value="00" longname="全部 "/>
+        <enumeration id="GM" value="10" longname="柜面 "/>
+        <enumeration id="WSYH" value="11" longname="网上银行 "/>
+        <enumeration id="SJYH" value="12" longname="手机银行 "/>
+        <enumeration id="JNE" value="13" longname="金农e助手 "/>
+        <enumeration id="BST" value="14" longname="BST"/>
+        <enumeration id="HMB" value="15" longname="惠民宝"/>
+        <enumeration id="HG" value="16" longname="后管"/>
+    </restrictionType>
+    <restrictionType id="E_LGMDSW" longname="登录方式开关" base="string" maxLength="1">
+        <enumeration id="CLOSE" value="0" longname="关闭 "/>
+        <enumeration id="SS" value="1" longname="手势 "/>
+        <enumeration id="ZW" value="2" longname="指纹 "/>
+        <enumeration id="MR" value="3" longname="面容 "/>
+    </restrictionType>
+    <restrictionType id="E_CITYNA" longname="城市名称" base="BaseType.U_CHAR200" maxLength="200" minLength="0"/>
+    <restrictionType id="E_LOGRST" longname="登录结果" base="string" maxLength="1">
+        <enumeration id="S" value="0" longname="登录成功"/>
+        <enumeration id="F" value="1" longname="登录失败"/>
+    </restrictionType>
+    <restrictionType id="E_CHKFLG" longname="核查标识" base="string" maxLength="2">
+        <enumeration id="A" value="00" longname="公民身份证号码与姓名一致，且存在照片"/>
+        <enumeration id="B" value="01" longname="公民身份证号码与姓名一致，但不存在照片"/>
+        <enumeration id="C" value="02" longname="公民身份证号码与姓名一致，但照片不一致"/>
+        <enumeration id="D" value="03" longname="身份证号码存在，但与姓名不匹配"/>
+        <enumeration id="E" value="04" longname="公民身份证号码不存在"/>
+        <enumeration id="F" value="05" longname="其他错误"/>
+        <enumeration id="G" value="06" longname="输入参数错误"/>
+        <enumeration id="H" value="07" longname="上传机构代码错误"/>
+    </restrictionType>
+    <restrictionType id="E_ACCATP" longname="账户分类" base="string" maxLength="1">
+        <enumeration id="QGNZH" value="1" longname="全功能账户"/>
+        <enumeration id="LCZYH" value="2" longname="理财专用户"/>
+        <enumeration id="QBZH" value="3" longname="钱包账户"/>
+    </restrictionType>
+    <restrictionType id="E_CRCYCD" longname="币种" base="string" maxLength="3">
+        <enumeration id="CNY" value="CNY" longname="人民币元"/>
+    </restrictionType>
+    <restrictionType id="E_CARDTP" longname="绑定账户类型" base="string" maxLength="1">
+        <enumeration id="CX" value="1" longname="储蓄卡"/>
+        <enumeration id="DJ" value="2" longname="贷记卡"/>
+        <enumeration id="CZ" value="3" longname="存折"/>
+    </restrictionType>
+    <restrictionType id="E_OPACRT" longname="开户结果" base="string" maxLength="1" dbLength="1">
+        <enumeration id="S" value="1" longname="开户成功"/>
+        <enumeration id="F" value="2" longname="开户失败"/>
+    </restrictionType>
+    <restrictionType id="E_SYSTEMTP" longname="系统标识" base="string" maxLength="20">
+        <enumeration id="CIF" value="CIF" longname="客户信息系统" desc="客户信息系统"/>
+        <enumeration id="CMP" value="CMP" longname="营销系统" desc="营销系统"/>
+    </restrictionType>
+    <restrictionType id="E_SYSNAME" longname="系统简称" base="string" maxLength="10">
+        <enumeration id="CMP" value="CMP" longname="营销系统"/>
+        <enumeration id="CIF" value="CIF" longname="网络金融核心平台-客户信息系统"/>
+    </restrictionType>
+    <restrictionType id="E_FAILTYPE" longname="错误码" base="string" maxLength="10">
+        <enumeration id="requestException" value="0099" longname="请求方异常"/>
+        <enumeration id="responseTimeOut" value="0055" longname="响应方超时"/>
+        <enumeration id="success" value="AAAAAAAAAA" longname="成功"/>
+        <enumeration id="otherException" value="0044" longname="其他异常"/>
+    </restrictionType>
+    <restrictionType id="E_WARNTY" longname="预警类型" base="string" maxLength="10">
+        <enumeration id="WJCF" value="WJCF" longname="文件重发超限"/>
+        <enumeration id="FSCS" value="FSCS" longname="文件交互超时"/>
+        <enumeration id="WFP" value="WFP" longname="文件未反盘"/>
+    </restrictionType>
+    <restrictionType id="E_FAILTO" longname="外调报错分类" base="string" maxLength="1">
+        <enumeration id="FA" value="1" longname="失败"/>
+        <enumeration id="TO" value="2" longname="超时"/>
+    </restrictionType>
+    <restrictionType id="E_DEVSTA" longname="设备校验状态" base="string" maxLength="1">
+        <enumeration id="BYZ" value="0" longname="设备不一致"/>
+        <enumeration id="YZ" value="1" longname="设备一致"/>
+        <enumeration id="BCZ" value="2" longname="设备不存在"/>
+    </restrictionType>
+    <restrictionType id="E_VERSIN" longname="版本" base="string" maxLength="2">
+        <enumeration id="DZB" value="1" longname="大众版 "/>
+    </restrictionType>
+    <restrictionType id="E_ISBKCA" longname="是否本行卡" base="string" maxLength="1">
+        <enumeration id="N" value="0" longname="否"/>
+        <enumeration id="Y" value="1" longname="是"/>
+    </restrictionType>
+    <restrictionType id="E_BDCART" longname="绑卡认证结果" base="string" maxLength="1">
+        <enumeration id="RZZ" value="0" longname="认证中"/>
+        <enumeration id="RZCG" value="1" longname="认证成功"/>
+        <enumeration id="RZSB" value="2" longname="认证失败 "/>
+    </restrictionType>
+    <restrictionType id="E_EACCLV" longname="电子账户级别" base="string" maxLength="1">
+        <enumeration id="YL" value="1" longname="Ⅰ类银行账户"/>
+        <enumeration id="EL" value="2" longname="Ⅱ类银行账户"/>
+        <enumeration id="SL" value="3" longname="Ⅲ类银行账户"/>
+    </restrictionType>
+    <restrictionType id="E_CACTTP" longname="客户账号类型" base="string" maxLength="1">
+        <enumeration id="DZ" value="1" longname="电子账户"/>
+        <enumeration id="BD" value="2" longname="绑定卡"/>
+    </restrictionType>
+    <restrictionType id="E_SUCCESS" longname="成功失败" base="int">
+        <enumeration id="SU" value="0" longname="成功"/>
+        <enumeration id="FA" value="1" longname="失败"/>
+    </restrictionType>
+    <restrictionType id="E_INPUCD" longname="上送系统类型" base="string" maxLength="3">
+        <enumeration id="IPHONE" value="037" longname="iphone手机银行"/>
+        <enumeration id="ANDROID" value="051" longname="安卓手机银行"/>
+    </restrictionType>
+    <restrictionType id="E_RESVTP" longname="ECIF识别方式" base="string" maxLength="1">
+        <enumeration id="ALL" value="1" longname="证件类型+证件号码+客户名称"/>
+        <enumeration id="ZJ" value="2" longname="证件类型+证件号码"/>
+        <enumeration id="KH" value="3" longname="客户号"/>
+        <enumeration id="KT" value="4" longname="客户号+客户状态"/>
+    </restrictionType>
+    <restrictionType id="E_ECIFCK" longname="ECIF联网核查标志" base="string" maxLength="2">
+        <enumeration id="ZPE" value="00" longname="证件一致，照片一致"/>
+        <enumeration id="ZPY" value="01" longname="证件一致，无照片"/>
+        <enumeration id="ZPN" value="02" longname="证件一致，照片不一致"/>
+        <enumeration id="ZNN" value="03" longname="证件号码存在，与姓名不匹配"/>
+        <enumeration id="ZZN" value="04" longname="证件号码不存在"/>
+        <enumeration id="OTH" value="05" longname="其他错误"/>
+        <enumeration id="PAN" value="06" longname="输入参数错误"/>
+        <enumeration id="UTN" value="07" longname="上传机构代码错误"/>
+    </restrictionType>
+    <restrictionType id="E_SWTHTP" longname="开关类型" base="string">
+        <enumeration id="FINGER" value="1" longname="指纹" desc="指纹"/>
+        <enumeration id="FACE" value="2" longname="面容"/>
+        <enumeration id="MSG" value="3" longname="消息推送"/>
+    </restrictionType>
+    <restrictionType id="E_SWTHST" longname="开关状态" base="string">
+        <enumeration id="OPEN" value="1" longname="开启"/>
+        <enumeration id="CLOSE" value="0" longname="关闭"/>
+    </restrictionType>
+    <restrictionType id="E_PSWDST" longname="密码状态" base="string">
+        <enumeration id="NORMAL" value="1" longname="正常"/>
+        <enumeration id="FREEZE" value="0" longname="冻结"/>
+    </restrictionType>
+    <restrictionType id="E_IMGETP" longname="影像类型" base="string">
+        <enumeration id="NORMAL" value="0" longname="暂定普通"/>
+    </restrictionType>
+    <restrictionType id="E_REGCHL" longname="注册渠道" base="string">
+        <enumeration id="ZD" value="1" longname="招东"/>
+        <enumeration id="XJK" value="2" longname="小金库"/>
+        <enumeration id="JDLHD" value="3" longname="京东联合贷"/>
+    </restrictionType>
+    <restrictionType id="E_OPTERM" longname="操作终端" base="string">
+        <enumeration id="PC" value="pc" longname="PC"/>
+        <enumeration id="IOS" value="ios" longname="IOS"/>
+        <enumeration id="Android" value="android" longname="Android"/>
+        <enumeration id="WAP" value="wap" longname="WAP"/>
+    </restrictionType>
+    <restrictionType id="E_RECDTY" longname="记录类型" base="string">
+        <enumeration id="LOGININ" value="1" longname="登录"/>
+        <enumeration id="LOGINOUT" value="2" longname="登出"/>
+    </restrictionType>
+    <restrictionType id="E_LOGNTY" longname="登录类型" base="string">
+        <enumeration id="APP" value="1" longname="APP"/>
+        <enumeration id="LOGST" value="2" longname="登录态信任"/>
+        <enumeration id="THIRD" value="3" longname="第三方联合"/>
+    </restrictionType>
+    <restrictionType id="E_THRDPT" longname="第三方授权平台" base="string">
+        <enumeration id="NO" value="1" longname="无第三方授权"/>
+        <enumeration id="JD" value="2" longname="京东"/>
+        <enumeration id="WX" value="3" longname="微信"/>
+    </restrictionType>
+    <restrictionType id="E_ISCKMS" longname="是否已验证短" base="string">
+        <enumeration id="YY" value="1" longname="已验短"/>
+        <enumeration id="WY" value="0" longname="未验短"/>
+    </restrictionType>
+    <restrictionType id="E_ISCKBK" longname="是否已验滑块" base="string">
+        <enumeration id="YH" value="1" longname="已滑块"/>
+        <enumeration id="WH" value="0" longname="未滑块"/>
+    </restrictionType>
+    <restrictionType id="E_CERTST" longname="数字证书状态" base="string">
+        <enumeration id="AZ" value="1" longname="安装"/>
+        <enumeration id="WAZ" value="0" longname="未安装"/>
+    </restrictionType>
+    <restrictionType id="E_JOBNAT" longname="工作性质" base="string">
+        <enumeration id="TODO" value="00" longname="待定"/>
+    </restrictionType>
+    <restrictionType id="E_ISFARM" longname="是否农户" base="string">
+        <enumeration id="TODO" value="00" longname="待确认"/>
+    </restrictionType>
+    <restrictionType id="E_EDUCAT" longname="最高学历" base="string">
+        <enumeration id="TODO" value="00" longname="待确认"/>
+    </restrictionType>
+    <restrictionType id="E_DEGREE" longname="最高学位" base="string">
+        <enumeration id="TODO" value="00" longname="待确定"/>
+    </restrictionType>
+    <restrictionType id="E_MARITL" longname="婚姻状况" base="string">
+        <enumeration id="TODO" value="0" longname="待确认"/>
+    </restrictionType>
+    <restrictionType id="E_POTICE" longname="政治面貌" base="string">
+        <enumeration id="TODO" value="0" longname="待确认"/>
+    </restrictionType>
+    <restrictionType id="E_CUSTRL" longname="客户关系" base="string">
+        <enumeration id="TODO" value="00" longname="客户关系"/>
+    </restrictionType>
+    <restrictionType id="E_TRADTP" longname="交易类型" base="string">
+        <enumeration id="ADD" value="1" longname="新增"/>
+        <enumeration id="UPDATE" value="2" longname="修改"/>
+        <enumeration id="DELETE" value="3" longname="删除"/>
+    </restrictionType>
+    <restrictionType id="E_DEFADD" longname="默认地址标识" base="string">
+        <enumeration id="NODEFAULT" value="00" longname="非默认"/>
+        <enumeration id="DEFAULT" value="01" longname="默认"/>
+    </restrictionType>
+    <restrictionType id="E_NETCHK" longname="联网核查" base="string">
+        <enumeration id="NOCHK" value="0" longname="未核查"/>
+        <enumeration id="PBANK" value="1" longname="人行"/>
+        <enumeration id="PSB" value="2" longname="公安"/>
+    </restrictionType>
+    <restrictionType id="E_FACESU" longname="人脸比对照来源" base="string">
+        <enumeration id="OTHER" value="0" longname="其他"/>
+        <enumeration id="IDHEAD" value="1" longname="身份证头像"/>
+        <enumeration id="PSB" value="2" longname="公安"/>
+    </restrictionType>
+    <restrictionType id="E_FACECH" longname="人脸识别渠道" base="string">
+        <enumeration id="NOT" value="0" longname="未比对"/>
+        <enumeration id="SELFAPP" value="1" longname="自营app"/>
+        <enumeration id="SELFMINIPRO" value="2" longname="自营小程序"/>
+        <enumeration id="LHDDSF" value="3" longname="联合贷第三方"/>
+        <enumeration id="MINIVAULT" value="4" longname="小金库"/>
+    </restrictionType>
+    <restrictionType id="E_IDIMSU" longname="身份证影印件来源" base="string">
+        <enumeration id="SLEF" value="0" longname="自营"/>
+        <enumeration id="LHD" value="1" longname="联合贷"/>
+        <enumeration id="MINIVAULT" value="2" longname="小金库"/>
+    </restrictionType>
+    <restrictionType id="E_CKTYPE" longname="验证类型" base="string">
+        <enumeration id="PHONENO" value="01" longname="手机号"/>
+        <enumeration id="IDNUMBER" value="02" longname="证件号"/>
+        <enumeration id="IDAFTERSIX" value="03" longname="证件号后六位"/>
+        <enumeration id="CARDNUMBER" value="04" longname="卡号"/>
+        <enumeration id="PAYPASSWORD" value="05" longname="支付密码"/>
+    </restrictionType>
+    <restrictionType id="E_ISREAL" longname="实名状态" base="string">
+        <enumeration id="NOREAL" value="0" longname="未实名"/>
+        <enumeration id="CUSTOM" value="1" longname="已生成客户号"/>
+        <enumeration id="REAL" value="2" longname="已实名"/>
+        <enumeration id="EXPIRED" value="3" longname="已过期"/>
+    </restrictionType>
+    <restrictionType id="E_EVENTCODE" longname="事件编码" base="string">
+        <enumeration id="LOGIN" value="1" longname="登录"/>
+        <enumeration id="REGISTER" value="2" longname="注册"/>
+        <enumeration id="SMS" value="3" longname="短信"/>
+        <enumeration id="REALN" value="4" longname="实名"/>
+        <enumeration id="OPEN" value="5" longname="开户"/>
+        <enumeration id="BIND" value="6" longname="绑卡"/>
+        <enumeration id="MODIFYINFO" value="7" longname="信息修改"/>
+    </restrictionType>
+    <restrictionType id="E_CHKRES" longname="核查结果" base="string">
+        <enumeration id="NOPASS" value="0" longname="未通过"/>
+        <enumeration id="PASS" value="1" longname="通过"/>
+    </restrictionType>
+    <restrictionType id="E_LGRKCD" longname="登录风控返回码" base="string">
+        <enumeration id="SUC" value="1" longname="登录成功"/>
+        <enumeration id="MANMCK" value="2" longname="人机识别验证"/>
+        <enumeration id="CHGPWD" value="3" longname="建议改密"/>
+        <enumeration id="MSNOTIC" value="4" longname="短信登陆通知"/>
+        <enumeration id="MSLOG" value="5" longname="短信下行登录保护"/>
+        <enumeration id="CKCERT" value="6" longname="验证证件信息"/>
+        <enumeration id="FACEPRO" value="7" longname="刷脸登录保护"/>
+    </restrictionType>
+</schema>

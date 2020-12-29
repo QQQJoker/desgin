@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="TxSvc" kind="business" longname="增值税服务" package="cn.sunline.ltts.busi.iobus.servicetype.tx" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <service id="CalTaxAmount" name="calTaxAmount" longname="计算税额并登记到增值税明细表">
+        <interface>
+            <input packMode="false">
+                <field id="caltax" type="TxType.CalTaxAmountIn" required="false" multi="false" array="false" longname="增值税输入信息"/>
+            </input>
+            <output asParm="true" packMode="false">
+                <field id="taxout" type="TxType.CalTaxAmountOut" required="false" multi="false" array="false" longname="增值税输出信息"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="CalTaxAm" name="calTaxAm" longname="计算税额并登记到增值税明细表">
+        <interface>
+            <input packMode="false">
+                <field id="caltax" type="TxType.CalTaxAmountIn" required="false" multi="false" array="false" longname="增值税输入信息"/>
+            </input>
+            <output asParm="true" packMode="false">
+                <field id="taxout" type="TxType.CalTaxAmountOut" required="false" multi="false" array="false" longname="增值税输出信息"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="TaxStrike" name="taxStrike" longname="增值税冲正事件">
+        <interface>
+            <input packMode="false">
+                <field id="strike" alias="登记冲正事件登记簿" type="IoApStrikeType.IoApRegBook" required="false" multi="false" array="false" longname="上送系统流水"/>
+                <field id="colour" type="BaseEnumType.E_COLOUR" required="false" multi="false" array="false" longname="红蓝字标记" ref="BaseDict.Comm.colour"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="calTaxByAmount" name="calTaxByAmount" longname="计算借据差额税额并登记到增值税明细表">
+        <interface>
+            <input packMode="false">
+                <field id="lsltax" type="TxType.CalTaxAmountIn" required="false" multi="false" array="false" longname="上日增值税输入信息"/>
+                <field id="tdltax" type="TxType.CalTaxAmountIn" required="false" multi="false" array="false" longname="当日增值税输入信息"/>
+            </input>
+            <output asParm="true" packMode="false">
+                <field id="taxout" type="TxType.CalTaxAmountOut" required="false" multi="false" array="false" longname="增值税输出信息"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="IoTxGetBusiAddeList" name="getBusiAddeList" longname="查询营改增登记信息">
+        <interface>
+            <input packMode="false">
+                <field id="cabrdt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="财务日期" ref="BaseDict.Comm.cabrdt"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="field" type="TxType.TxAccrueData" required="false" multi="true" array="false" longname="txAccrueData"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="IoTxGetBusiAddeListCount" name="getBusiAddeListCount" longname="获取营改增登记表记录数">
+        <interface>
+            <input packMode="false">
+                <field id="cabrdt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="财务日期" ref="BaseDict.Comm.cabrdt"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="count" type="int" required="false" multi="false" array="false" longname="营改增记录数"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="IoTxGetBusiAddeListTranam" name="getBusiAddeListTranam" longname="获取营改增登记表汇总金额">
+        <interface>
+            <input packMode="false">
+                <field id="cabrdt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="财务日期" ref="BaseDict.Comm.cabrdt"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="tranam" type="BaseType.U_TRANAM" required="false" multi="false" array="false" longname="金额"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+</serviceType>

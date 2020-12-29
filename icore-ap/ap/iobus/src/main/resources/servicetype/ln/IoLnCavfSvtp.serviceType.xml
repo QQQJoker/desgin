@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType id="IoLnCavfSvtp" kind="business" longname="贷款核销" package="cn.sunline.ltts.busi.iobus.servicetype.ln" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <service id="LnCancel" name="prcLnCancel" longname="贷款核销">
+        <interface>
+            <input packMode="true">
+                <field id="acctno" type="BaseType.U_ACCTNO" required="true" multi="false" array="false" longname="贷款借据号"/>
+                <field id="lncfno" type="LnBaseType.U_LNCFNO" required="false" multi="false" array="false" longname="贷款账号"/>
+                <field id="crcycd" type="BaseType.U_CRCYCD" required="false" multi="false" array="false" longname="币种" ref="BaseDict.Comm.crcycd"/>
+                <field id="clnpbl" type="LnBaseType.U_ACBLTP" required="false" multi="false" array="false" longname="核销本金"/>
+                <field id="clintr" type="LnBaseType.U_ACBLTP" required="false" multi="false" array="false" longname="核销利息"/>
+                <field id="clacno" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="核销来源账号"/>
+                <field id="clsuac" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="核销来源账号子序号"/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="acctno" type="BaseType.U_ACCTNO" required="true" multi="false" array="false" longname="贷款借据号"/>
+                <field id="lncfno" type="LnBaseType.U_LNCFNO" required="false" multi="false" array="false" longname="贷款账号"/>
+                <field id="crcycd" type="BaseType.U_CRCYCD" required="false" multi="false" array="false" longname="币种" ref="BaseDict.Comm.crcycd"/>
+                <field id="clnpbl" type="LnBaseType.U_ACBLTP" required="false" multi="false" array="false" longname="核销本金"/>
+                <field id="clintr" type="LnBaseType.U_ACBLTP" required="false" multi="false" array="false" longname="核销利息"/>
+                <field id="clacno" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="核销来源账号"/>
+                <field id="clsuac" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="核销来源账号子序号"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="LnInstPos" name="prcLnInstPos" longname="贷款停息">
+        <interface>
+            <input packMode="true">
+                <field id="acctno" type="BaseType.U_ACCTNO" required="true" multi="false" array="false" longname="贷款借据号"/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="acctno" type="BaseType.U_ACCTNO" required="true" multi="false" array="false" longname="贷款账号"/>
+                <field id="lncfno" type="LnBaseType.U_LNCFNO" required="false" multi="false" array="false" longname="贷款借据号"/>
+                <field id="crcycd" type="BaseType.U_CRCYCD" required="false" multi="false" array="false" longname="币种" ref="BaseDict.Comm.crcycd"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="LnCancelBack" name="lnCancelBack" longname="贷款核销后还款">
+        <interface>
+            <input packMode="true">
+                <field id="lncfno" type="LnBaseType.U_LNCFNO" required="false" multi="false" array="false" longname="贷款借据号" ref="LnDict.LNF.lncfno"/>
+                <field id="repacc" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="还款账号" ref="LnDict.LNF.repacc"/>
+                <field id="crcycd" type="BaseType.U_CRCYCD" required="false" multi="false" array="false" longname="货币代号"/>
+                <field id="hxxxpr" type="LnBaseType.U_ACBLTP" required="false" multi="false" array="false" longname="核销本金" ref="LnDict.LNF.hxxxpr"/>
+                <field id="hxxxin" type="LnBaseType.U_ACINTP" required="false" multi="false" array="false" longname="核销利息" ref="LnDict.LNF.hxxxin"/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="hxrspr" type="LnBaseType.U_ACBLTP" required="false" multi="false" array="false" longname="剩余核销本金"/>
+                <field id="hxrsin" type="LnBaseType.U_ACINTP" required="false" multi="false" array="false" longname="剩余核销利息"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+</serviceType>

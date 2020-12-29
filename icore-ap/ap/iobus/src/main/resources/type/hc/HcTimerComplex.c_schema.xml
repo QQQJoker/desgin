@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema id="HcTimerComplex" package="cn.sunline.ltts.busi.iobus.type" longname="热点处理定时任务复合类型" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <complexType id="HcBalSum" longname="待处理表余额汇总" dict="false" abstract="false" introduct="false">
+    	<element id="tranam" longname="汇总金额" type="BaseType.U_TRANAM" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    	<element id="hcmain" longname="热点主体号" type="HcBaseType.U_CHAR30" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    	<element id="hctype" longname="热点类型" type="HcEnumType.E_HCTYPE" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+</schema>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType id="IoCdStrikeSvcType" kind="business" longname="冲正服务" package="cn.sunline.ltts.busi.iobus.servicetype.cd" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <service id="ProcSaveCdIoBIStrike" name="ProcSaveCdIoBIStrike" longname="出入金登记簿冲正">
+        <interface>
+            <input packMode="false">
+                <field id="transq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="前置流水"/>
+                <field id="trandt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="前置日期"/>
+                <field id="status" type="BaseEnumType.E_TRANST" required="false" default="#dict.BaseEnumType.E_TRANST().STRIK" multi="false" array="false" longname="交易状态" desc="默认冲账"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="CdSaveStrike" name="procCdSaveStrike" longname="存入冲正">
+        <interface>
+            <input packMode="true">
+                <field id="strikeInput" type="IoStrikeType.ProcCdSaveStrikeInput" required="false" multi="false" array="false" longname="输入参数"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="CdDrawStrike" name="procCdDrawStrike" longname="支取冲正">
+        <interface>
+            <input packMode="true">
+                <field id="strikeInput" type="IoStrikeType.ProcCdDrawStrikeInput" required="false" multi="false" array="false" longname="输入参数"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+</serviceType>

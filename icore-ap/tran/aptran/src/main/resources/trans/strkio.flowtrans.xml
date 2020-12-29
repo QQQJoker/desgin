@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<flowtran id="strkio" longname="冲正(短信发送)" kind="2" package="cn.sunline.ltts.busi.aptran.trans" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <interface package="cn.sunline.ltts.busi.aptran.trans.intf">
+        <input packMode="true">
+            <field id="origdt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="原始交易日期" ref="BaseDict.Comm.origdt"/>
+            <field id="origsq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="原交易流水号" ref="BaseDict.Comm.origsq"/>
+            <field id="ocalfg" type="BaseEnumType.E_YES___" required="false" default="#dict.BaseEnumType.E_YES___().YES" multi="false" array="false" longname="是否允许外调冲正" ref="BaseDict.Comm.ocalfg"/>
+        </input>
+        <output asParm="true" packMode="true"/>
+        <property packMode="true"/>
+        <printer packMode="true"/>
+    </interface>
+    <flow>
+        <service serviceName="IoApTransactionTCC.rollbackOSVC" id="rollback" longname="冲正服务">
+            <in_mappings by_interface="true">
+                <mapping src="ocalfg" dest="ocalfg" by_interface="true" on_top="true"/>
+                <mapping src="origdt" dest="origdt" by_interface="true" on_top="true"/>
+                <mapping src="origsq" dest="origsq" by_interface="true" on_top="true"/>
+            </in_mappings>
+            <out_mappings by_interface="true"/>
+        </service>
+        <method method="sendMsg" id="sendMsg" longname="短信发送"/>
+    </flow>
+    <outMapping/>
+    <propertyToPrinterMapping/>
+    <outToPrinterMapping/>
+</flowtran>

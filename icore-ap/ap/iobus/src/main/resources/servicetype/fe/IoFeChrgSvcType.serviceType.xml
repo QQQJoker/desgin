@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType id="IoFeChrgSvcType" kind="business" longname="公共计费模块服务" package="cn.sunline.ltts.busi.iobus.servicetype" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description><![CDATA[公共计费模块服务]]></description>
+    <service id="IoCalCharge" name="CalCharge" longname="统一计费">
+        <interface>
+            <input packMode="false">
+                <field id="in" alias="统一收费输入" type="IoFeChrgComplexType.IoCgCalFee_IN" required="false" multi="false" array="false" longname="统一收费输入"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="out" alias="统一收费输出" type="IoFeChrgComplexType.IoCgCalFee_OUT" required="false" multi="false" array="false" longname="统一收费输出"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoAnalyseScene" name="AnalyseScene" longname="场景分析">
+        <interface>
+            <input packMode="false">
+                <field id="in" alias="场景分析输入信息" type="IoFeChrgComplexType.IoCgScenAnalyse_IN" required="false" multi="false" array="false" longname="场景分析输入信息"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoSceneCharge" name="SceneCharge" longname="按场景计费">
+        <interface>
+            <input packMode="false">
+                <field id="in" alias="场景计费输入信息" type="IoFeChrgComplexType.IoCgCalFee_IN" required="false" multi="false" array="false" longname="场景收费输入信息"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="out" alias="场景收费输出" type="IoFeChrgComplexType.IoCgFFEEHD" required="false" multi="false" array="false" longname="场景收费输出"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoSelKcpChrg" name="SelKcpChrg" longname="根据费种代码查询定义表">
+        <interface>
+            <input packMode="false">
+                <field id="chrgcd" type="PbBaseType.U_CHRGCD" required="false" multi="false" array="false" longname="收费代码" ref="PbDict.Charge.chrgcd"/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="out" alias="费种代码定义表查询输出" type="IoFeChrgComplexType.IoKcpChrg" required="false" multi="false" array="false" longname="费种代码定义表查询输出"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+</serviceType>

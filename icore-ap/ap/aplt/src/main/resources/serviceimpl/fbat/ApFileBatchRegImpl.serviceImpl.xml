@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceImpl id="ApFileBatchRegImpl" longname="文件批量信息登记服务实现" serviceType="IoApFileBatchReg" package="cn.sunline.ltts.busi.aplt.serviceimpl.fbat" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description><![CDATA[文件批量信息登记服务实现]]></description>
+</serviceImpl>

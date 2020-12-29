@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType id="InSaveClerTransBill" kind="business" longname="与统一支付清算相关服务" package="cn.sunline.ltts.busi.iobus.servicetype.in" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <service id="SaveClerBill" name="saveClerBill" longname="登记统一支付清算登记簿">
+        <interface>
+            <input packMode="true">
+                <field id="ordrid" type="BaseType.U_CHAR32" required="false" multi="false" array="false" longname="订单编号"/>
+                <field id="frondt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="前置日期"/>
+                <field id="fronsq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="前置流水"/>
+                <field id="linkno" type="BaseType.U_CHAR40" required="false" multi="false" array="false" longname="连笔交易号"/>
+                <field id="tranam" type="BaseType.U_ACBLTP" required="false" multi="false" array="false" longname="交易金额"/>
+                <field id="feeamt" type="BaseType.U_TRANAM" required="false" multi="false" array="false" longname="费用金额"/>
+                <field id="intamt" type="BaseType.U_TRANAM" required="false" multi="false" array="false" longname="利息金额"/>
+                <field id="crcycd" type="BaseType.U_CRCYCD" required="false" multi="false" array="false" longname="币种" ref="PbDict.Intr.crcycd"/>
+                <field id="acctno" type="BaseType.U_CUACNO" required="false" multi="false" array="false" longname="借方账号"/>
+                <field id="toacct" type="BaseType.U_CUACNO" required="false" multi="false" array="false" longname="贷方账号"/>
+                <field id="acctwo" type="BaseType.U_CUACNO" required="false" multi="false" array="false" longname="账号1"/>
+                <field id="acctee" type="BaseType.U_CUACNO" required="false" multi="false" array="false" longname="账号2"/>
+                <field id="transq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="主交易流水"/>
+                <field id="trandt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="交易日期"/>
+                <field id="keepdt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="清算日期"/>
+                <field id="clactp" type="BaseEnumType.E_CLACTP" required="false" multi="false" array="false" longname="待清算账户类型"/>
+                <field id="prcscd" type="BaseType.U_PRCSCD" required="false" multi="false" array="false" longname="业务码"/>
+                <field id="transt" type="BaseEnumType.E_TRANST" required="false" multi="false" array="false" longname="交易状态"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="ProcSaveClerBillStrike" name="procSaveClerBillStrike" longname="统一支付清算冲正">
+        <interface>
+            <input packMode="false">
+                <field id="transq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="交易流水"/>
+                <field id="trandt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="前置日期"/>
+                <field id="status" type="BaseEnumType.E_TRANST" required="false" default="#dict.BaseEnumType.E_TRANST().STRIK" multi="false" array="false" longname="交易状态" desc="默认冲账"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+</serviceType>

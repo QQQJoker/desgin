@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<sqls xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="ApltTab" longname="公共模块表查询" package="cn.sunline.ltts.busi.aplt.namedsql" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <dynamicSelect cache="none" method="selectAll" type="sql" id="selTableData" longname="查询数据库表数据">
+        <parameterMap class="java.util.Map">
+            <parameter property="tabname" jdbcType="VARCHAR" javaType="string" mode="in" longname="表名" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="java.util.Map"/>
+        <dynamicSql type="db2">
+            <str type="Str"><![CDATA[select * from ${tabname} with ur]]></str>
+        </dynamicSql>
+        <dynamicSql type="oracle">
+            <str type="Str"><![CDATA[select * from ${tabname}]]></str>
+        </dynamicSql>
+        <dynamicSql type="mysql">
+            <str type="Str"><![CDATA[select * from ${tabname}]]></str>
+        </dynamicSql>
+    </dynamicSelect>
+    <select cache="none" method="selectAll" type="sql" id="selKnpBach" longname="查询文件批量任务表">
+        <sql type="db2"><![CDATA[select a.* from knp_bach a where a.BUSISQ = #busisq#  for update with rs]]></sql>
+        <sql type="mysql"><![CDATA[select a.* from knp_bach a where a.BUSISQ = #busisq#  for update]]></sql>
+        <sql type="oracle"><![CDATA[select a.* from knp_bach a where a.BUSISQ = #busisq#  for update]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="busisq" ref="BaseDict.Comm.busisq" jdbcType="VARCHAR" javaType="BaseType.U_SEQUNO" mode="in" longname="业务流水" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="SysFileTables.knp_bach"/>
+    </select>
+    <select cache="none" method="selectOne" type="sql" id="selKnpBachByDatast" longname="查询未完成文件批量">
+        <sql type="mysql"><![CDATA[select count(1) from knp_bach a where a.BUSISQ = #busisq# and a.DATAST <> '10']]></sql>
+        <sql type="oracle"><![CDATA[select count(1) from knp_bach a where a.BUSISQ = #busisq# and a.DATAST <> '10']]></sql>
+        <sql type="db2"><![CDATA[select count(1) from knp_bach a where a.BUSISQ = #busisq# and a.DATAST <> '10']]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="busisq" ref="BaseDict.Comm.busisq" jdbcType="VARCHAR" javaType="BaseType.U_SEQUNO" mode="in" longname="业务流水" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="long"/>
+    </select>
+    <select cache="none" method="selectAll" type="sql" id="selKapbWjplxxbByBusseq" longname="获取未发送通知的文件批量信息">
+        <sql type="mysql"><![CDATA[select * from knp_buss where issend=#issend# and sendst = #sendst# and sendnm < 4]]></sql>
+        <sql type="oracle"><![CDATA[select * from knp_buss where issend=#issend# and sendst = #sendst# and sendnm < 4]]></sql>
+        <sql type="db2"><![CDATA[select * from knp_buss where issend=#issend# and sendst = #sendst# and sendnm < 4]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="issend" jdbcType="VARCHAR" javaType="BaseEnumType.E_YES___" mode="in" longname="是否发送" parameterType="condition"/>
+            <parameter property="sendst" jdbcType="VARCHAR" javaType="BaseEnumType.E_YES___" mode="in" longname="发送状态" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="SysFileTables.knp_buss"/>
+    </select>
+    <select cache="none" method="selectAll" type="sql" id="selKapbWjplxxbDetl" longname="查询文件批量信息明细记录">
+        <sql type="mysql"><![CDATA[select * from kapb_wjplxxb where busseq = #busseq#]]></sql>
+        <sql type="oracle"><![CDATA[select * from kapb_wjplxxb where busseq = #busseq#]]></sql>
+        <sql type="db2"><![CDATA[select * from kapb_wjplxxb where busseq = #busseq#]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="busseq" jdbcType="VARCHAR" javaType="BaseType.U_CHAR40" mode="in" longname="业务编号" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="SysFileTables.kapb_wjplxxb"/>
+    </select>
+    <select cache="none" method="selectOne" type="sql" id="selKapbWjplxxbCnt" longname="根据业务流水查询批量的数量">
+        <sql type="mysql"><![CDATA[select count(1) from kapb_wjplxxb where busseq = #busseq#]]></sql>
+        <sql type="oracle"><![CDATA[select count(1) from kapb_wjplxxb where busseq = #busseq#]]></sql>
+        <sql type="db2"><![CDATA[select count(1) from kapb_wjplxxb where busseq = #busseq#]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="busseq" jdbcType="VARCHAR" javaType="BaseType.U_CHAR40" mode="in" longname="业务流水" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="java.lang.Integer"/>
+    </select>
+    <select cache="none" method="selectOne" type="sql" id="selApbAcctRoutToDp" longname="查询路由类型">
+        <sql><![CDATA[SELECT a.acctrt FROM APB_ACCT_ROUT a WHERE a.acctno = #acctno#]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="acctno" ref="BaseDict.Comm.acctno" jdbcType="VARCHAR" javaType="BaseType.U_ACCTNO" mode="in" longname="账号" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="SysDbTable.ApbAcctRout"/>
+    </select>
+</sqls>

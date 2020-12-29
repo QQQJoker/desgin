@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<flowtran id="qrabat" longname="业务审计日志查询" kind="1" package="cn.sunline.ltts.busi.aptran.trans" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <interface package="cn.sunline.ltts.busi.aptran.trans.intf">
+        <input packMode="true">
+            <field id="trandt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="交易日期" ref="BaseDict.Comm.trandt"/>
+            <field id="transq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="交易流水" ref="BaseDict.Comm.transq"/>
+            <field id="lttscd" type="BaseType.U_PRCSCD" required="false" multi="false" array="false" longname="交易码"/>
+            <field id="trsvtp" type="BaseEnumType.E_SERVTP" required="false" multi="false" array="false" longname="渠道"/>
+            <field id="userno" type="BaseType.U_CARDNO" required="false" multi="false" array="false" longname="客户号或柜员"/>
+        </input>
+        <output asParm="true" packMode="true">
+            <fields id="apatif" scope="ApBook.ApAuditInfo" required="false" multi="true" longname="审计日志" array="false">
+                <field id="audseq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="审计流水"/>
+                <field id="trandt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="交易日期"/>
+                <field id="transq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="交易流水"/>
+                <field id="busisq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="业务流水"/>
+                <field id="prcsna" type="BaseType.U_SHORDS" required="false" multi="false" array="false" longname="交易描述"/>
+                <field id="tablna" type="BaseType.U_TABLENAME" required="false" multi="false" array="false" longname="数据库表名"/>
+                <field id="tablds" type="BaseType.U_SHORDS" required="false" multi="false" array="false" longname="数据库表描述"/>
+                <field id="trsvtp" type="BaseEnumType.E_SERVTP" required="false" multi="false" array="false" longname="渠道"/>
+                <field id="lttscd" type="BaseType.U_PRCSCD" required="false" multi="false" array="false" longname="交易代码"/>
+                <field id="userno" type="BaseType.U_CARDNO" required="false" multi="false" array="false" longname="柜员号"/>
+            </fields>
+            <field id="count" type="BaseType.U_LONGIN" required="false" multi="false" array="false" longname="记录总数"/>
+        </output>
+        <property packMode="false"/>
+        <printer packMode="true"/>
+    </interface>
+    <flow>
+        <method method="qrabat" id="qrabat" longname="查询审计日志" desc="查询审计日志"/>
+    </flow>
+    <outMapping/>
+    <propertyToPrinterMapping/>
+    <outToPrinterMapping/>
+</flowtran>

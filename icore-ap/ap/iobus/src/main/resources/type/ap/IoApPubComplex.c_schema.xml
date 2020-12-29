@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema id="IoApPubComplex" package="cn.sunline.ltts.busi.iobus.type" longname="基础平台通用对象" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <complexType id="KnpSvcxCt" longname="业务服务实现定义表复合类型" dict="false" abstract="false" introduct="false">
+        <element id="svtpid" longname="业务服务类型ID" type="BaseType.U_CHAR80" ref="BaseDict.Comm.svtpid" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="svimky" longname="业务服务实现关键字" type="BaseType.U_CHAR80" ref="BaseDict.Comm.svimky" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="svimid" longname="业务服务实现ID" type="BaseType.U_CHAR80" ref="BaseDict.Comm.svimid" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="remark" longname="备注信息" type="BaseType.U_LONGDS" ref="BaseDict.Comm.remark" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="AppHoldInfo" longname="节假日表复合类型" dict="false" abstract="false" introduct="false">
+        <element id="corpno" longname="法人代码" type="BaseType.U_CORPNO" ref="ApDict.Aplt.corpno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="holdcd" longname="节假日代码" type="BaseType.U_VATCOD" ref="BaseDict.Comm.holdcd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="holdtp" longname="节假日类型" type="ApBaseEnumType.E_HOLIDAYTYPE" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="holday" longname="节假日" type="BaseType.U_DATE08" ref="BaseDict.Comm.holday" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="efctdt" longname="生效日期" type="BaseType.U_DATE08" ref="BaseDict.Comm.efctdt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="remark" longname="备注信息" type="BaseType.U_LONGDS" ref="BaseDict.Comm.remark" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="filesq" longname="文件批次号" type="BaseType.U_CHAR40" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="AppCrcyInfo" longname="币种复合类型" dict="false" abstract="false" introduct="false">
+        <element id="corpno" longname="法人代码" type="BaseType.U_CORPNO" ref="ApDict.Aplt.corpno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="crcycd" longname="币种" type="BaseType.U_CRCYCD" ref="BaseDict.Comm.crcycd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="crcyna" longname="贷币名称" type="BaseType.U_SHORDS" ref="BaseDict.Comm.crcyna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ccynum" longname="货币数字代码" type="BaseType.U_CHAR03" ref="BaseDict.Comm.ccynum" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cntycd" longname="国别代码" type="BaseType.U_CNTYCD" ref="BaseDict.Comm.cntycd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ccymin" longname="币种精度位" type="BaseType.U_LONGIN" ref="BaseDict.Comm.ccymin" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="iamnun" longname="计息精度位" type="BaseType.U_LONGIN" ref="BaseDict.Comm.iamnun" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="chgeun" longname="货币找零位" type="BaseType.U_TRANAM" ref="BaseDict.Comm.chgeun" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="basefg" longname="是否本币标志" type="BaseEnumType.E_YES___" ref="BaseDict.Comm.basefg" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="KmpDcndyInfo" longname="DCN定义表复合类型" dict="false" abstract="false" introduct="false">
+        <element id="cdcnno" longname="DCN编号" type="BaseType.U_DCNNO" ref="BaseDict.Comm.cdcnno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="recdno" longname="记录次序号" type="BaseType.U_CHAR03" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="smryds" longname="摘要描述" type="BaseType.U_SMRYDS" ref="BaseDict.Comm.smryds" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="dcntyp" longname="节点类型" type="BaseEnumType.E_DCNTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+</schema>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType id="IoDpCallOther" kind="business" longname="存款模块交易外调服务类型" package="cn.sunline.ltts.busi.iobus.servicetype.dp" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <service id="IoDpCallPayActoac" name="calPayActoac" longname="外调支付平台电子账户转电子账户接口">
+        <interface>
+            <input packMode="true">
+                <field id="transTyp" alias="TransTyp" type="BaseType.U_CHAR02" required="false" multi="false" array="false" longname="转账标志"/>
+                <field id="crcycd" alias="CurrencyCd" type="BaseType.U_CRCYCD" required="false" multi="false" array="false" longname="币种"/>
+                <field id="csextg" alias="CsexTg" type="BaseEnumType.E_CSEXTG" required="false" multi="false" array="false" longname="钞汇标志"/>
+                <field id="tranam" alias="TransAmt" type="BaseType.U_TRANAM" required="false" multi="false" array="false" longname="交易金额"/>
+                <field id="tranfe" alias="Tranfe" type="BaseType.U_TRANAM" required="false" multi="false" array="false" longname="费用"/>
+                <field id="otcard" alias="PayerAcctNbr" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="转出方账户号"/>
+                <field id="otacna" alias="PayerAcctName" type="BaseType.U_CUSTNA" required="false" multi="false" array="false" longname="转出方账户名"/>
+                <field id="otcstp" alias="SubPayerAcctNbrTp" type="BaseEnumType.E_ACSETP" required="false" multi="false" array="false" longname="转出方子账号类型"/>
+                <field id="otacno" alias="SubPayerAcctNbr" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="转出方子账号"/>
+                <field id="otbrch" alias="PayerOrgNbr" type="BaseType.U_BRCHNO" required="false" multi="false" array="false" longname="转出方账户所属机构"/>
+                <field id="incard" alias="PayeeAcctNbr" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="转入方账户号"/>
+                <field id="incstp" alias="SubPayeeAcctNbrTp" type="BaseEnumType.E_ACSETP" required="false" multi="false" array="false" longname="转入方子账号类型"/>
+                <field id="inacno" alias="SubPayeeAcctNbr" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="转入方子账号"/>
+                <field id="inacna" alias="PayeeAcctName" type="BaseType.U_CUSTNA" required="false" multi="false" array="false" longname="转入方户名"/>
+                <field id="inbrch" alias="PayeeOrgNbr" type="BaseType.U_BRCHNO" required="false" multi="false" array="false" longname="转入方账户所属机构"/>
+                <field id="smrycd" alias="AbsCode" type="BaseType.U_SMRYCD" required="false" multi="false" array="false" longname="摘要代码" ref="BaseDict.Comm.smrycd"/>
+                <field id="remark" alias="Memo" type="BaseType.U_SHORDS" required="false" multi="false" array="false" longname="备注"/>
+                <field id="ispass" alias="PayerIsPass" type="BaseEnumType.E_YES___" required="false" multi="false" array="false" longname="密码校验标志"/>
+                <field id="passwd" alias="PayerPassword" type="BaseType.U_TRANPW" required="false" multi="false" array="false" longname="密码"/>
+                <field id="passtp" alias="PayerPasswordTp" type="BaseType.U_CHAR02" required="false" multi="false" array="false" longname="密码类型"/>
+                <field id="authif" alias="Authif" type="BaseType.U_SHORDS" required="false" multi="false" array="false" longname="加密因子"/>
+                <field id="acctrt" type="BaseEnumType.E_ACCTROUTTYPE" required="false" multi="false" array="false" longname="账号路由类型" ref="BaseDict.Comm.acctrt"/>
+                <field id="limttp" alias="LimtTp" type="QtEnumType.E_LIMTTP" required="false" multi="false" array="false" longname="额度类型"/>
+                <field id="risklv" alias="RiskLv" type="QtEnumType.E_RISKLV" required="false" multi="false" array="false" longname="风险等级"/>
+                <field id="custid" alias="CustID" type="BaseType.U_CUSTID" required="false" multi="false" array="false" longname="客户号"/>
+                <field id="accttp" alias="AcTp" type="QtEnumType.E_ACCTTP" required="false" multi="false" array="false" longname="账户分类"/>
+                <field id="pytltp" alias="PytlTp" type="QtEnumType.E_PYTLTP" required="false" multi="false" array="false" longname="支付工具"/>
+                <field id="rebktp" alias="ReBkTp" type="QtEnumType.E_REBKTP" required="false" multi="false" array="false" longname="收款行范围"/>
+                <field id="custlv" alias="CustLv" type="QtEnumType.E_CUSTLV" required="false" multi="false" array="false" longname="客户等级"/>
+                <field id="aclmfg" alias="AcLmFg" type="QtEnumType.E_ACLMFG" required="false" multi="false" array="false" longname="累计限额标志"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoDpCallPayActoLocalCard" name="callPayActoLocalCard" longname="外调支付平台电子账户转本行卡">
+        <interface>
+            <input packMode="true"/>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoDpCallPayActoOtherCard" name="callPayActoOtherCard" longname="外调支付平台电子账户转他行卡">
+        <interface>
+            <input packMode="true"/>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+</serviceType>

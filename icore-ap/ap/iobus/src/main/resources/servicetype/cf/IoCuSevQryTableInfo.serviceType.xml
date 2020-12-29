@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="IoCuSevQryTableInfo" kind="business" longname="查询表信息服务" package="cn.sunline.ltts.busi.iobus.servicetype.cf" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <service id="cif_cust_selectOne_odb1" name="cif_cust_selectOne_odb1" longname="根据客户号查询客户信息">
+        <interface>
+            <input packMode="false">
+                <field id="custno" type="BaseType.U_CUSTNO" required="false" multi="false" array="false" longname="客户号" ref="BaseDict.Comm.custno"/>
+                <field id="isable" type="boolean" required="false" multi="false" array="false" longname="是否抛出异常"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="cifCusts" type="IoCuTable.IoCucifCust" required="false" multi="false" array="false" longname="客户信息复合类型"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="cif_cust_selectOne_odb2" name="cif_cust_selectOne_odb2" longname="根据身份证件信息查询客户信息">
+        <interface>
+            <input packMode="false">
+                <field id="idtftp" type="BaseEnumType.E_IDTFTP" required="false" multi="false" array="false" longname="证件类型"/>
+                <field id="idtfno" type="BaseType.U_IDTFNO" required="false" multi="false" array="false" longname="证件号码"/>
+                <field id="isable" type="boolean" required="false" multi="false" array="false" longname="是否抛出异常"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="cifCusts" type="IoCuTable.IoCucifCust" required="false" multi="false" array="false" longname="客户信息复合类型"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="cif_cust_selectAll_odb4" name="cif_cust_selectAll_odb4" longname="根据手机号查询客户信息">
+        <interface>
+            <input packMode="false">
+                <field id="teleno" type="BaseType.U_TELENO" required="false" multi="false" array="false" longname="手机号码"/>
+                <field id="isable" type="boolean" required="false" multi="false" array="false" longname="是否抛出异常"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="cifCusts" type="IoCuTable.IoCucifCust" required="false" multi="true" array="false" longname="客户信息复合类型"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="cif_corp_selectOne_idx2" name="cif_corp_selectOne_idx2" longname="根据组织机构代码查询对公客户信息">
+        <interface>
+            <input packMode="false">
+                <field id="cropcd" type="BaseType.U_CROPCD" required="false" multi="false" array="false" longname="组织机构代码"/>
+                <field id="isable" type="boolean" required="false" multi="false" array="false" longname="是否抛出异常"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="cifCorp" type="IoCuTable.IoCuCifCorp" required="false" multi="false" array="false" longname="对公客户信息"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="cif_cust_selectOne_odb3" name="cif_cust_selectOne_odb3" longname="根据客户号与证件信息查询信息">
+        <interface>
+            <input packMode="false">
+                <field id="custno" type="BaseType.U_CUSTNO" required="false" multi="false" array="false" longname="客户号" ref="PbDict.Teller.custno"/>
+                <field id="idtftp" type="BaseEnumType.E_IDTFTP" required="false" multi="false" array="false" longname="证件类型" ref="DpDict.Acct.idtftp"/>
+                <field id="idtfno" type="BaseType.U_IDTFNO" required="false" multi="false" array="false" longname="证件号码" ref="DpDict.Acct.idtfno"/>
+                <field id="isable" type="boolean" required="false" multi="false" array="false" longname="是否抛出异常"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="cplCifCust" type="IoCuTable.IoCucifCust" required="false" multi="false" array="false" longname="客户信息表对象"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="cif_cust_updateOne_odb1" name="cif_cust_updateOne_odb1" longname="根据客户号更新客户信息">
+        <interface>
+            <input packMode="false">
+                <field id="cplCifCust" type="IoCuTable.IoCucifCust" required="false" multi="false" array="false" longname="客户信息复合类型"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="cif_cust_accsByCustid" name="cif_cust_accsByCustid" longname="根据客户id查询电子账号">
+        <interface>
+            <input packMode="false">
+                <field id="custid" type="BaseType.U_CUSTID" required="false" multi="false" array="false" longname="用户ID" ref="BaseDict.Comm.custid"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="custac" type="BaseType.U_CHAR32" required="false" multi="false" array="false" longname="客户账号" ref="BaseDict.Comm.custac"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="cif_corp_selectOne_idx1" name="cif_corp_selectOne_idx1" longname="根据客户号查询对公客户信息">
+        <interface>
+            <input packMode="false">
+                <field id="custno" type="BaseType.U_CUSTNO" required="false" multi="false" array="false" longname="客户号" ref="BaseDict.Comm.custno"/>
+                <field id="isable" type="boolean" required="false" multi="false" array="false" longname="是否抛出异常"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="cifCorp" type="IoCuTable.IoCuCifCorp" required="false" multi="false" array="false" longname="对公客户信息"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="cif_corp_selectOne_idx3" name="cif_corp_selectOne_idx3" longname="根据客户号、证件号码和证件类型查询对公客户信息">
+        <interface>
+            <input packMode="false">
+                <field id="custno" type="BaseType.U_CUSTNO" required="false" multi="false" array="false" longname="客户号" ref="BaseDict.Comm.custno"/>
+                <field id="idtfno" type="BaseType.U_MIDTNO" required="false" multi="false" array="false" longname="证件号码"/>
+                <field id="idtftp" type="BaseEnumType.E_IDTFTP" required="false" multi="false" array="false" longname="证件类型"/>
+                <field id="isable" type="boolean" required="false" multi="false" array="false" longname="是否跑出异常"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="cifCorp" type="IoCuTable.IoCuCifCorp" required="false" multi="false" array="false" longname="对公客户信息"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="cif_corp_selectOne_idx4" name="cif_corp_selectOne_idx4" longname="根据证件号码和证件类型查询对公账户">
+        <interface>
+            <input packMode="false">
+                <field id="idtfno" type="BaseType.U_MIDTNO" required="false" multi="false" array="false" longname="证件号码"/>
+                <field id="idtftp" type="BaseEnumType.E_IDTFTP" required="false" multi="false" array="false" longname="证件类型"/>
+                <field id="isable" type="boolean" required="false" multi="false" array="false" longname="是否跑出异常"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="cifCorp" type="IoCuTable.IoCuCifCorp" required="false" multi="false" array="false" longname="对公客户信息"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="icore_corpByCustna" name="icore_corpByCustna" longname="根据对公客户名称查询对公客户信息">
+        <interface>
+            <input packMode="false">
+                <field id="custna" type="BaseType.U_ACCTNA" required="false" multi="false" array="false" longname="客户名称" ref="BaseDict.Comm.custna"/>
+                <field id="isable" type="boolean" required="false" multi="false" array="false" longname="是否跑出异常"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="cifCorp" type="IoCuTable.IoCuCifCorp" required="false" multi="false" array="false" longname="对公客户信息"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="icore_corpByCustno" name="icore_corpByCustno" longname="根据对公客户号查询对公客户信息">
+        <interface>
+            <input packMode="false">
+                <field id="custno" type="BaseType.U_CUSTNO" required="false" multi="false" array="false" longname="客户号" ref="BaseDict.Comm.custno"/>
+                <field id="isable" type="boolean" required="false" multi="false" array="false" longname="是否报错"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="cifCorp" type="IoCuTable.IoCuCifCorp" required="false" multi="false" array="false" longname="对公客户信息"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="cif_cust_suppBycustno" name="cif_cust_suppBycustno" longname="查询客户信附加表">
+        <interface>
+            <input packMode="false">
+                <field id="custno" type="BaseType.U_CUSTNO" required="false" multi="false" array="false" longname="客户号" ref="BaseDict.Comm.custno"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="field" type="IoCuTable.IoCifCustSupp" required="false" multi="false" array="false" longname="对公客户信息附加表"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+</serviceType>

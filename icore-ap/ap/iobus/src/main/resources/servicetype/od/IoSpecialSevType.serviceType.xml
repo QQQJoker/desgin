@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType id="IoSpecialSevType" kind="business" longname="MQ消息相关服务" package="cn.sunline.ltts.busi.iobus.servicetype.od" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <service id="CallCancAgreeMent" name="CallCancAgreeMent" longname="理财撤销协议消息服务">
+        <interface>
+            <input packMode="true">
+                <field id="msgid" type="BaseType2.U_CHAR30" required="false" default="''" multi="false" array="false" longname="消息id"/>
+                <!-- 
+                <field id="medium" type="ECustPlugin.E_MEDIUM" required="false" multi="false" array="false" longname="消息媒介"/>
+                 -->
+                <field id="mdname" type="string" required="false" default="''" multi="false" array="false" longname="媒介名称"/>
+                <field id="userId" type="BaseType2.U_CHAR14" required="false" default="''" multi="false" array="false" longname="用户Id"/>
+                <field id="bizTrackNo" type="BaseType2.U_CHAR30" required="false" default="''" multi="false" array="false" longname="业务跟踪号"/>
+                <field id="operFlag" type="SlBaseType.U_CHAR2" required="false" default="2" multi="false" array="false" longname="操作标识"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="batchFailAgreeMent" name="batchFailAgreeMent" longname="批量失败协议消息服务">
+        <interface>
+            <input packMode="true">
+                <field id="msgid" type="BaseType2.U_CHAR30" required="false" default="''" multi="false" array="false" longname="消息id"/>
+               	<!--  
+               	<field id="medium" type="ECustPlugin.E_MEDIUM" required="false" multi="false" array="false" longname="消息媒介"/>
+                 -->
+                <field id="mdname" type="string" required="false" default="''" multi="false" array="false" longname="媒介名称"/>
+                <field id="typeCode" type="BaseType2.U_CHAR10" required="false" default="''" multi="false" array="false" longname="系统标识"/>
+                <field id="typeName" type="BaseType2.U_CHAR40" required="false" default="''" multi="false" array="false" longname="系统中文名称"/>
+                <field id="itemId" type="BaseType2.U_CHAR40" required="false" default="''" multi="false" array="false" longname="预警业务Id"/>
+                <field id="itemName" type="BaseType2.U_CHAR100" required="false" default="''" multi="false" array="false" longname="预警业务名称"/>
+                <field id="content" type="SlBaseType.U_CHAR2048" required="false" default="''" multi="false" array="false" longname="消息内容"/>
+                <field id="warnTime" type="BaseType2.U_CHAR40" required="false" default="''" multi="false" array="false" longname="预警时间"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+</serviceType>

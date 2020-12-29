@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType id="IoLnSignSev" kind="business" longname="贷款产品签约服务" package="cn.sunline.ltts.busi.iobus.servicetype" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description><![CDATA[]]></description>
+    <service id="lnSign" name="lnSign" longname="贷款产品签约">
+        <description><![CDATA[]]></description>
+        <interface>
+            <input packMode="false">
+                <field id="signInput" alias="签约输入" type="IoLnSevType.IoLnSign" required="true" multi="false" array="false" longname="贷款产品签约"/>
+                <field id="schdInput" alias="账户还款方式输入" type="IoLnSevType.IoLnSchd" required="false" multi="false" array="false" longname="账户还款方式"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+</serviceType>

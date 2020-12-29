@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType id="IoFcProductSvcType" kind="business" longname="融资产品服务" package="cn.sunline.ltts.busi.iobus.servicetype.fc" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description><![CDATA[融资产品服务，增删查改产品信息]]></description>
+    <service id="selProduct" name="selProduct" longname="查询融资产品信息">
+        <interface>
+            <input packMode="false">
+                <field id="prodcd" type="BaseType.U_PRODCD" required="false" multi="false" array="false" longname="产品编号" ref="FcDict.Fnac.prodcd"/>
+                <field id="prodna" type="BaseType.U_CHINNA" required="false" multi="false" array="false" longname="产品名称" ref="FcDict.Fnac.prodna"/>
+                <field id="pageno" type="long" required="false" multi="false" array="false" longname="当前页数"/>
+                <field id="pagesz" type="long" required="false" multi="false" array="false" longname="每页数量"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="fcpout" type="FcProductType.FcProInfoOut" required="false" multi="false" array="false" longname="融资产品基本信息"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="delProduct" name="delProduct" longname="删除融资产品">
+        <interface>
+            <input packMode="false">
+                <field id="prodcd" type="BaseType.U_PRODCD" required="false" multi="false" array="false" longname="产品编号" ref="FcDict.Fnac.prodcd"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="upInProd" name="upInProd" longname="新增/修改融资产品信息">
+        <interface>
+            <input packMode="false">
+                <field id="fcProInfo" type="FcProductType.FcProInfo" required="false" multi="false" array="false" longname="融资产品基本信息"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+</serviceType>

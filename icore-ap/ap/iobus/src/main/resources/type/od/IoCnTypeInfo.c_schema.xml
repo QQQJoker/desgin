@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema id="IoCnTypeInfo" package="cn.sunline.ltts.busi.iobus.type.od" longname="黄金复合类型" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<complexType id="CnOpenAccountParam" longname="黄金代投开户前台传入参数" dict="false" abstract="false" introduct="false">
+        <element id="userid" longname="用户ID" type="CnBaseType.U_CHAR20" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cust_name" longname="客户名" type="CnBaseType.U_CHAR128" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cert_type" longname="证件类型" type="CnBaseEnumType.E_CERTTYPE" required="false" desc="0：身份证" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cert_num" longname="证件号码" type="CnBaseType.U_CHAR50" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="bank_no" longname="银行行号" type="CnBaseType.U_CHAR4" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="account_no" longname="银行账号" type="CnBaseType.U_CHAR32" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="auth_no" longname="授权号" type="CnBaseType.U_CHAR32" required="false" desc="*用授权号扣返款则必填" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="branch_id" longname="开户机构" type="CnBaseType.U_CHAR32" required="false" desc="辅助类接口/开户机构查询" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="broker_id" longname="客户经理id" type="CnBaseType.U_CHAR12" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="grade_id" longname="客户级别" type="CnBaseType.U_CHAR8" required="false" desc="默认为公共客户级别" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="area_code" longname="地区代码" type="CnBaseType.U_CHAR10" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="mobile_phone" longname="手机号码" type="CnBaseType.U_CHAR11" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tel" longname="电话号码" type="CnBaseType.U_CHAR12" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="addr" longname="邮寄地址" type="CnBaseType.U_CHAR255" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="email" longname="邮箱" type="CnBaseType.U_CHAR64" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="memo" longname="备注" type="CnBaseType.U_CHAR255" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="CnBuyGold" longname="买金入参-随时买" dict="false" abstract="false" introduct="false">
+        <element id="userid" longname="用户ID" type="CnBaseType.U_CHAR20" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="aip_no" longname="定投账号" type="CnBaseType.U_CHAR15" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ordrno" longname="主订单编码" type="CnBaseType.U_CHAR40" required="false" desc="交易类型为1时存值" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cordrno" longname="子主订单编码" type="CnBaseType.U_CHAR40" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="mactch_bal" longname="成交金额" type="CnBaseType.U_DOUB1802" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="CnGoldConsignmentMergeData" longname="黄金代投清算对账批量文件字段" dict="false" abstract="false" introduct="false">
+        <element id="local_serial_no" longname="申请流水号" type="CnBaseType.U_CHAR20" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="h_bk_serial_no" longname="银行流水号" type="CnBaseType.U_CHAR40" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trantp" longname="交易类型" type="CnBaseEnumType.E_TRANTP" required="false" desc="0-计划买 1-随时买 2-卖金 3-提金 4-充值 5-提现" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="aip_no" longname="定投账号" type="CnBaseType.U_CHAR15" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="mactch_bal" longname="成交金额" type="CnBaseType.U_DOUB1802" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="mactch_price" longname="成交价" type="CnBaseType.U_DOUB1802" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="mactch_weight" longname="成交克重" type="CnBaseType.U_DOUB1804" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trandt" longname="交易日期" type="CnBaseType.U_CHAR8" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trantm" longname="交易时间" type="CnBaseType.U_CHAR14" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="MsgErrorContent" longname="批量消息错误内容" dict="false" abstract="false" introduct="false">
+        <element id="bathid" longname="批量交易ID" type="CnBaseType.U_CHAR40" required="true" default="''" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="bathna" longname="批量交易名称" type="BaseType.U_CHAR80" required="false" default="''" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trantm" longname="交易时间" type="BaseType.U_CHAR32" required="false" default="''" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="errmsg" longname="错误信息" type="BaseType.U_CHAR1000" required="false" default="''" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="btchno" longname="批次号" type="BaseType.U_CHAR32" required="false" default="''" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="CnSellGold" longname="卖金入参" dict="false" abstract="false" introduct="false">
+        <element id="userid" longname="用户ID" type="CnBaseType.U_CHAR20" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="aip_no" longname="定投账号" type="CnBaseType.U_CHAR15" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="mactch_weight" longname="卖金克重" type="CnBaseType.U_DOUB1804" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="CnMentGold" longname="提金" dict="false" abstract="false" introduct="false">
+        <element id="userid" longname="用户ID" type="CnBaseType.U_CHAR20" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="aip_no" longname="定投账号" type="CnBaseType.U_CHAR15" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="gold_number" longname="金条数量" type="integer" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="get_address" longname="提金地址" type="CnBaseType.U_CHAR255" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="contacts_name" longname="联系人姓名" type="CnBaseType.U_CHAR128" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="contacts_phone" longname="联系人电话" type="CnBaseType.U_CHAR11" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="cnPlanToBuy" longname="计划买" dict="false" abstract="false" introduct="false">
+        <element id="userid" longname="用户ID" type="CnBaseType.U_CHAR20" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="aip_no" longname="定投账号" type="CnBaseType.U_CHAR15" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="aip_period" longname="定投周期" type="CnBaseEnumType.E_AIPPERIOD" required="false" desc="1按月；2按日；4按周" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="aip_date" longname="定投日期" type="CnBaseType.U_CHAR128" required="false" desc="按月投:每月任意一天或几天(格式为两位字符，多个日期以英文逗号“,”分隔，例08,10,12)，必填  按天投:不填  按周投:例如每周一,则为01，必填" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="mactch_bal" longname="定投金额" type="CnBaseType.U_DOUB1802" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="CnWriteAccountParam" longname="黄金销户" dict="false" abstract="false" introduct="false">
+        <element id="userid" longname="用户ID" type="CnBaseType.U_CHAR20" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="aip_no" longname="定投账号" type="CnBaseType.U_CHAR15" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="cnPlanToBuyTerm" longname="计划买终止入参" dict="false" abstract="false" introduct="false">
+        <element id="userid" longname="用户ID" type="CnBaseType.U_CHAR20" required="false" desc="字段属于系统内部流通的信息，比输入" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="aip_no" longname="定投账号" type="CnBaseType.U_CHAR15" required="false" desc="字段数据对方平台返回的客户账户信息" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="plan_no" longname="定投计划号" type="CnBaseType.U_CHAR20" required="false" desc="对面系统返回的流水表示信息" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="CnRequestHeader" longname="请求报文头" dict="false" abstract="false" introduct="false">
+        <element id="h_exch_code" longname="交易代码" type="CnBaseType.U_CHAR6" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="h_bk_serial_no" longname="银行流水号" type="CnBaseType.U_CHAR22" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="h_exch_date" longname="交易日期" type="CnBaseType.U_CHAR8" required="false" desc="YYYYMMDD" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="h_proxy" longname="代理标志" type="CnBaseType.U_CHAR3" required="false" desc="0或空本行用户，1代理（合作行用户）" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="h_bank_no" longname="银行代码" type="CnBaseType.U_CHAR4" required="false" desc="贵金属平台为银行分配的固定代码，在银行渠道端该值应该" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="h_branch_id" longname="代理机构编号" type="CnBaseType.U_CHAR12" required="false" desc="该编号为贵金属平台里面的编号。" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="h_teller_id" longname="操作柜员号" type="CnBaseType.U_CHAR10" required="false" desc="柜面送柜面号，网银送空" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="h_teller_id_1" longname="授权柜员号1" type="CnBaseType.U_CHAR10" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="h_teller_id_2" longname="授权柜员号2" type="CnBaseType.U_CHAR10" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="h_term_type" longname="渠道终端类型" type="CnBaseEnumType.E_TERMTYPE" required="false" desc="常量：term_type，参考文档常量备注" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="h_term_id" longname="终端号" type="CnBaseType.U_CHAR10" required="false" desc="柜面上送终端号，其他上送0000" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="h_start_num" longname="当前页码" type="CnBaseType.U_INT8" required="false" desc="当前第几页，查询返回多条请求使用" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="h_query_num" longname="每页记录数" type="CnBaseType.U_INT8" required="false" desc="每页记录数，查询返回多条请求使用" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+</schema>

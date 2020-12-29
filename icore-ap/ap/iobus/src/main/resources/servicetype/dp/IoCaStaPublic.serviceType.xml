@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="IoCaStaPublic" kind="business" longname="电子账户对外提供方法" package="cn.sunline.ltts.busi.iobus.servicetype.dp" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <service id="CaEAccountProc_getProdcd" name="CaEAccountProc_getProdcd" longname="通过客户账号类型获取默认的产品编号">
+        <interface>
+            <input packMode="false">
+                <field id="cacttp" type="BaseType.U_CACTTP" required="false" multi="false" array="false" longname="客户账号类型" ref="DpDict.Prod.cacttp"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="baprcd" type="BaseType.U_PRODCD" required="false" multi="false" array="false" longname="基础负债产品"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="CaTools_getAcctno" name="CaTools_getAcctno" longname="获取活期账户">
+        <interface>
+            <input packMode="false">
+                <field id="custac" type="BaseType.U_CUSTAC" required="false" multi="false" array="false" longname="电子账号"/>
+                <field id="crcycd" type="BaseType.U_CRCYCD" required="false" multi="false" array="false" longname="币种" ref="BaseDict.Comm.crcycd"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="acctno" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="负债账号"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="CaTools_getAcctAccs" name="CaTools_getAcctAccs" longname="获取默认活期产品账户信息">
+        <interface>
+            <input packMode="false">
+                <field id="custac" type="BaseType.U_CUSTAC" required="false" multi="false" array="false" longname="电子账号"/>
+                <field id="crcycd" type="BaseType.U_CRCYCD" required="false" multi="false" array="false" longname="币种" ref="BaseDict.Comm.crcycd"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="knaAccs" type="IoCaTable.IoCaKnaAccs" required="false" multi="false" array="false" longname="负债账号客户账号对照表复合类型"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="CaDao_updKnaSignDetlBySignno" name="CaDao_updKnaSignDetlBySignno" longname="修改签约明细表中的下次日期">
+        <interface>
+            <input packMode="false">
+                <field id="currdt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="当前日期"/>
+                <field id="nextdt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="下个日期"/>
+                <field id="signno" type="BaseType.U_SENOTP" required="false" multi="false" array="false" longname="签约号"/>
+                <field id="signst" type="CaEnumType.E_SIGNST" required="false" multi="false" array="false" longname="签约状态"/>
+                <field id="signtp" type="CaEnumType.E_SIGNTP" required="false" multi="false" array="false" longname="签约类型"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+</serviceType>

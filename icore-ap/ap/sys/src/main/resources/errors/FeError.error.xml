@@ -1,0 +1,594 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<errorConf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="FeError" longname="计费中心错误码" package="cn.sunline.ltts.busi.sys.errors" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <errors id="Chrg" longname="费用">
+        <error id="E0001" type="error" message="收费流水${zhongwmc}登记的收费币种${huobdaih}与帐号币种[${dnmiaosh}]不符" errorCode="01030000">
+            <parameter id="zhongwmc" type="BaseType.U_CHINNA" longname="四字符串报错"/>
+            <parameter id="huobdaih" type="BaseType.U_CRCYCD" longname="四字符串报错"/>
+            <parameter id="dnmiaosh" type="BaseType.U_CRCYCD" longname="双字符串报错"/>
+        </error>
+        <error id="E0002" type="error" message="${zhongwmc}账号币种${huobdaih}与输入的收费账号币种${dnmiaosh}不符" errorCode="01030001">
+            <parameter id="zhongwmc" type="BaseType.U_CHINNA" longname="四字符串报错"/>
+            <parameter id="huobdaih" type="BaseType.U_CRCYCD" longname="四字符串报错"/>
+            <parameter id="dnmiaosh" type="BaseType.U_CRCYCD" longname="双字符串报错"/>
+        </error>
+        <error id="E0003" type="error" message="${zhongwmc}账号钞汇标志${huobdaih}与输入的收费账号钞汇标志${dnmiaosh}不符" errorCode="01030002">
+            <parameter id="zhongwmc" type="BaseType.U_CHINNA" longname="四字符串报错"/>
+            <parameter id="huobdaih" type="BaseEnumType.E_CSEXTG" longname="四字符串报错"/>
+            <parameter id="dnmiaosh" type="BaseEnumType.E_CSEXTG" longname="双字符串报错"/>
+        </error>
+        <error id="E0004" type="error" message="${zhongwmc}账号序号${huobdaih}与输入的收费账号序号${dnmiaosh}不符" errorCode="01030003">
+            <parameter id="zhongwmc" type="BaseType.U_CHINNA" longname="四字符串报错"/>
+            <parameter id="huobdaih" type="BaseType.U_CHINNA" longname="四字符串报错"/>
+            <parameter id="dnmiaosh" type="BaseType.U_CHINNA" longname="双字符串报错"/>
+        </error>
+        <error id="E0005" type="error" message="${zhongwmc}账号客户号${huobdaih}与输入的收费账号客户号${dnmiaosh}不符" errorCode="01030004">
+            <parameter id="zhongwmc" type="BaseType.U_CHINNA" longname="四字符串报错"/>
+            <parameter id="huobdaih" type="BaseType.U_CHINNA" longname="四字符串报错"/>
+            <parameter id="dnmiaosh" type="BaseType.U_CHINNA" longname="双字符串报错"/>
+        </error>
+        <error id="E0006" type="error" message="扣费账号为定期账号,不允许直接从该账号${dnmiaosh}收费" errorCode="01030005">
+            <parameter id="dnmiaosh" type="BaseType.U_CHINNA" longname="双字符串报错"/>
+        </error>
+        <error id="E0007" type="error" message="登记的收费币种${huobdaih}与输入的币种${dnmiaosh}不符" errorCode="01030006">
+            <parameter id="huobdaih" type="BaseType.U_CRCYCD" longname="四字符串报错"/>
+            <parameter id="dnmiaosh" type="BaseType.U_CRCYCD" longname="双字符串报错"/>
+        </error>
+        <error id="E0008" type="error" message="输入字段${dnmiaosh}不正确" errorCode="01030007">
+            <parameter id="dnmiaosh" type="BaseType.U_CHINNA" longname="双字符串报错"/>
+        </error>
+        <error id="E0009" type="error" message="收费代码${dnmiaosh}未定义有效分层方式" errorCode="01030008">
+            <parameter id="dnmiaosh" type="BaseType.U_CHINNA" longname="双字符串报错"/>
+        </error>
+        <error id="E0010" type="error" message="收费代码${dnmiaosh}公式${zhongwmc}下计费类型${huobdaih}尚未支持" errorCode="01030009">
+            <parameter id="dnmiaosh" type="BaseType.U_CHINNA" longname="双字符串报错"/>
+            <parameter id="zhongwmc" type="BaseType.U_CHINNA" longname="四字符串报错"/>
+            <parameter id="huobdaih" type="FeEnumType.E_CUFETP" longname="四字符串报错"/>
+        </error>
+        <error id="E0011" type="error" message="收费代码${dnmiaosh}下尚未支持的分层方式${huobdaih}" errorCode="01030010">
+            <parameter id="dnmiaosh" type="BaseType.U_CHINNA" longname="双字符串报错"/>
+            <parameter id="huobdaih" type="FeEnumType.E_LYSPTP" longname="四字符串报错"/>
+        </error>
+        <error id="E0012" type="error" message="${zhongwmc}账户的产品代码${dnmiaosh}输入的产品号${huobdaih}不一致" errorCode="01030011">
+            <parameter id="zhongwmc" type="BaseType.U_CHINNA" longname="四字符串报错"/>
+            <parameter id="dnmiaosh" type="BaseType.U_CHINNA" longname="双字符串报错"/>
+            <parameter id="huobdaih" type="BaseType.U_CHINNA" longname="四字符串报错"/>
+        </error>
+        <error id="E0013" type="error" message="无对应的收费代码${dnmiaosh}定义信息！" errorCode="01030012">
+            <parameter id="dnmiaosh" type="BaseType.U_CHINNA" longname="双字符串报错"/>
+        </error>
+        <error id="E0014" type="error" message="${dnmiaosh}不存在！" errorCode="01030013">
+            <parameter id="dnmiaosh" type="BaseType.U_CHINNA" longname="双字符串报错"/>
+        </error>
+        <error id="E0015" type="error" message="场景代码${dnmiaosh}收费代码${zhongwmc}模块${huobdaih}的收费定义表记录不存在！" errorCode="01030014">
+            <parameter id="dnmiaosh" type="BaseType.U_CHINNA" longname="双字符串报错"/>
+            <parameter id="zhongwmc" type="BaseType.U_CHINNA" longname="四字符串报错"/>
+            <parameter id="huobdaih" type="PbEnumType.E_MODULE" longname="四字符串报错"/>
+        </error>
+        <error id="E0016" type="error" message="场景代码${dnmiaosh}在场景汇总表中未配置！" errorCode="01030015">
+            <parameter id="dnmiaosh" type="BaseType.U_CHINNA" longname="双字符串报错"/>
+        </error>
+        <error id="E0017" type="error" message="场景代码${dnmiaosh}在场景收费定义表中未配置！" errorCode="01030016">
+            <parameter id="dnmiaosh" type="BaseType.U_CHINNA" longname="双字符串报错"/>
+        </error>
+        <error id="E0018" type="error" message="维度类别${zhongwmc}，维度值${dnmiaosh}在场景维度明细表中未配置，请先配置！" errorCode="01030017">
+            <parameter id="zhongwmc" type="BaseType.U_CHINNA" longname="双字符串报错"/>
+            <parameter id="dnmiaosh" type="BaseType.U_CHINNA" longname="双字符串报错"/>
+        </error>
+        <error id="E0019" type="error" message="欠费的客户账户${dnmiaosh}不能为空！" errorCode="01030018">
+            <parameter id="dnmiaosh" type="BaseType.U_CHINNA" longname="双字符串报错"/>
+        </error>
+        <error id="E0020" type="error" message="交易接口中没有此字段${dnmiaosh}！" errorCode="01030019">
+            <parameter id="dnmiaosh" type="BaseType.U_CHINNA" longname="双字符串报错"/>
+        </error>
+        <error id="E0057" type="error" message="费率种类[${zhongwmc}]币种[${dnmiaosh}]尚未定义费率种类参数" errorCode="01030020">
+            <parameter id="zhongwmc" type="BaseType.U_CHINNA" longname="双字符串报错"/>
+            <parameter id="dnmiaosh" type="BaseType.U_CRCYCD" longname="双字符串报错"/>
+        </error>
+        <error id="E0139" type="error" message="费率种类[${zhongwmc}]不允许币种兑换，币种[${dnmiaosh}]必须与计费币种[${yingwmnc}]一致" errorCode="01030021">
+            <parameter id="zhongwmc" type="BaseType.U_CHINNA" longname="三字符串报错"/>
+            <parameter id="dnmiaosh" type="BaseType.U_CRCYCD" longname="三字符串报错"/>
+            <parameter id="yingwmnc" type="BaseType.U_CRCYCD" longname="三字符串报错"/>
+        </error>
+        <error id="E1001" type="error" message="输入字段[${zhongwmc}]必须输入" errorCode="01030022">
+            <parameter id="zhongwmc" type="BaseType.U_CHINNA" longname="字符串报错"/>
+        </error>
+        <error id="E1002" type="error" message="输入字段[${zhongwmc}]不正确,[${dnmiaosh}]" errorCode="01030023">
+            <parameter id="zhongwmc" type="BaseType.U_CHINNA" longname="字符串报错"/>
+            <parameter id="dnmiaosh" type="BaseType.U_SHORDS" longname="字符串报错"/>
+        </error>
+        <error id="E1003" type="error" message="第[${chanzxlx}]行必须输入[${zhongwmc}]" errorCode="01030024">
+            <parameter id="zhongwmc" type="BaseType.U_CHINNA" longname="字符串报错"/>
+            <parameter id="chanzxlx" type="BaseType.U_LONGIN" longname="整型报错"/>
+        </error>
+        <error id="E1004" type="error" message="域[${zhongwmc}]与域[${dnmiaosh}]不得同时出现" errorCode="01030025">
+            <parameter id="zhongwmc" type="BaseType.U_CHINNA" longname="字符串报错"/>
+            <parameter id="dnmiaosh" type="BaseType.U_SHORDS" longname="字符串报错"/>
+        </error>
+        <error id="E1005" type="error" message="输入[${zhongwmc}][${dnmiaosh}]与[${yingwmnc}][${zhhuywmc}]不一致" errorCode="01030026">
+            <parameter id="zhongwmc" type="BaseType.U_CHINNA" longname="字符串报错"/>
+            <parameter id="dnmiaosh" type="BaseType.U_SHORDS" longname="字符串报错"/>
+            <parameter id="yingwmnc" type="BaseType.U_ENGLNA" longname="字符串报错"/>
+            <parameter id="zhhuywmc" type="BaseType.U_CHINNA" longname="字符串报错"/>
+        </error>
+        <error id="E1006" type="error" message="输入[${zhongwmc}][${chanzxlx}]与[${dnmiaosh}][${jysijnzx}]不一致" errorCode="01030027">
+            <parameter id="zhongwmc" type="BaseType.U_CHINNA" longname="字符串报错"/>
+            <parameter id="chanzxlx" type="BaseType.U_LONGIN" longname="整型报错"/>
+            <parameter id="dnmiaosh" type="BaseType.U_SHORDS" longname="字符串报错"/>
+            <parameter id="jysijnzx" type="BaseType.U_DATELG" longname="整型报错"/>
+        </error>
+        <error id="E1007" type="error" message="输入[${zhongwmc}][${jiaoyije}]与[${dnmiaosh}][${zhanghye}]不一致" errorCode="01030028">
+            <parameter id="zhongwmc" type="BaseType.U_CHINNA" longname="字符串报错"/>
+            <parameter id="jiaoyije" type="BaseType.U_TRANAM" longname="金额报错"/>
+            <parameter id="dnmiaosh" type="BaseType.U_SHORDS" longname="字符串报错"/>
+            <parameter id="zhanghye" type="BaseType.U_ACBLTP" longname="金额报错"/>
+        </error>
+        <error id="E1008" type="error" message="金额[${jiaoyije}]不是[${zhanghye}]的整数倍" errorCode="01030029">
+            <parameter id="jiaoyije" type="BaseType.U_TRANAM" longname="双金额报错"/>
+            <parameter id="zhanghye" type="BaseType.U_ACBLTP" longname="双金额报错"/>
+        </error>
+        <error id="E1009" type="error" message="金额必须大于零" errorCode="01030030"/>
+        <error id="E1010" type="error" message="请输入[${zhongwmc}]" errorCode="01030031">
+            <parameter id="zhongwmc" type="BaseType.U_CHINNA" longname="字符串报错"/>
+        </error>
+        <error id="E1011" type="error" message="请输入查询条件" errorCode="01030032"/>
+        <error id="E1012" type="error" message="输入[${zhongwmc}]不完全，缺少[${dnmiaosh}]" errorCode="01030033">
+            <parameter id="zhongwmc" type="BaseType.U_CHINNA" longname="字符串报错"/>
+            <parameter id="dnmiaosh" type="BaseType.U_SHORDS" longname="字符串报错"/>
+        </error>
+        <error id="E1013" type="error" message="[${zhongwmc}]的值[${chanzxlx}]为非法值" errorCode="01030034">
+            <parameter id="zhongwmc" type="BaseType.U_CHINNA" longname="字符串报错"/>
+            <parameter id="chanzxlx" type="BaseType.U_LONGIN" longname="整型报错"/>
+        </error>
+        <error id="E1014" type="error" message="[${zhongwmc}]不能为空" errorCode="01030035">
+            <parameter id="zhongwmc" type="BaseType.U_CHINNA" longname="字符串报错"/>
+        </error>
+        <error id="E1015" type="error" message="[${zhongwmc}]不能为零" errorCode="01030036">
+            <parameter id="zhongwmc" type="BaseType.U_CHINNA" longname="字符串报错"/>
+        </error>
+        <error id="E1016" type="error" message="修改项只能为一项" errorCode="01030037"/>
+        <error id="E1017" type="error" message="[${zhongwmc}]只能输入其中之一" errorCode="01030038">
+            <parameter id="zhongwmc" type="BaseType.U_CHINNA" longname="字符串报错"/>
+        </error>
+        <error id="E1018" type="error" message="此费种代码尚未生效" errorCode="01030039"/>
+        <error id="E1019" type="error" message="此费种代码已过期" errorCode="01030040"/>
+        <error id="E1020" type="error" message="计费不分层,记录数不能大于一条" errorCode="01030041"/>
+        <error id="E1021" type="error" message="计费按单价,交易笔数不能小于一条" errorCode="01030042"/>
+        <error id="E1022" type="error" message="收费按单价,记录数不能小于一条" errorCode="01030043"/>
+        <error id="E1023" type="error" message="场景代码[${zhongwmc}]在场景定义表中未配置" errorCode="01030044">
+            <parameter id="zhongwmc" type="BaseType.U_CHINNA" longname="字符串报错"/>
+        </error>
+        <error id="E0130" type="error" message="失败处理方式[${zhongwmc}]非法" errorCode="01030045">
+            <parameter id="zhongwmc" type="BaseType.U_CHINNA" longname="单字符串报错"/>
+        </error>
+        <error id="E9999" type="error" message="[${msg}]" errorCode="01030046">
+            <parameter id="msg" type="BaseType.U_CHAR200" longname="错误信息"/>
+        </error>
+ <!-- 错误码改造 -->
+ 		<error id="BNASF001" type="error" message="场景计费列表不能为空" errorCode="01030047"/>
+        <error id="BNASF002" type="error" message="备用行分成比率不能为空" errorCode="01030048"/>
+        <error id="BNASF003" type="error" message="备注不能为空" errorCode="01030049"/>
+        <error id="BNASF004" type="error" message="标准费率列表为空，无法新增" errorCode="01030050"/>
+        <error id="BNASF005" type="error" message="不存在相关数据，请检查输入数据！" errorCode="01030051"/>
+        <error id="BNASF006" type="error" message="插入收费登记簿失败" errorCode="01030052"/>
+        <error id="BNASF007" type="error" message="查询机构，机构号不能为空" errorCode="01030053"/>
+ 		<error id="BNASF008" type="error" message="差错调整，调整金额必须等于原实收金额" errorCode="01030054"/>
+        <error id="BNASF009" type="error" message="差错调整，调整前后金额必须相等！" errorCode="01030055"/>
+        <error id="BNASF010" type="error" message="产品编号不能为空" errorCode="01030056"/>
+        <error id="BNASF011" type="error" message="产品编码交易信息总账系统未发布核算规则，无法记账！" errorCode="01030057"/>
+        <error id="BNASF012" type="error" message="场景代码与费种代码的场景代码定义已存在" errorCode="01030058"/>
+        <error id="BNASF013" type="error" message="场景代码与费种代码已存在绑定关系" errorCode="01030059"/>
+        <error id="BNASF014" type="error" message="场景代码在场景定义表中未配置" errorCode="01030060"/>
+        <error id="BNASF015" type="error" message="场景代码不存在" errorCode="01030061"/>
+        <error id="BNASF016" type="error" message="场景代码不能为空" errorCode="01030062"/>
+        <error id="BNASF017" type="error" message="场景代码明细列表为空，无法新增" errorCode="01030063"/>
+        <error id="BNASF018" type="error" message="场景名称已存在，不允许更新操作" errorCode="01030064"/>
+        <error id="BNASF019" type="error" message="场景事件编号不能为空" errorCode="01030065"/>
+        <error id="BNASF020" type="error" message="场景事件定义不存在" errorCode="01030066"/>
+        <error id="BNASF021" type="error" message="超额起点必须大于等于0" errorCode="01030067"/>
+        <error id="BNASF022" type="error" message="超额起点不得小于0！" errorCode="01030068"/>
+        <error id="BNASF023" type="error" message="超额起点不能为空" errorCode="01030069"/>
+        <error id="BNASF024" type="error" message="超额优惠比例必须大于等于0小于等于100！" errorCode="01030070"/>
+        <error id="BNASF025" type="error" message="超额优惠比例不能为空" errorCode="01030071"/>
+        <error id="BNASF026" type="error" message="超额优惠代码已经生效且未失效，不允许删除" errorCode="01030072"/>
+        <error id="BNASF027" type="error" message="超额优惠代码不存在" errorCode="01030073"/>
+        <error id="BNASF028" type="error" message="超额优惠代码不能为空" errorCode="01030074"/>
+        <error id="BNASF029" type="error" message="超额优惠代码名称不能为空" errorCode="01030075"/>
+        <error id="BNASF030" type="error" message="超额优惠定义不存在" errorCode="01030076"/>
+        <error id="BNASF031" type="error" message="超额优惠解析不存在" errorCode="01030077"/>
+        <error id="BNASF032" type="error" message="超额优惠明细不存在" errorCode="01030078"/>
+        <error id="BNASF033" type="error" message="超额优惠明细列表不能为空" errorCode="01030079"/>
+        <error id="BNASF034" type="error" message="此费种代码尚未生效" errorCode="01030080"/>
+        <error id="BNASF035" type="error" message="此费种代码已过期" errorCode="01030081"/>
+        <error id="BNASF036" type="error" message="错误的交易信息，请核对！" errorCode="01030082"/>
+        <error id="BNASF037" type="error" message="单一优惠不存在" errorCode="01030083"/>
+        <error id="BNASF038" type="error" message="单一优惠解析不存在" errorCode="01030084"/>
+        <error id="BNASF039" type="error" message="单一优惠起点必须大于0" errorCode="01030085"/>
+        <error id="BNASF040" type="error" message="单一优惠起点不能为空" errorCode="01030086"/>
+        <error id="BNASF041" type="error" message="单一优惠起点不能为空或小于0！" errorCode="01030087"/>
+        <error id="BNASF042" type="error" message="单一优惠起点类型不能为空" errorCode="01030088"/>
+        <error id="BNASF043" type="error" message="当前机构非原机构且非清算中心下辖网点，不允许进行收费调整" errorCode="01030089"/>
+        <error id="BNASF044" type="error" message="当前转出账户不允许手工记账！" errorCode="01030090"/>
+        <error id="BNASF045" type="error" message="当前转出账户已销户！" errorCode="01030091"/>
+        <error id="BNASF046" type="error" message="档次区间下限不能为空或小于0！" errorCode="01030092"/>
+        <error id="BNASF047" type="error" message="电子账户处于异常状态，请核查" errorCode="01030093"/>
+        <error id="BNASF048" type="error" message="电子账户为未激活" errorCode="01030094"/>
+        <error id="BNASF049" type="error" message="电子账户为未启用,请先启用电子账户！" errorCode="01030095"/>
+        <error id="BNASF050" type="error" message="电子账户为销户" errorCode="01030096"/>
+        <error id="BNASF051" type="error" message="电子账户为休眠,请向电子账户转入任意金额激活电子账户" errorCode="01030097"/>
+        <error id="BNASF052" type="error" message="电子账户为预开户" errorCode="01030098"/>
+        <error id="BNASF053" type="error" message="电子账户为预销户" errorCode="01030099"/>
+        <error id="BNASF054" type="error" message="定义的日期不在超额优惠日期区间内" errorCode="01030100"/>
+        <error id="BNASF055" type="error" message="对应计费公式不存在" errorCode="01030101"/>
+        <error id="BNASF056" type="error" message="非本行社员不能删除优惠计划解析信息" errorCode="01030102"/>
+        <error id="BNASF057" type="error" message="非本行社员不能删除优惠计划信息" errorCode="01030103"/>
+        <error id="BNASF058" type="error" message="非本行社自定义优惠计划解析信息不能修改" errorCode="01030104"/>
+        <error id="BNASF059" type="error" message="非本行社自定义优惠计划信息不能修改" errorCode="01030105"/>
+        <error id="BNASF060" type="error" message="非差错调整，账号不能为空！" errorCode="01030106"/>
+        <error id="BNASF061" type="error" message="非省中心，只能查询本机构的信息！" errorCode="01030107"/>
+        <error id="BNASF062" type="error" message="费率种类,币种,尚未定义费率种类参数" errorCode="01030108"/>
+        <error id="BNASF063" type="error" message="费率种类不允许币种兑换，币种必须与计费币种一致" errorCode="01030109"/>
+        <error id="BNASF064" type="error" message="费用标志只有已收和未收两种，请检查输入信息！" errorCode="01030110"/>
+        <error id="BNASF065" type="error" message="费用明细记录数必须大于零！" errorCode="01030111"/>
+        <error id="BNASF066" type="error" message="费用收付标志必须输入" errorCode="01030112"/>
+        <error id="BNASF067" type="error" message="费用收付标志不能为空" errorCode="01030113"/>
+        <error id="BNASF068" type="error" message="费用收付标志与原记录不一致" errorCode="01030114"/>
+        <error id="BNASF069" type="error" message="费种无产品信息，无法通过内部户收取费用，请确认！" errorCode="01030115"/>
+        <error id="BNASF070" type="error" message="费种大类不能为空" errorCode="01030116"/>
+        <error id="BNASF071" type="error" message="费种大类与原记录不一致" errorCode="01030117"/>
+        <error id="BNASF072" type="error" message="费种代码已经配置通用场景[%],不允许再关联其他场景代码" errorCode="01030118"/>
+        <error id="BNASF073" type="error" message="费种代码编码错误，请检查！" errorCode="01030119"/>
+        <error id="BNASF074" type="error" message="费种代码不存在" errorCode="01030120"/>
+        <error id="BNASF075" type="error" message="费种代码不符合编码规则！" errorCode="01030121"/>
+        <error id="BNASF076" type="error" message="费种代码不能为空" errorCode="01030122"/>
+        <error id="BNASF077" type="error" message="费种代码附加属性不存在" errorCode="01030123"/>
+        <error id="BNASF078" type="error" message="费种代码附加属性不能为空" errorCode="01030124"/>
+        <error id="BNASF079" type="error" message="费种代码附加属性列表为空，无法新增" errorCode="01030125"/>
+        <error id="BNASF080" type="error" message="费种代码和计费公式代码已存在绑定记录" errorCode="01030126"/>
+        <error id="BNASF081" type="error" message="费种代码名称不能为空" errorCode="01030127"/>
+        <error id="BNASF082" type="error" message="费种代码名称已存在" errorCode="01030128"/>
+        <error id="BNASF083" type="error" message="费种代码收费分层取值类型与计费公式区间下限类型不匹配" errorCode="01030129"/>
+        <error id="BNASF084" type="error" message="费种代码为付费，不能用于收费交易！" errorCode="01030130"/>
+        <error id="BNASF085" type="error" message="费种代码信息不存在" errorCode="01030131"/>
+        <error id="BNASF086" type="error" message="费种代码已经配置场景代码,不允许再配置通用场景[%]" errorCode="01030132"/>
+        <error id="BNASF087" type="error" message="分层方式不能为空" errorCode="01030133"/>
+        <error id="BNASF088" type="error" message="分层方式与原记录不一致" errorCode="01030134"/>
+        <error id="BNASF089" type="error" message="分成比率相加不等于100" errorCode="01030135"/>
+        <error id="BNASF090" type="error" message="分润方二分成比率不能为空且大于等于0" errorCode="01030136"/>
+        <error id="BNASF091" type="error" message="该标准费率已生效不能删除" errorCode="01030137"/>
+        <error id="BNASF092" type="error" message="该标准费率已失效不能修改" errorCode="01030138"/>
+        <error id="BNASF093" type="error" message="该电子账户处于借冻状态" errorCode="01030139"/>
+        <error id="BNASF094" type="error" message="该电子账户处于全止状态" errorCode="01030140"/>
+        <error id="BNASF095" type="error" message="该电子账户处于双冻状态" errorCode="01030141"/>
+        <error id="BNASF096" type="error" message="该费种代码已配置且尚未失效，配置重复" errorCode="01030142"/>
+        <error id="BNASF097" type="error" message="该费种代码已失效不能修改" errorCode="01030143"/>
+        <error id="BNASF098" type="error" message="该费种代码与超额优惠代码已存在绑定关系，不允许重复新增" errorCode="01030144"/>
+        <error id="BNASF099" type="error" message="该记录已存在，不得重复添加" errorCode="01030145"/>
+        <error id="BNASF100" type="error" message="该记录已经调整不允许再调整" errorCode="01030146"/>
+        <error id="BNASF101" type="error" message="该记录已生效只能修改失效日期" errorCode="01030147"/>
+        <error id="BNASF102" type="error" message="该内部户不允许手工记账，不允许做此交易！" errorCode="01030148"/>
+        <error id="BNASF103" type="error" message="该内部户已销户，不允许做此交易！" errorCode="01030149"/>
+        <error id="BNASF104" type="error" message="该维度名称已经存在，不允许新增" errorCode="01030150"/>
+        <error id="BNASF105" type="error" message="该维度名称已经存在，不允许修改" errorCode="01030151"/>
+        <error id="BNASF106" type="error" message="该优惠计划存在绑定关系，不能删除" errorCode="01030152"/>
+        <error id="BNASF107" type="error" message="该优惠计划解析已生效，只允许该失效日期" errorCode="01030153"/>
+ 		<error id="BNASF108" type="error" message="该优惠计划已绑定优惠计划解析，不能删除" errorCode="01030154"/>
+        <error id="BNASF109" type="error" message="该优惠计划已生效，不能修改" errorCode="01030155"/>
+        <error id="BNASF110" type="error" message="该优惠计划已生效，只允许该失效日期" errorCode="01030156"/>
+        <error id="BNASF111" type="error" message="该优惠计划已生效不能删除" errorCode="01030157"/>
+        <error id="BNASF112" type="error" message="该优惠计划已失效，不允许修改" errorCode="01030158"/>
+        <error id="BNASF113" type="error" message="公示名称不能为空" errorCode="01030159"/>
+        <error id="BNASF114" type="error" message="公式代码定义日期不在标准费率日期区间内" errorCode="01030160"/>
+        <error id="BNASF115" type="error" message="收费累计类型不能为空" errorCode="01030161"/>
+        <error id="BNASF116" type="error" message="公式名称已存在" errorCode="01030162"/>
+        <error id="BNASF117" type="error" message="关联标志不能为空" errorCode="01030163"/>
+        <error id="BNASF118" type="error" message="关联维度已存在关联标志，不可再绑定" errorCode="01030164"/>
+        <error id="BNASF119" type="error" message="关联维度不能修改" errorCode="01030165"/>
+        <error id="BNASF120" type="error" message="关联维度类别不能为空" errorCode="01030166"/>
+        <error id="BNASF121" type="error" message="关联维度上下限必须同时填写" errorCode="01030167"/>
+        <error id="BNASF122" type="error" message="关联维度值下限必须小于关联维度值上限" errorCode="01030168"/>
+        <error id="BNASF123" type="error" message="柜面核算属性必须同时维护" errorCode="01030169"/>
+        <error id="BNASF124" type="error" message="汇总金额和明细金额汇总不相等！ " errorCode="01030170"/>
+        <error id="BNASF125" type="error" message="货币代号不能为空" errorCode="01030171"/>
+        <error id="BNASF126" type="error" message="货币代号与原记录不一致" errorCode="01030172"/>
+        <error id="BNASF127" type="error" message="获取调整后对应账号类型为空" errorCode="01030173"/>
+        <error id="BNASF128" type="error" message="机构没有权限修改该记录" errorCode="01030174"/>
+        <error id="BNASF129" type="error" message="机构号中心法人映射机构不存在" errorCode="01030175"/>
+        <error id="BNASF130" type="error" message="机构号不存在" errorCode="01030176"/>
+        <error id="BNASF131" type="error" message="机构号不能为空" errorCode="01030177"/>
+        <error id="BNASF132" type="error" message="机构号不允许修改" errorCode="01030178"/>
+        <error id="BNASF133" type="error" message="机构号对应信息不存在" errorCode="01030179"/>
+        <error id="BNASF134" type="error" message="集中收费不允许选择扣费失败" errorCode="01030180"/>
+        <error id="BNASF135" type="error" message="计费比例不能为空" errorCode="01030181"/>
+        <error id="BNASF136" type="error" message="计费比例应大于0小于等于100" errorCode="01030182"/>
+        <error id="BNASF137" type="error" message="计费单价不能为空" errorCode="01030183"/>
+        <error id="BNASF138" type="error" message="计费单价数值应大于等于0" errorCode="01030184"/>
+        <error id="BNASF139" type="error" message="计费公式已生效且未失效，不允许删除" errorCode="01030185"/>
+        <error id="BNASF140" type="error" message="计费公式存在公式明细内容，请先删除明细内容后再删除计费公式定义" errorCode="01030186"/>
+        <error id="BNASF141" type="error" message="计费公式代码不存在" errorCode="01030187"/>
+        <error id="BNASF142" type="error" message="计费公式代码不能为空" errorCode="01030188"/>
+        <error id="BNASF143" type="error" message="计费公式定义不存在" errorCode="01030189"/>
+        <error id="BNASF144" type="error" message="计费公式解析不存在" errorCode="01030190"/>
+        <error id="BNASF145" type="error" message="计费公式名称不能为空" errorCode="01030191"/>
+        <error id="BNASF146" type="error" message="计费公式明细不存在" errorCode="01030192"/>
+        <error id="BNASF147" type="error" message="计费公式明细列表不能为空" errorCode="01030193"/>
+        <error id="BNASF148" type="error" message="计费金额来源与原记录不一致" errorCode="01030194"/>
+        <error id="BNASF149" type="error" message="计费类型不能为空" errorCode="01030195"/>
+        <error id="BNASF150" type="error" message="计费中心返回计费信息不能为空" errorCode="01030196"/>
+        <error id="BNASF151" type="error" message="记录不存在！" errorCode="01030197"/>
+        <error id="BNASF152" type="error" message="记录不存在,无法更新" errorCode="01030198"/>
+        <error id="BNASF153" type="error" message="记录不存在,无法删除" errorCode="01030199"/>
+        <error id="BNASF154" type="error" message="记账标志不能为空" errorCode="01030200"/>
+        <error id="BNASF155" type="error" message="交易币种必须输入" errorCode="01030201"/>
+        <error id="BNASF156" type="error" message="交易币种不能为空" errorCode="01030202"/>
+        <error id="BNASF157" type="error" message="交易行分成比率不能为空" errorCode="01030203"/>
+        <error id="BNASF158" type="error" message="交易机构与新增机构不一致" errorCode="01030204"/>
+        <error id="BNASF159" type="error" message="交易金额必须大于零！" errorCode="01030205"/>
+        <error id="BNASF160" type="error" message="交易类别不能为空！" errorCode="01030206"/>
+        <error id="BNASF161" type="error" message="交易类别为收费，收费类别必须输入！" errorCode="01030207"/>
+        <error id="BNASF162" type="error" message="交易类别为收费，收费状态为未收时账号输入不能为空！" errorCode="01030208"/>
+        <error id="BNASF163" type="error" message="交易类型非收费必须在清算中心操作！" errorCode="01030209"/>
+        <error id="BNASF164" type="error" message="交易类型为1且收费类别为1时，场景代码必输！" errorCode="01030210"/>
+        <error id="BNASF165" type="error" message="交易类型为2,3,4时，场景代码必输！" errorCode="01030211"/>
+        <error id="BNASF166" type="error" message="交易信息不能为空！" errorCode="01030212"/>
+        <error id="BNASF167" type="error" message="结束日期不能大于当前系统日期！" errorCode="01030213"/>
+        <error id="BNASF168" type="error" message="结束日期不能小于起始日期！" errorCode="01030214"/>
+        <error id="BNASF169" type="error" message="截止日期不能大于系统日期" errorCode="01030215"/>
+        <error id="BNASF170" type="error" message="截止日期不能为空" errorCode="01030216"/>
+        <error id="BNASF171" type="error" message="金额区间下限不能为空" errorCode="01030217"/>
+        <error id="BNASF172" type="error" message="拒绝，场景代码存在绑定关系" errorCode="01030218"/>
+        <error id="BNASF173" type="error" message="拒绝，超额优惠代码存在绑定关系，不允许删除" errorCode="01030219"/>
+        <error id="BNASF174" type="error" message="拒绝，非同一客户内码电子账户!" errorCode="01030220"/>
+        <error id="BNASF175" type="error" message="拒绝，费种代码存在绑定关系，不允许删除" errorCode="01030221"/>
+        <error id="BNASF176" type="error" message="拒绝，计费公式存在绑定关系，不允许删除" errorCode="01030222"/>
+        <error id="BNASF177" type="error" message="拒绝，事件存在绑定关系，不允许删除" errorCode="01030223"/>
+        <error id="BNASF178" type="error" message="拒绝，维度类别存在维度值，不允许删除" errorCode="01030224"/>
+        <error id="BNASF179" type="error" message="开始日期不能大于结束日期" errorCode="01030225"/>
+        <error id="BNASF180" type="error" message="客户号不能为空" errorCode="01030226"/>
+        <error id="BNASF181" type="error" message="客户账号不能为空" errorCode="01030227"/>
+        <error id="BNASF182" type="error" message="客户账号账户信息状态不正常" errorCode="01030228"/>
+        <error id="BNASF183" type="error" message="扣费账户信息状态不正常" errorCode="01030229"/>
+        <error id="BNASF184" type="error" message="跨法人机构内部账，拒绝操作！" errorCode="01030230"/>
+        <error id="BNASF185" type="error" message="跨法人机构账户，拒绝操作！" errorCode="01030231"/>
+        <error id="BNASF186" type="error" message="累积交易额限制必须大于等于0！" errorCode="01030232"/>
+        <error id="BNASF187" type="error" message="累积主体类型不能为空" errorCode="01030233"/>
+        <error id="BNASF188" type="error" message="模块不能为空" errorCode="01030234"/>
+        <error id="BNASF189" type="error" message="内部户收付费差错调整，调整后产品不能为空！" errorCode="01030235"/>
+        <error id="BNASF190" type="error" message="内部户余额方向非贷方，不允许做此交易！" errorCode="01030236"/>
+        <error id="BNASF191" type="error" message="起始日期不能大于当前系统日期！" errorCode="01030237"/>
+        <error id="BNASF192" type="error" message="起始日期不能大于截止日期" errorCode="01030238"/>
+        <error id="BNASF193" type="error" message="起始日期不能大于系统日期" errorCode="01030239"/>
+        <error id="BNASF194" type="error" message="起始日期不能为空" errorCode="01030240"/>
+        <error id="BNASF195" type="error" message="起始日期和截止日期跨度不得超过一年！" errorCode="01030241"/>
+        <error id="BNASF196" type="error" message="欠费扣费周期不能为空" errorCode="01030242"/>
+        <error id="BNASF197" type="error" message="渠道不能为空！" errorCode="01030243"/>
+        <error id="BNASF198" type="error" message="删除失败，未找到要删除数据" errorCode="01030244"/>
+        <error id="BNASF199" type="error" message="上送机构非清算中心机构，不允许做此交易" errorCode="01030245"/>
+        <error id="BNASF200" type="error" message="生效记录比例不可修改" errorCode="01030246"/>
+        <error id="BNASF201" type="error" message="生效记录比率不可修改" errorCode="01030247"/>
+        <error id="BNASF202" type="error" message="生效记录币种不可修改" errorCode="01030248"/>
+        <error id="BNASF203" type="error" message="生效记录生效日期不可修改" errorCode="01030249"/>
+        <error id="BNASF204" type="error" message="生效日期必须大于当前系统日期" errorCode="01030250"/>
+        <error id="BNASF205" type="error" message="生效日期必须大于系統日期" errorCode="01030251"/>
+        <error id="BNASF206" type="error" message="生效日期必须大于优惠计划定义的生效日期" errorCode="01030252"/>
+        <error id="BNASF207" type="error" message="生效日期不能为空" errorCode="01030253"/>
+ 		<error id="BNASF208" type="error" message="失效记录不可修改" errorCode="01030254"/>
+        <error id="BNASF209" type="error" message="失效日期必须大于当前系统日期" errorCode="01030255"/>
+        <error id="BNASF210" type="error" message="失效日期必须大于生效日期" errorCode="01030256"/>
+        <error id="BNASF211" type="error" message="失效日期必须小于优惠计划定义的失效日期" errorCode="01030257"/>
+        <error id="BNASF212" type="error" message="失效日期不能为空" errorCode="01030258"/>
+        <error id="BNASF213" type="error" message="实时收费最多支持5笔费用明细！" errorCode="01030259"/>
+        <error id="BNASF214" type="error" message="实收金额必须大于0" errorCode="01030260"/>
+        <error id="BNASF215" type="error" message="事件编号没有对应的场景代码" errorCode="01030261"/>
+        <error id="BNASF216" type="error" message="事件编号不存在" errorCode="01030262"/>
+        <error id="BNASF217" type="error" message="事件编号不能为空" errorCode="01030263"/>
+        <error id="BNASF218" type="error" message="事件名称已存在，不允许更新操作" errorCode="01030264"/>
+        <error id="BNASF219" type="error" message="是否允许集中收费标志不能为空" errorCode="01030265"/>
+        <error id="BNASF220" type="error" message="是否允许优惠不能为空" errorCode="01030266"/>
+        <error id="BNASF221" type="error" message="收费、付费，必须输入客户账！" errorCode="01030267"/>
+        <error id="BNASF222" type="error" message="分润方一分成比率不能为空且大于等于0" errorCode="01030268"/>
+        <error id="BNASF223" type="error" message="收费标志为付费时，收费状态应为空！" errorCode="01030269"/>
+        <error id="BNASF224" type="error" message="收费标志为收费时，收费状态标志必输！" errorCode="01030270"/>
+        <error id="BNASF225" type="error" message="收费产品编码交易信息总账系统未发布核算规则，无法收费！" errorCode="01030271"/>
+        <error id="BNASF226" type="error" message="收费代码必须输入" errorCode="01030272"/>
+        <error id="BNASF227" type="error" message="收费分层取值类型不能为空" errorCode="01030273"/>
+        <error id="BNASF228" type="error" message="收费分润标志不能为空" errorCode="01030274"/>
+        <error id="BNASF229" type="error" message="收费金额必须大于零！" errorCode="01030275"/>
+        <error id="BNASF230" type="error" message="收费金额来源不能为空" errorCode="01030276"/>
+        <error id="BNASF231" type="error" message="收费类别为2时，场景代码不可输！" errorCode="01030277"/>
+        <error id="BNASF232" type="error" message="收费累积类型不能为空" errorCode="01030278"/>
+        <error id="BNASF233" type="error" message="调整后费种代码不能为空！" errorCode="01030279"/>
+        <error id="BNASF234" type="error" message="差错调整，调整后收费信息和原收费信息不能相同！" errorCode="01030280"/>
+        <error id="BNASF235" type="error" message="收费调整不允许跨年度调整！" errorCode="01030281"/>
+        <error id="BNASF236" type="error" message="收费周期不能为空" errorCode="01030282"/>
+        <error id="BNASF237" type="error" message="收入入账、支出入账，必须输入内部户！" errorCode="01030283"/>
+        <error id="BNASF238" type="error" message="输入户名不正确！" errorCode="01030284"/>
+        <error id="BNASF239" type="error" message="数量不能小于零" errorCode="01030285"/>
+        <error id="BNASF240" type="error" message="顺序号不能为空" errorCode="01030286"/>
+        <error id="BNASF241" type="error" message="四舍五入方式不能为空" errorCode="01030287"/>
+        <error id="BNASF242" type="error" message="四舍五入方式与原记录不一致" errorCode="01030288"/>
+        <error id="BNASF243" type="error" message="调整方式不能为空" errorCode="01030289"/>
+        <error id="BNASF244" type="error" message="调整金额不能为空或者0！" errorCode="01030290"/>
+        <error id="BNASF245" type="error" message="调整金额需小于等于原金额!" errorCode="01030291"/>
+        <error id="BNASF246" type="error" message="调整前后账号法人机构不一致!" errorCode="01030292"/>
+        <error id="BNASF247" type="error" message="调整前后账号类型不一致" errorCode="01030293"/>
+        <error id="BNASF248" type="error" message="调整账号不能为空" errorCode="01030294"/>
+        <error id="BNASF249" type="error" message="网络核算属性必须同时维护" errorCode="01030295"/>
+        <error id="BNASF250" type="error" message="维度类别不存在" errorCode="01030296"/>
+        <error id="BNASF251" type="error" message="维度类别不能为空" errorCode="01030297"/>
+        <error id="BNASF252" type="error" message="维度类别或维度值不存在！" errorCode="01030298"/>
+        <error id="BNASF253" type="error" message="维度类别或维度值不能为空" errorCode="01030299"/>
+        <error id="BNASF254" type="error" message="维度类别名称不能为空" errorCode="01030300"/>
+        <error id="BNASF255" type="error" message="维度类型不能为空" errorCode="01030301"/>
+        <error id="BNASF256" type="error" message="维度类型列表不能为空" errorCode="01030302"/>
+        <error id="BNASF257" type="error" message="维度信息参数不存在" errorCode="01030303"/>
+        <error id="BNASF258" type="error" message="维度值不存在" errorCode="01030304"/>
+        <error id="BNASF259" type="error" message="维度值不能为空" errorCode="01030305"/>
+        <error id="BNASF260" type="error" message="维度值存在绑定关系，不允许删除" errorCode="01030306"/>
+        <error id="BNASF261" type="error" message="维度值列表为空，无法新增" errorCode="01030307"/>
+        <error id="BNASF262" type="error" message="维度值名称不能为空" errorCode="01030308"/>
+        <error id="BNASF263" type="error" message="维度值名称重复" errorCode="01030309"/>
+        <error id="BNASF264" type="error" message="维度值已存在" errorCode="01030310"/>
+        <error id="BNASF265" type="error" message="未找到对应交易信息或产品代码" errorCode="01030311"/>
+        <error id="BNASF266" type="error" message="未找到维度值、维度类别匹配的记录" errorCode="01030312"/>
+        <error id="BNASF267" type="error" message="未找到优惠计划信息" errorCode="01030313"/>
+        <error id="BNASF268" type="error" message="无对应的原收费记录" errorCode="01030314"/>
+        <error id="BNASF269" type="error" message="无对应原交易流水与日期收费信息" errorCode="01030315"/>
+        <error id="BNASF270" type="error" message="无相关记录，请检查输入数据！" errorCode="01030316"/>
+        <error id="BNASF271" type="error" message="县辖管理标志不能为空" errorCode="01030317"/>
+        <error id="BNASF272" type="error" message="县辖维护标志不能为空" errorCode="01030318"/>
+        <error id="BNASF273" type="error" message="现转标志必须输入" errorCode="01030319"/>
+        <error id="BNASF274" type="error" message="销记记录未找到！" errorCode="01030320"/>
+        <error id="BNASF275" type="error" message="销记收费登记簿时，结束日期必输！" errorCode="01030321"/>
+        <error id="BNASF276" type="error" message="销记收费登记簿时，起始日期必输！" errorCode="01030322"/>
+        <error id="BNASF277" type="error" message="销记总金额不等于输入总金额！" errorCode="01030323"/>
+        <error id="BNASF278" type="error" message="新增最低/最高优惠比例输入值均必须大于等于0且小于等于100" errorCode="01030324"/>
+        <error id="BNASF279" type="error" message="修改记录不存在" errorCode="01030325"/>
+        <error id="BNASF280" type="error" message="要删除的记录不存在" errorCode="01030326"/>
+        <error id="BNASF281" type="error" message="页码必须输入" errorCode="01030327"/>
+        <error id="BNASF282" type="error" message="页码输入有误！" errorCode="01030328"/>
+        <error id="BNASF283" type="error" message="页容量必须输入" errorCode="01030329"/>
+        <error id="BNASF284" type="error" message="已经生效但未失效的记录只能修改失效日期" errorCode="01030330"/>
+        <error id="BNASF285" type="error" message="已经生效的超额优惠明细不允许删除" errorCode="01030331"/>
+        <error id="BNASF286" type="error" message="已经生效的单一优惠不允许删除" errorCode="01030332"/>
+        <error id="BNASF287" type="error" message="已经生效的记录不允许删除" errorCode="01030333"/>
+        <error id="BNASF288" type="error" message="已经生效的优惠计划解析不允许删除" errorCode="01030334"/>
+        <error id="BNASF289" type="error" message="已经失效的记录不能修改，只能删除" errorCode="01030335"/>
+        <error id="BNASF290" type="error" message="已经失效的记录只能删除" errorCode="01030336"/>
+        <error id="BNASF291" type="error" message="已生效但未失效的费种代码只能修改失效时间" errorCode="01030337"/>
+        <error id="BNASF292" type="error" message="已生效但未失效的记录只能修改失效日期" errorCode="01030338"/>
+        <error id="BNASF293" type="error" message="已生效但未失效的优惠计划只能修改失效日期" errorCode="01030339"/>
+        <error id="BNASF294" type="error" message="已生效的费种代码不允许删除" errorCode="01030340"/>
+        <error id="BNASF295" type="error" message="已失效不能修改" errorCode="01030341"/>
+        <error id="BNASF296" type="error" message="优惠比例必须大于0小于等于100" errorCode="01030342"/>
+        <error id="BNASF297" type="error" message="优惠比例不能为空" errorCode="01030343"/>
+        <error id="BNASF298" type="error" message="优惠比例应大于0小于等于100" errorCode="01030344"/>
+        <error id="BNASF299" type="error" message="优惠定义信息不存在" errorCode="01030345"/>
+        <error id="BNASF300" type="error" message="选择定时优惠时,优惠返还时间不能为空" errorCode="01030346"/>
+        <error id="BNASF301" type="error" message="优惠计划代码，顺序号的记录不存在" errorCode="01030347"/>
+        <error id="BNASF302" type="error" message="优惠计划代码已经失效，不允许修改任何字段" errorCode="01030348"/>
+        <error id="BNASF303" type="error" message="优惠计划代码不能为空" errorCode="01030349"/>
+        <error id="BNASF304" type="error" message="优惠计划代码名称不能为空" errorCode="01030350"/>
+        <error id="BNASF305" type="error" message="优惠计划代码信息不存在" errorCode="01030351"/>
+        <error id="BNASF306" type="error" message="优惠计划定义不存在" errorCode="01030352"/>
+        <error id="BNASF307" type="error" message="优惠计划明细不能为空" errorCode="01030353"/>
+ 		<error id="BNASF308" type="error" message="优惠计划明细记录不存在,无法更新" errorCode="01030354"/>
+        <error id="BNASF309" type="error" message="优惠计划明细信息不能为空" errorCode="01030355"/>
+        <error id="BNASF310" type="error" message="优惠计划维度取值和关联维度上下限不能同时输入" errorCode="01030356"/>
+        <error id="BNASF311" type="error" message="优惠计划维度取值和关联维度上下限不能同时为空" errorCode="01030357"/>
+        <error id="BNASF312" type="error" message="优惠起点不能为空" errorCode="01030358"/>
+        <error id="BNASF313" type="error" message="优惠起点类型不能为空" errorCode="01030359"/>
+        <error id="BNASF314" type="error" message="优惠起点应该大于等于0" errorCode="01030360"/>
+        <error id="BNASF315" type="error" message="优惠起点应为正整数" errorCode="01030361"/>
+        <error id="BNASF316" type="error" message="余额不足处理方式不能为空" errorCode="01030362"/>
+        <error id="BNASF317" type="error" message="与原记录相同，不允许更新操作" errorCode="01030363"/>
+        <error id="BNASF318" type="error" message="原交易费种代码为付费，不能调整到收费费种代码]！" errorCode="01030364"/>
+        <error id="BNASF319" type="error" message="原交易流水不能为空" errorCode="01030365"/>
+        <error id="BNASF320" type="error" message="原交易日期必须小于当前系统日期！" errorCode="01030366"/>
+        <error id="BNASF321" type="error" message="原交易日期不能为空" errorCode="01030367"/>
+        <error id="BNASF322" type="error" message="原交易为跨法人机构交易，拒绝操作" errorCode="01030368"/>
+        <error id="BNASF323" type="error" message="原收费记录已经被冲正!" errorCode="01030369"/>
+        <error id="BNASF324" type="error" message="暂不支持现金收取的方式" errorCode="01030370"/>
+        <error id="BNASF325" type="error" message="摘要不能为空！" errorCode="01030371"/>
+        <error id="BNASF326" type="error" message="账号、机构号、收费状态不能同时为空" errorCode="01030372"/>
+        <error id="BNASF327" type="error" message="扣费账号币种与输入的收费账号币种不符" errorCode="01030373"/>
+        <error id="BNASF328" type="error" message="账号不存在！" errorCode="01030374"/>
+        <error id="BNASF329" type="error" message="账号不能为空！" errorCode="01030375"/>
+        <error id="BNASF330" type="error" message="账号钞汇标志与输入的收费账号钞汇标志不符" errorCode="01030376"/>
+        <error id="BNASF331" type="error" message="账号对应币种与调整费种币种不一致！" errorCode="01030377"/>
+        <error id="BNASF332" type="error" message="账号客户号与输入的收费账号客户号不符" errorCode="01030378"/>
+        <error id="BNASF333" type="error" message="账号名称不能为空！" errorCode="01030379"/>
+        <error id="BNASF334" type="error" message="账号输入不正确！" errorCode="01030380"/>
+        <error id="BNASF335" type="error" message="账号序号与输入的收费账号序号不符" errorCode="01030381"/>
+        <error id="BNASF336" type="error" message="账户可用余额不足，请检查！" errorCode="01030382"/>
+        <error id="BNASF337" type="error" message="账户可用余额不足收费金额" errorCode="01030383"/>
+        <error id="BNASF338" type="error" message="找不到该收费核算规则定义" errorCode="01030384"/>
+        <error id="BNASF339" type="error" message="周期不能为空" errorCode="01030385"/>
+        <error id="BNASF340" type="error" message="转出行分成比率不能为空" errorCode="01030386"/>
+        <error id="BNASF341" type="error" message="转入行分成比率不能为空" errorCode="01030387"/>
+        <error id="BNASF342" type="error" message="最低金额必须大于等于0" errorCode="01030388"/>
+        <error id="BNASF343" type="error" message="最低金额不能为空" errorCode="01030389"/>
+        <error id="BNASF344" type="error" message="最低金额应大于等于0" errorCode="01030390"/>
+        <error id="BNASF345" type="error" message="最低授权级别：省清算中心主办" errorCode="01030391"/>
+        <error id="BNASF346" type="error" message="最低小数位数不能为空" errorCode="01030392"/>
+        <error id="BNASF347" type="error" message="最低优惠比例必须满足大于等于0且小于最高优惠比例" errorCode="01030393"/>
+        <error id="BNASF348" type="error" message="最低优惠比例不能为空" errorCode="01030394"/>
+        <error id="BNASF349" type="error" message="最高金额不能为空" errorCode="01030395"/>
+        <error id="BNASF350" type="error" message="最高金额应大于最低金额" errorCode="01030396"/>
+        <error id="BNASF351" type="error" message="最高优惠比例必须大于最低优惠比例" errorCode="01030397"/>
+        <error id="BNASF352" type="error" message="最高优惠比例不能大于等于100且需要大于最低优惠比例" errorCode="01030398"/>
+        <error id="BNASF353" type="error" message="最高优惠比例不能为空" errorCode="01030399"/>
+        <error id="BNASF354" type="error" message="分润方三分成比率不能为空且大于等于0" errorCode="01030400"/>
+        <error id="BNASF355" type="error" message="分润方四分成比率不能为空且大于等于0" errorCode="01030401"/>
+        <error id="BNASF356" type="error" message="有效计费公式不存在" errorCode="01030402"/>
+        <error id="BNASF357" type="error" message="对应优惠维度不存在" errorCode="01030403"/>
+        <error id="BNASF358" type="error" message="交易日期不能为空" errorCode="01030404"/>
+        <error id="BNASF359" type="error" message="优惠计划解析表信息不存在" errorCode="01030405"/>
+        <error id="BNASF360" type="error" message="现转标志为转账时，客户账号不能为空" errorCode="01030406"/>
+        <error id="BNASF361" type="error" message="现金项目代码不能为空" errorCode="01030407"/>
+        <error id="BNASF362" type="error" message="计费中心未返回交易信息！" errorCode="01030408"/>
+        <error id="BNASF363" type="error" message="收取费用时候必须指定费用日期" errorCode="01030409"/>
+        <error id="BNASF364" type="error" message="柜员流水号不能为空" errorCode="01030410"/>
+        <error id="BNASF365" type="error" message="现转标志输入不正确，请重新输入" errorCode="01030411"/>
+        <error id="BNASF366" type="error" message="批量流水收费不支持现金" errorCode="01030412"/>
+        <error id="BNASF367" type="error" message="批量流水收费必须使用登记簿中登记的收费账号" errorCode="01030413"/>
+        <error id="BNASF368" type="error" message="收费账号不允许为空" errorCode="01030414"/>
+        <error id="BNASF369" type="error" message="计费方式为9-手续费汇总扣收，则上次登记序号必须指定" errorCode="01030415"/>
+        <error id="BNASF370" type="error" message="收费操作标志出错,请与技术人员联系" errorCode="01030416"/>
+        <error id="BNASF371" type="error" message="未找到对应的收费规则明细" errorCode="01030417"/>
+        <error id="BNASF372" type="error" message="批量交易流水号+起始序号收费目前只支持交易账号收费" errorCode="01030418"/>
+        <error id="BNASF373" type="error" message="账号余额不足" errorCode="01030419"/>
+        <error id="BNASF374" type="error" message="输入字段：费率种类不正确,允许部分收迄的不允许分成" errorCode="01030420"/>
+        <error id="BNASF375" type="error" message="没有对应的收费代码信息" errorCode="01030421"/>
+        <error id="BNASF376" type="error" message="事件登记序号不能为空" errorCode="01030422"/>
+        <error id="BNASF377" type="error" message="交易金额不能为空" errorCode="01030423"/>
+        <error id="BNASF378" type="error" message="收费币种不能为空" errorCode="01030424"/>
+        <error id="BNASF379" type="error" message="场景代码、事件编号必须输入其中之一" errorCode="01030425"/>
+        <error id="BNASF380" type="error" message="是否记账标志必须输入" errorCode="01030426"/>
+        <error id="BNASF381" type="error" message="收费帐号必须输入" errorCode="01030427"/>
+        <error id="BNASF382" type="error" message="未找到收付费调整记录" errorCode="01030428"/>
+        <error id="BNASF383" type="error" message="电子账户不能为空!" errorCode="01030429"/>
+        <error id="BNASF384" type="error" message="获取调整前对应账号类型为空" errorCode="01030430"/>
+        <error id="BNASF385" type="error" message="差错调整，调整后交易信息不能为空！" errorCode="01030431"/>
+        <error id="BNASF386" type="error" message="费种代码为收费，不能用于付费交易！" errorCode="01030432"/>
+        <error id="BNASF387" type="error" message="费种代码为付费，不能用于收费交易！" errorCode="01030433"/>
+        <error id="BNASF389" type="error" message="查询内部户[${acctno}]信息失败，无对应记录" errorCode="01030434">
+            <parameter id="acctno" type="BaseType.U_CHAR40" longname="内部户"/>
+        </error>
+        <error id="BNASF390" type="error" message="费种代码[${chrgcd}]编码错误请检查！" errorCode="01030435">
+            <parameter id="chrgcd" type="BaseType.U_CHAR20" longname="费种代码"/>
+        </error>
+        <error id="BNASF391" type="error" message="原交易费种代码[${chrgcd}]为收费，不能调整到付费费种代码[${jtchcd}]" errorCode="01030436">
+            <parameter id="chrgcd" type="BaseType.U_CHAR20" longname="原费种代码"/>
+            <parameter id="jtchcd" type="BaseType.U_CHAR20" longname="调整后费种代码"/>
+        </error>
+        <error id="BNASF392" type="error" message="原交易费种代码[${chrgcd}]为付费，不能调整到收费费种代码[${jtchcd}]" errorCode="01030437">
+            <parameter id="chrgcd" type="BaseType.U_CHAR20" longname="原费种代码"/>
+            <parameter id="jtchcd" type="BaseType.U_CHAR20" longname="调整后费种代码"/>
+        </error>
+        <error id="BNASF393" type="error" message="电子账户处于[${cuacst}]状态，请检查" errorCode="01030438">
+            <parameter id="cuacst" type="BaseType.U_CHAR20" longname="电子帐户状态"/>
+        </error>
+        <error id="BNASF394" type="error" message="费种代码参数信息不存在" errorCode="01030439"/>
+        <error id="BNASF395" type="error" message="事件名称不能为空" errorCode="01030440"/>
+        <error id="BNASF396" type="error" message="已经存在相同维度的单一优惠，不允许重复新增" errorCode="01030441"/>
+        <error id="BNASF397" type="error" message="超额优惠明细定义日期不在超额优惠定义的日期之内" errorCode="01030442"/>
+        <error id="BNASF398" type="error" message="输入的计费公式代码和费种代码已存在绑定关系" errorCode="01030443"/>
+        <error id="BNASF399" type="error" message="非差错调整，费种代码不能修改" errorCode="01030444"/>
+        <error id="BNASF400" type="error" message="调整原因不能为空" errorCode="01030445"/>
+        <error id="BNASF401" type="error" message="非集中收费，收费周期必须为空" errorCode="01030446"/>
+        <error id="BNASF402" type="error" message="余额不足处理方式不支持欠费时，欠费扣费周期必须为空" errorCode="01030447"/>
+        <error id="BNASF403" type="error" message="未定义的周期类型" errorCode="01030448"/> 
+        <error id="BNASF404" type="error" message="选择即时优惠时，优惠返还时间必须为空" errorCode="01030449"/>
+        <error id="BNASF405" type="error" message="该费种已经配置了收费核算规则，不允许重复新增" errorCode="01030450"/>      
+        <error id="BNASF500" type="error" message="卡号不能为空" errorCode="01030451"/>
+        <error id="BNASF501" type="error" message="输入卡号和负债账号不属于同一电子账号" errorCode="01030452"/>
+        <error id="BNASF502" type="error" message="输入卡号和原收费记录不匹配" errorCode="01030453"/>      
+        <error id="BNASF503" type="error" message="调整前电子账号不能为空" errorCode="01030454"/>      
+        <error id="BNASF504" type="error" message="客户号和账号不能同时为空" errorCode="01030455"/>      
+     
+
+        <error id="BNASF999" type="error" message="[${msg}]" errorCode="01030456">
+            <parameter id="msg" type="BaseType.U_CHAR200" longname="其它错误信息"/>
+        </error>
+    </errors>
+</errorConf>

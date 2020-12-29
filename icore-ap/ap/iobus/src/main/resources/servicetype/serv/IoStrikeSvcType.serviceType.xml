@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType id="IoStrikeSvcType" kind="business" longname="冲正服务" package="cn.sunline.ltts.busi.iobus.servicetype.serv" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    
+    <service id="ProcFdBackStrike" name="prcFdBackStrike" longname="基金赎回处理冲正">
+        <interface>
+            <input packMode="false">
+                <field id="cplFdbkStrikeIn" type="IoStrikeType.ProcApplFdbkStrikeInput" required="false" multi="false" array="false" longname="基金赎回处理冲正输入"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="ProcFdBuyStrike" name="prcFdBuyStrike" longname="基金申购冲正">
+        <interface>
+            <input packMode="false">
+                <field id="cplFdByStrikeIn" type="IoStrikeType.ProcApplFdbyStrikeInput" required="false" multi="false" array="false" longname="基金申购处理冲正输入"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="ProcNoteBuyStrike" name="prcNoteBuyStrike" longname="票据购买冲正">
+        <interface>
+            <input packMode="false">
+                <field id="cplNoteBuyStrikeIn" type="IoStrikeType.ProcApplNoteBuyStrikeInput" required="false" multi="false" array="false" longname="票据购买冲正输入"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="ProcInsuBuyStrike" name="prcInsuBuyStrike" longname="保险购买冲正">
+        <interface>
+            <input packMode="false">
+                <field id="cplInsuBuyStrikeIn" type="IoStrikeType.ProcApplStrikeInput" required="false" multi="false" array="false" longname="保险购买冲正输入"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="ProcInsuBackStrike" name="prcInsuBackStrike" longname="保险退保冲正">
+        <interface>
+            <input packMode="false">
+                <field id="cplInsuBackStrikeIn" type="IoStrikeType.ProcApplStrikeInput" required="false" multi="false" array="false" longname="保险退保冲正输入"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="ProcDepositFinacAcctStrike" name="prcDepositFinacAcctStrike" longname="融资账户存入冲正">
+        <interface>
+            <input packMode="false">
+                <field id="input" type="IoStrikeType.ProcApplStrikeInput" required="false" multi="false" array="false" longname="冲正输入"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoFcstrikeOnlnbOut" name="strikePrcFcAcctOnlnblOut" longname="投资账户资金转出冲正">
+        <interface>
+            <input packMode="false">
+                <field id="oinput" type="IoFcAcctComplexType.strikeFinacAcctIn" required="false" multi="false" array="false" longname="投资账户转出冲正输入参数"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+</serviceType>

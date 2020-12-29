@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType id="IoApAsyCallBatch" kind="business" longname="通用异步调用批量服务" package="cn.sunline.ltts.busi.iobus.servicetype.ap" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <service id="prcAsyCallBtch" name="prcAsyCallBtch" longname="通用异步调用批量程序">
+        <interface>
+            <input packMode="true">
+                <field id="bttype" type="ApBaseEnumType.E_BTTYPE" required="false" multi="false" array="false" longname="异步批量业务类型" ref="ApDict.Aplt.bttype"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="taskid" type="BaseType.U_CHAR40" required="false" multi="false" array="false" longname="处理码"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="updateTotlAfterParse" name="updateTotlAfterParse" longname="更新处理总笔数">
+        <interface>
+            <input packMode="false">
+                <field id="taskid" type="BaseType.U_CHAR40" required="false" multi="false" array="false" longname="批量交易批次号" ref="ApDict.Aplt.taskid"/>
+                <field id="chulizbs" type="ApBaseType.U_CHANZXLX" required="false" multi="false" array="false" longname="处理总笔数"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="updateFileDownPath" name="updateFileDownPath" longname="更新文件的下载路径">
+        <interface>
+            <input packMode="false">
+                <field id="taskid" type="BaseType.U_CHAR40" required="false" multi="false" array="false" longname="批量交易批次号" ref="ApDict.Aplt.taskid"/>
+                <field id="dwpath" type="BaseType.U_FILEPH" required="false" multi="false" array="false" longname="文件下载路径" ref="ApDict.Aplt.dwpath"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="updateFileUpPath" name="updateFileUpPath" longname="更新文件的上传路径">
+        <interface>
+            <input packMode="false">
+                <field id="taskid" type="BaseType.U_CHAR40" required="false" multi="false" array="false" longname="批量交易批次号" ref="ApDict.Aplt.taskid"/>
+                <field id="uppath" type="BaseType.U_FILEPH" required="false" multi="false" array="false" longname="文件上传路径" ref="ApDict.Aplt.uppath"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="updateFileBeforeDownload" name="updateFileBeforeDownload" longname="请求文件下载前更新">
+        <interface>
+            <input packMode="false">
+                <field id="taskid" type="BaseType.U_CHAR40" required="false" multi="false" array="false" longname="批量交易批次号" ref="ApDict.Aplt.taskid"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="updateFileAfterDownload" name="updateFileAfterDownload" longname="请求文件下载后更新">
+        <interface>
+            <input packMode="false">
+                <field id="taskid" type="BaseType.U_CHAR40" required="false" multi="false" array="false" longname="批量交易批次号" ref="ApDict.Aplt.taskid"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="updateFileBeforeParse" name="updateFileBeforeParse" longname="请求文件入库前更新">
+        <interface>
+            <input packMode="false">
+                <field id="taskid" type="BaseType.U_CHAR40" required="false" multi="false" array="false" longname="批量交易批次号" ref="ApDict.Aplt.taskid"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="updateFileAfterParse" name="updateFileAfterParse" longname="请求文件入库后更新">
+        <interface>
+            <input packMode="false">
+                <field id="taskid" type="BaseType.U_CHAR40" required="false" multi="false" array="false" longname="批量交易批次号" ref="ApDict.Aplt.taskid"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="updateFileBeforeBusi" name="updateFileBeforeBusi" longname="业务处理前更新">
+        <interface>
+            <input packMode="false">
+                <field id="taskid" type="BaseType.U_CHAR40" required="false" multi="false" array="false" longname="批量交易批次号" ref="ApDict.Aplt.taskid"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="updateFileAfterBusi" name="updateFileAfterBusi" longname="业务处理后更新">
+        <interface>
+            <input packMode="false">
+                <field id="taskid" type="BaseType.U_CHAR40" required="false" multi="false" array="false" longname="批量交易批次号" ref="ApDict.Aplt.taskid"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="updateFileBeforeResult" name="updateFileBeforeResult" longname="写文件前处理更新">
+        <interface>
+            <input packMode="false">
+                <field id="taskid" type="BaseType.U_CHAR40" required="false" multi="false" array="false" longname="批量交易批次号" ref="ApDict.Aplt.taskid"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="updateFileAfterResult" name="updateFileAfterResult" longname="写文件后处理更新">
+        <interface>
+            <input packMode="false">
+                <field id="taskid" type="BaseType.U_CHAR40" required="false" multi="false" array="false" longname="批量交易批次号" ref="ApDict.Aplt.taskid"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+</serviceType>

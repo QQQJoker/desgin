@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType id="IoApFileBatch" kind="business" longname="通用文件批量业务服务" package="cn.sunline.ltts.busi.iobus.servicetype.ap.fbat" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <service id="getStatus" name="getStatus" longname="DCN文件批量状态查询">
+        <interface>
+            <input packMode="false">
+                <field id="weituoho" type="ApBaseType.U_DNMIAOSH" required="false" multi="false" array="false" longname="委托号"/>
+                <field id="dcnbianh" type="ApBaseType.U_LEIXIN08" required="false" multi="false" array="false" longname="DCN编号"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="wjplzxjg" type="IoApFileBatchType.FileBatchResultInfo" required="false" multi="false" array="false" longname="文件批量执行结果"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="doTaskProcess" name="doTaskProcess" longname="DCN文件批量提交">
+        <interface>
+            <input packMode="false">
+                <field id="plrwtjxx" type="IoApFileBatchType.FileBatchSubmitInfo" required="false" multi="false" array="false" longname="批量任务提交信息"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="doBatchSubmitBack" name="doBatchSubmitBack" longname="批量提交后通知数据文件系统">
+        <interface>
+            <input packMode="false">
+                <field id="busseq" type="BaseType.U_CHAR40" required="false" multi="false" array="false" longname="业务处理编号"/>
+                <field id="filesq" type="BaseType.U_TEXCOD" required="false" multi="false" array="false" longname="文件批次号"/>
+                <field id="trandt" type="PbBaseType.U_DATE08" required="false" multi="false" array="false" longname="交易日期"/>
+                <field id="filenm" type="BaseType.U_CHAR100" required="false" multi="false" array="false" longname="翻盘文件名"/>
+                <field id="flpath" type="BaseType.U_CHAR200" required="false" multi="false" array="false" longname="文件路径"/>
+                <field id="status" type="BaseType.U_CHAR01" required="false" multi="false" array="false" longname="交互状态"/>
+                <field id="descri" type="BaseType.U_CHAR200" required="false" multi="false" array="false" longname="结果描述"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="doBatchSubmitBackToAll" name="doBatchSubmitBackToAll" longname="批量提交后通知数据子系统分发文件">
+        <interface>
+            <input packMode="false">
+                <field id="dataid" type="ApBaseEnumType.E_FILETP" required="false" multi="false" array="false" longname="数据类型"/>
+                <field id="filenm" type="BaseType.U_CHAR100" required="false" multi="false" array="false" longname="数据名称"/>
+                <field id="flpath" type="BaseType.U_CHAR200" required="false" multi="false" array="false" longname="文件路径"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="doBatchSubmitBackNotice" name="doBatchSubmitBackNotice" longname="批量提交通知数据系统">
+        <interface>
+            <input packMode="false">
+                <field id="status" type="BaseType.U_CHAR01" required="false" multi="false" array="false" longname="交互状态"/>
+                <field id="descri" type="BaseType.U_CHAR200" required="false" multi="false" array="false" longname="结果描述"/>
+                <field id="target" type="ApBaseEnumType.E_SYSCCD" required="false" multi="false" array="false" longname="对方系统编号"/>
+                <field id="filetp" type="ApBaseEnumType.E_FILETP" required="false" multi="false" array="false" longname="文件类型"/>
+                <field id="fileList" type="IoApFileBatchType.BatchFileSubmit" required="false" multi="true" array="false" longname="批量文件提交类型"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="returnBatchSubmitNotice" name="returnBatchSubmitNotice" longname="批量提交外调数据文件系统">
+        <interface>
+            <input packMode="false">
+                <field id="status" type="BaseType.U_CHAR01" required="false" multi="false" array="false" longname="交互状态"/>
+                <field id="descri" type="BaseType.U_CHAR200" required="false" multi="false" array="false" longname="结果描述"/>
+                <field id="target" type="ApBaseEnumType.E_SYSCCD" required="false" multi="false" array="false" longname="对方系统编号"/>
+                <field id="filetp" type="ApBaseEnumType.E_FILETP" required="false" multi="false" array="false" longname="文件类型"/>
+                <field id="busseq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="业务流水"/>
+                <field id="acctdt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="业务日期"/>
+                <field id="fileList" type="IoApFileBatchType.BatchFileSubmit" required="false" multi="true" array="false" longname="批量文件提交类型"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="doBatchSubmitBackSynNotice" name="doBatchSubmitBackSynNotice" longname="批量通知数据文件系统同步文件">
+        <description><![CDATA[]]></description>
+        <interface>
+            <input packMode="false">
+                <field id="source" type="ApBaseEnumType.E_SYSCCD" required="false" multi="false" array="false" longname="来源系统标识"/>
+                <field id="acctdt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="业务日期"/>
+                <field id="dataid" type="ApBaseEnumType.E_FILETP" required="false" multi="false" array="false" longname="数据类型"/>
+                <field id="filenm" type="BaseType.U_CHAR100" required="false" multi="false" array="false" longname="文件名称"/>
+                <field id="filemd" type="BaseType.U_CHAR40" required="false" multi="false" array="false" longname="MD5校验值"/>
+                <field id="targetList" type="IoApFileBatchType.targetList" required="false" multi="true" array="false" longname="目标系统集合"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+</serviceType>

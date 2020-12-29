@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<errorConf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="LaError" longname="银承错误码" package="cn.sunline.ltts.busi.sys.errors" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <errors id="LaComm" longname="银承错误码">
+        <error id="E9999" type="error" message="[${msg}]" errorCode="010L0055">
+            <parameter id="msg" type="BaseType.U_SHORDS" longname="错误信息主体"/>
+        </error>
+        <error id="E0001" type="error" message="[${msg}]不能为空" errorCode="010L0056">
+            <parameter id="msg" type="BaseType.U_CHAR20" longname="字段名"/>
+        </error>
+        <error id="E0002" type="error" message="申请人客户类型不正确" errorCode="010L0057"/>
+        <error id="E0003" type="error" message="票据类型不存在" errorCode="010L0058"/>
+        <error id="E0004" type="error" message="检查金额小数位不合法" errorCode="010L0059"/>
+        <error id="E0005" type="error" message="代签协议不能做此交易" errorCode="010L0060"/>
+        <error id="E0006" type="error" message="协议状态不正确" errorCode="010L0061"/>
+        <error id="E0007" type="error" message="输入到期日和信贷系统传入不符" errorCode="010L0062"/>
+        <error id="E0008" type="error" message="非协议指定币种" errorCode="010L0063"/>
+        <error id="E0009" type="error" message="签发金额大于协议签发面值,交易失败!" errorCode="010L0064"/>
+        <error id="E0010" type="error" message="申请人信息与协议信息不符" errorCode="010L0065"/>
+        <error id="E0011" type="error" message="申请人户名与协议登记信息不符" errorCode="010L0066"/>
+        <error id="E0012" type="error" message="通过借据号[${lncfno}]获取承兑申请明细失败" errorCode="010L0067">
+            <parameter id="lncfno" type="BaseType.U_LNCFNO" longname="借据号"/>
+        </error>
+        <error id="E0013" type="error" message="电票协议不能作此交易" errorCode="010L0068"/>
+        <error id="E0014" type="error" message="汇票号码已经存在,请确认!" errorCode="010L0069"/>
+        <error id="E0015" type="error" message="签发金额大于可签金额" errorCode="010L0070"/>
+        <error id="E0016" type="error" message="签发的汇票张数已超限" errorCode="010L0071"/>
+        <error id="E0017" type="error" message="签发金额大于可签金额" errorCode="010L0072"/>
+        <error id="E0018" type="error" message="签发的汇票张数已超限" errorCode="010L0073"/>
+        <error id="E0019" type="error" message="签发柜员和申请柜员不能相同" errorCode="010L0074"/>
+        <error id="E0020" type="error" message="借据号[${lncfno}]对应的承兑申请表中的状态为已签发，请不要重复签发" errorCode="010L0075">
+            <parameter id="lncfno" type="BaseType.U_LNCFNO" longname="借据号"/>
+        </error>
+        <error id="E0021" type="error" message="借据号[${lncfno}]对应的承兑申请表中的状态为已删除，不能进行签发" errorCode="010L0076">
+            <parameter id="lncfno" type="BaseType.U_LNCFNO" longname="借据号"/>
+        </error>
+        <error id="E0022" type="error" message="借据号[${lncfno}]对应的承兑申请表中的状态非录入，不能进行签发" errorCode="010L0077">
+            <parameter id="lncfno" type="BaseType.U_LNCFNO" longname="借据号"/>
+        </error>
+        <error id="E0023" type="error" message="前台上送合同号[${input}]与系统所存信息[${save}]不一致" errorCode="010L0078">
+            <parameter id="input" type="BaseType.U_CHAR20"/>
+            <parameter id="save" type="BaseType.U_CHAR20"/>
+        </error>
+        <error id="E0024" type="error" message="前台上送合同号[${input}]与系统所存信息[${save}]不一致" errorCode="010L0079">
+            <parameter id="input" type="BaseType.U_TRANAM"/>
+            <parameter id="save" type="BaseType.U_TRANAM"/>
+        </error>
+        <error id="E0025" type="error" message="汇票状态值错误！" errorCode="010L0080"/>
+        <error id="E0026" type="error" message="电票协议不能作此交易" errorCode="010L0081"/>
+        <error id="E0027" type="error" message="该汇票非本机构签发，不允许在本机构更换!" errorCode="010L0082"/>
+        <error id="E0028" type="error" message="替换汇票号码长度不正确!" errorCode="010L0083"/>
+        <error id="E0029" type="error" message="查询银承凭证付出登记簿失败,不存在汇票[${nwptno}],请先付出银行承兑汇票!" errorCode="010L0084">
+            <parameter id="nwptno" type="LaBaseType.U_ACPTNO" longname="票号"/>
+        </error>
+        <error id="E0030" type="error" message="汇票面值错误!" errorCode="010L0085"/>
+        <error id="E0031" type="error" message="申请人账号错误!" errorCode="010L0086"/>
+        <error id="E0032" type="error" message="借据号不正确!" errorCode="010L0087"/>
+        <error id="E0033" type="error" message="输入银行承兑汇票号码不正确!" errorCode="010L0088"/>
+        <error id="E0034" type="error" message="汇票非正常状态,交易失败!" errorCode="010L0089"/>
+        <error id="E0035" type="error" message="账号[${acctno}]在凭证段[${initno}]-[${finlno}]的数量[${count}]与输入数量[${dcmtnm}]不一致" errorCode="010L0090">
+            <parameter id="acctno" type="BaseType.U_ACCTNO" longname="账号"/>
+            <parameter id="initno" type="BaseType.U_DCMTNO" longname="起始凭证号"/>
+            <parameter id="finlno" type="BaseType.U_DCMTNO" longname="终止凭证号"/>
+            <parameter id="count" type="BaseType.U_INTEGE" longname="数量"/>
+            <parameter id="dcmtnm" type="BaseType.U_INTEGE" longname="输入数量"/>
+        </error>
+        <error id="E0036" type="error" message="无产品信息输入!" errorCode="010L0091"/>
+        <error id="E0037" type="error" message="操作机构非承兑机构，不允许操作!" errorCode="010L0092"/>
+        <error id="E0038" type="error" message="协议状态非正常状态,不能备款" errorCode="010L0093"/>
+        <error id="E0039" type="error" message="手工备款方式为按票备款，汇票号码不能为空" errorCode="010L0094"/>
+        <error id="E0040" type="error" message="银承汇票协议号和传入协议号不一致" errorCode="010L0095"/>
+        <error id="E0041" type="error" message="汇票不存在或状态不正确" errorCode="010L0096"/>
+        <error id="E0042" type="error" message="不支持的备款类型" errorCode="010L0097"/>
+        <error id="E0043" type="error" message="保证金为按票备款，手工备款方式不支持按协议备款" errorCode="010L0098"/>
+        <error id="E0044" type="error" message="不支持的备款方式" errorCode="010L0099"/>
+        <error id="E0045" type="error" message="协议号/借据号[${acptcn}]/[${lncfno}]对应承兑登记簿信息不存在" errorCode="010L0100">
+            <parameter id="acptcn" type="LaBaseType.U_ACPTCN" longname="协议号"/>
+            <parameter id="lncfno" type="BaseType.U_LNCFNO" longname="借据号"/>
+        </error>
+        <error id="E0046" type="error" message="暂不支持这种备款方式[${bkamtp}]" errorCode="010L0101">
+            <parameter id="bkamtp" type="LaEnumType.E_BKAMTP" longname="备款方式"/>
+        </error>
+        <error id="E0047" type="error" message="银承备款余额不足,将产生垫款[${lncfam}],如果需要继续做此交易,请选择垫款标志:是" errorCode="010L0102">
+            <parameter id="lncfam" type="BaseType.U_TRANAM" longname="垫款金额"/>
+        </error>
+        <error id="E0048" type="error" message="[${msg}]保证金不足,未进行备款" errorCode="010L0103">
+            <parameter id="msg" type="BaseType.U_CHAR40"/>
+        </error>
+        <error id="E0049" type="error" message="暂不支持垫款方式[${lendtp}]" errorCode="010L0104">
+            <parameter id="lendtp" type="LaEnumType.E_LENDTP" longname="垫款方式"/>
+        </error>
+        <error id="E0050" type="error" message="银承协议[${acptcn}]的协议签发方式是[3-他代本],不能做此交易" errorCode="010L0105">
+            <parameter id="acptcn" type="LaBaseType.U_ACPTCN" longname="协议号"/>
+        </error>
+        <error id="E0051" type="error" message="非本部门合同" errorCode="010L0106"/>
+        <error id="E0052" type="error" message="合同非登记或正常状态，不允许申请汇票" errorCode="010L0107"/>
+        <error id="E0053" type="error" message="汇票已经全部申请完毕" errorCode="010L0108"/>
+        <error id="E0054" type="error" message="出票金额必须大于0" errorCode="010L0109"/>
+        <error id="E0055" type="error" message="已过申请日期[${cnisdt}]" errorCode="010L0110">
+            <parameter id="cnisdt" type="BaseType.U_DATE08" longname="出票日期"/>
+        </error>
+        <error id="E0056" type="error" message="本合同汇票总数不能超过合同规定总数[${billnm}]张" errorCode="010L0111">
+            <parameter id="billnm" type="BaseType.U_INTEGE" longname="总数"/>
+        </error>
+        <error id="E0057" type="error" message="本合同汇票总额不能超过合同规定总额[${initam}]" errorCode="010L0112">
+            <parameter id="initam" type="BaseType.U_TRANAM" longname="总额"/>
+        </error>
+        <error id="E0058" type="error" message="本合同最后一张汇票金额应该为[${tranam}]" errorCode="010L0113">
+            <parameter id="tranam" type="BaseType.U_TRANAM" longname="金额"/>
+        </error>
+        <error id="E0059" type="error" message="本合同剩余汇票张数为[${applnm}]" errorCode="010L0114">
+            <parameter id="applnm" type="BaseType.U_INTEGE" longname="张数"/>
+        </error>
+        <error id="E0060" type="error" message="查询信贷银票接口表失败：借据号不能为空!" errorCode="010L0115"/>
+        <error id="E0061" type="error" message="通过借据号[${lncfno}]，获取承兑申请明细失败" errorCode="010L0116">
+            <parameter id="lncfno" type="BaseType.U_LNCFNO" longname="借据号"/>
+        </error>
+        <error id="E0062" type="error" message="查询信贷银承协议登记簿失败：承兑协议号不能为空!" errorCode="010L0117"/>
+        <error id="E0063" type="error" message="非录入柜员，不允许维护" errorCode="010L0118"/>
+        <error id="E0064" type="error" message="合同非登记或正常状态，不允许修改汇票" errorCode="010L0119"/>
+        <error id="E0065" type="error" message="承兑申请状态非登记，不允许修改" errorCode="010L0120"/>
+        <error id="E0066" type="error" message="出票总额等于协议总额，出票张数不等于协议可签总数（还有票没签完）" errorCode="010L0121"/>
+        <error id="E0067" type="error" message="本合同汇票已录完，不能修改单张汇票金额，请先做删除" errorCode="010L0122"/>
+        <error id="E0068" type="error" message="此次未作任何修改" errorCode="010L0123"/>
+        <error id="E0069" type="error" message="此出账号[${cmsqno}]已存在！请检查出账号是否正确!" errorCode="010L0124">
+            <parameter id="cmsqno" type="LaBaseType.U_CMSQNO" longname="出账号"/>
+        </error>
+        <error id="E0070" type="error" message="此出账号[${cmsqno}]出账日期[${recvdt}]与核心系统日期[${trandt}]不一致,请检查!" errorCode="010L0125">
+            <parameter id="cmsqno" type="LaBaseType.U_CMSQNO" longname="出账号"/>
+            <parameter id="recvdt" type="BaseType.U_DATE08" longname="出账日期"/>
+            <parameter id="trandt" type="BaseType.U_DATE08" longname="系统日期"/>
+        </error>
+        <error id="E0071" type="error" message="此协议号[${acptno}]已登记,请先撤销再执行!" errorCode="010L0126">
+            <parameter id="acptno" type="LaBaseType.U_ACPTNO" longname="协议号"/>
+        </error>
+        <error id="E0072" type="error" message="此协议号[${acptno}]对应多条记录，不能出账" errorCode="010L0127">
+            <parameter id="acptno" type="LaBaseType.U_ACPTNO" longname="协议号"/>
+        </error>
+        <error id="E0073" type="error" message="此协议号[${acptno}]已签发过,请换协议出账!" errorCode="010L0128">
+            <parameter id="acptno" type="LaBaseType.U_ACPTNO" longname="协议号"/>
+        </error>
+        <error id="E0074" type="error" message="承兑机构非账务机构!" errorCode="010L0129"/>
+        <error id="E0075" type="error" message="到期日必须大于当前日期!" errorCode="010L0130"/>
+        <error id="E0076" type="error" message="保证金类型[${grettp}]暂不支持!" errorCode="010L0131">
+            <parameter id="grettp" type="BaseType.U_CHAR20" longname="保证金类型"/>
+        </error>
+        <error id="E0077" type="error" message="保证金必须大于零!" errorCode="010L0132"/>
+        <error id="E0078" type="error" message="保证金大于出票金额" errorCode="010L0133"/>
+        <error id="E0079" type="error" message="无保证金则不应有保证金账户或子账户或保证金金额!" errorCode="010L0134"/>
+        <error id="E0080" type="error" message="票据类型值非法!" errorCode="010L0135"/>
+        <error id="E0081" type="error" message="产品类型[${prodna}]最长承兑期（月）不能超过[${tremcd}]个月！" errorCode="010L0136">
+            <parameter id="prodna" type="BaseType.U_CHAR20" longname="产品名称"/>
+            <parameter id="tremcd" type="BaseType.U_INTEGE" longname="期数"/>
+        </error>
+        <error id="E0082" type="error" message="签发的张数过多:[${pagenm}]" errorCode="010L0137">
+            <parameter id="pagenm" type="BaseType.U_INTEGE" longname="张数"/>
+        </error>
+        <error id="E0083" type="error" message="汇票张数不能小于零" errorCode="010L0138"/>
+        <error id="E0084" type="error" message="汇票金额必须大于零!" errorCode="010L0139"/>
+        <error id="E0085" type="error" message="请输入申请人名称" errorCode="010L0140"/>
+        <error id="E0086" type="error" message="申请人账号户名不一致!" errorCode="010L0141"/>
+        <error id="E0087" type="error" message="支票状态为已使用" errorCode="010L0142"/>
+        <error id="E0088" type="error" message="支票状态为正常" errorCode="010L0143"/>
+        <error id="E0089" type="error" message="支票状态为挂失" errorCode="010L0144"/>
+        <error id="E0090" type="error" message="支票状态为回收作废" errorCode="010L0145"/>
+        <error id="E0091" type="error" message="支票状态为已签发" errorCode="010L0146"/>
+        <error id="E0092" type="error" message="支票状态为法院止付" errorCode="010L0147"/>
+        <error id="E0093" type="error" message="支票状态为法院作废" errorCode="010L0148"/>
+        <error id="E0094" type="error" message="支票状态不合法" errorCode="010L0149"/>
+        <error id="E0095" type="error" message="借据号不一致" errorCode="010L0150"/>
+        <error id="E0096" type="error" message="申请人账户不能为空!" errorCode="010L0151"/>
+        <error id="E0097" type="error" message="保证金账户不能为空,请确认!" errorCode="010L0152"/>
+        <error id="E0098" type="error" message="保证金账户不是申请人的账户,请确认!" errorCode="010L0153"/>
+        <error id="E0099" type="error" message="保证金账户的币种不正确!" errorCode="010L0154"/>
+        <error id="E0100" type="error" message="输入的保证金账户不是银承保证金账户，请确认!" errorCode="010L0155"/>
+        <error id="E0101" type="error" message="协议签发不正确!本协议[${acptcn}]的签发方式是[3-他代本],不能在本交易确认!" errorCode="010L0156">
+            <parameter id="acptcn" type="LaBaseType.U_ACPTCN" longname="协议号"/>
+        </error>
+        <error id="E0102" type="error" message="协议输入错误,请核对！" errorCode="010L0157"/>
+        <error id="E0103" type="error" message="出账状态不正确!" errorCode="010L0158"/>
+        <error id="E0104" type="error" message="请在承兑部门确认!" errorCode="010L0159"/>
+        <error id="E0105" type="error" message="申请人账户输入错误!" errorCode="010L0160"/>
+        <error id="E0106" type="error" message="申请人户名输入错误!" errorCode="010L0161"/>
+        <error id="E0107" type="error" message="出票张数输入错误!" errorCode="010L0162"/>
+        <error id="E0108" type="error" message="请输入汇票张数!" errorCode="010L0163"/>
+        <error id="E0109" type="error" message="出票金额输入错误!" errorCode="010L0164"/>
+        <error id="E0110" type="error" message="保证金类型输入错误!" errorCode="010L0165"/>
+        <error id="E0111" type="error" message="到期日输入错误!" errorCode="010L0166"/>
+        <error id="E0112" type="error" message="获取承兑账务机构参数失败！" errorCode="010L0167"/>
+        <error id="E0113" type="error" message="处理码[${prcscd}]不可用此交易撤销,请核对!" errorCode="010L0168">
+            <parameter id="prcscd" type="BaseType.U_PRCSCD" longname="交易码"/>
+        </error>
+        <error id="E0114" type="error" message="此出账号[${cmsqno}]已存在撤销记录,不能重复执行撤销动作!" errorCode="010L0169">
+            <parameter id="cmsqno" type="LaBaseType.U_CMSQNO" longname="出账号"/>
+        </error>
+        <error id="E0115" type="error" message="此出账号[${cmsqno}]对应的协议记号[${acptcn}]记录不存在！请检查出账号是否正确!" errorCode="010L0170">
+            <parameter id="cmsqno" type="LaBaseType.U_CMSQNO" longname="出账号"/>
+            <parameter id="acptcn" type="LaBaseType.U_ACPTCN" longname="协议号"/>
+        </error>
+        <error id="E0116" type="error" message="查询信贷协议接口表失败：出账号不能为空!" errorCode="010L0171"/>
+        <error id="E0117" type="error" message="出账号对应的协议号不存在" errorCode="010L0172"/>
+        <error id="E0118" type="error" message="输入的交易金额和出账信息不符!" errorCode="010L0173"/>
+        <error id="E0119" type="error" message="输入的承兑部门和出账信息不符!" errorCode="010L0174"/>
+        <error id="E0120" type="error" message="银承协议表[lab_cntr]还有协议[${acptcn}]的数据,请先删除!" errorCode="010L0175">
+            <parameter id="acptcn" type="LaBaseType.U_ACPTCN" longname="协议号"/>
+        </error>
+        <error id="E0121" type="error" message="删除协议接口信息失败,出账号不能为空!" errorCode="010L0176"/>
+        <error id="E0122" type="error" message="不支持的保证金类型" errorCode="010L0177"/>
+        <error id="E0123" type="error" message="该出账号[${cmsqno}]对应保证金状态为已撤销，不能重复撤销!" errorCode="010L0178">
+            <parameter id="cmsqno" type="LaBaseType.U_CMSQNO" longname="出账号"/>
+        </error>
+        <error id="E0124" type="error" message="该出账号[${cmsqno}]对应保证金状态为核心已出账，不允许撤销!" errorCode="010L0179">
+            <parameter id="cmsqno" type="LaBaseType.U_CMSQNO" longname="出账号"/>
+        </error>
+        <error id="E0125" type="error" message="出账号对应的协议号不存在" errorCode="010L0180"/>
+        <error id="E0126" type="error" message="输入的金额和出账信息不符!" errorCode="010L0181"/>
+        <error id="E0127" type="error" message="输入的交易部门和出账信息不符!" errorCode="010L0182"/>
+        <error id="E0128" type="error" message="查询信贷银承协议登记簿失败：承兑协议号不能为空!" errorCode="010L0183"/>
+        <error id="E0129" type="error" message="无产品信息输入!" errorCode="010L0184"/>
+        <error id="E0130" type="error" message="银承协议[${acptcn}]的签发方式为[3-他代本],不能做此交易" errorCode="010L0185">
+            <parameter id="acptcn" type="LaBaseType.U_ACPTCN" longname="协议号"/>
+        </error>
+        <error id="E0131" type="error" message="请到承兑机构([${tranbr}]..[${issubr}])未用退回!" errorCode="010L0186">
+            <parameter id="tranbr" type="BaseType.U_BRCHNO" longname="交易机构"/>
+            <parameter id="issubr" type="BaseType.U_BRCHNO" longname="签发机构"/>
+        </error>
+        <error id="E0132" type="error" message="票号[${acptno}]不正确!" errorCode="010L0187">
+            <parameter id="acptno" type="LaBaseType.U_ACPTNO" longname="票号"/>
+        </error>
+        <error id="E0133" type="error" message="输入的汇票金额[${tranam}]与签发时金额[${acptam}]不一致！" errorCode="010L0188">
+            <parameter id="tranam" type="BaseType.U_TRANAM" longname="汇票金额"/>
+            <parameter id="acptam" type="BaseType.U_TRANAM" longname="签发金额"/>
+        </error>
+        <error id="E0134" type="error" message="输入的到期日与系统登记到期日[${matudt}]不一致!" errorCode="010L0189">
+            <parameter id="matudt" type="BaseType.U_DATE08" longname="到期日"/>
+        </error>
+        <error id="E0135" type="error" message="保证金处理方式未选择" errorCode="010L0190"/>
+        <error id="E0136" type="error" message="汇票状态非正常状态" errorCode="010L0191"/>
+        <error id="E0137" type="error" message="输入申请人账号与签发时申请人账号不一致!" errorCode="010L0192"/>
+        <error id="E0138" type="error" message="输入申请人户名与签发时申请人户名不一致!" errorCode="010L0193"/>
+        <error id="E0139" type="error" message="电票协议不能作此交易" errorCode="010L0194"/>
+        <error id="E0140" type="error" message="票号不属于该协议" errorCode="010L0195"/>
+        <error id="E0141" type="error" message="银行承兑汇票的状态不正常" errorCode="010L0196"/>
+        <error id="E0142" type="error" message="承兑汇票状态不正确" errorCode="010L0197"/>
+        <error id="E0143" type="error" message="保证金余额不正确!" errorCode="010L0198"/>
+        <error id="E0144" type="error" message="保证金余额不足!" errorCode="010L0199"/>
+        <error id="E0145" type="error" message="退回保证金大于所有保证金金额!" errorCode="010L0200"/>
+        <error id="E0146" type="error" message="更新凭证状态失败,更新的数量应为[${count}]" errorCode="010L0201">
+            <parameter id="count" type="BaseType.U_INTEGE" longname="数量"/>
+        </error>
+        <error id="E0147" type="error" message="获取凭证数量失败，起始号码或结束号为空" errorCode="010L0202"/>
+        <error id="E0148" type="error" message="更新协议下每笔银承汇票的止付金额失败!" errorCode="010L0203"/>
+        <error id="E0149" type="error" message="查询信贷保证金接口表失败：出账号不能为空!" errorCode="010L0204"/>
+        <error id="E0150" type="error" message="查询信贷银承协议登记簿失败：承兑协议号不能为空!" errorCode="010L0205"/>
+        <error id="E0151" type="error" message="协议号输入错误" errorCode="010L0206"/>
+        <error id="E0152" type="error" message="该补存信息已补存或撤销,交易失败" errorCode="010L0207"/>
+        <error id="E0153" type="error" message="非出账部门" errorCode="010L0208"/>
+        <error id="E0154" type="error" message="非补存日期" errorCode="010L0209"/>
+        <error id="E0155" type="error" message="补存申请人信息不正确" errorCode="010L0210"/>
+        <error id="E0156" type="error" message="输入币种错误" errorCode="010L0211"/>
+        <error id="E0157" type="error" message="补存金额不正确" errorCode="010L0212"/>
+        <error id="E0158" type="error" message="保证金账号或子账户输入错误请检查!" errorCode="010L0213"/>
+        <error id="E0159" type="error" message="协议状态不正确" errorCode="010L0214"/>
+        <error id="E0160" type="error" message="协议的金额还未签发完,不能补存" errorCode="010L0215"/>
+        <error id="E0161" type="error" message="补存申请人与协议信息不符" errorCode="010L0216"/>
+        <error id="E0162" type="error" message="户名错误" errorCode="010L0217"/>
+        <error id="E0163" type="error" message="保证金对照关系不正确" errorCode="010L0218"/>
+        <error id="E0164" type="error" message="检查金额小数位不合法" errorCode="010L0219"/>
+        <error id="E0165" type="error" message="更新信贷保证金接口表失败：出账号,更新状态不能为空!" errorCode="010L0220"/>
+        <error id="E0166" type="error" message="银承协议[${acptcn}]还有未落地的保证金补存" errorCode="010L0221">
+            <parameter id="acptcn" type="LaBaseType.U_ACPTCN"/>
+        </error>
+        <error id="E0167" type="error" message="出账日期不能早于系统日期!" errorCode="010L0222"/>
+        <error id="E0168" type="error" message="补存金额必须大于零!" errorCode="010L0223"/>
+        <error id="E0169" type="error" message="未找到承兑汇票协议登记簿" errorCode="010L0224"/>
+        <error id="E0170" type="error" message="协议状态[${cnptst}],不允许补足!" errorCode="010L0225">
+            <parameter id="cnptst" type="BaseType.U_CHAR10"/>
+        </error>
+        <error id="E0171" type="error" message="保证金总额不能大于协议出票总额" errorCode="010L0226"/>
+        <error id="E0172" type="error" message="与协议登记的申请人账号不一致!" errorCode="010L0227"/>
+        <error id="E0173" type="error" message="与协议登记的币种不一致!" errorCode="010L0228"/>
+        <error id="E0174" type="error" message="保证金类型是非保证金模式,补存保证金时,必须传入修改标志" errorCode="010L0229"/>
+        <error id="E0175" type="error" message="银承保证金补充信息不存在" errorCode="010L0230"/>
+        <error id="E0176" type="error" message="只有承兑部门才能做此交易" errorCode="010L0231"/>
+        <error id="E0177" type="error" message="请修改备用账号后再提交!" errorCode="010L0232"/>
+        <error id="E0178" type="error" message="备用账号不能与申请人账号一致!" errorCode="010L0233"/>
+        <error id="E0179" type="error" message="申请人账户不正确!" errorCode="010L0234"/>
+        <error id="E0180" type="error" message="面值总额不正确!" errorCode="010L0235"/>
+        <error id="E0181" type="error" message="协议状态不正确!" errorCode="010L0236"/>
+        <error id="E0182" type="error" message="备用账号金额必须大于0" errorCode="010L0237"/>
+        <error id="E0183" type="error" message="凭证类型必须是[732--转账支票]" errorCode="010L0238"/>
+        <error id="E0184" type="error" message="请确认新账号的币种!" errorCode="010L0239"/>
+        <error id="E0185" type="error" message="账户状态异常" errorCode="010L0240"/>
+        <error id="E0186" type="error" message="该账户未生效" errorCode="010L0241"/>
+        <error id="E0187" type="error" message="账户状态借冻" errorCode="010L0242"/>
+        <error id="E0188" type="error" message="账户状态双冻" errorCode="010L0243"/>
+        <error id="E0189" type="error" message="账户全额止付" errorCode="010L0244"/>
+        <error id="E0190" type="error" message="新账号是睡眠户!" errorCode="010L0245"/>
+        <error id="E0191" type="error" message="内部账号所属的科目[${itemcd}]余额方向不是贷方" errorCode="010L0246">
+            <parameter id="itemcd" type="BaseType.U_ITEMCD"/>
+        </error>
+        <error id="E0192" type="error" message="账号类型不能做为备用账户!" errorCode="010L0247"/>
+        <error id="E0193" type="error" message="凭证类型必须是[999--其他凭证]" errorCode="010L0248"/>
+        <error id="E0194" type="error" message="产品属性代码不能为空" errorCode="010L0249"/>
+        <error id="E0195" type="error" message="客户号不能为空" errorCode="010L0250"/>
+        <error id="E0196" type="error" message="户名不能为空" errorCode="010L0251"/>
+        <error id="E0197" type="error" message="账户状态代码不存在无法判断可否支取或者存入" errorCode="010L0252"/>
+        <error id="E0198" type="error" message="备款日期不等于到期日" errorCode="010L0253"/>
+        <error id="E0199" type="error" message="银承到期备款表外付出业务编码未配置" errorCode="010L0254"/>
+        <error id="E0200" type="error" message="银承应解款项业务编码未配置" errorCode="010L0255"/>
+        <error id="E0201" type="error" message="垫款产品编号未配置" errorCode="010L0256"/>
+        <error id="E0202" type="error" message="日间垫款方式未配置" errorCode="010L0257"/>
+        <error id="E0203" type="error" message="日终状态不合法" errorCode="010L0258"/>
+        <error id="E0204" type="error" message="银承保证金补充出账信息不存在" errorCode="010L0259"/>
+        <error id="E0205" type="error" message="银承信息不存在" errorCode="010L0260"/>
+        <error id="E0206" type="error" message="汇票信息不存在" errorCode="010L0261"/>
+        <error id="E0207" type="error" message="汇票签发申请信息不存在" errorCode="010L0262"/>
+        <error id="E0208" type="error" message="申请人账户的存款种类[${fcflag}]不能申请签发银行承兑汇票，请确认!" errorCode="010L0263">
+            <parameter id="fcflag" type="DpEnumType.E_FCFLAG"/>
+        </error>
+        <error id="E0209" type="error" message="申请人账户产品属性不能签发银行承兑汇票!" errorCode="010L0264"/>
+        <error id="E0210" type="error" message="申请人账户币种非协议指定币种" errorCode="010L0265"/>
+        <error id="E0211" type="error" message="申请人账户状态[${acctst}]不允许签发银行承兑汇票!" errorCode="010L0266">
+            <parameter id="acctst" type="BaseType.U_CHAR20"/>
+        </error>
+        <error id="E0212" type="error" message="申请人账户状态是睡眠户!" errorCode="010L0267"/>
+        <error id="E0213" type="error" message="保证金账户可用金额不足" errorCode="010L0268"/>
+        <error id="E0214" type="error" message="非本行协议,不能删除" errorCode="010L0269"/>
+        <error id="E0215" type="error" message="协议状态不为[8-登记]，不能删除" errorCode="010L0270"/>
+        <error id="E0216" type="error" message="签发金额不等于协议总额，备款方式不允许为[1-按协议备款]" errorCode="010L0271"/>
+        <error id="E0217" type="error" message="申请人机构和输入的申请机构不一致" errorCode="010L0272"/>
+        <error id="E0218" type="error" message="子账号非保证金账号子账号" errorCode="010L0273"/>
+    </errors>
+    <errors id="LaDetail" longname="错误信息">
+        <error id="E0001" type="error" message="汇票[${msg}]已经发出托收登记" errorCode="010L0274">
+            <parameter id="msg" type="BaseType.U_CHAR200" longname="汇票号码"/>
+        </error>
+        <error id="E0002" type="error" message="金额必须大于0" errorCode="010L0275"/>
+        <error id="E0003" type="error" message="暂只支持人民币" errorCode="010L0276"/>
+        <error id="E0004" type="error" message="凭证签发日期不能大于到达日期" errorCode="010L0277"/>
+        <error id="E0005" type="error" message="账号[${msg1}]的名称是[${msg2}],而非[${msg3}]" errorCode="010L0278">
+            <parameter id="msg1" type="BaseType.U_CHAR200" longname="账号"/>
+            <parameter id="msg2" type="BaseType.U_CHAR200" longname="名称"/>
+            <parameter id="msg3" type="BaseType.U_CHAR200" longname="名称"/>
+        </error>
+        <error id="E0006" type="error" message="[${msg}]对应的账号信息不存在" errorCode="010L0279">
+            <parameter id="msg" type="BaseType.U_CHAR200" longname="账号"/>
+        </error>
+        <error id="E0007" type="error" message="账号[${msg}]不是[单位结算账户性质]" errorCode="010L0280">
+            <parameter id="msg" type="BaseType.U_CHAR200" longname="账号"/>
+        </error>
+        <error id="E0008" type="error" message="到达日期不能大于系统日期" errorCode="010L0281"/>
+        <error id="E0009" type="error" message="收款单位账号不能为空" errorCode="010L0282"/>
+        <error id="E0010" type="error" message="收款单位户名不能为空" errorCode="010L0283"/>
+        <error id="E0011" type="error" message="输入的状态不能为[${msg}]" errorCode="010L0284">
+            <parameter id="msg" type="BaseType.U_CHAR200" longname="状态"/>
+        </error>
+        <error id="E0012" type="error" message="${msg1}[${msg2}]对应的信息不存在" errorCode="010L0285">
+            <parameter id="msg1" type="BaseType.U_CHAR200" longname="托收登记号"/>
+            <parameter id="msg2" type="BaseType.U_CHAR200" longname="托收登记号"/>
+        </error>
+        <error id="E0013" type="error" message="发出托收登记薄的状态为[${msg1}-${msg2}],不能做此交易" errorCode="010L0286">
+            <parameter id="msg1" type="BaseType.U_CHAR200" longname="参数"/>
+            <parameter id="msg2" type="BaseType.U_CHAR200" longname="参数"/>
+        </error>
+        <error id="E0014" type="error" message="输入的${msg1}与登记的不一致" errorCode="010L0287">
+            <parameter id="msg1" type="BaseType.U_CHAR200" longname="参数"/>
+        </error>
+        <error id="E0015" type="error" message="该汇票编号[${msg1}]发出托收登记信息不存在" errorCode="010L0288">
+            <parameter id="msg1" type="BaseType.U_CHAR200" longname="参数"/>
+        </error>
+        <error id="E0016" type="error" message="该汇票编号[${msg1}]有多条托收划回或托收发出信息" errorCode="010L0289">
+            <parameter id="msg1" type="BaseType.U_CHAR200" longname="参数"/>
+        </error>
+        <error id="E0017" type="error" message="该汇票编号[${msg1}]已划回" errorCode="010L0290">
+            <parameter id="msg1" type="BaseType.U_CHAR200" longname="参数"/>
+        </error>
+        <error id="E0018" type="error" message="该汇票编号[${msg1}]已被拒绝" errorCode="010L0291">
+            <parameter id="msg1" type="BaseType.U_CHAR200" longname="参数"/>
+        </error>
+        <error id="E0019" type="error" message="状态为[划回]时,承付日期不能为空" errorCode="010L0292"/>
+        <error id="E0020" type="error" message="承付日期不能大于系统日期" errorCode="010L0293"/>
+        <error id="E0021" type="error" message="承付日期不能小于到达日期" errorCode="010L0294"/>
+        <error id="E0022" type="error" message="借据号[${msg1}]对应的承兑汇票信息不存在" errorCode="010L0295">
+            <parameter id="msg1" type="BaseType.U_CHAR200" longname="借据号"/>
+        </error>
+        <error id="E0023" type="error" message="汇票状态为[${msg1}-${msg2}],不能做此交易" errorCode="010L0296">
+            <parameter id="msg1" type="BaseType.U_CHAR200" longname="参数"/>
+            <parameter id="msg2" type="BaseType.U_CHAR200" longname="参数"/>
+        </error>
+        <error id="E0024" type="error" message="非签发部门不能录入托收" errorCode="010L0297"/>
+        <error id="E0025" type="error" message="代签协议不能做此交易" errorCode="010L0298"/>
+        <error id="E0026" type="error" message="汇票已经托收登记" errorCode="010L0299"/>
+        <error id="E0027" type="error" message="银行承兑汇票状态不是正常和备款状态,不能做此交易 " errorCode="010L0300"/>
+        <error id="E0028" type="error" message="背书次数输入错误 " errorCode="010L0301"/>
+        <error id="E0029" type="error" message="电票协议不能做此交易 " errorCode="010L0302"/>
+        <error id="E0030" type="error" message="未找到承兑汇票协议登记簿信息 " errorCode="010L0303"/>
+        <error id="E0031" type="error" message="汇票号[${msg1}]对应汇票信息不存在" errorCode="010L0304">
+            <parameter id="msg1" type="BaseType.U_CHAR200" longname="汇票号"/>
+        </error>
+        <error id="E0032" type="error" message="该汇票未托收登记,请确认是否已托收拒绝!" errorCode="010L0305"/>
+        <error id="E0033" type="error" message="未找到汇票的托收登记号!" errorCode="010L0306"/>
+        <error id="E0034" type="error" message="收到托收登记簿信息不存在" errorCode="010L0307"/>
+        <error id="E0035" type="error" message="该托收已全额付款" errorCode="010L0308"/>
+        <error id="E0036" type="error" message="该托收已拒付" errorCode="010L0309"/>
+        <error id="E0037" type="error" message="承兑汇票协议信息不存在" errorCode="010L0310"/>
+        <error id="E0038" type="error" message="请到收到托收机构操作" errorCode="010L0311"/>
+        <error id="E0039" type="error" message="该汇票托收请求已被处理过" errorCode="010L0312"/>
+        <error id="E0040" type="error" message="请输入拒付理由" errorCode="010L0313"/>
+        <error id="E0041" type="error" message="银承属性信息不存在" errorCode="010L0314"/>
+        <error id="E0042" type="error" message="交易机构与签发机构不一致" errorCode="010L0315"/>
+        <error id="E0043" type="error" message="汇票已关闭,不能执行此交易" errorCode="010L0316"/>
+        <error id="E0044" type="error" message="汇票未备款,不能执行此交易" errorCode="010L0317"/>
+        <error id="E0045" type="error" message="汇票还没托收登记，不能销券" errorCode="010L0318"/>
+        <error id="E0046" type="error" message="转账交易不能使用现金支票" errorCode="010L0319"/>
+        <error id="E0047" type="error" message="现金交易不能使用转账支票" errorCode="010L0320"/>
+        <error id="E0048" type="error" message="该汇票已托收" errorCode="010L0321"/>
+        <error id="E0049" type="error" message="申请人账户状态异常" errorCode="010L0322"/>
+        <error id="E0050" type="error" message="汇票已到期,不允许执行此交易" errorCode="010L0323"/>
+        <error id="E0051" type="error" message="交易机构与发出委托收款机构不一致" errorCode="010L0324"/>
+        <error id="E0052" type="error" message="只允许汇票签发当日不处理保证金" errorCode="010L0325"/>
+    </errors>
+</errorConf>

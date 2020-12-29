@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="IoApBatch" package="cn.sunline.ltts.busi.ap.iobus.type.ap.fbat" longname="应用平台批量复合类型" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <complexType id="ApDCN" longname="DCN数据类型" dict="false" abstract="false" introduct="false">
+        <odbindexes/>
+        <element id="cdcnno" longname="DCN编号" type="BaseType.U_DCNNO" ref="BaseDict.Comm.cdcnno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="ApDcnForPldlmx" longname="批量代理明细类型" extension="IoApBatch.ApDCN" dict="false" abstract="false" introduct="false">
+        <element id="custac" longname="客户账号" type="BaseType.U_CHAR32" ref="BaseDict.Comm.custac" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <description><![CDATA[除了DCN编号，还携带有其它数据字段。]]></description>
+    </complexType>
+    <complexType id="ApBatchFile" longname="批量文件信息" dict="false" abstract="false" introduct="false">
+        <element id="trandt" longname="交易日期" type="BaseType.U_DATE08" ref="BaseDict.Comm.trandt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="corpno" longname="法人代码" type="BaseType.U_CORPNO" ref="ApDict.Aplt.corpno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="fileid" longname="文件ID号" type="BaseType.U_FILEID" ref="BaseDict.Comm.fileid" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="recdno" longname="记录次序号" type="BaseType.U_SENOTP" ref="BaseDict.Comm.recdno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="SftpInfo" longname="sftp上传下载文件参数类型" dict="false" abstract="false" introduct="false">
+        <element id="rmaddr" longname="远程文件服务器ip地址" type="BaseType.U_CHAR20" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="rmport" longname="远程服务器端口" type="BaseType.U_INTEGE" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="rmname" longname="远程服务器用户名" type="BaseType.U_CHAR20" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="rmpass" longname="远程服务器密码" type="BaseType.U_CHAR20" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="timeot" longname="超时时间秒" type="BaseType.U_INTEGE" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="lcpath" longname="本地文件路径" type="BaseType.U_CHAR100" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="lcfile" longname="本地文件名称" type="BaseType.U_CHAR100" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="rmfile" longname="远程文件名称" type="BaseType.U_CHAR100" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="rmpath" longname="远程文件路径" type="BaseType.U_CHAR100" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="usersa" longname="是否使用私钥文件" type="BaseEnumType.E_YES___" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+</schema>

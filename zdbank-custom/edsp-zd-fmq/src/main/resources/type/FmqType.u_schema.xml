@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="FmqType" package="cn.sunline.clwj.zdbank.fmq.type" longname="Fmq Data Type" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <restrictionType id="U_BYTE1000" longname="string(2000byte)" base="string" maxLength="1000"/>
+</schema>

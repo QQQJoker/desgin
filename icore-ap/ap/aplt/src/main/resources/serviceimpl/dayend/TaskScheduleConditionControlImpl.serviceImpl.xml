@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceImpl id="TaskScheduleConditionControlImpl" longname="定时日批处理触发条件实现" serviceType="BatchCondition" package="cn.sunline.ltts.busi.aplt.serviceimpl.dayend" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description><![CDATA[支持全局参数控制是否启用日批处理。]]></description>
+</serviceImpl>

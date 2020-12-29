@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema id="IoSdComplexType" package="cn.sunline.ltts.busi.iobus.type.sd" longname="结构性存款复合类型" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <complexType id="SyncEvetIn" longname="产品同步事件入参复合类型" dict="false" abstract="false" introduct="false">
+        <element id="jjprod" longname="产品编号" type="BaseType.U_PRODCD" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="prodna" longname="产品名称" type="BaseType.U_CHAR100" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="pdevst" longname="产品事件状态" type="SdBaseEnumType.E_PDEVST" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="bgindt" longname="成立开始日期" type="BaseType.U_DATE08" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="matudt" longname="成立到期日期" type="BaseType.U_DATE08" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="dufudt" longname="提前兑付日期" type="BaseType.U_DATE08" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="expinr" longname="成立利率" type="BaseType.U_INSTRT" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="mininr" longname="最低收益率" type="BaseType.U_INSTRT" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="maxinr" longname="最高收益率" type="BaseType.U_INSTRT" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="brkinr" longname="违约利率" type="BaseType.U_INSTRT" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="sysccd" longname="系统标识" type="BaseType.U_CHAR04" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trandt" longname="交易日期" type="BaseType.U_DATE08" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trantm" longname="交易时间" type="BaseType.U_DATE06" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="remark" longname="备注" type="BaseType.U_CHAR2000" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="issync" longname="是否同步" type="BaseEnumType.E_YES___" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="entrus" longname="录入柜员" type="BaseType.U_USERID" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="authus" longname="授权柜员" type="BaseType.U_USERID" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="RaiseFailIn" longname="产品不成立(募集失败)入参符合参数" dict="false" abstract="false" introduct="false">
+        <element id="jjprod" longname="产品编号" type="BaseType.U_PRODCD" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="KupJjckEvenEntity" longname="结构性存款产品事件结转登记表实体复合类型" dict="false" abstract="false" introduct="false">
+        <element id="corpno" longname="法人代码" type="BaseType.U_CORPNO" ref="ApDict.Aplt.corpno" required="false" desc="法人代码" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="jjprod" longname="产品编号" type="BaseType.U_PRODCD" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="prodna" longname="产品名称" type="BaseType.U_CHAR100" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="pdevst" longname="产品事件状态" type="SdBaseEnumType.E_PDEVST" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="bgindt" longname="成立开始日期" type="BaseType.U_DATE08" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="matudt" longname="成立到期日期" type="BaseType.U_DATE08" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="dufudt" longname="提前兑付日期" type="BaseType.U_DATE08" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cptldt" longname="资金到账日" type="BaseType.U_DATE08" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="expinr" longname="成立利率" type="BaseType.U_INSTRT" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="mininr" longname="最低收益率" type="BaseType.U_INSTRT" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="maxinr" longname="最高收益率" type="BaseType.U_INSTRT" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="brkinr" longname="违约利率" type="BaseType.U_INSTRT" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="sysccd" longname="系统标识" type="BaseType.U_CHAR04" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trandt" longname="交易日期" type="BaseType.U_DATE08" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trantm" longname="交易时间" type="BaseType.U_DATE06" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="remark" longname="备注" type="BaseType.U_CHAR2000" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="issync" longname="是否同步" type="BaseEnumType.E_YES___" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="result" longname="处理结果" type="BaseEnumType.E_YES___" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="entrus" longname="录入柜员" type="BaseType.U_USERID" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="authus" longname="授权柜员" type="BaseType.U_USERID" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="NoticeType" longname="状态变更通知复合类型" dict="false" abstract="false" introduct="false">
+        <element id="jjprod" longname="产品编号" type="BaseType.U_PRODCD" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="pdevst" longname="产品事件状态" type="SdBaseEnumType.E_PDEVST" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="bgindt" longname="成立开始日期" type="BaseType.U_DATE08" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="matudt" longname="成立到期日期" type="BaseType.U_DATE08" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="dufudt" longname="提前兑付日期" type="BaseType.U_DATE08" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trandt" longname="交易日期" type="BaseType.U_DATE08" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+</schema>

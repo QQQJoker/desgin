@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<batch_transaction id="filecp" longname="返回文件上传至NFS" dataItem="" jobDataItem="" package="cn.sunline.ltts.busi.aptran.batchtran" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description><![CDATA[将反盘文件copy到NFS目录]]></description>
+    <interface package="cn.sunline.ltts.busi.aptran.batchtran.intf">
+        <input packMode="true">
+            <field id="filesq" type="BaseType.U_CHAR40" required="false" fixed="" default="" multi="false" array="false" longname="文件批次号" desc="" ref=""/>
+        </input>
+        <output asParm="true" packMode="false"/>
+        <property packMode="true"/>
+        <printer packMode="false"/>
+    </interface>
+</batch_transaction>

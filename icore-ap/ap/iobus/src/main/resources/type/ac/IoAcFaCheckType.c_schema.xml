@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="IoAcFaCheckType" package="cn.sunline.edsp.busi.iobus.type.ac" longname="业务模块登记汇总信息类型" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+	<complexType id="IoAcCheckRecord" longname="总分核对汇总数据复合类型" dict="false" abstract="false" introduct="false" >
+	    <element id="trxn_date" longname="汇总日期" type="BaseType.U_DATE08" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+	    <element id="file_type" longname="文件类型 C代表会计流水文件 E代表计提文件 G代表核心分户账文件" type="BaseType.U_CHAR01" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+	    <element id="accounting_subject" longname="会计主体" type="PbEnumType.E_ATOWTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+	    <element id="record_number" longname="记录数" type="BaseType.U_INTEGE" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+	    <element id="total_amt" longname="汇总金额" type="BaseType.U_TOTAIN" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+	    <element id="acct_branch" longname="账务机构" type="BaseType.U_BRCHNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+	    <element id="ccy_code" longname="货币代码" type="BaseType.U_CRCYCD" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+	</complexType>
+	<complexType id="IoKnbCbtl" longname="负债计提汇总复合类型" dict="false" abstract="false" introduct="false" >
+	    <element id="cabrdt" longname="计提日期" type="BaseType.U_DATE08" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+	    <element id="brchno" longname="账户所属机构" type="BaseType.U_BRCHNO" ref="DpDict.Acct.brchno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+	    <element id="acctcd" longname="核算代码" type="BaseType.U_DTITCD" ref="DpDict.Prod.acctcd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+	    <element id="crcycd" longname="货币代号" type="BaseType.U_CRCYCD" ref="DpDict.Acct.crcycd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+	    <element id="prodcd" longname="产品编号" type="BaseType.U_PRODCD" ref="DpDict.Prod.prodcd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+	    <element id="cabrin" longname="应计提金额" type="BaseType.U_TOTAIN" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+	</complexType>
+	<complexType id="IoLnbCbtl" longname="资产计息汇总复合类型" dict="false" abstract="false" introduct="false" >
+	    <element id="cabrdt" longname="计息日期" type="BaseType.U_DATE08" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+	    <element id="brchno" longname="账户所属机构" type="BaseType.U_BRCHNO" ref="DpDict.Acct.brchno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+	    <element id="acctcd" longname="核算代码" type="BaseType.U_DTITCD" ref="DpDict.Prod.acctcd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+	    <element id="crcycd" longname="货币代号" type="BaseType.U_CRCYCD" ref="DpDict.Acct.crcycd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+	    <element id="prodcd" longname="产品编号" type="BaseType.U_PRODCD" ref="DpDict.Prod.prodcd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+	    <element id="cabrin" longname="计息金额" type="BaseType.U_TOTAIN" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+	    <element id="bltype" longname="余额属性" type="BaseEnumType.E_BLTYPE" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+	    <element id="wdtype" longname="计提种类" type="GlBusinessType.E_ACCRUETYPE" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+	</complexType>
+</schema>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Security" package="cn.sunline.edsp.busi.security.tables" longname="安全相关参数表" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <table id="AppSecuZPK" name="AppSecuZPK" longname="加密ZPK" tableType="ORDINARY" category="sys" virtual="false" abstract="false">
+        <fields>
+            <field id="systcd" longname="系统标识号" type="string" primarykey="false" length="40" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="zpkval" longname="密钥ZPK" type="string" primarykey="false" length="60" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="remark" longname="备注信息" type="string" primarykey="false" length="60" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="unique" fields="systcd" operate="selectOne"/>
+        </odbindexes>
+        <indexes>
+            <index id="knp_secu_zpk_uk1" type="unique" fields="systcd">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+</schema>

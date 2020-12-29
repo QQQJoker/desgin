@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType id="IoInFnsCmbk" kind="business" longname="财务往来记账相关服务" package="cn.sunline.ltts.busi.iobus.servicetype.in" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description><![CDATA[财务往来记账相关服务]]></description>
+    <service id="FnsRegister" name="fnsRegister" longname="财务往来记账登记">
+        <interface>
+            <input packMode="false">
+                <field id="input" type="InacTransComplex.InFnsCmbkInfo" required="false" multi="false" array="false" longname="交易输入参数"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="out" type="InacTransComplex.InFnsCmbkOut" required="false" multi="false" array="false" longname="交易输出参数"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="FnsAccounting" name="fnsAccounting" longname="财务往来记账登记簿入账">
+        <interface>
+            <input packMode="false">
+                <field id="commsq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="套帐号"/>
+                <field id="trandt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="记账日期"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="out" type="InacTransComplex.InFnsCmbkOut" required="false" multi="false" array="false" longname="交易输出参数"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+</serviceType>

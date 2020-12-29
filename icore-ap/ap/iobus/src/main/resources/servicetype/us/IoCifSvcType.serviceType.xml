@@ -1,0 +1,651 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="IoCifSvcType" kind="business" longname="用户模块服务" package="cn.sunline.ltts.busi.iobus.servicetype.us" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <service id="UsQueryMessNoti" name="UsQueryMessNoti" longname="消息通知信息查询">
+        <interface>
+            <input packMode="true">
+                <field id="notetl" type="BaseType.U_CHAR100" required="false" multi="false" array="false" longname="消息标题" ref="CfDict.prod.notetl"/>
+                <field id="notetp" type="CfEnumType.E_NOTETP" required="false" multi="false" array="false" longname="消息类型" ref="CfDict.prod.notetp"/>
+                <field id="infono" type="BaseType.U_CHAR40" required="false" multi="false" array="false" longname="信息编号" ref="CfDict.prod.infono"/>
+                <field id="sttime" type="BaseType.U_CHAR21" required="false" multi="false" array="false" longname="开始日期" ref="CfDict.prod.sttime"/>
+                <field id="entime" type="BaseType.U_CHAR21" required="false" multi="false" array="false" longname="结束日期" ref="CfDict.prod.entime"/>
+                <field id="ulrsta" type="CfEnumType.E_ULRSTA" required="false" multi="false" array="false" longname="上下架状态" ref="CfDict.prod.ulrsta"/>
+                <field id="uptosw" type="CfEnumType.E_UPTOSW" required="false" multi="false" array="false" longname="置顶顺序" ref="CfDict.prod.uptosw"/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="noteList" type="IoUsComplexType.IoMessNotiList" required="false" multi="true" array="false" longname="消息通知"/>
+            </output>
+            <property packMode="true"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="UsQyMessNoti" name="UsQyMessNoti" longname="消息通知信息查询（手机银行）">
+        <interface>
+            <input packMode="true">
+                <field id="notetl" type="BaseType.U_CHAR100" required="false" multi="false" array="false" longname="消息标题" ref="CfDict.prod.notetl"/>
+                <field id="notetp" type="CfEnumType.E_NOTETP" required="false" multi="false" array="false" longname="消息类型" ref="CfDict.prod.notetp"/>
+                <field id="infono" type="BaseType.U_CHAR40" required="false" multi="false" array="false" longname="信息编号" ref="CfDict.prod.infono"/>
+                <field id="sttime" type="BaseType.U_CHAR21" required="false" multi="false" array="false" longname="开始日期" ref="CfDict.prod.sttime"/>
+                <field id="entime" type="BaseType.U_CHAR21" required="false" multi="false" array="false" longname="结束日期" ref="CfDict.prod.entime"/>
+                <field id="ulrsta" type="CfEnumType.E_ULRSTA" required="false" multi="false" array="false" longname="上下架状态" ref="CfDict.prod.ulrsta"/>
+                <field id="uptosw" type="CfEnumType.E_UPTOSW" required="false" multi="false" array="false" longname="置顶顺序" ref="CfDict.prod.uptosw"/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="noteList" type="IoUsComplexType.IoMessNotiList" required="false" multi="true" array="false" longname="消息通知"/>
+            </output>
+            <property packMode="true"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="UsRegisterUser" name="UsRegisterUser" longname="用户注册信息维护">
+        <interface>
+            <input packMode="true">
+                <field id="sgnchl" type="CfEnumType.E_ADDCHL" required="false" multi="false" array="false" longname="签约渠道" ref="CfDict.icif.sgnchl"/>
+                <field id="sgnver" type="CfBaseType.U_SGNVER" required="false" multi="false" array="false" longname="签约版本" ref="CfDict.icif.sgnver"/>
+                <field id="sgbrch" type="CfBaseType.U_BRANCH" required="false" multi="false" array="false" longname="签约机构" ref="CfDict.icif.sgbrch"/>
+                <field id="sgntel" type="CfBaseType.U_TELLER" required="false" multi="false" array="false" longname="签约柜员" ref="CfDict.icif.sgntel"/>
+                <field id="facflg" type="BaseEnumType.E_YES___" required="false" multi="false" array="false" longname="是否面签" ref="CfDict.icif.facflg"/>
+                <field id="cldgfg" type="CfEnumType.E_KTFLAG" required="false" multi="false" array="false" longname="云证通开通标识" ref="CfDict.icif.cldgfg"/>
+                <field id="xedflg" type="CfEnumType.E_KTFLAG" required="false" multi="false" array="false" longname="信e盾开通标识" ref="CfDict.icif.xedflg"/>
+                <field id="refeid" type="CfBaseType.U_REFEID" required="false" multi="false" array="false" longname="推荐人身份证号" ref="CfDict.icif.refeid"/>
+                <field id="acmaid" type="CfBaseType.U_ACMAID" required="false" multi="false" array="false" longname="客户经理ID" ref="CfDict.param.acmaid"/>
+                <field id="custid" type="CfBaseType.U_CUSTID" required="false" multi="false" array="false" longname="客户ID" ref="CfDict.param.custid"/>
+                <field id="idtftp" type="BaseEnumType.E_IDTFTP" required="false" multi="false" array="false" longname="证件类型" ref="CfDict.param.idtftp"/>
+                <field id="idtfno" type="CfBaseType.U_IDTFNO" required="false" multi="false" array="false" longname="证件号码" ref="CfDict.param.idtfno"/>
+                <field id="custna" type="CfBaseType.U_CUSTNA" required="false" multi="false" array="false" longname="客户姓名" ref="CfDict.param.custna"/>
+                <field id="phonno" type="CfBaseType.U_PHONNO" required="false" multi="false" array="false" longname="手机号码" ref="CfDict.param.phonno"/>
+                <field id="passwd" type="CfBaseType.U_PASSWD" required="false" multi="false" array="false" longname="用户密码" ref="CfDict.param.passwd"/>
+                <field id="userlv" type="CfEnumType.E_USERLV" required="false" multi="false" array="false" longname="用户层级" ref="CfDict.icif.userlv"/>
+                <field id="regtyp" type="CfEnumType.E_REGTYP" required="false" multi="false" array="false" longname="注册方式" ref="CfDict.icif.regtyp"/>
+                <field id="facefg" type="BaseEnumType.E_YES___" required="false" multi="false" array="false" longname="人脸识别标志" ref="CfDict.icif.facefg"/>
+                <field id="chkflg" type="CfEnumType.E_CHKFLG" required="false" multi="false" array="false" longname="核查标志" ref="CfDict.param.chkflg"/>
+                <field id="custtp" type="CfEnumType.E_CUSTTP" required="false" multi="false" array="false" longname="客户类别" ref="CfDict.param.custtp"/>
+                <field id="career" type="BaseEnumType.E_WORKTP" required="false" multi="false" array="false" longname="职业" ref="CfDict.param.career"/>
+                <field id="annuin" type="CfBaseType.U_ANNUIN" required="false" multi="false" array="false" longname="年收入" ref="CfDict.param.annuin"/>
+                <field id="nation" type="CfEnumType.E_NATION" required="false" multi="false" array="false" longname="民族" ref="CfDict.param.nation"/>
+                <field id="ctrycd" type="BaseType.U_COUNCD" required="false" multi="false" array="false" longname="国籍" ref="CfDict.param.ctrycd"/>
+                <field id="bhdate" type="CfBaseType.U_BHDATE" required="false" multi="false" array="false" longname="出生日期" ref="CfDict.param.bhdate"/>
+                <field id="gender" type="BaseEnumType.E_SEXTYP" required="false" multi="false" array="false" longname="性别" ref="CfDict.param.gender"/>
+                <field id="idsite" type="CfBaseType.U_IDSITE" required="false" multi="false" array="false" longname="证件地址" ref="CfDict.param.idsite"/>
+                <field id="idtedt" type="BaseType.U_CHAR08" required="false" multi="false" array="false" longname="证件生效日" ref="CfDict.param.idtedt"/>
+                <field id="idexdt" type="BaseType.U_CHAR08" required="false" multi="false" array="false" longname="证件到期日" ref="CfDict.param.idexdt"/>
+                <field id="issuat" type="CfBaseType.U_ISSUAT" required="false" multi="false" array="false" longname="发证机关" ref="CfDict.param.issuat"/>
+                <field id="crtebr" type="CfBaseType.U_CRTEBR" required="false" multi="false" array="false" longname="账户开户机构" ref="CfDict.icif.crtebr"/>
+                <field id="acctno" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="账号" ref="BaseDict.Comm.acctno"/>
+                <field id="acctna" type="BaseType.U_ACCTNA" required="false" multi="false" array="false" longname="账户名称" ref="BaseDict.Comm.acctna"/>
+                <field id="acctal" type="CfBaseType.U_ACCTAL" required="false" multi="false" array="false" longname="别名" ref="CfDict.icif.acctal"/>
+                <field id="accttp" type="CfEnumType.E_CACCTP" required="false" multi="false" array="false" longname="账户类型" ref="CfDict.icif.accttp"/>
+                <field id="crcycd" type="CfEnumType.E_CRCYCD" required="false" multi="false" array="false" longname="币种" ref="CfDict.icif.crcycd"/>
+                <field id="mainfg" type="CfEnumType.E_MAINFG" required="false" multi="false" array="false" longname="主账号标志" ref="CfDict.icif.mainfg"/>
+                <field id="acctrm" type="CfBaseType.U_ACCTRM" required="false" multi="false" array="false" longname="账户备注" ref="CfDict.icif.acctrm"/>
+                <field id="ischck" type="CfEnumType.E_ISCHCK" required="false" multi="false" array="false" longname="是否预检查" ref="CfDict.icif.ischck"/>
+                <field id="custlv" type="CfEnumType.E_CUSTLV" required="false" multi="false" array="false" longname="客户等级" ref="CfDict.param.custlv"/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="userid" type="CfBaseType.U_USERID" required="false" multi="false" array="false" longname="用户ID号" ref="CfDict.param.userid"/>
+                <field id="custid" type="CfBaseType.U_CUSTID" required="false" multi="false" array="false" longname="客户ID" ref="CfDict.param.custid"/>
+                <field id="issucc" type="CfEnumType.E_ISSUCC" required="false" multi="false" array="false" longname="是否校验成功" ref="CfDict.icif.issucc"/>
+            </output>
+            <property packMode="true"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="UserLogin" name="userLogin" longname="用户登录">
+        <interface>
+            <input packMode="true">
+                <field id="userid" type="CfBaseType.U_USERID" required="false" multi="false" array="false" longname="用户ID号" ref="CfDict.param.userid"/>
+                <field id="deceno" type="CfBaseType.U_DECENO" required="false" multi="false" array="false" longname="设备号" ref="CfDict.param.deceno"/>
+                <field id="regchl" type="CfEnumType.E_REGCHL" required="false" multi="false" array="false" longname="注册渠道" ref="CfDict.icif.regchl"/>
+                <field id="vatype" type="CfEnumType.E_VATYPE" required="false" multi="false" array="false" longname="验证类型" ref="CfDict.icif.vatype"/>
+                <field id="passwd" type="CfBaseType.U_PASSWD" required="false" multi="false" array="false" longname="用户密码" ref="CfDict.param.passwd"/>
+                <field id="hashcd" type="CfBaseType.U_HASHCD" required="false" multi="false" array="false" longname="hash值" ref="CfDict.icif.hashcd"/>
+                <field id="openid" type="CfBaseType.U_OPENID" required="false" multi="false" array="false" longname="openid" ref="CfDict.icif.openid"/>
+                <field id="chnlna" type="CfBaseType.U_USERNA" required="false" multi="false" array="false" longname="渠道昵称" ref="CfDict.param.chnlna"/>
+                <field id="chnlhd" type="CfBaseType.U_CHNLHD" required="false" multi="false" array="false" longname="渠道头像" ref="CfDict.icif.chnlhd"/>
+                <field id="chnlid" type="CfEnumType.E_CHNLID" required="false" multi="false" array="false" longname="渠道" ref="CfDict.param.chnlid"/>
+                <field id="riskfg" type="CfEnumType.E_ISORNO" required="false" multi="false" array="false" longname="是否需要调用风控" ref="CfDict.icif.riskfg"/>
+                <field id="busino" type="CfBaseType.U_BUSINESSNO" required="false" multi="false" array="false" longname="流水号" ref="CfDict.icif.busino"/>
+                <field id="evencd" type="CfEnumType.E_EVENTCODE" required="false" multi="false" array="false" longname="事件编码" ref="CfDict.icif.evencd"/>
+                <field id="opdatm" type="CfBaseType.U_DATE23" required="false" multi="false" array="false" longname="操作时间" ref="CfDict.icif.opdatm"/>
+                <field id="opterm" type="CfEnumType.E_OPTERM" required="false" multi="false" array="false" longname="操作终端" ref="CfDict.icif.opterm"/>
+                <field id="lognty" type="CfEnumType.E_LOGNTY" required="false" multi="false" array="false" longname="登录类型" ref="CfDict.icif.lognty"/>
+                <field id="thrdpt" type="CfEnumType.E_THRDPT" required="false" multi="false" array="false" longname="第三方授权平台" ref="CfDict.icif.thrdpt"/>
+                <field id="userip" type="CfBaseType.U_USERIP" required="false" multi="false" array="false" longname="用户ip" ref="CfDict.icif.userip"/>
+                <field id="isckms" type="CfEnumType.E_ISCKMS" required="false" multi="false" array="false" longname="是否已验短" ref="CfDict.icif.isckms"/>
+                <field id="isckbk" type="CfEnumType.E_ISCKBK" required="false" multi="false" array="false" longname="是否已验滑块" ref="CfDict.icif.isckbk"/>
+                <field id="certst" type="CfEnumType.E_CERTST" required="false" multi="false" array="false" longname="数字证书状态" ref="CfDict.icif.certst"/>
+                <field id="brownm" type="CfBaseType.U_BROWNM" required="false" multi="false" array="false" longname="浏览器名称" ref="CfDict.icif.brownm"/>
+                <field id="browve" type="CfBaseType.U_BROWVE" required="false" multi="false" array="false" longname="浏览器版本" ref="CfDict.icif.browve"/>
+                <field id="appnam" type="CfBaseType.U_APPNAM" required="false" multi="false" array="false" longname="app应用名称" ref="CfDict.icif.appnam"/>
+                <field id="appver" type="CfBaseType.U_APPVER" required="false" multi="false" array="false" longname="app版本" ref="CfDict.icif.appver"/>
+                <field id="apptok" type="CfBaseType.U_APPTOK" required="false" multi="false" array="false" longname="app Token" ref="CfDict.icif.apptok"/>
+                <field id="lgtude" type="CfBaseType.U_LGTUDE" required="false" multi="false" array="false" longname="经度" ref="CfDict.icif.lgtude"/>
+                <field id="latude" type="CfBaseType.U_LATUDE" required="false" multi="false" array="false" longname="纬度" ref="CfDict.icif.latude"/>
+                <field id="provcd" type="CfBaseType.U_PROVCD" required="false" multi="false" array="false" longname="定位省" ref="CfDict.param.provcd"/>
+                <field id="citycd" type="CfBaseType.U_CITYCD" required="false" multi="false" array="false" longname="定位市" ref="CfDict.param.citycd"/>
+                <field id="tkdata" type="CfBaseType.U_TKDATA" required="false" multi="false" array="false" longname="埋点数据" ref="CfDict.icif.tkdata"/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="errnum" type="CfBaseType.U_INTGER" required="false" multi="false" array="false" longname="错误次数" ref="CfDict.param.errnum"/>
+                <field id="userid" type="CfBaseType.U_USERID" required="false" multi="false" array="false" longname="用户ID号" ref="CfDict.param.userid"/>
+                <field id="sessid" type="CfBaseType.U_SESSID" required="false" multi="false" array="false" longname="会话id" ref="CfDict.icif.sessid"/>
+                <field id="userst" type="CfEnumType.E_USERST" required="false" multi="false" array="false" longname="用户状态" ref="CfDict.param.userst"/>
+                <field id="userlv" type="CfEnumType.E_USERLV" required="false" multi="false" array="false" longname="用户级别" ref="CfDict.icif.userlv"/>
+                <field id="userna" type="CfBaseType.U_USERNA" required="false" multi="false" array="false" longname="昵称" ref="CfDict.param.userna"/>
+                <field id="userem" type="CfBaseType.U_USEREM" required="false" multi="false" array="false" longname="电子邮箱" ref="CfDict.param.userem"/>
+                <field id="custid" type="CfBaseType.U_CUSTID" required="false" multi="false" array="false" longname="客户ID" ref="CfDict.param.custid"/>
+                <field id="phonno" type="CfBaseType.U_PHONNO" required="false" multi="false" array="false" longname="手机号码" ref="CfDict.param.phonno"/>
+                <field id="lgnseq" type="CfBaseType.U_TRANNO" required="false" multi="false" array="false" longname="登录流水" ref="CfDict.icif.lgnseq"/>
+                <field id="idtfno" type="CfBaseType.U_IDTFNO" required="false" multi="false" array="false" longname="证件号码" ref="CfDict.param.idtfno"/>
+                <field id="idtftp" type="BaseEnumType.E_IDTFTP" required="false" multi="false" array="false" longname="证件类型" ref="CfDict.param.idtftp"/>
+                <field id="riskfg" type="CfEnumType.E_ISORNO" required="false" multi="false" array="false" longname="是否需要调用风控" ref="CfDict.icif.riskfg"/>
+            </output>
+            <property packMode="true"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="UsGetContractInfo" name="UsGetContractInfo" longname="获取客户签约信息">
+        <interface>
+            <input packMode="true">
+                <field id="idtftp" type="BaseEnumType.E_IDTFTP" required="false" multi="false" array="false" longname="证件类型" ref="CfDict.param.idtftp"/>
+                <field id="idtfno" type="CfBaseType.U_IDTFNO" required="false" multi="false" array="false" longname="证件号码" ref="CfDict.param.idtfno"/>
+                <field id="custid" type="CfBaseType.U_CUSTID" required="false" multi="false" array="false" longname="客户ID" ref="CfDict.param.custid"/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="custid" type="CfBaseType.U_CUSTID" required="false" multi="false" array="false" longname="客户ID" ref="CfDict.param.custid"/>
+                <field id="custna" type="CfBaseType.U_CUSTNA" required="false" multi="false" array="false" longname="客户姓名" ref="CfDict.param.custna"/>
+                <field id="idtftp" type="BaseEnumType.E_IDTFTP" required="false" multi="false" array="false" longname="证件类型" ref="CfDict.param.idtftp"/>
+                <field id="idtfno" type="CfBaseType.U_IDTFNO" required="false" multi="false" array="false" longname="证件号码" ref="CfDict.param.idtfno"/>
+                <field id="phonno" type="CfBaseType.U_PHONNO" required="false" multi="false" array="false" longname="手机号码" ref="CfDict.param.phonno"/>
+                <field id="facflg" type="BaseEnumType.E_YES___" required="false" multi="false" array="false" longname="是否面签" ref="CfDict.icif.facflg"/>
+                <field id="cldgfg" type="CfEnumType.E_KTFLAG" required="false" multi="false" array="false" longname="云证通开通标识" ref="CfDict.icif.cldgfg"/>
+                <field id="xedflg" type="CfEnumType.E_KTFLAG" required="false" multi="false" array="false" longname="信e盾开通标识" ref="CfDict.icif.xedflg"/>
+                <field id="sgbrch" type="CfBaseType.U_BRANCH" required="false" multi="false" array="false" longname="签约机构" ref="CfDict.icif.sgbrch"/>
+                <field id="sgnver" type="CfBaseType.U_SGNVER" required="false" multi="false" array="false" longname="签约版本" ref="CfDict.icif.sgnver"/>
+                <field id="sgnchl" type="CfEnumType.E_ADDCHL" required="false" multi="false" array="false" longname="签约渠道" ref="CfDict.icif.sgnchl"/>
+                <field id="signdt" type="BaseType.U_CHAR21" required="false" multi="false" array="false" longname="签约日期" ref="CfDict.icif.signdt"/>
+                <field id="userlv" type="CfEnumType.E_USERLV" required="false" multi="false" array="false" longname="用户层级" ref="CfDict.icif.userlv"/>
+                <field id="chkflg" type="CfEnumType.E_CHKFLG" required="false" multi="false" array="false" longname="核查标志" ref="CfDict.param.chkflg"/>
+                <field id="custtp" type="CfEnumType.E_CUSTTP" required="false" multi="false" array="false" longname="客户类别" ref="CfDict.param.custtp"/>
+                <field id="career" type="BaseEnumType.E_WORKTP" required="false" multi="false" array="false" longname="职业" ref="CfDict.param.career"/>
+                <field id="annuin" type="CfBaseType.U_ANNUIN" required="false" multi="false" array="false" longname="年收入" ref="CfDict.param.annuin"/>
+                <field id="nation" type="CfEnumType.E_NATION" required="false" multi="false" array="false" longname="民族" ref="CfDict.param.nation"/>
+                <field id="ctrycd" type="BaseType.U_COUNCD" required="false" multi="false" array="false" longname="国籍" ref="CfDict.param.ctrycd"/>
+                <field id="bhdate" type="CfBaseType.U_BHDATE" required="false" multi="false" array="false" longname="出生日期" ref="CfDict.param.bhdate"/>
+                <field id="gender" type="BaseEnumType.E_SEXTYP" required="false" multi="false" array="false" longname="性别" ref="CfDict.param.gender"/>
+                <field id="idsite" type="CfBaseType.U_IDSITE" required="false" multi="false" array="false" longname="证件地址" ref="CfDict.param.idsite"/>
+                <field id="issuat" type="CfBaseType.U_ISSUAT" required="false" multi="false" array="false" longname="发证机关" ref="CfDict.param.issuat"/>
+                <field id="idtedt" type="BaseType.U_CHAR08" required="false" multi="false" array="false" longname="证件生效日" ref="CfDict.param.idtedt"/>
+                <field id="idexdt" type="BaseType.U_CHAR08" required="false" multi="false" array="false" longname="证件到期日" ref="CfDict.param.idexdt"/>
+                <field id="acctno" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="账号" ref="BaseDict.Comm.acctno"/>
+                <field id="acctna" type="BaseType.U_ACCTNA" required="false" multi="false" array="false" longname="账户名称" ref="BaseDict.Comm.acctna"/>
+                <field id="acctal" type="CfBaseType.U_ACCTAL" required="false" multi="false" array="false" longname="别名" ref="CfDict.icif.acctal"/>
+                <field id="crcycd" type="CfEnumType.E_CRCYCD" required="false" multi="false" array="false" longname="币种" ref="CfDict.icif.crcycd"/>
+                <field id="mainfg" type="CfEnumType.E_MAINFG" required="false" multi="false" array="false" longname="主账号标志" ref="CfDict.icif.mainfg"/>
+                <field id="addchl" type="CfEnumType.E_ADDCHL" required="false" multi="false" array="false" longname="添加渠道" ref="CfDict.icif.addchl"/>
+                <field id="acctrm" type="CfBaseType.U_ACCTRM" required="false" multi="false" array="false" longname="账户备注" ref="CfDict.icif.acctrm"/>
+                <field id="userid" type="CfBaseType.U_USERID" required="false" multi="false" array="false" longname="用户ID号" ref="CfDict.param.userid"/>
+                <field id="accttp" type="CfEnumType.E_CACCTP" required="false" multi="false" array="false" longname="账户类型" ref="CfDict.icif.accttp"/>
+                <field id="deceno" type="CfBaseType.U_DECENO" required="false" multi="false" array="false" longname="设备号" ref="CfDict.param.deceno"/>
+                <field id="olduid" type="CfBaseType.U_OLDUID" required="false" multi="false" array="false" longname="老用户id" desc="移动升级前手机端的用户id" ref="CfDict.icif.olduid"/>
+                <field id="lgmdsw" type="CfEnumType.E_LGMDSW" required="false" multi="false" array="false" longname="登录方式开关" ref="CfDict.icif.lgmdsw"/>
+            </output>
+            <property packMode="true"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="UsCheckPassword" name="UsCheckPassword" longname="密码校验">
+        <interface>
+            <input packMode="true">
+                <field id="passwd" type="CfBaseType.U_PASSWD" required="false" multi="false" array="false" longname="用户密码" ref="CfDict.param.passwd"/>
+                <field id="idtftp" type="BaseEnumType.E_IDTFTP" required="false" multi="false" array="false" longname="证件类型" ref="CfDict.param.idtftp"/>
+                <field id="idtfno" type="CfBaseType.U_IDTFNO" required="false" multi="false" array="false" longname="证件号码" ref="CfDict.param.idtfno"/>
+                <field id="pwdtyp" type="CfEnumType.E_PWDTYP" required="false" multi="false" array="false" longname="密码类型" ref="CfDict.icif.pwdtyp"/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="errnum" type="CfBaseType.U_INTGER" required="false" multi="false" array="false" longname="错误次数" ref="CfDict.param.errnum"/>
+            </output>
+            <property packMode="true"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="UsQueryUserBaseInfo" name="UsQueryUserBaseInfo" longname="查询客户相关信息">
+        <interface>
+            <input packMode="true">
+                <field id="idtftp" type="BaseEnumType.E_IDTFTP" required="false" multi="false" array="false" longname="证件类型" ref="CfDict.param.idtftp"/>
+                <field id="idtfno" type="CfBaseType.U_IDTFNO" required="false" multi="false" array="false" longname="证件号码" ref="CfDict.param.idtfno"/>
+                <field id="deceno" type="CfBaseType.U_DECENO" required="false" multi="false" array="false" longname="设备号" ref="CfDict.param.deceno"/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="userid" type="CfBaseType.U_USERID" required="false" multi="false" array="false" longname="用户ID号" ref="CfDict.param.userid"/>
+                <field id="userst" type="CfEnumType.E_USERST" required="false" multi="false" array="false" longname="用户状态" ref="CfDict.param.userst"/>
+                <field id="userlv" type="CfEnumType.E_USERLV" required="false" multi="false" array="false" longname="用户层级" ref="CfDict.icif.userlv"/>
+                <field id="userna" type="CfBaseType.U_USERNA" required="false" multi="false" array="false" longname="昵称" ref="CfDict.param.userna"/>
+                <field id="userem" type="CfBaseType.U_USEREM" required="false" multi="false" array="false" longname="电子邮箱" ref="CfDict.param.userem"/>
+                <field id="custid" type="CfBaseType.U_CUSTID" required="false" multi="false" array="false" longname="客户ID" ref="CfDict.param.custid"/>
+                <field id="custna" type="CfBaseType.U_CUSTNA" required="false" multi="false" array="false" longname="客户姓名" ref="CfDict.param.custna"/>
+                <field id="phonno" type="CfBaseType.U_PHONNO" required="false" multi="false" array="false" longname="手机号码" ref="CfDict.param.phonno"/>
+                <field id="nation" type="CfEnumType.E_NATION" required="false" multi="false" array="false" longname="民族" ref="CfDict.param.nation"/>
+                <field id="gender" type="BaseEnumType.E_SEXTYP" required="false" multi="false" array="false" longname="性别" ref="CfDict.param.gender"/>
+                <field id="ctrycd" type="BaseType.U_COUNCD" required="false" multi="false" array="false" longname="国籍" ref="CfDict.param.ctrycd"/>
+                <field id="idtftp" type="BaseEnumType.E_IDTFTP" required="false" multi="false" array="false" longname="证件类型" ref="CfDict.param.idtftp"/>
+                <field id="idtfno" type="CfBaseType.U_IDTFNO" required="false" multi="false" array="false" longname="证件号码" ref="CfDict.param.idtfno"/>
+                <field id="bhdate" type="CfBaseType.U_BHDATE" required="false" multi="false" array="false" longname="出生日期" ref="CfDict.param.bhdate"/>
+                <field id="eactno" type="CfBaseType.U_EACTNO" required="false" multi="false" array="false" longname="电子账号" ref="CfDict.param.eactno"/>
+                <field id="eactid" type="CfBaseType.U_EACTID" required="false" multi="false" array="false" longname="电子账号ID" ref="CfDict.param.eactid"/>
+                <field id="eaccbr" type="CfBaseType.U_CUSTBR" required="false" multi="false" array="false" longname="电子账户所属机构" ref="CfDict.param.eaccbr"/>
+                <field id="custbr" type="CfBaseType.U_CUSTBR" required="false" multi="false" array="false" longname="客户所属机构" ref="CfDict.param.custbr"/>
+                <field id="acmaid" type="CfBaseType.U_ACMAID" required="false" multi="false" array="false" longname="客户经理ID" ref="CfDict.param.acmaid"/>
+                <field id="idtedt" type="BaseType.U_CHAR08" required="false" multi="false" array="false" longname="证件生效日" ref="CfDict.param.idtedt"/>
+                <field id="idexdt" type="BaseType.U_CHAR08" required="false" multi="false" array="false" longname="证件到期日" ref="CfDict.param.idexdt"/>
+                <field id="eaopfg" type="CfEnumType.E_EAOPFG" required="false" multi="false" array="false" longname="电子账户开通标识" ref="CfDict.param.eaopfg"/>
+                <field id="devsta" type="CfEnumType.E_DEVSTA" required="false" multi="false" array="false" longname="设备校验状态" ref="CfDict.icif.devsta"/>
+                <field id="custfg" type="BaseEnumType.E_YES___" required="false" multi="false" array="false" longname="是否存量客户" ref="CfDict.icif.custfg"/>
+                <field id="acctno" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="账号" ref="BaseDict.Comm.acctno"/>
+                <field id="acctna" type="BaseType.U_ACCTNA" required="false" multi="false" array="false" longname="账户名称" ref="BaseDict.Comm.acctna"/>
+                <field id="xedflg" type="CfEnumType.E_KTFLAG" required="false" multi="false" array="false" longname="信e盾开通标识" ref="CfDict.icif.xedflg"/>
+                <field id="cldgfg" type="CfEnumType.E_KTFLAG" required="false" multi="false" array="false" longname="云证通开通标识" ref="CfDict.icif.cldgfg"/>
+                <field id="deceno" type="CfBaseType.U_DECENO" required="false" multi="false" array="false" longname="设备号" ref="CfDict.param.deceno"/>
+                <field id="pushid" type="CfBaseType.U_PUSHID" required="false" multi="false" array="false" longname="推送ID" ref="CfDict.param.pushid"/>
+                <field id="vatype" type="CfEnumType.E_VATYPE" required="false" multi="false" array="false" longname="验证类型" ref="CfDict.icif.vatype"/>
+                <field id="gmt_create" type="BaseType.U_CHAR21" required="false" multi="false" array="false" longname="创建时间" ref="CfDict.param.gmt_create"/>
+                <field id="olduid" type="CfBaseType.U_OLDUID" required="false" multi="false" array="false" longname="老用户id" desc="移动升级前手机端的用户id" ref="CfDict.icif.olduid"/>
+                <field id="decefg" type="CfEnumType.E_DECEFG" required="false" multi="false" array="false" longname="注册设备类型" ref="CfDict.param.decefg"/>
+            </output>
+            <property packMode="true"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="UsGetMyInfo" name="UsGetMyInfo" longname="获取我的信息">
+        <interface>
+            <input packMode="true">
+                <field id="idtftp" type="BaseEnumType.E_IDTFTP" required="false" multi="false" array="false" longname="证件类型" ref="CfDict.param.idtftp"/>
+                <field id="idtfno" type="CfBaseType.U_IDTFNO" required="false" multi="false" array="false" longname="证件号码" ref="CfDict.param.idtfno"/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="userna" type="CfBaseType.U_USERNA" required="false" multi="false" array="false" longname="昵称" ref="CfDict.param.userna"/>
+                <field id="userem" type="CfBaseType.U_USEREM" required="false" multi="false" array="false" longname="电子邮箱" ref="CfDict.param.userem"/>
+                <field id="addrid" type="CfBaseType.U_ADDRID" required="false" multi="false" array="false" longname="地址ID" ref="CfDict.param.addrid"/>
+                <field id="postcd" type="CfBaseType.U_POSTCD" required="false" multi="false" array="false" longname="邮编" ref="CfDict.param.postcd"/>
+                <field id="provcd" type="CfBaseType.U_PROVCD" required="false" multi="false" array="false" longname="省级代码" ref="CfDict.param.provcd"/>
+                <field id="citycd" type="CfBaseType.U_CITYCD" required="false" multi="false" array="false" longname="市级代码" ref="CfDict.param.citycd"/>
+                <field id="distcd" type="CfBaseType.U_DISTCD" required="false" multi="false" array="false" longname="区代码" ref="CfDict.param.distcd"/>
+                <field id="detasi" type="CfBaseType.U_DETASI" required="false" multi="false" array="false" longname="详细地址" ref="CfDict.param.detasi"/>
+                <field id="custid" type="CfBaseType.U_CUSTID" required="false" multi="false" array="false" longname="客户ID" ref="CfDict.param.custid"/>
+                <field id="custna" type="CfBaseType.U_CUSTNA" required="false" multi="false" array="false" longname="客户姓名" ref="CfDict.param.custna"/>
+                <field id="idtftp" type="BaseEnumType.E_IDTFTP" required="false" multi="false" array="false" longname="证件类型" ref="CfDict.param.idtftp"/>
+                <field id="idtfno" type="CfBaseType.U_IDTFNO" required="false" multi="false" array="false" longname="证件号码" ref="CfDict.param.idtfno"/>
+                <field id="chkflg" type="CfEnumType.E_CHKFLG" required="false" multi="false" array="false" longname="核查标志" ref="CfDict.param.chkflg"/>
+                <field id="career" type="BaseEnumType.E_WORKTP" required="false" multi="false" array="false" longname="职业" ref="CfDict.param.career"/>
+                <field id="annuin" type="CfBaseType.U_ANNUIN" required="false" multi="false" array="false" longname="年收入" ref="CfDict.param.annuin"/>
+                <field id="nation" type="CfEnumType.E_NATION" required="false" multi="false" array="false" longname="民族" ref="CfDict.param.nation"/>
+                <field id="ctrycd" type="BaseType.U_COUNCD" required="false" multi="false" array="false" longname="国籍" ref="CfDict.param.ctrycd"/>
+                <field id="bhdate" type="CfBaseType.U_BHDATE" required="false" multi="false" array="false" longname="出生日期" ref="CfDict.param.bhdate"/>
+                <field id="gender" type="BaseEnumType.E_SEXTYP" required="false" multi="false" array="false" longname="性别" ref="CfDict.param.gender"/>
+                <field id="idsite" type="CfBaseType.U_IDSITE" required="false" multi="false" array="false" longname="证件地址" ref="CfDict.param.idsite"/>
+                <field id="issuat" type="CfBaseType.U_ISSUAT" required="false" multi="false" array="false" longname="发证机关" ref="CfDict.param.issuat"/>
+                <field id="idtedt" type="BaseType.U_CHAR08" required="false" multi="false" array="false" longname="证件生效日" ref="CfDict.param.idtedt"/>
+                <field id="idexdt" type="BaseType.U_CHAR08" required="false" multi="false" array="false" longname="证件到期日" ref="CfDict.param.idexdt"/>
+                <field id="userid" type="CfBaseType.U_USERID" required="false" multi="false" array="false" longname="用户ID号" ref="CfDict.param.userid"/>
+            </output>
+            <property packMode="true"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="UsQueryProdAgrt" name="UsQueryProdAgrt" longname="产品协议信息查询">
+        <interface>
+            <input packMode="true">
+                <field id="prcode" type="CfBaseType.U_CHAR50" required="false" multi="false" array="false" longname="协议代码" ref="CfDict.prod.prcode"/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="agrtList" type="IoUsComplexType.IoProdAgrtList" required="false" multi="true" array="false" longname="产品协议信息"/>
+            </output>
+            <property packMode="true"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="UsDeviceBindOrChange" name="UsDeviceBindOrChange" longname="设备绑定或换绑">
+        <interface>
+            <input packMode="true">
+                <field id="custid" type="CfBaseType.U_CUSTID" required="false" multi="false" array="false" longname="客户ID" ref="CfDict.param.custid"/>
+                <field id="decety" type="CfEnumType.E_OPTERM" required="false" multi="false" array="false" longname="设备类型" ref="CfDict.icif.decety"/>
+                <field id="sysplt" type="CfBaseType.U_SYSPLT" required="false" multi="false" array="false" longname="系统平台" ref="CfDict.icif.sysplt"/>
+                <field id="pltver" type="BaseType.U_CHAR10" required="false" multi="false" array="false" longname="平台版本" ref="CfDict.icif.pltver"/>
+                <field id="versta" type="CfBaseType.U_VERSTA" required="false" multi="false" array="false" longname="版本状态" ref="CfDict.icif.versta"/>
+                <field id="deceno" type="CfBaseType.U_DECENO" required="false" multi="false" array="false" longname="设备号" ref="CfDict.param.deceno"/>
+                <field id="dvuuid" type="CfBaseType.U_DVUUID" required="false" multi="false" array="false" longname="设备UUID" ref="CfDict.icif.dvuuid"/>
+                <field id="serial" type="CfBaseType.U_SERIAL" required="false" multi="false" array="false" longname="设备序列号" ref="CfDict.icif.serial"/>
+                <field id="publip" type="CfBaseType.U_PUBLIP" required="false" multi="false" array="false" longname="公网IP" ref="CfDict.icif.publip"/>
+                <field id="privip" type="CfBaseType.U_PRIVIP" required="false" multi="false" array="false" longname="私网IP" ref="CfDict.icif.privip"/>
+                <field id="opechl" type="CfEnumType.E_CHNLID" required="false" multi="false" array="false" longname="操作渠道" ref="CfDict.icif.opechl"/>
+                <field id="imeino" type="CfBaseType.U_IMEINO" required="false" multi="false" array="false" longname="IMEI" ref="CfDict.icif.imeino"/>
+                <field id="macadd" type="CfBaseType.U_MACADD" required="false" multi="false" array="false" longname="MAC" ref="CfDict.icif.macadd"/>
+                <field id="andrid" type="CfBaseType.U_ANDRID" required="false" multi="false" array="false" longname="安卓id" ref="CfDict.icif.andrid"/>
+                <field id="bindid" type="CfBaseType.U_BINDID" required="false" multi="false" array="false" longname="绑定机构" ref="CfDict.icif.bindid"/>
+                <field id="ztidcd" type="CfBaseType.U_ZTIDCD" required="false" multi="false" array="false" longname="云证通识别码" ref="CfDict.icif.ztidcd"/>
+                <field id="detrty" type="CfEnumType.E_DETRTY" required="false" multi="false" array="false" longname="设备交易类型" ref="CfDict.icif.detrty"/>
+            </input>
+            <output asParm="true" packMode="true"/>
+            <property packMode="true"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="UsDeviceUnBind" name="UsDeviceUnBind" longname="设备解绑">
+        <interface>
+            <input packMode="true">
+                <field id="opechl" type="CfEnumType.E_CHNLID" required="false" multi="false" array="false" longname="操作渠道" ref="CfDict.icif.opechl"/>
+                <field id="idtftp" type="BaseEnumType.E_IDTFTP" required="false" multi="false" array="false" longname="证件类型" ref="CfDict.param.idtftp"/>
+                <field id="idtfno" type="CfBaseType.U_IDTFNO" required="false" multi="false" array="false" longname="证件号码" ref="CfDict.param.idtfno"/>
+                <field id="passwd" type="CfBaseType.U_PASSWD" required="false" multi="false" array="false" longname="用户密码" ref="CfDict.param.passwd"/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="errnum" type="CfBaseType.U_INTGER" required="false" multi="false" array="false" longname="错误次数" ref="CfDict.param.errnum"/>
+            </output>
+            <property packMode="true"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="UsQueryCardBindInfo" name="UsQueryCardBindInfo" longname="获取绑定卡信息">
+        <interface>
+            <input packMode="true">
+                <field id="custid" type="CfBaseType.U_CUSTID" required="false" multi="false" array="false" longname="客户ID" ref="CfDict.param.custid"/>
+                <field id="acctno" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="账号" ref="BaseDict.Comm.acctno"/>
+                <field id="mainfg" type="CfEnumType.E_MAINFG" required="false" multi="false" array="false" longname="主账号标志" ref="CfDict.icif.mainfg"/>
+                <field id="idtftp" type="BaseEnumType.E_IDTFTP" required="false" multi="false" array="false" longname="证件类型" ref="CfDict.param.idtftp"/>
+                <field id="idtfno" type="CfBaseType.U_IDTFNO" required="false" multi="false" array="false" longname="证件号码" ref="CfDict.param.idtfno"/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="acctList" type="IoUsComplexType.IoCardBindInfo" required="false" multi="true" array="false" longname="绑定卡信息列表"/>
+            </output>
+            <property packMode="true"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="UsQueryAcctInfo" name="UsQueryAcctInfo" longname="加挂卡和电子账户信息查询">
+        <interface>
+            <input packMode="true">
+                <field id="custid" type="CfBaseType.U_CUSTID" required="false" multi="false" array="false" longname="客户ID" ref="CfDict.param.custid"/>
+                <field id="idtftp" type="BaseEnumType.E_IDTFTP" required="false" multi="false" array="false" longname="证件类型" ref="CfDict.param.idtftp"/>
+                <field id="idtfno" type="CfBaseType.U_IDTFNO" required="false" multi="false" array="false" longname="证件号码" ref="CfDict.param.idtfno"/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="acctList" type="IoUsComplexType.AcctList" required="false" multi="true" array="false" longname="加挂卡和电子账户信息集合"/>
+            </output>
+            <property packMode="true"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="UsSelRecmUsers" name="UsSelRecmUsers" longname="推荐人信息查询">
+        <interface>
+            <input packMode="true">
+                <field id="refeph" type="CfBaseType.U_PHONNO" required="false" multi="false" array="false" longname="推荐人手机号" ref="CfDict.param.refeph"/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="recmList" type="IoUsComplexType.IoRefeUserUp" required="false" multi="true" array="false" longname="推荐人信息集合"/>
+            </output>
+            <property packMode="true"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="UsQueryReceiverList" name="UsQueryReceiverList" longname="获取收款人信息列表">
+        <interface>
+            <input packMode="true">
+                <field id="custid" type="CfBaseType.U_CUSTID" required="false" multi="false" array="false" longname="客户ID" ref="CfDict.param.custid"/>
+                <field id="quytyp" type="CfEnumType.E_INFOTY" required="false" multi="false" array="false" longname="查询类型" ref="CfDict.icif.quytyp"/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="receiverList" type="IoUsComplexType.IoReceiverList" required="false" multi="true" array="false" longname="收款人信息集合"/>
+            </output>
+            <property packMode="true"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="UsInfoCheck" name="UsInfoCheck" longname="实名流程身份证信息验证">
+        <interface>
+            <input packMode="true">
+                <field id="userid" type="CfBaseType.U_USERID" required="false" multi="false" array="false" longname="用户ID号" ref="CfDict.param.userid"/>
+                <field id="chnlid" type="CfEnumType.E_CHNLID" required="false" multi="false" array="false" longname="渠道" ref="CfDict.param.chnlid"/>
+                <field id="idtftp" type="BaseEnumType.E_IDTFTP" required="false" multi="false" array="false" longname="证件类型" ref="CfDict.param.idtftp"/>
+                <field id="idtfno" type="CfBaseType.U_IDTFNO" required="false" multi="false" array="false" longname="证件号码" ref="CfDict.param.idtfno"/>
+                <field id="custna" type="CfBaseType.U_CUSTNA" required="false" multi="false" array="false" longname="客户姓名" ref="CfDict.param.custna"/>
+                <field id="nation" type="CfEnumType.E_NATION" required="false" multi="false" array="false" longname="民族" ref="CfDict.param.nation"/>
+                <field id="ctrycd" type="BaseType.U_COUNCD" required="false" multi="false" array="false" longname="国籍" ref="CfDict.param.ctrycd"/>
+                <field id="bhdate" type="CfBaseType.U_BHDATE" required="false" multi="false" array="false" longname="出生日期" ref="CfDict.param.bhdate"/>
+                <field id="gender" type="BaseEnumType.E_SEXTYP" required="false" multi="false" array="false" longname="性别" ref="CfDict.param.gender"/>
+                <field id="idsite" type="CfBaseType.U_IDSITE" required="false" multi="false" array="false" longname="证件地址" ref="CfDict.param.idsite"/>
+                <field id="idtedt" type="BaseType.U_CHAR08" required="false" multi="false" array="false" longname="证件生效日" ref="CfDict.param.idtedt"/>
+                <field id="idexdt" type="BaseType.U_CHAR08" required="false" multi="false" array="false" longname="证件到期日" ref="CfDict.param.idexdt"/>
+                <field id="issuat" type="CfBaseType.U_ISSUAT" required="false" multi="false" array="false" longname="发证机关" ref="CfDict.param.issuat"/>
+                <field id="idfrnt" type="CfBaseType.U_IDFRONT" required="false" multi="false" array="false" longname="身份证正面地址" ref="CfDict.icif.idfrnt"/>
+                <field id="idback" type="CfBaseType.U_IDBACK" required="false" multi="false" array="false" longname="身份证反面地址" ref="CfDict.icif.idback"/>
+                <field id="idhead" type="CfBaseType.U_HEADID" required="false" multi="false" array="false" longname="身份证头像地址" ref="CfDict.icif.idhead"/>
+                <field id="frntsq" type="CfBaseType.U_FRNTSQ" required="false" multi="false" array="false" longname="身份证正面影像流水" ref="CfDict.icif.frntsq"/>
+                <field id="backsq" type="CfBaseType.U_BACKSQ" required="false" multi="false" array="false" longname="身份证反面影像流水" ref="CfDict.icif.backsq"/>
+                <field id="headsq" type="CfBaseType.U_HEADSQ" required="false" multi="false" array="false" longname="身份证头像影像流水" ref="CfDict.icif.headsq"/>
+                <field id="netchk" type="CfEnumType.E_NETCHK" required="false" multi="false" array="false" longname="联网核查" ref="CfDict.icif.netchk"/>
+                <field id="chkres" type="CfEnumType.E_CHKRES" required="false" multi="false" array="false" longname="核查结果" ref="CfDict.icif.chkres"/>
+                <field id="fccmid" type="CfBaseType.U_FCCMID" required="false" multi="false" array="false" longname="人脸比对照id" ref="CfDict.icif.fccmid"/>
+                <field id="idimsu" type="CfEnumType.E_IDIMSU" required="false" multi="false" array="false" longname="身份证影印件来源" ref="CfDict.icif.idimsu"/>
+                <field id="imgdat" type="CfBaseType.U_DATE23" required="false" multi="false" array="false" longname="采集影像日期" ref="CfDict.icif.imgdat"/>
+                <field id="chkdat" type="CfBaseType.U_DATE23" required="false" multi="false" array="false" longname="联网核查时间" ref="CfDict.icif.chkdat"/>
+                <field id="taxinf" type="CfBaseType.U_TAXINF" required="false" multi="false" array="false" longname="税收信息" ref="CfDict.icif.taxinf"/>
+                <field id="jobnat" type="CfBaseType.U_JOBNAT" required="false" multi="false" array="false" longname="工作性质" ref="CfDict.icif.jobnat"/>
+                <field id="isfarm" type="CfBaseType.U_ISFARM" required="false" multi="false" array="false" longname="是否农户" ref="CfDict.icif.isfarm"/>
+                <field id="idptcd" type="CfBaseType.U_POSTCD" required="false" multi="false" array="false" longname="证件地址邮编" ref="CfDict.icif.idptcd"/>
+                <field id="isempy" type="CfBaseType.U_ISEMPY" required="false" multi="false" array="false" longname="是否员工" ref="CfDict.icif.isempy"/>
+                <field id="wkaddr" type="CfBaseType.U_WKADDR" required="false" multi="false" array="false" longname="单位地址" ref="CfDict.icif.wkaddr"/>
+                <field id="wkptcd" type="CfBaseType.U_POSTCD" required="false" multi="false" array="false" longname="单位地址邮编" ref="CfDict.icif.wkptcd"/>
+                <field id="wktlph" type="CfBaseType.U_TLPHNO" required="false" multi="false" array="false" longname="单位电话" ref="CfDict.icif.wktlph"/>
+                <field id="wkname" type="CfBaseType.U_WKNAME" required="false" multi="false" array="false" longname="单位名称" ref="CfDict.icif.wkname"/>
+                <field id="hmaddr" type="CfBaseType.U_HMADDR" required="false" multi="false" array="false" longname="居住地址" ref="CfDict.icif.hmaddr"/>
+                <field id="hmptcd" type="CfBaseType.U_POSTCD" required="false" multi="false" array="false" longname="居住地址邮编" ref="CfDict.icif.hmptcd"/>
+                <field id="hmtlph" type="CfBaseType.U_TLPHNO" required="false" multi="false" array="false" longname="住宅电话" ref="CfDict.icif.hmtlph"/>
+                <field id="userem" type="CfBaseType.U_USEREM" required="false" multi="false" array="false" longname="电子邮箱" ref="CfDict.param.userem"/>
+                <field id="educat" type="CfBaseType.U_EDUCAT" required="false" multi="false" array="false" longname="最高学历" ref="CfDict.icif.educat"/>
+                <field id="degree" type="CfBaseType.U_DEGREE" required="false" multi="false" array="false" longname="最高学位" ref="CfDict.icif.degree"/>
+                <field id="maritl" type="CfBaseType.U_MARITL" required="false" multi="false" array="false" longname="婚姻状况" ref="CfDict.icif.maritl"/>
+                <field id="potice" type="CfBaseType.U_POTICE" required="false" multi="false" array="false" longname="政治面貌" ref="CfDict.icif.potice"/>
+                <field id="custrl" type="CfBaseType.U_CUSTRL" required="false" multi="false" array="false" longname="客户关系" ref="CfDict.icif.custrl"/>
+                <field id="career" type="BaseEnumType.E_WORKTP" required="false" multi="false" array="false" longname="职业" ref="CfDict.param.career"/>
+                <field id="annuin" type="CfBaseType.U_ANNUIN" required="false" multi="false" array="false" longname="年收入" ref="CfDict.param.annuin"/>
+            </input>
+            <output asParm="false" packMode="true">
+                <field id="custid" type="CfBaseType.U_CUSTID" required="false" multi="false" array="false" longname="客户ID" ref="CfDict.param.custid"/>
+                <field id="chkseq" type="CfBaseType.U_CHKSEQ" required="false" multi="false" array="false" longname="核查流水" ref="CfDict.param.chkseq"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="UsCheckLoginState" name="UsCheckLoginState" longname="登录态校验">
+        <interface>
+            <input packMode="true">
+                <field id="userid" type="CfBaseType.U_USERID" required="false" multi="false" array="false" longname="用户ID号" ref="CfDict.param.userid"/>
+                <field id="sessid" type="CfBaseType.U_SESSID" required="false" multi="false" array="false" longname="会话id" ref="CfDict.icif.sessid"/>
+                <field id="deceno" type="CfBaseType.U_DECENO" required="false" multi="false" array="false" longname="设备号" ref="CfDict.param.deceno"/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="issucc" type="CfEnumType.E_ISSUCC" required="false" multi="false" array="false" longname="是否校验成功" ref="CfDict.icif.issucc"/>
+                <field id="custid" type="CfBaseType.U_CUSTID" required="false" multi="false" array="false" longname="客户ID" ref="CfDict.param.custid"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="UsLoginOut" name="UsLoginOut" longname="用户登出">
+        <interface>
+            <input packMode="true">
+                <field id="userid" type="CfBaseType.U_USERID" required="false" multi="false" array="false" longname="用户ID号" ref="CfDict.param.userid"/>
+                <field id="chltyp" type="CfEnumType.E_REGCHL" required="false" multi="false" array="false" longname="渠道类型" ref="CfDict.icif.chltyp"/>
+                <field id="chnlid" type="CfEnumType.E_CHNLID" required="false" multi="false" array="false" longname="渠道" ref="CfDict.param.chnlid"/>
+                <field id="opterm" type="CfEnumType.E_OPTERM" required="false" multi="false" array="false" longname="操作终端" ref="CfDict.icif.opterm"/>
+                <field id="deceno" type="CfBaseType.U_DECENO" required="false" multi="false" array="false" longname="设备号" ref="CfDict.param.deceno"/>
+                <field id="appnam" type="CfBaseType.U_APPNAM" required="false" multi="false" array="false" longname="app应用名称" ref="CfDict.icif.appnam"/>
+                <field id="appver" type="CfBaseType.U_APPVER" required="false" multi="false" array="false" longname="app版本" ref="CfDict.icif.appver"/>
+                <field id="apptok" type="CfBaseType.U_APPTOK" required="false" multi="false" array="false" longname="app Token" ref="CfDict.icif.apptok"/>
+                <field id="brownm" type="CfBaseType.U_BROWNM" required="false" multi="false" array="false" longname="浏览器名称" ref="CfDict.icif.brownm"/>
+                <field id="browve" type="CfBaseType.U_BROWVE" required="false" multi="false" array="false" longname="浏览器版本" ref="CfDict.icif.browve"/>
+                <field id="lgtude" type="CfBaseType.U_LGTUDE" required="false" multi="false" array="false" longname="经度" ref="CfDict.icif.lgtude"/>
+                <field id="latude" type="CfBaseType.U_LATUDE" required="false" multi="false" array="false" longname="纬度" ref="CfDict.icif.latude"/>
+                <field id="provcd" type="CfBaseType.U_PROVCD" required="false" multi="false" array="false" longname="定位省" ref="CfDict.param.provcd"/>
+                <field id="citycd" type="CfBaseType.U_CITYCD" required="false" multi="false" array="false" longname="定位市" ref="CfDict.param.citycd"/>
+            </input>
+            <output asParm="true" packMode="true"/>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="userLockAndUnlock" name="userLockAndUnlock" longname="用户锁定与解锁">
+        <interface>
+            <input packMode="true">
+                <field id="userid" type="CfBaseType.U_USERID" required="false" multi="false" array="false" longname="用户ID号" ref="CfDict.param.userid"/>
+                <field id="operst" type="CfEnumType.E_OPERST" required="false" multi="false" array="false" longname="操作状态" ref="CfDict.param.operst"/>
+                <field id="opechl" type="CfEnumType.E_CHNLID" required="false" multi="false" array="false" longname="操作渠道" ref="CfDict.icif.opechl"/>
+                <field id="operid" type="CfBaseType.U_VERITE" required="false" multi="false" array="false" longname="操作员" ref="CfDict.param.operid"/>
+                <field id="reason" type="CfBaseType.U_REASON" required="false" multi="false" array="false" longname="原因" ref="CfDict.param.reason"/>
+            </input>
+            <output asParm="true" packMode="true"/>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="queryUserView" name="queryUserView" longname="用户视图查询">
+        <interface>
+            <input packMode="true">
+                <field id="userid" type="CfBaseType.U_USERID" required="false" multi="false" array="false" longname="用户ID号" ref="CfDict.param.userid"/>
+                <field id="logina" type="CfBaseType.U_LOGINA" required="false" multi="false" array="false" longname="登录名" ref="CfDict.param.logina"/>
+                <field id="regchl" type="CfEnumType.E_REGCHL" required="false" multi="false" array="false" longname="注册渠道" ref="CfDict.icif.regchl"/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="userid" type="CfBaseType.U_USERID" required="false" multi="false" array="false" longname="用户ID号" ref="CfDict.param.userid"/>
+                <field id="userst" type="CfEnumType.E_USERST" required="false" multi="false" array="false" longname="用户状态" ref="CfDict.param.userst"/>
+                <field id="userlv" type="CfEnumType.E_USERLV" required="false" multi="false" array="false" longname="用户级别" ref="CfDict.icif.userlv"/>
+                <field id="phonno" type="CfBaseType.U_PHONNO" required="false" multi="false" array="false" longname="手机号码" ref="CfDict.param.phonno"/>
+                <field id="hpsite" type="CfBaseType.U_PICADD" required="false" multi="false" array="false" longname="头像地址" ref="CfDict.param.hpsite"/>
+                <field id="userna" type="CfBaseType.U_USERNA" required="false" multi="false" array="false" longname="昵称" ref="CfDict.param.userna"/>
+                <field id="userem" type="CfBaseType.U_USEREM" required="false" multi="false" array="false" longname="电子邮箱" ref="CfDict.param.userem"/>
+                <field id="custid" type="CfBaseType.U_CUSTID" required="false" multi="false" array="false" longname="客户ID" ref="CfDict.param.custid"/>
+                <field id="gender" type="BaseEnumType.E_SEXTYP" required="false" multi="false" array="false" longname="性别" ref="CfDict.param.gender"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="userDeactivate" name="userDeactivate" longname="用户注销">
+        <interface>
+            <input packMode="true">
+                <field id="userid" type="CfBaseType.U_USERID" required="false" multi="false" array="false" longname="用户ID号" ref="CfDict.param.userid"/>
+                <field id="chltyp" type="CfEnumType.E_REGCHL" required="false" multi="false" array="false" longname="渠道类型" ref="CfDict.icif.chltyp"/>
+                <field id="chnlid" type="CfEnumType.E_CHNLID" required="false" multi="false" array="false" longname="渠道" ref="CfDict.param.chnlid"/>
+            </input>
+            <output asParm="true" packMode="true"/>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="UsUserPasswordCheck" name="UsUserPasswordCheck" longname="用户密码校验">
+        <interface>
+            <input packMode="true">
+                <field id="userid" type="CfBaseType.U_USERID" required="false" multi="false" array="false" longname="用户ID号" ref="CfDict.param.userid"/>
+                <field id="passwd" type="CfBaseType.U_PASSWD" required="false" multi="false" array="false" longname="用户密码" ref="CfDict.param.passwd"/>
+                <field id="lgtype" type="CfEnumType.E_PWDTYP" required="false" multi="false" array="false" longname="密码类型" ref="CfDict.icif.lgtype"/>
+                <field id="hashcd" type="string" required="false" multi="false" array="false" longname="hash值"/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="errnum" type="CfBaseType.U_INTGER" required="false" multi="false" array="false" longname="错误次数" ref="CfDict.param.errnum"/>
+                <field id="ussign" type="CfBaseType.U_CHAR1024" required="false" multi="false" array="false" longname="签名密码"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="UsCheckUserIsRegistered" name="UsCheckUserIsRegistered" longname="判断用户是否注册">
+        <interface>
+            <input packMode="true">
+                <field id="logina" type="CfBaseType.U_LOGINA" required="false" multi="false" array="false" longname="登录名" ref="CfDict.param.logina"/>
+                <field id="openid" type="CfBaseType.U_OPENID" required="false" multi="false" array="false" longname="openid" ref="CfDict.icif.openid"/>
+                <field id="regchl" type="CfEnumType.E_REGCHL" required="false" multi="false" array="false" longname="注册渠道" ref="CfDict.icif.regchl"/>
+                <field id="chnlid" type="CfEnumType.E_CHNLID" required="false" multi="false" array="false" longname="渠道" ref="CfDict.param.chnlid"/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="userid" type="CfBaseType.U_USERID" required="false" multi="false" array="false" longname="用户ID号" ref="CfDict.param.userid"/>
+                <field id="custid" type="CfBaseType.U_CUSTID" required="false" multi="false" array="false" longname="客户ID" ref="CfDict.param.custid"/>
+                <field id="hpsite" type="CfBaseType.U_PICADD" required="false" multi="false" array="false" longname="头像地址" ref="CfDict.param.hpsite"/>
+                <field id="userna" type="CfBaseType.U_USERNA" required="false" multi="false" array="false" longname="昵称" ref="CfDict.param.userna"/>
+                <field id="logina" type="CfBaseType.U_LOGINA" required="false" multi="false" array="false" longname="登录名" ref="CfDict.param.logina"/>
+                <field id="openid" type="CfBaseType.U_OPENID" required="false" multi="false" array="false" longname="openid" ref="CfDict.icif.openid"/>
+                <field id="ussign" type="CfBaseType.U_CHAR1024" required="false" multi="false" array="false" longname="签名密码"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="UsOneOpenAccount" name="UsOneOpenAccount" longname="一键开户">
+        <interface>
+            <input packMode="true">
+                <field id="regchl" type="CfEnumType.E_REGCHL" required="false" multi="false" array="false" longname="注册渠道" ref="CfDict.icif.regchl"/>
+                <field id="chnlid" type="CfEnumType.E_CHNLID" required="false" multi="false" array="false" longname="渠道" ref="CfDict.param.chnlid"/>
+                <field id="logina" type="CfBaseType.U_LOGINA" required="false" multi="false" array="false" longname="登录名" ref="CfDict.param.logina"/>
+                <field id="phonno" type="CfBaseType.U_PHONNO" required="false" multi="false" array="false" longname="手机号码" ref="CfDict.param.phonno"/>
+                <field id="openid" type="CfBaseType.U_OPENID" required="false" multi="false" array="false" longname="openid" ref="CfDict.icif.openid"/>
+                <field id="idtfno" type="CfBaseType.U_IDTFNO" required="false" multi="false" array="false" longname="证件号码" ref="CfDict.param.idtfno"/>
+                <field id="idtftp" type="BaseEnumType.E_IDTFTP" required="false" multi="false" array="false" longname="证件类型" ref="CfDict.param.idtftp"/>
+                <field id="chnlna" type="CfBaseType.U_USERNA" required="false" multi="false" array="false" longname="渠道昵称" ref="CfDict.param.chnlna"/>
+                <field id="chnlhd" type="CfBaseType.U_CHNLHD" required="false" multi="false" array="false" longname="渠道头像" ref="CfDict.icif.chnlhd"/>
+                <field id="deceno" type="CfBaseType.U_DECENO" required="false" multi="false" array="false" longname="设备号" ref="CfDict.param.deceno"/>
+                <field id="custna" type="CfBaseType.U_CUSTNA" required="false" multi="false" array="false" longname="客户姓名" ref="CfDict.param.custna"/>
+                <field id="nation" type="CfEnumType.E_NATION" required="false" multi="false" array="false" longname="民族" ref="CfDict.param.nation"/>
+                <field id="gender" type="BaseEnumType.E_SEXTYP" required="false" multi="false" array="false" longname="性别" ref="CfDict.param.gender"/>
+                <field id="idsite" type="CfBaseType.U_IDSITE" required="false" multi="false" array="false" longname="证件地址" ref="CfDict.param.idsite"/>
+                <field id="idtedt" type="BaseType.U_CHAR08" required="false" multi="false" array="false" longname="证件生效日" ref="CfDict.param.idtedt"/>
+                <field id="idexdt" type="BaseType.U_CHAR08" required="false" multi="false" array="false" longname="证件到期日" ref="CfDict.param.idexdt"/>
+                <field id="issuat" type="CfBaseType.U_ISSUAT" required="false" multi="false" array="false" longname="发证机关" ref="CfDict.param.issuat"/>
+                <field id="idfrnt" type="CfBaseType.U_IDFRONT" required="false" multi="false" array="false" longname="身份证正面地址" ref="CfDict.icif.idfrnt"/>
+                <field id="idback" type="CfBaseType.U_IDBACK" required="false" multi="false" array="false" longname="身份证反面地址" ref="CfDict.icif.idback"/>
+                <field id="idhead" type="CfBaseType.U_HEADID" required="false" multi="false" array="false" longname="身份证头像地址" ref="CfDict.icif.idhead"/>
+                <field id="taxinf" type="CfBaseType.U_TAXINF" required="false" multi="false" array="false" longname="税收信息" ref="CfDict.icif.taxinf"/>
+                <field id="jobnat" type="CfBaseType.U_JOBNAT" required="false" multi="false" array="false" longname="工作性质" ref="CfDict.icif.jobnat"/>
+                <field id="isfarm" type="CfBaseType.U_ISFARM" required="false" multi="false" array="false" longname="是否农户" ref="CfDict.icif.isfarm"/>
+                <field id="idptcd" type="CfBaseType.U_POSTCD" required="false" multi="false" array="false" longname="证件地址邮编" ref="CfDict.icif.idptcd"/>
+                <field id="isempy" type="CfBaseType.U_ISEMPY" required="false" multi="false" array="false" longname="是否员工" ref="CfDict.icif.isempy"/>
+                <field id="wkaddr" type="CfBaseType.U_WKADDR" required="false" multi="false" array="false" longname="单位地址" ref="CfDict.icif.wkaddr"/>
+                <field id="wkptcd" type="CfBaseType.U_POSTCD" required="false" multi="false" array="false" longname="单位地址邮编" ref="CfDict.icif.wkptcd"/>
+                <field id="wktlph" type="CfBaseType.U_TLPHNO" required="false" multi="false" array="false" longname="单位电话" ref="CfDict.icif.wktlph"/>
+                <field id="wkname" type="CfBaseType.U_WKNAME" required="false" multi="false" array="false" longname="单位名称" ref="CfDict.icif.wkname"/>
+                <field id="hmaddr" type="CfBaseType.U_HMADDR" required="false" multi="false" array="false" longname="居住地址" ref="CfDict.icif.hmaddr"/>
+                <field id="hmptcd" type="CfBaseType.U_POSTCD" required="false" multi="false" array="false" longname="居住地址邮编" ref="CfDict.icif.hmptcd"/>
+                <field id="hmtlph" type="CfBaseType.U_TLPHNO" required="false" multi="false" array="false" longname="住宅电话" ref="CfDict.icif.hmtlph"/>
+                <field id="userem" type="CfBaseType.U_USEREM" required="false" multi="false" array="false" longname="电子邮箱" ref="CfDict.param.userem"/>
+                <field id="educat" type="CfBaseType.U_EDUCAT" required="false" multi="false" array="false" longname="最高学历" ref="CfDict.icif.educat"/>
+                <field id="degree" type="CfBaseType.U_DEGREE" required="false" multi="false" array="false" longname="最高学位" ref="CfDict.icif.degree"/>
+                <field id="maritl" type="CfBaseType.U_MARITL" required="false" multi="false" array="false" longname="婚姻状况" ref="CfDict.icif.maritl"/>
+                <field id="potice" type="CfBaseType.U_POTICE" required="false" multi="false" array="false" longname="政治面貌" ref="CfDict.icif.potice"/>
+                <field id="custrl" type="CfBaseType.U_CUSTRL" required="false" multi="false" array="false" longname="客户关系" ref="CfDict.icif.custrl"/>
+                <field id="chkflg" type="CfEnumType.E_CHKFLG" required="false" multi="false" array="false" longname="核查标志" ref="CfDict.param.chkflg"/>
+                <field id="career" type="BaseEnumType.E_WORKTP" required="false" multi="false" array="false" longname="职业" ref="CfDict.param.career"/>
+                <field id="annuin" type="CfBaseType.U_ANNUIN" required="false" multi="false" array="false" longname="年收入" ref="CfDict.param.annuin"/>
+                <field id="ctrycd" type="BaseType.U_COUNCD" required="false" multi="false" array="false" longname="国籍" ref="CfDict.param.ctrycd"/>
+                <field id="fccmid" type="CfBaseType.U_FCCMID" required="false" multi="false" array="false" longname="人脸比对照id" ref="CfDict.icif.fccmid"/>
+                <field id="facesu" type="CfEnumType.E_FACESU" required="false" multi="false" array="false" longname="人脸比对照来源" ref="CfDict.icif.facesu"/>
+                <field id="idimid" type="CfBaseType.U_IDIMID" required="false" multi="false" array="false" longname="身份证影印件id" ref="CfDict.icif.idimid"/>
+                <field id="idimvd" type="CfBaseType.U_DATE23" required="false" multi="false" array="false" longname="身份证影印件有效期" ref="CfDict.icif.idimvd"/>
+                <field id="idimsu" type="CfEnumType.E_IDIMSU" required="false" multi="false" array="false" longname="身份证影印件来源" ref="CfDict.icif.idimsu"/>
+                <field id="bhdate" type="CfBaseType.U_BHDATE" required="false" multi="false" array="false" longname="出生日期" ref="CfDict.param.bhdate"/>
+                <field id="netchk" type="CfEnumType.E_NETCHK" required="false" multi="false" array="false" longname="联网核查" ref="CfDict.icif.netchk"/>
+                <field id="chkres" type="CfEnumType.E_CHKRES" required="false" multi="false" array="false" longname="核查结果" ref="CfDict.icif.chkres"/>
+                <field id="imgdat" type="CfBaseType.U_DATE23" required="false" multi="false" array="false" longname="采集影像日期" ref="CfDict.icif.imgdat"/>
+                <field id="chkdat" type="CfBaseType.U_DATE23" required="false" multi="false" array="false" longname="联网核查时间" ref="CfDict.icif.chkdat"/>
+                <field id="facech" type="CfEnumType.E_FACECH" required="false" multi="false" array="false" longname="人脸识别渠道" ref="CfDict.icif.facech"/>
+                <field id="facdat" type="CfBaseType.U_DATE23" required="false" multi="false" array="false" longname="人脸识别时间" ref="CfDict.icif.facdat"/>
+                <field id="frntsq" type="CfBaseType.U_FRNTSQ" required="false" multi="false" array="false" longname="身份证正面影像流水" ref="CfDict.icif.frntsq"/>
+                <field id="backsq" type="CfBaseType.U_BACKSQ" required="false" multi="false" array="false" longname="身份证反面影像流水" ref="CfDict.icif.backsq"/>
+                <field id="headsq" type="CfBaseType.U_HEADSQ" required="false" multi="false" array="false" longname="身份证头像影像流水" ref="CfDict.icif.headsq"/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="userid" type="CfBaseType.U_USERID" required="false" multi="false" array="false" longname="用户ID号" ref="CfDict.param.userid"/>
+                <field id="custid" type="CfBaseType.U_CUSTID" required="false" multi="false" array="false" longname="客户ID" ref="CfDict.param.custid"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+</serviceType>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema id="TransInfo" package="cn.sunline.ltts.busi.serv.type" longname="交易相关信息" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description><![CDATA[交易相关信息]]></description>
+    <complexType id="MainTransInfo" longname="主交易信息" dict="false" abstract="false" introduct="false">
+        <element id="transq" longname="交易流水" type="BaseType.U_SEQUNO" ref="BaseDict.Comm.transq" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tranna" longname="交易名称" type="BaseType.U_SHORDS" ref="BaseDict.Comm.tranna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trandt" longname="交易日期" type="BaseType.U_DATE08" ref="BaseDict.Comm.trandt" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tranus" longname="交易柜员" type="BaseType.U_USERID" ref="BaseDict.Comm.tranus" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="prcscd" longname="交易码" type="BaseType.U_PRCSCD" ref="PbDict.Charge.prcscd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trantp" longname="交易类型" type="ApBaseEnumType.E_TRANTP" ref="BaseDict.Comm.trantp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trantm" longname="交易时间" type="BaseType.U_TRTMCH" ref="BaseDict.Comm.trantm" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trancd" longname="交易卡号" type="BaseType.U_CARDNO" ref="BaseDict.Comm.trancd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tranac" longname="交易账号" type="BaseType.U_CHAR32" ref="BaseDict.Comm.tranac" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tranam" longname="交易金额" type="BaseType.U_TRANAM" ref="BaseDict.Comm.tranam" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+</schema>

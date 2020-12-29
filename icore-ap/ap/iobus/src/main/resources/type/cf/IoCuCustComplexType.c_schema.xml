@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="IoCuCustComplexType" package="cn.sunline.ltts.busi.iobus.type.cf" longname="公共客户信息复合类型" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <description><![CDATA[公共客户信息复合类型]]></description>
+    <complexType id="CustInfo" longname="客户信息" dict="false" abstract="false" introduct="false">
+        <element id="custno" longname="客户号" type="BaseType.U_CUSTNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custna" longname="客户名称" type="BaseType.U_CHAR100" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="idtftp" longname="证件类型" type="BaseEnumType.E_IDTFTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="idtfno" longname="证件号码" type="BaseType.U_IDTFNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="teleno" longname="电话号码" type="BaseType.U_IDTFNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="emails" longname="邮箱" type="BaseType.U_CHAR200" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="postcd" longname="邮编" type="BaseType.U_CHAR10" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="addres" longname="地址" type="BaseType.U_CHAR400" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="birthd" longname="出生日期" type="BaseType.U_DATE08" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="sextyp" longname="性别" type="BaseEnumType.E_SEXTYP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="addrcd" longname="所在行政区代码" type="BaseType.U_CHAR50" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="brchno" longname="开户部门" type="BaseType.U_CHAR10" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="opendt" longname="开户日期" type="BaseType.U_DATE08" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="opensq" longname="开户流水" type="BaseType.U_SEQUNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="closdt" longname="销户日期" type="BaseType.U_DATE08" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="clossq" longname="销户流水" type="BaseType.U_SEQUNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custst" longname="客户状态" type="BaseEnumType.E_ACCTST" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="corpno" longname="法人代码" type="BaseType.U_CORPNO" ref="ApDict.Aplt.corpno" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="modydt" longname="维护日期" type="BaseType.U_DATE08" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custtp" longname="客戶类型" type="BaseEnumType.E_CUSTTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="CuCustInputInfoIn" longname="客户输入信息类型" dict="false" abstract="false" introduct="false">
+        <element id="custna" longname="客户名称" type="BaseType.U_CHAR100" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="idtftp" longname="证件类型" type="BaseEnumType.E_IDTFTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="idtfno" longname="证件号码" type="BaseType.U_IDTFNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="teleno" longname="电话号码" type="BaseType.U_IDTFNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="CuCorpInfo" longname="对公客户信息" dict="false" abstract="false" introduct="false">
+        <element id="custno" longname="客户号" type="BaseType.U_CUSTNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custna" longname="客户名称" type="BaseType.U_CORPNA" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cropcd" longname="组织机构代码" type="BaseType.U_CROPCD" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="locatx" longname="地税登记号" type="BaseType.U_TXRGCD" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="natitx" longname="国税登记号" type="BaseType.U_TXRGCD" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="isbank" longname="是否银行客户" type="BaseEnumType.E_YES___" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="upcrps" longname="主管单位法定代表人" type="BaseType.U_ACCTNA" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="upidtp" longname="主管单位法定代表人证件类别" type="BaseEnumType.E_IDTFTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="upidno" longname="主管单位法定代表人证件号" type="BaseType.U_IDTFNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="epcona" longname="企业联系人" type="BaseType.U_ACCTNA" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="epcotl" longname="企业联系人电话" type="BaseType.U_TELENO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="opcfno" longname="基本户开户核准号" type="BaseType.U_OPCFNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="opcfdt" longname="核准日期" type="BaseType.U_DATE08" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="txdpid" longname="税务机关证明" type="BaseType.U_IDTFNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="iomark" longname="境内客户标识" type="BaseEnumType.E_YES___" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="CuCorpInfoIn" longname="对公客户开户输入信息" dict="false" abstract="false" introduct="false">
+        <element id="custno" longname="客户号" type="BaseType.U_CUSTNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custna" longname="客户名称" type="BaseType.U_CORPNA" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cropcd" longname="组织机构代码" type="BaseType.U_CROPCD" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="locatx" longname="地税登记号" type="BaseType.U_TXRGCD" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="natitx" longname="国税登记号" type="BaseType.U_TXRGCD" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="isbank" longname="是否银行客户" type="BaseEnumType.E_YES___" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="upcrps" longname="主管单位法定代表人" type="BaseType.U_ACCTNA" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="upidtp" longname="主管单位法定代表人证件类别" type="BaseEnumType.E_IDTFTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="upidno" longname="主管单位法定代表人证件号" type="BaseType.U_IDTFNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="epcona" longname="企业联系人" type="BaseType.U_ACCTNA" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="epcotl" longname="企业联系人电话" type="BaseType.U_TELENO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="opcfno" longname="基本户开户核准号" type="BaseType.U_OPCFNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="opcfdt" longname="核准日期" type="BaseType.U_DATE08" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="txdpid" longname="税务机关证明" type="BaseType.U_IDTFNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="iomark" longname="境内客户标识" type="BaseEnumType.E_YES___" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="CustDCN" longname="客户信息" dict="false" abstract="false" introduct="false">
+        <element id="custno" longname="客户号" type="BaseType.U_CUSTNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="dcnnam" longname="DCN编号" type="BaseType.U_CHAR100" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custna" longname="客户名称" type="BaseType.U_CORPNA" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="CuCorpAcdcInfo" longname="对公账户卡客户对照表" dict="false" abstract="false" introduct="false">
+        <element id="dcmttp" longname="凭证类型" type="BaseType.U_DCMTTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custac" longname="电子账号" type="BaseType.U_CUACNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cardno" longname="卡号" type="BaseType.U_CARDNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="status" longname="状态" type="CdEnumType.E_STATUS" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="lastdt" longname="上次修改日期" type="BaseType.U_DATE08" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="corpno" longname="法人代码" type="BaseType.U_CORPNO" ref="ApDict.Aplt.corpno" required="false" desc="法人代码" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="CifCustAccsInfo" longname="客户关联信息" dict="false" abstract="false" introduct="false">
+        <element id="custno" longname="客户号" type="BaseType.U_CUSTNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custid" longname="用户ID" type="BaseType.U_CUSTID" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custcd" longname="客户内码" type="BaseType.U_CUSTCD" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custtp" longname="客户类型" type="BaseEnumType.E_CUSTTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="appsid" longname="app推送ID" type="BaseType.U_CHAR32" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="status" longname="状态" type="BaseEnumType.E_STATUS" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="mtdate" longname="维护日期" type="BaseType.U_DATE08" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="CountAgeGroup" longname="统计客户年龄段信息" dict="false" abstract="false" introduct="false">
+        <element id="agegp1" longname="小于18岁" type="BaseType.U_LONGIN" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="agegp2" longname="18至25岁" type="BaseType.U_LONGIN" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="agegp3" longname="26至35岁" type="BaseType.U_LONGIN" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="agegp4" longname="36至45岁" type="BaseType.U_LONGIN" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="agegp5" longname="46至55岁" type="BaseType.U_LONGIN" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="agegp6" longname="56至65岁" type="BaseType.U_LONGIN" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="agegp7" longname="65岁以上" type="BaseType.U_LONGIN" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoCustInfo" longname="客户输出信息" dict="false" abstract="false" introduct="false">
+        <element id="idtfno" longname="证件号码" type="BaseType.U_IDTFNO" ref="DpDict.Acct.idtfno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custna" longname="客户名称" type="BaseType.U_ACCTNA" ref="DpDict.Acct.custna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+</schema>

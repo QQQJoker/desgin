@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="IoEcSchedule" package="cn.sunline.edsp.busi.iobus.type.ec" longname="客户中心定时任务" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <complexType id="RemindBrth" longname="生日提醒信息" dict="false" abstract="false" introduct="false">
+        <element id="custno" longname="客户号" type="EcBaseType.U_CUSTNO" ref="EcDict.cust.custno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="certtp" longname="证件类型" type="BaseEnumType.E_IDTFTP" ref="EcDict.cert.certtp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="certno" longname="证件号码" type="EcBaseType.U_IDTFNO" ref="EcDict.cert.certno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="brthdt" longname="出生日期" type="EcBaseType.U_BRTHDT" ref="EcDict.cust.brthdt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="RemindCert" longname="证件到期提醒信息" dict="false" abstract="false" introduct="false">
+        <element id="custno" longname="客户号" type="EcBaseType.U_CUSTNO" ref="EcDict.cust.custno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="certtp" longname="证件类型" type="BaseEnumType.E_IDTFTP" ref="EcDict.cert.certtp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="certno" longname="证件号码" type="EcBaseType.U_IDTFNO" ref="EcDict.cert.certno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="endate" longname="证件到期日期 " type="EcBaseType.U_DATEST" ref="EcDict.cert.endate" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="SendMess" longname="发送信息" dict="false" abstract="false" introduct="false">
+        <element id="custno" longname="客户号" type="EcBaseType.U_CUSTNO" ref="EcDict.cust.custno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="outsfg" longname="渠道标识" type="EcBaseType.U_OUTSFG" ref="EcDict.log.outsfg" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="mesage" longname="发送消息" type="EcBaseType.U_CHAR1024" ref="EcDict.param.mesage" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="datest" longname="通用日期格式" type="EcBaseType.U_DATEST" ref="EcDict.param.datest" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="timest" longname="通用时间格式" type="EcBaseType.U_TIMEST" ref="EcDict.param.timest" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="sendst" longname="发送状态" type="EcEnumType.E_SENDST" ref="EcDict.remind.sendst" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="RiskIdentityInfo" longname="二要素外调风控信息" dict="false" abstract="false" introduct="false">
+        <element id="businessNo" longname="流水号" type="CfBaseType.U_BUSINESSNO" ref="CfDict.icif.businessNo" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custno" longname="客户号" type="EcBaseType.U_CUSTNO" ref="EcDict.acct.custno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="certtp" longname="证件类型" type="BaseEnumType.E_IDTFTP" ref="EcDict.cert.certtp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="certno" longname="证件号码" type="EcBaseType.U_IDTFNO" ref="EcDict.cert.certno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custcn" longname="客户中文名称" type="EcBaseType.U_NAMECN" ref="EcDict.cust.custcn" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="jonttg" longname="联网核查标志" type="EcBaseType.U_JONTTG" ref="EcDict.cust.jonttg" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="hedurl" longname="客户头像url" type="EcBaseType.U_HEDURL" ref="EcDict.cust.hedurl" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cerurl" longname="客户身份证正面影像url" type="EcBaseType.U_CERURL" ref="EcDict.cust.cerurl" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="aceurl" longname="客户身份证反面影像url" type="EcBaseType.U_CERURL" ref="EcDict.cust.aceurl" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="outsfg" longname="渠道标识" type="EcBaseType.U_OUTSFG" ref="EcDict.cust.outsfg" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="certsr" longname="证件信息编号" type="EcBaseType.U_TABLPK" ref="EcDict.cert.certsr" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+</schema>

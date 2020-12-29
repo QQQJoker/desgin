@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>cn.sunline.ltts.business</groupId>
+		<artifactId>ltts-parent</artifactId>
+		<version>3.0.0-SNAPSHOT</version>
+	</parent>
+	
+	<artifactId>pss-dist</artifactId>
+	<packaging>pom</packaging>
+	<properties>
+		<edsp-module>true</edsp-module>
+		<rmq.version>4.0.0-incubating</rmq.version>
+		<edsp-maven-genshell-version>2.0.1-RELEASE</edsp-maven-genshell-version>
+		<dist.skip>false</dist.skip>
+	</properties>
+	
+	<dependencies>
+		
+		<dependency>
+			<groupId>cn.sunline.ltts.business</groupId>
+			<artifactId>ps-comm</artifactId>
+			<version>3.0.0-SNAPSHOT</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>cn.sunline.ltts.business</groupId>
+			<artifactId>sl</artifactId>
+			<version>3.0.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>cn.sunline.ltts.business</groupId>
+			<artifactId>sltran</artifactId>
+			<version>3.0.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>cn.sunline.ltts.business</groupId>
+			<artifactId>od</artifactId>
+			<version>3.0.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>cn.sunline.ltts.business</groupId>
+			<artifactId>odtran</artifactId>
+			<version>3.0.0-SNAPSHOT</version>
+		</dependency>
+	
+	</dependencies>
+	
+	<profiles>
+		<profile>
+			<id>dist</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<build>
+				<plugins>
+					<!-- 拷贝依赖到target/dist/lib -->
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-dependency-plugin</artifactId>
+						<version>3.0.0</version>
+						<executions>
+							<execution>
+								<id>copy-dependencies</id>
+								<phase>generate-sources</phase>
+								<goals>
+									<goal>copy-dependencies</goal>
+								</goals>
+								<configuration>
+									<outputDirectory>${basedir}/target/dist/lib/frw</outputDirectory>
+									<overWriteReleases>true</overWriteReleases>
+									<overWriteSnapshots>true</overWriteSnapshots>
+									<overWriteIfNewer>true</overWriteIfNewer>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					
+					<!-- 生成unix脚本到target/dist/bin -->
+					<plugin>
+						<groupId>cn.sunline.edsp.maven</groupId>
+						<artifactId>edsp-maven-shell-plugin</artifactId>
+						<version>${edsp-maven-genshell-version}</version>
+						<configuration>
+							<jvmArgs>
+								<jvmArg>-server</jvmArg>
+								<jvmArg>-Xms512m</jvmArg>
+								<jvmArg>-Xmx512m</jvmArg>
+								<jvmArg>-XX:PermSize=256m</jvmArg>
+								<jvmArg>-XX:MaxPermSize=512m</jvmArg>
+								<jvmArg>-Dltts.log.home=./logs</jvmArg>
+								<jvmArg>-Dltts.vmid=${VMID}</jvmArg>
+								<jvmArg>-Dlog4j.configurationFile=log4j2.xml</jvmArg>
+							</jvmArgs>
+							<!--<logDir>/logs/${VMID}</logDir> -->
+							<skip>false</skip>
+							<mainCmd>adp</mainCmd>
+							<starter>cn.sunline.adp.boot.cedar.CedarMain</starter>
+							<startOkFlag>Service Started Success!</startOkFlag>
+							<startErrFlag>Service Started Fail!</startErrFlag>
+							<stopTimeout>30</stopTimeout>
+						</configuration>
+						<executions>
+							<execution>
+								<id>gen-shell-tpl</id>
+								<phase>generate-sources</phase>
+								<goals>
+									<goal>gen-shell</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<!-- 打dist xx.tar.gz 可运行包 -->
+					
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+	
+</project>

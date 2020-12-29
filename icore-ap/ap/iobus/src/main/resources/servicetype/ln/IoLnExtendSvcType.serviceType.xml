@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType id="IoLnExtendSvcType" kind="business" longname="贷款展期" package="cn.sunline.ltts.busi.iobus.servicetype" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <service id="IoLnPreExtend" name="prcLnPreExtend" longname="贷款预展期">
+        <interface>
+            <input packMode="false">
+                <field id="extend" type="LnExtendType.LnExtendObj" required="false" multi="false" array="false" longname="贷款展期对象"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="cplOut" type="LnExtendType.LnExtendObj" required="false" multi="false" array="false" longname="贷款展期对象"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoLnOverdueExtend" name="prcLnOverdueExtend" longname="逾期贷款展期">
+        <interface>
+            <input packMode="false">
+                <field id="extend" type="LnExtendType.LnExtendObj" required="false" multi="false" array="false" longname="展期对象"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoLnSelExtend" name="prcLnSelExtend" longname="贷款展期查询服务">
+        <interface>
+            <input packMode="true">
+                <field id="lncfno" type="LnBaseType.U_LNCFNO" required="false" multi="false" array="false" longname="贷款借据号" ref="LnDict.LNF.lncfno"/>
+                <field id="acctno" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="贷款账号" ref="LnDict.LNF.acctno"/>
+                <field id="loexst" type="LnEnumType.E_LOEXST" required="false" multi="false" array="false" longname="贷款展期状态" ref="LnDict.LNF.loexst"/>
+                <field id="begnum" type="LnBaseType.U_LONGIN" required="false" multi="false" array="false" longname="起始笔数" ref="LnDict.LNF.begnum"/>
+                <field id="selnum" type="LnBaseType.U_LONGIN" required="false" multi="false" array="false" longname="查询笔数" ref="LnDict.LNF.selnum"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="lnExtendSelOut" type="LnExtendType.LnExtendSelOut" required="false" multi="false" array="false" longname="贷款展期查询输出"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+</serviceType>

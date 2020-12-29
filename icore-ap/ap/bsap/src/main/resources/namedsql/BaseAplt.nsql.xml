@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<sqls id="BaseAplt" longname="应用平台公共处理命名SQL" package="cn.sunline.ltts.busi.aplt.namedsql" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description><![CDATA[应用平台公共处理命名SQL]]></description>
+    <update method="update" id="updateKnsRedu" longname="更新防重表">
+        <sql><![CDATA[update kns_redu set txnsts = #newTxnsts#,errocd = #errocd# where inpudt = #inpudt# and inpusq = #inpusq# and txnsts = #oldTxnsts#]]></sql>
+        <sql type="mysql"><![CDATA[update kns_redu set txnsts = #newTxnsts#,errocd = #errocd# where inpudt = #inpudt# and inpusq = #inpusq# and txnsts = #oldTxnsts#]]></sql>
+        <sql type="oracle"><![CDATA[update kns_redu set txnsts = #newTxnsts#,errocd = #errocd# where inpudt = #inpudt# and inpusq = #inpusq# and txnsts = #oldTxnsts#]]></sql>
+        <sql type="db2"><![CDATA[update kns_redu set txnsts = #newTxnsts#,errocd = #errocd# where inpudt = #inpudt# and inpusq = #inpusq# and txnsts = #oldTxnsts#]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="inpudt" ref="BaseDict.Comm.inpudt" jdbcType="VARCHAR" javaType="BaseType.U_DATE08" mode="in" longname="上送系统日期" parameterType="condition"/>
+            <parameter property="inpusq" ref="BaseDict.Comm.inpusq" jdbcType="VARCHAR" javaType="BaseType.U_SEQUNO" mode="in" longname="上送系统流水" parameterType="condition"/>
+            <parameter property="oldTxnsts" jdbcType="VARCHAR" javaType="BaseEnumType.E_TXNSTS" mode="in" longname="原交易状态" parameterType="condition"/>
+            <parameter property="newTxnsts" jdbcType="VARCHAR" javaType="BaseEnumType.E_TXNSTS" mode="in" longname="新交易状态" parameterType="condition"/>
+            <parameter property="errocd" jdbcType="VARCHAR" javaType="BaseType.U_CHAR32" mode="in" longname="新错误代码" parameterType="condition"/>
+        </parameterMap>
+    </update>
+    <update method="update" id="updateKnsReduNoErorcd" longname="更新防重表">
+        <sql><![CDATA[update kns_redu set txnsts = #newTxnsts# where inpudt = #inpudt# and inpusq = #inpusq# and txnsts = #oldTxnsts#]]></sql>
+        <sql type="mysql"><![CDATA[update kns_redu set txnsts = #newTxnsts# where inpudt = #inpudt# and inpusq = #inpusq# and txnsts = #oldTxnsts#]]></sql>
+        <sql type="oracle"><![CDATA[update kns_redu set txnsts = #newTxnsts# where inpudt = #inpudt# and inpusq = #inpusq# and txnsts = #oldTxnsts#]]></sql>
+        <sql type="db2"><![CDATA[update kns_redu set txnsts = #newTxnsts# where inpudt = #inpudt# and inpusq = #inpusq# and txnsts = #oldTxnsts#]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="inpudt" ref="BaseDict.Comm.inpudt" jdbcType="VARCHAR" javaType="BaseType.U_DATE08" mode="in" longname="上送系统日期" parameterType="condition"/>
+            <parameter property="inpusq" ref="BaseDict.Comm.inpusq" jdbcType="VARCHAR" javaType="BaseType.U_SEQUNO" mode="in" longname="上送系统流水" parameterType="condition"/>
+            <parameter property="oldTxnsts" jdbcType="VARCHAR" javaType="BaseEnumType.E_TXNSTS" mode="in" longname="原交易状态" parameterType="condition"/>
+            <parameter property="newTxnsts" jdbcType="VARCHAR" javaType="BaseEnumType.E_TXNSTS" mode="in" longname="新交易状态" parameterType="condition"/>
+        </parameterMap>
+    </update>
+    <update method="update" id="updateKnsTranStatus" longname="更新流水表状态">
+        <sql><![CDATA[update kns_tran set dtxnst = #dtxnst# where trandt = #trandt# and transq = #transq#]]></sql>
+        <sql type="mysql"><![CDATA[update kns_tran set dtxnst = #dtxnst# where trandt = #trandt# and transq = #transq#]]></sql>
+        <sql type="oracle"><![CDATA[update kns_tran set dtxnst = #dtxnst# where trandt = #trandt# and transq = #transq#]]></sql>
+        <sql type="db2"><![CDATA[update kns_tran set dtxnst = #dtxnst# where trandt = #trandt# and transq = #transq#]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="trandt" ref="BaseDict.Comm.trandt" jdbcType="VARCHAR" javaType="BaseType.U_DATE08" mode="in" longname="交易日期" parameterType="condition"/>
+            <parameter property="transq" ref="BaseDict.Comm.transq" jdbcType="VARCHAR" javaType="BaseType.U_SEQUNO" mode="in" longname="交易流水" parameterType="condition"/>
+            <parameter property="dtxnst" ref="BaseDict.Comm.dtxnst" jdbcType="VARCHAR" javaType="BaseEnumType.E_DTXNST" mode="in" longname="分布式交易状态" parameterType="condition"/>
+        </parameterMap>
+    </update>
+    <update method="update" id="updateKnbEvntStatus" longname="更新事件表">
+        <sql><![CDATA[update knb_evnt set callst = #callst#, evntlv = #evntlv# where trandt = #trandt# and callsq = #callsq#]]></sql>
+        <sql type="mysql"><![CDATA[update knb_evnt set callst = #callst#, evntlv = #evntlv# where trandt = #trandt# and callsq = #callsq#]]></sql>
+        <sql type="oracle"><![CDATA[update knb_evnt set callst = #callst#, evntlv = #evntlv# where trandt = #trandt# and callsq = #callsq#]]></sql>
+        <sql type="db2"><![CDATA[update knb_evnt set callst = #callst#, evntlv = #evntlv# where trandt = #trandt# and callsq = #callsq#]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="trandt" ref="BaseDict.Comm.trandt" jdbcType="VARCHAR" javaType="BaseType.U_DATE08" mode="in" longname="交易日期" parameterType="condition"/>
+            <parameter property="callsq" ref="BaseDict.Comm.callsq" jdbcType="VARCHAR" javaType="BaseType.U_SEQUNO" mode="in" longname="外调流水" parameterType="condition"/>
+            <parameter property="callst" ref="BaseDict.Comm.callst" jdbcType="VARCHAR" javaType="BaseEnumType.E_CALLST" mode="in" longname="外调服务状态" parameterType="condition"/>
+            <parameter property="evntlv" jdbcType="VARCHAR" javaType="BaseEnumType.E_EVNTLV" mode="in" longname="事件级别" parameterType="condition"/>
+        </parameterMap>
+    </update>
+    <update method="update" id="updateApsEodtDetlPecent" longname="更新日终批量执行明细表完成任务百分比">
+        <sql><![CDATA[
+    	UPDATE
+    	    	aps_eodt_detl a 
+    	SET
+    	    	a.pecent = #pecent#
+    	WHERE
+    	    	a.corpno = #corpno# AND a.flowid = #flowid# 
+    	    	AND a.flowdt = #flowdt# 
+    	]]></sql>
+        <sql type="mysql"><![CDATA[
+    	UPDATE
+    	    	aps_eodt_detl a 
+    	SET
+    	    	a.pecent = #pecent#
+    	WHERE
+    	    	a.corpno = #corpno# AND a.flowid = #flowid# 
+    	    	AND a.flowdt = #flowdt# 
+    	]]></sql>
+        <sql type="oracle"><![CDATA[
+    	UPDATE
+    	    	aps_eodt_detl a 
+    	SET
+    	    	a.pecent = #pecent#
+    	WHERE
+    	    	a.corpno = #corpno# AND a.flowid = #flowid# 
+    	    	AND a.flowdt = #flowdt# 
+    	]]></sql>
+        <sql type="db2"><![CDATA[
+    	UPDATE
+    	    	aps_eodt_detl a 
+    	SET
+    	    	a.pecent = #pecent#
+    	WHERE
+    	    	a.corpno = #corpno# AND a.flowid = #flowid# 
+    	    	AND a.flowdt = #flowdt# 
+    	]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="pecent" jdbcType="VARCHAR" javaType="BaseType.U_RATECD" mode="in" longname="进度百分比" parameterType="condition"/>
+            <parameter property="flowdt" jdbcType="VARCHAR" javaType="BaseType.U_DATE08" mode="in" longname="批量日终管理日期" parameterType="condition"/>
+            <parameter property="flowid" jdbcType="VARCHAR" javaType="KBaseType.U_PLJYLCBS" mode="in" longname="批量日终流程ID" parameterType="condition"/>
+            <parameter property="corpno" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人号" parameterType="condition"/>
+        </parameterMap>
+    </update>
+    <update method="update" id="updateApsEodtDetl" longname="更新日终批量执行明细表">
+        <sql><![CDATA[
+    	update
+    	    	aps_eodt_detl a 
+    	set
+    	    	a.dcnste=#dcnste#, a.txntal=#txntal#,  a.pecent=#pecent#, a.tmstmp=#tmstmp# 
+    	where
+    	    	a.corpno=#corpno# and a.flowid=#flowid# 
+    	    	and a.systcd=#systcd# and a.dcnnum=#dcnnum# 
+    	    	and a.flowdt = #flowdt# 
+    	]]></sql>
+        <sql type="mysql"><![CDATA[
+    	update
+    	    	aps_eodt_detl a 
+    	set
+    	    	a.dcnste=#dcnste#, a.txntal=#txntal#,  a.pecent=#pecent#, a.tmstmp=#tmstmp# 
+    	where
+    	    	a.corpno=#corpno# and a.flowid=#flowid# 
+    	    	and a.systcd=#systcd# and a.dcnnum=#dcnnum# 
+    	    	and a.flowdt = #flowdt# 
+    	]]></sql>
+        <sql type="oracle"><![CDATA[
+    	update
+    	    	aps_eodt_detl a 
+    	set
+    	    	a.dcnste=#dcnste#, a.txntal=#txntal#,  a.pecent=#pecent#, a.tmstmp=#tmstmp# 
+    	where
+    	    	a.corpno=#corpno# and a.flowid=#flowid# 
+    	    	and a.systcd=#systcd# and a.dcnnum=#dcnnum# 
+    	    	and a.flowdt = #flowdt# 
+    	]]></sql>
+        <sql type="db2"><![CDATA[
+    	update
+    	    	aps_eodt_detl a 
+    	set
+    	    	a.dcnste=#dcnste#, a.txntal=#txntal#,  a.pecent=#pecent#, a.tmstmp=#tmstmp# 
+    	where
+    	    	a.corpno=#corpno# and a.flowid=#flowid# 
+    	    	and a.systcd=#systcd# and a.dcnnum=#dcnnum# 
+    	    	and a.flowdt = #flowdt# 
+    	]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="dcnste" jdbcType="VARCHAR" javaType="KBaseEnumType.E_PILJYZHT" mode="in" longname="调度状态" parameterType="condition"/>
+            <parameter property="txntal" jdbcType="INTEGER" javaType="BaseType.U_LONGIN" mode="in" longname="有效交易个数" parameterType="condition"/>
+            <parameter property="pecent" jdbcType="VARCHAR" javaType="BaseType.U_RATECD" mode="in" longname="进度百分比" parameterType="condition"/>
+            <parameter property="tmstmp" jdbcType="VARCHAR" javaType="ApBaseType.U_TMSTMP" mode="in" longname="时间戳" parameterType="condition"/>
+            <parameter property="corpno" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人号" parameterType="condition"/>
+            <parameter property="flowid" jdbcType="VARCHAR" javaType="KBaseType.U_PLJYLCBS" mode="in" longname="批量日终流程ID" parameterType="condition"/>
+            <parameter property="systcd" jdbcType="VARCHAR" javaType="BaseType.U_SYSTCD" mode="in" longname="系统代码" parameterType="condition"/>
+            <parameter property="dcnnum" jdbcType="VARCHAR" javaType="BaseType.U_DCNNO" mode="in" longname="DCN编号" parameterType="condition"/>
+            <parameter property="flowdt" jdbcType="VARCHAR" javaType="BaseType.U_DATE08" mode="in" longname="批量日终管理日期" parameterType="condition"/>
+        </parameterMap>
+    </update>
+    <update method="update" id="updateApbEodtFlowst" longname="更新日终批量日期管理表状态">
+        <sql><![CDATA[
+    	UPDATE
+    	    	apb_eodt a 
+    	SET
+    	    	a.flowst = '1' ,a.tmstmp=#tmstmp# 
+    	WHERE
+    	    	a.corpno = #corpno# AND a.flowid = #flowid# 
+    	    	AND a.systcd=#systcd# AND a.flowdt = #flowdt# 
+    	]]></sql>
+        <sql type="mysql"><![CDATA[
+    	UPDATE
+    	    	apb_eodt a 
+    	SET
+    	    	a.flowst = '1' ,a.tmstmp=#tmstmp# 
+    	WHERE
+    	    	a.corpno = #corpno# AND a.flowid = #flowid# 
+    	    	AND a.systcd=#systcd# AND a.flowdt = #flowdt# 
+    	]]></sql>
+        <sql type="oracle"><![CDATA[
+    	UPDATE
+    	    	apb_eodt a 
+    	SET
+    	    	a.flowst = '1' ,a.tmstmp=#tmstmp# 
+    	WHERE
+    	    	a.corpno = #corpno# AND a.flowid = #flowid# 
+    	    	AND a.systcd=#systcd# AND a.flowdt = #flowdt# 
+    	]]></sql>
+        <sql type="db2"><![CDATA[
+    	UPDATE
+    	    	apb_eodt a 
+    	SET
+    	    	a.flowst = '1' ,a.tmstmp=#tmstmp# 
+    	WHERE
+    	    	a.corpno = #corpno# AND a.flowid = #flowid# 
+    	    	AND a.systcd=#systcd# AND a.flowdt = #flowdt# 
+    	]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="corpno" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人号" parameterType="condition"/>
+            <parameter property="flowid" jdbcType="VARCHAR" javaType="KBaseType.U_PLJYLCBS" mode="in" longname="批量日终流程ID" parameterType="condition"/>
+            <parameter property="flowdt" jdbcType="VARCHAR" javaType="BaseType.U_DATE08" mode="in" longname="批量日终管理日期" parameterType="condition"/>
+            <parameter property="systcd" jdbcType="VARCHAR" javaType="BaseType.U_SYSTCD" mode="in" longname="系统代码" parameterType="condition"/>
+            <parameter property="tmstmp" jdbcType="VARCHAR" javaType="ApBaseType.U_TMSTMP" mode="in" longname="时间戳" parameterType="condition"/>
+        </parameterMap>
+    </update>
+    <update method="update" id="updateApbEodtFlowdt" longname="更新日初成功后日终批量日期管理表管理日期">
+        <sql><![CDATA[
+    	UPDATE
+    	    	apb_eodt a 
+    	SET
+    	    	a.flowdt = #flowdt# ,a.flowst = '0',a.tmstmp=#tmstmp# 
+    	WHERE
+    	    	a.corpno = #corpno# AND a.flowtp = '0' 
+    	    	AND a.systcd=#systcd# 
+    	]]></sql>
+        <sql type="mysql"><![CDATA[
+    	UPDATE
+    	    	apb_eodt a 
+    	SET
+    	    	a.flowdt = #flowdt# ,a.flowst = '0',a.tmstmp=#tmstmp# 
+    	WHERE
+    	    	a.corpno = #corpno# AND a.flowtp = '0' 
+    	    	AND a.systcd=#systcd# 
+    	]]></sql>
+        <sql type="oracle"><![CDATA[
+    	UPDATE
+    	    	apb_eodt a 
+    	SET
+    	    	a.flowdt = #flowdt# ,a.flowst = '0',a.tmstmp=#tmstmp# 
+    	WHERE
+    	    	a.corpno = #corpno# AND a.flowtp = '0' 
+    	    	AND a.systcd=#systcd# 
+    	]]></sql>
+        <sql type="db2"><![CDATA[
+    	UPDATE
+    	    	apb_eodt a 
+    	SET
+    	    	a.flowdt = #flowdt# ,a.flowst = '0',a.tmstmp=#tmstmp# 
+    	WHERE
+    	    	a.corpno = #corpno# AND a.flowtp = '0' 
+    	    	AND a.systcd=#systcd# 
+    	]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="flowdt" jdbcType="VARCHAR" javaType="BaseType.U_DATE08" mode="in" longname="批量日终管理日期" parameterType="condition"/>
+            <parameter property="corpno" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人号" parameterType="condition"/>
+            <parameter property="systcd" jdbcType="VARCHAR" javaType="BaseType.U_SYSTCD" mode="in" longname="系统代码" parameterType="condition"/>
+            <parameter property="tmstmp" jdbcType="VARCHAR" javaType="ApBaseType.U_TMSTMP" mode="in" longname="时间戳" parameterType="condition"/>
+        </parameterMap>
+    </update>
+    <update method="update" id="updateApbEodtFlowdtForFlowid" longname="更新单流程日终批量日期管理表管理日期">
+        <sql><![CDATA[
+    	UPDATE
+    	    	apb_eodt a 
+    	SET
+    	    	a.flowdt =  #flowdt# ,a.flowst = '0' ,a.tmstmp=#tmstmp# 
+    	WHERE
+    	    	a.corpno = #corpno# AND a.flowid=#flowid# 
+    	    	AND a.systcd=#systcd# 
+    	]]></sql>
+        <sql type="mysql"><![CDATA[
+    	UPDATE
+    	    	apb_eodt a 
+    	SET
+    	    	a.flowdt =  #flowdt# ,a.flowst = '0' ,a.tmstmp=#tmstmp# 
+    	WHERE
+    	    	a.corpno = #corpno# AND a.flowid=#flowid# 
+    	    	AND a.systcd=#systcd# 
+    	]]></sql>
+        <sql type="oracle"><![CDATA[
+    	UPDATE
+    	    	apb_eodt a 
+    	SET
+    	    	a.flowdt =  #flowdt# ,a.flowst = '0' ,a.tmstmp=#tmstmp# 
+    	WHERE
+    	    	a.corpno = #corpno# AND a.flowid=#flowid# 
+    	    	AND a.systcd=#systcd# 
+    	]]></sql>
+        <sql type="db2"><![CDATA[
+    	UPDATE
+    	    	apb_eodt a 
+    	SET
+    	    	a.flowdt =  #flowdt# ,a.flowst = '0' ,a.tmstmp=#tmstmp# 
+    	WHERE
+    	    	a.corpno = #corpno# AND a.flowid=#flowid# 
+    	    	AND a.systcd=#systcd# 
+    	]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="flowdt" jdbcType="VARCHAR" javaType="BaseType.U_DATE08" mode="in" longname="批量日终管理日期" parameterType="condition"/>
+            <parameter property="corpno" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人号" parameterType="condition"/>
+            <parameter property="flowid" jdbcType="VARCHAR" javaType="KBaseType.U_PLJYLCBS" mode="in" longname="批量日终流程ID" parameterType="condition"/>
+            <parameter property="systcd" jdbcType="VARCHAR" javaType="BaseType.U_SYSTCD" mode="in" longname="系统代码" parameterType="condition"/>
+            <parameter property="tmstmp" jdbcType="VARCHAR" javaType="ApBaseType.U_TMSTMP" mode="in" longname="时间戳" parameterType="condition"/>
+        </parameterMap>
+    </update>
+    <update method="update" id="updateApbEodtFlowdtForFlowtp" longname="更新日终日切成功后日终批量日期管理表管理日期">
+        <sql><![CDATA[
+    	UPDATE
+    	    	apb_eodt a 
+    	SET
+    	    	a.flowdt =  #flowdt#,a.flowst='0',a.tmstmp=#tmstmp# 
+    	WHERE
+    	    	a.corpno = #corpno# AND a.flowtp = #flowtp# 
+    	    	AND a.systcd=#systcd# 
+    	]]></sql>
+        <sql type="mysql"><![CDATA[
+    	UPDATE
+    	    	apb_eodt a 
+    	SET
+    	    	a.flowdt =  #flowdt#,a.flowst='0',a.tmstmp=#tmstmp# 
+    	WHERE
+    	    	a.corpno = #corpno# AND a.flowtp = #flowtp# 
+    	    	AND a.systcd=#systcd# 
+    	]]></sql>
+        <sql type="oracle"><![CDATA[
+    	UPDATE
+    	    	apb_eodt a 
+    	SET
+    	    	a.flowdt =  #flowdt#,a.flowst='0',a.tmstmp=#tmstmp# 
+    	WHERE
+    	    	a.corpno = #corpno# AND a.flowtp = #flowtp# 
+    	    	AND a.systcd=#systcd# 
+    	]]></sql>
+        <sql type="db2"><![CDATA[
+    	UPDATE
+    	    	apb_eodt a 
+    	SET
+    	    	a.flowdt =  #flowdt#,a.flowst='0',a.tmstmp=#tmstmp# 
+    	WHERE
+    	    	a.corpno = #corpno# AND a.flowtp = #flowtp# 
+    	    	AND a.systcd=#systcd# 
+    	]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="flowdt" jdbcType="VARCHAR" javaType="BaseType.U_DATE08" mode="in" longname="批量日终管理日期" parameterType="condition"/>
+            <parameter property="corpno" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人号" parameterType="condition"/>
+            <parameter property="flowtp" jdbcType="VARCHAR" javaType="BaseEnumType.E_EODTP" mode="in" longname="日终流程类型" parameterType="condition"/>
+            <parameter property="systcd" jdbcType="VARCHAR" javaType="BaseType.U_SYSTCD" mode="in" longname="系统代码" parameterType="condition"/>
+            <parameter property="tmstmp" jdbcType="VARCHAR" javaType="ApBaseType.U_TMSTMP" mode="in" longname="时间戳" parameterType="condition"/>
+        </parameterMap>
+    </update>
+    <update method="update" id="updateApsEodtDetlforSuc" longname="更新日终明细表的成功个数">
+        <sql><![CDATA[
+    	update
+    	    	aps_eodt_detl a 
+    	set
+    	    	a.txnsuc=a.txnsuc +1 
+    	where
+    	    	a.corpno=#corpno# and a.flowid=#flowid# 
+    	    	and a.systcd=#systcd# and a.dcnnum=#dcnnum# 
+    	    	and a.flowdt = #flowdt# 
+    	]]></sql>
+        <sql type="mysql"><![CDATA[
+    	update
+    	    	aps_eodt_detl a 
+    	set
+    	    	a.txnsuc=a.txnsuc +1 
+    	where
+    	    	a.corpno=#corpno# and a.flowid=#flowid# 
+    	    	and a.systcd=#systcd# and a.dcnnum=#dcnnum# 
+    	    	and a.flowdt = #flowdt# 
+    	]]></sql>
+        <sql type="oracle"><![CDATA[
+    	update
+    	    	aps_eodt_detl a 
+    	set
+    	    	a.txnsuc=a.txnsuc +1 
+    	where
+    	    	a.corpno=#corpno# and a.flowid=#flowid# 
+    	    	and a.systcd=#systcd# and a.dcnnum=#dcnnum# 
+    	    	and a.flowdt = #flowdt# 
+    	]]></sql>
+        <sql type="db2"><![CDATA[
+    	update
+    	    	aps_eodt_detl a 
+    	set
+    	    	a.txnsuc=a.txnsuc +1 
+    	where
+    	    	a.corpno=#corpno# and a.flowid=#flowid# 
+    	    	and a.systcd=#systcd# and a.dcnnum=#dcnnum# 
+    	    	and a.flowdt = #flowdt# 
+    	]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="corpno" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人号" parameterType="condition"/>
+            <parameter property="flowid" jdbcType="VARCHAR" javaType="KBaseType.U_PLJYLCBS" mode="in" longname="批量日终流程ID" parameterType="condition"/>
+            <parameter property="systcd" jdbcType="VARCHAR" javaType="BaseType.U_SYSTCD" mode="in" longname="系统代码" parameterType="condition"/>
+            <parameter property="dcnnum" jdbcType="VARCHAR" javaType="BaseType.U_DCNNO" mode="in" longname="DCN编号" parameterType="condition"/>
+            <parameter property="flowdt" jdbcType="VARCHAR" javaType="BaseType.U_DATE08" mode="in" longname="批量日终管理日期" parameterType="condition"/>
+        </parameterMap>
+    </update>
+</sqls>

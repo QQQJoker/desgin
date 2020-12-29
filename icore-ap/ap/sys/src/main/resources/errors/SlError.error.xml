@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<errorConf id="SlError" longname="销售工厂错误码" package="cn.sunline.ltts.busi.sys.errors" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <errors id="SlComm" longname="公共错误码">
+        <error id="E0001" type="error" message="[${msg}]">
+            <parameter id="msg" type="BaseType2.U_CHAR200" longname="信息描述"/>
+        </error>
+        <error id="E0002" type="error" message="日期错误"/>
+        <error id="E0003" type="error" message="[${msg}]">
+            <parameter id="msg" type="BaseType2.U_CHAR200" longname="错误信息"/>
+        </error>
+    </errors>
+    <errors id="SysError" longname="系统管理错误码">
+        <description><![CDATA[系统管理错误码]]></description>
+        <error id="E0001" type="error" message="格式不正确，换行符\n不存在"/>
+        <error id="E0002" type="error" message="找不到指定的文件${filename}">
+            <parameter id="filename" type="BaseType2.U_CHAR100" longname="文件名"/>
+        </error>
+        <error id="E0003" type="error" message="文件编码格式设置不正确，应该为utf-8"/>
+        <error id="E0004" type="error" message="读取文件内容过程异常"/>
+        <error id="E0005" type="error" message="IO流关闭异常"/>
+        <error id="E0006" type="error" message="文件${fileName}不能为空">
+            <parameter id="fileName" type="BaseType2.U_CHAR100"/>
+        </error>
+        <error id="E0007" type="error" message="文件${fileName}待处理行数定义错误">
+            <parameter id="fileName" type="BaseType2.U_CHAR100" longname="文件名"/>
+        </error>
+        <error id="E0008" type="error" message="数据格式不正确,格式应为key=value"/>
+        <error id="E0009" type="error" message="数据标识符${mark}不存在">
+            <parameter id="mark" type="BaseType2.U_CHAR100" longname="数据映射符"/>
+        </error>
+        <error id="E0010" type="error" message="同一行数据重复，文件第${line}行（从第一行开始）${key}多值">
+            <parameter id="line" type="BaseType2.U_INTEGE" longname="数据所在行数"/>
+            <parameter id="key" type="BaseType2.U_CHAR100" longname="属性id"/>
+        </error>
+        <error id="E0011" type="error" message="不同行数据重复，已存在值 为${prodval}的prodid">
+            <parameter id="prodval" type="BaseType2.U_CHAR100" longname="产品id值"/>
+        </error>
+        <error id="E0012" type="error" message="属性表中未定义该属性${propid}，请再次核对！">
+            <parameter id="propid" type="BaseType2.U_CHAR100" longname="属性名id"/>
+        </error>
+        <error id="E0013" type="error" message="该行不包括产品ID"/>
+        <error id="E0014" type="error" message="操作未进行授权[F8]"/>
+    </errors>
+    <errors id="SlSupport" longname="销售支持错误码">
+        <error id="E0001" type="error" message="${ordram}">
+            <parameter id="ordram" type="SlBaseType.U_DECIM2" longname="金额/份额"/>
+        </error>
+        <error id="E0002" type="error" message="${salest}">
+            <parameter id="salest" type="PbEnumType2.E_CHORST" longname="订单状态"/>
+        </error>
+        <error id="E0003" type="error" message="订单编号不存在，请确认！"/>
+    </errors>
+</errorConf>

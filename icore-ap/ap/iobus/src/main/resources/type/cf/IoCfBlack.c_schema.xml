@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema id="IoCfBlack" package="cn.sunline.ltts.busi.iobus.type.cf" longname="黑名单复合类型" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <complexType id="BlackCustInput" longname="黑名单检查输入信息" dict="false" abstract="false" introduct="false">
+        <element id="cardno" longname="交易卡号" type="BaseType.U_CARDNO" ref="BaseDict.Comm.cardno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custna" longname="客户名称" type="BaseType.U_ACCTNA" ref="BaseDict.Comm.custna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="idtftp" longname="证件类型" type="BaseEnumType.E_IDTFTP" ref="BaseDict.Comm.idtftp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="idtfno" longname="证件号" type="BaseType.U_IDTFNO" ref="BaseDict.Comm.idtfno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custno" longname="客户号" type="BaseType.U_CUSTNO" ref="BaseDict.Comm.custno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="brchno" longname="机构号" type="BaseType.U_BRCHNO" ref="BaseDict.Comm.brchno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="crcycd" longname="币种" type="BaseType.U_CRCYCD" ref="BaseDict.Comm.crcycd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tranam" longname="交易金额" type="BaseType.U_TRANAM" ref="BaseDict.Comm.tranam" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trantp" longname="交易类型" type="DpEnumType.E_TRANTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="isable" longname="是否抛出异常" type="BaseEnumType.E_YES___" required="false" desc="用于控制灰名单是否抛出异常" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="issign" longname="是否登记" type="BaseEnumType.E_YES___" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="opcard" longname="对方账号" type="BaseType.U_CARDNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="opacna" longname="对方户名" type="BaseType.U_ACCTNA" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="opidtp" longname="对方证件类型" type="BaseEnumType.E_IDTFTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="opidno" longname="对方证件号码" type="BaseType.U_IDTFNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="opbrch" longname="对方账户机构" type="BaseType.U_BRCHNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="BlackCustOuput" longname="黑名单检查输出信息" dict="false" abstract="false" introduct="false">
+        <element id="inspfg" longname="涉案可疑标识" type="BaseEnumType.E_INSPFG" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="iswade" longname="涉恐标志" type="BaseEnumType.E_YES___" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="OfflineBlckInput" longname="线下交易黑名单检查输入信息" dict="false" abstract="false" introduct="false">
+        <element id="cardno" longname="交易卡号" type="BaseType.U_CARDNO" ref="BaseDict.Comm.cardno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custna" longname="客户名称" type="BaseType.U_ACCTNA" ref="BaseDict.Comm.custna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="idtftp" longname="证件类型" type="BaseEnumType.E_IDTFTP" ref="BaseDict.Comm.idtftp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="idtfno" longname="证件号" type="BaseType.U_IDTFNO" ref="BaseDict.Comm.idtfno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="opcard" longname="对方账号" type="BaseType.U_CARDNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="opacna" longname="对方户名" type="BaseType.U_ACCTNA" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="opidtp" longname="对方证件类型" type="BaseEnumType.E_IDTFTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="opidno" longname="对方证件号码" type="BaseType.U_IDTFNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="thrwfg" longname="报错标识" type="BaseEnumType.E_YES___" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="corpfg" longname="对公户标识" type="BaseEnumType.E_YES___" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="OfflineBlckOutput" longname="线下交易黑名单检查输出信息" dict="false" abstract="false" introduct="false">
+        <element id="isblck" longname="是否黑名单" type="BaseEnumType.E_YES___" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="isgrey" longname="是否灰名单" type="BaseEnumType.E_YES___" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="isfive" longname="是否五年内" type="BaseEnumType.E_YES___" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+</schema>

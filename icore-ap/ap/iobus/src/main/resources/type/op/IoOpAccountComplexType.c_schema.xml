@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema id="IoOpAccountComplexType" package="cn.sunline.ltts.busi.iobus.type.op" longname="有氧支付相关复合类型" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description><![CDATA[有氧支付相关复合类型]]></description>
+    <complexType id="IoAccountAllocationIn" longname="分账处理输入信息" dict="false" abstract="false" introduct="false">
+        <element id="bathid" longname="批次编号" type="BaseType.U_CHAR200" required="false" default="''" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="servtp" longname="渠道号" type="OpEnumType.E_SERVTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <description><![CDATA[]]></description>
+    </complexType>
+    <complexType id="BatchInfo" longname="批次信息" dict="false" abstract="false" introduct="false">
+        <element id="bathid" longname="批次号" type="BaseType.U_CHAR200"  allowSubType="true"/>
+        <element id="servtp" longname="渠道号" type="OpEnumType.E_SERVTP"  allowSubType="true"/>
+        <element id="subjcd" longname="标的编号" type="BaseType.U_CHAR32" ref="FcDict.Fnac.subjcd"  allowSubType="true"/>
+        <element id="state" longname="批次处理状态" type="OpEnumType.E_BTSTUS"  allowSubType="true"/>
+        <element id="trandt" longname="交易日期" type="PbBaseType.U_DATE08" ref="PbDict.Charge.trandt"  allowSubType="true"/>
+        <element id="transq" longname="交易流水" type="BaseType.U_SEQUNO"  allowSubType="true"/>
+        <element id="totlbs" longname="处理笔数" type="PbBaseType.U_LONGIN"  allowSubType="true"/>
+        <element id="tranam" longname="处理金额" type="PbBaseType.U_ANUM"  allowSubType="true"/>
+        <element id="pccwmx" longname="批次错误明细" type="BaseType.U_CHAR200"  allowSubType="true"/>
+        <description><![CDATA[]]></description>
+    </complexType>
+</schema>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<plugin id="Amsg" displayName="异步消息处理插件" activator="cn.sunline.ltts.amsg.api.AmsgPlugin" order="2003" enable="true" failOnInitError="true" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description><![CDATA[异步消息处理插件]]></description>
+    <extension-points>
+        <point id="SMSSender" name="短信发送接口扩展点" pointType="replace">
+            <clazz>cn.sunline.ltts.amsg.api.SMSSender</clazz>
+        </point>
+    </extension-points>
+    <extensions>
+    </extensions>
+    <components/>
+</plugin>

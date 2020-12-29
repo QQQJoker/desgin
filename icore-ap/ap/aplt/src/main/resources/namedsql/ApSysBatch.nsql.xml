@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<sqls xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="ApSysBatch" longname="批量相关命名SQL" package="cn.sunline.ltts.busi.aplt.namedsql" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <description><![CDATA[批量相关命名SQL]]></description>
+    <select cache="none" method="selectAll" type="sql" id="selectAll_GetSteps" longname="查询所有流程步骤">
+        <sql type="oracle"><![CDATA[select tran_flow_id, flow_step_name, flow_step_num, execution_no, tran_group_id, is_execution from tsp_flow_step_controller where tran_flow_id=#tran_flow_id# and  system_code=#system_code# order by flow_step_num asc, execution_no asc]]></sql>
+        <sql type="mysql"><![CDATA[select tran_flow_id, flow_step_name, flow_step_num, execution_no, tran_group_id, is_execution from tsp_flow_step_controller where tran_flow_id=#tran_flow_id# and  system_code=#system_code# order by flow_step_num asc, execution_no asc]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="tran_flow_id" ref="KsDict.BtDict.tran_flow_id" jdbcType="VARCHAR" javaType="KBaseType.U_PLJYLCBS" mode="in" longname="批量交易流程ID" parameterType="condition"/>
+            <parameter property="system_code" ref="KsDict.CommDict.system_code" jdbcType="VARCHAR" javaType="KBaseType.U_LEIXIN10" mode="in" longname="系统标识号" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="java.util.Map"/>
+    </select>
+    <select cache="none" method="selectOne" type="sql" id="qryOneBatchStep" longname="查询唯一批量控制器">
+        <sql type="oracle"><![CDATA[select * from tsp_tran_controller where tran_group_id=#tran_group_id# and step_id=#step_id# and tran_code=#tran_code# and system_code=#system_code#]]></sql>
+        <sql type="mysql"><![CDATA[select * from tsp_tran_controller where tran_group_id=#tran_group_id# and step_id=#step_id# and tran_code=#tran_code# and system_code=#system_code#]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="tran_group_id" ref="KsDict.BtDict.tran_group_id" jdbcType="VARCHAR" javaType="KBaseType.U_PILJYZBS" mode="in" longname="批量交易组ID" parameterType="condition"/>
+            <parameter property="step_id" ref="KsDict.BtDict.step_id" jdbcType="VARCHAR" javaType="KBaseType.U_TYSZLEIX" mode="in" longname="步骤号" parameterType="condition"/>
+            <parameter property="tran_code" ref="KsDict.BtDict.tran_code" jdbcType="VARCHAR" javaType="KBaseType.U_PLJIOYMA" mode="in" longname="批量交易码" parameterType="condition"/>
+            <parameter property="system_code" ref="KsDict.CommDict.system_code" jdbcType="VARCHAR" javaType="KBaseType.U_LEIXIN10" mode="in" longname="系统标识号" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="java.util.Map"/>
+    </select>
+    <dynamicSelect cache="none" method="selectFirst" type="sql" id="queryNextBatchTranStep" longname="查询下一批量交易步骤">
+        <parameterMap class="java.util.Map">
+            <parameter property="step_id" ref="KsDict.BtDict.step_id" jdbcType="VARCHAR" javaType="KBaseType.U_TYSZLEIX" mode="in" longname="步骤号" parameterType="condition"/>
+            <parameter property="tran_group_id" ref="KsDict.BtDict.tran_group_id" jdbcType="VARCHAR" javaType="KBaseType.U_PILJYZBS" mode="in" longname="批量交易组ID" parameterType="condition"/>
+            <parameter property="system_code" ref="KsDict.CommDict.system_code" jdbcType="VARCHAR" javaType="KBaseType.U_LEIXIN10" mode="in" longname="系统标识号" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="java.util.Map"/>
+        <dynamicSql type="oracle">
+            <str type="Str"><![CDATA[select * from tsp_tran_controller]]></str>
+            <where type="Where">
+                <and type="And">
+                    <if test="step_id != null &amp;&amp; step_id != &quot;&quot;" type="If">
+                        <str type="Str"><![CDATA[step_id > #step_id#]]></str>
+                    </if>
+                    <str type="Str"><![CDATA[execution_code = 1]]></str>
+                    <str type="Str"><![CDATA[tran_group_id = #tran_group_id#]]></str>
+                    <str type="Str"><![CDATA[system_code = #system_code#]]></str>
+                </and>
+            </where>
+            <str type="Str"><![CDATA[order by step_id asc]]></str>
+        </dynamicSql>
+        <dynamicSql type="mysql">
+            <str type="Str"><![CDATA[select * from ksys_jykzhq]]></str>
+            <where type="Where">
+                <and type="And">
+                    <if test="step_id != null &amp;&amp; step_id != &quot;&quot;" type="If">
+                        <str type="Str"><![CDATA[step_id > #step_id#]]></str>
+                    </if>
+                    <str type="Str"><![CDATA[execution_code = 1]]></str>
+                    <str type="Str"><![CDATA[tran_group_id = #tran_group_id#]]></str>
+                    <str type="Str"><![CDATA[system_code = #system_code#]]></str>
+                </and>
+            </where>
+            <str type="Str"><![CDATA[order by step_id asc]]></str>
+        </dynamicSql>
+    </dynamicSelect>
+    <select cache="none" method="selectFirst" type="sql" id="queryNextFlowGroup1" longname="查询下一流程步骤中的第一组">
+        <sql type="oracle"><![CDATA[select * from tsp_flow_step_controller where tran_flow_id = #tran_flow_id# and flow_step_num > #flow_step_num# and system_code=#system_code#  and is_execution = 1 order by execution_no asc]]></sql>
+        <sql type="mysql"><![CDATA[select * from tsp_flow_step_controller where tran_flow_id = #tran_flow_id# and flow_step_num > #flow_step_num# and system_code=#system_code#  and is_execution = 1 order by execution_no asc]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="tran_flow_id" ref="KsDict.BtDict.tran_flow_id" jdbcType="VARCHAR" javaType="KBaseType.U_PLJYLCBS" mode="in" longname="批量交易流程ID" parameterType="condition"/>
+            <parameter property="flow_step_num" ref="KsDict.BtDict.flow_step_num" jdbcType="VARCHAR" javaType="KBaseType.U_TYSZLEIX" mode="in" longname="流程步骤号" parameterType="condition"/>
+            <parameter property="system_code" ref="KsDict.CommDict.system_code" jdbcType="VARCHAR" javaType="KBaseType.U_LEIXIN10" mode="in" longname="系统标识号" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="java.util.Map"/>
+    </select>
+    <select cache="none" method="selectFirst" type="sql" id="queryNextFlowGroup" longname="查询一下流程组">
+        <sql type="oracle"><![CDATA[select * from tsp_flow_step_controller where tran_flow_id = #tran_flow_id# and flow_step_num = #flow_step_num# and execution_no > #execution_no# and system_code=#system_code#  and is_execution = 1 order by flow_step_num asc, execution_no asc]]></sql>
+        <sql type="mysql"><![CDATA[select * from tsp_flow_step_controller where tran_flow_id = #tran_flow_id# and flow_step_num = #flow_step_num# and execution_no > #execution_no# and system_code=#system_code#  and is_execution = 1 order by flow_step_num asc, execution_no asc]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="tran_flow_id" ref="KsDict.BtDict.tran_flow_id" jdbcType="VARCHAR" javaType="KBaseType.U_PLJYLCBS" mode="in" longname="批量交易流程ID" parameterType="condition"/>
+            <parameter property="flow_step_num" ref="KsDict.BtDict.flow_step_num" jdbcType="VARCHAR" javaType="KBaseType.U_TYSZLEIX" mode="in" longname="流程步骤号" parameterType="condition"/>
+            <parameter property="execution_no" ref="KsDict.BtDict.execution_no" jdbcType="VARCHAR" javaType="KBaseType.U_TYSZLEIX" mode="in" longname="执行序号" parameterType="condition"/>
+            <parameter property="system_code" ref="KsDict.CommDict.system_code" jdbcType="VARCHAR" javaType="KBaseType.U_LEIXIN10" mode="in" longname="系统标识号" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="java.util.Map"/>
+    </select>
+    <select cache="none" method="selectAll" type="sql" id="selectAll_FlowTaskLogs" longname="查询流程的所有运行日志">
+        <sql type="oracle"><![CDATA[select * from tsp_task_execution_log where task_num = #task_num# and tran_date = #tran_date#  and log_num > #log_num# and system_code = #system_code# order by log_num]]></sql>
+        <sql type="mysql"><![CDATA[select * from tsp_task_execution_log where task_num = #task_num# and tran_date = #tran_date#  and log_num > #log_num# and system_code = #system_code# order by log_num]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="task_num" ref="KsDict.BtDict.task_num" jdbcType="VARCHAR" javaType="KBaseType.U_PILJYLSH" mode="in" longname="批量任务批次号" parameterType="condition"/>
+            <parameter property="tran_date" ref="KsDict.BtDict.tran_date" jdbcType="VARCHAR" javaType="KBaseType.U_RIQILEIX" mode="in" longname="交易日期" parameterType="condition"/>
+            <parameter property="log_num" ref="KsDict.BtDict.log_num" jdbcType="VARCHAR" javaType="KBaseType.U_TYSZLEIX" mode="in" longname="日志序号" parameterType="condition"/>
+            <parameter property="system_code" ref="KsDict.CommDict.system_code" jdbcType="VARCHAR" javaType="KBaseType.U_LEIXIN10" mode="in" longname="系统标识号" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="KSysBatchTable.tsp_task_execution_log"/>
+    </select>
+    <update method="update" id="updateReonprosessStatus" longname="更新对应交易运行日志表中的交易状态使重跑">
+        <sql type="oracle"><![CDATA[
+    		update tsp_transaction_log set job_excution_status='onprocess' where tran_exe_num = #tran_exe_num# and tran_group_id = #tran_group_id#
+        		and step_id = #step_id# and tran_id=#tran_id# and system_code = #system_code#]]></sql>
+        <sql type="mysql"><![CDATA[
+    		update tsp_transaction_log set job_excution_status='onprocess' where tran_exe_num = #tran_exe_num# and tran_group_id = #tran_group_id#
+        		and step_id = #step_id# and tran_id=#tran_id# and system_code = #system_code#
+    	]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="tran_exe_num" ref="KsDict.BtDict.tran_exe_num" jdbcType="VARCHAR" javaType="KBaseType.U_PILJYLSH" mode="in" longname="批量交易执行批次号" parameterType="condition"/>
+            <parameter property="tran_group_id" ref="KsDict.BtDict.tran_group_id" jdbcType="VARCHAR" javaType="KBaseType.U_PILJYZBS" mode="in" longname="批量交易组ID" parameterType="condition"/>
+            <parameter property="step_id" ref="KsDict.BtDict.step_id" jdbcType="VARCHAR" javaType="KBaseType.U_TYSZLEIX" mode="in" longname="步骤号" parameterType="condition"/>
+            <parameter property="tran_id" ref="KsDict.BtDict.tran_id" jdbcType="VARCHAR" javaType="KBaseType.U_PLJIOYMA" mode="in" longname="批量交易ID" parameterType="condition"/>
+            <parameter property="system_code" ref="KsDict.CommDict.system_code" jdbcType="VARCHAR" javaType="KBaseType.U_LEIXIN10" mode="in" longname="系统标识号" default="''" parameterType="condition"/>
+        </parameterMap>
+    </update>
+    <update method="update" id="updateStatusWithInterrupted" longname="更新对应交易运行日志表中的交易状态使中断">
+        <sql type="oracle"><![CDATA[
+    		update tsp_transaction_log set job_excution_status='interrupted' where tran_exe_num = #tran_exe_num# and tran_group_id = #tran_group_id#
+        		and step_id = #step_id# and tran_id=#tran_id# and system_code = #system_code#
+    	]]></sql>
+        <sql type="mysql"><![CDATA[
+    		update tsp_transaction_log set job_excution_status='interrupted' where tran_exe_num = #tran_exe_num# and tran_group_id = #tran_group_id#
+        		and step_id = #step_id# and tran_id=#tran_id# and system_code = #system_code#
+    	]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="tran_exe_num" ref="KsDict.BtDict.tran_exe_num" jdbcType="VARCHAR" javaType="KBaseType.U_PILJYLSH" mode="in" longname="批量交易执行批次号" parameterType="condition"/>
+            <parameter property="tran_group_id" ref="KsDict.BtDict.tran_group_id" jdbcType="VARCHAR" javaType="KBaseType.U_PILJYZBS" mode="in" longname="批量交易组ID" parameterType="condition"/>
+            <parameter property="step_id" ref="KsDict.BtDict.step_id" jdbcType="VARCHAR" javaType="KBaseType.U_TYSZLEIX" mode="in" longname="步骤号" parameterType="condition"/>
+            <parameter property="tran_id" ref="KsDict.BtDict.tran_id" jdbcType="VARCHAR" javaType="KBaseType.U_PLJIOYMA" mode="in" longname="批量交易ID" parameterType="condition"/>
+            <parameter property="system_code" ref="KsDict.CommDict.system_code" jdbcType="VARCHAR" javaType="KBaseType.U_LEIXIN10" mode="in" longname="系统标识号" default="''" parameterType="condition"/>
+        </parameterMap>
+    </update>
+    <select cache="none" method="selectOne" type="sql" id="queryBatchRunInfoById" longname="根据ID查询运行信息">
+        <sql type="oracle"><![CDATA[select * from tsp_task where task_num = #task_num# and transaction_date = #transaction_date# and  system_code = #system_code#]]></sql>
+        <sql type="mysql"><![CDATA[select * from tsp_task where task_num = #task_num# and transaction_date = #transaction_date# and  system_code = #system_code#]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="task_num" ref="KsDict.BtDict.task_num" jdbcType="VARCHAR" javaType="KBaseType.U_PILJYLSH" mode="in" longname="批量任务批次号" parameterType="condition"/>
+            <parameter property="transaction_date" ref="KsDict.BtDict.transaction_date" jdbcType="VARCHAR" javaType="KBaseType.U_BZSJLEIX" mode="in" longname="当前交易日期" parameterType="condition"/>
+            <parameter property="corporate_code" ref="KsDict.CommDict.corporate_code" jdbcType="VARCHAR" javaType="KBaseType.U_FARENDMA" mode="in" longname="法人代码" parameterType="condition"/>
+            <parameter property="system_code" ref="KsDict.CommDict.system_code" jdbcType="VARCHAR" javaType="KBaseType.U_LEIXIN10" mode="in" longname="系统标识号" default="''" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="java.util.Map"/>
+    </select>
+    <select cache="none" method="selectOne" type="sql" id="qryRuningBatchTransWithInterrupt" longname="获取中断交易的信息">
+        <sql type="oracle"><![CDATA[select * from tsp_transaction_log t where t.tran_id= #tran_id# and t.tran_group_id= #tran_group_id# and t.step_id = #step_id# and t.task_num= #task_num# and t.system_code = #system_code#]]></sql>
+        <sql type="mysql"><![CDATA[select * from tsp_transaction_log t where t.tran_id = #tran_id# and t.tran_group_id = #tran_group_id# and t.step_id = #step_id# and t.task_num = #task_num# and t.system_code = #system_code#]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="tran_id" ref="KsDict.BtDict.tran_id" jdbcType="VARCHAR" javaType="KBaseType.U_PLJIOYMA" mode="in" longname="批量交易ID" parameterType="condition"/>
+            <parameter property="tran_group_id" ref="KsDict.BtDict.tran_group_id" jdbcType="VARCHAR" javaType="KBaseType.U_PILJYZBS" mode="in" longname="批量交易组ID" parameterType="condition"/>
+            <parameter property="step_id" ref="KsDict.BtDict.step_id" jdbcType="VARCHAR" javaType="KBaseType.U_TYSZLEIX" mode="in" longname="步骤号" parameterType="condition"/>
+            <parameter property="task_num" ref="KsDict.BtDict.task_num" jdbcType="VARCHAR" javaType="KBaseType.U_PILJYLSH" mode="in" longname="批量任务批次号" parameterType="condition"/>
+            <parameter property="system_code" ref="KsDict.CommDict.system_code" jdbcType="VARCHAR" javaType="KBaseType.U_LEIXIN10" mode="in" longname="系统标识号" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="java.util.Map"/>
+    </select>
+    <select cache="none" method="selectAll" type="sql" id="qryRuningTaskWithCommStep" longname="查询同步骤号且为运行状态的任务">
+        <sql type="oracle"><![CDATA[select * from tsp_transaction_log t where t.tran_id != #tran_id# and t.tran_group_id = #tran_group_id# and t.step_id= #step_id# and t.task_num = #task_num# and t.system_code = #system_code#]]></sql>
+        <sql type="mysql"><![CDATA[select * from tsp_transaction_log t where t.tran_id != #tran_id# and t.tran_group_id = #tran_group_id# and t.step_id = #step_id# and t.task_num = #task_num# and t.system_code = #system_code#]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="tran_id" ref="KsDict.BtDict.tran_id" jdbcType="VARCHAR" javaType="KBaseType.U_PLJIOYMA" mode="in" longname="批量交易ID" parameterType="condition"/>
+            <parameter property="tran_group_id" ref="KsDict.BtDict.tran_group_id" jdbcType="VARCHAR" javaType="KBaseType.U_PILJYZBS" mode="in" longname="批量交易组ID" parameterType="condition"/>
+            <parameter property="step_id" ref="KsDict.BtDict.step_id" jdbcType="VARCHAR" javaType="KBaseType.U_TYSZLEIX" mode="in" longname="步骤号" parameterType="condition"/>
+            <parameter property="task_num" ref="KsDict.BtDict.task_num" jdbcType="VARCHAR" javaType="KBaseType.U_PILJYLSH" mode="in" longname="批量任务批次号" parameterType="condition"/>
+            <parameter property="system_code" ref="KsDict.CommDict.system_code" jdbcType="VARCHAR" javaType="KBaseType.U_LEIXIN10" mode="in" longname="系统标识号" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="java.util.Map"/>
+    </select>
+    <dynamicSelect cache="none" method="selectAll" type="sql" id="qryRuningBatchTransLog" longname="查询交易运行日志">
+        <parameterMap class="java.util.Map">
+            <parameter property="tran_id" ref="KsDict.BtDict.tran_id" jdbcType="VARCHAR" javaType="KBaseType.U_PLJIOYMA" mode="in" longname="批量交易ID" parameterType="condition"/>
+            <parameter property="tran_group_id" ref="KsDict.BtDict.tran_group_id" jdbcType="VARCHAR" javaType="KBaseType.U_PILJYZBS" mode="in" longname="批量交易组ID" parameterType="condition"/>
+            <parameter property="step_id" ref="KsDict.BtDict.step_id" jdbcType="VARCHAR" javaType="KBaseType.U_TYSZLEIX" mode="in" longname="步骤号" parameterType="condition"/>
+            <parameter property="task_num" ref="KsDict.BtDict.task_num" jdbcType="VARCHAR" javaType="KBaseType.U_PILJYLSH" mode="in" longname="批量任务批次号" parameterType="condition"/>
+            <parameter property="system_code" ref="KsDict.CommDict.system_code" jdbcType="VARCHAR" javaType="KBaseType.U_LEIXIN10" mode="in" longname="系统标识号" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="KSysBatchTable.tsp_transaction_log"/>
+        <dynamicSql type="oracle">
+            <str type="Str"><![CDATA[select * from tsp_transaction_log]]></str>
+            <where type="Where">
+                <and type="And">
+                    <str type="Str"><![CDATA[task_num = #task_num#]]></str>
+                    <if test="pljyzbsh!=null&amp;&amp;pljyzbsh!=&quot;&quot;" type="If">
+                        <str type="Str"><![CDATA[tran_group_id = #tran_group_id#]]></str>
+                    </if>
+                    <if test="piljybss!=null&amp;&amp;piljybss!=&quot;&quot;" type="If">
+                        <str type="Str"><![CDATA[tran_id = #tran_id#]]></str>
+                    </if>
+                    <if test="buzhouha !=null &amp;&amp; buzhouha !=&quot;&quot;" type="If">
+                        <str type="Str"><![CDATA[step_id = #step_id#]]></str>
+                    </if>
+                    <str type="Str"><![CDATA[system_code = #system_code#]]></str>
+                </and>
+            </where>
+        </dynamicSql>
+        <dynamicSql type="mysql">
+            <str type="Str"><![CDATA[select * from tsp_transaction_log]]></str>
+            <where type="Where">
+                <and type="And">
+                    <str type="Str"><![CDATA[task_num = #task_num#]]></str>
+                    <if test="pljyzbsh!=null&amp;&amp;pljyzbsh!=&quot;&quot;" type="If">
+                        <str type="Str"><![CDATA[tran_group_id = #tran_group_id#]]></str>
+                    </if>
+                    <if test="piljybss!=null&amp;&amp;piljybss!=&quot;&quot;" type="If">
+                        <str type="Str"><![CDATA[tran_id = #tran_id#]]></str>
+                    </if>
+                    <if test="buzhouha !=null &amp;&amp; buzhouha !=&quot;&quot;" type="If">
+                        <str type="Str"><![CDATA[step_id = #step_id#]]></str>
+                    </if>
+                    <str type="Str"><![CDATA[system_code = #system_code#]]></str>
+                </and>
+            </where>
+        </dynamicSql>
+    </dynamicSelect>
+    <update method="update" id="upKapbWjplxxbToChenggbs" longname="更新文件批量信息表的成功笔数">
+        <sql type="db2"><![CDATA[update kapb_wjplxxb set chenggbs= succnm+ #succnm# where btchno= #btchno#]]></sql>
+        <sql type="oracle"><![CDATA[update kapb_wjplxxb set chenggbs= succnm+ #succnm# where btchno= #btchno#]]></sql>
+        <sql type="mysql"><![CDATA[update kapb_wjplxxb set chenggbs= succnm+ #succnm# where btchno= #btchno#]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="btchno" ref="BaseDict.Comm.btchno" jdbcType="VARCHAR" javaType="BaseType.U_CHAR40" mode="in" longname="批量交易批次号" parameterType="condition"/>
+            <parameter property="succnm" ref="BaseDict.Comm.succnm" jdbcType="VARCHAR" javaType="BaseType.U_LONGIN" mode="in" longname="成功笔数" parameterType="condition"/>
+        </parameterMap>
+    </update>
+    <update method="update" id="upKapbWjplxxbToDownpath" longname="更新文件批量信息表的文件下载路径">
+        <sql type="db2"><![CDATA[update kapb_wjplxxb set downph= #downph# where btchno= #btchno#]]></sql>
+        <sql type="oracle"><![CDATA[update kapb_wjplxxb set downph= #downph# where btchno= #btchno#]]></sql>
+        <sql type="mysql"><![CDATA[update kapb_wjplxxb set downph= #downph# where btchno= #btchno#]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="btchno" ref="BaseDict.Comm.btchno" jdbcType="VARCHAR" javaType="BaseType.U_CHAR40" mode="in" longname="批量交易批次号" parameterType="condition"/>
+            <parameter property="downph" jdbcType="VARCHAR" javaType="BaseType.U_LONGDS" mode="in" longname="文件下载路径" parameterType="condition"/>
+        </parameterMap>
+    </update>
+    <update method="update" id="upKapbWjplxxbToUppath" longname="更新文件批量信息表的文件上传路径">
+        <sql type="db2"><![CDATA[update kapb_wjplxxb set upfeph= #upfeph# where btchno = #btchno#]]></sql>
+        <sql type="mysql"><![CDATA[update kapb_wjplxxb set upfeph= #upfeph# where btchno = #btchno#]]></sql>
+        <sql type="oracle"><![CDATA[update kapb_wjplxxb set upfeph= #upfeph# where btchno = #btchno#]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="btchno" ref="BaseDict.Comm.btchno" jdbcType="VARCHAR" javaType="BaseType.U_CHAR40" mode="in" longname="批量交易批次号" parameterType="condition"/>
+            <parameter property="upfeph" jdbcType="VARCHAR" javaType="BaseType.U_FILEPH" mode="in" longname="文件上传路径" parameterType="condition"/>
+        </parameterMap>
+    </update>
+    <update method="update" id="upKapbWjplxxbToPlwenjzt" longname="更新文件批量信息表的批量文件状态">
+        <sql type="oracle"><![CDATA[update kapb_wjplxxb set btfest= #btfest# where btchno= #btchno#]]></sql>
+        <sql type="mysql"><![CDATA[update kapb_wjplxxb set btfest= #btfest# where btchno= #btchno#]]></sql>
+        <sql type="db2"><![CDATA[update kapb_wjplxxb set btfest= #btfest# where btchno= #btchno#]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="btchno" ref="BaseDict.Comm.btchno" jdbcType="VARCHAR" javaType="BaseType.U_CHAR40" mode="in" longname="批量交易批次号" parameterType="condition"/>
+            <parameter property="btfest" ref="BaseDict.Comm.btfest" jdbcType="VARCHAR" javaType="ApBaseEnumType.E_BTFEST" mode="in" longname="批量文件状态" parameterType="condition"/>
+        </parameterMap>
+    </update>
+    <update method="update" id="upKapbWjplxxbToChulizbs" longname="更新文件主表处理的处理总笔数">
+        <sql><![CDATA[update kapb_wjplxxb set distnm= #distnm# where btchno = #btchno#]]></sql>
+        <sql type="mysql"><![CDATA[update kapb_wjplxxb set distnm= #distnm# where btchno = #btchno#]]></sql>
+        <sql type="oracle"><![CDATA[update kapb_wjplxxb set distnm= #distnm# where btchno = #btchno#]]></sql>
+        <sql type="db2"><![CDATA[update kapb_wjplxxb set distnm= #distnm# where btchno = #btchno#]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="btchno" ref="BaseDict.Comm.btchno" jdbcType="VARCHAR" javaType="BaseType.U_CHAR40" mode="in" longname="批量交易批次号" parameterType="condition"/>
+            <parameter property="distnm" ref="BaseDict.Comm.distnm" jdbcType="VARCHAR" javaType="BaseType.U_LONGIN" mode="in" longname="处理总笔数" parameterType="condition"/>
+        </parameterMap>
+    </update>
+    <select cache="none" method="selectOne" type="sql" id="selKapbWjplxxbTotl" longname="查询批量主表记录总数和处理总数">
+        <sql><![CDATA[select a.totanm , a.distnm from kapb_wjplxxb a where a.btchno = #btchno#]]></sql>
+        <sql type="mysql"><![CDATA[select a.totanm , a.distnm from kapb_wjplxxb a where a.btchno = #btchno#]]></sql>
+        <sql type="oracle"><![CDATA[select a.totanm , a.distnm from kapb_wjplxxb a where a.btchno = #btchno#]]></sql>
+        <sql type="db2"><![CDATA[select a.totanm , a.distnm from kapb_wjplxxb a where a.btchno = #btchno#]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="btchno" ref="BaseDict.Comm.btchno" jdbcType="VARCHAR" javaType="BaseType.U_CHAR40" mode="in" longname="批量交易批次号" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="IoApBatchFileStruct.IoApTotlInfo"/>
+    </select>
+    <select cache="none" method="selectOne" type="sql" id="selFnbFrzoTmpAssInfo" longname="查询问价体表的文件体信息">
+        <sql><![CDATA[select a.*  from fnb_froz_tmp a , kapb_wjplrwb b where a.taskid = #taskid# and a.shujubsid = #shujubsid# and a.taskid = b.taskid and a.dataid = b.shujubsid]]></sql>
+        <sql type="mysql"><![CDATA[select a.*  from fnb_froz_tmp a , kapb_wjplrwb b where a.taskid = #taskid# and a.shujubsid = #shujubsid# and a.taskid = b.taskid and a.dataid = b.shujubsid]]></sql>
+        <sql type="oracle"><![CDATA[select a.*  from fnb_froz_tmp a , kapb_wjplrwb b where a.taskid = #taskid# and a.shujubsid = #shujubsid# and a.taskid = b.taskid and a.dataid = b.shujubsid]]></sql>
+        <sql type="db2"><![CDATA[select a.*  from fnb_froz_tmp a , kapb_wjplrwb b where a.taskid = #taskid# and a.shujubsid = #shujubsid# and a.taskid = b.taskid and a.dataid = b.shujubsid]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="taskid" ref="ApDict.Aplt.taskid" jdbcType="VARCHAR" javaType="BaseType.U_CHAR40" mode="in" longname="批量交易批次号" parameterType="condition"/>
+            <parameter property="shujubsid" jdbcType="VARCHAR" javaType="long" mode="in" longname="数据标识ID" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="IoFnTable.IoFnFnbFrozTmp"/>
+    </select>
+    <update method="update" id="updKnpBachStatus" longname="更新文件批量流水表">
+        <sql><![CDATA[update knp_bach set datast=#datast# where filesq=#filesq# and acctdt=#acctdt#]]></sql>
+        <sql type="mysql"><![CDATA[update knp_bach set datast=#datast# where filesq=#filesq# and acctdt=#acctdt#]]></sql>
+        <sql type="oracle"><![CDATA[update knp_bach set datast=#datast# where filesq=#filesq# and acctdt=#acctdt#]]></sql>
+        <sql type="db2"><![CDATA[update knp_bach set datast=#datast# where filesq=#filesq# and acctdt=#acctdt#]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="datast" jdbcType="VARCHAR" javaType="BaseType.U_CHAR30" mode="in" longname="数据" parameterType="condition"/>
+            <parameter property="filesq" jdbcType="VARCHAR" javaType="BaseType.U_CHAR30" mode="in" longname="文件流水" parameterType="condition"/>
+            <parameter property="acctdt" jdbcType="VARCHAR" javaType="BaseType.U_CHAR30" mode="in" longname="入账日期" parameterType="condition"/>
+        </parameterMap>
+    </update>
+    <dynamicSelect cache="none" method="selectAll" type="sql" id="selTableInfo" longname="查询表结构信息">
+        <parameterMap class="java.util.Map">
+            <parameter property="tblsrc" jdbcType="VARCHAR" javaType="BaseType.U_CHAR30" mode="in" longname="表名" parameterType="condition"/>
+            <parameter property="tmstmp" ref="ApDict.Aplt.tmstmp" jdbcType="VARCHAR" javaType="ApBaseType.U_TMSTMP" mode="in" longname="交易日期" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="java.util.Map"/>
+        <dynamicSql type="db2">
+            <str type="Str"><![CDATA[select * from ${tblsrc} ]]></str>
+            <where type="Where">
+                <if test="tmstmp!=null &amp;&amp; tmstmp !=&quot;&quot;" type="If">
+                    <str type="Str"><![CDATA[tmstmp >= #tmstmp#]]></str>
+                </if>
+            </where>
+        </dynamicSql>
+        <dynamicSql type="oracle">
+            <str type="Str"><![CDATA[select * from ${tblsrc} ]]></str>
+            <where type="Where">
+                <if test="tmstmp!=null &amp;&amp; tmstmp !=&quot;&quot;" type="If">
+                    <str type="Str"><![CDATA[tmstmp >= #tmstmp#]]></str>
+                </if>
+            </where>
+        </dynamicSql>
+        <dynamicSql type="mysql">
+            <str type="Str"><![CDATA[select * from ${tblsrc} ]]></str>
+            <where type="Where">
+                <if test="tmstmp!=null &amp;&amp; tmstmp !=&quot;&quot;" type="If">
+                    <str type="Str"><![CDATA[tmstmp >= #tmstmp#]]></str>
+                </if>
+            </where>
+        </dynamicSql>
+    </dynamicSelect>
+    <select cache="none" method="selectOne" type="sql" id="selCntByintr" longname="查询是否有未结息信息">
+        <sql type="db2"><![CDATA[select count(1) from knb_acin acin ,kna_acct acct where acin.acctno = acct.acctno and acct.acctst = '1' 
+			and  acin.ncindt <= #trandt# and acin.pddpfg = '0204' and acin.inbefg = '1'
+			and not exists (select 1 from knb_slep slep where acct.custac = slep.custac and slep.spprdt = #trandt# and slepst = '2' and spprst = '1') ]]></sql>
+        <sql type="oracle"><![CDATA[select count(1) from knb_acin acin ,kna_acct acct where acin.acctno = acct.acctno and acct.acctst = '1' 
+			and  acin.ncindt <= #trandt# and acin.pddpfg = '0204' and acin.inbefg = '1'
+			and not exists (select 1 from knb_slep slep where acct.custac = slep.custac and slep.spprdt = #trandt# and slepst = '2' and spprst = '1') ]]></sql>
+        <sql type="mysql"><![CDATA[select count(1) from knb_acin acin ,kna_acct acct where acin.acctno = acct.acctno and acct.acctst = '1' 
+			and  acin.ncindt <= #trandt# and acin.pddpfg = '0204' and acin.inbefg = '1'
+			and not exists (select 1 from knb_slep slep where acct.custac = slep.custac and slep.spprdt = #trandt# and slepst = '2' and spprst = '1') ]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="trandt" ref="BaseDict.Comm.trandt" jdbcType="VARCHAR" javaType="BaseType.U_DATE08" mode="in" longname="交易日期" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="java.lang.Integer"/>
+    </select>
+    <select cache="none" method="selectOne" type="sql" id="selPartitionFromSyscat" longname="从系统编目表中查询分区信息">
+        <sql type="mysql"><![CDATA[select distinct partition_name from INFORMATION_SCHEMA.partitions 
+WHERE table_schema=SCHEMA() and TABLE_NAME = #tbname# and partition_name like CONCAT('%',#ptname#,'%')]]></sql>
+        <sql><![CDATA[select datapartitionname from syscat.DATAPARTITIONS where tabname = #tbname# and datapartitionname = #ptname#]]></sql>
+        <sql type="oracle"><![CDATA[select partition_name from user_tab_partitions where table_name =#tbname# and partition_name like '%'||#ptname#||'%'
+]]></sql>
+        <sql type="db2"><![CDATA[select datapartitionname from syscat.DATAPARTITIONS where tabname = #tbname# and datapartitionname = #ptname#]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="tbname" jdbcType="VARCHAR" javaType="BaseType.U_CHAR100" mode="in" parameterType="condition"/>
+            <parameter property="ptname" jdbcType="VARCHAR" javaType="BaseType.U_CHAR40" mode="in" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="java.lang.String"/>
+    </select>
+    <select cache="none" method="selectOne" type="sql" id="sel_filergst_by_busseq" longname="查询请求文件登记簿">
+        <sql type="mysql"><![CDATA[
+    	select
+    	    	count(1) counts 
+    	from
+    	    	pss_file_rgst 
+    	where
+    	    	filest = #filest# and busseq = #busseq# 
+    	    	and source = #source# and target = #target#
+    	]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="filest" jdbcType="VARCHAR" javaType="string" mode="in" longname="文件登记状态" parameterType="condition"/>
+            <parameter property="busseq" jdbcType="VARCHAR" javaType="string" mode="in" longname="业务流水" parameterType="condition"/>
+            <parameter property="source" jdbcType="VARCHAR" javaType="string" mode="in" longname="源系统标识" parameterType="condition"/>
+            <parameter property="target" jdbcType="VARCHAR" javaType="string" mode="in" longname="目标系统标识" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="int"/>
+    </select>
+    <update method="update" id="upd_filergst_by_busseq" longname="更新请求文件登记簿">
+        <sql type="mysql"><![CDATA[
+    	update
+    	    	pss_file_rgst 
+    	set
+    	    	filest = #status#,gmt_modified=now() 
+    	where
+    	    	filest = #filest# and busseq = #busseq# 
+    	    	and source = #source# and target = #target# 
+    	]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="status" jdbcType="VARCHAR" javaType="string" mode="in" longname="文件登记状态" parameterType="condition"/>
+            <parameter property="filest" jdbcType="VARCHAR" javaType="string" mode="in" longname="文件登记状态" parameterType="condition"/>
+            <parameter property="busseq" jdbcType="VARCHAR" javaType="string" mode="in" longname="业务流水" parameterType="condition"/>
+            <parameter property="source" jdbcType="VARCHAR" javaType="string" mode="in" longname="源系统" parameterType="condition"/>
+            <parameter property="target" jdbcType="VARCHAR" javaType="string" mode="in" longname="目标系统" parameterType="condition"/>
+        </parameterMap>
+    </update>
+    <update method="update" id="updSendFileRgst" longname="更新发送文件登记簿">
+        <sql type="mysql"><![CDATA[
+    	update
+    	    	pss_file_rgst 
+    	set
+    	    	filest = #filest#,busseq = #busseq#,descri = #descri# ,gmt_modified=now() 
+    	where
+    	    	tranno = #tranno# 
+    	]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="tranno" jdbcType="VARCHAR" javaType="string" mode="in" longname="流水" parameterType="condition"/>
+            <parameter property="filest" jdbcType="VARCHAR" javaType="string" mode="in" longname="文件登记状态" parameterType="condition"/>
+            <parameter property="busseq" jdbcType="VARCHAR" javaType="string" mode="in" longname="业务流水" parameterType="condition"/>
+            <parameter property="descri" jdbcType="VARCHAR" javaType="string" mode="in" longname="结果描述" parameterType="condition"/>
+        </parameterMap>
+    </update>
+     <dynamicSelect cache="none" method="selectOne" type="sql" id="countBatchResultByKapbWjplsub" longname="根据文件批量子表统计批量执行结果数">
+        <parameterMap class="java.util.Map">
+            <parameter property="btfest" ref="BaseDict.Comm.btfest" jdbcType="VARCHAR" javaType="ApBaseEnumType.E_BTFEST" mode="in" longname="批量文件状态" parameterType="condition"/>
+            <parameter property="btchno" ref="BaseDict.Comm.btchno" jdbcType="VARCHAR" javaType="BaseType.U_CHAR40" mode="in" longname="批量交易批次号" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="ComFaApFile.ApBatchResultNumber"/>
+        <dynamicSql> 
+            <str type="Str"><![CDATA[select ifnull(sum(succnm),0) as succnm,ifnull(sum(failnm),0) as failnm from kapb_wjplsub]]></str>
+            <where type="Where">
+                <and type="And">
+                    <if test="btfest != null" type="If">
+                        <str type="Str"><![CDATA[btfest = #btfest#]]></str>
+                    </if>
+                    <str type="Str"><![CDATA[btchno = #btchno#]]></str>
+                </and>
+            </where>
+        </dynamicSql>
+    </dynamicSelect>
+</sqls>

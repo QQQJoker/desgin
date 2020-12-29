@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="CnBaseEnumType" package="cn.sunline.ltts.busi.sys.type" longname="黄金代投模块枚举类型" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <description><![CDATA[黄金代投模块枚举类型]]></description>
+    <restrictionType id="E_CERTTYPE" longname="证件类型" base="string" maxLength="3" minLength="0" byCharacter="false">
+        <enumeration id="_10" value="101" longname="身份证" desc="身份证"/>
+    </restrictionType>
+    <restrictionType id="E_CERTTYPE_G" longname="证件类型(黄金)" base="string" maxLength="3" minLength="0" byCharacter="false">
+        <enumeration id="_10" value="s" longname="身份证" desc="身份证"/>
+    </restrictionType>
+    <restrictionType id="E_ACCTST" longname="账户状态" base="string" maxLength="3" minLength="0">
+        <enumeration id="_10" value="0" longname="已登记" desc="已登记"/>
+        <enumeration id="_11" value="1" longname="已开户" desc="已开户"/>
+        <enumeration id="_12" value="2" longname="已销户" desc="已销户"/>
+        <enumeration id="_13" value="3" longname="失败" desc="失败"/>
+        <enumeration id="_14" value="4" longname="超时" desc="超时"/>
+    </restrictionType>
+    <restrictionType id="E_TRANTP" longname="交易类型" base="string" maxLength="3" minLength="0">
+        <enumeration id="_10" value="10" longname="计划买" desc="计划买"/>
+        <enumeration id="_11" value="11" longname="随时买" desc="随时买"/>
+        <enumeration id="_12" value="12" longname="卖金" desc="卖金"/>
+        <enumeration id="_13" value="13" longname="提金" desc="提金"/>
+        <enumeration id="_14" value="14" longname="充值" desc="充值"/>
+        <enumeration id="_15" value="15" longname="提现" desc="提现"/>
+    </restrictionType>
+    <restrictionType id="E_TRANTP_G" longname="交易类型_黄金" base="string" maxLength="3" minLength="0">
+        <enumeration id="_11" value="1" longname="充值" desc="充值"/>
+        <enumeration id="_12" value="2" longname="提现" desc="提现"/>
+    </restrictionType>
+    <restrictionType id="E_TRANST" longname="交易状态" base="string" maxLength="3" minLength="0">
+        <enumeration id="_10" value="0" longname="已登记" desc="已登记"/>
+        <enumeration id="_11" value="1" longname="已受理" desc="已受理"/>
+        <enumeration id="_12" value="2" longname="交易失败" desc="交易失败"/>
+        <enumeration id="_13" value="3" longname="交易成功" desc="交易成功"/>
+        <enumeration id="_14" value="4" longname="交易超时" desc="交易超时"/>
+    </restrictionType>
+    <restrictionType id="E_CHCKST" longname="对账状态" base="string" maxLength="3" minLength="0">
+        <enumeration id="_10" value="0" longname="非对账类交易不对账（交易类型为0）" desc="非对账类交易不对账（交易类型为0）"/>
+        <enumeration id="_11" value="1" longname="平台超时黄金失败" desc="平台超时黄金失败"/>
+        <enumeration id="_12" value="2" longname="平台已受理黄金失败" desc="平台已受理黄金失败"/>
+        <enumeration id="_13" value="3" longname="平台失败黄金失败" desc="平台失败黄金失败"/>
+        <enumeration id="_14" value="4" longname="平台超时黄金成功" desc="平台超时黄金成功"/>
+        <enumeration id="_15" value="5" longname="平台已受理黄金成功" desc="平台已受理黄金成功"/>
+        <enumeration id="_16" value="6" longname="平台失败黄金成功" desc="平台失败黄金成功"/>
+        <enumeration id="_17" value="7" longname="平字段对应不上" desc="字段对应不上"/>
+    </restrictionType>
+    <restrictionType id="E_CHCKST1" longname="对账状态(对账异常登记时)" base="string" maxLength="3" minLength="0">
+        <enumeration id="_10" value="0" longname="对账不平" desc="对账不平"/>
+        <enumeration id="_11" value="1" longname="平台失败黄金成功" desc="平台失败黄金成功"/>
+        <enumeration id="_12" value="2" longname="平台少黄金多" desc="平台少黄金多"/>
+    </restrictionType>
+    <restrictionType id="E_ISDENT" longname="是否已确认" base="string" maxLength="3" minLength="0">
+        <enumeration id="_10" value="0" longname="未确认" desc="未确认"/>
+        <enumeration id="_11" value="1" longname="已确认" desc="已确认"/>
+    </restrictionType>
+    <restrictionType id="E_RESULTCODE" longname="状态返回码" base="string" maxLength="3" minLength="0">
+        <enumeration id="_10" value="0" longname="成功" desc="成功"/>
+        <enumeration id="_11" value="1" longname="失败" desc="失败"/>
+    </restrictionType>
+    <restrictionType id="E_AIPPERIOD" longname="定投周期" base="string" maxLength="3" minLength="0">
+        <enumeration id="_11" value="1" longname="按月买" desc="每月的任意一天或几天进行定投交易"/>
+        <enumeration id="_12" value="2" longname="按日买" desc="指定每天都进行定投交易"/>
+        <enumeration id="_14" value="4" longname="按周买" desc="每周选择一天进行定投交易。例如周一"/>
+    </restrictionType>
+    <restrictionType id="E_XITONG" longname="系统标识" base="string" maxLength="3">
+        <enumeration id="PSS" value="PSS" longname="销售工厂"/>
+        <enumeration id="RPS" value="RPS" longname="红包系统"/>
+        <enumeration id="MFS" value="MFS" longname="移动前端"/>
+        <enumeration id="BMS" value="BMS" longname="统一后管"/>
+        <enumeration id="NAS" value="NAS" longname="电子账户"/>
+        <enumeration id="FSM" value="FSM" longname="理财系统"/>
+        <enumeration id="GAS" value="GAS" longname="数仓系统"/>
+    </restrictionType>
+    <restrictionType id="E_PLANSTAT" longname="计划状态" base="string" maxLength="3" minLength="0">
+        <enumeration id="_11" value="1" longname="申请"/>
+        <enumeration id="_12" value="2" longname="生效"/>
+        <enumeration id="_13" value="3" longname="终止"/>
+        <enumeration id="_14" value="4" longname="超时"/>
+        <enumeration id="_15" value="5" longname="失败"/>
+    </restrictionType>
+    <restrictionType id="E_ISORDER" longname="是否生成订单" base="string" maxLength="3">
+        <enumeration id="_10" value="0" longname="否"/>
+        <enumeration id="_11" value="1" longname="是"/>
+    </restrictionType>
+    <restrictionType id="E_ISNAN" longname="是否数字类型" base="string" maxLength="3">
+        <enumeration id="_10" value="0" longname="否"/>
+        <enumeration id="_11" value="1" longname="是"/>
+    </restrictionType>
+    <restrictionType id="E_FAILTYPE" longname="错误码" base="string" maxLength="10">
+        <enumeration id="requestException" value="0099" longname="请求方异常"/>
+        <enumeration id="responseTimeOut" value="0055" longname="响应方超时"/>
+        <enumeration id="success" value="AAAAAAAAAA" longname="成功"/>
+        <enumeration id="otherException" value="0044" longname="其他异常"/>
+    </restrictionType>
+    <restrictionType id="E_TERMTYPE" longname="终端类型" base="string" maxLength="2" minLength="2">
+        <enumeration id="_01" value="01" longname="管理端"/>
+        <enumeration id="_02" value="02" longname="银行柜面"/>
+        <enumeration id="_05" value="05" longname="网上银行"/>
+    </restrictionType>
+    <restrictionType id="E_PRCSCD" longname="外调前置交易码" base="string" maxLength="8" minLength="0">
+        <enumeration id="_01" value="8A2001" longname="黄金开户" desc="黄金开户"/>
+        <enumeration id="_02" value="8A2004" longname="黄金销户" desc="黄金销户"/>
+        <enumeration id="_03" value="8A1005" longname="随时买" desc="随时买"/>
+        <enumeration id="_04" value="8A1001" longname="计划买" desc="计划买"/>
+        <enumeration id="_05" value="8A1003" longname="计划买终止" desc="计划买终止"/>
+        <enumeration id="_06" value="8A1006" longname="卖金" desc="卖金"/>
+        <enumeration id="_07" value="8A1007" longname="提金" desc="提金"/>
+        <enumeration id="_08" value="8A3001" longname="提现" desc="提现"/>
+        <enumeration id="_09" value="8A6008" longname="定投账户查询" desc="定投账户查询"/>
+    </restrictionType>
+    <restrictionType id="E_CLAIMSTAT" longname="提金状态" base="string" maxLength="3" minLength="0">
+        <enumeration id="_10" value="0" longname="未领取" desc="未领取"/>
+        <enumeration id="_11" value="1" longname="已领取" desc="已领取"/>
+        <enumeration id="_12" value="2" longname="领取异常" desc="领取异常"/>
+        <enumeration id="_13" value="3" longname="已登记" desc="已登记"/>
+    </restrictionType>
+    <restrictionType id="E_AGREST" longname="协议状态" base="string" maxLength="2">
+        <enumeration id="_10" value="0" longname="解约" desc="解约"/>
+        <enumeration id="_11" value="1" longname="签约" desc="签约"/>
+    </restrictionType>
+    <restrictionType id="E_AGTYPE" longname="协议类型" base="string" maxLength="2">
+        <enumeration id="_10" value="0" longname="黄金注册" desc="黄金注册"/>
+        <enumeration id="_11" value="1" longname="黄金开户" desc="黄金开销户"/>
+        <enumeration id="_12" value="2" longname="智能存款活期" desc="智能存款活期"/>
+        <enumeration id="_13" value="3" longname="智能存款定期" desc="智能存款定期"/>
+        <enumeration id="_14" value="4" longname="基金" desc="基金"/>
+    </restrictionType>
+    <restrictionType id="E_CHNLID" longname="签约渠道" base="string" maxLength="3">
+        <enumeration id="_10" value="TE" longname="柜面" desc="柜面"/>
+        <enumeration id="_11" value="TM" longname="综合前端" desc="综合前端"/>
+    </restrictionType>
+    <restrictionType id="E_FILEST" longname="文件登记状态" base="string" maxLength="2">
+        <enumeration id="DJ" value="00" longname="已登记（请求文件初始状态）"/>
+        <enumeration id="FS" value="01" longname="已发送（请求文件交互成功）"/>
+        <enumeration id="YD" value="02" longname="已应答（已收到请求返盘文件）"/>
+        <enumeration id="HZ" value="03" longname="已回执（对外系统请求文件成功应答）"/>
+        <enumeration id="SL" value="04" longname="已受理（收到文件初始状态）"/>
+        <enumeration id="CL" value="05" longname="已处理（收到文件已处理完成）"/>
+        <enumeration id="TZ" value="06" longname="已通知（返盘文件结果已通知DFS）"/>
+        <enumeration id="SB" value="07" longname="发送失败（请求文件交互失败）"/>
+        <enumeration id="WTZ" value="08" longname="待通知（通知失败待通知状态）"/>
+        <enumeration id="FSCS" value="09" longname="发送超时（请求文件交互超时）"/>
+    </restrictionType>
+    <restrictionType id="E_FLJHST" longname="文件交互状态" base="string" maxLength="2">
+        <enumeration id="S" value="S" longname="成功"/>
+        <enumeration id="F" value="F" longname="失败"/>
+        <enumeration id="O" value="O" longname="请求默认位"/>
+    </restrictionType>
+    <restrictionType id="E_DATAID" longname="文件交互数据类型ID" base="string" maxLength="10">
+        <enumeration id="E9I1000" value="9I1000" longname="未领取红包退款"/>
+        <enumeration id="E9I1001" value="9I1001" longname="卡券优惠结算"/>
+        <enumeration id="E9I1002" value="9I1002" longname="请求电子账户生成用户文件"/>
+        <enumeration id="E9I1003" value="9I1003" longname="批量红包冲正"/>
+        <enumeration id="E9I1004" value="9I1004" longname="活动状态变更剩余红包退款"/>
+        <enumeration id="E9I2500" value="9I2500" longname="请求客户信息生成用户文件"/>
+        <enumeration id="E9I9B00" value="9I9B00" longname="请求销售工厂生成用户文件"/>
+        <enumeration id="E9I9500" value="9I9500" longname="日终对账文件生成"/>
+        <enumeration id="E9I9501" value="9I9501" longname="理财日终对账文件生成"/>
+        <enumeration id="E9I9600" value="9I9600" longname="向核心系统申请产品文件信息"/>
+    </restrictionType>
+    <restrictionType id="E_BUYTYPE" longname="买金类型" base="string" maxLength="3">
+        <enumeration id="_01" value="01" longname="计划买入" desc="计划买入"/>
+        <enumeration id="_02" value="02" longname="随时买入" desc="随时买入"/>
+        <enumeration id="_03" value="03" longname="其他" desc="其他"/>
+    </restrictionType>
+    <restrictionType id="E_BUYSTAT" longname="买金状态" base="string" maxLength="3">
+        <enumeration id="_00" value="00" longname="待处理" desc="待处理"/>
+        <enumeration id="_01" value="01" longname="处理中" desc="处理中"/>
+        <enumeration id="_10" value="10" longname="交易成功" desc="交易成功"/>
+        <enumeration id="_11" value="11" longname="交易拒绝" desc="交易拒绝"/>
+        <enumeration id="_99" value="99" longname="交易失败" desc="交易失败"/>
+    </restrictionType>
+    <restrictionType id="E_ORDERTYPE" longname="划转类型-资金流水类型" base="string" maxLength="3">
+        <enumeration id="_01" value="01" longname="充值" desc="充值"/>
+        <enumeration id="_02" value="02" longname="提现" desc="提现"/>
+    </restrictionType>
+    <restrictionType id="E_SYSNAME" longname="系统简称" base="string" maxLength="10">
+        <enumeration id="CMP" value="CMP" longname="营销系统"/>
+        <enumeration id="CIF" value="CIF" longname="网络金融核心平台-客户信息系统"/>
+        <enumeration id="NAS" value="NAS" longname="网络金融核心系统-综合电子账户子系统"/>
+        <enumeration id="PSS" value="PSS" longname="网络金融核心平台-产品销售系统"/>
+        <enumeration id="IPPS" value="IPPS" longname="网络金融核心平台-支付系统"/>
+    </restrictionType>
+    <restrictionType id="E_TESTTYPE" longname="测试环境类型" base="string" maxLength="10">
+        <enumeration id="dev" value="dev" longname="开发环境"/>
+        <enumeration id="sit" value="sit" longname="sit环境"/>
+        <enumeration id="uat" value="uat" longname="uat环境"/>
+        <enumeration id="pro" value="pro" longname="生产环境"/>
+    </restrictionType>
+    <restrictionType id="E_RECOSTAT" longname="黄金对账状态" base="string" maxLength="3">
+        <enumeration id="_01" value="1" longname="平台有黄金没有" desc="平台有黄金没有"/>
+        <enumeration id="_02" value="2" longname="平台有黄金也有" desc="平台有黄金也有"/>
+        <enumeration id="_03" value="3" longname="平台没有黄金有" desc="平台没有黄金有"/>
+    </restrictionType>
+    <restrictionType id="E_CHCKTP" longname="对账异常手工处理分类" base="string" maxLength="3">
+        <enumeration id="_10" value="0" longname="待手工处理" desc="待手工处理"/>
+        <enumeration id="_11" value="1" longname="已手工处理" desc="已手工处理"/>
+        <enumeration id="_12" value="2" longname="后台自动补充数据" desc="后台自动补充数据"/>
+        <enumeration id="_13" value="3" longname="手工处理中" desc="手工处理中"/>
+    </restrictionType>
+</schema>

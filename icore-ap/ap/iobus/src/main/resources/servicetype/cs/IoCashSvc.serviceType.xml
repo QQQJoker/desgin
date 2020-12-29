@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType id="IoCashSvc" kind="business" longname="现金模块对外服务接口" package="cn.sunline.ltts.busi.iobus.servicetype.cs" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <service id="IoSaveCash" name="saveCash" longname="现金收入服务">
+        <interface>
+            <input packMode="false">
+                <field id="tranif" type="IoCashComplexType.IoCashTranInput" required="false" multi="false" array="false" longname="现金存入输入信息" desc="现金存入输入信息"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoDrawCash" name="drawCash" longname="现金付出服务">
+        <interface>
+            <input packMode="false">
+                <field id="tranif" type="IoCashComplexType.IoCashTranInput" required="false" multi="false" array="false" longname="现金付出输入信息" desc="现金付出输入"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoSaveCashDCN" name="saveDCNCash" longname="跨节点调用现金收入服务（带平衡性检查补流程）">
+        <interface>
+            <input packMode="false">
+                <field id="tranif" type="IoCashComplexType.IoCashTranInput" required="false" multi="false" array="false" longname="现金存入输入信息" desc="现金存入输入信息"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoDrawCashDCN" name="drawDCNCash" longname="跨节点调用现金付出服务（带平衡性检查补流程）">
+        <interface>
+            <input packMode="false">
+                <field id="tranif" type="IoCashComplexType.IoCashTranInput" required="false" multi="false" array="false" longname="现金付出输入信息" desc="现金付出输入"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="tranpf" type="IoCashComplexType.IoCashTranOuput" required="false" multi="false" array="false" longname="跨节点现金支取自动挂账返回"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoRegCashOverShort" name="regCashOverShort" longname="现金长短款挂账登记服务">
+        <interface>
+            <input packMode="false">
+                <field id="input" type="IoCashComplexType.IoRegCashOverShortInput" required="false" multi="false" array="false" longname="现金长短款挂账登记输入"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoProcCashOverShort" name="procCashOverShort" longname="现金长短款销账处理服务">
+        <interface>
+            <input packMode="false">
+                <field id="input" type="IoCashComplexType.IoProcCashOverShortInput" required="false" multi="false" array="false" longname="现金长短款销账登记输入"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoQryCsbxbl" name="qryCsbxbl" longname="现金尾箱余额查询服务">
+        <interface>
+            <input packMode="true">
+                <field id="csbxno" type="BaseType.U_CSBXNO" required="false" multi="false" array="false" longname="尾箱号"/>
+                <field id="csbxbr" type="BaseType.U_BRCHNO" required="false" multi="false" array="false" longname="尾箱机构"/>
+                <field id="crcycd" type="BaseType.U_CRCYCD" required="false" multi="false" array="false" longname="币种"/>
+                <field id="userid" type="BaseType.U_USERID" required="false" multi="false" array="false" longname="柜员号"/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="userid" type="BaseType.U_USERID" required="false" multi="false" array="false" longname="柜员"/>
+                <field id="csbxno" type="BaseType.U_CSBXNO" required="false" multi="false" array="false" longname="尾箱号"/>
+                <field id="crcycd" type="BaseType.U_CRCYCD" required="false" multi="false" array="false" longname="币种"/>
+                <field id="onlnbl" type="BaseType.U_TRANAM" required="false" multi="false" array="false" longname="联机余额"/>
+                <field id="edctbl" type="BaseType.U_TRANAM" required="false" multi="false" array="false" longname="轧账钱余额"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoQryCashMove" name="qryCashMove" longname="现金出入库查询服务">
+        <interface>
+            <input packMode="false">
+                <field id="input" type="IoCashComplexType.IoQryCashMoveInput" required="false" multi="false" array="false" longname="现金调拨交易查询输入"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="output" type="IoCashComplexType.IoQryCashMoveOutput" required="false" multi="false" array="false" longname="现金调拨交易查询结果输出"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoQryCashTranHis" name="qryCashTranHis" longname="现金交易历史查询服务">
+        <interface>
+            <input packMode="false">
+                <field id="inPut" alias="现金交易历史查询输入" type="IoCashComplexType.IoCashTranHisQryInput" required="false" multi="false" array="false" longname="现金交易历史查询输入"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="outPut" alias="现金交易历史查询查询列表输出" type="IoCashComplexType.IoCashTranHisQryInfosOut" required="false" multi="false" array="false" longname="现金交易历史查询查询列表输出"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoQryCashOverShort" name="qryCashOverShort" longname="柜员现金尾箱长短款查询服务">
+        <interface>
+            <input packMode="false">
+                <field id="adjInp" alias="柜员现金尾箱长短款查询输入" type="IoCashComplexType.IoCashOverShortInput" required="false" multi="false" array="false" longname="柜员现金尾箱长短款查询输入"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="adjOut" type="IoCashComplexType.IoCashOverShortQryInfosOut" required="false" multi="false" array="false" longname="长短款输出数组"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoRegistKnsCsmv" name="registKnsCsmv" longname="调拨单登记服务">
+        <interface>
+            <input packMode="false">
+                <field id="rgcsmv" type="IoCashComplexType.IoRegistKnsCsmvInput" required="false" multi="false" array="false" longname="登记调拨单信息输入" desc="登记调拨单信息输入"/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="csmvif" type="IoCashComplexType.IoRegistKnsCsmvOutput" required="false" multi="false" array="false" longname="现金调拨信息"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoQueryKnsCsmv" name="queryKnsCsmv" longname="调拨单查询服务">
+        <interface>
+            <input packMode="false">
+                <field id="movedt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="调拨日期" ref="PbDict.Cash.movedt"/>
+                <field id="movesq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="调拨交易流水" ref="PbDict.Cash.movesq"/>
+                <field id="moveno" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="调拨单号" ref="PbDict.Cash.moveno"/>
+                <field id="csmvst" type="PbEnumType.E_CSMVST" required="false" multi="false" array="false" longname="现金调拨状态" ref="PbDict.Cash.csmvst"/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="csmvif" type="IoCashComplexType.IoQueryKnsCsmvOutput" required="false" multi="false" array="false" longname="现金调拨信息"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoMainKnsCsmv" name="mainKnsCsmv" longname="调拨单维护服务">
+        <interface>
+            <input packMode="false">
+                <field id="upcsmv" type="IoCashComplexType.IoMainKnsCsmvInput" required="false" multi="false" array="false" longname="登记调拨单信息输入" desc="登记调拨单信息输入"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoAddCashbox" name="addCashbox" longname="新增尾箱信息">
+        <interface>
+            <input packMode="false">
+                <field id="input" type="IoCashComplexType.IoAddCashboxInput" required="false" multi="false" array="false" longname="新增尾箱信息输入"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="csbxno" type="BaseType.U_CSBXNO" required="false" multi="false" array="false" longname="尾箱号" ref="PbDict.Cash.csbxno"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoQryCsmvByCsbxno" name="qryCsmvByCsbxno" longname="调入尾箱调拨单信息查询">
+        <interface>
+            <input packMode="true">
+                <field id="stardt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="起始日期"/>
+                <field id="endtdt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="结束日期"/>
+                <field id="oubrch" type="BaseType.U_BRCHNO" required="false" multi="false" array="false" longname="调出机构" ref="PbDict.Cash.oubrch"/>
+                <field id="moveno" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="调拨单号" ref="PbDict.Cash.moveno"/>
+                <field id="csmvst" type="PbEnumType.E_CSMVST" required="false" multi="false" array="false" longname="现金调拨状态" ref="PbDict.Cash.csmvst"/>
+                <field id="pageno" type="long" required="false" multi="false" array="false" longname="页数"/>
+                <field id="recdct" type="long" required="false" multi="false" array="false" longname="每页记录数"/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="outs" type="IoCashComplexType.IoQueryKnsCsmv" required="false" multi="false" array="false" longname="查询调拨信息"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="selCsbxCashInfo" name="selCsbxCashInfo" longname="尾箱现金信息查询">
+        <interface>
+            <input packMode="false">
+                <field id="brchno" type="BaseType.U_BRCHNO" required="false" multi="false" array="false" longname="机构号" ref="PbDict.Brch.brchno"/>
+                <field id="userid" type="BaseType.U_USERID" required="false" multi="false" array="false" longname="柜员代号" ref="PbDict.Teller.userid"/>
+                <field id="tocsbx" type="BaseType.U_CSBXNO" required="false" multi="false" array="false" longname="尾箱号"/>
+                <field id="crcycd" type="BaseType.U_CRCYCD" required="false" multi="false" array="false" longname="币种"/>
+                <field id="pageno" type="long" required="false" multi="false" array="false" longname="当前页数"/>
+                <field id="pagesize" type="long" required="false" multi="false" array="false" longname="每页记录数"/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="csbxcashinfo" type="IoCashComplexType.CsbxCashInfo" required="false" multi="true" array="false" longname="尾箱现金信息查询"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="selZtCashInfo" name="selZtCashInfo" longname="查询在途现金信息">
+        <interface>
+            <input packMode="false">
+                <field id="pageno" type="long" required="false" multi="false" array="false" longname="当前页数"/>
+                <field id="camvtp" type="PbEnumType.E_IOMVTG" required="false" default="1" multi="false" array="false" longname="查询种类"/>
+                <field id="pagesize" type="long" required="false" multi="false" array="false" longname="每页记录数"/>
+                <field id="movedt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="调拨日期"/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="ztcashout" type="IoCashComplexType.selZtCash" required="false" multi="true" array="false" longname="在途现金查询输出"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="checkCsbxIsEmpty" name="checkCsbxIsEmpty" longname="检查尾箱是否为空">
+        <interface>
+            <input packMode="false">
+                <field id="csbxno" type="BaseType.U_CSBXNO" required="false" multi="false" array="false" longname="尾箱号" ref="PbDict.Cash.csbxno"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoQryCashTranInfo" name="IoQryCashTranInfo" longname="查询现金收付日记账信息记录">
+        <interface>
+            <input packMode="true">
+                <field id="pageno" type="BaseType.U_LONGIN" required="true" multi="false" array="false" longname="页数" ref="PbDict.Comm.pageno"/>
+                <field id="record" type="BaseType.U_LONGIN" required="true" multi="false" array="false" longname="每页记录数" ref="PbDict.Comm.record"/>
+                <field id="tranbr" type="BaseType.U_BRCHNO" required="true" multi="false" array="false" longname="交易机构" ref="PbDict.Cash.tranbr"/>
+                <field id="trandt" type="BaseType2.U_DATE08" required="true" multi="false" array="false" longname="交易日期" ref="PbDict1.Cash.trandt"/>
+                <field id="tranus" type="BaseType.U_USERID" required="false" multi="false" array="false" longname="交易柜员" ref="PbDict.Cash.tranus"/>
+                <field id="crcycd" type="BaseType.U_CRCYCD" required="true" multi="false" array="false" longname="币种" ref="PbDict.Cash.crcycd"/>
+                <field id="amntcd" type="BaseEnumType.E_AMNTCD" required="false" multi="false" array="false" longname="借贷方向" ref="PbDict.Cash.amntcd"/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="output" type="IoCashComplexType.IoQryCashTranOut" required="false" multi="true" array="false" longname="查询现金收付日记账输出"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="IoQryCsbxCsblNotZero" name="queryKnaCsbxCsblNotZero" longname="查询尾箱现金余额不为零信息">
+        <interface>
+            <input packMode="false">
+                <field id="csbxno" type="BaseType.U_CSBXNO" required="false" multi="false" array="false" longname="尾箱号" ref="PbDict.Dcmt.csbxno"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="cplCsbxCashInfo" type="IoCashComplexType.CsbxCashInfo" required="false" multi="true" array="false" longname="尾箱现金余额信息"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoQryCashBoxInfo" name="getCashBoxInfo" longname="获取尾箱信息">
+        <interface>
+            <input packMode="false">
+                <field id="csbxno" type="BaseType.U_CSBXNO" required="false" multi="false" array="false" longname="尾箱号" ref="PbDict.Cash.csbxno"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="ktpCsbxInfo" type="IoPbAtmpComplexType.KtpCsbxInfo" required="false" multi="false" array="false" longname="尾箱信息"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoQryTranDetlByTrandt" name="queryKnsTranDetl" longname="交易日期查询交易明细信息">
+        <interface>
+            <input packMode="true">
+                <field id="pageno" type="long" required="false" multi="false" array="false" longname="页码"/>
+                <field id="pagesz" type="long" required="false" multi="false" array="false" longname="页容量"/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="outs" type="IoCashComplexType.IoQueryKnsTranDetl" required="false" multi="false" array="false" longname="交易流水明细信息"/>
+            </output>
+            <property packMode="true"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="delCashInfo" name="delCashInfo" longname="删除尾箱信息">
+        <interface>
+            <input packMode="false">
+                <field id="csbxno" type="BaseType.U_CSBXNO" required="false" multi="false" array="false" longname="尾箱号" ref="PbDict.Cash.csbxno"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="IoGetBxnoByTranbr" name="qryBxnoByTranbr" longname="获取机构下的库管尾箱及在途尾箱">
+        <interface>
+            <input packMode="false">
+                <field id="brchno" type="BaseType.U_BRCHNO" required="false" multi="false" array="false" longname="机构号" ref="BaseDict.Comm.brchno"/>
+                <field id="csbxtp" type="PbEnumType.E_CSBXTP" required="false" multi="false" array="false" longname="尾箱类别" ref="PbDict.Cash.csbxtp"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="brbxno" type="CsComplexType.IoTranbrCxbxno" required="false" multi="false" array="false" longname="机构尾箱信息"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="selCsbxCashByBxno" name="qryCsbxCashByBxno" longname="根据尾箱号查询现金尾箱库存现金">
+        <interface>
+            <input packMode="true">
+                <field id="csbxno" type="BaseType.U_CSBXNO" required="false" multi="false" array="false" longname="尾箱号" ref="PbDict.Cash.csbxno"/>
+                <field id="crcycd" type="BaseType.U_CRCYCD" required="false" multi="false" array="false" longname="币种" ref="BaseDict.Comm.crcycd"/>
+                <field id="facevl" type="PbEnumType.E_FACEVL" required="false" multi="false" array="false" longname="面值" ref="PbDict.Cash.facevl"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="csbxInfo" type="IoCashComplexType.CsbxInfo" required="false" multi="false" array="false" longname="现金尾箱信息"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="selCsbxCashByAtm" name="selCsbxCashByAtm" longname="根据ATM终端号查询现金尾箱库存现金">
+        <interface>
+            <input packMode="true">
+                <field id="atmnum" type="BaseType.U_ATMNUM" required="false" multi="false" array="false" longname="尾箱号"/>
+                <field id="teller" type="BaseType.U_USERID" required="false" multi="false" array="false" longname="atm柜员编号"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="csbxInfo" type="IoCashComplexType.CsbxInfo" required="false" multi="false" array="false" longname="现金尾箱信息"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="IoUpdateCsbxLsbl" name="updateCsbxLsbl" longname="更新现金尾箱期初余额信息">
+        <interface>
+            <input packMode="false">
+                <field id="csbxno" type="BaseType.U_CSBXNO" required="false" multi="false" array="false" longname="尾箱号" ref="PbDict.Cash.csbxno"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="IoSelKnaCsbxByCsbxno" name="qurKnaCsbxByCsbxno" longname="根据尾箱号查询尾箱信息表信息">
+        <interface>
+            <input packMode="false">
+                <field id="csbxno" type="BaseType.U_CSBXNO" required="false" multi="false" array="false" longname="尾箱号" ref="PbDict.Cash.csbxno"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="knaCsbxInfo" type="IoCashComplexType.TblKnaCsbx" required="false" multi="false" array="false" longname="尾箱信息"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="IoUpdateKnaCsbxInfo" name="updateKnaCsbxInfo" longname="维护尾箱信息">
+        <interface>
+            <input packMode="false">
+                <field id="csbxInfo" type="IoCashComplexType.TblKnaCsbx" required="false" multi="false" array="false" longname="尾箱信息"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="IoInsertCsbxLsbl" name="insertCsbxLsbl" longname="增加尾箱现金">
+        <interface>
+            <input packMode="false">
+                <field id="csbxno" type="BaseType.U_CSBXNO" required="false" multi="false" array="false" longname="尾箱号" ref="PbDict.Cash.csbxno"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="IoCheckTheWayCsbx" name="ioCheckTheWayCsbx" longname="检查是否有在途现金">
+        <interface>
+            <input packMode="false">
+                <field id="userid" type="BaseType.U_USERID" required="false" multi="false" array="false" longname="柜员代号" ref="PbDict.Teller.userid"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="csbxInfo" type="IoCashComplexType.IoQueryKnsCsmvOutput" required="false" multi="true" array="false" longname="在途现金"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="procCsSaveStrike" name="procCsSaveStrike" longname="现金收入冲正">
+        <interface>
+            <input packMode="false">
+                <field id="entity" type="IoCashComplexType.CsStrikeEntity" required="false" multi="false" array="false" longname="现金收取冲正输入"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="IoInsertAtmTellerRele" name="insertAtmTellerRele" longname="新增atm终端信息">
+        <interface>
+            <input packMode="true">
+                <field id="acctdt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="数据日期" ref="PbDict.Cash.acctdt"/>
+                <field id="atmnum" type="BaseType.U_ATMNUM" required="false" multi="false" array="false" longname="atm终端号" ref="PbDict.Cash.atmnum"/>
+                <field id="bankno" type="BaseType.U_BANKNO" required="false" multi="false" array="false" longname="银行行号" ref="PbDict.Cash.bankno"/>
+                <field id="bankna" type="BaseType.U_BANKNA" required="false" multi="false" array="false" longname="银行名称" ref="PbDict.Cash.bankna"/>
+                <field id="brchno" type="BaseType.U_BRCHNO" required="false" multi="false" array="false" longname="机构号" ref="PbDict.Brch.brchno"/>
+                <field id="brchna" type="BaseType.U_BRCHNA" required="false" multi="false" array="false" longname="机构名称" ref="PbDict.Brch.brchna"/>
+                <field id="addres" type="BaseType.U_CHAR200" required="false" multi="false" array="false" longname="安装地址" ref="PbDict.Cash.addres"/>
+                <field id="termnp" type="BaseType.U_CHAR200" required="false" multi="false" array="false" longname="终端提供商" ref="PbDict.Cash.termnp"/>
+                <field id="instdt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="安装日期" ref="PbDict.Cash.instdt"/>
+                <field id="puttdt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="投产日期" ref="PbDict.Cash.puttdt"/>
+                <field id="buytdt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="购买日期" ref="PbDict.Cash.buytdt"/>
+                <field id="buytam" type="BaseType.U_TRANAM" required="false" multi="false" array="false" longname="购买金额" ref="PbDict.Cash.buytam"/>
+                <field id="teller" type="BaseType.U_USERID" required="false" multi="false" array="false" longname="atm柜员编号" ref="PbDict.Cash.teller"/>
+                <field id="csbxno" type="BaseType.U_CSBXNO" required="false" multi="false" array="false" longname="尾箱号" ref="PbDict.Cash.csbxno"/>
+                <field id="acctno" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="账号" ref="BaseDict.Comm.acctno"/>
+                <field id="atmtno" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="atm长短款账号" ref="PbDict.Cash.atmtno"/>
+                <field id="serino" type="BaseType.U_BUSINO" required="false" multi="false" array="false" longname="序列号" ref="PbDict.Teller.serino"/>
+                <field id="btelno" type="BaseType.U_TELENO" required="false" multi="false" array="false" longname="电话号码1"/>
+                <field id="teleno" type="BaseType.U_TELENO" required="false" multi="false" array="false" longname="电话号码2"/>
+                <field id="admnid" type="BaseType.U_CHAR30" required="false" multi="false" array="false" longname="管理员编号" ref="PbDict.Cash.admnid"/>
+                <field id="deprey" type="BaseType.U_CHAR08" required="false" multi="false" array="false" longname="折旧年限" ref="PbDict.Cash.deprey"/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="atmnum" type="BaseType.U_ATMNUM" required="false" multi="false" array="false" longname="atm终端号" ref="PbDict.Cash.atmnum"/>
+                <field id="userid" type="BaseType.U_USERID" required="false" multi="false" array="false" longname="柜员代号" ref="PbDict.Teller.userid"/>
+                <field id="csbxno" type="BaseType.U_CSBXNO" required="false" multi="false" array="false" longname="尾箱号" ref="PbDict.Cash.csbxno"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="IoUpdateAtmTellerRele" name="updateAtmTellerRele" longname="更新atm终端信息">
+        <interface>
+            <input packMode="true">
+                <field id="acctdt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="数据日期" ref="PbDict.Cash.acctdt"/>
+                <field id="atmnum" type="BaseType.U_ATMNUM" required="false" multi="false" array="false" longname="atm终端号" ref="PbDict.Cash.atmnum"/>
+                <field id="bankno" type="BaseType.U_BANKNO" required="false" multi="false" array="false" longname="银行行号" ref="PbDict.Cash.bankno"/>
+                <field id="bankna" type="BaseType.U_BANKNA" required="false" multi="false" array="false" longname="银行名称" ref="PbDict.Cash.bankna"/>
+                <field id="brchno" type="BaseType.U_BRCHNO" required="false" multi="false" array="false" longname="机构号" ref="PbDict.Brch.brchno"/>
+                <field id="brchna" type="BaseType.U_BRCHNA" required="false" multi="false" array="false" longname="机构名称" ref="PbDict.Brch.brchna"/>
+                <field id="addres" type="BaseType.U_CHAR200" required="false" multi="false" array="false" longname="安装地址" ref="PbDict.Cash.addres"/>
+                <field id="termnp" type="BaseType.U_CHAR200" required="false" multi="false" array="false" longname="终端提供商" ref="PbDict.Cash.termnp"/>
+                <field id="instdt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="安装日期" ref="PbDict.Cash.instdt"/>
+                <field id="puttdt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="投产日期" ref="PbDict.Cash.puttdt"/>
+                <field id="buytdt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="购买日期" ref="PbDict.Cash.buytdt"/>
+                <field id="buytam" type="BaseType.U_TRANAM" required="false" multi="false" array="false" longname="购买金额" ref="PbDict.Cash.buytam"/>
+                <field id="teller" type="BaseType.U_USERID" required="false" multi="false" array="false" longname="atm柜员编号" ref="PbDict.Cash.teller"/>
+                <field id="csbxno" type="BaseType.U_CSBXNO" required="false" multi="false" array="false" longname="尾箱号" ref="PbDict.Cash.csbxno"/>
+                <field id="acctno" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="账号" ref="BaseDict.Comm.acctno"/>
+                <field id="atmtno" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="atm长短款账号" ref="PbDict.Cash.atmtno"/>
+                <field id="serino" type="BaseType.U_BUSINO" required="false" multi="false" array="false" longname="序列号" ref="PbDict.Teller.serino"/>
+                <field id="btelno" type="BaseType.U_TELENO" required="false" multi="false" array="false" longname="电话号码1"/>
+                <field id="teleno" type="BaseType.U_TELENO" required="false" multi="false" array="false" longname="电话号码2"/>
+                <field id="admnid" type="BaseType.U_CHAR30" required="false" multi="false" array="false" longname="管理员编号" ref="PbDict.Cash.admnid"/>
+                <field id="deprey" type="BaseType.U_CHAR08" required="false" multi="false" array="false" longname="折旧年限" ref="PbDict.Cash.deprey"/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="atmnum" type="BaseType.U_ATMNUM" required="false" multi="false" array="false" longname="atm终端号" ref="PbDict.Cash.atmnum"/>
+                <field id="userid" type="BaseType.U_USERID" required="false" multi="false" array="false" longname="柜员代号" ref="PbDict.Teller.userid"/>
+                <field id="csbxno" type="BaseType.U_CSBXNO" required="false" multi="false" array="false" longname="尾箱号" ref="PbDict.Cash.csbxno"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+</serviceType>

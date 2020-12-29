@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType id="IoFcAcctSvc" kind="business" longname="融资账户服务" package="cn.sunline.ltts.busi.iobus.servicetype.fc" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <service id="IoOpenFinacAcct" name="openFinacAcct" longname="融资账户开户">
+        <interface>
+            <input packMode="false">
+                <field id="input" type="IoFcAcctComplexType.IoOpenFinacAcctIn" required="false" multi="false" array="false" longname="融资账户开户输入"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="acctno" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="投资账号" ref="FcDict.Fnac.acctno"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoSaveFinacAcct" name="saveFinacAcct" longname="融资账户转入">
+        <interface>
+            <input packMode="false">
+                <field id="input" type="IoFcAcctComplexType.IoSaveFinacAcctIn" required="false" multi="false" array="false" longname="融资账户转入"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="out" type="IoFcAcctComplexType.IoSaveFinacAcctOut" required="false" multi="false" array="false" longname="融资账户转入输出信息"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="CloseAccount" name="closeAccount" longname="销户方法">
+        <interface>
+            <input packMode="false">
+                <field id="acctno" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="账号"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="StrikeCloseAccount" name="strikeCloseAccount" longname="销户冲正方法">
+        <interface>
+            <input packMode="false">
+                <field id="acctno" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="账号"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoDrawFinacAcct" name="drawFinacAcct" longname="投资账户资金转出">
+        <interface>
+            <input packMode="false">
+                <field id="oinput" type="IoFcAcctComplexType.DrawFinacAcctIn" required="false" multi="false" array="false" longname="投资账户转出输入参数"/>
+            </input>
+            <output asParm="false" packMode="true">
+                <field id="acctno" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="投资账号" ref="FcDict.Fnac.acctno"/>
+                <field id="busino" type="BaseType.U_BUSINO" required="false" multi="false" array="false" longname="业务编号"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="genFcRecvFiles" name="genFcRecvFiles" longname="生成投资人收款计划文件">
+        <interface>
+            <input packMode="false">
+                <field id="trandt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="交易日期" ref="FcDict.Fnac.trandt"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="genFcRepyFiles" name="genFcRepyFiles" longname="生成借款人还款计划文件">
+        <interface>
+            <input packMode="false">
+                <field id="trandt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="交易日期" ref="FcDict.Fnac.trandt"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="selFcaAsgnInfo" name="selFcaAsgnInfo" longname="查询融资回款待分配信息">
+        <interface>
+            <input packMode="false">
+                <field id="asgnst" type="FcEnumType.E_ASGNST" required="false" multi="false" array="false" longname="分配状态" ref="FcDict.Fnac.asgnst"/>
+                <field id="clerdt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="生成日期" ref="FcDict.Fnac.clerdt"/>
+                <field id="pageno" type="long" required="false" multi="false" array="false" longname="当前页数"/>
+                <field id="pagesz" type="long" required="false" multi="false" array="false" longname="每页数量"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="asgnOut" type="IoFcAcctComplexType.FinacAsgnInfoOut" required="false" multi="false" array="false" longname="融资回款待分配信息输出"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoAssignAccount" name="assignAccount" longname="回款金额分配">
+        <interface>
+            <input packMode="false">
+                <field id="input" type="IoFcAcctComplexType.IoAssignAccountIn" required="false" multi="false" array="false" longname="回款金额分配输入信息"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="genbillFiles" name="genbillFiles" longname="生成本息到账文件">
+        <interface>
+            <input packMode="false">
+                <field id="lstrdt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="上次交易日期" ref="DpDict.Acct.lstrdt"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="genSubjInfoFile" name="genSubjInfoFile" longname="生成标的状态文件">
+        <interface>
+            <input packMode="false">
+                <field id="lstrdt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="上次交易日期" ref="DpDict.Acct.lstrdt"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+</serviceType>

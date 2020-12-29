@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType id="IoSrvPbPrivilege" kind="interface" longname="公共权限对外服务" package="cn.sunline.ltts.busi.iobus.servicetype.pb" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description><![CDATA[公共权限对外服务]]></description>
+    <service id="IoRgstPermBeforTran" name="rgstPermBeforTran" longname="交易前处理登记权限事件">
+        <interface>
+            <input packMode="false">
+                <field id="input" type="map" required="false" multi="false" array="false" longname="输入数据"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoRgstPermAfterServ" name="rgstPermAfterServ" longname="服务后处理登记权限事件">
+        <interface>
+            <input packMode="false">
+                <field id="nodeid" type="string" required="false" multi="false" array="false" longname="节点ID" desc="节点ID"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="IoProcPermAferTran" name="procPermAferTran" longname="交易后权限检查">
+        <interface>
+            <input packMode="false">
+                <field id="spfyfg" type="BaseEnumType.E_YES___" required="false" multi="false" array="false" longname="简化标志"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+	<service id="IoinsertKtpPerm" name="insertKtpPerm" longname="登记权限事件临时表">
+        <interface>
+            <input packMode="false">
+                <field id="scencd" type="PbBaseType.U_SCENCD" required="false" multi="false" array="false" longname="场景代码"/>
+                <field id="scenvl" type="BaseType.U_CHAR10" required="false" multi="false" array="false" longname="场景值"/>
+                <field id="crcycd" type="BaseType.U_CRCYCD" required="false" multi="false" array="false" longname="币种"/>
+                <field id="scentx" type="BaseType.U_CHAR50" required="false" multi="false" array="false" longname="场景描述"/>
+                <field id="tranam" type="BaseType.U_TRANAM" required="false" multi="false" array="false" longname="金额"/>
+                <field id="trantp" type="BaseEnumType.E_TRANTP" required="false" multi="false" array="false" longname="交易类型"/>
+                <field id="prcscd" type="BaseType.U_PRCSCD" required="false" multi="false" array="false" longname="外部处理码"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+</serviceType>

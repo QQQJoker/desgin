@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType id="ApEtlNotify" kind="business" longname="数据抽取通知" package="cn.sunline.ltts.busi.aplt.servicetype" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description><![CDATA[数据抽取通知]]></description>
+    <service id="rdcnEtlNotify" name="rdcnEtlNotify" longname="R/C-DCN客户数据反洗钱抽取异步通知">
+        <interface>
+            <input packMode="false">
+                <field id="modelName" type="string" required="false" multi="false" array="false" longname="模块名"/>
+                <field id="subId" type="string" required="false" multi="false" array="false" longname="子系统ID"/>
+                <field id="dcn" type="string" required="false" multi="false" array="false" longname="DCN编号"/>
+                <field id="batchDate" type="string" required="false" multi="false" array="false" longname="跑批日期"/>
+                <field id="sendTime" type="string" required="false" multi="false" array="false" longname="发送时间"/>
+                <field id="bizSeqNo" type="string" required="false" multi="false" array="false" longname="业务流水号"/>
+                <field id="consumerSeqNo" type="string" required="false" multi="false" array="false" longname="系统调用流水号"/>
+                <field id="transCode" type="string" required="false" multi="false" array="false" longname="交易码"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+</serviceType>

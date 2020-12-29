@@ -1,0 +1,5 @@
+cn.sunline.adp.cedar.engine.online.handler.OETAfterHandler=\
+cn.sunline.ltts.amsg.spi.OETSendSuccessSmsHandler
+
+cn.sunline.adp.cedar.engine.online.handler.OETExceptionHandler=\
+cn.sunline.ltts.amsg.spi.OETSendFailSmsHandler

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="IoCompPbBranch" package="cn.sunline.ltts.busi.iobus.type" longname="机构共用复核类型" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <complexType id="PbBranchUpLow" longname="机构上下级" dict="false" abstract="false" introduct="false">
+        <element id="uppebr" longname="上级机构" type="BaseType.U_BRCHNO" ref="PbDict.Brch.uppebr" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="lowebr" longname="下级机构" type="BaseType.U_BRCHNO" ref="PbDict.Brch.lowebr" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoCdKubBrch" longname="机构信息表复合类型" dict="false" abstract="false" introduct="false">
+        <element id="corpno" longname="法人代码" type="BaseType.U_CORPNO" ref="ApDict.Aplt.corpno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="brchno" longname="机构号" type="BaseType.U_BRCHNO" ref="PbDict.Brch.brchno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="brchna" longname="机构名称" type="BaseType.U_BRCHNA" ref="PbDict.Brch.brchna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="brnosh" longname="机构号简称" type="BaseType.U_CHAR10" ref="PbDict.Brch.brnosh" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="brsmna" longname="机构简称" type="BaseType.U_CHAR30" ref="PbDict.Brch.brsmna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="addres" longname="地址" type="BaseType.U_CHAR200" ref="PbDict.Brch.addres" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="postcd" longname="邮政编码" type="BaseType.U_CHAR06" ref="PbDict.Brch.postcd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="telecd" longname="电话" type="BaseType.U_CHAR20" ref="PbDict.Brch.telecd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="contac" longname="联系人" type="BaseType.U_CONTAC" ref="PbDict.Brch.contac" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cttele" longname="联系人电话" type="BaseType.U_TELEPH" ref="PbDict.Brch.cttele" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="vatcod" longname="节假日代码" type="BaseType.U_VATCOD" ref="PbDict.Brch.vatcod" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="swftcd" longname="SWIFT代码" type="BaseType.U_SWFTCD" ref="PbDict.Brch.swftcd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cityno" longname="分行号" type="BaseType.U_BRCHNO" ref="PbDict.Brch.cityno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="uppebr" longname="上级机构" type="BaseType.U_BRCHNO" ref="PbDict.Brch.uppebr" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="upacbr" longname="上级账务机构" type="BaseType.U_BRCHNO" ref="PbDict.Brch.upacbr" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="brchtp" longname="部门类型" type="PbEnumType.E_BRCHTP" ref="PbDict.Brch.brchtp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="brchlv" longname="机构级别" type="PbEnumType.E_BRCHLV" ref="PbDict.Brch.brchlv" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="brstus" longname="机构状态" type="BaseEnumType.E_BRSTUS" ref="PbDict.Brch.brstus" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="brchst" longname="机构日结状态" type="PbEnumType.E_BRCHST" ref="PbDict.Brch.brchst" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="brsatg" longname="平帐标志" type="PbEnumType.E_STACTG" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tranus" longname="操作柜员" type="BaseType.U_USERID" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="brsign" longname="机构签到状态" type="PbEnumType.E_BRSIGN" ref="PbDict.Brch.brsign" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="efctdt" longname="生效日期" type="BaseType.U_DATE08" ref="BaseDict.Comm.efctdt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tmstmp" longname="时间戳" type="ApBaseType.U_TMSTMP" ref="ApDict.Aplt.tmstmp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+</schema>

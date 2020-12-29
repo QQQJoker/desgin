@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema id="HcBaseType" package="cn.sunline.ltts.busi.sys.type" longname="热点控制基础类型" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <restrictionType id="U_LONGDS" longname="长描述" base="string" maxLength="1000" fractionDigits="0"/>
+    <restrictionType id="U_MIDDDS" longname="中描述" base="string" maxLength="400" fractionDigits="0"/>
+    <restrictionType id="U_SHORDS" longname="短描述" base="string" maxLength="200" fractionDigits="0"/>
+ 	<restrictionType id="U_SHORIN" longname="短整型" base="long" maxLength="3" fractionDigits="0"/>
+    <restrictionType id="U_LONGIN" longname="长整型" base="long" maxLength="19" fractionDigits="0"/>
+    <restrictionType id="U_SENOTP" longname="序号类型" base="long" maxLength="19" fractionDigits="0"/>
+    <restrictionType id="U_CHAR30" longname="字符类型30位" base="string" maxLength="30" fractionDigits="0"/>
+    <restrictionType id="U_CHAR08" longname="字符类型8位" base="string" maxLength="8" fractionDigits="0"/>
+    <restrictionType id="U_CHAR02" longname="字符类型2位" base="string" maxLength="2" fractionDigits="0"/>
+    <restrictionType id="U_DATE08" longname="日期类型8位" base="dateString" maxLength="8" fractionDigits="0"/>
+    <restrictionType id="U_TRANAM" longname="交易金额类" base="decimal" maxLength="21" fractionDigits="2"/>
+ 	<restrictionType id="U_SEQUNO" longname="流水号" base="string" maxLength="40" fractionDigits="0"/>
+	<restrictionType id="U_INTEGE" longname="整型" base="integer" maxLength="8" fractionDigits="0"/>
+</schema>

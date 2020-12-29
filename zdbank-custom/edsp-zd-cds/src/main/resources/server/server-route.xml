@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- [Template id=分布式路由服务 longname=分布式路由服务] -->
+<routeConfig clusterId="${clusterId|dp-cluster}" sktable="${sktable|cif_user}"/>
+<!-- [End] -->

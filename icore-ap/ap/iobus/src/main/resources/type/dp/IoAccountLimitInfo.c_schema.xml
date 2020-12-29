@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema id="IoAccountLimitInfo" package="cn.sunline.ltts.busi.iobus.type.dp" longname="电子账户限额信息复合类型" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <complexType id="IoKupAcrtBrch" longname="电子账户限额表查询复合类型" dict="false" abstract="false" introduct="false">
+        <element id="brchno" longname="机构号" type="BaseType.U_BRCHNO" ref="PbDict.Brch.brchno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acctrt" longname="账号路由类型" type="BaseEnumType.E_ACCTROUTTYPE" ref="BaseDict.Comm.acctrt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="limttp" longname="额度类型" type="BaseType.U_CHAR02" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="limtkd" longname="额度种类" type="QtEnumType.E_LIMTKD" ref="QtDict.Qt.limtkd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="servtp" longname="渠道" type="BaseType.U_CHAR100" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="accttp" longname="账户分类" type="BaseType.U_CHAR100" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="sbactp" longname="子账户类型" type="BaseType.U_CHAR100" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="pytltp" longname="支付工具" type="QtEnumType.E_PYTLTP" ref="QtDict.Qt.pytltp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="lmtmax" longname="可设区间(最大值)" type="BaseType.U_TRANAM" ref="QtDict.Qt.lmtmax" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="lmtmin" longname="可设区间(最小值)" type="BaseType.U_TRANAM" ref="QtDict.Qt.lmtmin" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="lmtval" longname="限额" type="BaseType.U_TRANAM" ref="QtDict.Qt.lmtval" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acrtsq" longname="账户限额序号" type="PbBaseType.U_TRNSEQ" ref="QtDict.Qt.acrtsq" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tranus" longname="交易柜员" type="BaseType.U_USERID" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="authus" longname="授权柜员" type="BaseType.U_USERID" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="datetm" longname="维护日期" type="BaseType.U_DATE08" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acrtno" longname="账户限额编号" type="PbBaseType.U_LONGIN" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoAccLimitIn" longname="电子账户限额输入" dict="false" abstract="false" introduct="false">
+        <element id="brchno" longname="机构号" type="BaseType.U_BRCHNO" ref="PbDict.Brch.brchno" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acctrt" longname="账号路由类型" type="BaseEnumType.E_ACCTROUTTYPE" ref="BaseDict.Comm.acctrt" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="limttp" longname="额度类型" type="BaseType.U_CHAR02" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="limtkd" longname="额度种类" type="QtEnumType.E_LIMTKD" ref="QtDict.Qt.limtkd" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="servtp" longname="渠道" type="BaseType.U_CHAR100" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="accttp" longname="账户分类" type="BaseType.U_CHAR100" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="sbactp" longname="子账户类型" type="BaseType.U_CHAR100" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="pytltp" longname="支付工具" type="QtEnumType.E_PYTLTP" ref="QtDict.Qt.pytltp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="lmtmax" longname="可设区间(最大值)" type="BaseType.U_TRANAM" ref="QtDict.Qt.lmtmax" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="lmtmin" longname="可设区间(最小值)" type="BaseType.U_TRANAM" ref="QtDict.Qt.lmtmin" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="lmtval" longname="限额" type="BaseType.U_TRANAM" ref="QtDict.Qt.lmtval" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acrtsq" longname="账户限额序号" type="PbBaseType.U_TRNSEQ" ref="QtDict.Qt.acrtsq" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acrtno" longname="账户限额编号" type="BaseType.U_CHAR12" ref="QtDict.Qt.acrtno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acrtqs" longname="原账户限额序号" type="PbBaseType.U_TRNSEQ" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IoDelAccLimitIn" longname="删除电子账户限额输入" dict="false" abstract="false" introduct="false">
+        <element id="acrtsq" longname="账户限额序号" type="PbBaseType.U_TRNSEQ" ref="QtDict.Qt.acrtsq" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="SelLimitOut" longname="查询限额信息输出" dict="false" abstract="false" introduct="false">
+        <element id="limttp" longname="额度类型" type="BaseType.U_CHAR100" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="lmtval" longname="限额" type="BaseType.U_TRANAM" ref="QtDict.Qt.lmtval" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="servtp" longname="渠道" type="BaseType.U_CHAR100" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="sbactp" longname="子账户类型" type="BaseType.U_CHAR100" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acrtno" longname="账户限额编号" type="BaseType.U_CHAR10" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="selSmAcdcInfo" longname="银联客户信息查询接口" dict="false" abstract="false" introduct="false">
+        <element id="custno" longname="客户号" type="BaseType.U_CUSTNO" ref="BaseDict.Comm.custno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="accttp" longname="账户分类" type="BaseEnumType.E_ACCATP" ref="BaseDict.Comm.accttp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cardno" longname="账号" type="BaseType.U_ACCTNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="openbr" longname="账户开户机构" type="BaseType.U_BRCHNO" ref="DpDict.Acct.openbr" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="custna" longname="客户名称" type="BaseType.U_ACCTNA" ref="BaseDict.Comm.custna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="userid" longname="操作柜员" type="BaseType.U_USERID" ref="DpDict.Acct.userid" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="idtfno" longname="证件号" type="BaseType.U_IDTFNO" ref="BaseDict.Comm.idtfno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="smtftp" longname="神马证件类型" type="BaseEnumType.E_SMIDET" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="idtftp" longname="证件类型" type="BaseEnumType.E_IDTFTP" ref="BaseDict.Comm.idtftp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="sextyp" longname="性别" type="BaseEnumType.E_SEXTYP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="addres" longname="地址" type="BaseType.U_CHAR400" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="postcd" longname="邮编" type="BaseType.U_CHAR10" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="teleno" longname="电话号码" type="BaseType.U_IDTFNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="mobile" longname="手机号码" type="BaseType.U_IDTFNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="emails" longname="邮箱" type="BaseType.U_CHAR200" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acctst" longname="电子账户状态" type="BaseType.U_CHAR04" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frozst" longname="冻结状态" type="DpEnumType.E_FROZST" ref="DpDict.Froz.frozst" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="bithd" longname="生日" type="BaseType.U_CHAR08" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+</schema>

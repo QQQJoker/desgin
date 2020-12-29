@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema id="CaEnumType" package="cn.sunline.ltts.busi.sys.type" longname="卡账户限制类型" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description><![CDATA[系统用基础数据类型]]></description>
+    <restrictionType id="E_RELAFG" longname="建立卡帐关系标志" base="BaseType.U_CHAR01">
+        <enumeration id="NO" value="0" longname="无需建立"/>
+        <enumeration id="YES" value="1" longname="需要建立"/>
+    </restrictionType>
+    <restrictionType id="E_COACFG" longname="容器账户标志" base="BaseType.U_CHAR01">
+        <enumeration id="ONE" value="1" longname="单一账户"/>
+        <enumeration id="MORE" value="2" longname="容器账户"/>
+    </restrictionType>
+    <restrictionType id="E_ACCTTP" longname="账户性质" base="BaseType.U_CHAR01">
+        <enumeration id="WACCT" value="1" longname="弱电子账户"/>
+        <enumeration id="SACCT" value="2" longname="强电子账户"/>
+    </restrictionType>
+    <restrictionType id="E_SIGNTP" longname="签约类型" base="BaseType.U_CHAR02">
+        <enumeration id="ZNCXL" value="01" longname="智能储蓄"/>
+        <enumeration id="FUND" value="02" longname="基金"/>
+        <enumeration id="CARD" value="03" longname="类信用卡"/>
+        <enumeration id="LOAN" value="04" longname="贷款"/>
+        <enumeration id="OTHER" value="99" longname="其他"/>
+    </restrictionType>
+    <restrictionType id="E_SIGNST" longname="签约状态" base="BaseType.U_CHAR01">
+        <enumeration id="QY" value="1" longname="签约"/>
+        <enumeration id="JY" value="2" longname="解约"/>
+    </restrictionType>
+    <restrictionType id="E_REVITP" longname="人脸识别交易类型" base="BaseType.U_CHAR01" maxLength="1" minLength="1">
+        <enumeration id="OPEN" value="1" longname="开户"/>
+        <enumeration id="UPG" value="2" longname="升级"/>
+    </restrictionType>
+    <restrictionType id="E_CARDTP" longname="卡类型" base="BaseType.U_CHAR01">
+        <enumeration id="DEPOSIT" value="1" longname="储蓄卡"/>
+        <enumeration id="DRCARD" value="2" longname="贷记卡"/>
+    </restrictionType>
+    <restrictionType id="E_TROTTP" longname="转出类型" base="BaseType.U_CHAR01">
+        <enumeration id="CZQE" value="1" longname="可转全额"/>
+        <enumeration id="DBJE" value="2" longname="单笔金额"/>
+        <enumeration id="DZJE" value="3" longname="递增金额"/>
+    </restrictionType>
+    <restrictionType id="E_TRANTP" longname="消费转账标志" base="BaseType.U_CHAR01">
+        <enumeration id="TRANSFE" value="T" longname="转账"/>
+        <enumeration id="CONSUME" value="S" longname="消费"/>
+    </restrictionType>
+    <restrictionType id="E_ACPWST" longname="账户密码状态" base="string" maxLength="1">
+        <enumeration id="NORMAL" value="1" longname="正常"/>
+        <enumeration id="CLOSE" value="2" longname="关闭"/>
+        <enumeration id="LOCK" value="3" longname="锁定"/>
+    </restrictionType>
+    <restrictionType id="E_ACTRTP" longname="账户密码交易类型" base="string" maxLength="1">
+        <enumeration id="SETUP" value="1" longname="设置"/>
+        <enumeration id="MODIFY" value="2" longname="修改"/>
+        <enumeration id="RESET" value="3" longname="重置"/>
+        <enumeration id="AMCHANG" value="4" longname="额度变更"/>
+        <enumeration id="CLOSE" value="5" longname="关闭"/>
+        <enumeration id="LOCK" value="6" longname="锁定"/>
+    </restrictionType>
+    <restrictionType id="E_RESULT" longname="联网检查" base="string" maxLength="1">
+        <enumeration id="N" value="N" longname="否"/>
+        <enumeration id="Y" value="Y" longname="是"/>
+    </restrictionType>
+    <restrictionType id="E_MEDIAV" longname="认证状态变更" base="string" maxLength="1">
+        <enumeration id="Y" value="Y" longname="已认证"/>
+        <enumeration id="N" value="N" longname="未认证"/>
+    </restrictionType>
+    <restrictionType id="E_MEDIST" longname="激活状态变更" base="string" maxLength="4">
+        <enumeration id="ACT" value="ACT" longname="已激活"/>
+        <enumeration id="NACT" value="NACT" longname="未激活"/>
+    </restrictionType>
+    <restrictionType id="E_DEVICE" longname="开户设备平台" base="string" maxLength="1">
+        <enumeration id="APP" value="1" longname="app"/>
+        <enumeration id="PC" value="2" longname="pc"/>
+        <enumeration id="OTHER" value="3" longname="其他第三方"/>
+    </restrictionType>
+    <restrictionType id="E_ELCATP" longname="电子账户卡类型" base="string" maxLength="4">
+        <enumeration id="VCAD" value="VCAD" longname="普通电子账户"/>
+        <enumeration id="XFZF" value="XFZF" longname="先锋电子账户"/>
+        <enumeration id="WXDK" value="WXDK" longname="先锋贷款卡"/>
+        <enumeration id="YSFJ" value="YSFJ" longname="银联云闪付账户"/>
+        <enumeration id="GSDK" value="GSDK" longname="山东高速-快速通贷款账户"/>
+        <enumeration id="YTXH" value="YTXH" longname="云图先花贷款账户"/>
+        <enumeration id="JFZF" value="JFZF" longname="山东高速-快速通贷款账户"/>
+    </restrictionType>
+    <restrictionType id="E_IDCKRT" longname="身份核查结果" base="string" maxLength="1">
+        <enumeration id="CHECKING" value="0" longname="核查中"/>
+        <enumeration id="SUCCESS" value="1" longname="成功"/>
+        <enumeration id="FAILD" value="2" longname="失败"/>
+    </restrictionType>
+    <restrictionType id="E_MPCKRT" longname="人脸识别结果" base="string" maxLength="1">
+        <enumeration id="SUCCESS" value="1" longname="成功"/>
+        <enumeration id="CHECKING" value="2" longname="核查中"/>
+        <enumeration id="FAILD" value="3" longname="失败"/>
+    </restrictionType>
+    <restrictionType id="E_BACATP" longname="绑定账户类型" base="string" maxLength="1">
+        <enumeration id="DEPOSIT" value="1" longname="储蓄卡"/>
+        <enumeration id="DRCARD" value="2" longname="贷记卡"/>
+        <enumeration id="DPACCT" value="3" longname="存折"/>
+    </restrictionType>
+    <restrictionType id="E_OPACRT" longname="开户结果" base="string" maxLength="1">
+        <enumeration id="SUCCESS" value="1" longname="开户成功"/>
+        <enumeration id="PREOPEN" value="2" longname="预开户"/>
+        <enumeration id="FAILD" value="3" longname="开户失败"/>
+    </restrictionType>
+    <restrictionType id="E_ACALTP" longname="账户别名类型" base="string" maxLength="1">
+        <enumeration id="CELLPHONE" value="1" longname="手机号"/>
+        <enumeration id="QQ" value="2" longname="QQ"/>
+        <enumeration id="WECHAT" value="3" longname="微信"/>
+    </restrictionType>
+    <restrictionType id="E_ACALST" longname="关联状态" base="string" maxLength="1">
+        <enumeration id="NORMAL" value="1" longname="正常"/>
+        <enumeration id="INVALID" value="2" longname="失效"/>
+    </restrictionType>
+    <restrictionType id="E_PRODTP" longname="产品类型" base="string" maxLength="1">
+        <enumeration id="ALL" value="0" longname="全部"/>
+        <enumeration id="CTDEPOSIT" value="1" longname="活期存款"/>
+        <enumeration id="FIXDEPOSIT" value="2" longname="定期存款"/>
+        <enumeration id="MANAGE" value="3" longname="理财"/>
+        <enumeration id="FUND" value="4" longname="基金"/>
+        <enumeration id="PRECIOUS" value="5" longname="贵金属"/>
+        <enumeration id="LOAN" value="6" longname="贷款"/>
+        <enumeration id="BLUECARD" value="7" longname="信用卡"/>
+        <enumeration id="LKBLCARD" value="8" longname="类信用卡"/>
+    </restrictionType>
+    <restrictionType id="E_PDTPDL" longname="产品类型细分" base="string" maxLength="2">
+        <enumeration id="CUSEACCT" value="1" longname="活期结算账户"/>
+        <enumeration id="WALLETAT" value="2" longname="钱包账户"/>
+        <enumeration id="ECASHAT" value="3" longname="电子现金账户"/>
+        <enumeration id="FAMILYAT" value="4" longname="亲情钱包账户"/>
+        <enumeration id="CADEPOSIT" value="5" longname="活期智能存款"/>
+        <enumeration id="FIXDEPOSIT" value="6" longname="普通定期存款"/>
+        <enumeration id="CAFIXDESIT" value="7" longname="定期智能存款"/>
+        <enumeration id="MANAGE" value="8" longname="理财"/>
+        <enumeration id="FUND" value="9" longname="基金"/>
+        <enumeration id="PRECIOUS" value="10" longname="贵金属"/>
+        <enumeration id="LOAN" value="11" longname="贷款"/>
+        <enumeration id="BLUECARD" value="12" longname="信用卡"/>
+        <enumeration id="LKBLCARD" value="13" longname="类信用卡"/>
+    </restrictionType>
+    <restrictionType id="E_OPENSV" longname="开户渠道" base="string" maxLength="1" byCharacter="false">
+        <enumeration id="INCASE" value="1" longname="柜面"/>
+        <enumeration id="CLIENT" value="2" longname="客户端"/>
+        <enumeration id="CARD" value="3" longname="卡系统"/>
+    </restrictionType>
+    <restrictionType id="E_CLOSSV" longname="销户渠道" base="string" maxLength="1">
+        <enumeration id="INCASE" value="1" longname="柜面"/>
+        <enumeration id="CLIENT" value="2" longname="客户端"/>
+        <enumeration id="CARD" value="3" longname="卡系统"/>
+    </restrictionType>
+    <restrictionType id="E_CKTRTP" longname="电子账户转入校验交易类型" base="string" maxLength="2">
+        <enumeration id="ATMDP" value="01" longname="ATM存现"/>
+        <enumeration id="ATMDR" value="02" longname="ATM取现"/>
+        <enumeration id="ATMCR" value="03" longname="ATM转入"/>
+        <enumeration id="UNNCR" value="04" longname="银联在线转入"/>
+        <enumeration id="CUPCR" value="05" longname="银联CUPS转入"/>
+        <enumeration id="DBCCR" value="06" longname="本行借记卡转入"/>
+        <enumeration id="CRCCR" value="07" longname="本行贷记卡转入"/>
+    </restrictionType>
+    <restrictionType id="E_CKTRIF" longname="电子账户转入校验返回结果" base="string" maxLength="2">
+        <enumeration id="ENOK" value="01" longname="允许"/>
+        <enumeration id="UNOK" value="02" longname="不允许"/>
+        <enumeration id="NOAC" value="03" longname="账户不存在"/>
+    </restrictionType>
+    <restrictionType id="E_CAPITP" longname="资产类型" base="string" maxLength="1">
+        <enumeration id="CURRENT" value="1" longname="存款资产"/>
+        <enumeration id="MANAGE" value="2" longname="投资理财"/>
+    </restrictionType>
+    <restrictionType id="E_PDTLTP" longname="资产产品类型" base="string" maxLength="2">
+        <enumeration id="DEMANDDP" value="11" longname="活期存款"/>
+        <enumeration id="TIMEDP" value="12" longname="定期存款"/>
+        <enumeration id="WALLETAT" value="13" longname="钱包账户"/>
+        <enumeration id="ECASHAT" value="14" longname="电子现金账户"/>
+        <enumeration id="FAMILYAT" value="15" longname="亲情钱包账户"/>
+        <enumeration id="MANAGE" value="21" longname="理财"/>
+        <enumeration id="FUND" value="22" longname="基金"/>
+        <enumeration id="PRECIOUS" value="23" longname="贵金属"/>
+    </restrictionType>
+    <restrictionType id="E_PROMSV" longname="升级渠道" base="string" maxLength="1">
+        <enumeration id="TELCLIENT" value="1" longname="手机端"/>
+        <enumeration id="INCASE" value="2" longname="柜面"/>
+    </restrictionType>
+    <restrictionType id="E_PROMST" longname="升级状态" base="string" maxLength="1">
+        <enumeration id="APPLY" value="1" longname="申请"/>
+        <enumeration id="ACCEPTED" value="2" longname="已受理"/>
+        <enumeration id="SUCCESS" value="3" longname="成功"/>
+        <enumeration id="FAILURE" value="4" longname="失败"/>
+        <enumeration id="CANCEL" value="5" longname="作废"/>
+    </restrictionType>
+    <restrictionType id="E_CUACST" longname="客户账户状态" base="string" maxLength="2">
+        <enumeration id="NORMAL" value="1" longname="正常"/>
+        <enumeration id="PREOPEN" value="2" longname="预开户"/>
+        <enumeration id="NOACTIVE" value="3" longname="未激活"/>
+        <enumeration id="NOENABLE" value="4" longname="未启用"/>
+        <enumeration id="DORMANT" value="5" longname="休眠"/>
+        <enumeration id="OUTAGE" value="6" longname="停用"/>
+        <enumeration id="PRECLOS" value="7" longname="预销户"/>
+        <enumeration id="CLOSED" value="8" longname="销户"/>
+        <enumeration id="DELETE" value="9" longname="作废"/>
+        <enumeration id="INACTIVE" value="10" longname="非活跃"/>
+    </restrictionType>
+    <restrictionType id="E_MANTWY" longname="维护方式" base="string" maxLength="1">
+        <enumeration id="ADD" value="1" longname="新增"/>
+        <enumeration id="CHANGE" value="2" longname="变更"/>
+        <enumeration id="REMOVE" value="3" longname="解绑"/>
+    </restrictionType>
+    <restrictionType id="E_SPPRST" longname="休眠登记簿处理结果" base="string" maxLength="1">
+        <enumeration id="NORMAL" value="1" longname="转回正常"/>
+        <enumeration id="CNCL" value="2" longname="休眠直接销户"/>
+    </restrictionType>
+    <restrictionType id="E_SLEPST" longname="休眠登记簿状态" base="string" maxLength="1">
+        <enumeration id="SLEP" value="1" longname="休眠"/>
+        <enumeration id="CANCEL" value="2" longname="已解除"/>
+    </restrictionType>
+    <restrictionType id="E_CHNGTP" longname="变更变更方式" base="string" maxLength="1">
+        <enumeration id="ALL" value="1" longname="全部状态"/>
+        <enumeration id="INNER" value="2" longname="内部状态"/>
+        <enumeration id="CUST" value="3" longname="客户化状态"/>
+    </restrictionType>
+    <restrictionType id="E_OPACWY" longname="开户方式" base="string" maxLength="1">
+        <enumeration id="SINGLE" value="1" longname="单笔"/>
+        <enumeration id="BATCH" value="2" longname="批量"/>
+    </restrictionType>
+    <restrictionType id="E_BKUPRS" longname="停用原因" base="string" maxLength="1">
+        <enumeration id="STATE" value="1" longname="客户声明"/>
+        <enumeration id="OTHER" value="2" longname="其它原因"/>
+    </restrictionType>
+    <restrictionType id="E_APPRFG" longname="是否征得同意" base="string" maxLength="1">
+        <enumeration id="Y" value="1" longname="是"/>
+        <enumeration id="N" value="2" longname="否"/>
+    </restrictionType>
+    <restrictionType id="E_APPRWY" longname="征求方式" base="string" maxLength="1">
+        <enumeration id="FACE" value="1" longname="当面"/>
+        <enumeration id="TEL" value="2" longname="电话"/>
+        <enumeration id="OTHER" value="3" longname="其它"/>
+    </restrictionType>
+    <restrictionType id="E_OPENRT" longname="开户结果" base="string" maxLength="1">
+        <enumeration id="cs" value="1" longname="客户信息成功"/>
+        <enumeration id="cf" value="2" longname="客户信息失败"/>
+        <enumeration id="ec" value="3" longname="电子账户成功"/>
+        <enumeration id="ef" value="4" longname="电子账户失败"/>
+        <enumeration id="df" value="5" longname="凭证使用失败"/>
+        <enumeration id="dc" value="6" longname="凭证使用成功"/>
+        <enumeration id="dv" value="7" longname="凭证作废"/>
+    </restrictionType>
+    <restrictionType id="E_DATATP" longname="处理状态" base="string" maxLength="1">
+        <enumeration id="_1" value="1" longname="待处理"/>
+        <enumeration id="_2" value="2" longname="处理中"/>
+        <enumeration id="_3" value="3" longname="成功"/>
+        <enumeration id="_4" value="4" longname="失败"/>
+    </restrictionType>
+    <restrictionType id="E_OPENRS" longname="开户结果标志" base="string" maxLength="1">
+        <enumeration id="SUCCESS" value="1" longname="成功"/>
+        <enumeration id="FAIL" value="2" longname="失败"/>
+    </restrictionType>
+    <restrictionType id="E_CLOSST" longname="销户状态" base="string" maxLength="1">
+        <enumeration id="FORECLAC" value="1" longname="预销户"/>
+        <enumeration id="CLOSEAC" value="2" longname="销户"/>
+    </restrictionType>
+    <restrictionType id="E_CKTNTP" longname="核查交易类型" base="string" maxLength="1">
+        <enumeration id="OPEN" value="1" longname="开户"/>
+        <enumeration id="UPGRADE" value="2" longname="升级"/>
+        <enumeration id="ENABLED" value="3" longname="启用"/>
+        <enumeration id="KINSHIP" value="4" longname="亲情账户"/>
+        <enumeration id="DEGRADE" value="5" longname="降级"/>
+    </restrictionType>
+    <restrictionType id="E_BINDTP" longname="绑定方式" base="BaseType.U_CHAR01">
+        <enumeration id="BIND" value="1" longname="绑定"/>
+        <enumeration id="UNBD" value="2" longname="解绑"/>
+    </restrictionType>
+    <restrictionType id="E_ENABST" longname="启用状态" base="string" maxLength="1">
+        <enumeration id="NOTENABLED" value="1" longname="未启用"/>
+        <enumeration id="ENABLED" value="2" longname="已重启"/>
+        <enumeration id="NOTAPPLY" value="3" longname="不适用"/>
+    </restrictionType>
+    <restrictionType id="E_CHEKRE" longname="核查结果" base="string" maxLength="1">
+        <enumeration id="CHECKING" value="0" longname="核查中"/>
+        <enumeration id="SUCCESS" value="1" longname="核查成功"/>
+    </restrictionType>
+    <restrictionType id="E_BDCART" longname="绑卡认证结果" base="BaseType.U_CHAR01">
+        <enumeration id="CHECKING" value="0" longname="认证中"/>
+        <enumeration id="SUCCESS" value="1" longname="认证成功"/>
+        <enumeration id="FAILD" value="2" longname="认证失败"/>
+    </restrictionType>
+    <restrictionType id="E_VAILST" longname="白名单序号状态" base="BaseType.U_CHAR01">
+        <enumeration id="INTERNAL" value="1" longname="内部预留"/>
+        <enumeration id="APPOINTMENT" value="2" longname="待预约"/>
+        <enumeration id="SUCCESS" value="3" longname="预约成功"/>
+        <enumeration id="USED" value="4" longname="已使用"/>
+    </restrictionType>
+    <restrictionType id="E_ACCATP" longname="账户分类" base="BaseType.U_CHAR01">
+        <enumeration id="GLOBAL" value="1" longname="全功能账户"/>
+        <enumeration id="FINANCE" value="2" longname="理财专用账户"/>
+        <enumeration id="WALLET" value="3" longname="电子钱包账户"/>
+    </restrictionType>
+    <restrictionType id="E_KLACST" longname="科蓝客户账户状态" base="string">
+        <enumeration id="ACTIVE" value="ACT" longname="活动"/>
+        <enumeration id="CLOSED" value="CLS" longname="已销户"/>
+    </restrictionType>
+    <restrictionType id="E_CHCKTP" longname="跨节点调用检查账户是否允许入账" base="string" maxLength="2">
+        <enumeration id="NBH" value="01" longname="内部户入账"/>
+        <enumeration id="BDK" value="02" longname="卡帐号转入"/>
+    </restrictionType>
+</schema>

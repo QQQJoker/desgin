@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>bsap</artifactId>
+	<name>bsap-应用平台基础</name>
+	<description></description>
+	
+	<parent>
+		<groupId>cn.sunline.ltts.business</groupId>
+		<artifactId>icore-parent</artifactId>
+		<version>3.0.0-SNAPSHOT</version>
+		<relativePath>../../pom.xml</relativePath>
+	</parent>
+	
+	<properties>
+		<edsp-module>true</edsp-module>
+		<access-rule>*/**</access-rule>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>cn.sunline.ltts.business</groupId>
+			<artifactId>sys</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>cn.sunline.ltts.business</groupId>
+			<artifactId>iobus</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-compress</artifactId>
+			<version>1.10</version>
+		</dependency>		
+<!-- 		<dependency>
+			<groupId>cn.sunline.ltts.frw.plugin</groupId>
+			<artifactId>edsp-custom-dayend-plugin</artifactId>
+		</dependency> -->
+		<dependency>
+			<groupId>cn.sunline.ltts.business</groupId>
+			<artifactId>oss</artifactId>
+			<version>3.0.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>cn.sunline.ltts.business</groupId>
+			<artifactId>icore-ap-gns-api</artifactId>
+			<version>3.0.0-SNAPSHOT</version>
+		</dependency>		
+		<dependency>
+			<groupId>cn.sunline.ltts.business</groupId>
+			<artifactId>icore-ap-acdt</artifactId>
+			<version>3.0.0-SNAPSHOT</version>
+		</dependency>		
+		<dependency>
+			<groupId>cn.sunline.ltts.business</groupId>
+			<artifactId>icore-ap-acdt-api</artifactId>
+			<version>3.0.0-SNAPSHOT</version>
+		</dependency>		
+				
+		</dependencies>
+</project>

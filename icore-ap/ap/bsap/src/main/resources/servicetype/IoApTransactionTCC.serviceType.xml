@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType id="IoApTransactionTCC" kind="business" longname="分布式TCC事务两阶段提交服务" package="cn.sunline.ltts.busi.aplt.servicetype" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description><![CDATA[分布式TCC事务两阶段提交服务]]></description>
+    <service id="confirm" name="confirm" longname="业务事务二次确认">
+        <interface>
+            <input packMode="true">
+                <field id="origdt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="原交易日期"/>
+                <field id="origsq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="原交易流水"/>
+            	<field id="tdcnno" type="BaseType.U_CHAR08" required="false" multi="false" array="false" longname="目标DCN号"/>
+            </input>
+            <output asParm="true" packMode="true"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="rollbackOSVC" name="rollbackOSVC" longname="业务事务二次撤销">
+        <description><![CDATA[此服务有两种调用场景：交易处理当时失败平台调起和冲正交易直接调起，远程标记为false; 处理外调事件时，外调远程的此服务时，远程标记为true。]]></description>
+        <interface>
+            <input packMode="true">
+                <field id="origdt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="原交易日期"/>
+                <field id="origsq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="原交易流水"/>
+                <field id="ocalfg" type="BaseEnumType.E_YES___" required="false" multi="false" array="false" longname="是否允许外调冲正" ref="BaseDict.Comm.ocalfg"/>
+                <field id="tdcnno" type="BaseType.U_CHAR08" required="false" multi="false" array="false" longname="目标DCN号"/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="rvrtcd" type="ApBaseType.U_LEIXIN32" required="false" multi="false" array="false" longname="冲正返回码" ref="ApDict.Aplt.rvrtcd"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="rollbackOTXN" name="rollbackOTXN" longname="业务事务二次撤销">
+        <description><![CDATA[此服务有两种调用场景：交易处理当时失败平台调起和冲正交易直接调起，远程标记为false; 处理外调事件时，外调远程的此服务时，远程标记为true。]]></description>
+        <interface>
+            <input packMode="true">
+                <field id="origdt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="原交易日期"/>
+                <field id="origsq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="原交易流水"/>
+                <field id="ocalfg" type="BaseEnumType.E_YES___" required="false" multi="false" array="false" longname="是否允许外调冲正" ref="BaseDict.Comm.ocalfg"/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="rvrtcd" type="ApBaseType.U_LEIXIN32" required="false" multi="false" array="false" longname="冲正返回码" ref="ApDict.Aplt.rvrtcd"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="checkBeforeCancel" name="checkBeforeCancel" longname="业务事务二次撤销前检查">
+        <interface>
+            <input packMode="true">
+                <field id="origdt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="原交易日期"/>
+                <field id="origsq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="原交易流水"/>
+                <field id="stacps" type="BaseEnumType.E_STACPS" required="false" multi="false" array="false" longname="冲正冲账分类" ref="BaseDict.Comm.stacps"/>
+                <field id="vobkfg" type="ApBaseEnumType.E_VOBKFG" required="false" multi="false" array="false" longname="凭证回冲标志" desc="是否冲回凭证" ref="BaseDict.Comm.vobkfg"/>
+                <field id="corrfg" type="ApBaseEnumType.E_CORRFG" required="false" multi="false" array="false" longname="抹账标志" ref="BaseDict.Comm.corrfg"/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="rvrtcd" type="ApBaseType.U_LEIXIN32" required="false" multi="false" array="false" longname="冲正返回码" ref="ApDict.Aplt.rvrtcd"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="confirmTimeOut" name="confirmTimeOut" longname="超时确认">
+        <interface>
+            <input packMode="true">
+                <field id="inpudt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="调用日期"/>
+                <field id="inpusq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="调用交易流水"/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="origtx" type="string" required="false" multi="false" array="false" longname="原返回报文"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="exceptionStrikeCallBack" name="exceptionStrikeCallBack" longname="冲正失败回调">
+        <interface>
+            <input packMode="true">
+                <field id="origdt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="原交易日期"/>
+                <field id="origsq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="原交易流水"/>
+            </input>
+            <output asParm="true" packMode="true"/>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+</serviceType>

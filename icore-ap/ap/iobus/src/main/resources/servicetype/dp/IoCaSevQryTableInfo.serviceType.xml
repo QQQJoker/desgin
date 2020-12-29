@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="IoCaSevQryTableInfo" kind="business" longname="查询表信息服务" package="cn.sunline.ltts.busi.iobus.servicetype.dp" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <service id="getKnaAccsOdb2" name="getKnaAccsOdb2" longname="根据负债账号查询负债账号客户账号表信息">
+        <interface>
+            <input packMode="false">
+                <field id="acctno" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="负债账号"/>
+                <field id="isable" type="boolean" required="false" multi="false" array="false" longname="是否抛出异常"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="knaAccs" type="IoCaTable.IoCaKnaAccs" required="false" multi="false" array="false" longname="负债账号客户账号对照表复合类型"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="getKnaCustByCustacOdb1" name="getKnaCustByCustacOdb1" longname="根据电子账号查询电子账户表">
+        <interface>
+            <input packMode="false">
+                <field id="custac" type="BaseType.U_CUSTAC" required="false" multi="false" array="false" longname="电子账号ID"/>
+                <field id="isable" type="boolean" required="false" multi="false" array="false" longname="是否抛出异常"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="knaCust" type="IoCaTable.IoCaKnaCust" required="false" multi="false" array="false" longname="电子账户表复合类型"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="getKnaAcdcOdb1" name="getKnaAcdcOdb1" longname="根据电子账号账号状态查询卡客户账号对照表">
+        <interface>
+            <input packMode="false">
+                <field id="custac" type="BaseType.U_CUSTAC" required="false" multi="false" array="false" longname="电子账号"/>
+                <field id="status" type="BaseEnumType.E_DPACST" required="false" multi="false" array="false" longname="状态"/>
+                <field id="isable" type="boolean" required="false" multi="false" array="false" longname="是否抛出异常"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="knaAcdc" type="IoCaTable.IoCaKnaAcdc" required="false" multi="false" array="false" longname="卡客户账号对照表复合类型"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="getKnpAcctTypeOdb1" name="getKnpAcctTypeOdb1" longname="根据客户账号类型查询客户账号类型定义表">
+        <interface>
+            <input packMode="false">
+                <field id="cacttp" type="BaseType.U_CACTTP" required="false" multi="false" array="false" longname="客户账号类型" ref="DpDict.Prod.cacttp"/>
+                <field id="isable" type="boolean" required="false" multi="false" array="false" longname="是否抛出异常"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="knpAcctType" type="IoCaTable.IoCaKnpAcctType" required="false" multi="false" array="false" longname="客户账号类型定义表复合类型"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="getKnaAcdcOdb2" name="getKnaAcdcOdb2" longname="根据绑定卡号查询卡客户账号对照表">
+        <interface>
+            <input packMode="false">
+                <field id="cardno" type="BaseType.U_CARDNO" required="false" multi="false" array="false" longname="绑定卡号"/>
+                <field id="isable" type="boolean" required="false" multi="false" array="false" longname="是否抛出异常"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="knaAcdc" type="IoCaTable.IoCaKnaAcdc" required="false" multi="false" array="false" longname="卡客户账号对照表复合类型"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="getKnaCustFirstOdb2" name="getKnaCustFirstOdb2" longname="根据客户账号类型客户号查询客户信息">
+        <interface>
+            <input packMode="false">
+                <field id="cacttp" type="BaseType.U_CACTTP" required="false" multi="false" array="false" longname="客户账号类型" ref="DpDict.Prod.cacttp"/>
+                <field id="custno" type="BaseType.U_CUSTNO" required="false" multi="false" array="false" longname="客户号"/>
+                <field id="isable" type="boolean" required="false" multi="false" array="false" longname="是否抛出异常"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="knaCust" type="IoCaTable.IoCaKnaCust" required="false" multi="false" array="false" longname="电子账户表"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="getKcdCardOdb1" name="getKcdCardOdb1" longname="根据卡号查询卡信息表">
+        <interface>
+            <input packMode="false">
+                <field id="cardno" type="BaseType.U_CARDNO" required="false" multi="false" array="false" longname="卡号"/>
+                <field id="isable" type="boolean" required="false" multi="false" array="false" longname="是否抛出异常"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="kcdCard" type="IoCaTable.IoCaKcdCard" required="false" multi="false" array="false" longname="卡信息表复合类型"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="updateKcdCardOdb1" name="updateKcdCardOdb1" longname="更新卡信息表">
+        <interface>
+            <input packMode="false">
+                <field id="kcdCard" type="IoCaTable.IoCaKcdCard" required="false" multi="false" array="false" longname="卡信息表复合类型"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="listKnaAccsOdb5" name="listKnaAccsOdb5" longname="根据电子账号查询负债账号与客户账号对照表">
+        <interface>
+            <input packMode="false">
+                <field id="custac" type="BaseType.U_CUSTAC" required="false" multi="false" array="false" longname="电子账号"/>
+                <field id="isable" type="boolean" required="false" multi="false" array="false" longname="是否抛出异常"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="knaAccs" type="IoCaTable.IoCaKnaAccs" required="false" multi="true" array="false" longname="负债账号与客户账号对照表复合类型"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="listKnaAccsOdb8" name="listKnaAccsOdb8" longname="根据电子账号币种查询负债账号与客户账号对照表">
+        <interface>
+            <input packMode="false">
+                <field id="custac" type="BaseType.U_CUSTAC" required="false" multi="false" array="false" longname="电子账号"/>
+                <field id="crcycd" type="BaseType.U_CRCYCD" required="false" multi="false" array="false" longname="币种" ref="BaseDict.Comm.crcycd"/>
+                <field id="isable" type="boolean" required="false" multi="false" array="false" longname="是否抛出异常"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="knaAccs" type="IoCaTable.IoCaKnaAccs" required="false" multi="true" array="false" longname="负债账号与客户账号对照表复合类型"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="getKnaAccsOdb1" name="getKnaAccsOdb1" longname="根据电子账号子户号查询负债账号与客户账号对照表">
+        <interface>
+            <input packMode="false">
+                <field id="custac" type="BaseType.U_CUSTAC" required="false" multi="false" array="false" longname="电子账号"/>
+                <field id="subsac" type="BaseType.U_CUACNO" required="false" multi="false" array="false" longname="子户号"/>
+                <field id="isable" type="boolean" required="false" multi="false" array="false" longname="是否抛出异常"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="knaAccs" type="IoCaTable.IoCaKnaAccs" required="false" multi="false" array="false" longname="负债账号与客户账号对照表复合类型"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="saveKnaAccs" name="saveKnaAccs" longname="新增负债账号客户账号对照表信息">
+        <interface>
+            <input packMode="false">
+                <field id="accs" type="IoCaTable.IoCaKnaAccs" required="false" multi="false" array="false" longname="负债账号与客户账号对照表"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="updateCaDaoKnaAccsByAcctno" name="updateCaDaoKnaAccsByAcctno" longname="根据负债账号更新负债账号客户账号对应表信息">
+        <interface>
+            <input packMode="false">
+                <field id="acctst" type="BaseEnumType.E_ACCTST" required="false" multi="false" array="false" longname="账号状态"/>
+                <field id="acctno" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="负债账号"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="getKnaCacdFirstOdb3" name="getKnaCacdFirstOdb3" longname="根据电子账号账号状态查询外部卡与客户账号对照表">
+        <interface>
+            <input packMode="false">
+                <field id="custac" type="BaseType.U_CUSTAC" required="false" multi="false" array="false" longname="电子账号"/>
+                <field id="status" type="BaseEnumType.E_DPACST" required="false" multi="false" array="false" longname="状态"/>
+                <field id="isable" type="boolean" required="false" multi="false" array="false" longname="是否抛出异常"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="knaCacd" type="IoCaTable.IoCaKnaCacd" required="false" multi="false" array="false" longname="外部卡客户账号对照表复合类型"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="updateKnaCustOdb1" name="updateKnaCustOdb1" longname="更新电子账户表">
+        <interface>
+            <input packMode="false">
+                <field id="knaCust" type="IoCaTable.IoCaKnaCust" required="false" multi="false" array="false" longname="电子账户表复合类型"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="getKnaCustWithLockByCustacOdb1" name="getKnaCustWithLockByCustacOdb1" longname="根据电子账号查询电子账户表">
+        <interface>
+            <input packMode="false">
+                <field id="custac" type="BaseType.U_CUSTAC" required="false" multi="false" array="false" longname="电子账号"/>
+                <field id="isable" type="boolean" required="false" multi="false" array="false" longname="是否抛出异常"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="knaCust" type="IoCaTable.IoCaKnaCust" required="false" multi="false" array="false" longname="电子账户表复合类型"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="getKnaSignOdb1" name="getKnaSignOdb1" longname="查询签约信息表">
+        <interface>
+            <input packMode="false">
+                <field id="custac" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="电子账号"/>
+                <field id="signtp" type="CaEnumType.E_SIGNTP" required="false" multi="false" array="false" longname="签约类型"/>
+                <field id="signst" type="CaEnumType.E_SIGNST" required="false" multi="false" array="false" longname="签约状态"/>
+                <field id="isable" type="boolean" required="false" multi="false" array="false" longname="是否抛出异常"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="sign" type="IoCaTable.IoCaKnaSign" required="false" multi="false" array="false" longname="签约信息"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="updateKnaSignOdb2" name="updateKnaSignOdb2" longname="更新签约信息表">
+        <interface>
+            <input packMode="false">
+                <field id="sign" type="IoCaTable.IoCaKnaSign" required="false" multi="false" array="false" longname="签约信息"/>
+                <field id="isable" type="boolean" required="false" multi="false" array="false" longname="是否抛出异常"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="updateKnaSignDetlOdb1" name="updateKnaSignDetlOdb1" longname="更新签约明细表">
+        <interface>
+            <input packMode="false">
+                <field id="signdetl" type="IoCaTable.IoCaKnaSignDetl" required="false" multi="false" array="false" longname="签约明细信息"/>
+                <field id="isable" type="boolean" required="false" multi="false" array="false" longname="是否抛出异常"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="getKnaSignDetlOdb1" name="getKnaSignDetlOdb1" longname="查询签约明细表">
+        <interface>
+            <input packMode="false">
+                <field id="signno" type="BaseType.U_SENOTP" required="false" multi="false" array="false" longname="签约号"/>
+                <field id="isable" type="boolean" required="false" multi="false" array="false" longname="是否抛出异常"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="field" type="IoCaTable.IoCaKnaSignDetl" required="false" multi="false" array="false" longname="签约明细"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="getKnaCustByCardnoOdb1" name="getKnaCustByCardnoOdb1" longname="根据电子账号获取电子账户信息">
+        <interface>
+            <input packMode="false">
+                <field id="cardno" type="BaseType.U_CARDNO" required="false" multi="false" array="false" longname="电子账号"/>
+                <field id="isable" type="boolean" required="false" multi="false" array="false" longname="是否抛出异常"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="knaCust" type="IoCaTable.IoCaKnaCust" required="false" multi="false" array="false" longname="电子账户表复合类型"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="saveKnbClac" name="saveKnbClac" longname="增加销户登记簿记录">
+        <interface>
+            <input packMode="false">
+                <field id="tblKnbClac" type="IoCaTable.IoCaKnbClac" required="false" multi="false" array="false" longname="销户登记簿"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="getKnbReclOdb1" name="getKnbReclOdb1" longname="查询电子账户卡号复用表信息">
+        <interface>
+            <input packMode="false">
+                <field id="cardno" type="BaseType.U_CARDNO" required="false" multi="false" array="false" longname="交易卡号" ref="BaseDict.Comm.cardno"/>
+                <field id="isable" type="boolean" required="false" multi="false" array="false" longname="是否抛出异常"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="cplKnbRecl" type="IoCaTable.IoCaKnbRecl" required="false" multi="false" array="false" longname="电子账户卡号复用表复合类型"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="saveKnbRecl" name="saveKnbRecl" longname="登记电子账户卡号复用表">
+        <interface>
+            <input packMode="false">
+                <field id="cardno" type="BaseType.U_CARDNO" required="false" multi="false" array="false" longname="交易卡号" ref="BaseDict.Comm.cardno"/>
+                <field id="trandt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="交易日期"/>
+                <field id="enabst" type="CaEnumType.E_ENABST" required="false" multi="false" array="false" longname="启用状态" ref="CaDict.Eacct.enabst"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="updateKnbReclOdb1" name="updateKnbReclOdb1" longname="更新电子账户卡号复用表信息">
+        <interface>
+            <input packMode="false">
+                <field id="cardno" type="BaseType.U_CARDNO" required="false" multi="false" array="false" longname="交易卡号" ref="BaseDict.Comm.cardno"/>
+                <field id="trandt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="交易日期"/>
+                <field id="enabst" type="CaEnumType.E_ENABST" required="false" multi="false" array="false" longname="启用状态" ref="CaDict.Eacct.enabst"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="getKnaSignDetlFirstOdb2" name="getKnaSignDetlFirstOdb2" longname="查询转存签约明细信息">
+        <interface>
+            <input packMode="false">
+                <field id="acctno" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="活期账户号"/>
+                <field id="signst" type="CaEnumType.E_SIGNST" required="false" multi="false" array="false" longname="签约状态"/>
+                <field id="isable" type="boolean" required="false" multi="false" array="false" longname="是否抛出异常"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="knaSignDetl" type="IoCaTable.IoCaKnaSignDetl" required="false" multi="false" array="false" longname="签约明细"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="getKnaCacdOdb1" name="getKnaCacdOdb1" longname="根据电子账号，绑定卡号查询绑定账户信息">
+        <interface>
+            <input packMode="false">
+                <field id="custac" type="BaseType.U_CUSTAC" required="false" multi="false" array="false" longname="电子账号"/>
+                <field id="cardno" type="BaseType.U_CARDNO" required="false" multi="false" array="false" longname="卡号"/>
+                <field id="isable" type="boolean" required="false" multi="false" array="false" longname="是否抛出异常"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="knaCacd" type="IoCaTable.IoCaKnaCacd" required="false" multi="false" array="false" longname="外部卡客户账号对照表复合类型"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="getKnaAcdcByCardno" name="getKnaAcdcByCardno" longname="根据电子账号查询卡客户账户对照表">
+        <interface>
+            <input packMode="false">
+                <field id="cardno" type="BaseType.U_CARDNO" required="false" multi="false" array="false" longname="交易卡号" ref="BaseDict.Comm.cardno"/>
+                <field id="isable" type="boolean" required="false" multi="false" array="false" longname="是否抛出异常"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="knaAcdc" type="IoCaTable.IoCaKnaAcdc" required="false" multi="false" array="false" longname="电子账号卡号对照表"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="getKnaSignDetlFirstOdb3" name="getKnaSignDetlFirstOdb3" longname="根据负债账号查询转存签约明细信息">
+        <interface>
+            <input packMode="false">
+                <field id="acctno" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="活期账户号"/>
+                <field id="fxacct" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="定期账户号"/>
+                <field id="signst" type="CaEnumType.E_SIGNST" required="false" multi="false" array="false" longname="签约状态"/>
+                <field id="isable" type="boolean" required="false" multi="false" array="false" longname="是否抛出异常"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="knaSignDetl" type="IoCaTable.IoCaKnaSignDetl" required="false" multi="false" array="false" longname="签约明细"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="getKnaAccsOdb3" name="getKnaAccsOdb3" longname="根据负债账号查询负债账号客户账号表(不带法人代码)">
+        <interface>
+            <input packMode="false">
+                <field id="acctno" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="负债账号"/>
+                <field id="isable" type="boolean" required="false" multi="false" array="false" longname="是否抛出异常"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="knaAccs" type="IoCaTable.IoCaKnaAccs" required="false" multi="false" array="false" longname="负债账号客户账号对照表复合类型"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="getKnaCuadOdb1" name="getKnaCuadOdb1" longname="根据电子账户查询电子账户附表">
+        <interface>
+            <input packMode="false">
+                <field id="custac" type="BaseType.U_CUACNO" required="false" multi="false" array="false" longname="电子账号" ref="CaDict.Eacct.custac"/>
+                <field id="isable" type="boolean" required="false" multi="false" array="false" longname="是否抛出异常"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="knaCuad" type="IoCaTable.IoCaKnaCuad" required="false" multi="false" array="false" longname="电子账户附表"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="getKnbClacOdb1" name="getKnbClacOdb1" longname="根据客户账号查询销户登记簿">
+        <interface>
+            <input packMode="false">
+                <field id="clossq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="销户流水"/>
+                <field id="isable" type="boolean" required="false" multi="false" array="false" longname="是否抛出异常"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="knbClac" type="IoCaTable.IoCaKnbClac" required="false" multi="false" array="false" longname="销户登记簿复合类型"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="getKnsAcsqOdb1" name="getKnsAcsqOdb1" longname="查询会计流水表">
+        <interface>
+            <input packMode="false">
+                <field id="prtrsq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="交易流水"/>
+                <field id="acctno" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="负债账号"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="knsacsq" type="IoCaTable.IoCaHknsAcsq" required="false" multi="true" array="false" longname="销户登记簿复合类型"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="getKnaDcmtOdb2" name="getKnaDcmtOdb2" longname="查询凭证帐号对照表">
+        <interface>
+            <input packMode="false">
+                <field id="cardno" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="虚拟账号"/>
+                <field id="dcmtst" type="DpEnumType.E_DCMTST" required="false" multi="false" array="false" longname="凭证状态"/>
+                <field id="isable" type="boolean" required="false" multi="false" array="false" longname="是否抛错"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="dcmtif" type="IoDcmtComplexType.KnaDcmtInfo" required="false" multi="false" array="false" longname="凭证信息"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="getKnaAccsOdb11" name="getKnaAccsOdb11" longname="查询负债账号客户对照表所有信息">
+        <interface>
+            <input packMode="false">
+                <field id="custac" type="BaseType.U_CHAR32" required="false" multi="false" array="false" longname="客户账号" ref="BaseDict.Comm.custac"/>
+                <field id="dpacst" type="BaseEnumType.E_DPACST" required="false" multi="false" array="false" longname="客户状态"/>
+                <field id="isable" type="boolean" required="false" multi="false" array="false" longname="是否抛错"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="accsif" type="IoCaTable.IoCaKnaAccs" required="false" multi="true" array="false" longname="账号客户对照表"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="getKnaCxcaOdb2" name="getKnaCxcaOdb2" longname="查询卡折对照表">
+        <interface>
+            <input packMode="false">
+                <field id="cxrdno" type="BaseType.U_CARDNO" required="false" multi="false" array="false" longname="存折号/副卡账号"/>
+                <field id="status" type="BaseType.U_CHAR02" required="false" multi="false" array="false" longname="状态"/>
+                <field id="isable" type="boolean" required="false" multi="false" array="false" longname="是否抛错"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="cxcaif" type="IoCaTable.IoCaKnaCxca" required="false" multi="false" array="false" longname="卡折对照信息"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="getKnaAcdcOdb4" name="getKnaAcdcOdb4" longname="查询电子账户表">
+        <interface>
+            <input packMode="false">
+                <field id="cardno" type="BaseType.U_CARDNO" required="false" multi="false" array="false" longname="卡号" ref="DpDict.Acct.cardno"/>
+                <field id="dpacst" type="BaseEnumType.E_DPACST" required="false" multi="false" array="false" longname="子账户状态"/>
+                <field id="isable" type="boolean" required="false" multi="false" array="false" longname="是否抛错"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="acdcif" type="IoCaTable.IoCaKnaAcdc" required="false" multi="false" array="false" longname="电子账户信息"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="getKnaCustOdb3" name="getKnaCustOdb3" longname="查询所有电子账户客户表">
+        <interface>
+            <input packMode="false">
+                <field id="custno" type="BaseType.U_CUSTNO" required="false" multi="false" array="false" longname="客户号码" ref="ApDict.Aplt.custno"/>
+                <field id="isable" type="boolean" required="false" multi="false" array="false" longname="是否抛错"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="custif" type="IoCaTable.IoCaKnaCust" required="false" multi="true" array="false" longname="客户信息表"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+</serviceType>

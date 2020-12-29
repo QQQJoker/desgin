@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="IoAcCheckBalanceType" package="cn.sunline.edsp.busi.iobus.type.ac" longname="记账处理模块平衡检查复合类型" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+	<complexType id="IoAcBalanceOfCmda" longname="平衡性检查信息" dict="false" abstract="false" introduct="false">
+        <element id="crcycd" longname="币种" type="BaseType.U_CRCYCD" ref="InDict.inac.crcycd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tranam" longname="交易金额" type="BaseType.U_ACBLTP" ref="InDict.inac.tranam" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acctbr" longname="记账机构" type="BaseType.U_BRCHNO" ref="InDict.inac.acctbr" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="mntrsq" longname="交易流水" type="BaseType.U_SEQUNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+</schema>

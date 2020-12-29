@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<errorConf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="ItError" longname="利率中心错误码" package="cn.sunline.ltts.busi.icore.parent.errors" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <errors id="intr" longname="利率错误码">
+        <error id="BNASL143" type="error" message="未找到对应的记录" errorCode="01030457"/>
+        <error id="BNASL170" type="error" message="支取日期不能小于起息日期" errorCode="01030458"/>
+        <error id="BNASL169" type="error" message="支取日期不能为空" errorCode="01030459"/>
+        <error id="BNASL115" type="error" message="年利率不能小于0" errorCode="01030460"/>
+        <error id="BNASL114" type="error" message="年利率不能空" errorCode="01030461"/>
+        <error id="BNASL061" type="error" message="该产品无对应的计息基础" errorCode="01030462"/>
+        <error id="BNASL060" type="error" message="该产品编号不存在" errorCode="01030463"/>
+        <error id="BNASL018" type="error" message="存款金额不能小于0" errorCode="01030464"/>
+        <error id="BNASL017" type="error" message="存款金额不能为空" errorCode="01030465"/>
+        <error id="BNASL004" type="error" message="币种不能修改" errorCode="01030466"/>
+        <error id="BNASL020" type="error" message="存期不能修改" errorCode="01030467"/>
+        <error id="BNASL074" type="error" message="基础利率代码不能修改" errorCode="01030468"/>
+        <error id="BNASL077" type="error" message="基础利率类型不能修改" errorCode="01030469"/>
+        <error id="BNASL088" type="error" message="利率代码存在待复核的记录，不能重复维护！" errorCode="01030470"/>
+        <error id="BNASL089" type="error" message="利率代码存在未生效的记录，不能重复维护！" errorCode="01030471"/>
+        <error id="BNASL090" type="error" message="利率代码只能对自己操作生成的记录才可进行维护" errorCode="01030472"/>
+        <error id="BNASL095" type="error" message="利率名称不能修改" errorCode="01030473"/>
+        <error id="BNASL098" type="error" message="利率性质不能修改" errorCode="01030474"/>
+        <error id="BNASL105" type="error" message="利率种类不能修改" errorCode="01030475"/>
+        <error id="BNASL132" type="error" message="输入信息为空" errorCode="01030476"/>
+        <error id="BNASL154" type="error" message="已存在相同的利率信息" errorCode="01030477"/>
+        <error id="BNASL007" type="error" message="不存在此分档利率" errorCode="01030478"/>
+        <error id="BNASL010" type="error" message="不能维护未生效记录" errorCode="01030479"/>
+        <error id="BNASL011" type="error" message="不能维护已失效记录" errorCode="01030480"/>
+        <error id="BNASL037" type="error" message="[${msg}]" errorCode="01030481">
+            <parameter id="msg" type="BaseType.U_CHAR200" longname="错误信息"/>
+        </error>
+        <error id="BNASL038" type="error" message="[${msg}]" errorCode="01030482">
+            <parameter id="msg" type="BaseType.U_CHAR200" longname="错误信息"/>
+        </error>
+        <error id="BNASL039" type="error" message="[${msg}]" errorCode="01030483">
+            <parameter id="msg" type="BaseType.U_CHAR200" longname="错误信息"/>
+        </error>
+        <error id="BNASL040" type="error" message="[${msg}]" errorCode="01030484">
+            <parameter id="msg" type="BaseType.U_CHAR200" longname="错误信息"/>
+        </error>
+        <error id="BNASL041" type="error" message="[${msg}]" errorCode="01030485">
+            <parameter id="msg" type="BaseType.U_CHAR200" longname="错误信息"/>
+        </error>
+        <error id="BNASL042" type="error" message="[${msg}]" errorCode="01030486">
+            <parameter id="msg" type="BaseType.U_CHAR200" longname="错误信息"/>
+        </error>
+        <error id="BNASL043" type="error" message="[${msg}]" errorCode="01030487">
+            <parameter id="msg" type="BaseType.U_CHAR200" longname="错误信息"/>
+        </error>
+        <error id="BNASL151" type="error" message="已存在未生效的记录，不允许重复维护" errorCode="01030488"/>
+        <error id="BNASL045" type="error" message="浮动利率关联的基础利率代码不存在或失效" errorCode="01030489"/>
+        <error id="BNASL016" type="error" message="查询结果为空" errorCode="01030490"/>
+        <error id="BNASL068" type="error" message="机构号不存在" errorCode="01030491"/>
+        <error id="BNASL144" type="error" message="无查询权限" errorCode="01030492"/>
+        <error id="BNASL027" type="error" message="分档利率关联的基础利率代码不存在或失效" errorCode="01030493"/>
+        <error id="BNASL050" type="error" message="浮动利率序号不得为空" errorCode="01030494"/>
+        <error id="BNASL110" type="error" message="没有找到对应的浮动利率" errorCode="01030495"/>
+        <error id="BNASL081" type="error" message="基础利率序号不能为空" errorCode="01030496"/>
+        <error id="BNASL111" type="error" message="没有找到对应的基础利率" errorCode="01030497"/>
+        <error id="BNASL112" type="error" message="没有找到对应分档利率" errorCode="01030498"/>
+        <error id="BNASL049" type="error" message="浮动利率代码已失效" errorCode="01030499"/>
+        <error id="BNASL052" type="error" message="浮动利率值超出可浮动区间" errorCode="01030500"/>
+        <error id="BNASL087" type="error" message="利率代码已存在未生效记录，不能重复维护！" errorCode="01030501"/>
+        <error id="BNASL125" type="error" message="生效时间必须大于当前系统时间" errorCode="01030502"/>
+        <error id="BNASL131" type="error" message="输入记录不能为空" errorCode="01030503"/>
+        <error id="BNASL142" type="error" message="未生效浮动利率不能修改，只能删除" errorCode="01030504"/>
+        <error id="BNASL152" type="error" message="已存在相同的浮动利率" errorCode="01030505"/>
+        <error id="BNASL100" type="error" message="利率优惠代码不能为空" errorCode="01030506"/>
+        <error id="BNASL149" type="error" message="县级机构只能维护本行社配置" errorCode="01030507"/>
+        <error id="BNASL160" type="error" message="已生效的利率优惠代码只可维护失效日期和失效时间" errorCode="01030508"/>
+        <error id="BNASL161" type="error" message="已失效的利率代码不可维护" errorCode="01030509"/>
+        <error id="BNASL145" type="error" message="无有效的利率代码" errorCode="01030510"/>
+        <error id="BNASL122" type="error" message="生效日期（开始）不为空时，生效日期（终止）也不能为空" errorCode="01030511"/>
+        <error id="BNASL121" type="error" message="生效日期（开始）必须大于等于生效日期（终止）" errorCode="01030512"/>
+        <error id="BNASL094" type="error" message="利率类别不能为空" errorCode="01030513"/>
+        <error id="BNASL072" type="error" message="基础利率不需要机构号" errorCode="01030514"/>
+        <error id="BNASL048" type="error" message="浮动利率不需要机构号" errorCode="01030515"/>
+        <error id="BNASL028" type="error" message="分档利率不需要机构号" errorCode="01030516"/>
+        <error id="BNASL156" type="error" message="已存在相同期限、金额下限档次" errorCode="01030517"/>
+        <error id="BNASL146" type="error" message="下层期限下限值应大于等于上层期限下限" errorCode="01030518"/>
+        <error id="BNASL140" type="error" message="同存期天数下层金额下限值应大于等于上层金额下限" errorCode="01030519"/>
+        <error id="BNASL044" type="error" message="分档信息为空" errorCode="01030520"/>
+        <error id="BNASL036" type="error" message="[${msg}]" errorCode="01030521">
+            <parameter id="msg" type="BaseType.U_CHAR200" longname="错误信息"/>
+        </error>
+        <error id="BNASL035" type="error" message="[${msg}]" errorCode="01030522">
+            <parameter id="msg" type="BaseType.U_CHAR200" longname="错误信息"/>
+        </error>
+        <error id="BNASL034" type="error" message="[${msg}]" errorCode="01030523">
+            <parameter id="msg" type="BaseType.U_CHAR200" longname="错误信息"/>
+        </error>
+        <error id="BNASL033" type="error" message="[${msg}]" errorCode="01030524">
+            <parameter id="msg" type="BaseType.U_CHAR200" longname="错误信息"/>
+        </error>
+        <error id="BNASL032" type="error" message="[${msg}]" errorCode="01030525">
+            <parameter id="msg" type="BaseType.U_CHAR200" longname="错误信息"/>
+        </error>
+        <error id="BNASL031" type="error" message="[${msg}]" errorCode="01030526">
+            <parameter id="msg" type="BaseType.U_CHAR200" longname="错误信息"/>
+        </error>
+        <error id="BNASL029" type="error" message="分档利率类型不能为空" errorCode="01030527"/>
+        <error id="BNASL006" type="error" message="必须设置金额下限0.00，期限下限0天的档次利率" errorCode="01030528"/>
+        <error id="BNASL155" type="error" message="已存在相同利率" errorCode="01030529"/>
+        <error id="BNASL153" type="error" message="已存在相同的利率名称" errorCode="01030530"/>
+        <error id="BNASL123" type="error" message="生效日期不能为空" errorCode="01030531"/>
+        <error id="BNASL104" type="error" message="利率种类不能为空" errorCode="01030532"/>
+        <error id="BNASL097" type="error" message="利率性质不能为空" errorCode="01030533"/>
+        <error id="BNASL083" type="error" message="基准利率值不能小于0" errorCode="01030534"/>
+        <error id="BNASL080" type="error" message="基础利率信息列表不能为空" errorCode="01030535"/>
+        <error id="BNASL076" type="error" message="基础利率类型不能为空" errorCode="01030536"/>
+        <error id="BNASL071" type="error" message="基础利率不能为空" errorCode="01030537"/>
+        <error id="BNASL056" type="error" message="浮动区间最小值不能为空" errorCode="01030538"/>
+        <error id="BNASL055" type="error" message="浮动区间最大值不能小于浮动区间最小值" errorCode="01030539"/>
+        <error id="BNASL054" type="error" message="浮动区间最大值不能为空" errorCode="01030540"/>
+        <error id="BNASL014" type="error" message="参考利率存期不能为空" errorCode="01030541"/>
+        <error id="BNASL013" type="error" message="不支持同业拆借利率新增" errorCode="01030542"/>
+        <error id="BNASL162" type="error" message="优惠维度不能为空" errorCode="01030543"/>
+        <error id="BNASL130" type="error" message="失效时间必须大于生效时间" errorCode="01030544"/>
+        <error id="BNASL113" type="error" message="目前只支持百分比的浮动方式" errorCode="01030545"/>
+        <error id="BNASL102" type="error" message="利率优惠名称不能为空" errorCode="01030546"/>
+        <error id="BNASL101" type="error" message="利率优惠类型不能为空" errorCode="01030547"/>
+        <error id="BNASL093" type="error" message="利率浮动方式为按百分比浮动时，浮动百分比不能为空" errorCode="01030548"/>
+        <error id="BNASL063" type="error" message="该利率优惠已存在，不允许重复新增" errorCode="01030549"/>
+        <error id="BNASL127" type="error" message="生效时间不能为空" errorCode="01030550"/>
+        <error id="BNASL126" type="error" message="生效时间必须大于当前系统时间" errorCode="01030551"/>
+        <error id="BNASL092" type="error" message="利率浮动方式不能为空" errorCode="01030552"/>
+        <error id="BNASL073" type="error" message="基础利率代码不能为空" errorCode="01030553"/>
+        <error id="BNASL062" type="error" message="该利率已存在，不允许重复新增" errorCode="01030554"/>
+        <error id="BNASL053" type="error" message="浮动利率值超出可浮动区间" errorCode="01030555"/>
+        <error id="BNASL047" type="error" message="浮动利率不能为负数" errorCode="01030556"/>
+        <error id="BNASL025" type="error" message="法人不能为空" errorCode="01030557"/>
+        <error id="BNASL019" type="error" message="存期不能为空" errorCode="01030558"/>
+        <error id="BNASL015" type="error" message="参考利率期限不能为空" errorCode="01030559"/>
+        <error id="BNASL150" type="error" message="新旧记录标志不能为空" errorCode="01030560"/>
+        <error id="BNASL069" type="error" message="机构号不能为空" errorCode="01030561"/>
+        <error id="BNASL002" type="error" message="[${brchno}]不存在汇率记录" errorCode="01030562">
+            <parameter id="brchno" type="BaseType.U_BRCHNO" longname="错误信息"/>
+        </error>
+        <error id="BNASL109" type="error" message="没有已生效的基础利率代码" errorCode="01030563"/>
+        <error id="BNASL001" type="error" message="没有找到基础利率信息:[${rfircd}]" errorCode="01030564">
+            <parameter id="rfircd" type="BaseType.U_INTRCD" longname="错误信息"/>
+        </error>
+        <error id="BNASL091" type="error" message="利率代码不能为空" errorCode="01030565"/>
+        <error id="BNASL157" type="error" message="已经生效的分档利率不允许删除" errorCode="01030566"/>
+        <error id="BNASL030" type="error" message="分档利率序号不存在" errorCode="01030567"/>
+        <error id="BNASL171" type="error" message="重复删除" errorCode="01030568"/>
+        <error id="BNASL159" type="error" message="已经生效的基础利率不允许删除" errorCode="01030569"/>
+        <error id="BNASL141" type="error" message="同业拆借利率不能删除" errorCode="01030570"/>
+        <error id="BNASL120" type="error" message="删除和作废的基础利率不能删除" errorCode="01030571"/>
+        <error id="BNASL070" type="error" message="基础利率不存在" errorCode="01030572"/>
+        <error id="BNASL148" type="error" message="县级机构只能删除本行社配置" errorCode="01030573"/>
+        <error id="BNASL103" type="error" message="利率优惠已生效，不能删除" errorCode="01030574"/>
+        <error id="BNASL012" type="error" message="不能重复删除" errorCode="01030575"/>
+        <error id="BNASL158" type="error" message="已经生效的浮动利率不允许删除" errorCode="01030576"/>
+        <error id="BNASL051" type="error" message="浮动利率序号输入不能为空" errorCode="01030577"/>
+        <error id="BNASL046" type="error" message="浮动利率不存在" errorCode="01030578"/>
+        <error id="BNASL005" type="error" message="币种不匹配" errorCode="01030579"/>
+        <error id="BNASL009" type="error" message="不存在该复核信息" errorCode="01030580"/>
+        <error id="BNASL021" type="error" message="待复核记录不能为空" errorCode="01030581"/>
+        <error id="BNASL057" type="error" message="浮动最大比例不匹配" errorCode="01030582"/>
+        <error id="BNASL058" type="error" message="浮动最小比例不匹配" errorCode="01030583"/>
+        <error id="BNASL059" type="error" message="复核柜员与产生待复核记录的柜员必须属同一机构" errorCode="01030584"/>
+        <error id="BNASL075" type="error" message="基础利率代码不匹配" errorCode="01030585"/>
+        <error id="BNASL078" type="error" message="基础利率类型不匹配" errorCode="01030586"/>
+        <error id="BNASL079" type="error" message="基础利率新增与复核不得为同一柜员操作" errorCode="01030587"/>
+        <error id="BNASL082" type="error" message="基准利率不匹配" errorCode="01030588"/>
+        <error id="BNASL096" type="error" message="利率名称不匹配" errorCode="01030589"/>
+        <error id="BNASL099" type="error" message="利率性质不匹配" errorCode="01030590"/>
+        <error id="BNASL106" type="error" message="利率种类不匹配" errorCode="01030591"/>
+        <error id="BNASL116" type="error" message="期限不匹配" errorCode="01030592"/>
+        <error id="BNASL124" type="error" message="生效日期不匹配" errorCode="01030593"/>
+        <error id="BNASL128" type="error" message="生效时间不匹配" errorCode="01030594"/>
+        <error id="BNASL064" type="error" message="该账户为非正常状态！" errorCode="01030595"/>
+        <error id="BNASL164" type="error" message="优惠维度上限、关联维度下限不能为空" errorCode="01030596"/>
+        <error id="BNASL166" type="error" message="优惠维度值不能为空" errorCode="01030597"/>
+        <error id="BNASL165" type="error" message="优惠维度值不能为空" errorCode="01030598"/>
+        <error id="BNASL163" type="error" message="优惠维度上限、关联维度下限不能为空" errorCode="01030599"/>
+        <error id="BNASL008" type="error" message="不存在此机构" errorCode="01030600"/>
+        <error id="BNASL067" type="error" message="机构号，产品编号，利率编号至少输入一个" errorCode="01030601"/>
+        <error id="BNASL147" type="error" message="县级机构只能查本机构" errorCode="01030602"/>
+        <error id="BNASL085" type="error" message="截止日期不能为空" errorCode="01030603"/>
+        <error id="BNASL086" type="error" message="跨法人机构账户不允许查询打印！" errorCode="01030604"/>
+        <error id="BNASL117" type="error" message="起始日期不能大于当前系统日期！" errorCode="01030605"/>
+        <error id="BNASL118" type="error" message="起始日期不能大于终止日期！" errorCode="01030606"/>
+        <error id="BNASL119" type="error" message="起始日期不能为空" errorCode="01030607"/>
+        <error id="BNASL139" type="error" message="调整方式不能为空" errorCode="01030608"/>
+        <error id="BNASL167" type="error" message="账号:[${cardno}]不存在！" errorCode="01030609">
+            <parameter id="cardno" type="BaseType.U_CARDNO" longname="卡号"/>
+        </error>
+        <error id="BNASL168" type="error" message="账号不存在！" errorCode="01030610"/>
+        <error id="BNASL172" type="error" message="子户号不能为空" errorCode="01030611"/>
+        <error id="BNASL138" type="error" message="调息账户名称不正确！" errorCode="01030612"/>
+        <error id="BNASL137" type="error" message="调息账户名称不能为空" errorCode="01030613"/>
+        <error id="BNASL136" type="error" message="调息账号不能为空" errorCode="01030614"/>
+        <error id="BNASL135" type="error" message="调息账号不存在结算户！" errorCode="01030615"/>
+        <error id="BNASL134" type="error" message="调息原因不能为空" errorCode="01030616"/>
+        <error id="BNASL133" type="error" message="调息金额必须大于零！" errorCode="01030617"/>
+        <error id="BNASL108" type="error" message="利息调整方式输入有误，请核查！" errorCode="01030618"/>
+        <error id="BNASL107" type="error" message="利息调整方式不能为空！" errorCode="01030619"/>
+        <error id="BNASL084" type="error" message="交易币种和电子账号币种不同，无法交易！" errorCode="01030620"/>
+        <error id="BNASL065" type="error" message="户名不能为空" errorCode="01030621"/>
+        <error id="BNASL026" type="error" message="非电子账号所属机构，无法调息！" errorCode="01030622"/>
+        <error id="BNASL024" type="error" message="电子账号名称不正确！" errorCode="01030623"/>
+        <error id="BNASL023" type="error" message="电子账号和调息账号非统一客户下，不允许操作！" errorCode="01030624"/>
+        <error id="BNASL022" type="error" message="电子账号不能为空" errorCode="01030625"/>
+        <error id="BNASL003" type="error" message="币种不能为空" errorCode="01030626"/>
+        <error id="BNASL129" type="error" message="生效时间已小于当前时间，不能复核！" errorCode="01030627"/>
+        <error id="BNASL066" type="error" message="货币代号不能为空" errorCode="01030628"/>
+        <error id="BNASL173" type="error" message="分档利率关联的基础利率代码不存在或失效" errorCode="01030629"/>
+        <error id="BNASL174" type="error" message="分档利率代码关联的浮动利率代码不存在或失效" errorCode="01030630"/>
+        <error id="BNASL175" type="error" message="分档利率序号不能为空" errorCode="01030631"/>
+        <error id="BNASL176" type="error" message="[${msg}]" errorCode="01030632">
+            <parameter id="msg" type="BaseType.U_CHAR200" longname="错误信息"/>
+        </error>
+        <error id="BNASL177" type="error" message="[${msg}]" errorCode="01030633">
+            <parameter id="msg" type="BaseType.U_CHAR200" longname="错误信息"/>
+        </error>
+        <error id="BNASL178" type="error" message="[${msg}]" errorCode="01030634">
+            <parameter id="msg" type="BaseType.U_CHAR200" longname="错误信息"/>
+        </error>
+        <error id="BNASL179" type="error" message="浮动利率关联的基础利率代码不存在或失效" errorCode="01030635"/>
+        <error id="BNASL180" type="error" message="浮动利率关联的基础利率代码不存在或失效" errorCode="01030636"/>
+        <error id="BNASL181" type="error" message="利率名称不能为空" errorCode="01030637"/>
+        <error id="BNASL182" type="error" message="利率优惠已失效，不能删除" errorCode="01030638"/>
+        <error id="BNASL183" type="error" message="起息日期不能为空" errorCode="01030639"/>
+        <error id="BNASL184" type="error" message="利率优惠代码不存在" errorCode="01030640"/>
+        <error id="BNASL185" type="error" message="输入的法人代码不存在" errorCode="01030641"/>
+        <error id="BNASL186" type="error" message="县级法人只能新增本法人下利率" errorCode="01030642"/>
+        <error id="BNASL187" type="error" message="县级法人只能复核本法人下利率" errorCode="01030643"/>
+        <error id="BNASL188" type="error" message="该利率代码已存在相同期限" errorCode="01030644"/>
+        <error id="BNASL189" type="error" message="只有省中心法人才能新增系统管理员自定义利率" errorCode="01030645"/>
+        <error id="BNASL190" type="error" message="拒绝,无操作权限" errorCode="01030646"/>
+        <error id="BNASL191" type="error" message="输入的生效时间必须大于原记录的生效时间" errorCode="01030647"/>
+        <error id="BNASL192" type="error" message="利率代码:[${intrcd}]不存在！" errorCode="01030648">
+            <parameter id="intrcd" type="BaseType.U_INTRCD" longname="利率代码"/>
+        </error>
+        <error id="BNASL193" type="error" message="利率代码列表不能为空" errorCode="01030649"/>
+        <error id="BNASL194" type="error" message="卡号不能为空" errorCode="01030650"/>
+        <error id="BNASL195" type="error" message="浮动利率新增与复核不得为同一柜员操作" errorCode="01030651"/>
+        <error id="BNASL196" type="error" message="利率浮动百分比不匹配" errorCode="01030652"/>
+        <error id="BNASL197" type="error" message="利率浮动点数不匹配" errorCode="01030653"/>
+        <error id="BNASL198" type="error" message="浮动利率不匹配" errorCode="01030654"/>
+        <error id="BNASL199" type="error" message="分档利率不匹配" errorCode="01030655"/>
+        <error id="BNASL200" type="error" message="生效时间必须大于系统当前时间" errorCode="01030656"/>
+    </errors>
+</errorConf>

@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceImpl id="ApDcnFileExtractorImpl" longname="R/C-DCN文件抽取器实现" serviceType="IoApDcnFileExtractor" package="cn.sunline.ltts.busi.aplt.serviceimpl.fbat" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="IoCdAccountCheckServ" kind="business" longname="单位账户通用检查服务" package="cn.sunline.ltts.busi.iobus.servicetype.cd" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <service id="IoCdCommDrawCheck" name="commDrawCheck" longname="单位账户支出通用记账检查">
+        <interface>
+            <input packMode="false">
+                <field id="input" type="IoCdAccountingComm.IoCdDrawChkInput" required="false" multi="false" array="false" longname="入账检查输入"/>
+            </input>
+            <output asParm="true" packMode="false">
+                <field id="output" type="IoCdAccountingComm.IoCdDrawChkOutput" required="false" multi="false" array="false" longname="入账检查输出参数"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="IoCdCommSaveCheck" name="commSaveCheck" longname="单位账户存入通用记账检查">
+        <interface>
+            <input packMode="false">
+                <field id="input" type="IoCdAccountingComm.IoCdSaveChkInput" required="false" multi="false" array="false" longname="入账检查输入"/>
+            </input>
+            <output asParm="true" packMode="false">
+                <field id="output" type="IoCdAccountingComm.IoCdSaveChkOutput" required="false" multi="false" array="false" longname="入账检查输出参数"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="IoCaChkPbulicAcctStatus" name="chkPbulicAcctStatus" longname="对公账户状态状态字通用检查">
+        <interface>
+            <input packMode="false">
+                <field id="input" type="IoCdAccountingComm.IoCdChkPublicAcctStatusInput" required="false" multi="false" array="false" longname="检查输入"/>
+            </input>
+            <output asParm="true" packMode="false">
+                <field id="output" type="IoCdAccountingComm.IoCdChkPublicAcctStatusOutput" required="false" multi="false" array="false" longname="检查输出"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+</serviceType>

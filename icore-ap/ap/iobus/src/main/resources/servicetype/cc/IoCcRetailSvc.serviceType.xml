@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType id="IoCcRetailSvc" kind="business" longname="类信用卡消费服务" package="cn.sunline.ltts.busi.iobus.servicetype" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <service id="IoCcRetailProc" name="retailProc" longname="类信用卡消费业务处理服务">
+        <interface>
+            <input packMode="false">
+                <field id="cplRouteIn" type="IoRouteType.ProcRouteInput" required="false" multi="false" array="false" longname="消费交易路由分发输入接口"/>
+                <field id="subIntput" type="IoCcSvcType.SubProcIntput" required="true" multi="false" array="false" longname="类信用卡特殊输入"/>
+            </input>
+            <output asParm="true" packMode="false">
+                <field id="cplRetailOut" type="IoRouteType.ProcRouteOutput" required="false" multi="false" array="false" longname="类信用卡消费输出接口"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+</serviceType>

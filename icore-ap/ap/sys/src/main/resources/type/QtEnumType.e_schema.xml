@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema id="QtEnumType" package="cn.sunline.ltts.busi.qt.type" longname="额度中心枚举类型" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <restrictionType id="E_LIMTKD" longname="额度种类" base="BaseType.U_CHAR02">
+        <enumeration id="_01" value="01" longname="单笔金额"/>
+        <enumeration id="_02" value="02" longname="日累计金额"/>
+        <enumeration id="_03" value="03" longname="月累计金额"/>
+        <enumeration id="_04" value="04" longname="年累计金额"/>
+        <enumeration id="_11" value="11" longname="日累计次数"/>
+        <enumeration id="_12" value="12" longname="月累计次数"/>
+        <enumeration id="_13" value="13" longname="年累计次数"/>
+        <enumeration id="_21" value="21" longname="最低金额"/>
+        <enumeration id="_22" value="22" longname="最高金额"/>
+        <enumeration id="ALL" value="%" longname="all"/>
+    </restrictionType>
+    <restrictionType id="E_SERVTP" longname="交易渠道" base="BaseType.U_CHAR04">
+        <enumeration id="ALL" value="%" longname="全部"/>
+        <enumeration id="HVPS"  value="HVPS" longname="大额支付 "/>
+		<enumeration id="BEPS"  value="BEPS" longname="小额支付 "/>
+		<enumeration id="IBPS"  value="IBPS" longname="网银互联"/>
+		<enumeration id="RHZF"  value="RHZF" longname="人行支付前置 "/>
+		<enumeration id="YWJK"  value="YWJK" longname="二代支付业务监控平台"/>
+		<enumeration id="YWGL"  value="YWGL" longname="二代支付业务管理台  "/>
+		<enumeration id="XJGL"  value="XJGL" longname="现金管理平台"/>
+		<enumeration id="SFZF"  value="SFZF" longname="三方支付平台"/>
+		<enumeration id="ZXWD"  value="ZXWD" longname="在线委贷"/>
+		<enumeration id="ZJYW"  value="ZJYW" longname="中间业务"/>
+		<enumeration id="HLWS"  value="HLWS" longname="互联网收单"/>
+		<enumeration id="YEBX"  value="YEBX" longname="余额宝"/>
+		<enumeration id="DXLC"  value="DXLC" longname="代销理财系统"/>
+		<enumeration id="HNPK"  value="HNPK" longname="行内批扣系统"/>
+		<enumeration id="JFXT"  value="JFXT" longname="积分系统"/>
+		<enumeration id="YLSW"  value="YLSW" longname="银商T+0"/>
+		<enumeration id="RMBG"  value="RMBG" longname="人民币冠字号管理平台"/>
+		<enumeration id="GUIM"  value="GUIM" longname="图形柜面 "/>
+		<enumeration id="PIBS"  value="PIBS" longname="个人网银"/>
+		<enumeration id="EIBS"  value="EIBS" longname="企业网银"/>
+		<enumeration id="PMBS"  value="PMBS" longname="个人手机"/>
+		<enumeration id="EMBS"  value="EMBS" longname="企业手机"/>
+		<enumeration id="IBSM"  value="IBSM" longname="网银内管平台"/>
+		<enumeration id="EQDZ"  value="EQDZ" longname="电子渠道渠道整合平台"/>
+		<enumeration id="IPAD"  value="IPAD" longname="ipad"/>
+		<enumeration id="CUPS"  value="CUPS" longname="银联前置"/>
+		<enumeration id="SHJF"  value="SHJF" longname="上海即富"/>
+		<enumeration id="HLWG"  value="HLWG" longname="互联网关"/>
+		<enumeration id="QDZH"  value="QDZH" longname="渠道整合 "/>
+		<enumeration id="NLGL"  value="NLGL" longname="内联管理"/>
+		<enumeration id="WLQZ"  value="WLQZ" longname="外联前置"/>
+        <enumeration id="AS" value="AS" longname="平台助手"/>
+        <enumeration id="NP" value="NP" longname="产品销售系统"/>
+        <enumeration id="EB" value="EB" longname="统一后管系统"/>
+        <enumeration id="NK" value="NK" longname="电子账户系统"/>
+        <enumeration id="NM" value="NM" longname="前端APP"/>
+        <enumeration id="MT" value="MT" longname="移动终端"/>
+        <enumeration id="NR" value="NR" longname="红包管理系统"/>
+        <enumeration id="IE" value="IE" longname="网银"/>
+        <enumeration id="TE" value="TE" longname="柜面"/>
+        <enumeration id="TM" value="TM" longname="综合前端"/>
+        <enumeration id="ME" value="ME" longname="手机银行"/>
+    </restrictionType>
+    <restrictionType id="E_RISKLV" longname="风险承受等级" base="BaseType.U_CHAR02">
+        <enumeration id="_01" value="01" longname="低风险"/>
+        <enumeration id="_02" value="02" longname="中低风险"/>
+        <enumeration id="_03" value="03" longname="中风险"/>
+        <enumeration id="_04" value="04" longname="中高风险"/>
+        <enumeration id="_05" value="05" longname="高风险"/>
+        <enumeration id="ALL" value="%" longname="all"/>
+    </restrictionType>
+    <restrictionType id="E_AUTHTP" longname="认证方式" base="BaseType.U_CHAR02">
+        <enumeration id="_01" value="16" longname="合作平台"/>
+        <enumeration id="_02" value="05" longname="手势密码"/>
+        <enumeration id="_03" value="19" longname="二维码"/>
+        <enumeration id="_04" value="01" longname="登录密码"/>
+        <enumeration id="_05" value="02" longname="交易密码"/>
+        <enumeration id="_16" value="03" longname="账户密码"/>
+        <enumeration id="_06" value="20" longname="预留信息"/>
+        <enumeration id="_07" value="15" longname="邮箱"/>
+        <enumeration id="_08" value="13" longname="安全问题"/>
+        <enumeration id="_09" value="17" longname="短信验证码"/>
+        <enumeration id="_10" value="10" longname="文件证书"/>
+        <enumeration id="_11" value="11" longname="设备绑定"/>
+        <enumeration id="_12" value="12" longname="软令牌"/>
+        <enumeration id="_13" value="08" longname="硬令牌"/>
+        <enumeration id="_17" value="09" longname="指纹支付"/>
+        <enumeration id="_14" value="14" longname="SE证书"/>
+        <enumeration id="_15" value="07" longname="UKEY证书"/>
+        <enumeration id="_18" value="18" longname="刮刮卡"/>
+        <enumeration id="_19" value="04" longname="免密支付"/>
+        <enumeration id="_20" value="06" longname="指纹解锁"/>
+        <enumeration id="ALL" value="%" longname="all"/>
+    </restrictionType>
+    <restrictionType id="E_ACCTTP" longname="账户分类" base="BaseType.U_CHAR02">
+        <enumeration id="GLOBAL" value="1" longname="全功能账户"/>
+        <enumeration id="FINANCE" value="2" longname="理财专用户"/>
+        <enumeration id="WALLET" value="3" longname="电子钱包户"/>
+        <enumeration id="ALL" value="%" longname="all"/>
+    </restrictionType>
+    <restrictionType id="E_SBACTP" longname="子账户类型" base="BaseType.U_CHAR02">
+        <enumeration id="_11" value="11" longname="活期结算账户"/>
+        <enumeration id="_12" value="12" longname="钱包账户"/>
+        <enumeration id="_13" value="13" longname="电子现金账户"/>
+        <enumeration id="_14" value="14" longname="亲情钱包账户"/>
+        <enumeration id="ALL" value="%" longname="all"/>
+    </restrictionType>
+    <restrictionType id="E_PYTLTP" longname="支付工具" base="BaseType.U_CHAR02">
+        <enumeration id="_99" value="99" longname="全部"/>
+        <enumeration id="_01" value="01" longname="Apple Pay"/>
+        <enumeration id="_02" value="02" longname="Samsung Pay"/>
+        <enumeration id="_03" value="03" longname="HCE"/>
+        <enumeration id="ALL" value="%" longname="all"/>
+    </restrictionType>
+    <restrictionType id="E_REBKTP" longname="收款行范围" base="BaseType.U_CHAR02">
+        <enumeration id="_99" value="99" longname="全部"/>
+        <enumeration id="_01" value="01" longname="系统内"/>
+        <enumeration id="_02" value="02" longname="系统外"/>
+        <enumeration id="ALL" value="%" longname="all"/>
+    </restrictionType>
+    <restrictionType id="E_CUSTLV" longname="客户等级" base="BaseType.U_CHAR02">
+        <enumeration id="_01" value="01" longname="初级"/>
+        <enumeration id="_02" value="02" longname="中级"/>
+        <enumeration id="_03" value="03" longname="次高级"/>
+        <enumeration id="_04" value="04" longname="高级"/>
+        <enumeration id="_05" value="05" longname="最高级"/>
+        <enumeration id="ALL" value="%" longname="all"/>
+    </restrictionType>
+    <restrictionType id="E_ACLMFG" longname="累计限额标志" base="BaseType.U_CHAR01">
+        <enumeration id="_0" value="0" longname="认证方式、客户限额都不累计"/>
+        <enumeration id="_1" value="1" longname="认证方式累计、客户限额不累计"/>
+        <enumeration id="_2" value="2" longname="认证方式不累计、客户限额累计"/>
+        <enumeration id="_3" value="3" longname="认证方式、客户限额都累计"/>
+    </restrictionType>
+    <restrictionType id="E_ISRGED" longname="额度扣减标志" base="BaseType.U_CHAR01">
+        <enumeration id="UC" value="0" longname="未通过检查"/>
+        <enumeration id="IR" value="1" longname="未扣减"/>
+        <enumeration id="RG" value="2" longname="已扣减"/>
+        <enumeration id="UR" value="3" longname="已恢复"/>
+    </restrictionType>
+    <restrictionType id="E_LIMTST" longname="限额状态" base="BaseType.U_CHAR01">
+        <enumeration id="NL" value="0" longname="正常"/>
+        <enumeration id="UP" value="1" longname="已更新"/>
+        <enumeration id="DL" value="2" longname="已删除"/>
+    </restrictionType>
+    <restrictionType id="E_SELTYP" longname="查询类型" base="BaseType.U_CHAR02">
+        <enumeration id="AP" value="01" longname="认证方式限额"/>
+        <enumeration id="AC" value="02" longname="账户限额"/>
+        <enumeration id="CU" value="03" longname="客户限额"/>
+    </restrictionType>
+    <restrictionType id="E_QUOTTP" longname="扣减或恢复标志" base="BaseType.U_CHAR01">
+        <enumeration id="DED" value="0" longname="额度扣减"/>
+        <enumeration id="REV" value="1" longname="额度恢复"/>
+    </restrictionType>
+    <restrictionType id="E_DYFLAG" longname="是否判断日累计标记" base="BaseType.U_CHAR02">
+        <enumeration id="NO" value="0" longname="否"/>
+        <enumeration id="YES" value="1" longname="是"/>
+    </restrictionType>
+    <restrictionType id="E_BTRVFG" longname="批量转账恢复额度标志" base="BaseType.U_CHAR01">
+        <enumeration id="NO" value="0" longname="否"/>
+        <enumeration id="YES" value="1" longname="是"/>
+    </restrictionType>
+    <restrictionType id="E_RECPAY" longname="收付方标志" base="BaseType.U_CHAR01">
+        <enumeration id="REC" value="1" longname="收方"/>
+        <enumeration id="PAY" value="2" longname="付方"/>
+    </restrictionType>
+    <restrictionType id="E_LIMTTP" longname="额度类型" base="BaseType.U_CHAR02">
+        <enumeration id="DP" value="11" longname="存现"/>
+        <enumeration id="DM" value="21" longname="取现"/>
+        <enumeration id="TI" value="12" longname="转入"/>
+        <enumeration id="TR" value="22" longname="转出"/>
+        <enumeration id="PY" value="23" longname="支付"/>
+        <enumeration id="TP" value="05" longname="转账和支付"/>
+        <enumeration id="ALL" value="%" longname="all"/>
+    </restrictionType>
+</schema>

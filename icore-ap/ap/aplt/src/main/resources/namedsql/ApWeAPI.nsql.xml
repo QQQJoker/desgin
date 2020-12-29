@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<sqls id="ApWeAPI" longname="平台使用命名sql" package="cn.sunline.ltts.busi.aplt.namedsql" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description><![CDATA[应用平台公共表命名sql]]></description>
+    <select cache="none" method="selectAll" type="sql" id="sel_kapb_plwsdj_kjlscf" datasource="" longname="会计流水批量拆分">
+        <sql type="oracle" desc=""><![CDATA[
+        select recdno,fileid, corpno, #trandt# as trandt
+        from kapb_plwjrw
+        where corpno = #corpno#
+        and btfltp='A'
+        and btflst='2']]></sql>
+        <sql type="mysql" desc=""><![CDATA[
+        select recdno,fileid, corpno, #trandt# as trandt
+        from kapb_plwjrw
+        where corpno = #corpno#
+        and btfltp='A'
+        and btflst='2']]></sql>
+        <sql type="db2" desc=""><![CDATA[
+        select recdno,fileid, corpno, #trandt# as trandt
+        from kapb_plwjrw
+        where corpno = #corpno#
+        and btfltp='A'
+        and btflst='2']]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="trandt" ref="BaseDict.Comm.trandt" jdbcType="VARCHAR" javaType="BaseType.U_DATE08" mode="in" longname="交易日期" parameterType="condition"/>
+            <parameter property="corpno" ref="ApDict.Aplt.corpno" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人代码" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="IoApBatch.ApBatchFile"/>
+    </select>
+</sqls>

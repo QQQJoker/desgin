@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<flowtran id="api700" longname="通用异步调批量交易" kind="3" package="cn.sunline.ltts.busi.aptran.trans" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description><![CDATA[]]></description>
+    <interface package="cn.sunline.ltts.busi.aptran.trans.intf">
+        <input packMode="true">
+            <field id="bttype" type="ApBaseEnumType.E_BTTYPE" required="false" fixed="" default="" multi="false" array="false" longname="异步批量业务类型" desc="" ref="ApDict.Aplt.bttype"/>
+        </input>
+        <output asParm="true" packMode="true">
+            <field id="taskid" type="BaseType.U_CHAR40" required="false" fixed="" default="" multi="false" array="false" longname="批量任务ID" desc="" ref=""/>
+        </output>
+        <property packMode="false"/>
+        <printer packMode="false"/>
+    </interface>
+    <flow id="" test="" longname="" desc="">
+        <service serviceName="IoApAsyCallBatch.prcAsyCallBtch" id="asyCallBatch" test="" longname="通用异步调用批量" desc="">
+            <in_mappings by_interface="true">
+                <mapping src="bttype" dest="bttype" desc="" by_interface="true" on_top="true"/>
+            </in_mappings>
+            <out_mappings by_interface="true">
+                <mapping src="taskid" dest="taskid" desc="" by_interface="true" on_top="true"/>
+            </out_mappings>
+        </service>
+    </flow>
+</flowtran>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema id="IoPbintrratsel" package="cn.sunline.ltts.busi.iobus.type.pb" longname="利息税率利率查询" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description><![CDATA[利息税率查询]]></description>
+    <complexType id="Pbintrratsel" longname="利息税率查询输出" dict="false" abstract="false" introduct="false">
+        <element id="intxcd" longname="税率代码" type="BaseType.U_TXRTNO" ref="PbDict.Intr.intxcd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="intrgb" longname="税率国别" type="BaseType.U_SMRYDS" ref="PbDict.Intr.intrgb" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="taxrat" longname="利息税率" type="BaseType.U_INSTRT" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="statax" longname="起征金额" type="BaseType.U_TRANAM" ref="PbDict.Intr.statax" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="maxtax" longname="最高税额" type="BaseType.U_TRANAM" ref="PbDict.Intr.maxtax" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="mintax" longname="最低税额" type="BaseType.U_TRANAM" ref="PbDict.Intr.mintax" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="efctdt" longname="生效日期" type="BaseType.U_DATE08" ref="PbDict.Intr.efctdt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="frtxin" longname="免利息税基准利率代码" type="PbBaseType.U_FRTXIN" ref="PbDict.Intr.frtxin" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="taxtyp" longname="计税方式" type="PbEnumType.E_TAXTYP" ref="PbDict.Intr.taxtyp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="locsig" longname="本地/外地标志" type="BaseEnumType.E_LOCSIG" ref="PbDict.Intr.locsig" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="inefdt" longname="失效日期" type="BaseType.U_DATE08" ref="PbDict.Intr.inefdt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="txunit" longname="税率单位" type="BaseType.U_SMRYDS" ref="PbDict.Intr.txunit" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="Pbintrsel" longname="利率查询输出" dict="false" abstract="false" introduct="false">
+        <element id="corpno" longname="法人代码" type="BaseType.U_CORPNO" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="incdtp" longname="利率代码类型" type="PbEnumType.E_INSETP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="intrkd" longname="利率种类" type="PbEnumType.E_INTRTY" ref="PbDict.Intr.intrkd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="rfirtp" longname="基础利率类型" type="PbEnumType.E_RFIRTP" ref="PbDict.Intr.rfirtp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="intrfg" longname="利率性质" type="BaseEnumType.E_INRATE" ref="PbDict.Intr.intrfg" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="brchno" longname="机构号" type="BaseType.U_BRCHNO" ref="PbDict.Intr.brchno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="crcycd" longname="货币代号" type="BaseType.U_CRCYCD" ref="PbDict.Charge.crcycd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="intrcd" longname="利率代码" type="BaseType.U_INTRCD" ref="PbDict.Intr.intrcd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="baseir" longname="基础利率" type="BaseType.U_INSTRT" ref="PbDict.Intr.baseir" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="intrna" longname="利率名称" type="BaseType.U_CHAR30" ref="PbDict.Intr.intrna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="rfirtm" longname="基础利率存期" type="BaseEnumType.E_TERMCD" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="depttm" longname="存期" type="BaseEnumType.E_TERMCD" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="efctdt" longname="生效日期" type="BaseType.U_DATE08" ref="PbDict.Intr.efctdt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="efcttm" longname="生效时间" type="BaseType.U_TIME06" ref="PbDict.Intr.efcttm" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="inefdt" longname="失效日期" type="BaseType.U_DATE08" ref="PbDict.Intr.inefdt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ineftm" longname="失效时间" type="BaseType.U_TIME06" ref="PbDict.Intr.ineftm" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="intrtp" longname="利率类型" type="BaseType.U_CHAR02" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="intrvl" longname="利率" type="BaseType.U_INSTRT" ref="PbDict.Intr.intrvl" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="seqeno" longname="数据库序号" type="BaseType.U_CHAR32" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="inpftp" longname="利率优惠类型" type="BaseEnumType.E_INRACO" ref="PbDict.Intr.inpftp" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="flirwy" longname="利率浮动方式" type="BaseEnumType.E_IRFLPF" ref="PbDict.Intr.flirwy" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="Pbforerate" longname="外汇汇率查询服务输出" dict="false" abstract="false" introduct="false">
+        <element id="crcycd" longname="币种" type="BaseType.U_CRCYCD" ref="PbDict.Intr.crcycd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="remiin" longname="现汇买入价" type="BaseType.U_CIBLTP" ref="PbDict.Intr.remiin" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="remiou" longname="现汇卖出价" type="BaseType.U_CIBLTP" ref="PbDict.Intr.remiou" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cashin" longname="现钞买入价" type="BaseType.U_CIBLTP" ref="PbDict.Intr.cashin" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cashou" longname="现钞卖出价" type="BaseType.U_CIBLTP" ref="PbDict.Intr.cashou" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="midrat" longname="中间价" type="BaseType.U_CIBLTP" ref="PbDict.Intr.midrat" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="brchno" longname="机构号" type="BaseType.U_BRCHNO" ref="PbDict.Intr.brchno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="efctdt" longname="生效日期" type="BaseType.U_DATE08" ref="PbDict.Intr.efctdt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="putime" longname="发布时间" type="BaseType.U_BUSITP" ref="PbDict.Intr.putime" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="PbforerateIntran" longname="外汇汇率查询交易输出" dict="false" abstract="false" introduct="false">
+        <element id="crcyna" longname="币种名称" type="BaseType.U_CHAR80" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="rexbuy" longname="现汇买入价" type="BaseType.U_CIBLTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="rexsal" longname="现汇卖出价" type="BaseType.U_CIBLTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cahbuy" longname="现钞买入价" type="BaseType.U_CIBLTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cahsal" longname="现钞卖出价" type="BaseType.U_CIBLTP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="midrat" longname="中间价" type="BaseType.U_CIBLTP" ref="PbDict.Intr.midrat" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="brchno" longname="机构号" type="BaseType.U_BRCHNO" ref="PbDict.Intr.brchno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="relsdt" longname="生效日期" type="BaseType.U_DATE08" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="relstm" longname="发布时间" type="BaseType.U_BUSITP" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="crcycd" longname="币种" type="BaseType.U_CRCYCD" ref="PbDict.Intr.crcycd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="PbRfirout" longname="生效基础利率代码输出" dict="false" abstract="false" introduct="false">
+        <element id="rfircd" longname="基础利率代码" type="BaseType.U_INTRCD" ref="PbDict.Intr.rfircd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="intrna" longname="利率名称" type="BaseType.U_CHAR30" ref="PbDict.Intr.intrna" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="brchno" longname="机构号" type="BaseType.U_BRCHNO" ref="PbDict.Intr.brchno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="PbPfinvlout" longname="查询利率优惠值输出" dict="false" abstract="false" introduct="false">
+        <element id="intrcd" longname="利率代码" type="BaseType.U_INTRCD" ref="PbDict.Intr.intrcd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="depttm" longname="存期" type="BaseEnumType.E_TERMCD" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="dayllm" longname="档次存期天数下限" type="BaseType.U_LONGIN" ref="PbDict.Intr.dayllm" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="rlamlm" longname="档次金额下限" type="BaseType.U_TRANAM" ref="PbDict.Intr.rlamlm" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="intrvl" longname="利率" type="BaseType.U_INSTRT" ref="PbDict.Intr.intrvl" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="IntrTaxList" longname="获取所有税率代码" dict="false" abstract="false" introduct="false">
+        <element id="intxcd" longname="税率代码" type="BaseType.U_TXRTNO" ref="PbDict.Intr.intxcd" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="taxrat" longname="税率" type="BaseType.U_TAXRAT" ref="PbDict.Intr.taxrat" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="corpno" longname="法人代码" type="BaseType.U_CORPNO" ref="ApDict.Aplt.corpno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="txunit" longname="税率单位" type="BaseType.U_SMRYDS" ref="PbDict.Intr.txunit" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="statax" longname="起征金额" type="BaseType.U_TRANAM" ref="PbDict.Intr.statax" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="mintax" longname="最低税额" type="BaseType.U_TRANAM" ref="PbDict.Intr.mintax" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="maxtax" longname="最高税额" type="BaseType.U_TRANAM" ref="PbDict.Intr.maxtax" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+</schema>

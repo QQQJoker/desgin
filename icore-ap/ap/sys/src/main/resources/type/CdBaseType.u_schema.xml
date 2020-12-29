@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema id="CdBaseType" package="cn.sunline.ltts.busi.sys.type" longname="单位账户基础类型" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <restrictionType id="U_UNSTAC" longname="单位结算账户" base="string" maxLength="17"/>
+	<restrictionType id="U_DCMTTP" base="string" maxLength="10" fractionDigits="0" longname="凭证类型" desc=""/>
+</schema>

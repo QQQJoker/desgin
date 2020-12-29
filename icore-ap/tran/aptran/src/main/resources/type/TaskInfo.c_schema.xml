@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema id="TaskInfo" package="cn.sunline.ltts.busi.aptran.type" longname="任务复合类型" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description><![CDATA[]]></description>
+    <complexType id="Task" longname="任务信息" dict="false" abstract="false" introduct="false">
+        <element id="task_num" longname="批量任务批次号" type="KBaseType.U_PILJYLSH" ref="KsDict.BtDict.task_num" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tran_date" longname="交易日期" type="KBaseType.U_RIQILEIX" ref="KsDict.BtDict.tran_date" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tran_flow_id" longname="批量交易流程ID" type="KBaseType.U_PLJYLCBS" ref="KsDict.BtDict.tran_flow_id" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="flow_step_num" longname="流程步骤号" type="KBaseType.U_TYSZLEIX" ref="KsDict.BtDict.flow_step_num" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tran_group_id" longname="批量交易组ID" type="KBaseType.U_PILJYZBS" ref="KsDict.BtDict.tran_group_id" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="rely_tran_goup_id" longname="依赖批量交易组ID" type="KBaseType.U_PILJYZBS" ref="KsDict.BtDict.rely_tran_goup_id" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tran_id" longname="批量交易ID" type="KBaseType.U_PLJIOYMA" ref="KsDict.BtDict.tran_id" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tran_group_exe_time" longname="批量交易组执行耗时" type="KBaseType.U_BZSJLEIX" ref="KsDict.BtDict.tran_group_exe_time" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tran_state" longname="交易状态" type="KBaseEnumType.E_PILJYZHT" ref="KsDict.BtDict.tran_state" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="task_exe_mode" longname="批量任务执行模式" type="KBaseEnumType.E_PILZXM0S" ref="KsDict.BtDict.task_exe_mode" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="task_interrupt_flag" longname="批量任务中断标志" type="KBaseEnumType.E_YESORNO" ref="KsDict.BtDict.task_interrupt_flag" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="task_commit_time" longname="批量任务提交时间" type="KBaseType.U_BZSJLEIX" ref="KsDict.BtDict.task_commit_time" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="task_priority" longname="批量任务优先级" type="KBaseType.U_TYSZLEIX" ref="KsDict.BtDict.task_priority" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tran_start_time" longname="交易开始时间" type="KBaseType.U_BZSJLEIX" ref="KsDict.BtDict.tran_start_time" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tran_end_time" longname="交易结束时间" type="KBaseType.U_BZSJLEIX" ref="KsDict.BtDict.tran_end_time" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="data_area" longname="数据区" type="KBaseType.U_SHUJUQUU" ref="KsDict.BtDict.data_area" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="current_flow_step_num" longname="当前流程步骤号" type="KBaseType.U_TYSZLEIX" ref="KsDict.BtDict.current_flow_step_num" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="current_execution_num" longname="当前执行序号" type="KBaseType.U_TYSZLEIX" ref="KsDict.BtDict.current_execution_num" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="current_tran_group_id" longname="当前批量交易组ID" type="KBaseType.U_PILJYZBS" ref="KsDict.BtDict.current_tran_group_id" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="current_step" longname="当前步骤" type="KBaseType.U_TYSZLEIX" ref="KsDict.BtDict.current_step" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="error_message" longname="错误信息" type="KBaseType.U_CUOWXINX" ref="KsDict.BtDict.error_message" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="error_stack" longname="错误堆栈" type="KBaseType.U_CUOWDUIZ" ref="KsDict.BtDict.error_stack" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="service_code" longname="服务标识" type="KBaseType.U_FUWUBSHI" ref="KsDict.BtDict.service_code" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="TaskQueryOt" longname="任务信息查询输出" dict="false" abstract="false" introduct="false">
+        <element id="lstask" longname="任务信息" type="TaskInfo.Task" required="false" multi="true" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="BatchTranDefine" longname="批量交易定义信息" dict="false" abstract="false" introduct="false">
+        <element id="tran_group_id" longname="批量交易组ID" type="KBaseType.U_PILJYZBS" ref="KsDict.BtDict.tran_group_id" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="step_id" longname="步骤号" type="KBaseType.U_TYSZLEIX" ref="KsDict.BtDict.step_id" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tran_code" longname="批量交易码" type="KBaseType.U_PLJIOYMA" ref="KsDict.BtDict.tran_code" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tran_chinese_name" longname="批量交易中文名称" type="KBaseType.U_ZHONGWMC" ref="KsDict.BtDict.tran_chinese_name" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="execution_code" longname="执行标识" type="KBaseEnumType.E_YESORNO" ref="KsDict.BtDict.execution_code" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="reconnection_num" longname="重连次数" type="KBaseType.U_TYSZLEIX" ref="KsDict.BtDict.reconnection_num" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="fail_interrupt_code" longname="失败中断标识" type="KBaseEnumType.E_YESORNO" ref="KsDict.BtDict.fail_interrupt_code" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="transactions_submit_num" longname="事务提交间隔（单位：笔数）" type="KBaseType.U_TYSZLEIX" ref="KsDict.BtDict.transactions_submit_num" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="data_split_mode" longname="数据拆分模式" type="KBaseEnumType.E_SPLITMOD" ref="KsDict.BtDict.data_split_mode" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="data_split_key" longname="数据拆分主键" type="KBaseType.U_SHUJCFZJ" ref="KsDict.BtDict.data_split_key" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="job_execution_mode" longname="批量作业执行模式" type="KBaseEnumType.E_RUNMOD" ref="KsDict.BtDict.job_execution_mode" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="max_job_concurrency_num" longname="最大作业并发数" type="KBaseType.U_TYSZLEIX" ref="KsDict.BtDict.max_job_concurrency_num" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="log_level" longname="日志级别" type="KBaseType.U_TYSZLEIX" ref="KsDict.BtDict.log_level" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="job_split_condition" longname="作业拆分条件（区间）" type="KBaseType.U_ZHMIAOSH" ref="KsDict.BtDict.job_split_condition" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="task_exe_mode" longname="批量任务执行模式" type="KBaseEnumType.E_PILZXM0S" ref="KsDict.BtDict.task_exe_mode" required="false" default="0" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="BatchTranQueryOt" longname="批量交易定义查询输出" dict="false" abstract="false" introduct="false">
+        <odbindexes/>
+        <element id="lsbttr" longname="交易定义信息" type="TaskInfo.BatchTranDefine" required="false" multi="true" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <description><![CDATA[]]></description>
+    </complexType>
+    <complexType id="QsmbatFileList" longname="文件批处理结果" dict="false" abstract="false" introduct="false">
+        <element id="btchno" longname="批量交易批次号" type="BaseType.U_CHAR40" ref="BaseDict.Comm.btchno" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="filetp" longname="文件类型" type="ApBaseEnumType.E_FILETP" ref="" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="btfest" longname="批量文件状态" type="ApBaseEnumType.E_SMBTST" ref="" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <description><![CDATA[]]></description>
+    </complexType>
+</schema>

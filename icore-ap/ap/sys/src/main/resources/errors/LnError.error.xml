@@ -1,0 +1,1607 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<errorConf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="LnError" longname="贷款错误码" package="cn.sunline.ltts.busi.sys.errors" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <errors id="geno" longname="通用错误码">
+        <error id="E0001" type="error" message="[${msg}]" errorCode="010L0408">
+            <parameter id="msg" type="BaseType.U_CHAR200" longname="错误提示"/>
+        </error>
+        <error id="E0002" type="error" message="[${zduanm}]不能为空" errorCode="010L0409">
+            <parameter id="zduanm" type="BaseType.U_CHAR1000" longname="字段名称"/>
+        </error>
+        <error id="E0304" type="error" message="产品[${canshuzh1}][${canshuzh2}]未定义币种规则[${canshuzh3}]" errorCode="010L0410">
+            <parameter id="canshuzh1" type="BaseType.U_CHAR1000" longname="参数值1"/>
+            <parameter id="canshuzh2" type="BaseType.U_CHAR1000" longname="参数值2"/>
+            <parameter id="canshuzh3" type="BaseType.U_CHAR1000" longname="参数值3"/>
+        </error>
+        <error id="E0370" type="error" message="[${canshuzh1}]:[${canshuzh2}]不支持" errorCode="010L0411">
+            <parameter id="canshuzh1" type="BaseType.U_CHAR1000" longname="参数值1"/>
+            <parameter id="canshuzh2" type="BaseType.U_CHAR1000" longname="参数值2"/>
+        </error>
+        <error id="E0376" type="error" message="[${canshuzh1}][${canshuzh2}]必须大于等于零！" errorCode="010L0412">
+            <parameter id="canshuzh1" type="BaseType.U_CHAR1000" longname="参数值1"/>
+            <parameter id="canshuzh2" type="BaseType.U_CHAR1000" longname="参数值2"/>
+        </error>
+        <error id="E0377" type="error" message="[${canshuzh1}][${canshuzh2}]必须大于零！" errorCode="010L0413">
+            <parameter id="canshuzh1" type="BaseType.U_CHAR1000" longname="参数值1"/>
+            <parameter id="canshuzh2" type="BaseType.U_CHAR1000" longname="参数值2"/>
+        </error>
+        <error id="E0378" type="error" message="[${canshuzh1}][${canshuzh2}][${canshuzh3}]不能都为空！" errorCode="010L0414">
+            <parameter id="canshuzh1" type="BaseType.U_CHAR1000" longname="参数值1"/>
+            <parameter id="canshuzh2" type="BaseType.U_CHAR1000" longname="参数值2"/>
+            <parameter id="canshuzh3" type="BaseType.U_CHAR1000" longname="参数值3"/>
+        </error>
+        <error id="E0003" type="error" message="查询：[${info}]失败，记录不存在！" errorCode="010L0415">
+            <parameter id="info" type="string" longname="表"/>
+        </error>
+        <error id="E0275" type="error" message="展期金额[${param1}]必须大于零小于剩余本金:[${param2}]" errorCode="010L0416">
+            <parameter id="param1" type="BaseType.U_CHAR1000" longname="参数值1"/>
+            <parameter id="param2" type="BaseType.U_CHAR1000" longname="参数值2"/>
+        </error>
+        <error id="E0276" type="error" message="还款方式[${canshuzh1}]不允许展期,只有还款方式为[利随本清或多次还息一次还本]才允许展期" errorCode="010L0417">
+            <parameter id="canshuzh1" type="BaseType.U_CHAR100" longname="参数值1"/>
+        </error>
+        <error id="E0278" type="error" message="贷款不允许展期" errorCode="010L0418"/>
+        <error id="E0279" type="error" message="已展期次数[${canshuzh1}]次,超过最大展期次数[${canshuzh2}]" errorCode="010L0419">
+            <parameter id="canshuzh1" type="BaseType.U_CHAR10" longname="参数值1"/>
+            <parameter id="canshuzh2" type="BaseType.U_CHAR10" longname="参数值2"/>
+        </error>
+        <error id="E0280" type="error" message="新浮动值[${canshuzh1}]必须大于等于原浮动值[${canshuzh2}]" errorCode="010L0420">
+            <parameter id="canshuzh1" type="BaseType.U_CHAR20" longname="参数值1"/>
+            <parameter id="canshuzh2" type="BaseType.U_CHAR20" longname="参数值2"/>
+        </error>
+        <error id="E0281" type="error" message="执行利率[${canshuzh1}]必须在产品设定允许最高[${canshuzh2}]与最低[${canshuzh3}]利率之间" errorCode="010L0421">
+            <parameter id="canshuzh1" type="BaseType.U_CHAR20" longname="参数值1"/>
+            <parameter id="canshuzh2" type="BaseType.U_CHAR20" longname="参数值2"/>
+            <parameter id="canshuzh3" type="BaseType.U_CHAR20" longname="参数值3"/>
+        </error>
+        <error id="E0282" type="error" message="利率浮动值[${canshuzh1}]必须在产品设定允许最高[${canshuzh2}]与最低[${canshuzh3}]浮动之间" errorCode="010L0422">
+            <parameter id="canshuzh1" type="BaseType.U_CHAR20" longname="参数值1"/>
+            <parameter id="canshuzh2" type="BaseType.U_CHAR20" longname="参数值2"/>
+            <parameter id="canshuzh3" type="BaseType.U_CHAR20" longname="参数值3"/>
+        </error>
+        <error id="E0283" type="error" message="从开户日期至展期到期日之间的期限[${canshuzh1}]M不能大于原贷款期限[${canshuzh2}]M的百分之[${canshuzh3}][${canshuzh4}]" errorCode="010L0423">
+            <parameter id="canshuzh1" type="BaseType.U_CHAR20" longname="参数值1"/>
+            <parameter id="canshuzh2" type="BaseType.U_CHAR20" longname="参数值2"/>
+            <parameter id="canshuzh3" type="BaseType.U_CHAR20" longname="参数值3"/>
+            <parameter id="canshuzh4" type="BaseType.U_CHAR20" longname="参数值4"/>
+        </error>
+        <error id="E0284" type="error" message="从到期日期至展期到期日之间的期限[${canshuzh1}]M不能大于原贷款期限[${canshuzh2}]M的百分之[${canshuzh3}][${canshuzh4}]" errorCode="010L0424">
+            <parameter id="canshuzh1" type="BaseType.U_CHAR20" longname="参数值1"/>
+            <parameter id="canshuzh2" type="BaseType.U_CHAR20" longname="参数值2"/>
+            <parameter id="canshuzh3" type="BaseType.U_CHAR20" longname="参数值3"/>
+            <parameter id="canshuzh4" type="BaseType.U_CHAR20" longname="参数值4"/>
+        </error>
+        <error id="E0285" type="error" message="从开户日期至展期到期日之间的期限[${canshuzh1}]M不能大于原贷款期限[${canshuzh2}]M" errorCode="010L0425">
+            <parameter id="canshuzh1" type="BaseType.U_CHAR20" longname="参数值1"/>
+            <parameter id="canshuzh2" type="BaseType.U_CHAR20" longname="参数值2"/>
+        </error>
+        <error id="E0286" type="error" message="从开到期日期至展期到期日之间的期限[${canshuzh1}]M不能大于原贷款期限[${canshuzh2}]M" errorCode="010L0426">
+            <parameter id="canshuzh1" type="BaseType.U_CHAR20" longname="参数值1"/>
+            <parameter id="canshuzh2" type="BaseType.U_CHAR20" longname="参数值2"/>
+        </error>
+        <error id="E0061" type="error" message="[${canshuzh1}]和[${canshuzh2}]不能同时为空" errorCode="010L0427">
+            <parameter id="canshuzh1" type="BaseType.U_CHAR1000" longname="参数值1"/>
+            <parameter id="canshuzh2" type="BaseType.U_CHAR1000" longname="参数值2"/>
+        </error>
+        <error id="E0074" type="error" message="贷款账户状态:[${canshuzh1}]不正常，不能做该交易" errorCode="010L0428">
+            <parameter id="canshuzh1" type="BaseType.U_CHAR1000" longname="参数值1"/>
+        </error>
+        <error id="E0161" type="error" message=" 不支持[${canshuzh}]试算" errorCode="010L0429">
+            <parameter id="canshuzh" type="BaseType.U_CHAR1000" longname="参数值"/>
+        </error>
+        <error id="E0000" type="error" message="错误描述:[${chmiaosh}]" errorCode="010L0430">
+            <parameter id="chmiaosh" type="BaseType.U_CHAR1000" longname="错误描述"/>
+        </error>
+        <error id="E0298" type="error" message="只支持[等额还款,等本还款,等比累进,等额累进]试算" errorCode="010L0431"/>
+        <error id="E0155" type="error" message="提前还款指定还款本金[${canshuzh1}]不能大于正常本金[${canshuzh2}]" errorCode="010L0432">
+            <parameter id="canshuzh1" type="BaseType.U_CHAR1000" longname="参数值1"/>
+            <parameter id="canshuzh2" type="BaseType.U_CHAR1000" longname="参数值2"/>
+        </error>
+        <error id="E0299" type="error" message="该借据存在欠款[${canshuzh1}],不允许试算" errorCode="010L0433">
+            <parameter id="canshuzh1" type="BaseType.U_CHAR1000" longname="参数值1"/>
+        </error>
+        <error id="E0013" type="error" message="[${canshuzh1}]:[${canshuzh2}]不合法" errorCode="010L0434">
+            <parameter id="canshuzh1" type="BaseType.U_CHAR1000" longname="参数值1"/>
+            <parameter id="canshuzh2" type="BaseType.U_CHAR1000" longname="参数值2"/>
+        </error>
+        <error id="E0365" type="error" message="指定日[${canshuzh1}]必须在[1-31]之间！" errorCode="010L0435">
+            <parameter id="canshuzh1" type="BaseType.U_CHAR1000" longname="参数值1"/>
+        </error>
+        <error id="E0366" type="error" message="指定日[${canshuzh1}]必须在周[1-7]之间！" errorCode="010L0436">
+            <parameter id="canshuzh1" type="BaseType.U_CHAR1000" longname="参数值1"/>
+        </error>
+        <error id="E0367" type="error" message="[${efctdt}]" errorCode="010L0437">
+            <parameter id="efctdt" type="LnBaseType.U_DATE08" longname="参数值1"/>
+        </error>
+        <error id="E0017" type="error" message="周期类型[${ziduanmc}]非法" errorCode="010L0438">
+            <parameter id="ziduanmc" type="BaseType.U_CHAR1000" longname="字段名称"/>
+        </error>
+        <error id="E1001" type="error" message="[${msg}]" errorCode="010L0439">
+            <parameter id="msg" type="BaseType.U_CHAR200" longname="错误提示"/>
+        </error>
+    </errors>
+    <errors id="lend" longname="贷款放款错误码">
+        <error id="E0001" type="error" message="[${msg}]" errorCode="010L0440">
+            <parameter id="msg" type="BaseType.U_CHAR1000" longname="信息描述"/>
+        </error>
+        <error id="E0002" type="error" message="借据号[${lncfno}]形态不为正常，不能进行正常放款！" errorCode="010L0441">
+            <parameter id="lncfno" type="LnBaseType.U_LNCFNO" longname="借据号"/>
+        </error>
+        <error id="E0003" type="error" message="产品[${prodcd}]-[${object}]未定义币种规则[${cyrlna}]" errorCode="010L0442">
+            <parameter id="prodcd" type="BaseType.U_PRODCD" longname="产品号"/>
+            <parameter id="object" type="BaseType.U_CHAR10" longname="功能对象"/>
+            <parameter id="cyrlna" type="BaseType.U_CHAR32" longname="币种规则名称"/>
+        </error>
+        <error id="E0004" type="error" message="放款次数[${lendtm}]已达最大放款次数[${lnmxtm}]限制" errorCode="010L0443">
+            <parameter id="lendtm" type="LnBaseType.U_LONGIN" longname="放款次数"/>
+            <parameter id="lnmxtm" type="LnBaseType.U_LONGIN" longname="放款最大次数"/>
+        </error>
+        <error id="E0005" type="error" message="放款金额[${tranam}]已达最大放款金额[${mxotam}]限制" errorCode="010L0444">
+            <parameter id="tranam" type="LnBaseType.U_ACBLTP" longname="放款金额"/>
+            <parameter id="mxotam" type="LnBaseType.U_ACBLTP" longname="最大放款金额"/>
+        </error>
+        <error id="E0006" type="error" message="放款超过有效期限[${vadays}]开户日期[${initdt}]放款日期[${trandt}]" errorCode="010L0445">
+            <parameter id="vadays" type="LnBaseType.U_LONGIN" longname="有效期限"/>
+            <parameter id="initdt" type="LnBaseType.U_DATE08" longname="开户日期"/>
+            <parameter id="trandt" type="LnBaseType.U_DATE08" longname="放款日期"/>
+        </error>
+        <error id="E0007" type="error" message="放款低于最小间隔[${mninva}]上次放款日期[${lslndt}]放款日期[${trandt}]" errorCode="010L0446">
+            <parameter id="mninva" type="LnBaseType.U_LONGIN" longname="放款最小间隔"/>
+            <parameter id="lslndt" type="LnBaseType.U_DATE08" longname="上次放款日期"/>
+            <parameter id="trandt" type="LnBaseType.U_DATE08" longname="放款日期"/>
+        </error>
+        <error id="E0008" type="error" message="放款低于最大间隔[${mxinva}]上次放款日期[${lslndt}]放款日期[${trandt}]" errorCode="010L0447">
+            <parameter id="mxinva" type="LnBaseType.U_LONGIN" longname="放款最大间隔"/>
+            <parameter id="lslndt" type="LnBaseType.U_DATE08" longname="上次放款日期"/>
+            <parameter id="trandt" type="LnBaseType.U_DATE08" longname="放款日期"/>
+        </error>
+        <error id="E0009" type="error" message="放款金额[${tranam}]大于可放金额[${lendbl}]" errorCode="010L0448">
+            <parameter id="tranam" type="LnBaseType.U_ACBLTP" longname="放款金额"/>
+            <parameter id="lendbl" type="LnBaseType.U_ACBLTP" longname="可放金额"/>
+        </error>
+        <error id="E0010" type="error" message="放款金额[${tranam}]低于最小放款金额[${mnotam}]限制" errorCode="010L0449">
+            <parameter id="tranam" type="LnBaseType.U_ACBLTP" longname="放款金额"/>
+            <parameter id="mnotam" type="LnBaseType.U_ACBLTP" longname="每次最小放款金额"/>
+        </error>
+        <error id="E0011" type="error" message="下一期期数[${nxtmno}]大于总期数[${tltmno}], 不产生下一期供！" errorCode="010L0450">
+            <parameter id="nxtmno" type="LnBaseType.U_LONGIN" longname="下一期数"/>
+            <parameter id="tltmno" type="LnBaseType.U_LONGIN" longname="总期数"/>
+        </error>
+        <error id="E0012" type="error" message="计息当期期数不能大于总期数" errorCode="010L0451"/>
+        <error id="E0013" type="error" message="[${canshuzh1}]和[${canshuzh2}]不能同时为空" errorCode="010L0452">
+            <parameter id="canshuzh1" type="LnBaseType.U_LONGDS" longname="参数值1"/>
+            <parameter id="canshuzh2" type="LnBaseType.U_LONGDS" longname="参数值2"/>
+        </error>
+        <error id="E0014" type="error" message="贷款形态转移方向:[${canshuzh1}]错误,暂时不支持！" errorCode="010L0453">
+            <parameter id="canshuzh1" type="LnBaseType.U_LONGDS" longname="参数值1"/>
+        </error>
+        <error id="E0015" type="error" message="贷款应计转非应计，转移方向[${canshuzh1}]暂不支持！" errorCode="010L0454">
+            <parameter id="canshuzh1" type="LnBaseType.U_LONGDS" longname="参数值1"/>
+        </error>
+        <error id="E0016" type="error" message="贷款非应计转非应计，转移方向[${canshuzh1}]暂不支持,必须全部转回！" errorCode="010L0455">
+            <parameter id="canshuzh1" type="LnBaseType.U_LONGDS" longname="参数值1"/>
+        </error>
+        <error id="E0110" type="error" message="贷款形态转移方向:[${canshuzh1}]异常" errorCode="010L0456">
+            <parameter id="canshuzh1" type="LnBaseType.U_LONGDS" longname="参数值1"/>
+        </error>
+        <error id="E0111" type="error" message="贷款形态转移方向:[${canshuzh1}]错误" errorCode="010L0457">
+            <parameter id="canshuzh1" type="LnBaseType.U_LONGDS" longname="参数值1"/>
+        </error>
+        <error id="E0112" type="error" message="贷款形态转移方向:[${canshuzh1}]错误,原形态不正确" errorCode="010L0458">
+            <parameter id="canshuzh1" type="LnBaseType.U_LONGDS" longname="参数值1"/>
+        </error>
+        <error id="E0113" type="error" message="贷款形态转移方向:[${canshuzh1}]错误,暂时不支持！" errorCode="010L0459">
+            <parameter id="canshuzh1" type="LnBaseType.U_LONGDS" longname="参数值1"/>
+        </error>
+        <error id="E0017" type="error" message="萨摩耶保证金不足" errorCode="010L0460"/>
+        <error id="E0018" type="error" message="贷款已发放,不允许重复申请放款！" errorCode="010L0461"/>
+        <error id="E0019" type="error" message="雨点金服保证金不足" errorCode="010L0462"/>
+        <error id="E0020" type="error" message="易鑫车贷保证金不足" errorCode="010L0463"/>
+        <error id="E0021" type="error" message="产品代码[${canshuzh1}]在产品客户化控制信息表中未定义" errorCode="010L0464">
+            <parameter id="canshuzh1" type="LnBaseType.U_LONGDS" longname="参数值1"/>
+        </error>
+        <error id="E0022" type="error" message="产品代码[${canshuzh1}]非易鑫车贷产品" errorCode="010L0465">
+            <parameter id="canshuzh1" type="LnBaseType.U_LONGDS" longname="参数值1"/>
+        </error>
+        <error id="E0023" type="error" message="该笔贷款申请已突破每日新增客户数！" errorCode="010L0466"/>
+        <error id="E0024" type="error" message="该笔贷款申请已突破每日新增放款笔数！" errorCode="010L0467"/>
+        <error id="E0025" type="error" message="该笔贷款申请已突破当月新增贷款余额！" errorCode="010L0468"/>
+        <error id="E0026" type="error" message="产品代码[${canshuzh1}]非雨点产品" errorCode="010L0469">
+            <parameter id="canshuzh1" type="LnBaseType.U_LONGDS" longname="参数1"/>
+        </error>
+        <error id="E0027" type="error" message="加盟贷保证金参数未启用" errorCode="010L0470"/>
+        <error id="E0028" type="error" message="加盟贷保证金参数未配置" errorCode="010L0471"/>
+        <error id="E0029" type="error" message="属性[${inputProp}]，请核对！" errorCode="010L0472">
+            <parameter id="inputProp" type="BaseType.U_CHAR10" longname="输入属性"/>
+        </error>
+    </errors>
+    <errors id="rper" longname="51人品贷错误码">
+        <error id="E0001" type="error" message="[${msg}]" errorCode="010L0473">
+            <parameter id="msg" type="BaseType.U_CHAR200" longname="错误提示"/>
+        </error>
+        <error id="E0002" type="error" message="[${zduanm}]不能为空" errorCode="010L0474">
+            <parameter id="zduanm" type="BaseType.U_CHAR1000" longname="字段名称"/>
+        </error>
+        <error id="E0003" type="error" message="51人品贷备付金余额不足" errorCode="010L0475"/>
+        <error id="E0004" type="error" message="51推送前置服务费率和参数配置不符" errorCode="010L0476"/>
+        <error id="E0005" type="error" message="前置服务费计算错误" errorCode="010L0477"/>
+        <error id="E0006" type="error" message="居间服务费率大于居间服务费率上限" errorCode="010L0478"/>
+        <error id="E0007" type="error" message="51代偿户余额不足，不可放款 " errorCode="010L0479"/>
+        <error id="E0008" type="error" message="贷款已发放,不允许重复申请放款！" errorCode="010L0480"/>
+        <error id="E0009" type="error" message="产品代码[${canshuzh1}]非51人品贷产品" errorCode="010L0481">
+            <parameter id="canshuzh1" type="LnBaseType.U_LONGDS" longname="参数值1"/>
+        </error>
+        <error id="E0010" type="error" message="居间服务费：[${canshuzh1}]与实际计算值：[${canshuzh2}]不相等" errorCode="010L0482">
+            <parameter id="canshuzh1" type="LnBaseType.U_LONGDS" longname="参数值1"/>
+            <parameter id="canshuzh2" type="LnBaseType.U_LONGDS" longname="参数值2"/>
+        </error>
+    </errors>
+    <errors id="sy" longname="闪银错误码">
+        <error id="E0001" type="error" message="[${msg}]" errorCode="010L0483">
+            <parameter id="msg" type="BaseType.U_CHAR200" longname="错误提示"/>
+        </error>
+        <error id="E0002" type="error" message="[${zduanm}]不能为空" errorCode="010L0484">
+            <parameter id="zduanm" type="BaseType.U_CHAR1000" longname="字段名称"/>
+        </error>
+        <error id="E0003" type="error" message="闪银租房分期贷款备付金余额不足" errorCode="010L0485"/>
+        <error id="E0004" type="error" message="闪银租房分期贷款代偿户余额不足，不可放款" errorCode="010L0486"/>
+        <error id="E0005" type="error" message="扣款成功或处理中" errorCode="010L0487"/>
+        <error id="E0006" type="error" message="产品代码[${canshuzh1}]非闪银租房贷款产品" errorCode="010L0488">
+            <parameter id="canshuzh1" type="LnBaseType.U_LONGDS" longname="参数值1"/>
+        </error>
+    </errors>
+    <errors id="detail" longname="错误信息明细">
+        <description><![CDATA[错误信息明细]]></description>
+        <error id="E0001" type="error" message="用款申请流水号不能为空！" errorCode="010L0489"/>
+        <error id="E0002" type="error" message="每页记录数不能为空！" errorCode="010L0490"/>
+        <error id="E0003" type="error" message="交易卡号不能为空！" errorCode="010L0491"/>
+        <error id="E0004" type="error" message="电子账号不能为空！" errorCode="010L0492"/>
+        <error id="E0005" type="error" message="交易金额不能为空！" errorCode="010L0493"/>
+        <error id="E0006" type="error" message="贷款期限不能为空！" errorCode="010L0494"/>
+        <error id="E0007" type="error" message="当前页数不能为空！" errorCode="010L0495"/>
+        <error id="E0008" type="error" message="贷款账号不能为空！" errorCode="010L0496"/>
+        <error id="E0009" type="error" message="贷款借据号不能为空！" errorCode="010L0497"/>
+        <error id="E0010" type="error" message="产品代码不能为空！" errorCode="010L0498"/>
+        <error id="E0011" type="error" message="币种不能为空！" errorCode="010L0499"/>
+        <error id="E0012" type="error" message="保证金比列不能为空！" errorCode="010L0500"/>
+        <error id="E0013" type="error" message="本金分段到期日期不能为空！" errorCode="010L0501"/>
+        <error id="E0014" type="error" message="本金分段还款周期不能为空！" errorCode="010L0502"/>
+        <error id="E0015" type="error" message="本金分段结束日期不能为空！" errorCode="010L0503"/>
+        <error id="E0016" type="error" message="本金分段起始日期不能为空！" errorCode="010L0504"/>
+        <error id="E0017" type="error" message="本金分段时，本金分段明细信息不能为空！" errorCode="010L0505"/>
+        <error id="E0018" type="error" message="贷款保证金预警比例不能为空！" errorCode="010L0506"/>
+        <error id="E0019" type="error" message="贷款规模预警值不能为空！" errorCode="010L0507"/>
+        <error id="E0020" type="error" message="贷款规模阀值不能为空！" errorCode="010L0508"/>
+        <error id="E0021" type="error" message="贷款存期不能为空！" errorCode="010L0509"/>
+        <error id="E0022" type="error" message="代偿率不能为空！" errorCode="010L0510"/>
+        <error id="E0023" type="error" message="本期期数不能为空！" errorCode="010L0511"/>
+        <error id="E0024" type="error" message="放款金额不能为空" errorCode="010L0512"/>
+        <error id="E0025" type="error" message="还款方式不能为空！" errorCode="010L0513"/>
+        <error id="E0026" type="error" message="还款金额不能为空！" errorCode="010L0514"/>
+        <error id="E0027" type="error" message="还款期限不能为空！" errorCode="010L0515"/>
+        <error id="E0028" type="error" message="合作商号不能为空！" errorCode="010L0516"/>
+        <error id="E0029" type="error" message="交易时间不能为空！" errorCode="010L0517"/>
+        <error id="E0030" type="error" message="开始日期不能为空！" errorCode="010L0518"/>
+        <error id="E0031" type="error" message="结束日期不能为空！" errorCode="010L0519"/>
+        <error id="E0032" type="error" message="客户还款日期不能为空！" errorCode="010L0520"/>
+        <error id="E0033" type="error" message="联系人姓名不能为空！" errorCode="010L0521"/>
+        <error id="E0034" type="error" message="模板标识不能为空！" errorCode="010L0522"/>
+        <error id="E0035" type="error" message="前置流水不能为空！" errorCode="010L0523"/>
+        <error id="E0036" type="error" message="清算日期不能为空！" errorCode="010L0524"/>
+        <error id="E0037" type="error" message="渠道号不能为空！" errorCode="010L0525"/>
+        <error id="E0038" type="error" message="渠道类型不能为空！" errorCode="010L0526"/>
+        <error id="E0039" type="error" message="渠道流水号不能为空！" errorCode="010L0527"/>
+        <error id="E0040" type="error" message="日期范围标识不能为空！" errorCode="010L0528"/>
+        <error id="E0041" type="error" message="手机号码不能为空！" errorCode="010L0529"/>
+        <error id="E0042" type="error" message="贴息账户号不能为空！" errorCode="010L0530"/>
+        <error id="E0043" type="error" message="校验规则不能为空！" errorCode="010L0531"/>
+        <error id="E0044" type="error" message="业务线代码不能为空！" errorCode="010L0532"/>
+        <error id="E0045" type="error" message="预存保证金不能为空！" errorCode="010L0533"/>
+        <error id="E0046" type="error" message="证件号码不能为空！" errorCode="010L0534"/>
+        <error id="E0047" type="error" message="指定还款明细金额对象不能为空！" errorCode="010L0535"/>
+        <error id="E0048" type="error" message="指定还款期供明细对象不能为空！" errorCode="010L0536"/>
+        <error id="E0049" type="error" message="转入代偿金额不能为空！" errorCode="010L0537"/>
+        <error id="E0050" type="error" message="转入代收清算金额不能为空" errorCode="010L0538"/>
+        <error id="E0051" type="error" message="自定义还款计划贷款放款时，还款计划列表不能为空！" errorCode="010L0539"/>
+        <error id="E0052" type="error" message="还款账号不能为空！" errorCode="010L0540"/>
+        <error id="E0053" type="error" message="查询状态不能为空！" errorCode="010L0541"/>
+        <error id="E0054" type="error" message="提前还款并调整计划为缩期, 贷款到期日不能为空！" errorCode="010L0542"/>
+        <error id="E0055" type="error" message="提前还款并调整计划为缩期, 不能为空！" errorCode="010L0543"/>
+        <error id="E0056" type="error" message="贷款借据号与贷款账号不能同时为空！" errorCode="010L0544"/>
+        <error id="E0057" type="error" message="正常利率信息正常利率编码和正常利率不能同时为空！" errorCode="010L0545"/>
+        <error id="E0058" type="error" message="复利利率信息复利利率编码和复利利率不能同时为空！" errorCode="010L0546"/>
+        <error id="E0059" type="error" message="逾期利率信息逾期利率编码和逾期利率不能同时为空！" errorCode="010L0547"/>
+        <error id="E0060" type="error" message="挤占挪用利率信息挤占挪用利率编码和挤占挪用利率不能同时为空！" errorCode="010L0548"/>
+        <error id="E0061" type="error" message="账号或业务编码不能同时为空！" errorCode="010L0549"/>
+        <error id="E0062" type="error" message="正常、逾期、复利利率年月标识不能为空！" errorCode="010L0550"/>
+        <error id="E0063" type="error" message="序号为[${sequno}]的本金分段还款周期与还本周期不能同时为空！" errorCode="010L0551">
+            <parameter id="sequno" type="BaseType.U_SEQUNO" longname="流水号"/>
+        </error>
+        <error id="E0064" type="error" message="输入字段不能同时为空！" errorCode="010L0552"/>
+        <error id="E0065" type="error" message="免息期到期是否分期标识不能为空!" errorCode="010L0553"/>
+        <error id="E0066" type="error" message="客户号不能为空！" errorCode="010L0554"/>
+        <error id="E0067" type="error" message="证件类型不能为空！" errorCode="010L0555"/>
+        <error id="E0068" type="error" message="合作商不能为空！" errorCode="010L0556"/>
+        <error id="E0069" type="error" message="绑定账户类型不能为空！" errorCode="010L0557"/>
+        <error id="E0070" type="error" message="绑定卡号不能为空！" errorCode="010L0558"/>
+        <error id="E0071" type="error" message="卡开户名称不能为空！" errorCode="010L0559"/>
+        <error id="E0072" type="error" message="卡开户行名称不能为空！" errorCode="010L0560"/>
+        <error id="E0073" type="error" message="卡开户行号不能为空！" errorCode="010L0561"/>
+        <error id="E0074" type="error" message="还款列表不能为空！" errorCode="010L0562"/>
+        <error id="E0075" type="error" message="还款期数列表不能为空！" errorCode="010L0563"/>
+        <error id="E0076" type="error" message="客户名不能为空！" errorCode="010L0564"/>
+        <error id="E0077" type="error" message="业务编码不能为空！" errorCode="010L0565"/>
+        <error id="E0078" type="error" message="担保方式不能为空！" errorCode="010L0566"/>
+        <error id="E0100" type="error" message="电子账号不存在！电子账号：[${custac}]" errorCode="010L0567">
+            <parameter id="custac" type="BaseType.U_CUSTAC" longname="电子账号"/>
+        </error>
+        <error id="E0101" type="error" message="客户信息不存在！" errorCode="010L0568"/>
+        <error id="E0102" type="error" message="贷款账户信息不存在！" errorCode="010L0569"/>
+        <error id="E0103" type="error" message="传入的内部户不存在，请核对！" errorCode="010L0570"/>
+        <error id="E0104" type="error" message="该贷款产品不存在，请核对！" errorCode="010L0571"/>
+        <error id="E0105" type="error" message="该产品没有代偿户！" errorCode="010L0572"/>
+        <error id="E0106" type="error" message="客户信息不存在！" errorCode="010L0573"/>
+        <error id="E0107" type="error" message="签约产品不存在！" errorCode="010L0574"/>
+        <error id="E0108" type="error" message="清算记录不存在！" errorCode="010L0575"/>
+        <error id="E0109" type="error" message="未查到对应资产证券化产品与业务编码关联表配置！" errorCode="010L0576"/>
+        <error id="E0110" type="error" message="未查到对应资产证券化产品状态配置！" errorCode="010L0577"/>
+        <error id="E0111" type="error" message="未找到相应的放款信息！" errorCode="010L0578"/>
+        <error id="E0112" type="error" message="无萨摩耶保证金设置记录，请核对！" errorCode="010L0579"/>
+        <error id="E0113" type="error" message="该支付渠道没有配置参数，请核对！" errorCode="010L0580"/>
+        <error id="E0114" type="error" message="符合查询条件的贷款记录不存在！" errorCode="010L0581"/>
+        <error id="E0115" type="error" message="查询贷款产品清算属性表信息不存在！" errorCode="010L0582"/>
+        <error id="E0116" type="error" message="无对应额度信息记录！" errorCode="010L0583"/>
+        <error id="E0117" type="error" message="无对授信利率信息记录！" errorCode="010L0584"/>
+        <error id="E0118" type="error" message="查询卡号[${cardno}]对应的电子账号不存在。" errorCode="010L0585">
+            <parameter id="cardno" type="BaseType.U_CARDNO" longname="交易卡号"/>
+        </error>
+        <error id="E0119" type="error" message="变更计划中本期期数为：[${termno}]的原计划不存在！" errorCode="010L0586">
+            <parameter id="termno" type="LnBaseType.U_LONGIN" longname="本期期数"/>
+        </error>
+        <error id="E0120" type="error" message="贷款借据号[${lncfno}]不在贷款还款规则表中！" errorCode="010L0587">
+            <parameter id="lncfno" type="LnBaseType.U_LNCFNO" longname="贷款借据号"/>
+        </error>
+        <error id="E0121" type="error" message="产品[${prodcd}]自定义还款计划放款的开户记录还款规则信息不存在！" errorCode="010L0588">
+            <parameter id="prodcd" type="BaseType.U_PRODCD" longname="产品代码"/>
+        </error>
+        <error id="E0122" type="error" message="增值税科目价税分离场景配置表配置有误，科目号：[${itemcd}]" errorCode="010L0589">
+            <parameter id="itemcd" type="BaseType.U_ITEMCD" longname="科目号"/>
+        </error>
+        <error id="E0123" type="error" message="查无信息！" errorCode="010L0590"/>
+        <error id="E0124" type="error" message="没有查到放款相关数据！" errorCode="010L0591"/>
+        <error id="E0125" type="error" message="没有查到还款相关数据！" errorCode="010L0592"/>
+        <error id="E0126" type="error" message="没有贷款保证金记录！" errorCode="010L0593"/>
+        <error id="E0127" type="error" message="放款订单不存在，请核对！" errorCode="010L0594"/>
+        <error id="E0128" type="error" message="放款金额必须大于零！" errorCode="010L0595"/>
+        <error id="E0129" type="error" message="未知的还款方式！" errorCode="010L0596"/>
+        <error id="E0130" type="error" message="还款方式[${longna}]暂时不支持" errorCode="010L0597">
+            <parameter id="longna" type="BaseType.U_CHAR50" longname="中文名称"/>
+        </error>
+        <error id="E0131" type="error" message="产品代码不匹配！" errorCode="010L0598"/>
+        <error id="E0132" type="error" message="资金交易类型不匹配！" errorCode="010L0599"/>
+        <error id="E0133" type="error" message="客户姓名过长！" errorCode="010L0600"/>
+        <error id="E0134" type="error" message="绑定卡号过长！" errorCode="010L0601"/>
+        <error id="E0135" type="error" message="手机号长度不对，必须为11位！" errorCode="010L0602"/>
+        <error id="E0136" type="error" message="核算信息不存在!" errorCode="010L0603"/>
+        <error id="E0137" type="error" message="贷款计息信息不存在！" errorCode="010L0604"/>
+        <error id="E0138" type="error" message="价税分离信息不存在!" errorCode="010L0605"/>
+        <error id="E0139" type="error" message="该手机号已被注册！" errorCode="010L0606"/>
+        <error id="E0140" type="error" message="未配置此产品的[${crcycd}]币种的产品属性。" errorCode="010L0607">
+            <parameter id="crcycd" type="BaseType.U_CRCYCD" longname="提前还款类型"/>
+        </error>
+        <error id="E0141" type="error" message="删除[贷款产品价税分离参数表]失败，无对应记录!" errorCode="010L0608"/>
+        <error id="E0142" type="error" message="删除[贷款产品核算代码映射属性表]失败，无对应记录!" errorCode="010L0609"/>
+        <error id="E0200" type="error" message="保证金比例不能小于0!" errorCode="010L0610"/>
+        <error id="E0201" type="error" message="保证金不能小于0!" errorCode="010L0611"/>
+        <error id="E0202" type="error" message="还款类型[${adpytp}]时，还款金额应大于零！" errorCode="010L0612">
+            <parameter id="adpytp" type="LnEnumType.E_ADRPTP" longname="提前还款类型"/>
+        </error>
+        <error id="E0203" type="error" message="递增法中时间区间的长度不能小于0！" errorCode="010L0613"/>
+        <error id="E0204" type="error" message="还款金额不能小于零！" errorCode="010L0614"/>
+        <error id="E0205" type="error" message="还款总额不能小于零！" errorCode="010L0615"/>
+        <error id="E0206" type="error" message="核销本金必须大于零！" errorCode="010L0616"/>
+        <error id="E0207" type="error" message="核销利息必须大于零！" errorCode="010L0617"/>
+        <error id="E0208" type="error" message="计息本金-计息总期数-利率必须大于零！" errorCode="010L0618"/>
+        <error id="E0209" type="error" message="交易金额不能为0或者小于0！" errorCode="010L0619"/>
+        <error id="E0210" type="error" message="借据金额不能为负！" errorCode="010L0620"/>
+        <error id="E0211" type="error" message="收费金额不能小于0！" errorCode="010L0621"/>
+        <error id="E0212" type="error" message="贴息交易金额不能小于0！" errorCode="010L0622"/>
+        <error id="E0213" type="error" message="本金分段总还本金额[${prinam}]与放款金额[${lncfam}]不一致！" errorCode="010L0623">
+            <parameter id="prinam" type="LnBaseType.U_ACBLTP" longname="还本金额"/>
+            <parameter id="lncfam" type="LnBaseType.U_ACBLTP" longname="放款金额"/>
+        </error>
+        <error id="E0214" type="error" message="贷款本金[${prinam}]或利息[${inteam}]或罚金费用[${fineam}]不为零,不能销户！" errorCode="010L0624">
+            <parameter id="prinam" type="LnBaseType.U_ACBLTP" longname="本金"/>
+            <parameter id="inteam" type="LnBaseType.U_ACBLTP" longname="利息"/>
+            <parameter id="fineam" type="LnBaseType.U_ACBLTP" longname="罚金"/>
+        </error>
+        <error id="E0215" type="error" message="贷款未到期[${matudt}]可发放金额[${lendbl}]不为零,不能销户！" errorCode="010L0625">
+            <parameter id="matudt" type="LnBaseType.U_DATE08" longname="到期日期"/>
+            <parameter id="lendbl" type="LnBaseType.U_ACBLTP" longname="可发放金额"/>
+        </error>
+        <error id="E0216" type="error" message="放款金额不在[${mntlam}]到[${mxtlam}]之间！" errorCode="010L0626">
+            <parameter id="mntlam" type="LnBaseType.U_LENDAM" longname="最小放款金额"/>
+            <parameter id="mxtlam" type="LnBaseType.U_LENDAM" longname="最大放款金额"/>
+        </error>
+        <error id="E0217" type="error" message="该贷款提前还款，指定还款金额[${repyam}]不能大于正常本金[${prinam}]加应计利息[${inteam}]" errorCode="010L0627">
+            <parameter id="repyam" type="LnBaseType.U_ACBLTP" longname="还款金额"/>
+            <parameter id="prinam" type="LnBaseType.U_ACBLTP" longname="正常本金"/>
+            <parameter id="inteam" type="LnBaseType.U_ACBLTP" longname="应计利息"/>
+        </error>
+        <error id="E0218" type="error" message="该贷款提前还款不还息，还款指定还款金额[${repyam}]不能大于正常本金[${prinam}]！" errorCode="010L0628">
+            <parameter id="repyam" type="LnBaseType.U_ACBLTP" longname="还款金额"/>
+            <parameter id="prinam" type="LnBaseType.U_ACBLTP" longname="正常本金"/>
+        </error>
+        <error id="E0219" type="error" message="该期还款总额:[${repyam}]小于该期应还本金:[${prinam}]请核对！" errorCode="010L0629">
+            <parameter id="repyam" type="LnBaseType.U_ACBLTP" longname="还款金额"/>
+            <parameter id="prinam" type="LnBaseType.U_ACBLTP" longname="正常本金"/>
+        </error>
+        <error id="E0220" type="error" message="个人消费贷产品放款金额与已用额度之和不能超过[${sumamo}]！" errorCode="010L0630">
+            <parameter id="sumamo" type="LnBaseType.U_ACBLTP" longname="产品放款金额与已用额度和"/>
+        </error>
+        <error id="E0221" type="error" message="还本金额[${repyam}]不能大于正常本金[${prinam}]！" errorCode="010L0631">
+            <parameter id="repyam" type="LnBaseType.U_ACBLTP" longname="还款金额"/>
+            <parameter id="prinam" type="LnBaseType.U_ACBLTP" longname="正常本金"/>
+        </error>
+        <error id="E0222" type="error" message="还款方式[${schdtp}]每期还款额[${repyam}]须大于整期利息[${inteam}],累计值[${progvl}]需要调整！" errorCode="010L0632">
+            <parameter id="schdtp" type="LnEnumType.E_SCHDTP" longname="还款方式"/>
+            <parameter id="repyam" type="LnBaseType.U_ACBLTP" longname="还款金额"/>
+            <parameter id="inteam" type="LnBaseType.U_ACBLTP" longname="整期利息"/>
+            <parameter id="progvl" type="LnBaseType.U_ACBLTP" longname="累计值"/>
+        </error>
+        <error id="E0223" type="error" message="还款金额不能大于欠款余额[${termno}][${subtno}]！" errorCode="010L0633">
+            <parameter id="termno" type="LnBaseType.U_LONGIN" longname="本期期数"/>
+            <parameter id="subtno" type="LnBaseType.U_LONGIN" longname="本期子期数"/>
+        </error>
+        <error id="E0224" type="error" message="该贷款提前还息必须全部还清" errorCode="010L0634"/>
+        <error id="E0225" type="error" message="借据([${lncfno}])存在欠款,本金([${prinam}])利息([${inteam}])罚金([${fineam}]),不能提前还款！" errorCode="010L0635">
+            <parameter id="lncfno" type="LnBaseType.U_LNCFNO" longname="贷款借据号"/>
+            <parameter id="prinam" type="LnBaseType.U_ACBLTP" longname="本金"/>
+            <parameter id="inteam" type="LnBaseType.U_ACBLTP" longname="利息"/>
+            <parameter id="fineam" type="LnBaseType.U_ACBLTP" longname="罚金"/>
+        </error>
+        <error id="E0226" type="error" message="实际扣款金额[${deduam}]不等于指定还款金额[${repyam}]！" errorCode="010L0636">
+            <parameter id="deduam" type="LnBaseType.U_ACBLTP" longname="扣款金额"/>
+            <parameter id="repyam" type="LnBaseType.U_ACBLTP" longname="还款金额"/>
+        </error>
+        <error id="E0227" type="error" message="提前还款结清与应还款金额不一致，需归还金额为[${repyam}]！" errorCode="010L0637">
+            <parameter id="repyam" type="LnBaseType.U_ACBLTP" longname="还款金额"/>
+        </error>
+        <error id="E0228" type="error" message="提前还款指定还款本金[${retnbl}]不能大于正常本金[${lnnpbl}]！" errorCode="010L0638">
+            <parameter id="retnbl" type="LnBaseType.U_ACBLTP" longname="还款本金"/>
+            <parameter id="lnnpbl" type="LnBaseType.U_ACBLTP" longname="正常本金"/>
+        </error>
+        <error id="E0229" type="error" message="提前还款指定金额[${retnbl}]不能小于利息[${inteam}]！" errorCode="010L0639">
+            <parameter id="retnbl" type="LnBaseType.U_ACBLTP" longname="指定金额"/>
+            <parameter id="inteam" type="LnBaseType.U_ACBLTP" longname="利息"/>
+        </error>
+        <error id="E0230" type="error" message="提前结清贷款退客户预收息[${adintr}]应小于等于剩余待摊利息[${txxxin}]！" errorCode="010L0640">
+            <parameter id="adintr" type="LnBaseType.U_ACINTP" longname="预收息"/>
+            <parameter id="txxxin" type="LnBaseType.U_ACINTP" longname="待摊利息"/>
+        </error>
+        <error id="E0231" type="error" message="自定义还款计划列表本金之和[${retnsm}]与放款金额[${lncfam}]不一致！" errorCode="010L0641">
+            <parameter id="retnsm" type="LnBaseType.U_ACBLTP" longname="本金之和"/>
+            <parameter id="lncfam" type="LnBaseType.U_ACBLTP" longname="放款金额"/>
+        </error>
+        <error id="E0232" type="error" message="自定义还款计划列表第一期的起始日期[${stardt}]与贷款放款日期[${trandt}]不一致！" errorCode="010L0642">
+            <parameter id="stardt" type="BaseType.U_DATE08" longname="起始日期"/>
+            <parameter id="trandt" type="BaseType.U_DATE08" longname="放款日期"/>
+        </error>
+        <error id="E0233" type="error" message="自定义还款计划列表中的第[${icount}]期的本期期数[${termno}]不正确！" errorCode="010L0643">
+            <parameter id="icount" type="BaseType.U_INTEGE" longname="期数"/>
+            <parameter id="termno" type="LnBaseType.U_LONGIN" longname="本期期数"/>
+        </error>
+        <error id="E0234" type="error" message="自定义还款计划列表中第[${icount}]期的起始日期[${stardt}]必须小于到期日期[${endxdt}]！" errorCode="010L0644">
+            <parameter id="icount" type="BaseType.U_INTEGE" longname="期数"/>
+            <parameter id="stardt" type="BaseType.U_DATE08" longname="起始日期"/>
+            <parameter id="endxdt" type="BaseType.U_DATE08" longname="到期日期"/>
+        </error>
+        <error id="E0235" type="error" message="自定义还款计划列表中第[${icount}]期的起始日期[${stardt}]与第[${index1}]期的到期日期[${endxdt}]不一致！" errorCode="010L0645">
+            <parameter id="icount" type="BaseType.U_INTEGE" longname="还款列表期数"/>
+            <parameter id="stardt" type="BaseType.U_DATE08" longname="起始日期"/>
+            <parameter id="index1" type="BaseType.U_INTEGE" longname="期数"/>
+            <parameter id="endxdt" type="BaseType.U_DATE08" longname="到期日期"/>
+        </error>
+        <error id="E0236" type="error" message="自定义还款计划的贷款，期供生成方式必须是[2-还款计划书]，当前为[${lgname}]！" errorCode="010L0646">
+            <parameter id="lgname" type="BaseType.U_CHAR50" longname="中文名称"/>
+        </error>
+        <error id="E0237" type="error" message="[${checkdt}]日已经清算过不能再清算了！" errorCode="010L0647">
+            <parameter id="checkdt" type="BaseType.U_DATE08" longname="清算日期"/>
+        </error>
+        <error id="E0238" type="error" message="[${lgname}]记账后余额不能小于零！" errorCode="010L0648">
+            <parameter id="lgname" type="BaseType.U_CHAR50" longname="中文名称"/>
+        </error>
+        <error id="E0239" type="error" message="保证金比列未配置！" errorCode="010L0649"/>
+        <error id="E0240" type="error" message="本金分段结束日期不合法！" errorCode="010L0650"/>
+        <error id="E0241" type="error" message="本金分段结束日期不能大于贷款到期日期！" errorCode="010L0651"/>
+        <error id="E0242" type="error" message="本金分段结束日期不能小于交易日期！" errorCode="010L0652"/>
+        <error id="E0243" type="error" message="本金分段每段起始日期必须小于到期日期！" errorCode="010L0653"/>
+        <error id="E0244" type="error" message="本金分段起始日期必须小于到期日期！" errorCode="010L0654"/>
+        <error id="E0245" type="error" message="本金分段起始日期不合法！" errorCode="010L0655"/>
+        <error id="E0246" type="error" message="本金分段起始日期不能大于贷款到期日期！" errorCode="010L0656"/>
+        <error id="E0247" type="error" message="本金分段起始日期不能小于贷款放款日期！" errorCode="010L0657"/>
+        <error id="E0248" type="error" message="本金分段起始日期不能小于贷款起息日期！" errorCode="010L0658"/>
+        <error id="E0249" type="error" message="标准期供是最后一期, 子期供到期日不能等于标准期供到期日！" errorCode="010L0659"/>
+        <error id="E0250" type="error" message="不支持按利息天数计算罚金！" errorCode="010L0660"/>
+        <error id="E0251" type="error" message="不支持本金分段试算！" errorCode="010L0661"/>
+        <error id="E0252" type="error" message="不支持保留金额试算！" errorCode="010L0662"/>
+        <error id="E0253" type="error" message="不支持的操作类型！" errorCode="010L0663"/>
+        <error id="E0254" type="error" message="不支持的还款种类！" errorCode="010L0664"/>
+        <error id="E0255" type="error" message="不支持多频率还款试算！" errorCode="010L0665"/>
+        <error id="E0256" type="error" message="查还款计划时查询结果为空！" errorCode="010L0666"/>
+        <error id="E0257" type="error" message="查询借据信息列表不能为空！" errorCode="010L0667"/>
+        <error id="E0258" type="error" message="传入证件号码和开户时证件号码不一致！传入证件号码：[${idtfno}]！" errorCode="010L0668">
+            <parameter id="idtfno" type="BaseType.U_IDTFNO" longname="证件号码"/>
+        </error>
+        <error id="E0259" type="error" message="存在未归还的贷款！" errorCode="010L0669"/>
+        <error id="E0260" type="error" message="贷款产品状态非正常！" errorCode="010L0670"/>
+        <error id="E0261" type="error" message="贷款已经过到期日, 不可更改原到贷款期日！" errorCode="010L0671"/>
+        <error id="E0262" type="error" message="贷款账户状态不正常！" errorCode="010L0672"/>
+        <error id="E0263" type="error" message="单委托人时委托人信息不能有多条！" errorCode="010L0673"/>
+        <error id="E0264" type="error" message="当前日期不能大于等于产品失效日期！" errorCode="010L0674"/>
+        <error id="E0265" type="error" message="当前日期不能小于产品生效日期！" errorCode="010L0675"/>
+        <error id="E0266" type="error" message="到期日当天不能提前还款！" errorCode="010L0676"/>
+        <error id="E0267" type="error" message="多频率还款时, 下一还款日应该为空！" errorCode="010L0677"/>
+        <error id="E0268" type="error" message="额度调整异常，所调额度不得存在上级额度百分比以及额度指定金额。" errorCode="010L0678"/>
+        <error id="E0269" type="error" message="放款当天不能提前还款！" errorCode="010L0679"/>
+        <error id="E0270" type="error" message="非按揭贷款不支持提前还款计划调整！" errorCode="010L0680"/>
+        <error id="E0271" type="error" message="非全部结清提前还款不允许退客户预收息！" errorCode="010L0681"/>
+        <error id="E0272" type="error" message="该笔贷款申请已突破当月新增贷款余额！" errorCode="010L0682"/>
+        <error id="E0273" type="error" message="该笔贷款申请已突破每日新增放款笔数！" errorCode="010L0683"/>
+        <error id="E0274" type="error" message="该笔借据已被冲正、或者结清不允许查询！" errorCode="010L0684"/>
+        <error id="E0275" type="error" message="该还款计划已使用，请检查！" errorCode="010L0685"/>
+        <error id="E0276" type="error" message="该借据不存在欠款！" errorCode="010L0686"/>
+        <error id="E0277" type="error" message="该借据未结清，提前还款失败！" errorCode="010L0687"/>
+        <error id="E0278" type="error" message="该借据已经结清，请勿还款！" errorCode="010L0688"/>
+        <error id="E0279" type="error" message="该期已经结清，请勿还款！" errorCode="010L0689"/>
+        <error id="E0280" type="error" message="该期未代偿，请核对！" errorCode="010L0690"/>
+        <error id="E0281" type="error" message="该期已处理，请核对！" errorCode="010L0691"/>
+        <error id="E0282" type="error" message="该支付渠道配置参数有误，请核对！" errorCode="010L0692"/>
+        <error id="E0283" type="error" message="归还期数必须连续！" errorCode="010L0693"/>
+        <error id="E0284" type="error" message="归还贴息金额不能小于贷款贴息余额！" errorCode="010L0694"/>
+        <error id="E0285" type="error" message="还款计划变更本金金额之和前后不一致！" errorCode="010L0695"/>
+        <error id="E0286" type="error" message="还款期数[${icount}]与当前期数[${termno}]存在间期不允许还款，请检查！" errorCode="010L0696">
+            <parameter id="icount" type="LnBaseType.U_LONGIN" longname="还款期数"/>
+            <parameter id="termno" type="LnBaseType.U_LONGIN" longname="本期基数"/>
+        </error>
+        <error id="E0287" type="error" message="还款期数[${icount]]与当前期数为：[${termno}]不符，请检查！" errorCode="010L0697">
+            <parameter id="icount" type="LnBaseType.U_LONGIN" longname="还款期数"/>
+            <parameter id="termno" type="LnBaseType.U_LONGIN" longname="本期基数"/>
+        </error>
+        <error id="E0288" type="error" message="还款属性[${reipro}]暂时未定义！" errorCode="010L0698">
+            <parameter id="reipro" type="LnEnumType.E_REIPRO" longname="还款属性"/>
+        </error>
+        <error id="E0289" type="error" message="核销本金不能大于最大可核销本金！" errorCode="010L0699"/>
+        <error id="E0290" type="error" message="计息当期期数不能大于总期数！" errorCode="010L0700"/>
+        <error id="E0291" type="error" message="记录已经存在，请检查！" errorCode="010L0701"/>
+        <error id="E0292" type="error" message="交易卡号与证件号码不匹配！" errorCode="010L0702"/>
+        <error id="E0293" type="error" message="借据状态必须为呆账！" errorCode="010L0703"/>
+        <error id="E0294" type="error" message="期数不能超过当期借据总期数！" errorCode="010L0704"/>
+        <error id="E0295" type="error" message="签约产品号与还款方式产品号不匹配！" errorCode="010L0705"/>
+        <error id="E0296" type="error" message="签约产品已过期！" errorCode="010L0706"/>
+        <error id="E0297" type="error" message="签约产品状态非正常！" errorCode="010L0707"/>
+        <error id="E0298" type="error" message="签约电子账号与还款方式电子账号不匹配！" errorCode="010L0708"/>
+        <error id="E0299" type="error" message="提前还款并调整计划为缩期, 贷款到期日不变, 请选择提前还款并调整计划为摊薄处理！" errorCode="010L0709"/>
+        <error id="E0300" type="error" message="提前还款并调整计划为缩期, 不变, 请选择提前还款并调整计划为摊薄处理！" errorCode="010L0710"/>
+        <error id="E0301" type="error" message="往期存在欠款，请先归还欠款！" errorCode="010L0711"/>
+        <error id="E0302" type="error" message="往期存在欠款未还，需先归还欠款！" errorCode="010L0712"/>
+        <error id="E0303" type="error" message="一个电子账户下只允许绑定一张卡！" errorCode="010L0713"/>
+        <error id="E0304" type="error" message="已存在，不能重复增加！" errorCode="010L0714"/>
+        <error id="E0305" type="error" message="用贴息账号可用余额进行归还,不能指定交易金额！" errorCode="010L0715"/>
+        <error id="E0306" type="error" message="预约还款必须为指定本金提前还款！" errorCode="010L0716"/>
+        <error id="E0307" type="error" message="遇到错误的贷款会计要素！" errorCode="010L0717"/>
+        <error id="E0308" type="error" message="遇到错误收费种类！" errorCode="010L0718"/>
+        <error id="E0309" type="error" message="还款方式为[1-利随本清], 不产生下一期供！" errorCode="010L0719"/>
+        <error id="E0310" type="error" message="正常本金余额为零, 不调整还款计划！" errorCode="010L0720"/>
+        <error id="E0311" type="error" message="自定义还款计划列表期数不是从1开始！" errorCode="010L0721"/>
+        <error id="E0312" type="error" message="[${initna}-${initdt}]必须[${msg}][${matuna}-${matudt}]！" errorCode="010L0722">
+            <parameter id="initna" type="BaseType.U_CHAR50" longname="开始名称"/>
+            <parameter id="initdt" type="BaseType.U_DATE08" longname="开始日期"/>
+            <parameter id="msg" type="BaseType.U_CHAR100" longname="信息"/>
+            <parameter id="matuna" type="BaseType.U_CHAR50" longname="结束名称"/>
+            <parameter id="matudt" type="BaseType.U_DATE08" longname="结束日期"/>
+        </error>
+        <error id="E0313" type="error" message="本金分段第[${icount}]段的起始日期[${stardt}]与第[${index1}]段的到期日期[${endxdt}]不一致！" errorCode="010L0723">
+            <parameter id="icount" type="BaseType.U_INTEGE" longname="段数"/>
+            <parameter id="stardt" type="BaseType.U_DATE08" longname="起始日期"/>
+            <parameter id="index1" type="BaseType.U_INTEGE" longname="段数"/>
+            <parameter id="endxdt" type="BaseType.U_DATE08"/>
+        </error>
+        <error id="E0314" type="error" message="本金分段第[${icount}]段的段数号[${sequno}]不正确！" errorCode="010L0724">
+            <parameter id="icount" type="BaseType.U_INTEGE" longname="段数"/>
+            <parameter id="sequno" type="BaseType.U_LONGIN" longname="段数号"/>
+        </error>
+        <error id="E0315" type="error" message="本金分段第一段起始日期[${stardt}]与贷款放款日期[${trandt}]不一致！" errorCode="010L0725">
+            <parameter id="stardt" type="BaseType.U_DATE08" longname="起始日期"/>
+            <parameter id="trandt" type="BaseType.U_DATE08" longname="放款日期"/>
+        </error>
+        <error id="E0316" type="error" message="本金分段最后一段到期日期[${effedt}]与贷款到期日期[${matudt}]不一致！" errorCode="010L0726">
+            <parameter id="effedt" type="BaseType.U_DATE08" longname="到期日期"/>
+            <parameter id="matudt" type="BaseType.U_DATE08"/>
+        </error>
+        <error id="E0317" type="error" message="变更的自定义还款计划列表第一期的起始日期[${stardt}]与变更前对应期的起始日期[${endxdt}]不一致！" errorCode="010L0727">
+            <parameter id="stardt" type="BaseType.U_DATE08" longname="起始日期"/>
+            <parameter id="endxdt" type="BaseType.U_DATE08"/>
+        </error>
+        <error id="E0318" type="error" message="变更的自定义还款计划列表最后一期的到期日期[${endndt}]与变更前对应期的到期日期[${endxdt}]不一致！" errorCode="010L0728">
+            <parameter id="endndt" type="BaseType.U_DATE08" longname="到期日期"/>
+            <parameter id="endxdt" type="BaseType.U_DATE08"/>
+        </error>
+        <error id="E0319" type="error" message="变更计划中本期期数为：[${termno}]的原计划状态已使用或不正常，不能变更！" errorCode="010L0729">
+            <parameter id="termno" type="BaseType.U_LONGIN" longname="本期期数"/>
+        </error>
+        <error id="E0320" type="error" message="不分科目核算的[${longna}]会计要素不记账！" errorCode="010L0730">
+            <parameter id="longna" type="BaseType.U_CHAR50" longname="中文名称"/>
+        </error>
+        <error id="E0321" type="error" message="产品签约默认还款账号不是本行账号,产品号：[${prodcd}]，电子账号：[${custac}]！" errorCode="010L0731">
+            <parameter id="prodcd" type="BaseType.U_PRODCD" longname="产品代码"/>
+            <parameter id="custac" type="BaseType.U_CUSTAC" longname="电子账号"/>
+        </error>
+        <error id="E0322" type="error" message="贷款期限[${termfm}], 设定错误！" errorCode="010L0732">
+            <parameter id="termfm" type="LnBaseType.U_DEADLI" longname="贷款期限"/>
+        </error>
+        <error id="E0323" type="error" message="贷款提前还款，资金来源[${capsou}]不正确！" errorCode="010L0733">
+            <parameter id="capsou" type="BaseType.U_CHAR01" longname="资金来源"/>
+        </error>
+        <error id="E0324" type="error" message="贷款账号[${acctno}]与借据号[${lncfno}]不匹配。" errorCode="010L0734">
+            <parameter id="acctno" type="BaseType.U_ACCTNO" longname="贷款账号"/>
+            <parameter id="lncfno" type="LnBaseType.U_LNCFNO" longname="贷款借据号"/>
+        </error>
+        <error id="E0325" type="error" message="到期日期[${matudt}]必须大于交易日期[${trandt}]！" errorCode="010L0735">
+            <parameter id="matudt" type="BaseType.U_DATE08" longname="到期日期"/>
+            <parameter id="trandt" type="BaseType.U_DATE08" longname="交易日期"/>
+        </error>
+        <error id="E0326" type="error" message="到期日期[${matudt}]值不合法！" errorCode="010L0736">
+            <parameter id="matudt" type="BaseType.U_DATE08" longname="到期日期"/>
+        </error>
+        <error id="E0327" type="error" message="电子账户[${custac}]状态不正常！" errorCode="010L0737">
+            <parameter id="custac" type="BaseType.U_CUSTAC" longname="电子账号"/>
+        </error>
+        <error id="E0328" type="error" message="还款种类[${longna}](全部结清或提前还款)必须指定还款账号！" errorCode="010L0738">
+            <parameter id="longna" type="BaseType.U_CHAR50" longname="中文名称"/>
+        </error>
+        <error id="E0329" type="error" message="计划调整后, 定制期供到期日[${endndt}]不能大于标准期供到期日[${endxdt}]！" errorCode="010L0739">
+            <parameter id="endndt" type="BaseType.U_DATE08" longname="定制期供到期日"/>
+            <parameter id="endxdt" type="BaseType.U_DATE08" longname="到期日期"/>
+        </error>
+        <error id="E0330" type="error" message="计划调整后, 多频期供到期日[${endndt}]不能大于标准期供到期日[${endxdt}]！" errorCode="010L0740">
+            <parameter id="endndt" type="BaseType.U_DATE08" longname="定制期供到期日"/>
+            <parameter id="endxdt" type="BaseType.U_DATE08" longname="到期日期"/>
+        </error>
+        <error id="E0331" type="error" message="计划调整后, 多频期供到期日[${endxdt}]不能小于交易日[${trandt}]！" errorCode="010L0741">
+            <parameter id="endxdt" type="BaseType.U_DATE08" longname="到期日期"/>
+            <parameter id="trandt" type="BaseType.U_DATE08" longname="交易日期"/>
+        </error>
+        <error id="E0332" type="error" message="借据[${lncfno}]不允许提前还款！" errorCode="010L0742">
+            <parameter id="lncfno" type="LnBaseType.U_LNCFNO" longname="贷款借据号"/>
+        </error>
+        <error id="E0333" type="error" message="借据号[${lncfno}]存在欠款，不允许提前还款！" errorCode="010L0743">
+            <parameter id="lncfno" type="LnBaseType.U_LNCFNO" longname="贷款借据号"/>
+        </error>
+        <error id="E0334" type="error" message="借据号[${lncfno}]形态不为正常，不能进行正常放款！" errorCode="010L0744">
+            <parameter id="lncfno" type="LnBaseType.U_LNCFNO" longname="贷款借据号"/>
+        </error>
+        <error id="E0335" type="error" message="没有更新到期供[${termno}][${subtno}]！" errorCode="010L0745">
+            <parameter id="termno" type="BaseType.U_LONGIN" longname="本期期数"/>
+            <parameter id="subtno" type="BaseType.U_LONGIN" longname="本期子期数"/>
+        </error>
+        <error id="E0336" type="error" message="期限[${termfm}]不能大于产品设定的最长贷款期限[${mxterm}]！" errorCode="010L0746">
+            <parameter id="termfm" type="LnBaseType.U_DEADLI" longname="贷款期限"/>
+            <parameter id="mxterm" type="LnBaseType.U_DEADLI" longname="最长贷款期限"/>
+        </error>
+        <error id="E0337" type="error" message="期限[${termfm}]不能小于产品设定的最短贷款期限[${mnterm}]！" errorCode="010L0747">
+            <parameter id="termfm" type="LnBaseType.U_DEADLI" longname="贷款期限"/>
+            <parameter id="mnterm" type="LnBaseType.U_DEADLI" longname="最短贷款期限"/>
+        </error>
+        <error id="E0338" type="error" message="期限[${freque}]非法！" errorCode="010L0748">
+            <parameter id="freque" type="BaseType.U_CHAR50" longname="未拆分的周期频率"/>
+        </error>
+        <error id="E0339" type="error" message="起息日期[${instdt}]不能大于或等于到期日期[${matudt}]！" errorCode="010L0749">
+            <parameter id="instdt" type="BaseType.U_DATE08" longname="起息日期"/>
+            <parameter id="matudt" type="BaseType.U_DATE08" longname="到期日期"/>
+        </error>
+        <error id="E0340" type="error" message="起息日期[${instdt}]期限[${termfm}]到期日[${matudt}],输入不匹配！" errorCode="010L0750">
+            <parameter id="instdt" type="BaseType.U_DATE08" longname="起息日期"/>
+            <parameter id="termfm" type="LnBaseType.U_DEADLI" longname="贷款期限"/>
+            <parameter id="matudt" type="BaseType.U_DATE08" longname="到期日期"/>
+        </error>
+        <error id="E0341" type="error" message="输入日期[${schddt}]格式不对！" errorCode="010L0751">
+            <parameter id="schddt" type="BaseType.U_DATE08" longname="期供日期"/>
+        </error>
+        <error id="E0342" type="error" message="提前还款,提前还款种类[${longna}]必须为指定本金或指定总额！" errorCode="010L0752">
+            <parameter id="longna" type="BaseType.U_CHAR50" longname="中文名称"/>
+        </error>
+        <error id="E0343" type="error" message="预约还款日期[${retndt}]必须晚于交易日期！" errorCode="010L0753">
+            <parameter id="retndt" type="BaseType.U_DATE08" longname="还款日期"/>
+        </error>
+        <error id="E0344" type="error" message="预约还款日期[${retndt}]不能超过贷款到期日期[${matudt}]" errorCode="010L0754">
+            <parameter id="retndt" type="BaseType.U_DATE08" longname="还款日期"/>
+            <parameter id="matudt" type="BaseType.U_DATE08" longname="到期日期"/>
+        </error>
+        <error id="E0345" type="error" message="暂不支持该还款日确定模式[${longna}]！" errorCode="010L0755">
+            <parameter id="longna" type="BaseType.U_CHAR50" longname="中文名称"/>
+        </error>
+        <error id="E0346" type="error" message="账户状态[${longna}]不允许正常放款！" errorCode="010L0756">
+            <parameter id="longna" type="BaseType.U_CHAR50" longname="中文名称"/>
+        </error>
+        <error id="E0347" type="error" message="周期频率[${freque}]非法!" errorCode="010L0757">
+            <parameter id="freque" type="BaseType.U_CHAR50" longname="周期频率"/>
+        </error>
+        <error id="E0348" type="error" message="[${name}-${date}]非法！" errorCode="010L0758">
+            <parameter id="name" type="BaseType.U_CHAR50" longname="属性名称"/>
+            <parameter id="date" type="BaseType.U_DATE08" longname="验证日期"/>
+        </error>
+        <error id="E0349" type="error" message="产品号[${prodcd}]收费事件[${envtcd}]记录状态为[${recdst}]不可修改为[${recdst1}]!" errorCode="010L0759">
+            <parameter id="prodcd" type="BaseType.U_PRODCD" longname="产品号"/>
+            <parameter id="envtcd" type="BaseType.U_CHAR32" longname="收费事件"/>
+            <parameter id="recdst" type="LnEnumType.E_RECDST" longname="记录状态"/>
+            <parameter id="recdst1" type="LnEnumType.E_RECDST" longname="记录状态"/>
+        </error>
+        <error id="E0350" type="error" message="零头计息规则不可为空!" errorCode="010L0760"/>
+        <error id="E0351" type="error" message="还款金额与需还款总额不一致!" errorCode="010L0761"/>
+        <error id="E0352" type="error" message="该产品配置的逾期罚息浮动方式不可为空!" errorCode="010L0762"/>
+        <error id="E0353" type="error" message="展期日期[${expddt}]必须与贷款到期日期[${matudt}]相同!" errorCode="010L0763">
+            <parameter id="expddt" type="BaseType.U_DATE08" longname="展期日期"/>
+            <parameter id="matudt" type="BaseType.U_DATE08" longname="到期日期"/>
+        </error>
+        <error id="E0354" type="error" message="展期金额[${expdam}]必须与贷款本金[${lnnpbl}]相同!" errorCode="010L0764">
+            <parameter id="expdam" type="LnBaseType.U_ACBLTP" longname="展期日期"/>
+            <parameter id="lnnpbl" type="LnBaseType.U_ACBLTP" longname="到期日期"/>
+        </error>
+        <error id="E0355" type="error" message="用款申请流水号与贷款借据号不匹配!" errorCode="010L0765"/>
+        <error id="E0356" type="error" message="核销利息不能大于最大可核销利息！" errorCode="010L0766"/>
+        <error id="E0357" type="error" message="卡贷通、保函、银承贷款默认为普通贷款！" errorCode="010L0767"/>
+    	<error id="E0358" type="error" message="客户号[${custno}]不存在贷款借据号[${lncfno}]!" errorCode="010L0768">
+            <parameter id="custno" type="LnBaseType.U_CUSTNO" longname="客户号"/>
+            <parameter id="lncfno" type="LnBaseType.U_LNCFNO" longname="借据号"/>
+        </error>
+        <error id="E0359" type="error" message="自定义还款计划变更输入不可为空" errorCode="010L0769"/>
+        <error id="E0360" type="error" message="交易卡号、证件号码不能同时为空！" errorCode="010L0770"/>
+        <error id="E0361" type="error" message="输入期数不合法" errorCode="010L0771"/>
+        <error id="E0362" type="error" message="还款账户余额不足" errorCode="010L0772"/>
+        <error id="E0363" type="error" message="还款账号输入类型不正确，请输入存款账号或内部户" errorCode="010L0773"/>
+        <error id="E0364" type="error" message="还款金额必须大于0" errorCode="010L0774"/>
+        <error id="E0365" type="error" message="该产品暂未配置保证金相关信息" errorCode="010L0775"/>
+        <error id="E0366" type="error" message="贴息贷款的相关贴息属性不可为空" errorCode="010L0776"/>
+        <error id="E0367" type="error" message="贴息账户余额不足" errorCode="010L0777"/>
+        <error id="E0368" type="error" message="贴息账户贴息比率设置错误" errorCode="010L0778"/>
+        <error id="E0369" type="error" message="贴息贷款产品的执行利率需指定且大于0" errorCode="010L0779"/>
+        <error id="E0370" type="error" message="贷款产品可放额度不足" errorCode="010L0780"/>
+        <error id="E0371" type="error" message="起始日期不可为空" errorCode="010L0781"/>
+        <error id="E0372" type="error" message="该贷款产品暂无贷款信息" errorCode="010L0782"/>
+        <error id="E0373" type="error" message="抵押计提信息不可为空" errorCode="010L0783"/>
+        <error id="E0374" type="error" message="抵押计提信息不存在" errorCode="010L0784"/>
+        <error id="E0375" type="error" message="该笔借据期供信息不存在" errorCode="010L0785"/>
+        <error id="E0376" type="error" message="该还款方式[${schdtp}]不允许提前还款期供,只支持提前结清" errorCode="010L0786">
+            <parameter id="schdtp" type="BaseType.U_CHAR20" longname="还款方式"/>
+        </error>
+        <error id="E0377" type="error" message="实际扣款金额[${amount}]不等于指定还款金额[${prpyam}]!" errorCode="010L0787">
+            <parameter id="amount" type="BaseType.U_TRANAM" longname="实际扣款金额"/>
+            <parameter id="prpyam" type="BaseType.U_TRANAM" longname="指定还款金额"/>
+        </error>
+        <error id="E0378" type="error" message="红包卡券金额需小于等于当期还款本金" errorCode="010L0788"/>
+        <error id="E0379" type="error" message="不存在零售节点，或查询零售节点失败！" errorCode="010L0789"/>
+        <error id="E0380" type="error" message="正常利率信息正常利率编码和正常利率不能同时为空" errorCode="010L0790"/>
+        <error id="E0381" type="error" message="逾期利率编号与逾期利率不能同时为空" errorCode="010L0791"/>
+        <error id="E0382" type="error" message="复利利率编号与复利利率不能同时为空" errorCode="010L0792"/>
+        <error id="E0383" type="error" message="711还款,交易卡号对应电子结算账户不存在" errorCode="010L0793"/>
+        <error id="E0384" type="error" message="删除[贷款产品代理业务属性表]失败，无对应记录" errorCode="010L0794"/>
+        <error id="E0385" type="error" message="删除[资产转让产品属性表]失败，无对应记录" errorCode="010L0795"/>
+        <error id="E0386" type="error" message="删除[贷款产品缺省控制表]失败，无对应记录" errorCode="010L0796"/>
+        <error id="E0387" type="error" message="删除[贷款产品会计核算属性表]失败，无对应记录" errorCode="010L0797"/>
+        <error id="E0388" type="error" message="产品代码不能为空" errorCode="010L0798"/>
+        <error id="E0389" type="error" message="货币代号不能为空" errorCode="010L0799"/>
+        <error id="E0390" type="error" message="删除[贷款产品基础属性表]失败，无对应记录" errorCode="010L0800"/>
+        <error id="E0391" type="error" message="产品状态不能为空" errorCode="010L0801"/>
+        <error id="E0392" type="error" message="该产品不存在" errorCode="010L0802"/>
+        <error id="E0393" type="error" message="删除[贷款产品基础属性表]失败，无对应记录" errorCode="010L0803"/>
+        <error id="E0394" type="error" message="产品名称不能为空" errorCode="010L0804"/>
+        <error id="E0395" type="error" message="删除[款产品收费事件定义属性表]失败，无对应记录" errorCode="010L0805"/>
+        <error id="E0396" type="error" message="交易类型不能为空" errorCode="010L0806"/>
+        <error id="E0397" type="error" message="删除[贷款产品清算属性表]失败，无对应记录" errorCode="010L0807"/>
+        <error id="E0398" type="error" message="清算类型不能为空" errorCode="010L0808"/>
+        <error id="E0399" type="error" message="内部户业务编码不能为空" errorCode="010L0809"/>
+        <error id="E0400" type="error" message="每页记录数不能为空" errorCode="010L0810"/>
+        <error id="E0401" type="error" message="当前页数不能为空" errorCode="010L0811"/>
+        <error id="E0402" type="error" message="功能对象不能为空" errorCode="010L0812"/>
+        <error id="E0403" type="error" message="删除产品[${prodcd}]币种控制信息失败,不存在记录！" errorCode="010L0813">
+            <parameter id="prodcd" type="BaseType.U_CHAR20" longname="产品代码"/>
+        </error>
+        <error id="E0404" type="error" message="删除[贷款产品分类]失败，无对应记录" errorCode="010L0814"/>
+        <error id="E0405" type="error" message="删除[贷款产品计息属性表失败，无对应记录" errorCode="010L0815"/>
+        <error id="E0406" type="error" message="最高利率不能小于零" errorCode="010L0816"/>
+        <error id="E0407" type="error" message="最低利率不能小于零" errorCode="010L0817"/>
+        <error id="E0408" type="error" message="最高上浮不能小于零" errorCode="010L0818"/>
+        <error id="E0409" type="error" message="最低下浮不能小于零" errorCode="010L0819"/>
+        <error id="E0410" type="error" message="正常利率不能小于零" errorCode="010L0820"/>
+        <error id="E0411" type="error" message="利率浮动值不能小于零" errorCode="010L0821"/>
+        <error id="E0412" type="error" message="逾期利率不能小于零" errorCode="010L0822"/>
+        <error id="E0413" type="error" message="逾期利率浮动值不能小于零" errorCode="010L0823"/>
+        <error id="E0414" type="error" message="逾期罚息利率不能小于零" errorCode="010L0824"/>
+        <error id="E0415" type="error" message="逾期罚息利率不能小于零" errorCode="010L0825"/>
+        <error id="E0416" type="error" message="挤占挪用利率浮动值不能小于零" errorCode="010L0826"/>
+        <error id="E0417" type="error" message="结息频率不能为空" errorCode="010L0827"/>
+        <error id="E0418" type="error" message="删除[贷款产品放款属性表]失败，无对应记录" errorCode="010L0828"/>
+        <error id="E0419" type="error" message="最大放款金额不能小于零" errorCode="010L0829"/>
+        <error id="E0420" type="error" message="最小放款金额不能小于零" errorCode="010L0830"/>
+        <error id="E0421" type="error" message="每次最大金额不能小于零" errorCode="010L0831"/>
+        <error id="E0422" type="error" message="每次最小金额不能小于零" errorCode="010L0832"/>
+        <error id="E0423" type="error" message="删除[贷款产品到期属性表]失败，无对应记录" errorCode="010L0833"/>
+        <error id="E0424" type="error" message="金额不能小于或等于零" errorCode="010L0834"/>
+        <error id="E0425" type="error" message="删除产品[${prodcd}]失败，不存在该产品记录" errorCode="010L0835">
+            <parameter id="prodcd" type="BaseType.U_CHAR20" longname="产品代码"/>
+        </error>
+        <error id="E0426" type="error" message="删除[贷款产品适用范围控制表]失败，无对应记录" errorCode="010L0836"/>
+        <error id="E0427" type="error" message="适用类型不能为空" errorCode="010L0837"/>
+        <error id="E0428" type="error" message="机构适用标志不能为空" errorCode="010L0838"/>
+        <error id="E0429" type="error" message="适用范围不能为空" errorCode="010L0839"/>
+        <error id="E0430" type="error" message="删除[贷款产品还款方式组合表]失败，无对应记录" errorCode="010L0840"/>
+        <error id="E0431" type="error" message="组合类型不能为空" errorCode="010L0841"/>
+        <error id="E0432" type="error" message="序号不能为空" errorCode="010L0842"/>
+        <error id="E0433" type="error" message="删除[贷款产品基础属性表]失败，无对应记录" errorCode="010L0843"/>
+        <error id="E0434" type="error" message="期供生成方式不能为空" errorCode="010L0844"/>
+        <error id="E0435" type="error" message="还款周期格式不正确" errorCode="010L0845"/>
+        <error id="E0436" type="error" message="还本周期格式不正确" errorCode="010L0846"/>
+        <error id="E0437" type="error" message="逾期还款周期格式不正确" errorCode="010L0847"/>
+        <error id="E0438" type="error" message="默认期限格式不正确" errorCode="010L0848"/>
+        <error id="E0439" type="error" message="收费事件不能为空" errorCode="010L0849"/>
+        <error id="E0440" type="error" message="请输入产品组代码" errorCode="010L0850"/>
+        <error id="E0441" type="error" message="适用类型不能为空" errorCode="010L0851"/>
+        <error id="E0442" type="error" message="机构适用标志不能为空" errorCode="010L0852"/>
+        <error id="E0443" type="error" message="适用范围不能为空" errorCode="010L0853"/>
+        <error id="E0444" type="error" message="扣款参数编号不能为空" errorCode="010L0854"/>
+        <error id="E0445" type="error" message="贷款形态不能为空" errorCode="010L0855"/>
+        <error id="E0446" type="error" message="应计非应计状态不能为空" errorCode="010L0856"/>
+        <error id="E0447" type="error" message="贷款产品基础属性部件不能为空" errorCode="010L0857"/>
+        <error id="E0448" type="error" message="贷款产品放款属性部件不能为空" errorCode="010L0858"/>
+        <error id="E0449" type="error" message="贷款产品还款属性部件不能为空" errorCode="010L0859"/>
+        <error id="E0450" type="error" message="贷款产品核算属性部件不能为空" errorCode="010L0860"/>
+        <error id="E0451" type="error" message="贷款产品核算映射部件不能为空" errorCode="010L0861"/>
+        <error id="E0452" type="error" message="贷款产品计息属性部件不能为空" errorCode="010L0862"/>
+        <error id="E0453" type="error" message="贷款产品收费基础部件不能为空" errorCode="010L0863"/>
+        <error id="E0454" type="error" message="贷款产品清算属性部件不能为空" errorCode="010L0864"/>
+        <error id="E0455" type="error" message="贷款到期属性部件不能为空" errorCode="010L0865"/>
+        <error id="E0456" type="error" message="还款计划列表生成失败" errorCode="010L0866"/>
+        <error id="E0457" type="error" message="额度调整异常，所调额度不得存在上级额度百分比以及额度指定金额。" errorCode="010L0867"/>
+        <error id="E0458" type="error" message="电子账户不存在，请核对" errorCode="010L0868"/>
+        <error id="E0459" type="error" message="币种与电子账户开户币种不一致" errorCode="010L0869"/>
+        <error id="E0460" type="error" message="无对应记录！" errorCode="010L0870"/>
+        <error id="E0461" type="error" message="读取文件头信息[readMsgHeader],文件第[${index}]行数据处理失败。[$error]" errorCode="010L0871">
+            <parameter id="index" type="BaseType.U_INTEGE" longname="行"/>
+            <parameter id="error" type="BaseType.U_CHAR500" longname="错误信息"/>
+        </error>
+        <error id="E0462" type="error" message="电子账户信息不存在" errorCode="010L0872"/>
+        <error id="E0463" type="error" message="未查询到状态正常且有可支取金额的存款账户" errorCode="010L0873"/>
+        <error id="E0464" type="error" message="贷款期限长度不正确，应为:数字+M/Q/Y" errorCode="010L0874"/>
+        <error id="E0465" type="error" message="贷款期限单位不对，应为:M/Q/Y" errorCode="010L0875"/>
+        <error id="E0466" type="error" message="第[${seq}]条数据规则说明长度过长" errorCode="010L0876">
+            <parameter id="seq" type="BaseType.U_INTEGE" longname="数据"/>
+        </error>
+        <error id="E0467" type="error" message="此交易[流水：${transq}]不允许隔日冲正！" errorCode="010L0877">
+            <parameter id="transq" type="BaseType.U_CHAR50" longname="流水"/>
+        </error>
+        <error id="E0468" type="error" message="未查到对应资产证券化产品与业务编码关联表配置" errorCode="010L0878"/>
+        <error id="E0469" type="error" message="期数不能小于等于0" errorCode="010L0879"/>
+        <error id="E0470" type="error" message="贷款期限单位与最长贷款期限单位不一致" errorCode="010L0880"/>
+        <error id="E0471" type="error" message="贷款最长期限不能小于贷款最短期限" errorCode="010L0881"/>
+        <error id="E0472" type="error" message="递增法中时间区间的长度不能小于0" errorCode="010L0882"/>
+        <error id="E0473" type="error" message="正常利率年月标识不能为空" errorCode="010L0883"/>
+        <error id="E0474" type="error" message="逾期利率年月标识不能为空" errorCode="010L0884"/>
+        <error id="E0475" type="error" message="复利利率年月标识不能为空" errorCode="010L0885"/>
+        <error id="E0476" type="error" message="展期贷款借据号不能为空" errorCode="010L0886"/>
+        <error id="E0477" type="error" message="展期合同号不能为空" errorCode="010L0887"/>
+        <error id="E0478" type="error" message="展期到期日不能为空" errorCode="010L0888"/>
+        <error id="E0479" type="error" message="展期金额不能为空" errorCode="010L0889"/>
+        <error id="E0480" type="error" message="展期开始日期不能为空" errorCode="010L0890"/>
+        <error id="E0481" type="error" message="展期利率类型不能为空" errorCode="010L0891"/>
+        <error id="E0482" type="error" message="展期利率浮动方式不能为空" errorCode="010L0892"/>
+        <error id="E0483" type="error" message="展期利率不浮动，利率不能为空" errorCode="010L0893"/>
+        <error id="E0484" type="error" message="展期利率浮动，利率浮动值不能为空" errorCode="010L0894"/>
+        <error id="E0485" type="error" message="没有申请预展期录入记录,不能预约取消申请" errorCode="010L0895"/>
+        <error id="E0486" type="error" message="已经有了申请预展期记录,不能重复申请" errorCode="010L0896"/>
+        <error id="E0487" type="error" message="操作类型暂时不支持" errorCode="010L0897"/>
+        <error id="E0488" type="error" message="没有申请预展期录入记录,不能复核申请" errorCode="010L0898"/>
+        <error id="E0489" type="error" message="本金分段还款周期不能为空！" errorCode="010L0899"/>
+        <error id="E0490" type="error" message="本金分段到期日期不能为空" errorCode="010L0900"/>
+        <error id="E0491" type="error" message="本金分段结束日期不合法" errorCode="010L0901"/>
+        <error id="E0492" type="error" message="本金分段结束日期不能小于交易日期" errorCode="010L0902"/>
+        <error id="E0493" type="error" message="本金分段结束日期不能大于贷款到期日期" errorCode="010L0903"/>
+        <error id="E0494" type="error" message="本金分段起始日期不能为空" errorCode="010L0904"/>
+        <error id="E0495" type="error" message="本金分段起始日期不合法" errorCode="010L0905"/>
+        <error id="E0496" type="error" message="本金分段起始日期不能小于贷款起息日期" errorCode="010L0906"/>
+        <error id="E0497" type="error" message="本金分段起始日期不能大于贷款到期日期" errorCode="010L0907"/>
+        <error id="E0498" type="error" message="本金分段起始日期必须小于到期日期" errorCode="010L0908"/>
+        <error id="E0499" type="error" message="计息本金-计息总期数-利率必须大于零" errorCode="010L0909"/>
+        <error id="E0500" type="error" message="递增法中时间区间的长度不能小于0" errorCode="010L0910"/>
+        <error id="E0501" type="error" message="递增法中时间区间的长度不能小于0" errorCode="010L0911"/>
+        <error id="E0502" type="error" message="未知的还款方式" errorCode="010L0912"/>
+        <error id="E0503" type="error" message="借据号不存在！" errorCode="010L0913"/>
+        <error id="E0504" type="error" message="贷款剩余本金不能小于或等于零" errorCode="010L0914"/>
+        <error id="E0505" type="error" message="该笔借据的未来期供已生成" errorCode="010L0915"/>
+        <error id="E0506" type="error" message="重算期数大于原总期数" errorCode="010L0916"/>
+        <error id="E0507" type="error" message="不支持本金分段和多频还款同时试算" errorCode="010L0917"/>
+        <error id="E0508" type="error" message="等本等息不适用本金分段" errorCode="010L0918"/>
+        <error id="E0509" type="error" message="电子账号不存在" errorCode="010L0919"/>
+        <error id="E0510" type="error" message="客户额度产品不存在" errorCode="010L0920"/>
+        <error id="E0511" type="error" message="合作商额度产品不存在" errorCode="010L0921"/>
+        <error id="E0512" type="error" message="贷款账号和借据号至少有一条不为空" errorCode="010L0922"/>
+        <error id="E0513" type="error" message="输入贷款账号条件不能为空" errorCode="010L0923"/>
+        <error id="E0514" type="error" message="查询条件借据号不能为空" errorCode="010L0924"/>
+        <error id="E0515" type="error" message="借据号不能为空" errorCode="010L0925"/>
+        <error id="E0516" type="error" message="贷款还款类型不能为空" errorCode="010L0926"/>
+        <error id="E0517" type="error" message="贷款还款渠道类型不能为空" errorCode="010L0927"/>
+        <error id="E0518" type="error" message="查借据信息时贷款账号和借据号不能都为空" errorCode="010L0928"/>
+        <error id="E0519" type="error" message="查还款计划时借据号不能为空" errorCode="010L0929"/>
+        <error id="E0520" type="error" message="查借据信息时查询结果为空" errorCode="010L0930"/>
+        <error id="E0521" type="error" message="贷款借据号与贷款账号不能同时为空" errorCode="010L0931"/>
+        <error id="E0522" type="error" message="当前页数输入不合法！" errorCode="010L0932"/>
+        <error id="E0523" type="error" message="每页数量不能为空！" errorCode="010L0933"/>
+        <error id="E0524" type="error" message="指定日期时查询日期不能为空！" errorCode="010L0934"/>
+        <error id="E0525" type="error" message="上次交易日期不能为空" errorCode="010L0935"/>
+        <error id="E0526" type="error" message="找不到对应的电子账户！" errorCode="010L0936"/>
+        <error id="E0527" type="error" message="订单信息不能为空！！" errorCode="010L0937"/>
+        <error id="E0528" type="error" message="收费事件输入产品代码有误" errorCode="010L0938"/>
+        <error id="E0529" type="error" message="收费事件输入收费事件编号不可为空" errorCode="010L0939"/>
+        <error id="E0530" type="error" message="收费事件输入收费金额不可小于0" errorCode="010L0940"/>
+        <error id="E0531" type="error" message="两次录入不一致" errorCode="010L0941"/>
+        <error id="E0532" type="error" message="自定义还款计划列表期数不是从1开始！" errorCode="010L0942"/>
+        <error id="E0533" type="error" message="自定义还款计划贷款放款时，还款计划列表不能空" errorCode="010L0943"/>
+        <error id="E0534" type="error" message="电子账号不可以为空！" errorCode="010L0944"/>
+        <error id="E0535" type="error" message="产品代码不能为空不可以为空!" errorCode="010L0945"/>
+        <error id="E0536" type="error" message="货币代号不能为空" errorCode="010L0946"/>
+        <error id="E0537" type="error" message="借据金额不能为负" errorCode="010L0947"/>
+        <error id="E0538" type="error" message="贷款产品状态非正常！" errorCode="010L0948"/>
+        <error id="E0539" type="error" message="当前日期不能小于产品生效日期！" errorCode="010L0949"/>
+        <error id="E0540" type="error" message="当前日期不能大于等于产品失效日期！" errorCode="010L0950"/>
+        <error id="E0541" type="error" message="电子账户不能为空" errorCode="010L0951"/>
+        <error id="E0542" type="error" message="产品代码不能为空" errorCode="010L0952"/>
+        <error id="E0543" type="error" message="签约电子账号与还款方式电子账号不匹配" errorCode="010L0953"/>
+        <error id="E0544" type="error" message="签约产品号与还款方式产品号不匹配" errorCode="010L0954"/>
+        <error id="E0545" type="error" message="签约产品不存在" errorCode="010L0955"/>
+        <error id="E0546" type="error" message="签约产品状态非正常" errorCode="010L0956"/>
+        <error id="E0547" type="error" message="签约产品已过期" errorCode="010L0957"/>
+        <error id="E0548" type="error" message="正常利率信息正常利率编码和正常利率不能同时为空" errorCode="010L0958"/>
+        <error id="E0549" type="error" message="逾期利率信息逾期利率编码和逾期利率不能同时为空" errorCode="010L0959"/>
+        <error id="E0550" type="error" message="复利利率信息复利利率编码和复利利率不能同时为空" errorCode="010L0960"/>
+        <error id="E0551" type="error" message="挤占挪用利率信息挤占挪用利率编码和挤占挪用利率不能同时为空" errorCode="010L0961"/>
+        <error id="E0552" type="error" message="贷款账号输入不能为空" errorCode="010L0962"/>
+        <error id="E0553" type="error" message="电子账号输入不能为空" errorCode="010L0963"/>
+        <error id="E0554" type="error" message="还款方式为[1-利随本清], 不产生下一期供!" errorCode="010L0964"/>
+        <error id="E0555" type="error" message="遇到错误收费种类" errorCode="010L0965"/>
+        <error id="E0556" type="error" message="正常、逾期、复利利率年月标识不能为空" errorCode="010L0966"/>
+        <error id="E0557" type="error" message="正常利率编号与正常利率不能同时为空" errorCode="010L0967"/>
+        <error id="E0558" type="error" message="该笔借据的未来期供已生成" errorCode="010L0968"/>
+        <error id="E0559" type="error" message="不存在零售节点，或查询零售节点失败！" errorCode="010L0969"/>
+        <error id="E0560" type="error" message="未查到对应资产证券化产品与业务编码关联表配置" errorCode="010L0970"/>
+        <error id="E0561" type="error" message="无文件配置参数，请检查！" errorCode="010L0971"/>
+        <error id="E0562" type="error" message="该借据存在欠款未还，不允许提前还款" errorCode="010L0972"/>
+        <error id="E0563" type="error" message="不是当期请确认！" errorCode="010L0973"/>
+        <error id="E0564" type="error" message="实际扣款金额与还款金额不一致" errorCode="010L0974"/>
+        <error id="E0565" type="error" message="该借据状态不正常，请核查！" errorCode="010L0975"/>
+        <error id="E0566" type="error" message="该期状态不正常" errorCode="010L0976"/>
+        <error id="E0567" type="error" message="实际扣款金额与还款金额不一致" errorCode="010L0977"/>
+        <error id="E0568" type="error" message="没有配置文件路劲，请核对！！！" errorCode="010L0978"/>
+        <error id="E0569" type="error" message="该借款信息不存在" errorCode="010L0979"/>
+        <error id="E0570" type="error" message="停起息标志不可为空" errorCode="010L0980"/>
+        <error id="E0571" type="error" message="该贷款产品不存在，请核对!" errorCode="010L0981"/>
+        <error id="E0572" type="error" message="贷款产品状态非正常！" errorCode="010L0982"/>
+        <error id="E0573" type="error" message="当前日期不能小于产品生效日期！" errorCode="010L0983"/>
+        <error id="E0574" type="error" message="执行利率值不可小于等于0" errorCode="010L0984"/>
+        <error id="E0575" type="error" message="逾期利率值不可小于等于0" errorCode="010L0985"/>
+        <error id="E0576" type="error" message="复利利率值不可小于0" errorCode="010L0986"/>
+        <error id="E0577" type="error" message="资金交易类型不支持" errorCode="010L0987"/>
+        <error id="E0578" type="error" message="积数调整只能进行修改" errorCode="010L0988"/>
+        <error id="E0579" type="error" message="贷款借据号不可为空" errorCode="010L0989"/>
+        <error id="E0580" type="error" message="调整方式不可为空" errorCode="010L0990"/>
+        <error id="E0581" type="error" message="贷款信息不存在" errorCode="010L0991"/>
+        <error id="E0582" type="error" message="该账户已销户" errorCode="010L0992"/>
+        <error id="E0583" type="error" message="法人信息不正确" errorCode="010L0993"/>
+        <error id="E0584" type="error" message="贷款规则信息不存在" errorCode="010L0994"/>
+        <error id="E0585" type="error" message="贷款核算信息不存在" errorCode="010L0995"/>
+        <error id="E0586" type="error" message="调整积数不可为空" errorCode="010L0996"/>
+        <error id="E0587" type="error" message="调整积数不正确" errorCode="010L0997"/>
+        <error id="E0588" type="error" message="调整利息金额需要为空" errorCode="010L0998"/>
+        <error id="E0589" type="error" message="期供信息不存在" errorCode="010L0999"/>
+        <error id="E0590" type="error" message="当期期供已结清" errorCode="010L1000"/>
+        <error id="E0591" type="error" message="本期状态不正常" errorCode="010L1001"/>
+        <error id="E0592" type="error" message="规则和期供期数不一致" errorCode="010L1002"/>
+        <error id="E0593" type="error" message="应计状态非应计" errorCode="010L1003"/>
+        <error id="E0594" type="error" message="数据积数不可调整" errorCode="010L1004"/>
+        <error id="E0595" type="error" message="调整利息金额不可为空" errorCode="010L1005"/>
+        <error id="E0596" type="error" message="调整利息金额不正确" errorCode="010L1006"/>
+        <error id="E0597" type="error" message="调整积数不可输入" errorCode="010L1007"/>
+        <error id="E0598" type="error" message="操作类型不可为空" errorCode="010L1008"/>
+        <error id="E0599" type="error" message="期供信息不存在" errorCode="010L1009"/>
+        <error id="E0600" type="error" message="当期已结清" errorCode="010L1010"/>
+        <error id="E0601" type="error" message="应收欠息不存在" errorCode="010L1011"/>
+        <error id="E0602" type="error" message="催收欠息不存在" errorCode="010L1012"/>
+        <error id="E0603" type="error" message="本期之前未结清期供不存在" errorCode="010L1013"/>
+        <error id="E0604" type="error" message="调整利息金额不可为空" errorCode="010L1014"/>
+        <error id="E0605" type="error" message="调整利息金额输入不正确" errorCode="010L1015"/>
+        <error id="E0606" type="error" message="调整积数不可输入" errorCode="010L1016"/>
+        <error id="E0607" type="error" message="操作类型不可为空" errorCode="010L1017"/>
+        <error id="E0608" type="error" message="该账户未开立贷款账户" errorCode="010L1018"/>
+        <error id="E0609" type="error" message="输入借据号不存在！" errorCode="010L1019"/>
+        <error id="E0610" type="error" message="输入证件类型与证件号码不存在！" errorCode="010L1020"/>
+        <error id="E0611" type="error" message="输入借据号与证件类型、证件号码对应的客户号不匹配！" errorCode="010L1021"/>
+        <error id="E0612" type="error" message="查询负债活期账户信息表无对应数据" errorCode="010L1022"/>
+        <error id="E0613" type="error" message="查询产品存期控制表无对应数据" errorCode="010L1023"/>
+        <error id="E0614" type="error" message="输入贷款账号与证件类型、证件号码对应的客户号不匹配！" errorCode="010L1024"/>
+        <error id="E0615" type="error" message="交易卡号和身份证号不能同时为空" errorCode="010L1025"/>
+        <error id="E0616" type="error" message="待清算时间" errorCode="010L1026"/>
+        <error id="E0617" type="error" message="清算日期不能超过当前日期" errorCode="010L1027"/>
+        <error id="E0618" type="error" message="交易日期不能为空" errorCode="010L1028"/>
+        <error id="E0619" type="error" message="抵质押期限不可为空" errorCode="010L1029"/>
+        <error id="E0620" type="error" message="产品代码不可为空" errorCode="010L1030"/>
+        <error id="E0621" type="error" message="交易卡号不可为空" errorCode="010L1031"/>
+        <error id="E0622" type="error" message="币种不可为空" errorCode="010L1032"/>
+        <error id="E0623" type="error" message="交易开户关联电子账户不存在，请核对" errorCode="010L1033"/>
+        <error id="E0624" type="error" message="币种与电子账户开户币种不一致" errorCode="010L1034"/>
+        <error id="E0625" type="error" message="质押产品未定义，请核对" errorCode="010L1035"/>
+        <error id="E0626" type="error" message="押品编号不可为空" errorCode="010L1036"/>
+        <error id="E0627" type="error" message="交易卡号不可为空" errorCode="010L1037"/>
+        <error id="E0628" type="error" message="押品编号信息不存在，请核对" errorCode="010L1038"/>
+        <error id="E0629" type="error" message="贷款未结清，不允许押品出库" errorCode="010L1039"/>
+        <error id="E0630" type="error" message="抵质押产品额度结构配置不正确" errorCode="010L1040"/>
+        <error id="E0631" type="error" message="无质押冻结账号信息，请核对" errorCode="010L1041"/>
+        <error id="E0632" type="error" message="请输入客户号或交易卡号" errorCode="010L1042"/>
+        <error id="E0633" type="error" message="电子账户信息不存在" errorCode="010L1043"/>
+        <error id="E0634" type="error" message="交易开户关联电子账户不存在，请核对" errorCode="010L1044"/>
+        <error id="E0635" type="error" message="暂无定期账户可质押" errorCode="010L1045"/>
+        <error id="E0636" type="error" message="暂无质押冻结信息" errorCode="010L1046"/>
+        <error id="E0637" type="error" message="暂无质押信息" errorCode="010L1047"/>
+        <error id="E0638" type="error" message="暂无押品订单号信息，请核对" errorCode="010L1048"/>
+        <error id="E0639" type="error" message="暂无抵质押额度" errorCode="010L1049"/>
+        <error id="E0640" type="error" message="核算代码映射属性表不存在该质押产品" errorCode="010L1050"/>
+        <error id="E0641" type="error" message="贷款申请流水号不能为空" errorCode="010L1051"/>
+        <error id="E0642" type="error" message="该贷款产品不存在，请核对!" errorCode="010L1052"/>
+        <error id="E0643" type="error" message="贷款产品状态非正常！" errorCode="010L1053"/>
+        <error id="E0644" type="error" message="当前日期不能小于产品生效日期！" errorCode="010L1054"/>
+        <error id="E0645" type="error" message="执行利率值不可小于等于0" errorCode="010L1055"/>
+        <error id="E0646" type="error" message="逾期利率值不可小于等于0" errorCode="010L1056"/>
+        <error id="E0647" type="error" message="复利利率值不可小于0" errorCode="010L1057"/>
+        <error id="E0648" type="error" message="对账日期不能为空" errorCode="010L1058"/>
+        <error id="E0649" type="error" message="对账流水不能为空" errorCode="010L1059"/>
+        <error id="E0650" type="error" message="订单号不能为空" errorCode="010L1060"/>
+        <error id="E0651" type="error" message="证件类型不能为空" errorCode="010L1061"/>
+        <error id="E0652" type="error" message="证件号码不能为空" errorCode="010L1062"/>
+        <error id="E0653" type="error" message="证件类型不匹配!" errorCode="010L1063"/>
+        <error id="E0654" type="error" message="交易卡号与证件号码不匹配!" errorCode="010L1064"/>
+        <error id="E0655" type="error" message="币种不正确" errorCode="010L1065"/>
+        <error id="E0656" type="error" message="交易流水号不能为空" errorCode="010L1066"/>
+        <error id="E0657" type="error" message="含税额利息不能为空" errorCode="010L1067"/>
+        <error id="E0658" type="error" message="不含税额利息不能为空" errorCode="010L1068"/>
+        <error id="E0659" type="error" message="税额不能为空" errorCode="010L1069"/>
+        <error id="E0660" type="error" message="税率不能为空" errorCode="010L1070"/>
+        <error id="E0661" type="error" message="贷款账户主表记录不存在" errorCode="010L1071"/>
+        <error id="E0662" type="error" message="查询贷款账户会计核算表为空" errorCode="010L1072"/>
+        <error id="E0663" type="error" message="输入的交易流水号不能为空" errorCode="010L1073"/>
+        <error id="E0664" type="error" message="输入的交易日期不能为空" errorCode="010L1074"/>
+        <error id="E0665" type="error" message="记录不存在！！！" errorCode="010L1075"/>
+        <error id="E0666" type="error" message="该产品不存在或已下架" errorCode="010L1076"/>
+        <error id="E0667" type="error" message="当前期数不能为空或不能小于1" errorCode="010L1077"/>
+        <error id="E0668" type="error" message="该笔贷款信息不存在" errorCode="010L1078"/>
+        <error id="E0669" type="error" message="产品[${prodcd}]开户记录还款规则信息不存在" errorCode="010L1079">
+            <parameter id="prodcd" type="BaseType.U_CHAR50" longname="产品代码"/>
+        </error>
+        <error id="E0670" type="error" message="期供生成方式必须是[2-还款计划书]，当前为[${schdsr}]" errorCode="010L1080">
+            <parameter id="schdsr" type="BaseType.U_CHAR50" longname="期供生成方式"/>
+        </error>
+        <error id="E0671" type="error" message="部分还款最低比例:${schdsr}" errorCode="010L1081">
+            <parameter id="schdsr" type="BaseType.U_TRANAM" longname="期供生成方式"/>
+        </error>
+        <error id="E0672" type="error" message="部分还款最低金额：[${schdsr}]元" errorCode="010L1082">
+            <parameter id="schdsr" type="BaseType.U_TRANAM" longname="期供生成方式"/>
+        </error>
+        <error id="E0673" type="error" message="还款种类不能为空！" errorCode="010L1083"/>
+        <error id="E0674" type="error" message="提前还款时，还款金额不能为空！" errorCode="010L1084"/>
+        <error id="E0675" type="error" message="提前还款时，提前还款类型不能为空！" errorCode="010L1085"/>
+        <error id="E0676" type="error" message="该贷款账户无欠款，请选择其他还款种类！" errorCode="010L1086"/>
+        <error id="E0677" type="error" message="该笔贷款信息不存在" errorCode="010L1087"/>
+        <error id="E0678" type="error" message="该笔贷款信息不存在" errorCode="010L1088"/>
+        <error id="E0679" type="error" message="期限内提前还款最大次数:[${mxtlts}],当前次数为：[${count}]" errorCode="010L1089">
+            <parameter id="mxtlts" type="BaseType.U_LONGIN" longname="字段值"/>
+            <parameter id="count" type="BaseType.U_LONGIN" longname="字段值"/>
+        </error>
+        <error id="E0680" type="error" message="不支持的贷款交易类型[${trantp}]" errorCode="010L1090">
+            <parameter id="trantp" type="LnEnumType.E_TRANTP" longname="字段值"/>
+        </error>
+        <error id="E0681" type="error" message="只还利息只适用于本金分段" errorCode="010L1091"/>
+        <error id="E0682" type="error" message="本金分段时末段还款方式不可选择只还利息" errorCode="010L1092"/>
+        <error id="E0683" type="error" message="早起息和晚起息不可同时进行" errorCode="010L1093"/>
+        <error id="E0684" type="error" message="早起息或晚起息时，起息天数不正确" errorCode="010L1094"/>
+        <error id="E0685" type="error" message="本金分段时阶段序号不可为空" errorCode="010L1095"/>
+        <error id="E0686" type="error" message="生效日期不可为空" errorCode="010L1096"/>
+        <error id="E0687" type="error" message="失效日期不可为空" errorCode="010L1097"/>
+        <error id="E0688" type="error" message="贴息账户不可为空" errorCode="010L1098"/>
+        <error id="E0689" type="error" message="贴息类型不可为空" errorCode="010L1099"/>
+        <error id="E0690" type="error" message="贴息比率不可为空" errorCode="010L1100"/>
+        <error id="E0691" type="error" message="日账单模式贷款，当天同款产品的贷款期限需要一致" errorCode="010L1101"/>
+        <error id="E0692" type="error" message="日账单模式贷款，还款方式需要保持一致" errorCode="010L1102"/>
+        <error id="E0693" type="error" message="请输入还旧借据号" errorCode="010L1103"/>
+        <error id="E0694" type="error" message="还旧借据信息不存在，请重新选择还旧借据" errorCode="010L1104"/>
+        <error id="E0695" type="error" message="借新金额:[${tranam}],不足还旧金额：[${lncfam}]" errorCode="010L1105">
+            <parameter id="tranam" type="BaseType.U_TRANAM" longname="借新金额"/>
+            <parameter id="lncfam" type="BaseType.U_TRANAM" longname="还旧金额"/>
+        </error>
+        <error id="E0696" type="error" message="联合贷款资金方相关信息未配置" errorCode="010L1106"/>
+        <error id="E0697" type="error" message="联合贷款清算信息不存在" errorCode="010L1107"/>
+        <error id="E0698" type="error" message="优先级不可重复" errorCode="010L1108"/>
+        <error id="E0699" type="error" message="还款账号已配置" errorCode="010L1109"/>
+        <error id="E0700" type="error" message="优先级不能为空" errorCode="010L1110"/>
+        <error id="E0701" type="error" message="生效日期不能大于等于失效日期" errorCode="010L1111"/>
+        <error id="E0702" type="error" message="专用账户时，还款基数种类不可为空" errorCode="010L1112"/>
+        <error id="E0703" type="error" message="专用账户时，还款比例不可为空" errorCode="010L1113"/>
+        <error id="E0704" type="error" message="还款基数为[${mesage}]，还款比例总和不可大于100" errorCode="010L1114">
+            <parameter id="mesage" type="BaseType.U_CHAR100" longname="错误信息"/>
+        </error>
+        <error id="E0705" type="error" message="还款账户规则不可为空" errorCode="010L1115"/>
+        <error id="E0706" type="error" message="还款账户不存在或异常" errorCode="010L1116"/>
+        <error id="E0707" type="error" message="该贷款产品不支持多账户还款" errorCode="010L1117"/>
+        <error id="E0708" type="error" message="分摊模式还款时，分摊期限不可为空" errorCode="010L1118"/>
+        <error id="E0709" type="error" message="分摊模式还款时不可本金分段" errorCode="010L1119"/>
+        <error id="E0710" type="error" message="复制源贷款产品代码不可为空" errorCode="010L1120"/>
+        <error id="E0711" type="error" message="复制源贷款产品基础属性部件不能为空" errorCode="010L1121"/>
+        <error id="E0712" type="error" message="复制源贷款产品放款属性部件不能为空" errorCode="010L1122"/>
+        <error id="E0713" type="error" message="复制源贷款产品还款属性部件不能为空" errorCode="010L1123"/>
+        <error id="E0714" type="error" message="复制源贷款产品核算属性部件不能为空" errorCode="010L1124"/>
+        <error id="E0715" type="error" message="复制源贷款产品核算映射部件不能为空" errorCode="010L1125"/>
+        <error id="E0716" type="error" message="复制源贷款产品计息属性部件不能为空" errorCode="010L1126"/>
+        <error id="E0717" type="error" message="复制源贷款产品收费基础部件不能为空" errorCode="010L1127"/>
+        <error id="E0718" type="error" message="复制源贷款产品清算属性部件不能为空" errorCode="010L1128"/>
+        <error id="E0719" type="error" message="复制源贷款到期属性部件不能为空" errorCode="010L1129"/>
+        <error id="E0720" type="error" message="复制贷款产品目标产品号已存在" errorCode="010L1130"/>
+        <error id="E0721" type="error" message="息费减免方式不可为空" errorCode="010L1131"/>
+        <error id="E0722" type="error" message="息费减免方式不合法" errorCode="010L1132"/>
+        <error id="E0723" type="error" message="息费减免顺序编号和详情不可同时为空" errorCode="010L1133"/>
+        <error id="E0724" type="error" message="息费减免金额方式不可为空" errorCode="010L1134"/>
+        <error id="E0725" type="error" message="息费减免金额或比例不可为空" errorCode="010L1135"/>
+        <error id="E0726" type="error" message="息费减免指定期数不正确" errorCode="010L1136"/>
+        <error id="E0727" type="error" message="息费减免指定期数不可指定未来期" errorCode="010L1137"/>
+        <error id="E0728" type="error" message="息费减免编号:[${dtsfsq}],贷款形态：[${clssst}]，应计状态：[${prlntg}] 的参数配置不存在" errorCode="010L1138">
+            <parameter id="dtsfsq" type="LnBaseType.U_SERLNO" longname="息费减免编号"/>
+            <parameter id="clssst" type="LnEnumType.E_CLSSST" longname="贷款形态"/>
+            <parameter id="prlntg" type="LnEnumType.E_PRLNTG" longname="应计状态"/>
+        </error>
+        <error id="E0729" type="error" message="息费减免属性[${reipro}]暂时未定义！" errorCode="010L1139">
+            <parameter id="reipro" type="LnEnumType.E_REIPRO" longname="减免属性"/>
+        </error>
+        <error id="E0730" type="error" message="息费减免减税标识不可为空" errorCode="010L1140"/>
+        <error id="E0731" type="error" message="息费减免复息金额不可超出[${tranam}]" errorCode="010L1141">
+            <parameter id="tranam" type="BaseType.U_TRANAM" longname="金额"/>
+        </error>
+        <error id="E0732" type="error" message="息费减免催收欠息金额不可超出[${tranam}]" errorCode="010L1142">
+            <parameter id="tranam" type="BaseType.U_TRANAM" longname="金额"/>
+        </error>
+        <error id="E0733" type="error" message="息费减免催收罚息金额不可超出[${tranam}]" errorCode="010L1143">
+            <parameter id="tranam" type="BaseType.U_TRANAM" longname="金额"/>
+        </error>
+        <error id="E0734" type="error" message="息费减免催收应计利息金额不可超出[${tranam}]" errorCode="010L1144">
+            <parameter id="tranam" type="BaseType.U_TRANAM" longname="金额"/>
+        </error>
+        <error id="E0735" type="error" message="息费减免催收应计罚息金额不可超出[${tranam}]" errorCode="010L1145">
+            <parameter id="tranam" type="BaseType.U_TRANAM" longname="金额"/>
+        </error>
+        <error id="E0736" type="error" message="息费减免应计复息金额不可超出[${tranam}]" errorCode="010L1146">
+            <parameter id="tranam" type="BaseType.U_TRANAM" longname="金额"/>
+        </error>
+        <error id="E0737" type="error" message="息费减免应收费用金额不可超出[${tranam}]" errorCode="010L1147">
+            <parameter id="tranam" type="BaseType.U_TRANAM" longname="金额"/>
+        </error>
+        <error id="E0738" type="error" message="息费减免应收欠息金额不可超出[${tranam}]" errorCode="010L1148">
+            <parameter id="tranam" type="BaseType.U_TRANAM" longname="金额"/>
+        </error>
+        <error id="E0739" type="error" message="息费减免应收罚金金额不可超出[${tranam}]" errorCode="010L1149">
+            <parameter id="tranam" type="BaseType.U_TRANAM" longname="金额"/>
+        </error>
+        <error id="E0740" type="error" message="息费减免应收罚息金额不可超出[${tranam}]" errorCode="010L1150">
+            <parameter id="tranam" type="BaseType.U_TRANAM" longname="金额"/>
+        </error>
+        <error id="E0741" type="error" message="息费减免应收应计利息金额不可超出[${tranam}]" errorCode="010L1151">
+            <parameter id="tranam" type="BaseType.U_TRANAM" longname="金额"/>
+        </error>
+        <error id="E0742" type="error" message="息费减免应收应计罚息金额不可超出[${tranam}]" errorCode="010L1152">
+            <parameter id="tranam" type="BaseType.U_TRANAM" longname="金额"/>
+        </error>
+        <error id="E0743" type="error" message="息费减免指定资金来源账户类型错误" errorCode="010L1153"/>
+        <error id="E0744" type="error" message="息费减免币种类型需和放款币种保持一致" errorCode="010L1154"/>
+        <error id="E0745" type="error" message="多频还款标志错误" errorCode="010L1155"/>
+        <error id="E0746" type="error" message="该还款方式[${schdtp}]不支持多频" errorCode="010L1156">
+            <parameter id="schdtp" type="BaseType.U_CHAR20" longname="还款方式"/>
+        </error>
+        <error id="E0747" type="error" message="本金分段累进值和累进区间数据不正确" errorCode="010L1157"/>
+        <error id="E0748" type="error" message="开始日期需小于结束日期" errorCode="010L1158"/>
+        <error id="E0749" type="error" message="暂无息费减免记录" errorCode="010L1159"/>
+        <error id="E0750" type="error" message="特殊还款需要输入资金来源账号" errorCode="010L1160"/>
+        <error id="E0751" type="error" message="特殊还款客户还款金额错误" errorCode="010L1161"/>
+        <error id="E0752" type="error" message="还款账户种类不可为空" errorCode="010L1162"/>
+        <error id="E0753" type="error" message="还款比例不能小于零" errorCode="010L1163"/>
+        <error id="E0754" type="error" message="还款账户规则为[普通账户]时，还款比例必须为空" errorCode="010L1164"/>
+        <error id="E0755" type="error" message="还款账户规则为[普通账户]时，还款基数种类必须[本息]" errorCode="010L1165"/>
+        <error id="E0756" type="error" message="失效日期必须大于系统日期" errorCode="010L1166"/>
+        <error id="E0757" type="error" message="生效日期不能小于系统日期" errorCode="010L1167"/>
+        <error id="E0758" type="error" message="该借据暂无期供数据可息费减免" errorCode="010L1168"/>
+        <error id="E0759" type="error" message="还款基数种类有多个，请检查" errorCode="010L1169"/>
+        <error id="E0760" type="error" message="只允许配置一种还款基数种类" errorCode="010L1170"/>
+        <error id="E0761" type="error" message="提前还款罚金编号不能为空！" errorCode="010L1171"/>
+        <error id="E0762" type="error" message="提前还款罚金名称不能为空！" errorCode="010L1172"/>
+        <error id="E0763" type="error" message="最大罚金金额不能为空！" errorCode="010L1173"/>
+        <error id="E0764" type="error" message="最小罚金金额不能为空！" errorCode="010L1174"/>
+        <error id="E0765" type="error" message="罚金计算类型不能为空！" errorCode="010L1175"/>
+        <error id="E0766" type="error" message="起始日期规则不能为空!" errorCode="010L1176"/>
+        <error id="E0767" type="error" message="分层取值规则不能为空！" errorCode="010L1177"/>
+        <error id="E0768" type="error" message="数值序号不能为空！" errorCode="010L1178"/>
+        <error id="E0769" type="error" message="期限/百分比不能为空！" errorCode="010L1179"/>
+        <error id="E0770" type="error" message="提前还款罚金基数不能为空！" errorCode="010L1180"/>
+        <error id="E0771" type="error" message="罚金计算方法不能为空！" errorCode="010L1181"/>
+        <error id="E0772" type="error" message="罚金金额/百分比不能为空!" errorCode="010L1182"/>
+        <error id="E0773" type="error" message="代理区域编号" errorCode="010L1183"/>
+        <error id="E0774" type="error" message="代理序号" errorCode="010L1184"/>
+        <error id="E0775" type="error" message="代理描述" errorCode="010L1185"/>
+        <error id="E0776" type="error" message="委托人存款帐号" errorCode="010L1186"/>
+        <error id="E0777" type="error" message="委托人存款帐号子序号" errorCode="010L1187"/>
+        <error id="E0778" type="error" message="委托存款帐号" errorCode="010L1188"/>
+        <error id="E0779" type="error" message="委托存款帐号子序号" errorCode="010L1189"/>
+        <error id="E0780" type="error" message="本金归还入账帐号" errorCode="010L1190"/>
+        <error id="E0781" type="error" message="本金归还入账帐号子序号" errorCode="010L1191"/>
+        <error id="E0782" type="error" message="利息归还入账帐号" errorCode="010L1192"/>
+        <error id="E0783" type="error" message="利息归还入账帐号子序号" errorCode="010L1193"/>
+        <error id="E0784" type="error" message="利率调整方式为不调整，无法调整利率" errorCode="010L1194"/>
+        <error id="E0785" type="error" message="金额步长不能小于零" errorCode="010L1195"/>
+        <error id="E0786" type="error" message="多账户放款比例[[${lendvl}]]超出100%" errorCode="010L1196">
+            <parameter id="lendvl" type="LnBaseType.U_LENDAM" longname="金额"/>
+        </error>
+        <error id="E0787" type="error" message="复制贷款产品源产品号不可为空" errorCode="010L1197"/>
+        <error id="E0788" type="error" message="贷款入账账号不能为空" errorCode="010L1198"/>
+        <error id="E0789" type="error" message="输入的产品代码不存在" errorCode="010L1199"/>
+        <error id="E0790" type="error" message="输入的贷款账号不存在" errorCode="010L1200"/>
+        <error id="E0791" type="error" message="还款后贷款余额不能小于提前还款贷款余额控制金额[${prbact}]" errorCode="010L1201">
+            <parameter id="prbact" type="BaseType.U_TRANAM" longname="金额"/>
+        </error>
+        <error id="E0792" type="error" message="贷款合同金额为空或小于等于零" errorCode="010L1202"/>
+        <error id="E0793" type="error" message="贷款合同金额小于借据金额" errorCode="010L1203"/>
+        <error id="E0794" type="error" message="借据总金额达到合同金额上限" errorCode="010L1204"/>
+    </errors>
+    <errors id="intf" longname="贷款出账错误码">
+        <error id="E0001" type="error" message="[${msg}]不能为空" errorCode="010L1205">
+            <parameter id="msg" type="BaseType.U_CHAR200" longname="错误提示"/>
+        </error>
+        <error id="E0002" type="error" message="无此出账号记录" errorCode="010L1206"/>
+        <error id="E0003" type="error" message="交易状态不合法，贷款协议处于：核心已出账状态，不能进行撤销！" errorCode="010L1207"/>
+        <error id="E0004" type="error" message="当调用标志为信贷时，出账接口标记不能为垫款或透支" errorCode="010L1208"/>
+        <error id="E0005" type="error" message="当前借据号已存在正在处理的记录" errorCode="010L1209"/>
+        <error id="E0006" type="error" message="借款人名称与客户名称不一致" errorCode="010L1210"/>
+        <error id="E0007" type="error" message="借款人客户状态不正常" errorCode="010L1211"/>
+        <error id="E0008" type="error" message="当前机构不是账务机构" errorCode="010L1212"/>
+        <error id="E0009" type="error" message="出账机构与交易机构不一致" errorCode="010L1213"/>
+        <error id="E0010" type="error" message="出账日期与交易日期不一致" errorCode="010L1214"/>
+        <error id="E0011" type="error" message="到期日期必须大于出账日期" errorCode="010L1215"/>
+        <error id="E0012" type="error" message="放款金额必须大于0" errorCode="010L1216"/>
+        <error id="E0013" type="error" message="贷款承诺标志为是，必须输入承诺类型" errorCode="010L1217"/>
+        <error id="E0014" type="error" message="借款账号不能与委托人账号相同" errorCode="010L1218"/>
+        <error id="E0015" type="error" message="该贷款已放款，不允许重复放款！" errorCode="010L1219"/>
+        <error id="E0016" type="error" message="当前出账号不存在正在处理的记录！" errorCode="010L1220"/>
+        <error id="E0017" type="error" message="当前出账号已存在重复记录" errorCode="010L1221"/>
+        <error id="E0018" type="error" message="[${msg}]字段录入与出账信息不一致" errorCode="010L1222">
+            <parameter id="msg" type="BaseType.U_CHAR200" longname="错误提示"/>
+        </error>
+    </errors>
+    <errors id="Lncomm" longname="公共错误码">
+        <error id="E0001" type="error" message="出账号不能为空！" errorCode="010L1223"/>
+        <error id="E0002" type="error" message="出账号信息不存在！" errorCode="010L1224"/>
+        <error id="E0003" type="error" message="账号不能为空！" errorCode="010L1225"/>
+        <error id="E0004" type="error" message="账户信息不存在！" errorCode="010L1226"/>
+        <error id="E0005" type="error" message="账号和子账号不能同时为空！" errorCode="010L1227"/>
+        <error id="E0006" type="error" message="输入对公标志有误！" errorCode="010L1228"/>
+        <error id="E0007" type="error" message="出账日期必须与放款日期一致!" errorCode="010L1229"/>
+        <error id="E0008" type="error" message="委托人存款账户余额不足!" errorCode="010L1230"/>
+        <error id="E0009" type="error" message="出账号不能为空!" errorCode="010L1231"/>
+        <error id="E0010" type="error" message="负债账号不能为空！" errorCode="010L1232"/>
+        <error id="E0011" type="error" message="贷款期限长度不正确，应为:数字+M/Q/Y" errorCode="010L1233"/>
+        <error id="E0012" type="error" message="贷款期限单位不对，应为:M/Q/Y" errorCode="010L1234"/>
+        <error id="E0013" type="error" message="贷款期限单位与最长贷款期限单位不一致" errorCode="010L1235"/>
+        <error id="E0014" type="error" message="贷款期限已达最长贷款期限[${mxterm}]限制" errorCode="010L1236">
+            <parameter id="mxterm" type="BaseType.U_DEADLI" longname="最大期限"/>
+        </error>
+        <error id="E0015" type="error" message="贷款期限单位与最短贷款期限单位不一致" errorCode="010L1237"/>
+        <error id="E0016" type="error" message="贷款期限低于最短贷款期限[${mntern}]限制" errorCode="010L1238">
+            <parameter id="mntern" type="BaseType.U_DEADLI" longname="最短期限"/>
+        </error>
+        <error id="E0017" type="error" message="不支持的贷款交易类型：[${trantp}]" errorCode="010L1239">
+            <parameter id="trantp" type="LnEnumType.E_TRANTP"/>
+        </error>
+        <error id="E0018" type="error" message="不支持的清算类型：[${clertp}]" errorCode="010L1240">
+            <parameter id="clertp" type="LnEnumType.E_CLERTP"/>
+        </error>
+        <error id="E0019" type="error" message="贷款产品清算属性表为空，产品号：[${prodcd}],交易类型：[${trantp}]" errorCode="010L1241">
+            <parameter id="prodcd" type="BaseType.U_PRODCD" longname="产品"/>
+            <parameter id="trantp" type="LnEnumType.E_TRANTP" longname="交易类型"/>
+        </error>
+        <error id="E0020" type="error" message="尾箱号不能为空" errorCode="010L1242"/>
+        <error id="E0021" type="error" message="税票类型为印花税时，凭证类型不能为空" errorCode="010L1243"/>
+        <error id="E0022" type="error" message="税票类型为印花税时，凭证号码不能为空" errorCode="010L1244"/>
+        <error id="E0023" type="error" message="交易类型为转账时，付款账号不能为空" errorCode="010L1245"/>
+        <error id="E0024" type="error" message="交易类型为转账时，付款账号户名不能为空" errorCode="010L1246"/>
+        <error id="E0025" type="error" message="暂不支持该[${trantp}]交易类型" errorCode="010L1247">
+            <parameter id="trantp" type="BaseType.U_CHAR200" longname="交易类型名称"/>
+        </error>
+        <error id="E0026" type="error" message="税率必须大于0" errorCode="010L1248"/>
+        <error id="E0027" type="error" message="交易机构[{tranbr}]必须与贷款机构一致" errorCode="010L1249">
+            <parameter id="tranbr" type="BaseType.U_CHAR200" longname="交易类型名称"/>
+        </error>
+        <error id="E0028" type="error" message="借款人缴税时，付款人账户必须为借款人账户" errorCode="010L1250"/>
+        <error id="E0029" type="error" message="[${meg}]，不能重复操作" errorCode="010L1251">
+            <parameter id="meg" type="BaseType.U_CHAR200" longname="参数"/>
+        </error>
+        <error id="E0030" type="error" message="缴税人为贷款人时，付款人账户必须为委托人存款账户" errorCode="010L1252"/>
+        <error id="E0031" type="error" message="输入缴税金额与计算不一致" errorCode="010L1253"/>
+        <error id="E0032" type="error" message="可用余额[${tranam}]不足" errorCode="010L1254">
+            <parameter id="tranam" type="BaseType.U_TRANAM" longname="可用余额"/>
+        </error>
+        <error id="E0033" type="error" message="借据号[${lncfno}]对应的贷款账户代理业务信息不存在" errorCode="010L1255">
+            <parameter id="lncfno" type="LnBaseType.U_LNCFNO" longname="借据号"/>
+        </error>
+        <error id="E0034" type="error" message="交易类型不能为空" errorCode="010L1256"/>
+        <error id="E0035" type="error" message="借据号[${lncfno}]对应的，贷款基础信息不存在" errorCode="010L1257">
+            <parameter id="lncfno" type="LnBaseType.U_LNCFNO" longname="借据号"/>
+        </error>
+        <error id="E0036" type="error" message="委托贷款时才能选择贷款人还款" errorCode="010L1258"/>
+        <error id="E0037" type="error" message="输入户名[${acctna}]与登记户名不一致" errorCode="010L1259">
+            <parameter id="acctna" type="BaseType.U_ACCTNA" longname="中文名"/>
+        </error>
+        <error id="E0038" type="error" message="暂不支持该账号类型[${accttp}]" errorCode="010L1260">
+            <parameter id="accttp" type="BaseEnumType.E_ACCTROUTTYPE" longname="账号类型"/>
+        </error>
+        <error id="E0039" type="error" message="委托人存款账号不存在" errorCode="010L1261"/>
+        <error id="E0040" type="error" message="委托存款账号不存在" errorCode="010L1262"/>
+        <error id="E0041" type="error" message="贷款账号生产规则未配置" errorCode="010L1263"/>
+        <error id="E0042" type="error" message="客户号和贷款账号不能同时为空" errorCode="010L1264"/>
+        <error id="E0043" type="error" message="贷款信息不存在" errorCode="010L1265"/>
+        <error id="E0044" type="error" message="还款信息配置不存在" errorCode="010L1266"/>
+        <error id="E0045" type="error" message="输入的利息金额不正确" errorCode="010L1267"/>
+        <error id="E0046" type="error" message="非委托贷款不予许做此交易" errorCode="010L1268"/>
+        <error id="E0047" type="error" message="贷款状态不正常" errorCode="010L1269"/>
+        <error id="E0048" type="error" message="交易金额必须大于0" errorCode="010L1270"/>
+        <error id="E0049" type="error" message="暂不支持该还款种类[${repytp}]" errorCode="010L1271">
+            <parameter id="repytp" type="BaseType.U_ACCTNA" longname="中文名"/>
+        </error>
+        <error id="E0050" type="error" message="贷款账号[${acctno}]对应的贷款信息不存在" errorCode="010L1272">
+            <parameter id="acctno" type="BaseType.U_CHAR200" longname="贷款账号"/>
+        </error>
+        <error id="E0051" type="error" message="输入的借据号[${lncfno}]与登记的借据号不一致" errorCode="010L1273">
+            <parameter id="lncfno" type="BaseType.U_CHAR200" longname="借据号"/>
+        </error>
+        <error id="E0052" type="error" message="借据号[${lncfno}]对应的贷款基础信息不存在" errorCode="010L1274">
+            <parameter id="lncfno" type="BaseType.U_CHAR200" longname="借据号"/>
+        </error>
+        <error id="E0053" type="error" message="还款种类不能为空" errorCode="010L1275"/>
+        <error id="E0054" type="error" message="还款账号不能为空" errorCode="010L1276"/>
+        <error id="E0055" type="error" message="还款账户户名不能为空" errorCode="010L1277"/>
+        <error id="E0056" type="error" message="[${msg}]不能为空" errorCode="010L1278">
+            <parameter id="msg" type="BaseType.U_CHAR200" longname="参数信息"/>
+        </error>
+        <error id="E0057" type="error" message="提前还款类型不能为空" errorCode="010L1279"/>
+        <error id="E0058" type="error" message="委托贷款不允许做此交易" errorCode="010L1280"/>
+        <error id="E0059" type="error" message="还款金额大于应还款总额" errorCode="010L1281"/>
+        <error id="E0060" type="error" message="账户可用余额不足" errorCode="010L1282"/>
+        <error id="E0061" type="error" message="存在欠款时，提前还款类型必须为指定总额" errorCode="010L1283"/>
+        <error id="E0062" type="error" message="归还欠款时，还款金额大于欠款总额" errorCode="010L1284"/>
+        <error id="E0063" type="error" message="归还金额小于等于欠款金额时，应选择归还欠款" errorCode="010L1285"/>
+        <error id="E0064" type="error" message="现金还款时，提前还款类型必须为指定总额" errorCode="010L1286"/>
+        <error id="E0065" type="error" message="交易金额[${tranam}]与还款总额[${retlam}]不相等" errorCode="010L1287">
+            <parameter id="tranam" type="BaseType.U_TRANAM" longname="交易金额"/>
+            <parameter id="retlam" type="BaseType.U_TRANAM" longname="还款总额"/>
+        </error>
+        <error id="E0066" type="error" message="选择归还欠款时，提前还款类型必须为指定总额" errorCode="010L1288"/>
+        <error id="E0067" type="error" message="核销本金和核销利息不能全为空" errorCode="010L1289"/>
+        <error id="E0068" type="error" message="核销金额不能小于0" errorCode="010L1290"/>
+        <error id="E0069" type="error" message="身份证号不为空，身份证类型不能为空" errorCode="010L1291"/>
+        <error id="E0070" type="error" message="客户号、身份证号、贷款账号三者必输其一" errorCode="010L1292"/>
+        <error id="E0071" type="error" message="展期只能在原机构办理" errorCode="010L1293"/>
+        <error id="E0072" type="error" message="输入贷款余额不等于贷款剩余本金" errorCode="010L1294"/>
+        <error id="E0073" type="error" message="出账号不能为空" errorCode="010L1295"/>
+        <error id="E0074" type="error" message="贷款账号不能为空" errorCode="010L1296"/>
+        <error id="E0075" type="error" message="出账日期不能为空" errorCode="010L1297"/>
+        <error id="E0076" type="error" message="出账日期必须小于等于交易日期" errorCode="010L1298"/>
+        <error id="E0077" type="error" message="新到期日不能为空" errorCode="010L1299"/>
+        <error id="E0078" type="error" message="新到期日必须大于原到期日" errorCode="010L1300"/>
+        <error id="E0079" type="error" message="正常利率不能为空" errorCode="010L1301"/>
+        <error id="E0080" type="error" message="贷款余额不能为空" errorCode="010L1302"/>
+        <error id="E0081" type="error" message="展期余额不能为空" errorCode="010L1303"/>
+        <error id="E0082" type="error" message="贷款余额必须大于0" errorCode="010L1304"/>
+        <error id="E0083" type="error" message="展期余额必须大于0" errorCode="010L1305"/>
+        <error id="E0084" type="error" message="展期余额必须等于贷款余额" errorCode="010L1306"/>
+        <error id="E0085" type="error" message="欠款账户不允许展期" errorCode="010L1307"/>
+        <error id="E0086" type="error" message="展期出账信息已登记" errorCode="010L1308"/>
+        <error id="E0087" type="error" message="期供生成方式是还款计划书暂不支持展期" errorCode="010L1309"/>
+        <error id="E0088" type="error" message="短期贷款（期限在一年以内，含一年）展期期限累计不得超过原贷款期限" errorCode="010L1310"/>
+        <error id="E0089" type="error" message="中期贷款（一年以上，五年以下，含五年）展期期限累计不得超过原贷款期限的一半" errorCode="010L1311"/>
+        <error id="E0090" type="error" message="长期贷款（五年以上）展期期限累计不得超过三年" errorCode="010L1312"/>
+        <error id="E0091" type="error" message="查询客户信息不存在，请核查！" errorCode="010L1313"/>
+        <error id="E0092" type="error" message="贷款账号与接口信息不符，请核查！" errorCode="010L1314"/>
+        <error id="E0093" type="error" message="出账日期与接口信息不符，请核查！" errorCode="010L1315"/>
+        <error id="E0094" type="error" message="贷款机构与接口信息不符，请核查！" errorCode="010L1316"/>
+        <error id="E0095" type="error" message="新到期日期与接口信息不符，请核查！" errorCode="010L1317"/>
+        <error id="E0096" type="error" message="贷款余额与接口信息不符，请核查！" errorCode="010L1318"/>
+        <error id="E0097" type="error" message="正常利率与接口信息不符，请核查！" errorCode="010L1319"/>
+        <error id="E0098" type="error" message="逾期利率与接口信息不符，请核查！" errorCode="010L1320"/>
+        <error id="E0099" type="error" message="复利利率与接口信息不符，请核查！" errorCode="010L1321"/>
+        <error id="E0100" type="error" message="暂只支持剩余本金全部展期" errorCode="010L1322"/>
+        <error id="E0101" type="error" message="必须使用同名账户还款" errorCode="010L1323"/>
+        <error id="E0102" type="error" message="出账号不能为空" errorCode="010L1324"/>
+        <error id="E0103" type="error" message="贷款账号不能为空" errorCode="010L1325"/>
+        <error id="E0104" type="error" message="账户名称不能为空" errorCode="010L1326"/>
+        <error id="E0105" type="error" message="借据号不能为空" errorCode="010L1327"/>
+        <error id="E0106" type="error" message="贷款余额不能为空" errorCode="010L1328"/>
+        <error id="E0107" type="error" message="到期日不能为空" errorCode="010L1329"/>
+        <error id="E0108" type="error" message="生效日不能为空" errorCode="010L1330"/>
+        <error id="E0109" type="error" message="变动日期不能为空" errorCode="010L1331"/>
+        <error id="E0110" type="error" message="年/月利率标识不能为空" errorCode="010L1332"/>
+        <error id="E0111" type="error" message="复利计收方式不能为空" errorCode="010L1333"/>
+        <error id="E0112" type="error" message="生效日期必须等于当前日期" errorCode="010L1334"/>
+        <error id="E0113" type="error" message="变动日期必须等于当前日期" errorCode="010L1335"/>
+        <error id="E0114" type="error" message="贷款账户状态异常" errorCode="010L1336"/>
+        <error id="E0115" type="error" message="贷款账户余额不一致" errorCode="010L1337"/>
+        <error id="E0116" type="error" message="贷款到期日不一致" errorCode="010L1338"/>
+        <error id="E0117" type="error" message="正常利率不能为空" errorCode="010L1339"/>
+        <error id="E0118" type="error" message="贷款利率维护出账信息不存在" errorCode="010L1340"/>
+        <error id="E0119" type="error" message="贷款利率维护出账状态异常，必须是未处理或登记状态" errorCode="010L1341"/>
+        <error id="E0120" type="error" message="正常利率核对不一致" errorCode="010L1342"/>
+        <error id="E0121" type="error" message="逾期利率核对不一致" errorCode="010L1343"/>
+        <error id="E0122" type="error" message="复息利率核对不一致" errorCode="010L1344"/>
+        <error id="E0123" type="error" message="已过生效日期" errorCode="010L1345"/>
+        <error id="E0124" type="error" message="暂不支持期供生成方式是还款计划书的贷款利率调整" errorCode="010L1346"/>
+        <error id="E0125" type="error" message="贷款还款规则信息不存在" errorCode="010L1347"/>
+        <error id="E0126" type="error" message="还款金额不能全为0" errorCode="010L1348"/>
+        <error id="E0127" type="error" message="还款金额不能小于0" errorCode="010L1349"/>
+        <error id="E0128" type="error" message="还款本金不能大于应还总本金" errorCode="010L1350"/>
+        <error id="E0129" type="error" message="还款利息不能大于应还总利息" errorCode="010L1351"/>
+        <error id="E0130" type="error" message="期供信息不存在" errorCode="010L1352"/>
+        <error id="E0131" type="error" message="归还本金与利息相加不等于归还总额" errorCode="010L1353"/>
+        <error id="E0132" type="error" message="还款本金大于应还本金" errorCode="010L1354"/>
+        <error id="E0133" type="error" message="还款利息大于应还利息" errorCode="010L1355"/>
+        <error id="E0134" type="error" message="还款类别为借款人偿还或其他账户时，交易凭证只能为转账支票或还款凭证" errorCode="010L1356"/>
+        <error id="E0135" type="error" message="还款类别不能为空" errorCode="010L1357"/>
+        <error id="E0136" type="error" message="还款总额、本金、利息不能小于0" errorCode="010L1358"/>
+        <error id="E0137" type="error" message="免息总额必须大于0，小于已结利息总额" errorCode="010L1359"/>
+        <error id="E0138" type="error" message="输入的免息不能小于欠息、罚息、复息之和" errorCode="010L1360"/>
+        <error id="E0139" type="error" message="复息金额必须大于0，小于复息金额" errorCode="010L1361"/>
+        <error id="E0140" type="error" message="豁免本金不能大于剩余本金" errorCode="010L1362"/>
+        <error id="E0141" type="error" message="贷款账号不能为空" errorCode="010L1363"/>
+        <error id="E0142" type="error" message="贷款已结清或已核销，不能进行还款测算" errorCode="010L1364"/>
+        <error id="E0143" type="error" message="还款日期必须是当前日期和下次结息日[${enddte}]之间" errorCode="010L1365">
+            <parameter id="enddte" type="BaseType.U_DATE08" longname="到期日"/>
+        </error>
+        <error id="E0144" type="error" message="免除总额不能为空" errorCode="010L1366"/>
+        <error id="E0145" type="error" message="豁免总额不能为空" errorCode="010L1367"/>
+        <error id="E0146" type="error" message="豁免利息不能大于利息总额" errorCode="010L1368"/>
+        <error id="E0147" type="error" message="豁免总额不能大于本金、利息总额" errorCode="010L1369"/>
+        <error id="E0148" type="error" message="验签标志不能为空" errorCode="010L1370"/>
+        <error id="E0149" type="error" message="验签未通过" errorCode="010L1371"/>
+        <error id="E0150" type="error" message="密码错误" errorCode="010L1372"/>
+        <error id="E0151" type="error" message="交易凭证为转账支票时，交易凭证号码不能为空！" errorCode="010L1373"/>
+        <error id="E0152" type="error" message="交易凭证为转账支票时，出票日期不能为空！" errorCode="010L1374"/>
+        <error id="E0153" type="error" message="支票已过期" errorCode="010L1375"/>
+        <error id="E0154" type="error" message="支取方式为[${drawfs}]时，证件类型不能为空" errorCode="010L1376">
+            <parameter id="drawfs" type="BaseType.U_CHAR200" longname="参数信息"/>
+        </error>
+        <error id="E0155" type="error" message="支取方式为[${drawfs}]时，证件号码不能为空" errorCode="010L1377">
+            <parameter id="drawfs" type="BaseType.U_CHAR200" longname="参数信息"/>
+        </error>
+        <error id="E0156" type="error" message="输入证件类型与记录证件类型不一致" errorCode="010L1378"/>
+        <error id="E0157" type="error" message="输入证件号码与记录证件号码不一致" errorCode="010L1379"/>
+        <error id="E0158" type="error" message="交易类型为现金时，交易凭证必须为其它凭证" errorCode="010L1380"/>
+        <error id="E0159" type="error" message="账号[${cardno}]信息不存在" errorCode="010L1381">
+            <parameter id="cardno" type="BaseType.U_CARDNO" longname="卡号"/>
+        </error>
+        <error id="E0160" type="error" message="出账号[${cmsqno}]已经被使用" errorCode="010L1382">
+            <parameter id="cmsqno" type="LnBaseType.U_CMSQNO" longname="出账号"/>
+        </error>
+        <error id="E0161" type="error" message="豁免本金加利息不等于豁免总额" errorCode="010L1383"/>
+        <error id="E0162" type="error" message="常息、罚息、复息之和不等于免息总额" errorCode="010L1384"/>
+        <error id="E0163" type="error" message="输入的核销本金与剩余本金不相等" errorCode="010L1385"/>
+        <error id="E0164" type="error" message="输入的核销利息与剩余利息不相等" errorCode="010L1386"/>
+        <error id="E0165" type="error" message="输入的日期不能大于[${trandt}]" errorCode="010L1387">
+            <parameter id="trandt" type="BaseType.U_DATE08" longname="交易日期"/>
+        </error>
+        <error id="E0166" type="error" message="需要验证印签时，交易凭证不能为其它凭证" errorCode="010L1388"/>
+        <error id="E0167" type="error" message="密码或证件信息有误" errorCode="010L1389"/>
+        <error id="E0168" type="error" message="还款本金不能为空" errorCode="010L1390"/>
+        <error id="E0169" type="error" message="还款利息不能为空" errorCode="010L1391"/>
+        <error id="E0170" type="error" message="还款金额必须大于0" errorCode="010L1392"/>
+        <error id="E0171" type="error" message="币种不能为空" errorCode="010L1393"/>
+        <error id="E0172" type="error" message="贷款未还金额为负" errorCode="010L1394"/>
+        <error id="E0173" type="error" message="自定义贷款期供明细不能为空" errorCode="010L1395"/>
+        <error id="E0174" type="error" message="自定义贷款的放款金额必须等于期供明细的金额之和" errorCode="010L1396"/>
+        <error id="E0175" type="error" message="自定义期供信息不存在" errorCode="010L1397"/>
+        <error id="E0176" type="error" message="第[${i}]条的到期日必须等于下一期的起息日" errorCode="010L1398">
+            <parameter id="i" type="BaseType.U_INTEGE" longname="期数"/>
+        </error>
+        <error id="E0177" type="error" message="自定义期供的起息日必须等于贷款的起息日" errorCode="010L1399"/>
+        <error id="E0178" type="error" message="自定义贷款的到期日必须等于贷款的到期日" errorCode="010L1400"/>
+        <error id="E0179" type="error" message="此贷款未核销" errorCode="010L1401"/>
+        <error id="E0180" type="error" message="此贷款已核销" errorCode="010L1402"/>
+        <error id="E0181" type="error" message="借款人账号和还款人账号必须是一个账号" errorCode="010L1403"/>
+        <error id="E0182" type="error" message="借据号不一致" errorCode="010L1404"/>
+        <error id="E0183" type="error" message="展期出账状态必须为未处理" errorCode="010L1405"/>
+        <error id="E0184" type="error" message="此贷款已销户" errorCode="010L1406"/>
+        <error id="E0185" type="error" message="利率调整的交易日期必须等于利率生效日期" errorCode="010L1407"/>
+        <error id="E0186" type="error" message="不支持的计息规则" errorCode="010L1408"/>
+        <error id="E0187" type="error" message="免息总额必须大于0" errorCode="010L1409"/>
+        <error id="E0188" type="error" message="输入信息不能为空" errorCode="010L1410"/>
+        <error id="E0189" type="error" message="输入了相同序号" errorCode="010L1411"/>
+        <error id="E0190" type="error" message="序号[${meg}]必须大于0" errorCode="010L1412">
+            <parameter id="meg" type="BaseType.U_CHAR200" longname="期数"/>
+        </error>
+        <error id="E0191" type="error" message="本期[${meg}]到期日必须" errorCode="010L1413">
+            <parameter id="meg" type="BaseType.U_CHAR200" longname="期数"/>
+        </error>
+        <error id="E0192" type="error" message="自定义贷款到期日期必须小于等于贷款到期日期" errorCode="010L1414"/>
+        <error id="E0193" type="error" message="第一条期供信息起始日期必须等于当期起始日" errorCode="010L1415"/>
+        <error id="E0194" type="error" message="[${meg}]必须大于0" errorCode="010L1416">
+            <parameter id="meg" type="BaseType.U_CHAR200" longname="数字"/>
+        </error>
+        <error id="E0195" type="error" message="[${meg}]不能小于0" errorCode="010L1417">
+            <parameter id="meg" type="BaseType.U_CHAR200" longname="数字"/>
+        </error>
+        <error id="E0196" type="error" message="输入的序号数不连续" errorCode="010L1418"/>
+        <error id="E0197" type="error" message="第[${meg}]条的起息日必须与上一条到期日相等" errorCode="010L1419">
+            <parameter id="meg" type="BaseType.U_CHAR200" longname="数字"/>
+        </error>
+        <error id="E0198" type="error" message="非[${msg}]，不允许做此交易" errorCode="010L1420">
+            <parameter id="msg" type="BaseType.U_CHAR10" longname="贷款类型"/>
+        </error>
+        <error id="E0199" type="error" message="归还利息小于欠款利息时，归还本金不能大于欠款本金" errorCode="010L1421"/>
+        <error id="E0200" type="error" message="归还本金小于欠款本金时，归还利息不能大于欠款利息" errorCode="010L1422"/>
+        <error id="E0201" type="error" message="贷款类型不能为空" errorCode="010L1423"/>
+        <error id="E0202" type="error" message="修改后的最小序数必须为1" errorCode="010L1424"/>
+        <error id="E0203" type="error" message="序号不能为空" errorCode="010L1425"/>
+        <error id="E0204" type="error" message="修改的期供本金之和与贷款正常本金不相等" errorCode="010L1426"/>
+        <error id="E0205" type="error" message="非自定义贷款不能执行此交易" errorCode="010L1427"/>
+        <error id="E0206" type="error" message="自定义贷款的到期日必须小于等于贷款的到期日" errorCode="010L1428"/>
+        <error id="E0207" type="error" message="其他账户还款时，不能输入本人账号" errorCode="010L1429"/>
+        <error id="E0208" type="error" message="现金还款时，不能输入账号" errorCode="010L1430"/>
+        <error id="E0209" type="error" message="支取方式不能为空" errorCode="010L1431"/>
+        <error id="E0210" type="error" message="不支持[${msg}]转[${meg}]" errorCode="010L1432">
+            <parameter id="msg" type="BaseType.U_CHAR200" longname="贷款类型"/>
+            <parameter id="meg" type="BaseType.U_CHAR200" longname="贷款类型"/>
+        </error>
+        <error id="E0211" type="error" message="贷款期限输入有误" errorCode="010L1433"/>
+        <error id="E0212" type="error" message="起息日必须等于交易日期" errorCode="010L1434"/>
+        <error id="E0214" type="error" message="贷款进入最后一期，不允许展期" errorCode="010L1435"/>
+        <error id="E0215" type="error" message="借据号[${lncfno}]已经做过展期" errorCode="010L1436">
+            <parameter id="lncfno" type="LnBaseType.U_LNCFNO" longname="借据号"/>
+        </error>
+        <error id="E0216" type="error" message="提前还款调整计划方式不能为空" errorCode="010L1437"/>
+        <error id="E0217" type="error" message="不允许调整还款方式或提前还款调整计划方式为不变时，还款本金不能大于欠款本金与当期本金总和" errorCode="010L1438"/>
+        <error id="E0218" type="error" message="不允许调整还款方式或提前还款调整计划方式为不变时，还款金额不能大于欠款金额与当期金额总和" errorCode="010L1439"/>
+        <error id="E0219" type="error" message="不允许调整还款方式或提前还款调整计划方式为不变时，还款金额不能大于欠款金额与当期本金总和" errorCode="010L1440"/>
+        <error id="E0220" type="error" message="系统正在运行，请稍后再试" errorCode="010L1441"/>
+        <error id="E0221" type="error" message="还款类型为[${lncfno}]，不能缩期或摊薄" errorCode="010L1442">
+            <parameter id="lncfno" type="BaseType.U_CHAR200" longname="贷款还款类型"/>
+        </error>
+        <error id="E0222" type="error" message="还款类型为[${lncfno}]，不能缩期" errorCode="010L1443">
+            <parameter id="lncfno" type="BaseType.U_CHAR200" longname="贷款还款类型"/>
+        </error>
+        <error id="E0223" type="error" message="不允许放款当天还款" errorCode="010L1444"/>
+        <error id="E0224" type="error" message="交易凭证不能为空" errorCode="010L1445"/>
+        <error id="E0225" type="error" message="豁免本金和豁免利息不为0时，豁免本金加豁免利息必须等于豁免总额" errorCode="010L1446"/>
+        <error id="E0226" type="error" message="还款后还存在欠款或当期本金，不允许缩期或摊薄" errorCode="010L1447"/>
+        <error id="E0227" type="error" message="到期日期必须大于起始日期" errorCode="010L1448"/>
+        <error id="E0228" type="error" message="输入的贷款期限必须使用“M”" errorCode="010L1449"/>
+        <error id="E0229" type="error" message="自定义贷款展期的第一期期数应该等于原期供当期期数" errorCode="010L1450"/>
+        <error id="E0230" type="error" message="印花税业务编码未配置" errorCode="010L1451"/>
+        <error id="E0231" type="error" message="存在多期期供处于宽限期" errorCode="010L1452"/>
+        <error id="E0232" type="error" message="[{prodcd}]产品未配置对应的核算码" errorCode="010L1453">
+            <parameter id="prodcd" type="BaseType.U_PRODCD"/>
+        </error>
+        <error id="E0233" type="error" message="展期第一期到期日不能小于系统日期" errorCode="010L1454"/>
+        <error id="E0234" type="error" message="展期第一期起始日期必须等于当期起始日期" errorCode="010L1455"/>
+        <error id="E0235" type="error" message="该产品[{prodcd}]不存在" errorCode="010L1456">
+            <parameter id="prodcd" type="BaseType.U_PRODCD" longname="对公对私标志"/>
+        </error>
+        <error id="E0236" type="error" message="该产品为[{mes}],申请人账号为[{meg}]" errorCode="010L1457">
+        	<parameter id="mes" type="BaseType.U_CHAR200" longname="对公对私标志"/>
+        	<parameter id="meg" type="BaseType.U_CHAR200" longname="对公对私标志"/>
+        </error>
+    </errors>
+</errorConf>

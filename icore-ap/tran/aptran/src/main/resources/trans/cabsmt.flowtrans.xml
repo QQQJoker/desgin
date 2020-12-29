@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<flowtran id="cabsmt" longname="柜面批量代发代扣及开户" kind="2" package="cn.sunline.ltts.busi.aptran.trans" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <interface package="cn.sunline.ltts.busi.aptran.trans.intf">
+        <input packMode="true">
+            <field id="acctdt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="业务日期"/>
+            <field id="dataid" type="ApBaseEnumType.E_FILETP" required="false" multi="false" array="false" longname="数据类型"/>
+            <field id="busseq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="业务流水"/>
+            <field id="cdcnno" type="BaseType.U_DCNNO" required="false" multi="false" array="false" longname="DCN编号" ref="BaseDict.Comm.cdcnno"/>
+            <field id="isrege" type="BaseEnumType.E_YES___" required="false" multi="false" array="false" longname="是否登记文件流水"/>
+            <field id="btfile" type="IoApFileBatchType.BatchFileSubmit" required="false" multi="false" array="false" longname="文件信息"/>
+        </input>
+        <output asParm="true" packMode="true">
+            <field id="busseq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="文件批次号"/>
+            <field id="fileph" type="BaseType.U_FILEPH" required="false" multi="false" array="false" longname="文件路径"/>
+            <field id="filena" type="BaseType.U_FILENA" required="false" multi="false" array="false" longname="文件名称"/>
+            <field id="okfile" type="BaseType.U_FILENA" required="false" multi="false" array="false" longname="okfile"/>
+        </output>
+        <property packMode="true"/>
+        <printer packMode="true"/>
+    </interface>
+    <flow>
+        <service serviceName="SmtbatSvc.batTranSmt" id="batTranSmt" longname="柜面批量提交">
+            <in_mappings by_interface="true">
+                <mapping src="acctdt" dest="acctdt" by_interface="true" on_top="true"/>
+                <mapping src="btfile.filemd" dest="btfile.filemd" by_interface="true" on_top="true"/>
+                <mapping src="btfile.filenm" dest="btfile.filenm" by_interface="true" on_top="true"/>
+                <mapping src="btfile.flpath" dest="btfile.flpath" by_interface="true" on_top="true"/>
+                <mapping src="btfile.params" dest="btfile.params" by_interface="true" on_top="true"/>
+                <mapping src="busseq" dest="busseq" by_interface="true" on_top="true"/>
+                <mapping src="cdcnno" dest="cdcnno" by_interface="true" on_top="true"/>
+                <mapping src="dataid" dest="dataid" by_interface="true" on_top="true"/>
+                <mapping src="isrege" dest="isrege" by_interface="true" on_top="true"/>
+            </in_mappings>
+            <out_mappings by_interface="true">
+                <mapping src="busseq" dest="busseq" by_interface="true" on_top="true"/>
+                <mapping src="filena" dest="filena" by_interface="true" on_top="true"/>
+                <mapping src="fileph" dest="fileph" by_interface="true" on_top="true"/>
+                <mapping src="okfile" dest="okfile" by_interface="true" on_top="true"/>
+            </out_mappings>
+        </service>
+    </flow>
+</flowtran>

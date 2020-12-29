@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType id="IoLnRepaySvtp" kind="business" longname="还款服务" package="cn.sunline.ltts.busi.iobus.servicetype" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <service id="LnRepay" name="lnRepay" longname="还款服务">
+        <interface>
+            <input packMode="false">
+                <field id="rpinpt" type="LnRepayComplexType.LnRepayInput" required="false" multi="false" array="false" longname="还款输入"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="rpotpt" type="LnRepayComplexType.LnRepayOutput" required="false" multi="false" array="false" longname="还款输出"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="LnTieXRepay" name="prcLnTieXRepay" longname="贴息归还处理">
+        <interface>
+            <input packMode="false">
+                <field id="input" alias="LnTiexRepay" type="LnRepayComplexType.LnTiexRepay" required="false" multi="false" array="false" longname="归还贴息处理"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="genLnRepayFile" name="genLnRepayFile" longname="生成大麦还款文件">
+        <interface>
+            <input packMode="false">
+                <field id="lstrdt" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="上次交易日期"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="LnRepayExceptionHandler" name="handler" longname="还款异常处理">
+        <interface>
+            <input packMode="false">
+                <field id="lncfno" type="LnBaseType.U_LNCFNO" required="false" multi="false" array="false" longname="贷款借据号" ref="LnDict.LNF.lncfno"/>
+                <field id="repytp" type="LnEnumType.E_REPYTP" required="false" multi="false" array="false" longname="还款种类" ref="LnDict.LNF.repytp"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="LnExempt" name="LnExempt" longname="委托贷款利息豁免">
+        <interface>
+            <input packMode="false">
+                <field id="acctno" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="贷款账号"/>
+                <field id="exinam" type="BaseType.U_TRANAM" required="false" multi="false" array="false" longname="免除本金"/>
+                <field id="exintr" type="BaseType.U_TRANAM" required="false" multi="false" array="false" longname="免除利息"/>
+                <field id="tomony" type="BaseType.U_TRANAM" required="false" multi="false" array="false" longname="豁免总额"/>
+                <field id="isdfcd" type="BaseEnumType.E_YES___" required="false" multi="false" array="false" longname="委托账户是否跨节点"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="lnExemptOutput" type="LnAcctComplexType.LnExemptOutput" required="false" multi="false" array="false" longname="贷款豁免输出"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="LnRepayn" name="lnRepayn" longname="还款服务(没有记客户账)">
+        <interface>
+            <input packMode="false">
+                <field id="rpinpt" type="LnRepayComplexType.LnRepayInput" required="false" multi="false" array="false" longname="还款输入"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="rpotpt" type="LnRepayComplexType.LnRepayOutput" required="false" multi="false" array="false" longname="还款输出"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="personRepay" name="personRepay" longname="本金利息单独还款">
+        <interface>
+            <input packMode="false">
+                <field id="rpinpt" type="LnRepayComplexType.LnRepayInput" required="false" multi="false" array="false" longname="还款输入"/>
+            </input>
+            <output asParm="true" packMode="false">
+                <field id="rpotpt" type="LnRepayComplexType.LnRepayOutput" required="false" multi="false" array="false" longname="还款输出"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="addDrawUnacCdByDCN" name="addDrawUnacCdByDCN" longname="对公跨节点支取服务">
+        <interface>
+            <input packMode="true">
+                <field id="dcnnob" type="BaseType.U_DCNNO" required="false" multi="false" array="false" longname="DCN号"/>
+                <field id="cplDrawCdUnacIn" type="CdProdSvc.DrawCdUnacIn" required="false" multi="false" array="false" longname="存款支取记账处理输入"/>
+            </input>
+            <output asParm="true" packMode="true"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="addDrawAcctDpByDCN" name="addDrawAcctDpByDCN" longname="对私跨节点支取服务">
+        <interface>
+            <input packMode="true">
+                <field id="dcnnob" type="BaseType.U_DCNNO" required="false" multi="false" array="false" longname="DCN号"/>
+                <field id="cplDrawAcctIn" type="DpProdSvc.DrawDpAcctIn" required="false" multi="false" array="false" longname="支取记账处理输入"/>
+            </input>
+            <output asParm="true" packMode="true"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="LnOnRepay" name="LnOnRepay" longname="随借随还">
+        <interface>
+            <input packMode="false">
+                <field id="opinpu" type="LnRepayComplexType.LnOnRepayInput" required="false" multi="false" array="false" longname="随借随还输入"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="lnotpt" type="LnRepayComplexType.LnOnRepayOutput" required="false" multi="true" array="false" longname="随借随还金额"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="MatuRepay" name="matuRepay" longname="到期还款服务">
+        <interface>
+            <input packMode="false">
+                <field id="rpinpt" type="LnRepayComplexType.LnRepayInput" required="false" multi="false" array="false" longname="还款输入对象"/>
+            </input>
+            <output asParm="true" packMode="false">
+                <field id="rpotpt" type="LnRepayComplexType.LnRepayOutput" required="false" multi="false" array="false" longname="到期还款服务输出"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+</serviceType>

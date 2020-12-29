@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceImpl id="ApBatchTaskProcessCallBackImpl" longname="批量任务控制服务定义" serviceType="BatchTaskProcessCallBack" package="cn.sunline.ltts.busi.aplt.serviceimpl" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description><![CDATA[测试]]></description>
+</serviceImpl>

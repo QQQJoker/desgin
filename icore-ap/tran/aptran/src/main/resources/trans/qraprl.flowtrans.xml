@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<flowtran id="qraprl" longname="查询产品规则" kind="1" package="cn.sunline.ltts.busi.aptran.trans" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <interface package="cn.sunline.ltts.busi.aptran.trans.intf">
+        <input packMode="true">
+            <field id="grupcd" type="BaseType.U_CHAR40" required="false" multi="false" array="false" longname="规则分组代码"/>
+        </input>
+        <output asParm="true" packMode="true">
+            <field id="grupcd" type="BaseType.U_CHAR40" required="false" multi="false" array="false" longname="规则分组代码"/>
+            <fields id="arules" required="true" multi="false" longname="产品规则" array="false">
+                <field id="aprule" type="AppPropRule.AppRuleOut" required="false" multi="true" array="false" longname="规则"/>
+            </fields>
+        </output>
+        <property packMode="false"/>
+        <printer packMode="true"/>
+    </interface>
+    <flow>
+        <method method="qraprl" id="qraprl" longname="查询产品规则"/>
+    </flow>
+</flowtran>
