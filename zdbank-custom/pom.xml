@@ -31,7 +31,7 @@
 		<fmq.version>2.3.0.2</fmq.version>
 		<gns.version>3.0.0-SNAPSHOT</gns.version>
 		<fastjson.version>1.2.70</fastjson.version>
-		<zk.version>3.4.6</zk.version>
+		<zk.version>3.4.14</zk.version>
 		<log4j.version>1.2.17</log4j.version>
 		<jsr.version>3.0.1</jsr.version>
 		<jackson.version>2.9.10.6</jackson.version>
