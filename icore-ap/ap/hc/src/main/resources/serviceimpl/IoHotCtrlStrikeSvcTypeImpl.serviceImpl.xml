@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<serviceImpl id="IoHotCtrlStrikeSvcTypeImpl" longname="热点控制冲账服务实现" serviceType="IoHotCtrlStrikeSvcType" package="cn.sunline.ltts.busi.hc.serviceimpl" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>

@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<serviceImpl id="ApFileTaskSubmitImpl" longname="文件批量提交服务" serviceType="ApFileTask" package="cn.sunline.ltts.busi.aplt.serviceimpl.fbat" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>

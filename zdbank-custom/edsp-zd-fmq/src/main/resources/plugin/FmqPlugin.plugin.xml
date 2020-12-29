@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<plugin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="FmqPlugin" displayName="分布式消息队列对接插件" activator="cn.sunline.clwj.zdbank.fmq.plugin.FmqPlugin" order="2011" enable="true" failOnInitError="true" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
-    <extension-points/>
-    <extensions/>
-    <components/>
-</plugin>

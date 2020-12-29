@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<batch_transaction xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="handmq" longname="定时处理发送MQ" dataItem="ApAmsg.ApsMessHdMQ" package="cn.sunline.edsp.busi.aptran.batchtran" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
-    <interface package="cn.sunline.edsp.busi.aptran.batchtran.intf">
-        <input packMode="true"/>
-        <output asParm="true" packMode="true"/>
-        <property packMode="true"/>
-        <printer packMode="true"/>
-    </interface>
-</batch_transaction>

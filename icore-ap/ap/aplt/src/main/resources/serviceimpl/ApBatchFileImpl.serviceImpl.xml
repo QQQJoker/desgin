@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<serviceImpl id="ApBatchFileImpl" longname="生成短信通知服务实现" serviceType="IoApBatchFile" package="cn.sunline.ltts.busi.aplt.serviceimpl" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>

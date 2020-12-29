@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<batch_transaction id="ap32" longname="drs注册失败重注册处理" dataItem="SysPublicTable.ApbDrss" package="cn.sunline.ltts.busi.aptran.batchtran" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <interface package="cn.sunline.ltts.busi.aptran.batchtran.intf">
-        <input packMode="true"/>
-        <output asParm="true" packMode="true"/>
-        <property packMode="true"/>
-        <printer packMode="true"/>
-    </interface>
-</batch_transaction>

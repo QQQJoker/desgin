@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<componentSchema id="TransExecutorImpl" package="cn.sunline.ltts.busi.aplt.component" longname="外发服务组件实现定义" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <componentImplementation id="DefaultTransExecutor" longname="默认的外发服务组件实现" type="BaseComp.TransExecutor">
-        <implementation.java class="cn.sunline.ltts.busi.aplt.component.DefaultTransExecutorImpl"/>
-        <properties/>
-    </componentImplementation>
-</componentSchema>

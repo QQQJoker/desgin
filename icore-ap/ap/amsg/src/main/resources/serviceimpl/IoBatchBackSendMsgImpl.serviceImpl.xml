@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<serviceImpl id="IoBatchBackSendMsgImpl" longname="批量回调发送短信服务实现" serviceType="IoBatchBackSendMsg" package="cn.sunline.ltts.amsg.serviceimpl" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>

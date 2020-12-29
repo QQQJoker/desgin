@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<plugin id="dsap" displayName="应用平台分布式插件" activator="cn.sunline.ltts.busi.aplt.plugin.DsapApltPlugin" order="2002" enable="true" failOnInitError="true" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <extension-points>
-    </extension-points>
-    <extensions>
-    </extensions>
-    <components/>
-</plugin>

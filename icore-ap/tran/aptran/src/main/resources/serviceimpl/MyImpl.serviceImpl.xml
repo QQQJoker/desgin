@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<serviceImpl xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="MyImpl" longname="测试服务实现" serviceType="My" package="cn.sunline.ltts.busi.aptran.serviceimpl" xsi:noNamespaceSchemaLocation="ltts-model.xsd"/>

@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<schema id="LdEnumType" package="cn.sunline.ltts.busi.sys.type" longname="贴现枚举类型" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <restrictionType id="E_ACCTTP" longname="账户类型" base="string" maxLength="10">
-        <enumeration id="INSIDE" value="IN" longname="内部账户"/>
-        <enumeration id="DEPOSIT" value="DP" longname="存款账户"/>
-    </restrictionType>
-</schema>

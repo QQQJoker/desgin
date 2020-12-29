@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<componentSchema id="AbstractComponent" package="cn.sunline.ltts.busi.aplt.component" longname="抽象组件定义" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <description><![CDATA[抽象组件定义]]></description>
-    <abstractComponentInstance id="FileTransfer" type="FaBaseComp.FileTransfer" longname="文件传输抽象组件"/>
-    <abstractComponentInstance id="MessageTranExecutor" type="BaseComp.TransExecutor" longname="短信外发通讯组件"/>
-    <abstractComponentInstance id="NFSFileTransfer" type="FaBaseComp.FileTransfer" longname="文件传输抽象组件"/>
-</componentSchema>

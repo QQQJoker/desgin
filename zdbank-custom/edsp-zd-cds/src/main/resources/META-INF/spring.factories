@@ -1,7 +1,0 @@
-#服务前路由定位
-cn.sunline.adp.cedar.service.router.ServiceRouter=\
-cn.sunline.clwj.zdbank.cds.spi.BsapServiceRouterImpl
-
-#交易前路由定位
-cn.sunline.adp.cedar.engine.online.handler.OETBeforeHandler=\
-cn.sunline.clwj.zdbank.cds.spi.OETInitShardingBeforeHandler

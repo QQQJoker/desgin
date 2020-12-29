@@ -1,9 +1,0 @@
-cn.sunline.adp.cedar.server.online.factory.OnlineAccessProtocolProviderFactory=\
-cn.sunline.clwj.zdbank.jsf.access.factory.JSFOnlineAccessProtocolProviderFactory
-
-cn.sunline.adp.cedar.service.remote.factory.RemoteServiceExecuteProtocolProviderFactory=\
-cn.sunline.clwj.zdbank.jsf.access.out.factory.JSFRemoteServiceExecuteProtocolProviderFactory,\
-cn.sunline.clwj.zdbank.jsf.access.out.factory.HttpRemoteServiceExecuteProtocolProviderFactory
-
-cn.sunline.adp.cedar.service.engine.spi.ServiceSequenceExtension=\
-cn.sunline.clwj.zdbank.jsf.ccess.spi.RemoteServiceSequenceExtension

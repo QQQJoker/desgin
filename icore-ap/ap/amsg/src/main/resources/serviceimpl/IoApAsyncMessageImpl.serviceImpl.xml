@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<serviceImpl id="IoApAsyncMessageImpl" longname="异步消息处理服务实现" serviceType="IoApAsyncMessage" package="cn.sunline.ltts.amsg.serviceimpl" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>

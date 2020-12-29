@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<schema id="IoLnProdPart" package="cn.sunline.ltts.busi.iobus.type.ln" longname="贷款产品部件复合类型" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <complexType id="IoLnInrpat" longname="产品部件输入列表" dict="false" abstract="false" introduct="false">
-        <element id="partcd" longname="部件编号" type="LnEnumType.E_PARTCD" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
-        <element id="partfg" longname="部件启用标志" type="BaseEnumType.E_YES___" ref="DpDict.Prod.partfg" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
-    </complexType>
-</schema>
