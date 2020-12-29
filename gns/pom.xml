@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>cn.sunline.ltts.business</groupId>
+	<artifactId>gns-parent</artifactId>
+	<version>3.0.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>gns-parent</name>
+	
+	<!-- 基础插件、maven以及私服地址的管理 -->
+	<parent>
+		<groupId>cn.sunline.edsp</groupId>
+		<artifactId>edsp-parent</artifactId>
+		<version>2.1.2-RELEASE</version>
+	</parent>
+
+
+	<properties>
+		<!-- 编码格式 UTF-8 -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<!-- 技术平台adp版本 -->
+		<adp.cedar.version>4.3.1-BETA_1</adp.cedar.version>
+		<!-- adp生成类maven插件版本 -->
+		<adp.maven.version>3.1.1-M2</adp.maven.version>
+		<!-- 访问控制权限 -->
+		<access-rule>*;**/*</access-rule>
+		<!-- 一些jar依赖版本管理 -->
+		<edsp.dependencies.bom>3.1.1-RELEASE</edsp.dependencies.bom>
+		<!-- 标识这个项目是edsp项目 -->
+		<edsp-module>true</edsp-module>
+		<!-- icore模块版本号 -->
+		<gns.version>3.0.0-SNAPSHOT</gns.version>
+		<fastjson.version>1.2.70</fastjson.version>
+		<jackson.version>2.9.10.6</jackson.version>
+		<xstream.version>1.4.11.1</xstream.version>
+	</properties>
+	
+	<modules>		
+		<module>./icore-ap-gns-api</module>
+		<module>./icore-ap-gns</module>
+	</modules>
+	
+	<dependencies>
+		<!-- 平台依赖 -->
+		<dependency>
+			<groupId>cn.sunline.adp</groupId>
+			<artifactId>adp-boot-starter</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>cn.sunline.edsp.midware</groupId>
+					<artifactId>edsp-txc-mongodb</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-logging</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.netflix.ribbon</groupId>
+					<artifactId>ribbon-httpclient</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+	</dependencies>
+	
+	<dependencyManagement>
+		<dependencies>
+		<!-- adp技术平台版本管理 -->
+			<dependency>
+				<groupId>cn.sunline.adp</groupId>
+				<artifactId>adp-boot-starter</artifactId>
+				<version>${adp.cedar.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>cn.sunline.edsp</groupId>
+				<artifactId>edsp-dependencies-bom</artifactId>
+				<version>${edsp.dependencies.bom}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<!-- adp技术平台版本管理 -->
+			
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>fastjson</artifactId>
+				<version>${fastjson.version}</version>
+			</dependency>
+			<dependency>
+			  <groupId>com.fasterxml.jackson.core</groupId>
+			  <artifactId>jackson-databind</artifactId>
+			  <version>${jackson.version}</version>
+			</dependency>
+			
+			<dependency>
+			  <groupId>com.thoughtworks.xstream</groupId>
+			  <artifactId>xstream</artifactId>
+			  <version>${xstream.version}</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>commons-configuration</groupId>
+				<artifactId>commons-configuration</artifactId>
+				<version>1.10</version>
+			</dependency>							
+			<dependency>
+				<groupId>cn.sunline.ltts.business</groupId>
+				<artifactId>icore-ap-gns-api</artifactId>
+				<version>${gns.version}</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>cn.sunline.ltts.business</groupId>
+				<artifactId>icore-ap-gns</artifactId>
+				<version>${gns.version}</version>
+			</dependency>
+			
+		</dependencies>	
+	</dependencyManagement>
+    <distributionManagement>
+        <repository>
+            <id>releases</id>
+            <url>http://172.16.72.6:8081/nexus/content/repositories/releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <url>http://172.16.72.6:8081/nexus/content/repositories/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<includes>
+					<include>**/*.properties</include>
+					<include>**/*.xml</include>
+					<include>**/*.tld</include>
+					<include>**/*.xsd</include>
+					<include>**/*.factories</include>
+				</includes>
+				<filtering>false</filtering>
+			</resource>
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**/*.properties</include>
+					<include>**/*.xml</include>
+					<include>**/*.tld</include>
+					<include>**/*.xsd</include>
+				</includes>
+				<filtering>false</filtering>
+			</resource>
+		</resources>
+		<plugins>
+		
+		            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <!--   要将源码放上去，需要加入这个插件    -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.10.4</version>
+            </plugin>
+		
+			<plugin>
+				<groupId>cn.sunline.adp.maven</groupId>
+				<artifactId>adp-maven-plugin</artifactId>
+				<version>${adp.maven.version}</version>
+				<configuration>
+					<generateArgs>
+						<!-- <genRest>true</genRest> -->
+					</generateArgs>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>build</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<version>1.8</version>
+				<executions>
+					<execution>
+						<id>add-source</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>add-source</goal>
+						</goals>
+						<configuration>
+							<sources>
+								<source>${basedir}/target/gen</source>
+							</sources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.6-jdjr</version>
+				<configuration>
+					<archive>
+						<index>true</index>
+						<manifest>
+							<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+						</manifest>
+						<manifestEntries>
+							<!-- maven打包通过设置这个标识标记为edsp项目，打出的jar才能被其他项目引用其基础类型 -->
+							<edsp-module>${edsp-module}</edsp-module>
+							<groupId>${project.groupId}</groupId>
+							<artifactId>${project.artifactId}</artifactId>
+							<version>${project.version}</version>
+							<access-rule>${access-rule}</access-rule>
+						</manifestEntries>
+					</archive>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<profiles>
+		<profile>
+			<id>javadoc</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>cn.sunline.ltts.maven</groupId>
+						<artifactId>ltts-maven-doc-plugin</artifactId>
+						<version>${ltts.maven.doc.version}</version>
+						<executions>
+							<execution>
+								<id>gen-javadoc</id>
+								<phase>generate-resources</phase>
+								<goals>
+									<goal>ltts-aggregate-jar</goal>
+								</goals>
+								<configuration>
+									<target>@ApAPI</target>
+									<sourceFileIncludes>
+										<sourceFileInclude>**\/\*.java</sourceFileInclude>
+									</sourceFileIncludes>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+</project>

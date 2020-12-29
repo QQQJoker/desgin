@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<flowtran xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="qrysha" longname="查询路由映射信息" kind="1" package="cn.sunline.edsp.busi.icore.ap.gns.trans" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <interface package="cn.sunline.edsp.busi.icore.ap.gns.trans.intf">
+        <input packMode="false">
+            <field id="roukey" type="ApGnsComplex.RouteKey" required="false" multi="false" array="false" longname="路由要素信息"/>
+        </input>
+        <output asParm="true" packMode="true">
+            <field id="qryres" type="ApGnsComplex.GnsResQuery" required="false" multi="false" array="false" longname="路由映射值"/>
+        </output>
+        <property packMode="true"/>
+        <printer packMode="true"/>
+    </interface>
+    <flow>
+        <service serviceName="RouteService.querRouteMappingInfo" id="querRouteMappingInfo" longname="查询路由映射信息">
+            <in_mappings by_interface="true">
+                <mapping src="roukey.gnschn" dest="gnschn" by_interface="true" on_top="true"/>
+                <mapping src="roukey.gnskey" dest="gnskey" by_interface="true" on_top="true"/>
+                <mapping src="roukey.gnsopt" dest="gnsopt" by_interface="true" on_top="true"/>
+                <mapping src="roukey.gnstyp" dest="gnstyp" by_interface="true" on_top="true"/>
+            </in_mappings>
+            <out_mappings by_interface="true">
+                <mapping src="gnsval" dest="qryres.gnsval" by_interface="true" on_top="true"/>
+            </out_mappings>
+        </service>
+    </flow>
+</flowtran>

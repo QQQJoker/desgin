@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="ApGns" package="cn.sunline.ltts.gns" longname="路由映射表" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <table id="AppGns" name="app_gns" longname="路由映射表" tableType="ORDINARY" virtual="false" datasource="MAPPING" abstract="false">
+        <fields>
+            <field id="gnskey" longname="路由映射键" type="ApGnsType.U_GNSKEY" ref="ApGnsDict.Gns.gnskey" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="gnstyp" longname="路由映射类型" type="ApGnsType.U_GNSTYP" ref="ApGnsDict.Gns.gnstyp" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="gnsopt" longname="路由映射识别标志" type="ApGnsEnumType.E_GNSOPT" ref="ApGnsDict.Gns.gnsopt" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="gnschn" longname="路由映射渠道标识" type="ApGnsType.U_GNSCHN" ref="ApGnsDict.Gns.gnschn" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="gnsval" longname="路由映射值" type="ApGnsType.U_GNSVAL" ref="ApGnsDict.Gns.gnsval" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="gnssts" longname="路由映射状态" type="ApGnsEnumType.E_GNSSTS" ref="ApGnsDict.Gns.gnssts" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="unique" fields="gnskey gnstyp gnsopt gnschn" operate="deleteOne selectOne updateOne"/>
+            <index id="ddb2" type="index" fields="gnskey gnstyp gnsopt" operate="selectFirst"/>
+        </odbindexes>
+        <indexes>
+            <index id="app_gns_uk" type="unique" fields="gnskey gnstyp gnsopt gnschn">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+    <table id="AppParm" name="app_parm" longname="管理类渠道参数控制表" tableType="ORDINARY" virtual="false" datasource="MAPPING" abstract="false">
+        <fields>
+            <field id="gnschn" longname="路由映射渠道标识" type="ApGnsType.U_GNSCHN" ref="ApGnsDict.Gns.gnschn" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="is_ignore" longname="是否忽略" type="KBaseEnumType.E_YESORNO" ref="KsDict.BtDict.is_ignore" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="unique" fields="gnschn" operate="selectOne"/>
+        </odbindexes>
+        <indexes>
+            <index id="app_parm_pk1" type="primarykey" fields="gnschn">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+</schema>

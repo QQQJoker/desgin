@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<flowtran xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="regsha" longname="注册路由映射信息" kind="2" package="cn.sunline.edsp.busi.icore.ap.gns.trans" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <interface package="cn.sunline.edsp.busi.icore.ap.gns.trans.intf">
+        <input packMode="true">
+            <field id="roukey" type="ApGnsComplex.RouteKey" required="false" multi="false" array="false" longname="路由要素信息"/>
+            <field id="gnsval" type="ApGnsType.U_GNSVAL" required="false" multi="false" array="false" longname="路由映射值" ref="ApGnsDict.Gns.gnsval"/>
+        </input>
+        <output asParm="true" packMode="true"/>
+        <property packMode="true"/>
+        <printer packMode="true"/>
+    </interface>
+    <flow>
+        <service serviceName="RouteService.registRouteMappingInfo" id="registRouteMappingInfo" longname="注册路由映射信息">
+            <in_mappings by_interface="true">
+                <mapping src="roukey.gnschn" dest="gnschn" by_interface="true" on_top="true"/>
+                <mapping src="roukey.gnskey" dest="gnskey" by_interface="true" on_top="true"/>
+                <mapping src="roukey.gnsopt" dest="gnsopt" by_interface="true" on_top="true"/>
+                <mapping src="roukey.gnstyp" dest="gnstyp" by_interface="true" on_top="true"/>
+                <mapping src="gnsval" dest="gnsval" by_interface="true" on_top="true"/>
+            </in_mappings>
+            <out_mappings by_interface="true"/>
+        </service>
+    </flow>
+</flowtran>

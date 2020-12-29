@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="ApGnsEnumType" package="cn.sunline.ltts.gns.type" longname="路由映射枚举类型" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <restrictionType id="E_GNSOPT" longname="路由映射识别标志" base="ApGnsType.U_CHAR01" maxLength="1" minLength="1">
+        <enumeration id="USER" value="U" longname="个人用户"/>
+        <enumeration id="PERSON" value="P" longname="个人客户"/>
+        <enumeration id="CORP_USER" value="V" longname="对公用户"/>
+        <enumeration id="CORP" value="C" longname="对公客户"/>
+    </restrictionType>
+    <restrictionType id="E_GNSSTS" longname="路由映射状态" base="ApGnsType.U_CHAR01" maxLength="1" minLength="1">
+        <enumeration id="NORMAL" value="1" longname="正常"/>
+        <enumeration id="INVLID" value="0" longname="失效"/>
+    </restrictionType>
+    <restrictionType id="E_ALGTYP" longname="算法类型" base="string">
+        <enumeration id="HASTYP" value="H" longname="H-Hash"/>
+        <enumeration id="MAPTYP" value="M" longname="M-映射"/>
+    </restrictionType>
+    <restrictionType id="E_UNITNM" longname="单元名称" base="string">
+        <enumeration id="INDIVIDUAL_DEPOSIT_UNIT" value="个人存款单元" longname="个人存款单元"/>
+    </restrictionType>
+    <restrictionType id="E_UNITST" longname="单元状态" base="int">
+        <enumeration id="EMPTY" value="0" longname="空闲"/>
+        <enumeration id="USING" value="1" longname="使用中"/>
+        <enumeration id="FULL" value="100" longname="已满"/>
+    </restrictionType>
+    <restrictionType id="E_ACTIVE" longname="是否激活" base="int">
+        <enumeration id="YES" value="1" longname="已激活"/>
+        <enumeration id="NO" value="100" longname="未激活"/>
+    </restrictionType>
+</schema>
