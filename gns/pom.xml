@@ -33,7 +33,7 @@
 		<gns.version>3.0.0-SNAPSHOT</gns.version>
 		<fastjson.version>1.2.70</fastjson.version>
 		<jackson.version>2.9.10.6</jackson.version>
-		<xstream.version>1.4.11.1</xstream.version>
+		<xstream.version>1.4.15</xstream.version>
 	</properties>
 	
 	<modules>		
