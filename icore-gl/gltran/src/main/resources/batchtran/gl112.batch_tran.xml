@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<batch_transaction xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="gl112" longname="生成总账余额文件" package="cn.sunline.ltts.busi.gltran.batchtran" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <interface package="cn.sunline.ltts.busi.gl.gltran.batchtran.intf">
+        <input packMode="true"/>
+        <output asParm="true" packMode="true"/>
+        <property packMode="true">
+            <field id="filena" type="BaseType.U_CHAR200" required="false" multi="false" array="false" longname="文件名称"/>
+            <field id="lcpath" type="BaseType.U_CHAR200" required="false" multi="false" array="false" longname="本地文件路径"/>
+            <field id="rtpath" type="BaseType.U_CHAR200" required="false" multi="false" array="false" longname="远程文件路径"/>
+        </property>
+        <printer packMode="true"/>
+    </interface>
+</batch_transaction>

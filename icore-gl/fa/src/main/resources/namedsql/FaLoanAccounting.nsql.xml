@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<sqls xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="FaLoanAccounting" longname="贷款核算相关SQL" package="cn.sunline.ltts.busi.fa.namedsql" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <select cache="none" method="selectAll" type="sql" id="lstFapAccountingProdRule" longname="查询贷款核算规则集">
+        <sql type="mysql"><![CDATA[
+     	select * from fap_accounting_prod_rule 
+		where product_code = #product_code#
+		and event_code = #event_code#
+		and account_status = #account_status#
+		and effect_date <= #effect_date#
+		and invalid_date >= #invalid_date#
+		and sys_no = #sys_no#
+		and corpno = #org_id#
+	    order by data_sort asc
+        ]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="org_id" ref="GlDict.A.org_id" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人代码" parameterType="condition"/>
+            <parameter property="sys_no" ref="GlDict.A.sys_no" jdbcType="VARCHAR" javaType="GlBaseType.U_SYSNO" mode="in" longname="系统编号" parameterType="condition"/>
+            <parameter property="product_code" ref="GlDict.A.product_code" jdbcType="VARCHAR" javaType="GlBaseType.U_PRODUCT_CODE" mode="in" longname="产品编号" parameterType="condition"/>
+            <parameter property="event_code" ref="GlDict.A.event_code" jdbcType="VARCHAR" javaType="GlBaseType.U_EVENT_CODE" mode="in" longname="交易编码" parameterType="condition"/>
+            <parameter property="account_status" ref="GlDict.A.account_status" jdbcType="VARCHAR" javaType="GlEnumType.E_ACCOUNT_STATUS" mode="in" longname="贷款账户状态" parameterType="condition"/>
+            <parameter property="effect_date" ref="GlDict.A.effect_date" jdbcType="VARCHAR" javaType="BaseType.U_DATE08" mode="in" longname="生效日期" parameterType="condition"/>
+            <parameter property="invalid_date" ref="GlDict.A.invalid_date" jdbcType="VARCHAR" javaType="BaseType.U_DATE08" mode="in" longname="失效日期" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="TabFaParm.fap_accounting_prod_rule"/>
+    </select>
+    <select cache="none" method="selectOne" type="sql" id="selFapTaxRate" longname="查询税率信息">
+        <sql type="mysql"><![CDATA[
+     	select * from fap_tax_rate 
+		where branch_code = #branch_code# 
+		and business_code = #business_code#
+		and effect_date <= #effect_date#
+		and invalid_date >= #invalid_date#
+		and valid_status = #valid_status#
+		and corpno = #org_id#
+        ]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="org_id" ref="GlDict.A.org_id" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人代码" parameterType="condition"/>
+            <parameter property="branch_code" ref="GlDict.A.branch_code" jdbcType="VARCHAR" javaType="BaseType.U_BRCHNO" mode="in" longname="机构号" parameterType="condition"/>
+            <parameter property="business_code" ref="GlDict.A.business_code" jdbcType="VARCHAR" javaType="BaseType.U_BUSINO" mode="in" longname="业务代码" parameterType="condition"/>
+            <parameter property="effect_date" ref="GlDict.A.effect_date" jdbcType="VARCHAR" javaType="BaseType.U_DATE08" mode="in" longname="生效日期" parameterType="condition"/>
+            <parameter property="invalid_date" ref="GlDict.A.invalid_date" jdbcType="VARCHAR" javaType="BaseType.U_DATE08" mode="in" longname="失效日期" parameterType="condition"/>
+            <parameter property="valid_status" ref="GlDict.A.valid_status" jdbcType="VARCHAR" javaType="BaseEnumType.E_VALID_STATUS" mode="in" longname="参数状态" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="TabFaParm.fap_tax_rate"/>
+    </select>
+    <select cache="none" method="selectOne" type="sql" id="selMaxTaxSeq" longname="查询当前最大税套号">
+        <sql type="mysql"><![CDATA[
+     	select max(tax_seq) from fap_tax_rate where substring(tax_seq,length(tax_seq) -2,3) = #tax_seq# and corpno = #org_id#
+        ]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="tax_seq" ref="GlDict.A.tax_seq" jdbcType="VARCHAR" javaType="BaseType.U_CHAR18" mode="in" longname="法人代码" parameterType="condition"/>
+            <parameter property="org_id" ref="GlDict.A.org_id" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人代码" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="string"/>
+    </select>
+    <select cache="none" method="selectFirst" type="sql" id="selFapTaxRateByStatus" longname="根据状态查询生效税率信息">
+        <sql type="db2"><![CDATA[select * from fap_tax_rate where branch_code = #branch_code# and business_code = #business_code# and valid_status = #valid_status#
+and corpno = #org_id# order by effect_date desc]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="org_id" ref="GlDict.A.org_id" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人代码" parameterType="condition"/>
+            <parameter property="branch_code" ref="GlDict.A.branch_code" jdbcType="VARCHAR" javaType="BaseType.U_BRCHNO" mode="in" longname="机构号" parameterType="condition"/>
+            <parameter property="business_code" ref="GlDict.A.business_code" jdbcType="VARCHAR" javaType="BaseType.U_BUSINO" mode="in" longname="业务代码" parameterType="condition"/>
+            <parameter property="valid_status" ref="GlDict.A.valid_status" jdbcType="VARCHAR" javaType="BaseEnumType.E_VALID_STATUS" mode="in" longname="参数状态" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="TabFaParm.fap_tax_rate"/>
+    </select>
+    <select cache="none" method="selectFirst" type="sql" id="selFapTaxRateByEffectDate" longname="根据生效日期查询未生效税率信息">
+        <sql type="db2"><![CDATA[select * from fap_tax_rate where branch_code = #branch_code# and business_code = #business_code#
+and cal_tax_method_code = #cal_tax_method_code# and effect_date > #effect_date# and valid_status = #valid_status#
+and corpno = #org_id#]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="org_id" ref="GlDict.A.org_id" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人代码" parameterType="condition"/>
+            <parameter property="branch_code" ref="GlDict.A.branch_code" jdbcType="VARCHAR" javaType="BaseType.U_BRCHNO" mode="in" longname="机构号" parameterType="condition"/>
+            <parameter property="business_code" ref="GlDict.A.business_code" jdbcType="VARCHAR" javaType="BaseType.U_BUSINO" mode="in" longname="业务代码" parameterType="condition"/>
+            <parameter property="cal_tax_method_code" ref="GlDict.A.cal_tax_method_code" jdbcType="VARCHAR" javaType="BaseEnumType.E_CLMETH" mode="in" longname="业务代码" parameterType="condition"/>
+            <parameter property="effect_date" ref="GlDict.A.effect_date" jdbcType="VARCHAR" javaType="BaseType.U_DATE08" mode="in" longname="生效日期" parameterType="condition"/>
+            <parameter property="valid_status" ref="GlDict.A.valid_status" jdbcType="VARCHAR" javaType="BaseEnumType.E_VALID_STATUS" mode="in" longname="参数状态" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="TabFaParm.fap_tax_rate"/>
+    </select>
+    <dynamicSelect cache="none" method="selectPageWithCount selectAll" type="sql" id="lstFapTaxRate" longname="查询税率信息结果集">
+        <parameterMap class="java.util.Map">
+            <parameter property="org_id" ref="GlDict.A.org_id" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人代码" parameterType="condition"/>
+            <parameter property="branch_code" ref="GlDict.A.branch_code" jdbcType="VARCHAR" javaType="BaseType.U_BRCHNO" mode="in" longname="机构号" parameterType="condition"/>
+            <parameter property="business_code" ref="GlDict.A.business_code" jdbcType="VARCHAR" javaType="BaseType.U_BUSINO" mode="in" longname="业务代码" parameterType="condition"/>
+            <parameter property="cal_tax_method_code" ref="GlDict.A.cal_tax_method_code" jdbcType="VARCHAR" javaType="BaseEnumType.E_CLMETH" mode="in" longname="业务代码" parameterType="condition"/>
+            <parameter property="effect_date" ref="GlDict.A.effect_date" jdbcType="VARCHAR" javaType="BaseType.U_DATE08" mode="in" longname="生效日期" parameterType="condition"/>
+            <parameter property="invalid_date" ref="GlDict.A.invalid_date" jdbcType="VARCHAR" javaType="BaseType.U_DATE08" mode="in" longname="生效日期" parameterType="condition"/>
+            <parameter property="valid_status" ref="GlDict.A.valid_status" jdbcType="VARCHAR" javaType="BaseEnumType.E_VALID_STATUS" mode="in" longname="参数状态" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="TabFaParm.fap_tax_rate"/>
+        <dynamicSql type="mysql">
+            <str type="Str"><![CDATA[select * from fap_tax_rate]]></str>
+            <where type="Where">
+                <and type="And">
+                    <if test="branch_code!=null &amp;&amp; branch_code!=''" type="If">
+                        <str type="Str"><![CDATA[branch_code = #branch_code#]]></str>
+                    </if>
+                    <if test="business_code!=null &amp;&amp; business_code!=''" type="If">
+                        <str type="Str"><![CDATA[business_code = #business_code#]]></str>
+                    </if>
+                    <if test="cal_tax_method_code!=null" type="If">
+                        <str type="Str"><![CDATA[cal_tax_method_code = #cal_tax_method_code#]]></str>
+                    </if>
+                    <if test="effect_date!=null &amp;&amp; effect_date!=''" type="If">
+                        <str type="Str"><![CDATA[effect_date <= #effect_date#]]></str>
+                    </if>
+                    <if test="invalid_date!=null &amp;&amp; invalid_date!=''" type="If">
+                        <str type="Str"><![CDATA[invalid_date >= #invalid_date#]]></str>
+                    </if>
+                    <if test="valid_status!=null" type="If">
+                        <str type="Str"><![CDATA[valid_status = #valid_status#]]></str>
+                    </if>
+                    <str type="Str"><![CDATA[corpno = #org_id#]]></str>
+                </and>
+            </where>
+            <str type="Str"><![CDATA[order by corpno asc,branch_code asc,business_code asc,cal_tax_method_code asc,effect_date asc]]></str>
+        </dynamicSql>
+    </dynamicSelect>
+    <dynamicSelect cache="none" method="selectAll selectPage selectPageWithCount" type="sql" id="lstFapAccountingProdRulelist" longname="动态查询产品核算事件信息">
+        <parameterMap class="java.util.Map">
+            <parameter property="org_id" ref="GlDict.A.org_id" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人代码" parameterType="condition"/>
+            <parameter property="sys_no" ref="GlDict.A.sys_no" jdbcType="VARCHAR" javaType="GlBaseType.U_SYSNO" mode="in" longname="系统编号" parameterType="condition"/>
+            <parameter property="product_code" ref="GlDict.A.product_code" jdbcType="VARCHAR" javaType="GlBaseType.U_PRODUCT_CODE" mode="in" longname="产品编号" parameterType="condition"/>
+            <parameter property="event_code" ref="GlDict.A.event_code" jdbcType="VARCHAR" javaType="GlBaseType.U_EVENT_CODE" mode="in" longname="交易编码" parameterType="condition"/>
+            <parameter property="account_status" ref="GlDict.A.account_status" jdbcType="VARCHAR" javaType="GlEnumType.E_ACCOUNT_STATUS" mode="in" longname="贷款账户状态" parameterType="condition"/>
+            <parameter property="effect_date" ref="GlDict.A.effect_date" jdbcType="VARCHAR" javaType="BaseType.U_DATE08" mode="in" longname="生效日期" parameterType="condition"/>
+            <parameter property="invalid_date" ref="GlDict.A.invalid_date" jdbcType="VARCHAR" javaType="BaseType.U_DATE08" mode="in" longname="失效日期" parameterType="condition"/>
+            <parameter property="debit_subject" ref="GlDict.A.debit_subject" jdbcType="VARCHAR" javaType="GlBaseType.U_SUBJECTNO" mode="in" longname="借方科目" parameterType="condition"/>
+            <parameter property="credit_subject" ref="GlDict.A.credit_subject" jdbcType="VARCHAR" javaType="GlBaseType.U_SUBJECTNO" mode="in" longname="贷方科目" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="TabFaParm.fap_accounting_prod_rule"/>
+        <dynamicSql type="mysql">
+            <str type="Str"><![CDATA[select * from fap_accounting_prod_rule]]></str>
+            <where type="Where">
+                <and type="And">
+                    <if test="org_id != null &amp;&amp; org_id != &quot;&quot;" type="If">
+                        <str type="Str"><![CDATA[corpno = #org_id# ]]></str>
+                    </if>
+                    <if test="sys_no != null &amp;&amp; sys_no!= &quot;&quot;" type="If">
+                        <str type="Str"><![CDATA[sys_no = #sys_no#]]></str>
+                    </if>
+                    <if test="product_code != null &amp;&amp;product_code!=&quot;&quot;" type="If">
+                        <str type="Str"><![CDATA[product_code = #product_code#]]></str>
+                    </if>
+                    <if test="event_code != null &amp;&amp; event_code !=&quot;&quot;" type="If">
+                        <str type="Str"><![CDATA[event_code = #event_code#]]></str>
+                    </if>
+                    <if test="account_status != null" type="If">
+                        <str type="Str"><![CDATA[account_status=#account_status#]]></str>
+                    </if>
+                    <if test="effect_date!=null &amp;&amp; effect_date!=&quot;&quot;" type="If">
+                        <str type="Str"><![CDATA[effect_date=#effect_date#]]></str>
+                    </if>
+                    <if test="invalid_date!=null &amp;&amp; invalid_date!=''" type="If">
+                        <str type="Str"><![CDATA[invalid_date=#invalid_date#]]></str>
+                    </if>
+                    <if test="debit_subject!=null &amp;&amp; debit_subject!=''" type="If">
+                        <str type="Str"><![CDATA[debit_subject=#debit_subject#]]></str>
+                    </if>
+                    <if test="credit_subject!=null &amp;&amp; credit_subject!=''" type="If">
+                        <str type="Str"><![CDATA[credit_subject=#credit_subject#]]></str>
+                    </if>
+                    <if test="credit_subject!=null &amp;&amp; credit_subject!=''" type="If">
+                        <str type="Str"><![CDATA[credit_subject=#credit_subject#]]></str>
+                    </if>
+                </and>
+            </where>
+            <str type="Str"><![CDATA[order by corpno,sys_no]]></str>
+        </dynamicSql>
+    </dynamicSelect>
+    <select cache="none" method="selectAll" type="sql" id="lstHashValueFromProdAccounting" longname="查询产品流水散列值">
+        <sql type="mysql"><![CDATA[
+        select
+                distinct a.hash_value 
+        from
+                fab_accounting_prod_seq a 
+        where
+                a.trxn_date= #trxn_date# and a.corpno = #org_id# 
+                and a.sys_no = #sys_no#
+                and a.trxn_seq_status = #trxn_seq_status#
+        ]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="org_id" ref="GlDict.A.org_id" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人代码" parameterType="condition"/>
+            <parameter property="trxn_date" ref="GlDict.A.trxn_date" jdbcType="VARCHAR" javaType="GlBaseType.U_DATE" mode="in" longname="交易日期" parameterType="condition"/>
+            <parameter property="sys_no" ref="GlDict.A.sys_no" jdbcType="VARCHAR" javaType="GlBaseType.U_SYSNO" mode="in" longname="系统编号" parameterType="condition"/>
+            <parameter property="trxn_seq_status" ref="GlDict.A.trxn_seq_status" jdbcType="VARCHAR" javaType="GlBusinessType.E_TRXNSEQSTATE" mode="in" longname="交易流水状态" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="ComFaApFile.ApDataGroupNo"/>
+    </select>
+    <select cache="none" method="selectAll" type="sql" id="lstTranSeqFromProdAccounting" longname="查询产品流水">
+        <sql type="mysql"><![CDATA[
+        select
+                distinct a.trxn_seq
+        from
+                fab_accounting_prod_seq a 
+        where
+                a.trxn_date = #trxn_date# and a.corpno = #org_id# 
+                and a.sys_no = #sys_no#
+                and a.hash_value = #hash_value#
+                and a.trxn_seq_status = #trxn_seq_status#
+        ]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="org_id" ref="GlDict.A.org_id" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人代码" parameterType="condition"/>
+            <parameter property="trxn_date" ref="GlDict.A.trxn_date" jdbcType="VARCHAR" javaType="GlBaseType.U_DATE" mode="in" longname="交易日期" parameterType="condition"/>
+            <parameter property="sys_no" ref="GlDict.A.sys_no" jdbcType="VARCHAR" javaType="GlBaseType.U_SYSNO" mode="in" longname="系统编号" parameterType="condition"/>
+            <parameter property="hash_value" ref="GlDict.A.hash_value" jdbcType="VARCHAR" javaType="GlBaseType.U_LONG" mode="in" longname="系统编号" parameterType="condition"/>
+            <parameter property="trxn_seq_status" ref="GlDict.A.trxn_seq_status" jdbcType="VARCHAR" javaType="GlBusinessType.E_TRXNSEQSTATE" mode="in" longname="散列值" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="ComFaApFile.ApProdAccountingInfo"/>
+    </select>
+    <select cache="none" method="selectAll" type="sql" id="lstTranSeqsFromProdAccounting" longname="查询产品流水">
+        <sql type="mysql"><![CDATA[
+        select
+                *
+        from
+                fab_accounting_prod_seq a 
+        where
+                a.trxn_seq = #trxn_seq#
+        ]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="trxn_seq" ref="GlDict.A.trxn_seq" jdbcType="VARCHAR" javaType="BaseType.U_SEQUNO" mode="in" longname="交易流水" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="TabFaRegBook.fab_accounting_prod_seq"/>
+    </select>
+    <update method="update" id="updStatusOfProdSeq" longname="更新产品交易流水解析状态">
+        <sql type="mysql"><![CDATA[update fab_accounting_prod_seq a set a.trxn_seq_status = #trxn_seq_status#
+                where a.trxn_seq = #trxn_seq#]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="trxn_seq" ref="GlDict.A.trxn_seq" jdbcType="VARCHAR" javaType="BaseType.U_SEQUNO" mode="in" longname="交易流水" parameterType="condition"/>
+            <parameter property="trxn_seq_status" ref="GlDict.A.trxn_seq_status" jdbcType="VARCHAR" javaType="GlBusinessType.E_TRXNSEQSTATE" mode="in" longname="散列值" parameterType="condition"/>
+        </parameterMap>
+    </update>
+</sqls>

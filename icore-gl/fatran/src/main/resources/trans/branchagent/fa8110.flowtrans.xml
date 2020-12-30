@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<flowtran id="fa8110" longname="账务机构代理信息列表查询" kind="Q" package="cn.sunline.ltts.busi.fatran.trans.branchagent" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <interface package="cn.sunline.ltts.busi.fatran.trans.intf">
+        <input packMode="true">
+            <field id="acct_branch" type="BaseType.U_BRCHNO" required="false" multi="false" array="false" longname="账务机构" ref="GlDict.A.acct_branch"/>
+            <field id="agent_brch_id" type="BaseType.U_BRCHNO" required="false" multi="false" array="false" longname="代理机构" ref="GlDict.A.agent_brch_id"/>
+        </input>
+        <output asParm="true" packMode="true">
+            <fields id="list01" required="false" multi="true" longname="账务代理机构列表查询" array="false">
+                <field id="acct_branch" type="BaseType.U_BRCHNO" required="false" multi="false" array="false" longname="账务机构" ref="GlDict.A.acct_branch"/>
+                <field id="agent_brch_id" type="BaseType.U_BRCHNO" required="false" multi="false" array="false" longname="代理机构" ref="GlDict.A.agent_brch_id"/>
+            	<field id="recdver" type="BaseType.U_RECDVER" required="false" multi="false" array="false" longname="记录版本号" ref="BaseDict.Comm.recdver"/>
+            </fields>
+        </output>
+        <property packMode="true"/>
+        <printer packMode="true"/>
+    </interface>
+    <flow>
+        <service serviceName="SrvFaBranchAgent.queryBranchAgentList" id="SrvFaBranchAgent.queryBranchAgentList" longname="查询账务机构信息">
+            <in_mappings by_interface="true">
+                <mapping src="acct_branch" dest="quryIn.acct_branch" by_interface="true" on_top="true"/>
+                <mapping src="agent_brch_id" dest="quryIn.agent_brch_id" by_interface="true" on_top="true"/>
+            </in_mappings>
+            <out_mappings by_interface="true">
+                <mapping src="queryOut" dest="list01" by_interface="true" on_top="true"/>
+            </out_mappings>
+        </service>
+    </flow>
+    <outMapping/>
+    <propertyToPrinterMapping/>
+    <outToPrinterMapping/>
+</flowtran>

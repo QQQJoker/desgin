@@ -1,0 +1,664 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<sqls xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="FaParm" longname="参数信息相关SQL" package="cn.sunline.ltts.busi.fa.namedsql" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <dynamicSelect cache="none" method="selectPageWithCount" type="sql" id="lstSubInfo" longname="根据输入的信息查询科目信息">
+        <parameterMap class="java.util.Map">
+            <parameter property="org_id" ref="GlDict.A.org_id" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人代码" parameterType="condition"/>
+            <parameter property="gl_code" ref="GlDict.A.gl_code" jdbcType="VARCHAR" javaType="GlBaseType.U_SUBJECTNO" mode="in" longname="科目号" parameterType="condition"/>
+            <parameter property="gl_code_desc" ref="GlDict.A.gl_code_desc" jdbcType="VARCHAR" javaType="GlBaseType.U_SHORTDESC" mode="in" longname="科目名称" parameterType="condition"/>
+            <parameter property="upper_lvl_gl_code" ref="GlDict.A.upper_lvl_gl_code" jdbcType="VARCHAR" javaType="GlBaseType.U_SUBJECTNO" mode="in" longname="上级科目" parameterType="condition"/>
+            <parameter property="gl_code_type" ref="GlDict.A.gl_code_type" jdbcType="VARCHAR" javaType="GlBusinessType.E_SUBJECTTYPE" mode="in" longname="科目类别" parameterType="condition"/>
+            <parameter property="gl_code_level" ref="GlDict.A.gl_code_level" jdbcType="VARCHAR" javaType="GlBaseType.U_LONG" mode="in" longname="科目级别" parameterType="condition"/>
+            <parameter property="end_gl_code_ind" ref="GlDict.A.end_gl_code_ind" jdbcType="VARCHAR" javaType="GlEnumType.E_YESORNO" mode="in" longname="末层科目标志" parameterType="condition"/>
+            <parameter property="identifier_code" ref="GlDict.A.identifier_code" jdbcType="VARCHAR" javaType="GlBaseType.U_BYTE8" mode="in" longname="识别码" parameterType="condition"/>
+            <parameter property="bal_prop" ref="GlDict.A.bal_prop" jdbcType="VARCHAR" javaType="GlBusinessType.E_BALPROP" mode="in" longname="余额性质" parameterType="condition"/>
+            <parameter property="on_bal_sheet_ind" ref="GlDict.A.on_bal_sheet_ind" jdbcType="VARCHAR" javaType="GlEnumType.E_YESORNO" mode="in" longname="表内标志" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="ComFaParm.FaSubjectInfo"/>
+        <dynamicSql type="oracle">
+            <str type="Str"><![CDATA[SELECT a.* FROM fap_accounting_subject a]]></str>
+            <where type="Where">
+                <and type="And">
+                    <str type="Str"><![CDATA[a.corpno = #org_id#]]></str>
+                    <if test="gl_code!=null &amp;&amp; gl_code!=''" type="If">
+                        <str type="Str"><![CDATA[a.gl_code like concat(#gl_code# , '%')]]></str>
+                    </if>
+                    <if test="gl_code_desc!=null &amp;&amp; gl_code_desc!=''" type="If">
+                        <str type="Str"><![CDATA[a.gl_code_desc like concat('%',concat(#gl_code_desc#, '%'))]]></str>
+                    </if>
+                    <if test="upper_lvl_gl_code!=null &amp;&amp; upper_lvl_gl_code!=''" type="If">
+                        <str type="Str"><![CDATA[a.upper_lvl_gl_code = #upper_lvl_gl_code#]]></str>
+                    </if>
+                    <if test="gl_code_type!=null" type="If">
+                        <str type="Str"><![CDATA[a.gl_code_type = #gl_code_type#]]></str>
+                    </if>
+                    <if test="gl_code_level!=null &amp;&amp; gl_code_level!=''" type="If">
+                        <str type="Str"><![CDATA[a.gl_code_level = #gl_code_level#]]></str>
+                    </if>
+                    <if test="end_gl_code_ind!=null" type="If">
+                        <str type="Str"><![CDATA[a.end_gl_code_ind = #end_gl_code_ind#]]></str>
+                    </if>
+                    <if test="identifier_code!=null &amp;&amp; identifier_code!=''" type="If">
+                        <str type="Str"><![CDATA[a.identifier_code = #identifier_code#]]></str>
+                    </if>
+                    <if test="bal_prop!=null" type="If">
+                        <str type="Str"><![CDATA[a.bal_prop = #bal_prop#]]></str>
+                    </if>
+                    <if test="on_bal_sheet_ind!=null" type="If">
+                        <str type="Str"><![CDATA[a.on_bal_sheet_ind = #on_bal_sheet_ind#]]></str>
+                    </if>
+                </and>
+            </where>
+            <str type="Str"><![CDATA[order by gl_code]]></str>
+        </dynamicSql>
+        <dynamicSql type="mysql">
+            <str type="Str"><![CDATA[SELECT a.* FROM fap_accounting_subject a]]></str>
+            <where type="Where">
+                <and type="And">
+                    <str type="Str"><![CDATA[a.corpno = #org_id#]]></str>
+                    <if test="gl_code!=null &amp;&amp; gl_code!=''" type="If">
+                        <str type="Str"><![CDATA[a.gl_code like concat(#gl_code# , '%')]]></str>
+                    </if>
+                    <if test="gl_code_desc!=null &amp;&amp; gl_code_desc!=''" type="If">
+                        <str type="Str"><![CDATA[a.gl_code_desc like concat('%',concat(#gl_code_desc#, '%'))]]></str>
+                    </if>
+                    <if test="upper_lvl_gl_code!=null &amp;&amp; upper_lvl_gl_code!=''" type="If">
+                        <str type="Str"><![CDATA[a.upper_lvl_gl_code = #upper_lvl_gl_code#]]></str>
+                    </if>
+                    <if test="gl_code_type!=null" type="If">
+                        <str type="Str"><![CDATA[a.gl_code_type = #gl_code_type#]]></str>
+                    </if>
+                    <if test="gl_code_level!=null &amp;&amp; gl_code_level!=''" type="If">
+                        <str type="Str"><![CDATA[a.gl_code_level = #gl_code_level#]]></str>
+                    </if>
+                    <if test="end_gl_code_ind!=null" type="If">
+                        <str type="Str"><![CDATA[a.end_gl_code_ind = #end_gl_code_ind#]]></str>
+                    </if>
+                    <if test="identifier_code!=null &amp;&amp; identifier_code!=''" type="If">
+                        <str type="Str"><![CDATA[a.identifier_code = #identifier_code#]]></str>
+                    </if>
+                    <if test="bal_prop!=null" type="If">
+                        <str type="Str"><![CDATA[a.bal_prop = #bal_prop#]]></str>
+                    </if>
+                    <if test="on_bal_sheet_ind!=null" type="If">
+                        <str type="Str"><![CDATA[a.on_bal_sheet_ind = #on_bal_sheet_ind#]]></str>
+                    </if>
+                </and>
+            </where>
+            <str type="Str"><![CDATA[order by gl_code]]></str>
+        </dynamicSql>
+        <dynamicSql type="db2">
+            <str type="Str"><![CDATA[SELECT a.* FROM fap_accounting_subject a]]></str>
+            <where type="Where">
+                <and type="And">
+                    <str type="Str"><![CDATA[a.corpno = #org_id#]]></str>
+                    <if test="gl_code!=null &amp;&amp; gl_code!=''" type="If">
+                        <str type="Str"><![CDATA[a.gl_code like concat(#gl_code# , '%')]]></str>
+                    </if>
+                    <if test="gl_code_desc!=null &amp;&amp; gl_code_desc!=''" type="If">
+                        <str type="Str"><![CDATA[a.gl_code_desc like concat('%',concat(#gl_code_desc#, '%'))]]></str>
+                    </if>
+                    <if test="upper_lvl_gl_code!=null &amp;&amp; upper_lvl_gl_code!=''" type="If">
+                        <str type="Str"><![CDATA[a.upper_lvl_gl_code = #upper_lvl_gl_code#]]></str>
+                    </if>
+                    <if test="gl_code_type!=null" type="If">
+                        <str type="Str"><![CDATA[a.gl_code_type = #gl_code_type#]]></str>
+                    </if>
+                    <if test="gl_code_level!=null &amp;&amp; gl_code_level!=''" type="If">
+                        <str type="Str"><![CDATA[a.gl_code_level = #gl_code_level#]]></str>
+                    </if>
+                    <if test="end_gl_code_ind!=null" type="If">
+                        <str type="Str"><![CDATA[a.end_gl_code_ind = #end_gl_code_ind#]]></str>
+                    </if>
+                    <if test="identifier_code!=null &amp;&amp; identifier_code!=''" type="If">
+                        <str type="Str"><![CDATA[a.identifier_code = #identifier_code#]]></str>
+                    </if>
+                    <if test="bal_prop!=null" type="If">
+                        <str type="Str"><![CDATA[a.bal_prop = #bal_prop#]]></str>
+                    </if>
+                    <if test="on_bal_sheet_ind!=null" type="If">
+                        <str type="Str"><![CDATA[a.on_bal_sheet_ind = #on_bal_sheet_ind#]]></str>
+                    </if>
+                </and>
+            </where>
+            <str type="Str"><![CDATA[order by gl_code]]></str>
+        </dynamicSql>
+    </dynamicSelect>
+    <dynamicSelect cache="none" method="selectPageWithCount" type="sql" id="lstBrchSettlementInfo" longname="根据查询条件获取对应的清算关系组织结构信息">
+        <parameterMap class="java.util.Map">
+            <parameter property="org_id" ref="GlDict.A.org_id" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人代码" parameterType="condition"/>
+            <parameter property="ccy_code" ref="GlDict.A.ccy_code" jdbcType="VARCHAR" javaType="BaseType.U_CRCYCD" mode="in" longname="货币代码" parameterType="condition"/>
+            <parameter property="acct_branch" ref="GlDict.A.acct_branch" jdbcType="VARCHAR" javaType="BaseType.U_BRCHNO" mode="in" longname="账务机构" parameterType="condition"/>
+            <parameter property="parent_brch_id" ref="GlDict.A.parent_brch_id" jdbcType="VARCHAR" javaType="BaseType.U_BRCHNO" mode="in" longname="上级机构" parameterType="condition"/>
+            <parameter property="busi_relation_level" ref="GlDict.A.busi_relation_level" jdbcType="VARCHAR" javaType="GlBaseType.U_LONG" mode="in" longname="业务关系级别" parameterType="condition"/>
+            <parameter property="gl_code" ref="GlDict.A.gl_code" jdbcType="VARCHAR" javaType="GlBaseType.U_SUBJECTNO" mode="in" longname="科目号" parameterType="condition"/>
+            <parameter property="upper_lvl_gl_code" ref="GlDict.A.upper_lvl_gl_code" jdbcType="VARCHAR" javaType="GlBaseType.U_SUBJECTNO" mode="in" longname="上级科目" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="ComFaParm.FaBranchSettlementInfo"/>
+        <dynamicSql type="oracle">
+            <str type="Str"><![CDATA[SELECT a.* FROM fap_branch_settlement a]]></str>
+            <where type="Where">
+                <and type="And">
+                    <str type="Str"><![CDATA[a.corpno = #org_id#]]></str>
+                    <if test="ccy_code!=null &amp;&amp; ccy_code!=''" type="If">
+                        <str type="Str"><![CDATA[a.ccy_code = #ccy_code#]]></str>
+                    </if>
+                    <if test="acct_branch!=null &amp;&amp; acct_branch!=''" type="If">
+                        <str type="Str"><![CDATA[a.acct_branch = #acct_branch#]]></str>
+                    </if>
+                    <if test="parent_brch_id!=null &amp;&amp; parent_brch_id!=''" type="If">
+                        <str type="Str"><![CDATA[a.parent_brch_id = #parent_brch_id#]]></str>
+                    </if>
+                    <if test="busi_relation_level!=null &amp;&amp; busi_relation_level!=''" type="If">
+                        <str type="Str"><![CDATA[a.busi_relation_level = #busi_relation_level#]]></str>
+                    </if>
+                    <if test="gl_code!=null &amp;&amp; gl_code!=&quot;&quot;" type="If">
+                        <str type="Str"><![CDATA[a.gl_code = #gl_code#]]></str>
+                    </if>
+                </and>
+            </where>
+        </dynamicSql>
+        <dynamicSql type="db2">
+            <str type="Str"><![CDATA[SELECT a.* FROM fap_branch_settlement a]]></str>
+            <where type="Where">
+                <and type="And">
+                    <str type="Str"><![CDATA[a.corpno = #org_id#]]></str>
+                    <if test="ccy_code!=null &amp;&amp; ccy_code!=''" type="If">
+                        <str type="Str"><![CDATA[a.ccy_code = #ccy_code#]]></str>
+                    </if>
+                    <if test="acct_branch!=null &amp;&amp; acct_branch!=''" type="If">
+                        <str type="Str"><![CDATA[a.acct_branch = #acct_branch#]]></str>
+                    </if>
+                    <if test="parent_brch_id!=null &amp;&amp; parent_brch_id!=''" type="If">
+                        <str type="Str"><![CDATA[a.parent_brch_id = #parent_brch_id#]]></str>
+                    </if>
+                    <if test="busi_relation_level!=null &amp;&amp; busi_relation_level!=''" type="If">
+                        <str type="Str"><![CDATA[a.busi_relation_level = #busi_relation_level#]]></str>
+                    </if>
+                    <if test="gl_code!=null &amp;&amp; gl_code!=&quot;&quot;" type="If">
+                        <str type="Str"><![CDATA[a.gl_code = #gl_code#]]></str>
+                    </if>
+                </and>
+            </where>
+        </dynamicSql>
+        <dynamicSql type="mysql">
+            <str type="Str"><![CDATA[SELECT a.* FROM fap_branch_settlement a]]></str>
+            <where type="Where">
+                <and type="And">
+                    <str type="Str"><![CDATA[a.corpno = #org_id#]]></str>
+                    <if test="ccy_code!=null &amp;&amp; ccy_code!=''" type="If">
+                        <str type="Str"><![CDATA[a.ccy_code = #ccy_code#]]></str>
+                    </if>
+                    <if test="acct_branch!=null &amp;&amp; acct_branch!=''" type="If">
+                        <str type="Str"><![CDATA[a.acct_branch = #acct_branch#]]></str>
+                    </if>
+                    <if test="parent_brch_id!=null &amp;&amp; parent_brch_id!=''" type="If">
+                        <str type="Str"><![CDATA[a.parent_brch_id = #parent_brch_id#]]></str>
+                    </if>
+                    <if test="busi_relation_level!=null &amp;&amp; busi_relation_level!=''" type="If">
+                        <str type="Str"><![CDATA[a.busi_relation_level = #busi_relation_level#]]></str>
+                    </if>
+                    <if test="gl_code!=null &amp;&amp; gl_code!=&quot;&quot;" type="If">
+                        <str type="Str"><![CDATA[a.gl_code = #gl_code#]]></str>
+                    </if>
+                    <if test="upper_lvl_gl_code!=null &amp;&amp; upper_lvl_gl_code!=&quot;&quot;" type="If">
+                        <str type="Str"><![CDATA[a.upper_lvl_gl_code = #upper_lvl_gl_code#]]></str>
+                    </if>
+                </and>
+            </where>
+        </dynamicSql>
+    </dynamicSelect>
+    <dynamicSelect cache="none" method="selectPageWithCount" type="sql" id="lstBranchInfoList" longname="查询机构信息列表">
+        <parameterMap class="java.util.Map">
+            <parameter property="org_id" ref="GlDict.A.org_id" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人代码" parameterType="condition"/>
+            <parameter property="acct_branch" ref="GlDict.A.acct_branch" jdbcType="VARCHAR" javaType="BaseType.U_BRCHNO" mode="in" longname="账务机构" parameterType="condition"/>
+            <parameter property="agent_brch_id" ref="GlDict.A.agent_brch_id" jdbcType="VARCHAR" javaType="BaseType.U_BRCHNO" mode="in" longname="代理机构" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="ComFaParm.FaBranchInfo"/>
+        <dynamicSql type="oracle">
+            <str type="Str"><![CDATA[SELECT * FROM fap_branch_agent]]></str>
+            <where type="Where">
+                <and type="And">
+                    <str type="Str"><![CDATA[corpno =#org_id#]]></str>
+                    <if test="acct_branch!=null &amp;&amp; acct_branch != ''" type="If">
+                        <str type="Str"><![CDATA[acct_branch = #acct_branch#]]></str>
+                    </if>
+                    <if test="agent_brch_id!=null &amp;&amp; agent_brch_id != ''" type="If">
+                        <str type="Str"><![CDATA[agent_brch_id =#agent_brch_id#]]></str>
+                    </if>
+                </and>
+            </where>
+        </dynamicSql>
+        <dynamicSql type="mysql">
+            <str type="Str"><![CDATA[SELECT * FROM fap_branch_agent]]></str>
+            <where type="Where">
+                <and type="And">
+                    <str type="Str"><![CDATA[corpno =#org_id#]]></str>
+                    <if test="acct_branch!=null &amp;&amp; acct_branch != ''" type="If">
+                        <str type="Str"><![CDATA[acct_branch = #acct_branch#]]></str>
+                    </if>
+                    <if test="agent_brch_id!=null &amp;&amp; agent_brch_id != ''" type="If">
+                        <str type="Str"><![CDATA[agent_brch_id =#agent_brch_id#]]></str>
+                    </if>
+                </and>
+            </where>
+        </dynamicSql>
+        <dynamicSql type="db2">
+            <str type="Str"><![CDATA[SELECT * FROM fap_branch_agent]]></str>
+            <where type="Where">
+                <and type="And">
+                    <str type="Str"><![CDATA[corpno =#org_id#]]></str>
+                    <if test="acct_branch!=null &amp;&amp; acct_branch != ''" type="If">
+                        <str type="Str"><![CDATA[acct_branch = #acct_branch#]]></str>
+                    </if>
+                    <if test="agent_brch_id!=null &amp;&amp; agent_brch_id != ''" type="If">
+                        <str type="Str"><![CDATA[agent_brch_id =#agent_brch_id#]]></str>
+                    </if>
+                </and>
+            </where>
+        </dynamicSql>
+    </dynamicSelect>
+    <dynamicSelect cache="none" method="selectFirst" type="sql" id="selJuniorSubjuect" longname="查询该科目是否有下级科目">
+        <parameterMap class="java.util.Map">
+            <parameter property="org_id" ref="GlDict.A.org_id" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人代码" parameterType="condition"/>
+            <parameter property="upper_lvl_gl_code" ref="GlDict.A.upper_lvl_gl_code" jdbcType="VARCHAR" javaType="GlBaseType.U_SUBJECTNO" mode="in" longname="上级科目" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="int"/>
+        <dynamicSql type="oracle">
+            <str type="Str"><![CDATA[select count(*)  from fap_accounting_subject]]></str>
+            <where type="Where">
+                <and type="And">
+                    <str type="Str"><![CDATA[corpno = #org_id#]]></str>
+                    <if test="upper_lvl_gl_code!=null &amp;&amp; upper_lvl_gl_code!=&quot;&quot;" type="If">
+                        <str type="Str"><![CDATA[upper_lvl_gl_code = #upper_lvl_gl_code#]]></str>
+                    </if>
+                </and>
+            </where>
+        </dynamicSql>
+        <dynamicSql type="db2">
+            <str type="Str"><![CDATA[select count(*)  from fap_accounting_subject]]></str>
+            <where type="Where">
+                <and type="And">
+                    <str type="Str"><![CDATA[corpno = #org_id#]]></str>
+                    <if test="upper_lvl_gl_code!=null &amp;&amp; upper_lvl_gl_code!=&quot;&quot;" type="If">
+                        <str type="Str"><![CDATA[upper_lvl_gl_code = #upper_lvl_gl_code#]]></str>
+                    </if>
+                </and>
+            </where>
+        </dynamicSql>
+        <dynamicSql type="mysql">
+            <str type="Str"><![CDATA[select count(*)  from fap_accounting_subject]]></str>
+            <where type="Where">
+                <and type="And">
+                    <str type="Str"><![CDATA[corpno = #org_id#]]></str>
+                    <if test="upper_lvl_gl_code!=null &amp;&amp; upper_lvl_gl_code!=&quot;&quot;" type="If">
+                        <str type="Str"><![CDATA[upper_lvl_gl_code = #upper_lvl_gl_code#]]></str>
+                    </if>
+                </and>
+            </where>
+        </dynamicSql>
+    </dynamicSelect>
+    <select cache="none" method="selectAll" type="sql" id="lstSubjectByDate" longname="查询科目当年是否有发生额">
+        <sql type="oracle"><![CDATA[
+    	select
+    	    	* 
+    	from
+    	    	fab_accounting_voch 
+    	where
+    	    	gl_code=#gl_code# and corpno = #org_id# and trxn_date between #start_date# and #end_date# 
+    	]]></sql>
+        <sql type="db2"><![CDATA[
+    	select
+    	    	* 
+    	from
+    	    	fab_accounting_voch 
+    	where
+    	    	
+		corpno = #org_id# and gl_code=#gl_code# and trxn_date between #start_date# and #end_date#
+    	]]></sql>
+        <sql type="mysql"><![CDATA[
+    	select
+    	    	* 
+    	from
+    	    	fab_accounting_voch 
+    	where
+    	    	
+		corpno = #org_id# and gl_code=#gl_code# and trxn_date between #start_date# and #end_date#
+    	]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="org_id" ref="GlDict.A.org_id" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人代码" parameterType="condition"/>
+            <parameter property="gl_code" ref="GlDict.A.gl_code" jdbcType="VARCHAR" javaType="GlBaseType.U_SUBJECTNO" mode="in" longname="科目号" parameterType="condition"/>
+            <parameter property="start_date" ref="GlDict.A.start_date" jdbcType="VARCHAR" javaType="GlBaseType.U_DATE" mode="in" longname="起始日期" parameterType="condition"/>
+            <parameter property="end_date" ref="GlDict.A.end_date" jdbcType="VARCHAR" javaType="GlBaseType.U_DATE" mode="in" longname="截止日期" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="TabFaRegBook.fab_accounting_voch"/>
+    </select>
+    <select cache="none" method="selectOne" type="sql" id="selSubjectCntByDate" longname="查询科目当年是否有发生额">
+        <sql type="oracle"><![CDATA[       
+		select count(*) from fab_accounting_voch where
+		corpno = #org_id# and gl_code=#gl_code# and trxn_date between #start_date# and #end_date#
+		]]></sql>
+        <sql type="db2"><![CDATA[       
+		select count(*) from fab_accounting_voch where
+		corpno = #org_id# and gl_code=#gl_code# and trxn_date between #start_date# and #end_date#
+		]]></sql>
+        <sql type="mysql"><![CDATA[       
+		select count(*) from fab_accounting_voch where
+		corpno = #org_id# and gl_code=#gl_code# 
+and trxn_date between #start_date# and #end_date#
+		]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="org_id" ref="GlDict.A.org_id" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人代码" parameterType="condition"/>
+            <parameter property="gl_code" ref="GlDict.A.gl_code" jdbcType="VARCHAR" javaType="GlBaseType.U_SUBJECTNO" mode="in" longname="科目号" parameterType="condition"/>
+            <parameter property="start_date" ref="GlDict.A.start_date" jdbcType="VARCHAR" javaType="GlBaseType.U_DATE" mode="in" longname="起始日期" parameterType="condition"/>
+            <parameter property="end_date" ref="GlDict.A.end_date" jdbcType="VARCHAR" javaType="GlBaseType.U_DATE" mode="in" longname="截止日期" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="int"/>
+    </select>
+    <dynamicSelect cache="none" method="selectPageWithCount" type="sql" id="lstSysDefineList" longname="查询系统定义信息列表">
+        <parameterMap class="java.util.Map">
+            <parameter property="org_id" ref="GlDict.A.org_id" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人代码" parameterType="condition"/>
+            <parameter property="sys_no" ref="GlDict.A.sys_no" jdbcType="VARCHAR" javaType="GlBaseType.U_SYSNO" mode="in" longname="系统编号" parameterType="condition"/>
+            <parameter property="sys_name" ref="GlDict.A.sys_name" jdbcType="VARCHAR" javaType="GlBaseType.U_SHORTDESC" mode="in" longname="系统名称" parameterType="condition"/>
+            <parameter property="system_service_status" ref="GlDict.A.system_service_status" jdbcType="VARCHAR" javaType="GlBusinessType.E_SYSTEMSERVICESTATUS" mode="in" longname="系统服务状态" parameterType="condition"/>
+            <parameter property="system_date" ref="GlDict.A.system_date" jdbcType="VARCHAR" javaType="GlBaseType.U_DATE" mode="in" longname="系统日期" parameterType="condition"/>
+            <parameter property="busi_seq_format" ref="GlDict.A.busi_seq_format" jdbcType="VARCHAR" javaType="GlBusinessType.E_BUSISEQFORMAT" mode="in" longname="业务流水组织形式" parameterType="condition"/>
+            <parameter property="ledger_clearing_gl_code" ref="GlDict.A.ledger_clearing_gl_code" jdbcType="VARCHAR" javaType="GlBaseType.U_SUBJECTNO" mode="in" longname="与总账往来科目" parameterType="condition"/>
+            <parameter property="error_gl_code" ref="GlDict.A.error_gl_code" jdbcType="VARCHAR" javaType="GlBaseType.U_SUBJECTNO" mode="in" longname="差错补偿科目" parameterType="condition"/>
+            <parameter property="remark" ref="GlDict.A.remark" jdbcType="VARCHAR" javaType="GlBaseType.U_SHORTDESC" mode="in" longname="备注" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="ComFaParm.FaSysDefineInfo"/>
+        <dynamicSql type="oracle">
+            <str type="Str"><![CDATA[select * from fap_sys_define]]></str>
+            <where type="Where">
+                <and type="And">
+                    <str type="Str"><![CDATA[corpno = #org_id#]]></str>
+                    <if test="sys_no!=null &amp;&amp; sys_no!=''" type="If">
+                        <str type="Str"><![CDATA[sys_no =#sys_no#]]></str>
+                    </if>
+                    <if test="sys_name!=null &amp;&amp; sys_name!=''" type="If">
+                        <str type="Str"><![CDATA[sys_name =#sys_name#]]></str>
+                    </if>
+                    <if test="system_service_status!=null" type="If">
+                        <str type="Str"><![CDATA[system_service_status =#system_service_status#]]></str>
+                    </if>
+                    <if test="system_date!=null &amp;&amp; system_date!=''" type="If">
+                        <str type="Str"><![CDATA[system_date =#system_date#]]></str>
+                    </if>
+                    <if test="busi_seq_format !=null" type="If">
+                        <str type="Str"><![CDATA[busi_seq_format =#busi_seq_format#]]></str>
+                    </if>
+                    <if test="ledger_clearing_gl_code!=null &amp;&amp; ledger_clearing_gl_code!=''" type="If">
+                        <str type="Str"><![CDATA[ledger_clearing_gl_code  =#ledger_clearing_gl_code#]]></str>
+                    </if>
+                    <if test="error_gl_code !=null &amp;&amp; error_gl_code!=''" type="If">
+                        <str type="Str"><![CDATA[error_gl_code= #error_gl_code#]]></str>
+                    </if>
+                    <if test="remark !=null &amp;&amp; remark!=''" type="If">
+                        <str type="Str"><![CDATA[remark =#remark#]]></str>
+                    </if>
+                </and>
+            </where>
+        </dynamicSql>
+        <dynamicSql type="mysql">
+            <str type="Str"><![CDATA[select * from fap_sys_define]]></str>
+            <where type="Where">
+                <and type="And">
+                    <str type="Str"><![CDATA[corpno = #org_id#]]></str>
+                    <if test="sys_no!=null &amp;&amp; sys_no!=''" type="If">
+                        <str type="Str"><![CDATA[sys_no =#sys_no#]]></str>
+                    </if>
+                    <if test="sys_name!=null &amp;&amp; sys_name!=''" type="If">
+                        <str type="Str"><![CDATA[sys_name =#sys_name#]]></str>
+                    </if>
+                    <if test="system_service_status!=null" type="If">
+                        <str type="Str"><![CDATA[system_service_status =#system_service_status#]]></str>
+                    </if>
+                    <if test="system_date!=null &amp;&amp; system_date!=''" type="If">
+                        <str type="Str"><![CDATA[system_date =#system_date#]]></str>
+                    </if>
+                    <if test="busi_seq_format !=null" type="If">
+                        <str type="Str"><![CDATA[busi_seq_format =#busi_seq_format#]]></str>
+                    </if>
+                    <if test="ledger_clearing_gl_code!=null &amp;&amp; ledger_clearing_gl_code!=''" type="If">
+                        <str type="Str"><![CDATA[ledger_clearing_gl_code  =#ledger_clearing_gl_code#]]></str>
+                    </if>
+                    <if test="error_gl_code !=null &amp;&amp; error_gl_code!=''" type="If">
+                        <str type="Str"><![CDATA[error_gl_code= #error_gl_code#]]></str>
+                    </if>
+                    <if test="remark !=null &amp;&amp; remark!=''" type="If">
+                        <str type="Str"><![CDATA[remark =#remark#]]></str>
+                    </if>
+                </and>
+            </where>
+        </dynamicSql>
+        <dynamicSql type="db2">
+            <str type="Str"><![CDATA[select * from fap_sys_define]]></str>
+            <where type="Where">
+                <and type="And">
+                    <str type="Str"><![CDATA[corpno = #org_id#]]></str>
+                    <if test="sys_no!=null &amp;&amp; sys_no!=''" type="If">
+                        <str type="Str"><![CDATA[sys_no =#sys_no#]]></str>
+                    </if>
+                    <if test="sys_name!=null &amp;&amp; sys_name!=''" type="If">
+                        <str type="Str"><![CDATA[sys_name =#sys_name#]]></str>
+                    </if>
+                    <if test="system_service_status!=null" type="If">
+                        <str type="Str"><![CDATA[system_service_status =#system_service_status#]]></str>
+                    </if>
+                    <if test="system_date!=null &amp;&amp; system_date!=''" type="If">
+                        <str type="Str"><![CDATA[system_date =#system_date#]]></str>
+                    </if>
+                    <if test="busi_seq_format !=null" type="If">
+                        <str type="Str"><![CDATA[busi_seq_format =#busi_seq_format#]]></str>
+                    </if>
+                    <if test="ledger_clearing_gl_code!=null &amp;&amp; ledger_clearing_gl_code!=''" type="If">
+                        <str type="Str"><![CDATA[ledger_clearing_gl_code  =#ledger_clearing_gl_code#]]></str>
+                    </if>
+                    <if test="error_gl_code !=null &amp;&amp; error_gl_code!=''" type="If">
+                        <str type="Str"><![CDATA[error_gl_code= #error_gl_code#]]></str>
+                    </if>
+                    <if test="remark !=null &amp;&amp; remark!=''" type="If">
+                        <str type="Str"><![CDATA[remark =#remark#]]></str>
+                    </if>
+                </and>
+            </where>
+        </dynamicSql>
+    </dynamicSelect>
+    <select cache="none" method="selectOne" type="sql" id="selSettlementByBranch" longname="获取某机构清算关系信息">
+        <sql type="oracle" desc="获取某机构清算关系信息"><![CDATA[
+    	SELECT
+    	    	a.* 
+    	FROM
+    	    	fap_branch_settlement a 
+    	where
+    	    	a.corpno = #org_id# and a.ccy_code = #ccy_code# 
+    	    	and a.branch_id = #branch_id# 
+    	]]></sql>
+        <sql type="db2"><![CDATA[
+    	SELECT
+    	    	a.* 
+    	FROM
+    	    	fap_branch_settlement a 
+    	where
+    	    	a.corpno = #org_id# and a.ccy_code = #ccy_code# 
+    	    	and a.branch_id = #branch_id# 
+    	]]></sql>
+        <sql type="mysql"><![CDATA[
+    	SELECT
+    	    	a.* 
+    	FROM
+    	    	fap_branch_settlement a 
+    	where
+    	    	a.corpno = #org_id# and a.ccy_code = #ccy_code# 
+    	    	and a.branch_id = #branch_id# 
+    	]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="org_id" ref="GlDict.A.org_id" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人代码" parameterType="condition"/>
+            <parameter property="ccy_code" ref="GlDict.A.ccy_code" jdbcType="VARCHAR" javaType="BaseType.U_CRCYCD" mode="in" longname="货币代码" parameterType="condition"/>
+            <parameter property="branch_id" ref="GlDict.A.branch_id" jdbcType="VARCHAR" javaType="BaseType.U_BRCHNO" mode="in" longname="机构号" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="ComFaParm.FaBranchSettlementInfo"/>
+    </select>
+    <dynamicSelect cache="none" method="selectPageWithCount" type="sql" id="lstAcctingEvent" longname="根据输入的信息查询系统定义">
+        <parameterMap class="java.util.Map">
+            <parameter property="org_id" ref="GlDict.A.org_id" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人代码" parameterType="condition"/>
+            <parameter property="sys_no" ref="GlDict.A.sys_no" jdbcType="VARCHAR" javaType="GlBaseType.U_SYSNO" mode="in" longname="系统编号" parameterType="condition"/>
+            <parameter property="accounting_subject" ref="GlDict.A.accounting_subject" jdbcType="VARCHAR" javaType="GlBaseType.U_ACCOUNTINGSUBJECT" mode="in" longname="会计主体" parameterType="condition"/>
+            <parameter property="accounting_alias" ref="GlDict.A.accounting_alias" jdbcType="VARCHAR" javaType="GlBaseType.U_BYTE32" mode="in" longname="核算别名" parameterType="condition"/>
+            <parameter property="remark" ref="GlDict.A.remark" jdbcType="VARCHAR" javaType="GlBaseType.U_SHORTDESC" mode="in" longname="备注" parameterType="condition"/>
+            <parameter property="bal_attributes" ref="GlDict.A.bal_attributes" jdbcType="VARCHAR" javaType="GlBaseType.U_BALPROPERTY" mode="in" longname="余额属性" parameterType="condition"/>
+            <parameter property="gl_code" ref="GlDict.A.gl_code" jdbcType="VARCHAR" javaType="GlBaseType.U_SUBJECTNO" mode="in" longname="科目号" parameterType="condition"/>
+            <parameter property="offset_gl_code" ref="GlDict.A.offset_gl_code" jdbcType="VARCHAR" javaType="GlBaseType.U_SUBJECTNO" mode="in" longname="对方科目" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="ComFaParm.FaAccountingEventInfo"/>
+        <dynamicSql type="oracle">
+            <str type="Str"><![CDATA[select * from fap_accounting_event_parm]]></str>
+            <where type="Where">
+                <and type="And">
+                    <str type="Str"><![CDATA[corpno=#org_id#]]></str>
+                    <if test="sys_no!='' &amp;&amp; sys_no!=null" type="If">
+                        <str type="Str"><![CDATA[sys_no=#sys_no#]]></str>
+                    </if>
+                    <if test="accounting_subject!='' &amp;&amp; accounting_subject!=null" type="If">
+                        <str type="Str"><![CDATA[accounting_subject=#accounting_subject#]]></str>
+                    </if>
+                    <if test="accounting_alias!='' &amp;&amp; accounting_alias!=null" type="If">
+                        <str type="Str"><![CDATA[accounting_alias=#accounting_alias#]]></str>
+                    </if>
+                    <if test="remark!='' &amp;&amp; remark!=null" type="If">
+                        <str type="Str"><![CDATA[remark=#remark#]]></str>
+                    </if>
+                    <if test="bal_attributes!='' &amp;&amp; bal_attributes!=null" type="If">
+                        <str type="Str"><![CDATA[bal_attributes=#bal_attributes#]]></str>
+                    </if>
+                    <if test="gl_code!='' &amp;&amp; gl_code!=null" type="If">
+                        <str type="Str"><![CDATA[gl_code=#gl_code#]]></str>
+                    </if>
+                    <if test="offset_gl_code!='' &amp;&amp; offset_gl_code!=null" type="If">
+                        <str type="Str"><![CDATA[offset_gl_code=#offset_gl_code#]]></str>
+                    </if>
+                </and>
+            </where>
+            <str type="Str"><![CDATA[order by sys_no]]></str>
+        </dynamicSql>
+        <dynamicSql type="mysql">
+            <str type="Str"><![CDATA[select * from fap_accounting_event_parm]]></str>
+            <where type="Where">
+                <and type="And">
+                    <str type="Str"><![CDATA[corpno=#org_id#]]></str>
+                    <if test="sys_no!='' &amp;&amp; sys_no!=null" type="If">
+                        <str type="Str"><![CDATA[sys_no=#sys_no#]]></str>
+                    </if>
+                    <if test="accounting_subject!='' &amp;&amp; accounting_subject!=null" type="If">
+                        <str type="Str"><![CDATA[accounting_subject=#accounting_subject#]]></str>
+                    </if>
+                    <if test="accounting_alias!='' &amp;&amp; accounting_alias!=null" type="If">
+                        <str type="Str"><![CDATA[accounting_alias=#accounting_alias#]]></str>
+                    </if>
+                    <if test="remark!='' &amp;&amp; remark!=null" type="If">
+                        <str type="Str"><![CDATA[remark=#remark#]]></str>
+                    </if>
+                    <if test="bal_attributes!='' &amp;&amp; bal_attributes!=null" type="If">
+                        <str type="Str"><![CDATA[bal_attributes=#bal_attributes#]]></str>
+                    </if>
+                    <if test="gl_code!='' &amp;&amp; gl_code!=null" type="If">
+                        <str type="Str"><![CDATA[gl_code=#gl_code#]]></str>
+                    </if>
+                    <if test="offset_gl_code!='' &amp;&amp; offset_gl_code!=null" type="If">
+                        <str type="Str"><![CDATA[offset_gl_code=#offset_gl_code#]]></str>
+                    </if>
+                </and>
+            </where>
+            <str type="Str"><![CDATA[order by sys_no]]></str>
+        </dynamicSql>
+        <dynamicSql type="db2">
+            <str type="Str"><![CDATA[select * from fap_accounting_event_parm]]></str>
+            <where type="Where">
+                <and type="And">
+                    <str type="Str"><![CDATA[corpno=#org_id#]]></str>
+                    <if test="sys_no!='' &amp;&amp; sys_no!=null" type="If">
+                        <str type="Str"><![CDATA[sys_no=#sys_no#]]></str>
+                    </if>
+                    <if test="accounting_subject!='' &amp;&amp; accounting_subject!=null" type="If">
+                        <str type="Str"><![CDATA[accounting_subject=#accounting_subject#]]></str>
+                    </if>
+                    <if test="accounting_alias!='' &amp;&amp; accounting_alias!=null" type="If">
+                        <str type="Str"><![CDATA[accounting_alias=#accounting_alias#]]></str>
+                    </if>
+                    <if test="remark!='' &amp;&amp; remark!=null" type="If">
+                        <str type="Str"><![CDATA[remark=#remark#]]></str>
+                    </if>
+                    <if test="bal_attributes!='' &amp;&amp; bal_attributes!=null" type="If">
+                        <str type="Str"><![CDATA[bal_attributes=#bal_attributes#]]></str>
+                    </if>
+                    <if test="gl_code!='' &amp;&amp; gl_code!=null" type="If">
+                        <str type="Str"><![CDATA[gl_code=#gl_code#]]></str>
+                    </if>
+                    <if test="offset_gl_code!='' &amp;&amp; offset_gl_code!=null" type="If">
+                        <str type="Str"><![CDATA[offset_gl_code=#offset_gl_code#]]></str>
+                    </if>
+                </and>
+            </where>
+            <str type="Str"><![CDATA[order by sys_no]]></str>
+        </dynamicSql>
+    </dynamicSelect>
+    <select cache="none" method="selectAll" type="sql" id="lstOtherSys" longname="选取除总账系统以外的其他系统">
+        <sql type="oracle"><![CDATA[select * from fap_sys_define a where a.sys_no!='999' and scorpno=#org_id#]]></sql>
+        <sql type="db2"><![CDATA[select * from fap_sys_define a where a.sys_no!='999' and corpno=#org_id#]]></sql>
+        <sql type="mysql"><![CDATA[select * from fap_sys_define a where a.sys_no!='999' and corpno=#org_id#]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="org_id" ref="GlDict.A.org_id" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人代码" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="ComFaParm.FaSysDefineInfo"/>
+    </select>
+    <dynamicSelect cache="none" method="selectAll" type="sql" id="lstSmryList" longname="查询摘要码信息">
+        <parameterMap class="java.util.Map">
+            <parameter property="smrycd" ref="BaseDict.Comm.smrycd" jdbcType="VARCHAR" javaType="BaseType.U_SMRYCD" mode="in" longname="摘要代码" parameterType="condition"/>
+            <parameter property="smryds" ref="BaseDict.Comm.smryds" jdbcType="VARCHAR" javaType="BaseType.U_SMRYDS" mode="in" longname="摘要描述" parameterType="condition"/>
+            <parameter property="org_id" ref="GlDict.A.org_id" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人代码" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="SysDbTable.AppSmry"/>
+        <dynamicSql type="oracle">
+            <str type="Str"><![CDATA[select * from app_smry]]></str>
+            <where type="Where">
+                <and type="And">
+                    <str type="Str"><![CDATA[corpno = #org_id#]]></str>
+                    <if test="smrycd!='' &amp;&amp; smrycd!=null" type="If">
+                        <str type="Str"><![CDATA[smrycd like concat(#smrycd#,'%')]]></str>
+                    </if>
+                    <if test="smryds!='' &amp;&amp; smryds!=null" type="If">
+                        <str type="Str"><![CDATA[smryds like concat(#smryds#,'%')]]></str>
+                    </if>
+                </and>
+            </where>
+        </dynamicSql>
+        <dynamicSql type="mysql">
+            <str type="Str"><![CDATA[select * from app_smry]]></str>
+            <where type="Where">
+                <and type="And">
+                    <str type="Str"><![CDATA[corpno = #org_id#]]></str>
+                    <if test="smrycd!='' &amp;&amp; smrycd!=null" type="If">
+                        <str type="Str"><![CDATA[smrycd like concat(#smrycd#,'%')]]></str>
+                    </if>
+                    <if test="smryds!='' &amp;&amp; smryds!=null" type="If">
+                        <str type="Str"><![CDATA[smryds like concat(#smryds#,'%')]]></str>
+                    </if>
+                </and>
+            </where>
+        </dynamicSql>
+        <dynamicSql type="db2">
+            <str type="Str"><![CDATA[select * from app_smry]]></str>
+            <where type="Where">
+                <and type="And">
+                    <str type="Str"><![CDATA[corpno = #org_id#]]></str>
+                    <if test="smrycd!='' &amp;&amp; smrycd!=null" type="If">
+                        <str type="Str"><![CDATA[smrycd like concat(#smrycd#,'%')]]></str>
+                    </if>
+                    <if test="smryds!='' &amp;&amp; smryds!=null" type="If">
+                        <str type="Str"><![CDATA[smryds like concat(#smryds#,'%')]]></str>
+                    </if>
+                </and>
+            </where>
+        </dynamicSql>
+    </dynamicSelect>
+</sqls>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<flowtran xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="fa8504" longname="总账核算信息查询" kind="1" package="cn.sunline.ltts.busi.fatran.trans.businessQuery" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <interface package="cn.sunline.ltts.busi.fatran.trans.businessQuery.intf">
+        <input packMode="true">
+            <field id="sys_no" type="GlBaseType.U_SYSNO" required="false" multi="false" array="false" longname="系统编号" ref="GlDict.A.sys_no"/>
+            <field id="trxn_date" type="GlBaseType.U_DATE" required="false" multi="false" array="false" longname="transaction date" ref="GlDict.A.trxn_date"/>
+            <field id="acct_branch" type="BaseType.U_BRCHNO" required="false" multi="false" array="false" longname="账务机构" ref="GlDict.A.acct_branch"/>
+            <field id="ccy_code" type="BaseType.U_CRCYCD" required="false" multi="false" array="false" longname="currency code" ref="GlDict.A.ccy_code"/>
+            <field id="accounting_subject" type="GlBaseType.U_ACCOUNTINGSUBJECT" required="false" multi="false" array="false" longname="会计主体" ref="GlDict.A.accounting_subject"/>
+            <field id="accounting_alias" type="GlBaseType.U_BYTE32" required="false" multi="false" array="false" longname="核算别名" ref="GlDict.A.accounting_alias"/>
+            <field id="bal_attributes" type="GlBaseType.U_BALPROPERTY" required="false" multi="false" array="false" longname="余额属性" ref="GlDict.A.bal_attributes"/>
+            <field id="gl_code" type="GlBaseType.U_SUBJECTNO" required="false" multi="false" array="false" longname="科目号" ref="GlDict.A.gl_code"/>
+            <field id="analysis_state" type="GlBusinessType.E_ANALYSISSTATE" required="false" multi="false" array="false" longname="解析状态" ref="GlDict.A.analysis_state"/>
+            <field id="ledger_check_result" type="GlBusinessType.E_LEDGERCHECKRESULT" required="false" multi="false" array="false" longname="总分核对结果" ref="GlDict.A.ledger_check_result"/>
+        </input>
+        <output asParm="true" packMode="true">
+            <fields id="list01" scope="ComFaAccounting.FaLedgerCheckOut" required="false" multi="true" longname="查询输出" array="false">
+                <field id="sys_no" type="GlBaseType.U_SYSNO" required="false" multi="false" array="false" longname="系统编号" ref="GlDict.A.sys_no"/>
+                <field id="trxn_date" type="GlBaseType.U_DATE" required="false" multi="false" array="false" longname="交易日期" ref="GlDict.A.trxn_date"/>
+                <field id="acct_branch" type="BaseType.U_BRCHNO" required="false" multi="false" array="false" longname="账务机构" ref="GlDict.A.acct_branch"/>
+                <field id="ccy_code" type="BaseType.U_CRCYCD" required="false" multi="false" array="false" longname="货币代码" ref="GlDict.A.ccy_code"/>
+                <field id="accounting_alias" type="GlBaseType.U_BYTE32" required="false" multi="false" array="false" longname="核算别名" ref="GlDict.A.accounting_alias"/>
+                <field id="bal_attributes" type="GlBaseType.U_BALPROPERTY" required="false" multi="false" array="false" longname="余额属性" ref="GlDict.A.bal_attributes"/>
+                <field id="ledger_bal_direction" type="GlEnumType.E_DEBITCREDIT" required="false" multi="false" array="false" longname="分户余额方向" ref="GlDict.A.ledger_bal_direction"/>
+                <field id="ledger_acct_bal" type="BaseType.U_TRANAM" required="false" multi="false" array="false" longname="分户账户余额" ref="GlDict.A.ledger_acct_bal"/>
+                <field id="gl_code" type="GlBaseType.U_SUBJECTNO" required="false" multi="false" array="false" longname="科目号" ref="GlDict.A.gl_code"/>
+                <field id="gl_bal_direction" type="GlEnumType.E_DEBITCREDIT" required="false" multi="false" array="false" longname="总账余额方向" ref="GlDict.A.gl_bal_direction"/>
+                <field id="accounting_subject" type="GlBaseType.U_ACCOUNTINGSUBJECT" required="false" multi="false" array="false" longname="会计主体" ref="GlDict.A.accounting_subject"/>
+                <field id="gl_acct_bal" type="BaseType.U_TRANAM" required="false" multi="false" array="false" longname="总账账户余额" ref="GlDict.A.gl_acct_bal"/>
+                <field id="ledger_check_result" type="GlBusinessType.E_LEDGERCHECKRESULT" required="false" multi="false" array="false" longname="总分核对结果" ref="GlDict.A.ledger_check_result"/>
+                <field id="analysis_state" type="GlBusinessType.E_ANALYSISSTATE" required="false" multi="false" array="false" longname="解析状态" ref="GlDict.A.analysis_state"/>
+                <field id="acct_bal" type="BaseType.U_TRANAM" required="false" multi="false" array="false" longname="账户余额" ref="GlDict.A.acct_bal"/>
+            </fields>
+        </output>
+        <property packMode="true"/>
+        <printer packMode="true"/>
+    </interface>
+    <flow>
+        <service serviceName="SrvFabLedgerCheck.queryFabLedgerCheck" id="queryFabLedgerCheck" longname="总账核算查询">
+            <in_mappings by_interface="true">
+                <mapping src="accounting_alias" dest="queryIn.accounting_alias" by_interface="true" on_top="true"/>
+                <mapping src="accounting_subject" dest="queryIn.accounting_subject" by_interface="true" on_top="true"/>
+                <mapping src="acct_branch" dest="queryIn.acct_branch" by_interface="true" on_top="true"/>
+                <mapping src="analysis_state" dest="queryIn.analysis_state" by_interface="true" on_top="true"/>
+                <mapping src="bal_attributes" dest="queryIn.bal_attributes" by_interface="true" on_top="true"/>
+                <mapping src="ccy_code" dest="queryIn.ccy_code" by_interface="true" on_top="true"/>
+                <mapping src="gl_code" dest="queryIn.gl_code" by_interface="true" on_top="true"/>
+                <mapping src="ledger_check_result" dest="queryIn.ledger_check_result" by_interface="true" on_top="true"/>
+                <mapping src="sys_no" dest="queryIn.sys_no" by_interface="true" on_top="true"/>
+                <mapping src="trxn_date" dest="queryIn.trxn_date" by_interface="true" on_top="true"/>
+            </in_mappings>
+            <out_mappings by_interface="true">
+                <mapping src="queryOut" dest="list01" by_interface="true" on_top="true"/>
+            </out_mappings>
+        </service>
+    </flow>
+</flowtran>

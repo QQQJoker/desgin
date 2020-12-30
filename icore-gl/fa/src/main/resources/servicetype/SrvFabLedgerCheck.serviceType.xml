@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType id="SrvFabLedgerCheck" kind="business" longname="总账核算相关服务" package="cn.sunline.ltts.busi.fa.servicetype" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <service id="queryFabLedgerCheck" name="queryFabLedgerCheck" longname="总账核算信息查询">
+        <interface>
+            <input packMode="false">
+                <field id="queryIn" type="ComFaAccounting.FaLedgerCheckIn" required="false" multi="false" array="false" longname="查询输出"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="queryOut" type="ComFaAccounting.FaLedgerCheckOut" required="false" multi="true" array="false" longname="查询输出"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+</serviceType>

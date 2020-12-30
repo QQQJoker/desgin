@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType id="SrvFaSysDefine" kind="business" longname="系统定义维护" package="cn.sunline.ltts.busi.fa.servicetype" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <service id="addSysDefine" name="addSysDefine" longname="新增一条系统定义信息">
+        <interface>
+            <input packMode="false">
+                <field id="addIn" type="ComFaParm.FaSysDefineInfo" required="false" multi="false" array="false" longname="新增信息输入"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="modifySysDefine" name="modifySysDefine" longname="维护一条系统定义信息">
+        <interface>
+            <input packMode="false">
+                <field id="modifyIn" type="ComFaParm.FaSysDefineInfo" required="false" multi="false" array="false" longname="维护信息输入"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="deleteSysDefine" name="deleteSysDefine" longname="删除一条系统定义信息">
+        <interface>
+            <input packMode="false">
+                <field id="deleteIn" type="ComFaParm.FaSysDefineInfo" required="false" multi="false" array="false" longname="删除信息输入"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+    <service id="getSysDefine" name="getSysDefine" longname="获取指定系统定义对应的所有信息">
+        <interface>
+            <input packMode="false">
+                <field id="queryIn" type="ComFaParm.FaSysDefineInfo" required="false" multi="false" array="false" longname="查询信息输入"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="queryOut" type="ComFaParm.FaSysDefineInfo" required="false" multi="true" array="false" longname="查询信息输出"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="false"/>
+        </interface>
+    </service>
+</serviceType>

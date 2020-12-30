@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<batch_transaction xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="gl18" longname="应收应付利息红字补计提" dataItem="IoBrComplexType.IoBrchInfo" package="cn.sunline.ltts.busi.gltran.batchtran" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <interface package="cn.sunline.ltts.busi.gltran.batchtran.intf">
+        <input packMode="true"/>
+        <output asParm="true" packMode="true"/>
+        <property packMode="true"/>
+        <printer packMode="true"/>
+    </interface>
+</batch_transaction>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<flowtran xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="fa8264" longname="场景事件解析调试" kind="1" package="cn.sunline.ltts.busi.gl.fatran.trans.lnaccountingevent" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <interface package="cn.sunline.ltts.busi.gl.fatran.trans.accountingevent.intf">
+        <input packMode="true">
+            <field id="account_scenes" type="ComFaLnAccounting.FaLnAccountingSceneInfo" required="false" multi="true" array="false" longname="贷款会计事件解析事件集"/>
+        </input>
+        <output asParm="true" packMode="true">
+            <field id="account_results" type="ComFaLnAccounting.FaLnAccountingSceneResult" required="false" multi="true" array="false" longname="贷款会计事件解析结果集"/>
+        </output>
+        <property packMode="false"/>
+        <printer packMode="true"/>
+    </interface>
+    <flow>
+        <service mappingToProperty="false" serviceName="SrvFaLnAccountingEvent.analysisLnAccountingEvent" id="SrvFaLnAccountingEvent.analysisLnAccountingEvent" longname="场景会计事件解析">
+            <in_mappings by_interface="true">
+                <mapping src="account_scenes" dest="analysisIn" by_interface="true" on_top="true"/>
+            </in_mappings>
+            <out_mappings by_interface="true">
+                <mapping src="resultList" dest="account_results" by_interface="true" on_top="true"/>
+            </out_mappings>
+        </service>
+    </flow>
+</flowtran>

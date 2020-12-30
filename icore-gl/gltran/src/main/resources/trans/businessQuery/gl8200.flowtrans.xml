@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<flowtran id="gl8200" longname="缴存登记薄查询" kind="Q" package="cn.sunline.ltts.busi.gltran.trans" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <interface package="cn.sunline.ltts.busi.gltran.trans.intf">
+        <input packMode="true">
+            <field id="start_date" type="GlBaseType.U_DATE" required="false" multi="false" array="false" longname="起始日期" ref="GlDict.A.start_date"/>
+            <field id="end_date" type="GlBaseType.U_DATE" required="false" multi="false" array="false" longname="截止日期" ref="GlDict.A.end_date"/>
+            <field id="register_no" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="登记号" ref="GlDict.A.register_no"/>
+            <field id="deposit_busi_type" type="GlBusinessType.E_DEPOSITPAIDBUSIPROP" required="true" multi="false" array="false" longname="缴存款业务性质" ref="GlDict.A.deposit_busi_type"/>
+            <field id="deposit_level" type="GlBaseType.U_LONG" required="true" multi="false" array="false" longname="缴存层级" ref="GlDict.A.deposit_level"/>
+            <field id="reserve_type" type="GlBusinessType.E_RESERVEAMTTYPE" required="true" multi="false" array="false" longname="准备金种类" ref="GlDict.A.reserve_type"/>
+            <field id="ccy_code" type="BaseType.U_CRCYCD" required="true" multi="false" array="false" longname="货币代码" ref="GlDict.A.ccy_code"/>
+            <field id="deposit_brch" type="BaseType.U_BRCHNO" required="true" multi="false" array="false" longname="缴存机构" ref="GlDict.A.deposit_brch"/>
+            <field id="deposit_parent_brch" type="BaseType.U_BRCHNO" required="true" multi="false" array="false" longname="缴存上级机构" ref="GlDict.A.deposit_parent_brch"/>
+            <field id="deposit_paid_amt" type="BaseType.U_TRANAM" required="true" multi="false" array="false" longname="当前已缴存金额" ref="GlDict.A.deposit_paid_amt"/>
+            <field id="deposit_status" type="GlBusinessType.E_DEPOSITPAIDSTATE" required="true" multi="false" array="false" longname="缴存状态" ref="GlDict.A.deposit_status"/>
+            <field id="accounting_seq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="记账流水" ref="GlDict.A.accounting_seq"/>
+        </input>
+        <output asParm="true" packMode="true">
+            <fields id="list01" required="false" multi="true" longname="查询输出" array="false">
+                <field id="register_no" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="登记号" ref="GlDict.A.register_no"/>
+                <field id="register_date" type="GlBaseType.U_DATE" required="true" multi="false" array="false" longname="登记日期" ref="GlDict.A.register_date"/>
+                <field id="deposit_busi_type" type="GlBusinessType.E_DEPOSITPAIDBUSIPROP" required="true" multi="false" array="false" longname="缴存款业务性质" ref="GlDict.A.deposit_busi_type"/>
+                <field id="deposit_level" type="GlBaseType.U_LONG" required="true" multi="false" array="false" longname="缴存层级" ref="GlDict.A.deposit_level"/>
+                <field id="reserve_type" type="GlBusinessType.E_RESERVEAMTTYPE" required="true" multi="false" array="false" longname="准备金种类" ref="GlDict.A.reserve_type"/>
+                <field id="ccy_code" type="BaseType.U_CRCYCD" required="true" multi="false" array="false" longname="货币代码" ref="GlDict.A.ccy_code"/>
+                <field id="deposit_brch" type="BaseType.U_BRCHNO" required="true" multi="false" array="false" longname="缴存机构" ref="GlDict.A.deposit_brch"/>
+                <field id="deposit_parent_brch" type="BaseType.U_BRCHNO" required="true" multi="false" array="false" longname="缴存上级机构" ref="GlDict.A.deposit_parent_brch"/>
+                <field id="deposit_payable_bal" type="BaseType.U_TRANAM" required="true" multi="false" array="false" longname="应记缴存款余额" ref="GlDict.A.deposit_payable_bal"/>
+                <field id="deposit_percent" type="BaseType.U_TRANAM" required="true" multi="false" array="false" longname="缴存比率" ref="GlDict.A.deposit_percent"/>
+                <field id="deposit_payable_amt" type="BaseType.U_TRANAM" required="true" multi="false" array="false" longname="应记缴存金额" ref="GlDict.A.deposit_payable_amt"/>
+                <field id="deposit_paid_amt" type="BaseType.U_TRANAM" required="true" multi="false" array="false" longname="当前已缴存金额" ref="GlDict.A.deposit_paid_amt"/>
+                <field id="current_deposit_amt" type="BaseType.U_TRANAM" required="true" multi="false" array="false" longname="本次缴存金额" ref="GlDict.A.current_deposit_amt"/>
+                <field id="deposit_status" type="GlBusinessType.E_DEPOSITPAIDSTATE" required="true" multi="false" array="false" longname="缴存状态" ref="GlDict.A.deposit_status"/>
+                <field id="accounting_date" type="GlBaseType.U_DATE" required="false" multi="false" array="false" longname="记账日期" ref="GlDict.A.accounting_date"/>
+                <field id="accounting_seq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="记账流水" ref="GlDict.A.accounting_seq"/>
+            </fields>
+        </output>
+        <property packMode="true"/>
+        <printer packMode="true"/>
+    </interface>
+    <flow>
+        <service serviceName="SrvGlReserveQuery.reserveQuery" id="SrvGlReserveQuery.reserveQuery" longname="缴存登记薄查询">
+            <in_mappings by_interface="true">
+                <mapping src="accounting_seq" dest="queryIn.accounting_seq" by_interface="true" on_top="true"/>
+                <mapping src="ccy_code" dest="queryIn.ccy_code" by_interface="true" on_top="true"/>
+                <mapping src="deposit_paid_amt" dest="queryIn.current_deposit_amt" by_interface="true" on_top="true"/>
+                <mapping src="deposit_brch" dest="queryIn.deposit_brch" by_interface="true" on_top="true"/>
+                <mapping src="deposit_busi_type" dest="queryIn.deposit_busi_type" by_interface="true" on_top="true"/>
+                <mapping src="deposit_level" dest="queryIn.deposit_level" by_interface="true" on_top="true"/>
+                <mapping src="deposit_paid_amt" dest="queryIn.deposit_paid_amt" by_interface="true" on_top="true"/>
+                <mapping src="deposit_parent_brch" dest="queryIn.deposit_parent_brch" by_interface="true" on_top="true"/>
+                <mapping src="deposit_status" dest="queryIn.deposit_status" by_interface="true" on_top="true"/>
+                <mapping src="end_date" dest="queryIn.end_date" by_interface="true" on_top="true"/>
+                <mapping src="register_no" dest="queryIn.register_no" by_interface="true" on_top="true"/>
+                <mapping src="reserve_type" dest="queryIn.reserve_type" by_interface="true" on_top="true"/>
+                <mapping src="start_date" dest="queryIn.start_date" by_interface="true" on_top="true"/>
+            </in_mappings>
+            <out_mappings by_interface="true">
+                <mapping src="queryOut" dest="list01" by_interface="true" on_top="true"/>
+            </out_mappings>
+        </service>
+    </flow>
+    <outMapping/>
+    <propertyToPrinterMapping/>
+    <outToPrinterMapping/>
+</flowtran>

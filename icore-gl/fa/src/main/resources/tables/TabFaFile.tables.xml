@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema id="TabFaFile" package="cn.sunline.ltts.busi.fa.tables" longname="文件相关" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <table id="app_directory" name="app_directory" longname="文件目录配置" category="P" virtual="false" abstract="false">
+        <fields>
+            <field id="dir_code" longname="directory code" type="GlBaseType.U_BYTE32" ref="GlDict.A.dir_code" primarykey="false" encryptFactor="dir_code data_sort dir_parm_type" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="data_sort" longname="data sort" type="GlBaseType.U_LONG" ref="GlDict.A.data_sort" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="dir_parm_type" longname="parm type" type="GlEnumType.E_DIRPARMTYPE" ref="GlDict.A.dir_parm_type" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="parm_value" longname="parameter value" type="GlBaseType.U_MIDDESC" ref="GlDict.A.parm_value" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="index" fields="dir_code" operate="selectAll"/>
+        </odbindexes>
+        <indexes>
+            <index id="app_directory_pk1" type="primarykey" fields="dir_code data_sort">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+    <table id="app_batch" name="app_batch" longname="文件批量业务定义" param="true" category="B" virtual="false" abstract="false">
+        <fields>
+            <field id="busi_batch_id" longname="batch business id" type="GlBaseType.U_BYTE10" ref="GlDict.A.busi_batch_id" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="busi_batch_desc" longname="batch business describe" type="GlBaseType.U_SHORTDESC" ref="GlDict.A.busi_batch_desc" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="busi_batch_type" longname="batch business type" type="GlEnumType.E_BATCHTYPE" ref="GlDict.A.busi_batch_type" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="file_proc_type" longname="file process type" type="GlEnumType.E_FILEPROCTYPE" ref="GlDict.A.file_proc_type" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="file_recv_way" longname="file receive way" type="GlEnumType.E_FILERECVWAY" ref="GlDict.A.file_recv_way" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="local_dir_code" longname="local directory code" type="GlBaseType.U_BYTE32" ref="GlDict.A.local_dir_code" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="remote_dir_code" longname="remote directory code" type="GlBaseType.U_BYTE32" ref="GlDict.A.remote_dir_code" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="sys_no" longname="系统编号" type="GlBaseType.U_SYSNO" ref="GlDict.A.sys_no" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="unique" fields="busi_batch_id" operate="selectOne"/>
+        </odbindexes>
+        <indexes>
+            <index id="app_batch_pk1" type="primarykey" fields="busi_batch_id">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+    <table id="app_batch_channel" name="app_batch_channel" longname="文件批量业务渠道许可定义" param="true" category="B" virtual="false" abstract="false">
+        <fields>
+            <field id="busi_batch_id" longname="batch business id" type="GlBaseType.U_BYTE10" ref="GlDict.A.busi_batch_id" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="channel_id" longname="channel id" type="GlBaseType.U_CHANNEL" ref="GlDict.A.channel_id" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="unique" fields="busi_batch_id channel_id" operate="selectOne"/>
+        </odbindexes>
+        <indexes>
+            <index id="app_batch_channel_pk1" type="primarykey" fields="busi_batch_id channel_id">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+    <table id="apb_batch_send" name="apb_batch_send" longname="文件发送薄" category="B" virtual="false" abstract="false">
+        <fields>
+            <field id="file_id" longname="file id" type="GlBaseType.U_BYTE20" ref="GlDict.A.file_id" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="file_name" longname="file name" type="GlBaseType.U_MIDDESC" ref="GlDict.A.file_name" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="file_server_path" longname="file server path" type="GlBaseType.U_SHORTDESC" ref="GlDict.A.file_server_path" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="file_local_path" longname="file local path" type="GlBaseType.U_SHORTDESC" ref="GlDict.A.file_local_path" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="append_ok_ind" longname="append success file indication" type="GlEnumType.E_YESORNO" ref="GlDict.A.append_ok_ind" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="send_ind" longname="send indication" type="GlEnumType.E_YESORNO" ref="GlDict.A.send_ind" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="hash_value" longname="hash value" type="GlBaseType.U_LONG" ref="GlDict.A.hash_value" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="send_count" longname="file send count" type="GlBaseType.U_LONG" ref="GlDict.A.send_count" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="unique" fields="file_id" operate="selectOne updateOne selectOneWithLock"/>
+            <index id="odb2" type="index" fields="send_ind hash_value" operate="selectAll selectPage"/>
+        </odbindexes>
+        <indexes>
+            <index id="apb_batch_send_pk1" type="primarykey" fields="file_id">
+                <ddls/>
+            </index>
+            <index id="apb_batch_send_idx2" type="index" fields="send_ind hash_value">
+                <ddls/>
+            </index>
+            <index id="apb_batch_send_idx3" type="index" fields="file_name file_server_path">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+    <table id="apb_batch_receive" name="apb_batch_receive" longname="文件接收薄" category="B" extension="SysCommFieldTable.KapCommSync" virtual="false" abstract="false">
+        <fields>
+            <field id="file_id" longname="file id" type="GlBaseType.U_BYTE20" ref="GlDict.A.file_id" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="file_name" longname="file name" type="GlBaseType.U_MIDDESC" ref="GlDict.A.file_name" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="file_server_path" longname="file server path" type="GlBaseType.U_SHORTDESC" ref="GlDict.A.file_server_path" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="file_local_path" longname="file local path" type="GlBaseType.U_SHORTDESC" ref="GlDict.A.file_local_path" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="receive_ind" longname="receive indication" type="GlEnumType.E_YESORNO" ref="GlDict.A.receive_ind" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="hash_value" longname="hash value" type="GlBaseType.U_LONG" ref="GlDict.A.hash_value" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="recevice_count" longname="file recevice count" type="GlBaseType.U_LONG" ref="GlDict.A.recevice_count" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="unique" fields="file_id" operate="selectOne updateOne selectOneWithLock"/>
+            <index id="odb2" type="index" fields="receive_ind hash_value" operate="selectAll selectPage"/>
+            <index id="odb3" type="index" fields="file_name file_server_path receive_ind" operate="selectFirst"/>
+        </odbindexes>
+        <indexes>
+            <index id="apb_batch_receive_pk1" type="primarykey" fields="file_id">
+                <ddls/>
+            </index>
+            <index id="apb_batch_receive_idx2" type="index" fields="receive_ind hash_value">
+                <ddls/>
+            </index>
+            <index id="apb_batch_receive_idx3" type="index" fields="file_name file_server_path receive_ind">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+    <table id="apb_batch_request" name="apb_batch_request" longname="文件批量请求薄" category="B" virtual="false" extension="SysCommFieldTable.KapCommSync" abstract="false">
+        <fields>
+            <field id="busi_batch_code" longname="batch business code" type="GlBaseType.U_BYTE32" ref="GlDict.A.busi_batch_code" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="busi_batch_id" longname="batch business id" type="GlBaseType.U_BYTE10" ref="GlDict.A.busi_batch_id" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="busi_batch_type" longname="batch business type" type="GlEnumType.E_BATCHTYPE" ref="GlDict.A.busi_batch_type" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="request_file_id" longname="request file id" type="GlBaseType.U_BYTE20" ref="GlDict.A.request_file_id" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="file_name" longname="file name" type="GlBaseType.U_MIDDESC" ref="GlDict.A.file_name" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="timing_process_ind" longname="Timing processing indication" type="GlEnumType.E_YESORNO" ref="GlDict.A.timing_process_ind" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="timing_process_time" longname="Timing processing time" type="GlBaseType.U_DATETIME" ref="GlDict.A.timing_process_time" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="hash_value" longname="hash value" type="GlBaseType.U_LONG" ref="GlDict.A.hash_value" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="file_handling_status" longname="file deal status" type="GlEnumType.E_FILEDEALSTATUS" ref="GlDict.A.file_handling_status" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="head_total_count" longname="header total count" type="GlBaseType.U_LONG" ref="GlDict.A.head_total_count" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="head_total_amt" longname="header total amount" type="BaseType.U_TRANAM" ref="GlDict.A.head_total_amt" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="filebody_total_count" longname="filebody total count" type="GlBaseType.U_LONG" ref="GlDict.A.filebody_total_count" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="filebody_total_amt" longname="filebody total amount" type="BaseType.U_TRANAM" ref="GlDict.A.filebody_total_amt" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="success_total_count" longname="success total count" type="GlBaseType.U_LONG" ref="GlDict.A.success_total_count" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="success_total_amt" longname="success total amount" type="BaseType.U_TRANAM" ref="GlDict.A.success_total_amt" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="return_file_id" longname="return file id" type="GlBaseType.U_BYTE20" ref="GlDict.A.return_file_id" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="error_text" longname="error text" type="GlBaseType.U_LONGESTDESC" ref="GlDict.A.error_text" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="unique" fields="busi_batch_code" operate="selectOne updateOne selectOneWithLock"/>
+            <index id="odb2" type="index" fields="hash_value file_handling_status" operate="selectAll"/>
+        </odbindexes>
+        <indexes>
+            <index id="apb_batch_request_pk1" type="primarykey" fields="busi_batch_code corpno">
+                <ddls/>
+            </index>
+            <index id="apb_batch_request_idx2" type="index" fields="file_handling_status hash_value corpno">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+</schema>

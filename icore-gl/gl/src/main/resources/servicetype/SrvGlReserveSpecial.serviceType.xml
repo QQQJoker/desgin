@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType id="SrvGlReserveSpecial" kind="business" longname="特殊缴存信息维护" package="cn.sunline.ltts.busi.gl.servicetype" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <service id="addGlReserveSpecialInfo" name="addGlReserveSpecialInfo" longname="增加一条特殊对外缴存定义">
+        <interface>
+            <input packMode="false">
+                <field id="addIn" type="GlParm.GlReserveSpecialInfo" required="false" multi="false" array="false" longname="增加输入"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="delGlReserveSpecialInfo" name="delGlReserveSpecialInfo" longname="删除一条指定记录">
+        <interface>
+            <input packMode="false">
+                <field id="branch_id" type="BaseType.U_BRCHNO" required="true" multi="false" array="false" longname="机构号" ref="GlDict.A.branch_id"/>
+                <field id="ccy_code" type="BaseType.U_CRCYCD" required="true" multi="false" array="false" longname="货币代码" ref="GlDict.A.ccy_code"/>
+                <field id="reserve_type" type="GlBusinessType.E_RESERVEAMTTYPE" required="true" multi="false" array="false" longname="准备金种类" ref="GlDict.A.reserve_type"/>
+                <field id="recdver" type="BaseType.U_RECDVER" required="true" multi="false" array="false"  longname="数据版本号" ref="BaseDict.Comm.recdver"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="queryGlReserveSpecialInfo" name="queryGlReserveSpecialInfo" longname="查询特殊对外缴存定义信息明细列表">
+        <interface>
+            <input packMode="false">
+                <field id="queryIn" type="GlParm.GlReserveSpecialInfo" required="false" multi="false" array="false" longname="查询输入"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="queryOut" type="GlParm.GlReserveSpecialInfo" required="false" multi="true" array="false" longname="查询输出"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+</serviceType>

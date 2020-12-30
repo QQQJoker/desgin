@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<sqls xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="GlLnFile" longname="贷款文件相关命名sql" package="cn.sunline.ltts.busi.gl.namedsql" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <select cache="none" method="selectAll" type="sql" id="lstCheckDataFromAccountingSceneSeq" longname="计算场景事件的对账数据">
+        <sql type="mysql"><![CDATA[
+    	select
+    	    	ifnull(sum(a.trxn_amt), 0.00) as total_amt, count(1) as record_number, a.trxn_date, 'N' as file_type
+    	from
+    	    	fab_accounting_scene_seq a 
+    	where
+    	    	a.corpno = #org_id# and a.trxn_date = #trxn_date# 
+    	    	and a.sys_no=#sys_no# 
+    	]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="org_id" ref="GlDict.A.org_id" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人代码" parameterType="condition"/>
+            <parameter property="trxn_date" ref="GlDict.A.trxn_date" jdbcType="VARCHAR" javaType="GlBaseType.U_DATE" mode="in" longname="交易日期" parameterType="condition"/>
+            <parameter property="sys_no" ref="GlDict.A.sys_no" jdbcType="VARCHAR" javaType="GlBaseType.U_SYSNO" mode="in" longname="系统编号" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="GlFile.GlCheckRecord"/>
+    </select>
+    <select cache="none" method="selectAll" type="sql" id="lstCheckDataFromLnLeger" longname="查询分户账余额对账数据">
+        <sql type="mysql"><![CDATA[
+    	select
+    	    	ifnull(sum(a.trxn_amt), 0.00) as total_amt, count(1) as record_number, a.trxn_date, 'P' as file_type
+    	from
+    	    	fab_lnledger_check_seq a 
+    	where
+    	    	a.corpno=#org_id# and a.trxn_date=#trxn_date# 
+    	    	and a.sys_no=#sys_no# 
+    	]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="org_id" ref="GlDict.A.org_id" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人代码" parameterType="condition"/>
+            <parameter property="trxn_date" ref="GlDict.A.trxn_date" jdbcType="VARCHAR" javaType="GlBaseType.U_DATE" mode="in" longname="交易日期" parameterType="condition"/>
+            <parameter property="sys_no" ref="GlDict.A.sys_no" jdbcType="VARCHAR" javaType="GlBaseType.U_SYSNO" mode="in" longname="系统编号" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="GlFile.GlCheckRecord"/>
+    </select>
+    <select cache="none" method="selectOne" type="sql" id="selFileHeadInfoFromLnLedger" longname="从分户账余额流水表中获取文件头信息">
+        <sql type="mysql"><![CDATA[
+    	select
+    	    	count(1) as head_total_count, ifnull(sum(a.trxn_amt), 0.00) as head_total_amt 
+    	from
+    	    	fab_lnledger_check_seq a 
+    	where
+    	    	a.corpno = #org_id# and a.trxn_date=#trxn_date# and cdcnno=#cdcnno#
+    	]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="org_id" ref="GlDict.A.org_id" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人代码" parameterType="condition"/>
+            <parameter property="trxn_date" ref="GlDict.A.trxn_date" jdbcType="VARCHAR" javaType="GlBaseType.U_DATE" mode="in" longname="交易日期" parameterType="condition"/>
+            <parameter property="cdcnno" jdbcType="VARCHAR" javaType="BaseType.U_DCNNO" mode="in" longname="DCN编号" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="GlFile.GlFileHead"/>
+    </select>
+</sqls>

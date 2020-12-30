@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<flowtran id="fa8411" longname="套号记账明细录入" kind="M" package="cn.sunline.ltts.gl.fatran.trans.accounting" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <interface package="cn.sunline.ltts.busi.fatran.trans.intf">
+        <input packMode="true">
+            <fields id="FaSetAccountsDetail" scope="ComFaAccounting.FaSetAccountsDetail" required="false" multi="true" longname="明细录入" array="false">
+                <field id="set_account_no" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="套号" ref="GlDict.A.set_account_no"/>
+                <field id="acct_no" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="账号" ref="GlDict.A.acct_no"/>
+                <field id="ccy_code" type="BaseType.U_CRCYCD" required="false" multi="false" array="false" longname="货币代码" ref="GlDict.A.ccy_code"/>
+                <field id="debit_credit" type="GlEnumType.E_DEBITCREDIT" required="false" multi="false" array="false" longname="记账方向" ref="GlDict.A.debit_credit"/>
+                <field id="accounting_amt" type="BaseType.U_TRANAM" required="false" multi="false" array="false" longname="记账金额" ref="GlDict.A.accounting_amt"/>
+                <field id="gl_code" type="GlBaseType.U_SUBJECTNO" required="false" multi="false" array="false" longname="科目号" ref="GlDict.A.gl_code"/>
+                <field id="acct_branch" type="BaseType.U_BRCHNO" required="false" multi="false" array="false" longname="账务机构" ref="GlDict.A.acct_branch"/>
+                <field id="exchg_method" type="GlBusinessType.E_EXCHANGEMODE" required="false" multi="false" array="false" longname="折算方式" ref="GlDict.A.exchg_method"/>
+                <field id="exchg_org_ccy_amt" type="BaseType.U_TRANAM" required="false" multi="false" array="false" longname="折本金额" ref="GlDict.A.exchg_org_ccy_amt"/>
+                <field id="exchg_dol_ccy_amt" type="BaseType.U_TRANAM" required="false" multi="false" array="false" longname="折美金额" ref="GlDict.A.exchg_dol_ccy_amt"/>
+                <field id="trxn_offset_acct_no" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="交易对手账号" ref="GlDict.A.trxn_offset_acct_no"/>
+                <field id="trxn_offset_acct_name" type="GlBaseType.U_ACCTNAME" required="false" multi="false" array="false" longname="交易对手户名" ref="GlDict.A.trxn_offset_acct_name"/>
+                <field id="summary_code" type="GlBaseType.U_BYTE8" required="false" multi="false" array="false" longname="摘要代码" ref="GlDict.A.summary_code"/>
+                <field id="remark" type="GlBaseType.U_SHORTDESC" required="false" multi="false" array="false" longname="备注" ref="GlDict.A.remark"/>
+                <field id="rebuwa" type="InEnumType.E_REBUWA" required="false" multi="false" array="false" longname="红蓝字" ref="InDict.wrac.rebuwa"/>
+                <field id="acct_name" type="GlBaseType.U_ACCTNAME" required="false" multi="false" array="false" longname="账户名称" ref="GlDict.A.acct_name"/>
+                <field id="gl_code_desc" type="GlBaseType.U_SHORTDESC" required="false" multi="false" array="false" longname="科目名称" ref="GlDict.A.gl_code_desc"/>
+            </fields>
+        </input>
+        <output asParm="true" packMode="true"/>
+        <property packMode="true"/>
+        <printer packMode="true"/>
+    </interface>
+    <flow>
+        <service serviceName="SrvFaAccounting.addSetAccountsDetails" id="SrvFaAccounting.addSetAccountsDetails" longname="套号记账明细录入">
+            <in_mappings by_interface="true">
+                <mapping src="FaSetAccountsDetail" dest="setDetailIn" desc="description" by_interface="true" on_top="true"/>
+            </in_mappings>
+            <out_mappings by_interface="true"/>
+        </service>
+    </flow>
+    <outMapping/>
+    <propertyToPrinterMapping/>
+    <outToPrinterMapping/>
+</flowtran>

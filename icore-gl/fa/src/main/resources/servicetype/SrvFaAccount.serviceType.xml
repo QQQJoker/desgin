@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType id="SrvFaAccount" kind="business" longname="总账账户维护" package="cn.sunline.ltts.busi.fatran.servicetype" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <service id="openAccount" name="openAccount" longname="总账开户">
+        <interface>
+            <input packMode="false">
+                <field id="openAccountIn" type="ComFaAccount.FaAcctInfo" required="false" multi="false" array="false" longname="开户输入"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="openAcctOut" type="ComFaAccount.FaAcctInfo" required="false" multi="false" array="false" longname="开户输出"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="queryAccount" name="queryAccount" longname="总账账户信息查询">
+        <interface>
+            <input packMode="false">
+                <field id="acct_no" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="账号" ref="GlDict.A.acct_no"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="queryOut" type="ComFaAccount.FaAcctInfo" required="false" multi="false" array="false" longname="账户查询输出"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="queryAccountList" name="queryAccountList" longname="查询总账账户列表信息">
+        <interface>
+            <input packMode="false">
+                <field id="queryIn" type="ComFaAccount.FaAcctInfo" required="false" multi="false" array="false" longname="查询输入"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="queryList" type="ComFaAccount.FaAcctInfo" required="false" multi="true" array="false" longname="查询列表输出"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="closeAccount" name="closeAccount" longname="总账账户销户">
+        <interface>
+            <input packMode="false">
+                <field id="acct_no" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="账号" ref="GlDict.A.acct_no"/>
+                <field id="recdver" type="BaseType.U_RECDVER" required="true" multi="false" array="false"  longname="数据版本号" ref="BaseDict.Comm.recdver"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="closeAcctOut" type="ComFaAccount.FaAcctInfo" required="false" multi="false" array="false" longname="销户输出"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="modifyAcct" name="modifyAcct" longname="总账账户维护">
+        <interface>
+            <input packMode="false">
+                <field id="modifyIn" type="ComFaAccount.FaAcctInfo" required="false" multi="false" array="false" longname="账户维护信息输入"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="modifyOut" type="ComFaAccount.FaAcctInfo" required="false" multi="false" array="false" longname="账户维护输出"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+</serviceType>

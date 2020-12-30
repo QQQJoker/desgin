@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<flowtran id="gl8241" longname="准备金缴存比率参数新增" kind="P" package="cn.sunline.ltts.busi.gltran.trans.reservepercent" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <interface package="cn.sunline.ltts.busi.gltran.trans.reservepercent.intf">
+        <input packMode="true">
+            <field id="branch_id" type="BaseType.U_BRCHNO" required="true" multi="false" array="false" longname="机构号" ref="GlDict.A.branch_id"/>
+            <field id="ccy_code" type="BaseType.U_CRCYCD" required="true" multi="false" array="false" longname="货币代码" ref="GlDict.A.ccy_code"/>
+            <field id="reserve_type" type="GlBusinessType.E_RESERVEAMTTYPE" required="true" multi="false" array="false" longname="准备金种类" ref="GlDict.A.reserve_type"/>
+            <field id="reserve_percent" type="BaseType.U_TRANAM" required="true" multi="false" array="false" longname="准备金比率" ref="GlDict.A.reserve_percent"/>
+            <field id="bank_intn_dep_add_percent" type="BaseType.U_TRANAM" required="true" multi="false" array="false" longname="行内缴存追加比率" ref="GlDict.A.bank_intn_dep_add_percent"/>
+        </input>
+        <output asParm="true" packMode="true"/>
+        <property packMode="true"/>
+        <printer packMode="true"/>
+    </interface>
+    <flow>
+        <service serviceName="SrvGlReservePercent.addPercentInfo" id="SrvGlReservePercent.addPercentInfo" longname="准备金缴存比率参数新增">
+            <in_mappings by_interface="true">
+                <mapping src="branch_id" dest="addIn.branch_id" by_interface="true" on_top="true"/>
+                <mapping src="ccy_code" dest="addIn.ccy_code" by_interface="true" on_top="true"/>
+                <mapping src="bank_intn_dep_add_percent" dest="addIn.bank_intn_dep_add_percent" by_interface="true" on_top="true"/>
+                <mapping src="reserve_percent" dest="addIn.reserve_percent" by_interface="true" on_top="true"/>
+                <mapping src="reserve_type" dest="addIn.reserve_type" by_interface="true" on_top="true"/>
+            </in_mappings>
+            <out_mappings by_interface="true"/>
+        </service>
+        <!-- <service serviceName="SrvApTrxn.registerApsTransaction" id="SrvApTrxn.registerApsTransaction" longname="登记流水">
+            <in_mappings by_interface="true"/>
+            <out_mappings by_interface="true"/>
+        </service> -->
+    </flow>
+    <outMapping/>
+    <propertyToPrinterMapping/>
+    <outToPrinterMapping/>
+</flowtran>

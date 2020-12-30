@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<file_batch_transaction xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="fat7" longname="读取及处理场景事件流水文件" kind="read" package="cn.sunline.edsp.busi.gl.fatran.batchfile.lnaccountingevent" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <description><![CDATA[文件批形式]]></description>
+    <fileTemplate id="fat7" longname="读取及处理场景事件流水文件" mode="splitor" splitor="|@|" splitorAsEnd="false" encoding="utf-8">
+        <header id="Header" longname="文件头" mode="splitor" startline="1">
+            <description><![CDATA[交易笔数+交易总金额]]></description>
+            <field id="head_total_count" type="GlBaseType.U_LONG" longname="header total count" leftPadding="false" desc="文件头记录数" ref="GlDict.A.head_total_count"/>
+            <field id="head_total_amt" type="BaseType.U_TRANAM" longname="header total amount" leftPadding="false" desc="文件头金额" ref="GlDict.A.head_total_amt"/>
+        </header>
+        <body id="Body" longname="文件体" mapping="TabFaRegBook.fab_accounting_scene_seq" mode="splitor" startline="2">
+            <field id="trxn_date" type="GlBaseType.U_DATE" longname="交易日期" leftPadding="false" ref="GlDict.A.trxn_date"/>
+            <field id="sys_no" type="GlBaseType.U_SYSNO" longname="系统编号" leftPadding="false" ref="GlDict.A.sys_no"/>
+            <field id="trxn_seq" type="BaseType.U_SEQUNO" longname="交易流水" leftPadding="false" ref="GlDict.A.trxn_seq"/>
+            <field id="data_sort" type="GlBaseType.U_LONG" longname="数据序号" leftPadding="false" ref="GlDict.A.data_sort"/>
+            <field id="acct_branch" type="BaseType.U_BRCHNO" longname="账务机构" leftPadding="false" ref="GlDict.A.acct_branch"/>
+            <field id="trxn_ccy" type="BaseType.U_CRCYCD" longname="交易币种" leftPadding="false" ref="GlDict.A.trxn_ccy"/>
+            <field id="trxn_amt" type="BaseType.U_TRANAM" longname="交易金额" leftPadding="false" ref="GlDict.A.trxn_amt"/>
+            <field id="scene_code" type="GlBaseType.U_SCENE_CODE" longname="场景编号" leftPadding="false" ref="GlDict.A.scene_code"/>
+            <field id="product_code" type="GlBaseType.U_PRODUCT_CODE" longname="产品编号" leftPadding="false" ref="GlDict.A.product_code"/>
+            <field id="bal_type" type="GlBaseType.U_BAL_TYPE" longname="金额类别" leftPadding="false" ref="GlDict.B.bal_type"/>
+            <field id="loan_term" type="GlBaseType.U_LOAN_TERM" longname="贷款期限" leftPadding="false" ref="GlDict.A.loan_term"/>
+            <field id="scene_dimension_five" type="GlBaseType.U_BYTE40" longname="场景维度5" leftPadding="false"/>
+            <field id="scene_dimension_six" type="GlBaseType.U_BYTE40" longname="场景维度6" leftPadding="false"/>
+            <field id="scene_dimension_seven" type="GlBaseType.U_BYTE40" longname="场景维度7" leftPadding="false"/>
+            <field id="scene_dimension_eight" type="GlBaseType.U_BYTE40" longname="场景维度8" leftPadding="false"/>
+            <field id="scene_dimension_nine" type="GlBaseType.U_BYTE40" longname="场景维度9" leftPadding="false"/>
+            <field id="scene_dimension_ten" type="GlBaseType.U_BYTE40" longname="场景维度10" leftPadding="false"/>
+            <field id="scene_dimension_eleven" type="GlBaseType.U_BYTE40" longname="场景维度11" leftPadding="false"/>
+            <field id="scene_dimension_twelve" type="GlBaseType.U_BYTE40" longname="场景维度12" leftPadding="false"/>
+            <field id="scene_dimension_thirteen" type="GlBaseType.U_BYTE40" longname="场景维度13" leftPadding="false"/>
+            <field id="scene_dimension_fourteen" type="GlBaseType.U_BYTE40" longname="场景维度14" leftPadding="false"/>
+        </body>
+        <foot id="Foot" longname="文件尾" startline="1"/>
+    </fileTemplate>
+    <interface package="cn.sunline.edsp.busi.gl.fatran.batchfile.lnaccountingevent.intf">
+        <input packMode="true"/>
+        <output asParm="true" packMode="true"/>
+        <property packMode="true"/>
+        <printer packMode="true"/>
+    </interface>
+</file_batch_transaction>

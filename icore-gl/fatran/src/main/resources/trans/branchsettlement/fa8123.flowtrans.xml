@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<flowtran xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="fa8123" longname="清算关系组织结构信息删除" kind="2" package="cn.sunline.ltts.busi.fatran.trans.branchsettlement" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <interface package="cn.sunline.ltts.busi.fatran.trans.intf">
+        <input packMode="true">
+            <field id="ccy_code" type="BaseType.U_CRCYCD" required="true" multi="false" array="false" longname="货币代码" ref="GlDict.A.ccy_code"/>
+            <field id="acct_branch" type="BaseType.U_BRCHNO" required="true" multi="false" array="false" longname="账务机构" ref="GlDict.A.acct_branch"/>
+            <field id="recdver" type="BaseType.U_RECDVER" required="true" multi="false" array="false" longname="数据版本号" ref="BaseDict.Comm.recdver"/>
+        </input>
+        <output asParm="true" packMode="true"/>
+        <property packMode="false"/>
+        <printer packMode="false"/>
+    </interface>
+    <flow>
+        <service serviceName="SrvFaBranchSettlement.deleteBranchAgent" id="SrvFaBranchSettlement.deleteBranchAgent" longname="清算关系组织结构信息删除">
+            <in_mappings by_interface="true">
+                <mapping src="ccy_code" dest="deleteIn.ccy_code" by_interface="true" on_top="true"/>
+                <mapping src="acct_branch" dest="deleteIn.acct_branch" by_interface="true" on_top="true"/>
+                <mapping src="recdver" dest="deleteIn.recdver" by_interface="true" on_top="true"/>
+            </in_mappings>
+            <out_mappings by_interface="true"/>
+        </service>
+    </flow>
+    <outMapping/>
+    <propertyToPrinterMapping/>
+    <outToPrinterMapping/>
+</flowtran>

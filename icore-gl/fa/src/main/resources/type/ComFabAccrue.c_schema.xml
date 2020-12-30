@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema id="ComFabAccrue" package="cn.sunline.ltts.busi.fa.type" longname="计提登记薄相關復合類型" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <complexType id="FabAccureQueryIn" longname="计提登记簿查询输入复合类型" dict="false" abstract="false" introduct="false">
+        <element id="sys_no" longname="系统编号" type="GlBaseType.U_SYSNO" ref="GlDict.A.sys_no" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="accrue_date" longname="计提日期" type="GlBaseType.U_DATE" ref="GlDict.A.accrue_date" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="accrue_type" longname="计提种类" type="GlBusinessType.E_ACCRUETYPE" ref="GlDict.A.accrue_type" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acct_branch" longname="账务机构" type="BaseType.U_BRCHNO" ref="GlDict.A.acct_branch" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ccy_code" longname="货币代码" type="BaseType.U_CRCYCD" ref="GlDict.A.ccy_code" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="budget_inst_amt" longname="计提金额" type="BaseType.U_TRANAM" ref="GlDict.A.budget_inst_amt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="accrue_gl_code" longname="计提科目" type="GlBaseType.U_SUBJECTNO" ref="GlDict.A.accrue_gl_code" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="offset_gl_code" longname="对方科目" type="GlBaseType.U_SUBJECTNO" ref="GlDict.A.offset_gl_code" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="analysis_state" longname="解析状态" type="GlBusinessType.E_ANALYSISSTATE" ref="GlDict.A.analysis_state" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="FabAccureQueryOut" longname="计提登记簿查询输出复合类型" dict="false" abstract="false" introduct="false">
+        <element id="sys_no" longname="系统编号" type="GlBaseType.U_SYSNO" ref="GlDict.A.sys_no" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="accrue_date" longname="计提日期" type="GlBaseType.U_DATE" ref="GlDict.A.accrue_date" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="accrue_type" longname="计提种类" type="GlBusinessType.E_ACCRUETYPE" ref="GlDict.A.accrue_type" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="record_no" longname="记录次序号" type="GlBaseType.U_LONG" ref="GlDict.A.record_no" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acct_branch" longname="账务机构" type="BaseType.U_BRCHNO" ref="GlDict.A.acct_branch" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="accounting_alias" longname="核算别名" type="GlBaseType.U_BYTE32" ref="GlDict.A.accounting_alias" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ccy_code" longname="货币代码" type="BaseType.U_CRCYCD" ref="GlDict.A.ccy_code" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="bal_attributes" longname="余额属性" type="GlBaseType.U_BALPROPERTY" ref="GlDict.A.bal_attributes" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="budget_inst_amt" longname="计提金额" type="BaseType.U_TRANAM" ref="GlDict.A.budget_inst_amt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="accrue_gl_code" longname="计提科目" type="GlBaseType.U_SUBJECTNO" ref="GlDict.A.accrue_gl_code" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="offset_gl_code" longname="对方科目" type="GlBaseType.U_SUBJECTNO" ref="GlDict.A.offset_gl_code" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="analysis_state" longname="解析状态" type="GlBusinessType.E_ANALYSISSTATE" ref="GlDict.A.analysis_state" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+</schema>

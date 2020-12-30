@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType id="SrvFabSeqCheck" kind="business" longname="总账明细查询" package="cn.sunline.ltts.busi.gl.fa.servicetype" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description><![CDATA[总账明细查询]]></description>
+    <service id="queryFabSeqCheck" name="queryFabSeqCheck" longname="总账柜员流水查询">
+        <interface>
+            <input packMode="false">
+                <field id="queryIn" type="ComFaAccount.FaAcctingSeqIn" required="false" multi="false" array="false" longname="查询输入"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="queryOut" type="ComFaAccount.FaAcctingSeqOut" required="false" multi="true" array="false" longname="流水列表"/>
+            </output>
+            <property packMode="true"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+</serviceType>

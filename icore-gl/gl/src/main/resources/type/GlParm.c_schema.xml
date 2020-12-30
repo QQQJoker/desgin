@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema id="GlParm" package="cn.sunline.ltts.busi.gl.type" longname="总账参数库复合类型" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <complexType id="GlReserveCycleInfo" longname="准备金缴存周期符合类型" dict="false" abstract="false" introduct="false">
+        <element id="ccy_code" longname="货币代码" type="BaseType.U_CRCYCD" ref="GlDict.A.ccy_code" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="deposit_cycle" longname="缴存周期" type="GlBusinessType.E_DEPOSITPAIDCYCLE" ref="GlDict.A.deposit_cycle" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="corpno" longname="法人代码" type="BaseType.U_CORPNO" ref="ApDict.Aplt.corpno" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="recdver" longname="数据版本号" type="BaseType.U_RECDVER" ref="BaseDict.Comm.recdver" required="false" default="1" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="GlReservePercentInfo" longname="准备金缴存比率复合类型" dict="false" abstract="false" introduct="false">
+        <element id="branch_id" longname="机构号" type="BaseType.U_BRCHNO" ref="GlDict.A.branch_id" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ccy_code" longname="货币代码" type="BaseType.U_CRCYCD" ref="GlDict.A.ccy_code" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="reserve_type" longname="准备金种类" type="GlBusinessType.E_RESERVEAMTTYPE" ref="GlDict.A.reserve_type" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="reserve_percent" longname="准备金比率" type="BaseType.U_TRANAM" ref="GlDict.A.reserve_percent" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="bank_intn_dep_add_percent" longname="行内缴存追加比率" type="BaseType.U_TRANAM" ref="GlDict.A.bank_intn_dep_add_percent" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="corpno" longname="法人代码" type="BaseType.U_CORPNO" ref="ApDict.Aplt.corpno" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="recdver" longname="数据版本号" type="BaseType.U_RECDVER" ref="BaseDict.Comm.recdver" required="false" default="1" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="GlReserveLevelInfo" longname="准备金缴存层级复合类型" dict="false" abstract="false" introduct="false">
+        <element id="deposit_level" longname="缴存层级" type="GlBaseType.U_LONG" ref="GlDict.A.deposit_level" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="reserve_type" longname="准备金种类" type="GlBusinessType.E_RESERVEAMTTYPE" ref="GlDict.A.reserve_type" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="deposit_busi_type" longname="缴存款业务性质" type="GlBusinessType.E_DEPOSITPAIDBUSIPROP" ref="GlDict.A.deposit_busi_type" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="deposit_processing_category" longname="缴存款处理类别" type="GlBusinessType.E_DEPOSITPAIDDEALTYPE" ref="GlDict.A.deposit_processing_category" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="accounting_gl_code" longname="记账科目号" type="GlBaseType.U_SUBJECTNO" ref="GlDict.A.accounting_gl_code" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="parent_accounting_gl_code" longname="上级记账科目号" type="GlBaseType.U_SUBJECTNO" ref="GlDict.A.parent_accounting_gl_code" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="corpno" longname="法人代码" type="BaseType.U_CORPNO" ref="ApDict.Aplt.corpno" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="recdver" longname="数据版本号" type="BaseType.U_RECDVER" ref="BaseDict.Comm.recdver" required="false" default="1" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="GlReserveIndexInfo" longname="准备金缴存指标复合类型" dict="false" abstract="false" introduct="false">
+        <element id="ccy_code" longname="货币代码" type="BaseType.U_CRCYCD" ref="GlDict.A.ccy_code" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="gl_code" longname="科目号" type="GlBaseType.U_SUBJECTNO" ref="GlDict.A.gl_code" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="reserve_type" longname="准备金种类" type="GlBusinessType.E_RESERVEAMTTYPE" ref="GlDict.A.reserve_type" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="calc_factor" longname="计算因子" type="GlBusinessType.E_CALCFACTOR" ref="GlDict.A.calc_factor" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="paired_gl_code" longname="配对科目" type="GlBaseType.U_SUBJECTNO" ref="GlDict.A.paired_gl_code" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="reserve_percent" longname="准备金比率" type="BaseType.U_TRANAM" ref="GlDict.A.reserve_percent" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="corpno" longname="法人代码" type="BaseType.U_CORPNO" ref="ApDict.Aplt.corpno" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="recdver" longname="数据版本号" type="BaseType.U_RECDVER" ref="BaseDict.Comm.recdver" required="false" default="1" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="GlReserveSpecialInfo" longname="特殊对外缴存定义复合类型" dict="false" abstract="false" introduct="false">
+        <element id="branch_id" longname="机构号" type="BaseType.U_BRCHNO" ref="GlDict.A.branch_id" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ccy_code" longname="货币代码" type="BaseType.U_CRCYCD" ref="GlDict.A.ccy_code" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="reserve_type" longname="准备金种类" type="GlBusinessType.E_RESERVEAMTTYPE" ref="GlDict.A.reserve_type" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="corpno" longname="法人代码" type="BaseType.U_CORPNO" ref="ApDict.Aplt.corpno" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="recdver" longname="数据版本号" type="BaseType.U_RECDVER" ref="BaseDict.Comm.recdver" required="false" default="1" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="GlReserveAppointInfo" longname="指定日期缴存定义复合类型" dict="false" abstract="false" introduct="false">
+        <element id="appoint_date" longname="指定日期" type="GlBaseType.U_DATE" ref="GlDict.A.appoint_date" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ccy_code" longname="货币代码" type="BaseType.U_CRCYCD" ref="GlDict.A.ccy_code" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="corpno" longname="法人代码" type="BaseType.U_CORPNO" ref="ApDict.Aplt.corpno" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="recdver" longname="数据版本号" type="BaseType.U_RECDVER" ref="BaseDict.Comm.recdver" required="false" default="1" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="GlReserveQueryIn" longname="缴存款查询输入复合类型" dict="false" abstract="false" introduct="false">
+        <element id="start_date" longname="起始日期" type="GlBaseType.U_DATE" ref="GlDict.A.start_date" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="end_date" longname="截止日期" type="GlBaseType.U_DATE" ref="GlDict.A.end_date" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="register_no" longname="登记号" type="BaseType.U_SEQUNO" ref="GlDict.A.register_no" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="deposit_busi_type" longname="缴存款业务性质" type="GlBusinessType.E_DEPOSITPAIDBUSIPROP" ref="GlDict.A.deposit_busi_type" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="deposit_level" longname="缴存层级" type="GlBaseType.U_LONG" ref="GlDict.A.deposit_level" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="reserve_type" longname="准备金种类" type="GlBusinessType.E_RESERVEAMTTYPE" ref="GlDict.A.reserve_type" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ccy_code" longname="货币代码" type="BaseType.U_CRCYCD" ref="GlDict.A.ccy_code" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="deposit_brch" longname="缴存机构" type="BaseType.U_BRCHNO" ref="GlDict.A.deposit_brch" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="deposit_parent_brch" longname="缴存上级机构" type="BaseType.U_BRCHNO" ref="GlDict.A.deposit_parent_brch" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="current_deposit_amt" longname="本次缴存金额" type="BaseType.U_TRANAM" ref="GlDict.A.current_deposit_amt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="deposit_status" longname="缴存状态" type="GlBusinessType.E_DEPOSITPAIDSTATE" ref="GlDict.A.deposit_status" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="accounting_seq" longname="记账流水" type="BaseType.U_SEQUNO" ref="GlDict.A.accounting_seq" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="deposit_paid_amt" longname="当前已缴存金额" type="BaseType.U_TRANAM" ref="GlDict.A.deposit_paid_amt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="GlReserveQueryOut" longname="缴存款查询输出" dict="false" abstract="false" introduct="false">
+        <element id="register_no" longname="登记号" type="BaseType.U_SEQUNO" ref="GlDict.A.register_no" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="register_date" longname="登记日期" type="GlBaseType.U_DATE" ref="GlDict.A.register_date" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="deposit_busi_type" longname="缴存款业务性质" type="GlBusinessType.E_DEPOSITPAIDBUSIPROP" ref="GlDict.A.deposit_busi_type" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="deposit_level" longname="缴存层级" type="GlBaseType.U_LONG" ref="GlDict.A.deposit_level" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="reserve_type" longname="准备金种类" type="GlBusinessType.E_RESERVEAMTTYPE" ref="GlDict.A.reserve_type" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ccy_code" longname="货币代码" type="BaseType.U_CRCYCD" ref="GlDict.A.ccy_code" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="deposit_brch" longname="缴存机构" type="BaseType.U_BRCHNO" ref="GlDict.A.deposit_brch" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="deposit_parent_brch" longname="缴存上级机构" type="BaseType.U_BRCHNO" ref="GlDict.A.deposit_parent_brch" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="deposit_payable_bal" longname="应记缴存款余额" type="BaseType.U_TRANAM" ref="GlDict.A.deposit_payable_bal" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="deposit_percent" longname="缴存比率" type="BaseType.U_TRANAM" ref="GlDict.A.deposit_percent" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="deposit_payable_amt" longname="应记缴存金额" type="BaseType.U_TRANAM" ref="GlDict.A.deposit_payable_amt" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="deposit_paid_amt" longname="当前已缴存金额" type="BaseType.U_TRANAM" ref="GlDict.A.deposit_paid_amt" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="current_deposit_amt" longname="本次缴存金额" type="BaseType.U_TRANAM" ref="GlDict.A.current_deposit_amt" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="deposit_status" longname="缴存状态" type="GlBusinessType.E_DEPOSITPAIDSTATE" ref="GlDict.A.deposit_status" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="accounting_date" longname="记账日期" type="GlBaseType.U_DATE" ref="GlDict.A.accounting_date" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="accounting_seq" longname="记账流水" type="BaseType.U_SEQUNO" ref="GlDict.A.accounting_seq" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+</schema>

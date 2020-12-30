@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<report id="GlInsideGenl" longname="business condition based on balance sheet" description="业务、审计、合并均用此报表展示" jaspertemplate="GlInsideGenl" namepattern="${file_name}" dataItem="GlReport.GlBuinessCondition" assDataItem="GlReport.GlTiller" pageWidth="0" pageHeight="0" package="cn.ltts.report" reportType="pdf" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <interface package="cn.sunline.ltts.busi.gl.report">
+        <input packMode="true">
+            <field id="org_id" type="BaseType.U_CORPNO" required="false" multi="false" array="false" longname="organization id" ref="GlDict.A.org_id"/>
+            <field id="trxn_date" type="GlBaseType.U_DATE" required="false" multi="false" array="false" longname="transaction date" ref="GlDict.A.trxn_date"/>
+            <field id="branch_id" type="BaseType.U_BRCHNO" required="false" multi="false" array="false" longname="branch id" ref="GlDict.A.branch_id"/>
+            <field id="report_type" type="GlBusinessType.E_REPORTTYPE" required="false" multi="false" array="false" longname="报表类型" ref="GlDict.A.report_type"/>
+            <field id="ccy_code" type="BaseType.U_CRCYCD" required="false" multi="false" array="false" longname="currency code" ref="GlDict.A.ccy_code"/>
+            <field id="gl_date_interval" type="GlBusinessType.E_GLDATEINTERVAL" required="false" multi="false" array="false" longname="总账区间" ref="GlDict.A.gl_date_interval"/>
+            <field id="simple_list_display_ind" type="GlEnumType.E_YESORNO" required="false" multi="false" array="false" longname="简表展示标识" ref="GlDict.A.simple_list_display_ind"/>
+            <field id="on_bal_sheet_ind" type="GlEnumType.E_YESORNO" required="false" multi="false" array="false" longname="表内标志" ref="GlDict.A.on_bal_sheet_ind"/>
+            <field id="file_name" type="GlBaseType.U_MIDDESC" required="false" multi="false" array="false" longname="文件名称" ref="GlDict.A.file_name"/>
+        </input>
+        <output asParm="true" packMode="true"/>
+        <property packMode="true"/>
+        <printer packMode="true"/>
+    </interface>
+</report>

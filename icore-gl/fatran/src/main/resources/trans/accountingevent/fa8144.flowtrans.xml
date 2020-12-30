@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<flowtran id="fa8144" longname="核算代码和余额属性查询会计核算事件" kind="1" package="cn.sunline.ltts.busi.gl.fatran.trans.accountingevent" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <interface package="cn.sunline.ltts.busi.gl.fatran.trans.accountingevent.intf">
+        <input packMode="false">
+            <field id="qrycdt" type="ComFaParm.FaAccountingEventQryInfo" required="false" multi="true" array="false" longname="会计事件查询条件"/>
+        </input>
+        <output asParm="true" packMode="true">
+            <field id="ouInfo" type="ComFaParm.FaAccountingEventInfo" required="false" multi="true" array="false" longname="会计信息输入值"/>
+        </output>
+        <property packMode="false"/>
+        <printer packMode="true"/>
+    </interface>
+    <flow>
+        <method method="qryAccountingEvent" id="qryAccountingEvent" longname="查询信息"/>
+    </flow>
+</flowtran>

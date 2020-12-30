@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceImpl id="SrvGlReserveCycleImpl" longname="准备金缴存周期维护" serviceType="SrvGlReserveCycle" package="cn.sunline.ltts.busi.gl.serviceimpl" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>

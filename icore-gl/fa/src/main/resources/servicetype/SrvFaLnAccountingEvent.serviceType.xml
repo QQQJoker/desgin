@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="SrvFaLnAccountingEvent" kind="business" longname="场景核算相关服务" package="cn.sunline.ltts.busi.fa.servicetype" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <service id="addLnAccountingEvent" name="addLnAccountingEvent" longname="增加场景核算事件定义">
+        <interface>
+            <input packMode="false">
+                <field id="addIn" type="TabFaParm.fap_accounting_prod_scene" required="false" multi="true" array="false" longname="增加输入"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="mntLnAccountingEvent" name="mntLnAccountingEvent" longname="维护场景核算事件定义">
+        <interface>
+            <input packMode="false">
+                <field id="modifyIn" type="TabFaParm.fap_accounting_prod_scene" required="false" multi="true" array="false" longname="维护输入"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="delLnAccountingEvent" name="delLnAccountingEvent" longname="删除场景核算事件定义">
+        <interface>
+            <input packMode="false">
+                <field id="deleteIn" type="TabFaParm.fap_accounting_prod_scene" required="false" multi="true" array="false" longname="产品核算事件输入"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="queryLnAccountingEvent" name="queryLnAccountingEvent" longname="查询场景会计事件定义">
+        <interface>
+            <input packMode="false">
+                <field id="queryIn" type="ComFaLnAccounting.FaLnFapAccountingprodSceneInfo" required="false" multi="false" array="false" longname="查询输入"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="queryOut" type="TabFaParm.fap_accounting_prod_scene" required="false" multi="true" array="false" longname="查询输出"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="analysisLnAccountingEvent" name="analysisLnAccountingEvent" longname="场景核算事件解析调试">
+        <interface>
+            <input packMode="false">
+                <field id="analysisIn" type="ComFaLnAccounting.FaLnAccountingSceneInfo" required="false" multi="true" array="false" longname="贷款交易事件输出"/>
+            </input>
+            <output asParm="false" packMode="true">
+                <field id="resultList" type="ComFaLnAccounting.FaLnAccountingSceneResult" required="false" multi="true" array="false" longname="场景事件解析分录结果"/>
+                <field id="txsInfoList" type="ComFaLnAccounting.FaLnAccountingTxsInfo" required="false" multi="true" array="false" longname="营改增明细"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+</serviceType>

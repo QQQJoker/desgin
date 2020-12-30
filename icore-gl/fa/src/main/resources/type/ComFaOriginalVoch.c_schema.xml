@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema id="ComFaOriginalVoch" package="cn.sunline.ltts.busi.fa.type" longname="外系统查询相关复合类型" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <complexType id="FaQueryOrigVochListIn" longname="外系统查询输入复合类型" dict="false" abstract="false" introduct="false">
+        <element id="trxn_date" longname="交易日期" type="GlBaseType.U_DATE" ref="GlDict.A.trxn_date" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="sys_no" longname="系统编号" type="GlBaseType.U_SYSNO" ref="GlDict.A.sys_no" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trxn_seq" longname="交易流水" type="BaseType.U_SEQUNO" ref="GlDict.A.trxn_seq" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acct_no" longname="账号" type="BaseType.U_ACCTNO" ref="GlDict.A.acct_no" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="sub_acct_seq" longname="子账户序号" type="GlBaseType.U_SUBACCTSEQ" ref="GlDict.A.sub_acct_seq" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="data_sort" longname="数据序号" type="GlBaseType.U_LONG" ref="GlDict.A.data_sort" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="busi_seq" longname="业务流水" type="BaseType.U_SEQUNO" ref="GlDict.A.busi_seq" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acct_branch" longname="账务机构" type="BaseType.U_BRCHNO" ref="GlDict.A.acct_branch" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trxn_ccy" longname="交易币种" type="BaseType.U_CRCYCD" ref="GlDict.A.trxn_ccy" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="gl_code" longname="科目号" type="GlBaseType.U_SUBJECTNO" ref="GlDict.A.gl_code" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="debit_credit" longname="记账方向" type="GlEnumType.E_DEBITCREDIT" ref="GlDict.A.debit_credit" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="FaQueryOriginalVochListOut" longname="外系统查询输出复合类型" dict="false" abstract="false" introduct="false">
+        <element id="trxn_date" longname="交易日期" type="GlBaseType.U_DATE" ref="GlDict.A.trxn_date" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="sys_no" longname="系统编号" type="GlBaseType.U_SYSNO" ref="GlDict.A.sys_no" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trxn_seq" longname="交易流水" type="BaseType.U_SEQUNO" ref="GlDict.A.trxn_seq" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acct_no" longname="账号" type="BaseType.U_ACCTNO" ref="GlDict.A.acct_no" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="sub_acct_seq" longname="子账户序号" type="GlBaseType.U_SUBACCTSEQ" ref="GlDict.A.sub_acct_seq" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="data_sort" longname="数据序号" type="GlBaseType.U_LONG" ref="GlDict.A.data_sort" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="busi_seq" longname="业务流水" type="BaseType.U_SEQUNO" ref="GlDict.A.busi_seq" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acct_branch" longname="账务机构" type="BaseType.U_BRCHNO" ref="GlDict.A.acct_branch" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trxn_ccy" longname="交易币种" type="BaseType.U_CRCYCD" ref="GlDict.A.trxn_ccy" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trxn_amt" longname="交易金额" type="BaseType.U_TRANAM" ref="GlDict.A.trxn_amt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="gl_code" longname="科目号" type="GlBaseType.U_SUBJECTNO" ref="GlDict.A.gl_code" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="debit_credit" longname="记账方向" type="GlEnumType.E_DEBITCREDIT" ref="GlDict.A.debit_credit" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+</schema>

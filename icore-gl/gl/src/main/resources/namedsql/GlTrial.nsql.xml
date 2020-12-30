@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<sqls xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="GlTrial" longname="年终试算总账相关SQL" package="cn.sunline.ltts.busi.gl.namedsql" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <select cache="none" method="selectOne" type="sql" id="selLastBatch" longname="获取最后一个批量交易">
+        <sql type="oracle"><![CDATA[ select a.flow_step_num, b.step_id, b.pljioyma,a.tran_group_id
+  from tsp_flow_step_controller a, tsp_tran_controller b
+ where a.system_code = b.system_code and a.is_execution='1' and b.execution_code='1'
+   and a.tran_group_id = b.tran_group_id and a.tran_flow_id=#tran_flow_id#
+   and a.corporate_code = b.corporate_code and a.corporate_code=#org_id#
+   and a.flow_step_num = (select max(a.flow_step_num) from tsp_flow_step_controller a, tsp_tran_controller b where a.system_code = b.system_code and a.is_execution='1' and b.execution_code='1' and a.tran_group_id = b.tran_group_id and a.tran_flow_id=#tran_flow_id# and a.corporate_code = b.corporate_code and a.corporate_code=#org_id#)
+   and a.execution_no = (select max(a.execution_no) from tsp_flow_step_controller a, tsp_tran_controller b where a.system_code = b.system_code and a.is_execution='1' and b.execution_code='1' and a.tran_group_id = b.tran_group_id and a.tran_flow_id=#tran_flow_id# and a.corporate_code = b.corporate_code and a.corporate_code=#org_id#)
+   and b.step_id = (select max(b.step_id) from tsp_flow_step_controller a, tsp_tran_controller b where a.system_code = b.system_code and a.is_execution='1' and b.execution_code='1' and a.tran_group_id = b.tran_group_id and a.tran_flow_id=#tran_flow_id# and a.corporate_code = b.corporate_code and a.corporate_code=#org_id#)
+ ]]></sql>
+        <sql type="mysql"><![CDATA[ select a.flow_step_num, b.step_id, b.pljioyma,a.tran_group_id
+  from tsp_flow_step_controller a, tsp_tran_controller b
+ where a.system_code = b.system_code and a.is_execution='1' and b.execution_code='1'
+   and a.tran_group_id = b.tran_group_id and a.tran_flow_id=#tran_flow_id#
+   and a.corporate_code = b.corporate_code and a.corporate_code=#org_id#
+   and a.flow_step_num = (select max(a.flow_step_num) from tsp_flow_step_controller a, tsp_tran_controller b where a.system_code = b.system_code and a.is_execution='1' and b.execution_code='1' and a.tran_group_id = b.tran_group_id and a.tran_flow_id=#tran_flow_id# and a.corporate_code = b.corporate_code and a.corporate_code=#org_id#)
+   and a.execution_no = (select max(a.execution_no) from tsp_flow_step_controller a, tsp_tran_controller b where a.system_code = b.system_code and a.is_execution='1' and b.execution_code='1' and a.tran_group_id = b.tran_group_id and a.tran_flow_id=#tran_flow_id# and a.corporate_code = b.corporate_code and a.corporate_code=#org_id#)
+   and b.step_id = (select max(b.step_id) from tsp_flow_step_controller a, tsp_tran_controller b where a.system_code = b.system_code and a.is_execution='1' and b.execution_code='1' and a.tran_group_id = b.tran_group_id and a.tran_flow_id=#tran_flow_id# and a.corporate_code = b.corporate_code and a.corporate_code=#org_id#)
+ ]]></sql>
+        <sql type="db2"><![CDATA[ select a.flow_step_num, b.step_id, b.pljioyma,a.tran_group_id
+  from tsp_flow_step_controller a, tsp_tran_controller b
+ where a.system_code = b.system_code and a.is_execution='1' and b.execution_code='1'
+   and a.tran_group_id = b.tran_group_id and a.tran_flow_id=#tran_flow_id#
+   and a.corporate_code = b.corporate_code and a.corporate_code=#org_id#
+   and a.flow_step_num = (select max(a.flow_step_num) from tsp_flow_step_controller a, tsp_tran_controller b where a.system_code = b.system_code and a.is_execution='1' and b.execution_code='1' and a.tran_group_id = b.tran_group_id and a.tran_flow_id=#tran_flow_id# and a.corporate_code = b.corporate_code and a.corporate_code=#org_id#)
+   and a.execution_no = (select max(a.execution_no) from tsp_flow_step_controller a, tsp_tran_controller b where a.system_code = b.system_code and a.is_execution='1' and b.execution_code='1' and a.tran_group_id = b.tran_group_id and a.tran_flow_id=#tran_flow_id# and a.corporate_code = b.corporate_code and a.corporate_code=#org_id#)
+   and b.step_id = (select max(b.step_id) from tsp_flow_step_controller a, tsp_tran_controller b where a.system_code = b.system_code and a.is_execution='1' and b.execution_code='1' and a.tran_group_id = b.tran_group_id and a.tran_flow_id=#tran_flow_id# and a.corporate_code = b.corporate_code and a.corporate_code=#org_id#)
+ ]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="tran_flow_id" ref="KsDict.BtDict.tran_flow_id" jdbcType="VARCHAR" javaType="KBaseType.U_PLJYLCBS" mode="in" longname="批量交易流程ID" parameterType="condition"/>
+            <parameter property="org_id" ref="GlDict.A.org_id" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人代码" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="GlComplexType.GlDayEndProcessControl"/>
+    </select>
+    <select cache="none" method="selectAll" type="sql" id="lstDayEndStatus" longname="获取日终状态">
+        <sql type="oracle"><![CDATA[
+    	select
+    	    	a.tran_state 
+    	from
+    	    	tsp_transaction_log a 
+    	where
+    	    	a.tran_group_id=#tran_group_id# and a.tran_id=#tran_id# 
+    	    	and a.system_code = 'onlBatch' and a.step_id=#step_id# 
+    	       and a.tran_date= #tran_date# and a.corporate_code=#org_id#
+    	order by
+    	    	a.jshishjc desc 
+    	]]></sql>
+        <sql type="db2"><![CDATA[
+    	select
+    	    	a.tran_state 
+    	from
+    	    	tsp_transaction_log a 
+    	where
+    	    	a.tran_group_id=#tran_group_id# and a.tran_id=#tran_id# 
+    	    	and a.system_code = 'onlBatch' and a.step_id=#step_id# 
+    	       and a.tran_date= #tran_date# and a.corporate_code=#org_id#
+    	order by
+    	    	a.jshishjc desc 
+    	]]></sql>
+        <sql type="mysql"><![CDATA[
+    	select
+    	    	a.tran_state 
+    	from
+    	    	tsp_transaction_log a 
+    	where
+    	    	a.tran_group_id=#tran_group_id# and a.tran_id=#tran_id# 
+    	    	and a.system_code = 'onlBatch' and a.step_id=#step_id# 
+    	       and a.tran_date= #tran_date# and a.corporate_code=#org_id#
+    	order by
+    	    	a.jshishjc desc 
+    	]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="tran_id" ref="KsDict.BtDict.tran_id" jdbcType="VARCHAR" javaType="KBaseType.U_PLJIOYMA" mode="in" longname="批量交易ID" parameterType="condition"/>
+            <parameter property="step_id" ref="KsDict.BtDict.step_id" jdbcType="VARCHAR" javaType="KBaseType.U_TYSZLEIX" mode="in" longname="步骤号" parameterType="condition"/>
+            <parameter property="tran_date" ref="KsDict.BtDict.tran_date" jdbcType="VARCHAR" javaType="KBaseType.U_RIQILEIX" mode="in" longname="交易日期" parameterType="condition"/>
+            <parameter property="tran_group_id" ref="KsDict.BtDict.tran_group_id" jdbcType="VARCHAR" javaType="KBaseType.U_PILJYZBS" mode="in" longname="批量交易组ID" parameterType="condition"/>
+            <parameter property="org_id" ref="GlDict.A.org_id" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人代码" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="java.lang.String">
+            <result property="tran_state" javaType="string" jdbcType="VARCHAR" column="tran_state"/>
+        </resultMap>
+    </select>
+</sqls>

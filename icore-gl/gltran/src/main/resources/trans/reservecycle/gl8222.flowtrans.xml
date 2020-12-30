@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<flowtran id="gl8222" longname="准备金通用缴存周期维护" kind="P" package="cn.sunline.ltts.busi.gltran.trans.reservecycle" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <interface package="cn.sunline.ltts.busi.gltran.trans.reservecycle.intf">
+        <input packMode="true">
+            <field id="ccy_code" type="BaseType.U_CRCYCD" required="true" multi="false" array="false" longname="货币代码" ref="GlDict.A.ccy_code"/>
+            <field id="deposit_cycle" type="GlBusinessType.E_DEPOSITPAIDCYCLE" required="true" multi="false" array="false" longname="缴存周期" ref="GlDict.A.deposit_cycle"/>
+            <field id="recdver" type="BaseType.U_RECDVER" required="true" multi="false" array="false"  longname="数据版本号" ref="BaseDict.Comm.recdver"/>
+        </input>
+        <output asParm="true" packMode="true"/>
+        <property packMode="true"/>
+        <printer packMode="true"/>
+    </interface>
+    <flow>
+        <service serviceName="SrvGlReserveCycle.mntReserveCycle" id="SrvGlReserveCycle.mntReserveCycle" longname="准备金通用缴存周期维护">
+            <in_mappings by_interface="true">
+                <mapping src="ccy_code" dest="modifyIn.ccy_code" by_interface="true" on_top="true"/>
+                <mapping src="recdver" dest="modifyIn.recdver" by_interface="true" on_top="true"/>
+                <mapping src="deposit_cycle" dest="modifyIn.deposit_cycle" by_interface="true" on_top="true"/>
+            </in_mappings>
+            <out_mappings by_interface="true"/>
+        </service>
+        <!-- <service serviceName="SrvApTrxn.registerApsTransaction" id="SrvApTrxn.registerApsTransaction" longname="登记流水">
+            <in_mappings by_interface="true"/>
+            <out_mappings by_interface="true"/>
+        </service> -->
+    </flow>
+    <outMapping/>
+    <propertyToPrinterMapping/>
+    <outToPrinterMapping/>
+</flowtran>

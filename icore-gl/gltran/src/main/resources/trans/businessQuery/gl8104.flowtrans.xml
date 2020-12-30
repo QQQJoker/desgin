@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<flowtran xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="gl8104" longname="科目余额信息查询" kind="1" package="cn.sunline.ltts.busi.gltran.trans.businessQuery" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <interface package="cn.sunline.ltts.busi.gltran.trans.intf">
+        <input packMode="true">
+            <field id="report_type" type="GlBusinessType.E_REPORTTYPE" required="true" multi="false" array="false" longname="报表类型" ref="GlDict.A.report_type"/>
+            <field id="trxn_date" type="GlBaseType.U_DATE" required="true" multi="false" array="false" longname="交易日期" ref="GlDict.A.trxn_date"/>
+            <field id="branch_id" type="BaseType.U_BRCHNO" required="true" multi="false" array="false" longname="机构号" ref="GlDict.A.branch_id"/>
+            <field id="ccy_code" type="BaseType.U_CRCYCD" required="true" multi="false" array="false" longname="货币代码" ref="GlDict.A.ccy_code"/>
+            <field id="gl_code" type="GlBaseType.U_SUBJECTNO" required="true" multi="false" array="false" longname="科目号" ref="GlDict.A.gl_code"/>
+        </input>
+        <output asParm="true" packMode="true">
+            <field id="report_type" type="GlBusinessType.E_REPORTTYPE" required="false" multi="false" array="false" longname="报表类型" ref="GlDict.A.report_type"/>
+            <field id="trxn_date" type="GlBaseType.U_DATE" required="true" multi="false" array="false" longname="交易日期" ref="GlDict.A.trxn_date"/>
+            <field id="branch_id" type="BaseType.U_BRCHNO" required="true" multi="false" array="false" longname="机构号" ref="GlDict.A.branch_id"/>
+            <field id="ccy_code" type="BaseType.U_CRCYCD" required="true" multi="false" array="false" longname="货币代码" ref="GlDict.A.ccy_code"/>
+            <field id="gl_code" type="GlBaseType.U_SUBJECTNO" required="true" multi="false" array="false" longname="科目号" ref="GlDict.A.gl_code"/>
+            <field id="on_bal_sheet_ind" type="GlEnumType.E_YESORNO" required="true" multi="false" array="false" longname="表内标志" ref="GlDict.A.on_bal_sheet_ind"/>
+            <field id="prev_debit_bal" type="BaseType.U_TRANAM" required="true" multi="false" array="false" longname="上期借方余额" ref="GlDict.A.prev_debit_bal"/>
+            <field id="prev_credit_bal" type="BaseType.U_TRANAM" required="true" multi="false" array="false" longname="上期贷方余额" ref="GlDict.A.prev_credit_bal"/>
+            <field id="current_debit_amt" type="BaseType.U_TRANAM" required="true" multi="false" array="false" longname="本期借方发生额" ref="GlDict.A.current_debit_amt"/>
+            <field id="current_credit_amt" type="BaseType.U_TRANAM" required="true" multi="false" array="false" longname="本期贷方发生额" ref="GlDict.A.current_credit_amt"/>
+            <field id="current_debit_bal" type="BaseType.U_TRANAM" required="true" multi="false" array="false" longname="本期借方余额" ref="GlDict.A.current_debit_bal"/>
+            <field id="current_credit_bal" type="BaseType.U_TRANAM" required="true" multi="false" array="false" longname="本期贷方余额" ref="GlDict.A.current_credit_bal"/>
+        </output>
+        <property packMode="true"/>
+        <printer packMode="true"/>
+    </interface>
+    <flow>
+        <service serviceName="SrvGlBranchSubjectBal.getBalInfo" id="SrvGlBranchSubjectBal.getBalInfo" longname="科目余额信息查询">
+            <in_mappings by_interface="true">
+                <mapping src="branch_id" dest="queryIn.branch_id" by_interface="true" on_top="true"/>
+                <mapping src="ccy_code" dest="queryIn.ccy_code" by_interface="true" on_top="true"/>
+                <mapping src="report_type" dest="queryIn.report_type" by_interface="true" on_top="true"/>
+                <mapping src="gl_code" dest="queryIn.gl_code" by_interface="true" on_top="true"/>
+                <mapping src="trxn_date" dest="queryIn.trxn_date" by_interface="true" on_top="true"/>
+            </in_mappings>
+            <out_mappings by_interface="true">
+                <mapping src="queryOut.branch_id" dest="branch_id" by_interface="true" on_top="true"/>
+                <mapping src="queryOut.ccy_code" dest="ccy_code" by_interface="true" on_top="true"/>
+                <mapping src="queryOut.current_credit_amt" dest="current_credit_amt" by_interface="true" on_top="true"/>
+                <mapping src="queryOut.current_credit_bal" dest="current_credit_bal" by_interface="true" on_top="true"/>
+                <mapping src="queryOut.current_debit_amt" dest="current_debit_amt" by_interface="true" on_top="true"/>
+                <mapping src="queryOut.current_debit_bal" dest="current_debit_bal" by_interface="true" on_top="true"/>
+                <mapping src="queryOut.prev_credit_bal" dest="prev_credit_bal" by_interface="true" on_top="true"/>
+                <mapping src="queryOut.prev_debit_bal" dest="prev_debit_bal" by_interface="true" on_top="true"/>
+                <mapping src="queryOut.report_type" dest="report_type" by_interface="true" on_top="true"/>
+                <mapping src="queryOut.gl_code" dest="gl_code" by_interface="true" on_top="true"/>
+                <mapping src="queryOut.on_bal_sheet_ind" dest="on_bal_sheet_ind" by_interface="true" on_top="true"/>
+                <mapping src="queryOut.trxn_date" dest="trxn_date" by_interface="true" on_top="true"/>
+            </out_mappings>
+        </service>
+    </flow>
+    <outMapping/>
+    <propertyToPrinterMapping/>
+    <outToPrinterMapping/>
+</flowtran>

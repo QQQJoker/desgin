@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<flowtran xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="fa8503" longname="计提账务查询" kind="1" package="cn.sunline.ltts.busi.fatran.trans.businessQuery" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <interface package="cn.sunline.ltts.busi.fatran.trans.businessQuery.intf">
+        <input packMode="true">
+            <field id="sys_no" type="GlBaseType.U_SYSNO" required="false" multi="false" array="false" longname="系统编号" ref="GlDict.A.sys_no"/>
+            <field id="accrue_date" type="GlBaseType.U_DATE" required="false" multi="false" array="false" longname="计提日期" ref="GlDict.A.accrue_date"/>
+            <field id="accrue_type" type="GlBusinessType.E_ACCRUETYPE" required="false" multi="false" array="false" longname="计提种类" ref="GlDict.A.accrue_type"/>
+            <field id="acct_branch" type="BaseType.U_BRCHNO" required="false" multi="false" array="false" longname="账务机构" ref="GlDict.A.acct_branch"/>
+            <field id="ccy_code" type="BaseType.U_CRCYCD" required="false" multi="false" array="false" longname="currency code" ref="GlDict.A.ccy_code"/>
+            <field id="budget_inst_amt" type="BaseType.U_TRANAM" required="false" multi="false" array="false" longname="计提金额" ref="GlDict.A.budget_inst_amt"/>
+            <field id="accrue_gl_code" type="GlBaseType.U_SUBJECTNO" required="false" multi="false" array="false" longname="计提科目" ref="GlDict.A.accrue_gl_code"/>
+            <field id="offset_gl_code" type="GlBaseType.U_SUBJECTNO" required="false" multi="false" array="false" longname="对方科目" ref="GlDict.A.offset_gl_code"/>
+            <field id="analysis_state" type="GlBusinessType.E_ANALYSISSTATE" required="false" multi="false" array="false" longname="解析状态" ref="GlDict.A.analysis_state"/>
+        </input>
+        <output asParm="true" packMode="true">
+            <fields id="list01" scope="ComFabAccrue.FabAccureQueryOut" required="false" multi="true" longname="查询输出" array="false">
+                <field id="sys_no" type="GlBaseType.U_SYSNO" required="false" multi="false" array="false" longname="系统编号" ref="GlDict.A.sys_no"/>
+                <field id="accrue_date" type="GlBaseType.U_DATE" required="false" multi="false" array="false" longname="计提日期" ref="GlDict.A.accrue_date"/>
+                <field id="accrue_type" type="GlBusinessType.E_ACCRUETYPE" required="false" multi="false" array="false" longname="计提种类" ref="GlDict.A.accrue_type"/>
+                <field id="record_no" type="GlBaseType.U_LONG" required="false" multi="false" array="false" longname="记录次序号" ref="GlDict.A.record_no"/>
+                <field id="acct_branch" type="BaseType.U_BRCHNO" required="false" multi="false" array="false" longname="账务机构" ref="GlDict.A.acct_branch"/>
+                <field id="accounting_alias" type="GlBaseType.U_BYTE32" required="false" multi="false" array="false" longname="核算别名" ref="GlDict.A.accounting_alias"/>
+                <field id="ccy_code" type="BaseType.U_CRCYCD" required="false" multi="false" array="false" longname="货币代码" ref="GlDict.A.ccy_code"/>
+                <field id="bal_attributes" type="GlBaseType.U_BALPROPERTY" required="false" multi="false" array="false" longname="余额属性" ref="GlDict.A.bal_attributes"/>
+                <field id="budget_inst_amt" type="BaseType.U_TRANAM" required="false" multi="false" array="false" longname="计提金额" ref="GlDict.A.budget_inst_amt"/>
+                <field id="accrue_gl_code" type="GlBaseType.U_SUBJECTNO" required="false" multi="false" array="false" longname="计提科目" ref="GlDict.A.accrue_gl_code"/>
+                <field id="offset_gl_code" type="GlBaseType.U_SUBJECTNO" required="false" multi="false" array="false" longname="对方科目" ref="GlDict.A.offset_gl_code"/>
+                <field id="analysis_state" type="GlBusinessType.E_ANALYSISSTATE" required="false" multi="false" array="false" longname="解析状态" ref="GlDict.A.analysis_state"/>
+            </fields>
+        </output>
+        <property packMode="true"/>
+        <printer packMode="true"/>
+    </interface>
+    <flow>
+        <service serviceName="SrvFabAccure.FabAccureQueryList" id="SrvFabAccure.FabAccureQueryList" longname="计提登记簿查询">
+            <in_mappings by_interface="true">
+                <mapping src="accrue_date" dest="queryIn.accrue_date" by_interface="true" on_top="true"/>
+                <mapping src="accrue_gl_code" dest="queryIn.accrue_gl_code" by_interface="true" on_top="true"/>
+                <mapping src="accrue_type" dest="queryIn.accrue_type" by_interface="true" on_top="true"/>
+                <mapping src="acct_branch" dest="queryIn.acct_branch" by_interface="true" on_top="true"/>
+                <mapping src="analysis_state" dest="queryIn.analysis_state" by_interface="true" on_top="true"/>
+                <mapping src="budget_inst_amt" dest="queryIn.budget_inst_amt" by_interface="true" on_top="true"/>
+                <mapping src="ccy_code" dest="queryIn.ccy_code" by_interface="true" on_top="true"/>
+                <mapping src="offset_gl_code" dest="queryIn.offset_gl_code" by_interface="true" on_top="true"/>
+                <mapping src="sys_no" dest="queryIn.sys_no" by_interface="true" on_top="true"/>
+            </in_mappings>
+            <out_mappings by_interface="true">
+                <mapping src="queryOut" dest="list01" by_interface="true" on_top="true"/>
+            </out_mappings>
+        </service>
+    </flow>
+</flowtran>

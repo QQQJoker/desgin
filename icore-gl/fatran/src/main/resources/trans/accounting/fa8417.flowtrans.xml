@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<flowtran id="fa8417" longname="套账查询" kind="Q" package="cn.sunline.ltts.busi.gl.fatran.trans.accounting" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <interface package="cn.sunline.ltts.busi.gl.fatran.trans.accounting.intf">
+        <input packMode="true">
+            <field id="start_date" type="GlBaseType.U_DATE" required="true" multi="false" array="false" longname="起始日期" ref="GlDict.A.start_date"/>
+            <field id="end_date" type="GlBaseType.U_DATE" required="true" multi="false" array="false" longname="截止日期" ref="GlDict.A.end_date"/>
+            <field id="trxn_teller" type="GlBaseType.U_USERID" required="true" multi="false" array="false" longname="交易柜员" ref="GlDict.A.trxn_teller"/>
+            <field id="gl_code" type="GlBaseType.U_SUBJECTNO" required="false" multi="false" array="false" longname="科目号" ref="GlDict.A.gl_code"/>
+            <field id="acct_no" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="账号" ref="GlDict.A.acct_no"/>
+            <field id="set_account_no" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="套号" ref="GlDict.A.set_account_no"/>
+            <field id="accounting_amt" type="BaseType.U_TRANAM" required="false" multi="false" array="false" longname="记账金额" ref="GlDict.A.accounting_amt"/>
+            <field id="ccy_code" type="BaseType.U_CRCYCD" required="false" multi="false" array="false" longname="币种" ref="GlDict.A.ccy_code"/>
+        </input>
+        <output asParm="true" packMode="true">
+            <fields id="FaQuerySetAccountsOut" scope="ComFaAccounting.FaQuerySetAccountsOut" required="false" multi="true" longname="套账明细查询复合类型" array="false">
+                <field id="set_account_no" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="套号" ref="GlDict.A.set_account_no"/>
+                <field id="set_account_status" type="GlBusinessType.E_SETACCOUNTSTATE" required="false" multi="false" array="false" longname="套账状态" ref="GlDict.A.set_account_status"/>
+                <field id="sys_no" type="GlBaseType.U_SYSNO" required="false" multi="false" array="false" longname="系统编号" ref="GlDict.A.sys_no"/>
+                <field id="subject_accounting_ind" type="GlEnumType.E_YESORNO" required="false" multi="false" array="false" longname="科目记账标志" ref="GlDict.A.subject_accounting_ind"/>
+                <field id="trxn_date" type="GlBaseType.U_DATE" required="false" multi="false" array="false" longname="交易日期" ref="GlDict.A.trxn_date"/>
+                <field id="trxn_seq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="交易流水" ref="GlDict.A.trxn_seq"/>
+                <field id="trxn_teller" type="GlBaseType.U_USERID" required="false" multi="false" array="false" longname="交易柜员" ref="GlDict.A.trxn_teller"/>
+                <field id="posting_date" type="GlBaseType.U_DATE" required="false" multi="false" array="false" longname="入账日期" ref="GlDict.A.posting_date"/>
+                <field id="posting_teller" type="GlBaseType.U_USERID" required="false" multi="false" array="false" longname="入账柜员" ref="GlDict.A.posting_teller"/>
+                <field id="acct_branch" type="BaseType.U_BRCHNO" required="false" multi="false" array="false" longname="账务机构" ref="GlDict.A.acct_branch"/>
+                <field id="summary_code" type="GlBaseType.U_BYTE8" required="false" multi="false" array="false" longname="摘要代码" ref="GlDict.A.summary_code"/>
+                <field id="summary_desc" type="GlBaseType.U_SHORTDESC" required="false" multi="false" array="false" longname="摘要描述" ref="GlDict.A.summary_desc"/>
+                <field id="remark" type="GlBaseType.U_SHORTDESC" required="false" multi="false" array="false" longname="备注" ref="GlDict.A.remark"/>
+                <field id="rebuwa" type="InEnumType.E_REBUWA" required="false" multi="false" array="false" longname="红蓝字" ref="InDict.wrac.rebuwa"/>
+            </fields>
+        </output>
+        <property packMode="true"/>
+        <printer packMode="true"/>
+    </interface>
+    <flow>
+        <service serviceName="SrvFaAccounting.querySetAccountsDeitails" id="SrvFaAccounting.querySetAccountsDeitails" longname="套账查询">
+            <in_mappings by_interface="true">
+                <mapping src="accounting_amt" dest="accounting_amt" by_interface="true" on_top="true"/>
+                <mapping src="acct_no" dest="acct_no" by_interface="true" on_top="true"/>
+                <mapping src="ccy_code" dest="ccy_code" by_interface="true" on_top="true"/>
+                <mapping src="end_date" dest="end_date" by_interface="true" on_top="true"/>
+                <mapping src="gl_code" dest="gl_code" by_interface="true" on_top="true"/>
+                <mapping src="set_account_no" dest="set_account_no" by_interface="true" on_top="true"/>
+                <mapping src="start_date" dest="start_date" by_interface="true" on_top="true"/>
+                <mapping src="trxn_teller" dest="trxn_teller" by_interface="true" on_top="true"/>
+            </in_mappings>
+            <out_mappings by_interface="true">
+                <mapping src="setDetailOut" dest="FaQuerySetAccountsOut" by_interface="true" on_top="true"/>
+            </out_mappings>
+        </service>
+    </flow>
+    <outMapping/>
+    <propertyToPrinterMapping/>
+    <outToPrinterMapping/>
+</flowtran>

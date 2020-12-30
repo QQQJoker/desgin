@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<sqls xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="GlBranch" longname="机构总账相关命名sql" package="cn.sunline.ltts.busi.gl.namedsql" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <select cache="none" method="selectAll" type="sql" id="lstVoucherNotBalList" longname="查询总账凭证不平衡数据">
+        <sql type="oracle" desc=" 对当日已清算的传票做统计统计维度（币种） "><![CDATA[
+    	select
+    	    	b.trxn_ccy as ccy_code, 
+    	    	sum(case when b.debit_credit = 'D' then b.accounting_amt else 0.00 end ) as debit_amt, 
+    	    	sum(case when b.debit_credit = 'C' then b.accounting_amt else 0.00 end ) as credit_amt, 
+    	    	sum(case when b.debit_credit = 'D' then b.accounting_amt else 0 - b.accounting_amt end ) as accounting_amt 
+    	from
+    	    	fab_teller_seq a 
+    	join
+    	    	fab_accounting_voch b 
+    	    	    	on a.trxn_date = b.trxn_date and a.trxn_seq = b.trxn_seq 
+    	    	    	and a.corpno = b.corpno 
+    	where
+    	    	a.trxn_date = #trxn_date# and a.corpno = #org_id# 
+    	    	and a.sett_status = #sett_status# and b.on_bal_sheet_ind = 'Y' 
+    	group by
+    	    	b.trxn_ccy 
+    	having
+    	    	sum(case when b.debit_credit = 'D' then b.accounting_amt else 0 - b.accounting_amt end ) <> 0.00 
+    	]]></sql>
+        <sql type="mysql"><![CDATA[
+    	select
+    	    	b.trxn_ccy as ccy_code, 
+    	    	sum(case when b.debit_credit = 'D' then b.accounting_amt else 0.00 end ) as debit_amt, 
+    	    	sum(case when b.debit_credit = 'C' then b.accounting_amt else 0.00 end ) as credit_amt, 
+    	    	sum(case when b.debit_credit = 'D' then b.accounting_amt else 0 - b.accounting_amt end ) as accounting_amt 
+    	from
+    	    	fab_teller_seq a 
+    	join
+    	    	fab_accounting_voch b 
+    	    	    	on a.trxn_date = b.trxn_date and a.trxn_seq = b.trxn_seq 
+    	    	    	and a.corpno = b.corpno 
+    	where
+    	    	a.trxn_date = #trxn_date# and a.corpno = #org_id# 
+    	    	and a.sett_status = #sett_status# and b.on_bal_sheet_ind = 'Y' 
+    	group by
+    	    	b.trxn_ccy 
+    	having
+    	    	sum(case when b.debit_credit = 'D' then b.accounting_amt else 0 - b.accounting_amt end ) <> 0.00 
+    	]]></sql>
+        <sql type="db2"><![CDATA[
+    	select
+    	    	b.trxn_ccy as ccy_code, 
+    	    	sum(case when b.debit_credit = 'D' then b.accounting_amt else 0.00 end ) as debit_amt, 
+    	    	sum(case when b.debit_credit = 'C' then b.accounting_amt else 0.00 end ) as credit_amt, 
+    	    	sum(case when b.debit_credit = 'D' then b.accounting_amt else 0 - b.accounting_amt end ) as accounting_amt 
+    	from
+    	    	fab_teller_seq a 
+    	join
+    	    	fab_accounting_voch b 
+    	    	    	on a.trxn_date = b.trxn_date and a.trxn_seq = b.trxn_seq 
+    	    	    	and a.corpno = b.corpno 
+    	where
+    	    	a.trxn_date = #trxn_date# and a.corpno = #org_id# 
+    	    	and a.sett_status = #sett_status# and b.on_bal_sheet_ind = 'Y' 
+    	group by
+    	    	b.trxn_ccy 
+    	having
+    	    	sum(case when b.debit_credit = 'D' then b.accounting_amt else 0 - b.accounting_amt end ) <> 0.00 
+    	]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="org_id" ref="GlDict.A.org_id" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人代码" parameterType="condition"/>
+            <parameter property="trxn_date" ref="GlDict.A.trxn_date" jdbcType="VARCHAR" javaType="GlBaseType.U_DATE" mode="in" longname="交易日期" parameterType="condition"/>
+            <parameter property="sett_status" ref="GlDict.A.sett_status" jdbcType="VARCHAR" javaType="GlBusinessType.E_SETTSTATE" mode="in" longname="清算" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="GlBranch.GlVochBalData"/>
+    </select>
+    <delete method="delete" id="delBranchGl" longname="删除某日机构总账">
+        <sql type="oracle"><![CDATA[
+    	delete 
+    	from
+    	    	gla_branch_gl 
+    	where
+    	    	trxn_date = #trxn_date# and corpno = #org_id# and branch_id = #branch_id#
+    	]]></sql>
+        <sql type="mysql"><![CDATA[
+    	delete 
+    	from
+    	    	gla_branch_gl 
+    	where
+    	    	trxn_date = #trxn_date# and corpno = #org_id# and branch_id = #branch_id#
+    	]]></sql>
+        <sql type="db2"><![CDATA[
+    	delete 
+    	from
+    	    	gla_branch_gl 
+    	where
+    	    	trxn_date = #trxn_date# and corpno = #org_id# and branch_id = #branch_id#
+    	]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="org_id" ref="GlDict.A.org_id" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人代码" parameterType="condition"/>
+            <parameter property="trxn_date" ref="GlDict.A.trxn_date" jdbcType="VARCHAR" javaType="GlBaseType.U_DATE" mode="in" longname="交易日期" parameterType="condition"/>
+            <parameter property="branch_id" ref="GlDict.A.branch_id" jdbcType="VARCHAR" javaType="BaseType.U_BRCHNO" mode="in" longname="机构号" parameterType="condition"/>
+        </parameterMap>
+    </delete>
+    <insert id="insInitData" longname="装入初始数据">
+        <sql type="oracle" desc="从上日机构总账装入初始数据"><![CDATA[
+    	insert 
+    	into
+    	    	gla_branch_gl
+    	    	(
+    	    	    	corpno, report_type,trxn_date, branch_id, ccy_code, gl_code, on_bal_sheet_ind, prev_debit_bal, prev_credit_bal, 
+    	    	    	current_debit_amt, current_credit_amt, current_debit_bal, current_credit_bal ,recdver
+    	    	) select
+    	    	    	a.corpno,#report_type#, #trxn_date#, a.branch_id, a.ccy_code,
+    	    	    	a.gl_code, a.on_bal_sheet_ind, a.current_debit_bal, a.current_credit_bal, 0.00,
+    	    	    	0.00, a.current_debit_bal, a.current_credit_bal,1
+    	    	from
+    	    	    	gla_branch_gl a 
+    	    	where
+    	    	    	a.trxn_date = #last_date# and a.corpno = #org_id# and a.report_type='1'  
+    	    	    	and a.branch_id = #branch_id# and a.current_debit_bal <> a.current_credit_bal 
+    	]]></sql>
+        <sql type="mysql"><![CDATA[
+    	insert 
+    	into
+    	    	gla_branch_gl
+    	    	(
+    	    	    	corpno, report_type,trxn_date, branch_id, ccy_code, gl_code, on_bal_sheet_ind, prev_debit_bal, prev_credit_bal, 
+    	    	    	current_debit_amt, current_credit_amt, current_debit_bal, current_credit_bal ,recdver
+    	    	) select
+    	    	    	a.corpno,#report_type#, #trxn_date#, a.branch_id, a.ccy_code,
+    	    	    	a.gl_code, a.on_bal_sheet_ind, a.current_debit_bal, a.current_credit_bal, 0.00,
+    	    	    	0.00, a.current_debit_bal, a.current_credit_bal,1
+    	    	from
+    	    	    	gla_branch_gl a 
+    	    	where
+    	    	    	a.trxn_date = #last_date# and a.corpno = #org_id# and a.report_type='1'  
+    	    	    	and a.branch_id = #branch_id# and a.current_debit_bal <> a.current_credit_bal 
+    	]]></sql>
+        <sql type="db2"><![CDATA[
+    	insert 
+    	into
+    	    	gla_branch_gl
+    	    	(
+    	    	    	corpno, report_type,trxn_date, branch_id, ccy_code, gl_code, on_bal_sheet_ind, prev_debit_bal, prev_credit_bal, 
+    	    	    	current_debit_amt, current_credit_amt, current_debit_bal, current_credit_bal ,recdver
+    	    	) select
+    	    	    	a.corpno,#report_type#, #trxn_date#, a.branch_id, a.ccy_code,
+    	    	    	a.gl_code, a.on_bal_sheet_ind, a.current_debit_bal, a.current_credit_bal, 0.00,
+    	    	    	0.00, a.current_debit_bal, a.current_credit_bal,1
+    	    	from
+    	    	    	gla_branch_gl a 
+    	    	where
+    	    	    	a.trxn_date = #last_date# and a.corpno = #org_id# and a.report_type='1'  
+    	    	    	and a.branch_id = #branch_id# and a.current_debit_bal <> a.current_credit_bal 
+    	]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="org_id" ref="GlDict.A.org_id" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人代码" parameterType="condition"/>
+            <parameter property="trxn_date" ref="GlDict.A.trxn_date" jdbcType="VARCHAR" javaType="GlBaseType.U_DATE" mode="in" longname="交易日期" parameterType="condition"/>
+            <parameter property="branch_id" ref="GlDict.A.branch_id" jdbcType="VARCHAR" javaType="BaseType.U_BRCHNO" mode="in" longname="机构号" parameterType="condition"/>
+            <parameter property="last_date" ref="GlDict.A.last_date" jdbcType="VARCHAR" javaType="GlBaseType.U_DATE" mode="in" longname="上日日期" parameterType="condition"/>
+            <parameter property="report_type" ref="GlDict.A.report_type" jdbcType="VARCHAR" javaType="GlBusinessType.E_REPORTTYPE" mode="in" longname="报表类型" parameterType="condition"/>
+        </parameterMap>
+    </insert>
+    <insert id="genTrialData" longname="从业务报表类型装载数据到试算报表">
+        <sql type="mysql" desc="从业务报表类型装载数据到试算报表"><![CDATA[
+    	insert into 
+    		gla_branch_gl
+    		(
+    			corpno, recdver, report_type, trxn_date, branch_id, ccy_code, gl_code, on_bal_sheet_ind, prev_debit_bal, 
+    			prev_credit_bal, current_debit_amt, current_credit_amt, current_debit_bal, current_credit_bal, tmstmp
+    		) select 
+    			corpno, recdver, '2' report_type, trxn_date, branch_id, ccy_code, gl_code, on_bal_sheet_ind, prev_debit_bal, 
+    	 		prev_credit_bal, current_debit_amt, current_credit_amt, current_debit_bal, current_credit_bal,#tmstmp# tmstmp 
+    	 	from 
+    	 		gla_branch_gl a 
+			where 
+				not exists 
+				(
+					select 1 
+					from 
+						gla_branch_gl b 
+					where a.corpno=b.corpno 
+					and a.trxn_date=b.trxn_date 
+					and a.branch_id=b.branch_id 
+					and a.ccy_code=b.ccy_code 
+					and a.gl_code = b.gl_code 
+					and b.report_type='2'
+				) 
+				and a.report_type='1'
+				and a.corpno = #org_id#
+				and a.branch_id = #branch_id#
+				and a.trxn_date < #trxn_date#
+    	]]></sql>
+        <sql type="oracle"><![CDATA[
+    	insert into 
+    		gla_branch_gl
+    		(
+    			corpno, recdver, report_type, trxn_date, branch_id, ccy_code, gl_code, on_bal_sheet_ind, prev_debit_bal, 
+    			prev_credit_bal, current_debit_amt, current_credit_amt, current_debit_bal, current_credit_bal, tmstmp
+    		) select 
+    			corpno, recdver, '2' report_type, trxn_date, branch_id, ccy_code, gl_code, on_bal_sheet_ind, prev_debit_bal, 
+    	 		prev_credit_bal, current_debit_amt, current_credit_amt, current_debit_bal, current_credit_bal,#tmstmp# tmstmp 
+    	 	from 
+    	 		gla_branch_gl a 
+			where 
+				not exists 
+				(
+					select 1 
+					from 
+						gla_branch_gl b 
+					where a.corpno=b.corpno 
+					and a.trxn_date=b.trxn_date 
+					and a.branch_id=b.branch_id 
+					and a.ccy_code=b.ccy_code 
+					and a.gl_code = b.gl_code 
+					and b.report_type='2'
+				) 
+				and a.report_type='1'
+				and a.corpno = #org_id#
+				and a.branch_id = #branch_id#
+				and a.trxn_date < #trxn_date#
+    	]]></sql>
+        <sql type="db2"><![CDATA[
+    	insert into 
+    		gla_branch_gl
+    		(
+    			corpno, recdver, report_type, trxn_date, branch_id, ccy_code, gl_code, on_bal_sheet_ind, prev_debit_bal, 
+    			prev_credit_bal, current_debit_amt, current_credit_amt, current_debit_bal, current_credit_bal, tmstmp
+    		) select 
+    			corpno, recdver, '2' report_type, trxn_date, branch_id, ccy_code, gl_code, on_bal_sheet_ind, prev_debit_bal, 
+    	 		prev_credit_bal, current_debit_amt, current_credit_amt, current_debit_bal, current_credit_bal,#tmstmp# tmstmp 
+    	 	from 
+    	 		gla_branch_gl a 
+			where 
+				not exists 
+				(
+					select 1 
+					from 
+						gla_branch_gl b 
+					where a.corpno=b.corpno 
+					and a.trxn_date=b.trxn_date 
+					and a.branch_id=b.branch_id 
+					and a.ccy_code=b.ccy_code 
+					and a.gl_code = b.gl_code 
+					and b.report_type='2'
+				) 
+				and a.report_type='1'
+				and a.corpno = #org_id#
+				and a.branch_id = #branch_id#
+				and a.trxn_date < #trxn_date#
+    	]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="org_id" ref="GlDict.A.org_id" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人代码" parameterType="condition"/>
+            <parameter property="branch_id" ref="GlDict.A.branch_id" jdbcType="VARCHAR" javaType="BaseType.U_BRCHNO" mode="in" longname="机构号" parameterType="condition"/>
+            <parameter property="trxn_date" ref="GlDict.A.trxn_date" jdbcType="VARCHAR" javaType="GlBaseType.U_DATE" mode="in" longname="交易日期" parameterType="condition"/>
+            <parameter property="tmstmp" jdbcType="VARCHAR" javaType="ApBaseType.U_TMSTMP" mode="in" longname="时间戳" parameterType="condition"/>
+        </parameterMap>
+    </insert>
+    <select cache="none" method="selectAll" type="sql" id="lstTranData" longname="查询交易数据">
+        <sql type="oracle"><![CDATA[
+    	select
+    	    	b.trxn_ccy as ccy_code, b.gl_code, 
+    	    	sum(case when b.debit_credit = 'D' then b.accounting_amt else 0.00 end ) as debit_amt, 
+    	    	sum(case when b.debit_credit = 'C' then b.accounting_amt else 0.00 end ) as credit_amt 
+    	from
+    	    	fab_teller_seq a 
+    	join
+    	    	fab_accounting_voch b 
+    	    	    	on a.trxn_date = b.trxn_date and a.trxn_seq = b.trxn_seq 
+    	    	    	and a.corpno = b.corpno 
+    	where
+    	    	a.trxn_date = #trxn_date# and a.corpno = #org_id# 
+    	    	and a.sett_status = #sett_status# and b.acct_branch = #branch_id# 
+    	group by
+    	    	b.trxn_ccy, b.gl_code 
+    	]]></sql>
+        <sql type="db2"><![CDATA[
+    	select
+    	    	b.trxn_ccy as ccy_code, b.gl_code, 
+    	    	sum(case when b.debit_credit = 'D' then b.accounting_amt else 0.00 end ) as debit_amt, 
+    	    	sum(case when b.debit_credit = 'C' then b.accounting_amt else 0.00 end ) as credit_amt 
+    	from
+    	    	fab_teller_seq a 
+    	join
+    	    	fab_accounting_voch b 
+    	    	    	on a.trxn_date = b.trxn_date and a.trxn_seq = b.trxn_seq 
+    	    	    	and a.corpno = b.corpno 
+    	where
+    	    	a.trxn_date = #trxn_date# and a.corpno = #org_id# 
+    	    	and a.sett_status = #sett_status# and b.acct_branch = #branch_id# 
+    	group by
+    	    	b.trxn_ccy, b.gl_code 
+    	]]></sql>
+        <sql type="mysql"><![CDATA[
+    	select
+    	    	b.trxn_ccy as ccy_code, b.gl_code, 
+    	    	sum(case when b.debit_credit = 'D' then b.accounting_amt else 0.00 end ) as debit_amt, 
+    	    	sum(case when b.debit_credit = 'C' then b.accounting_amt else 0.00 end ) as credit_amt 
+    	from
+    	    	fab_teller_seq a 
+    	join
+    	    	fab_accounting_voch b 
+    	    	    	on a.trxn_date = b.trxn_date and a.trxn_seq = b.trxn_seq 
+    	    	    	and a.corpno = b.corpno 
+    	where
+    	    	a.trxn_date = #trxn_date# and a.corpno = #org_id# 
+    	    	and a.sett_status = #sett_status# and b.acct_branch = #branch_id# 
+    	group by
+    	    	b.trxn_ccy, b.gl_code 
+    	]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="org_id" ref="GlDict.A.org_id" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人代码" parameterType="condition"/>
+            <parameter property="trxn_date" ref="GlDict.A.trxn_date" jdbcType="VARCHAR" javaType="GlBaseType.U_DATE" mode="in" longname="交易日期" parameterType="condition"/>
+            <parameter property="branch_id" ref="GlDict.A.branch_id" jdbcType="VARCHAR" javaType="BaseType.U_BRCHNO" mode="in" longname="机构号" parameterType="condition"/>
+            <parameter property="sett_status" ref="GlDict.A.sett_status" jdbcType="VARCHAR" javaType="GlBusinessType.E_SETTSTATE" mode="in" longname="清算" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="GlBranch.GlTranData"/>
+    </select>
+    <select cache="trans" method="selectPage" type="sql" id="lstErrorBalData" longname="获取某个机构不平衡的总账数据">
+        <sql type="oracle" desc="指期初 + 发生 不等于 期末"><![CDATA[
+        select  trxn_date, branch_id, ccy_code , gl_code,
+               prev_debit_bal, prev_credit_bal, current_debit_amt, current_credit_amt, current_debit_bal, current_credit_bal
+            from gla_branch_gl a
+           where a.corpno = #org_id#
+             and a.report_type = #report_type#
+             and a.trxn_date = #trxn_date#
+             and a.branch_id = #branch_id#
+             and a.prev_debit_bal - a.prev_credit_bal + a.current_debit_amt - a.current_credit_amt <> a.current_debit_bal - a.current_credit_bal
+        ]]></sql>
+        <sql type="mysql"><![CDATA[
+        select  trxn_date, branch_id, ccy_code , gl_code,
+               prev_debit_bal, prev_credit_bal, current_debit_amt, current_credit_amt, current_debit_bal, current_credit_bal
+            from gla_branch_gl a
+           where a.corpno = #org_id#
+             and a.report_type = #report_type#
+             and a.trxn_date = #trxn_date#
+             and a.branch_id = #branch_id#
+             and a.prev_debit_bal - a.prev_credit_bal + a.current_debit_amt - a.current_credit_amt <> a.current_debit_bal - a.current_credit_bal
+        ]]></sql>
+        <sql type="db2"><![CDATA[
+        select  trxn_date, branch_id, ccy_code , gl_code,
+               prev_debit_bal, prev_credit_bal, current_debit_amt, current_credit_amt, current_debit_bal, current_credit_bal
+            from gla_branch_gl a
+           where a.corpno = #org_id#
+             and a.report_type = #report_type#
+             and a.trxn_date = #trxn_date#
+             and a.branch_id = #branch_id#
+             and a.prev_debit_bal - a.prev_credit_bal + a.current_debit_amt - a.current_credit_amt <> a.current_debit_bal - a.current_credit_bal
+        ]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="org_id" ref="GlDict.A.org_id" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人代码" parameterType="condition"/>
+            <parameter property="report_type" ref="GlDict.A.report_type" jdbcType="VARCHAR" javaType="GlBusinessType.E_REPORTTYPE" mode="in" longname="报表类型" parameterType="condition"/>
+            <parameter property="trxn_date" ref="GlDict.A.trxn_date" jdbcType="VARCHAR" javaType="GlBaseType.U_DATE" mode="in" longname="交易日期" parameterType="condition"/>
+            <parameter property="branch_id" ref="GlDict.A.branch_id" jdbcType="VARCHAR" javaType="BaseType.U_BRCHNO" mode="in" longname="机构号" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="GlBranch.GlItemGL"/>
+    </select>
+    <dynamicSelect cache="none" method="selectPageWithCount" type="sql" id="lstSubjectBal" longname="根据指定条件查询科目余额信息明细">
+        <parameterMap class="java.util.Map">
+            <parameter property="org_id" ref="GlDict.A.org_id" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人代码" parameterType="condition"/>
+            <parameter property="report_type" ref="GlDict.A.report_type" jdbcType="VARCHAR" javaType="GlBusinessType.E_REPORTTYPE" mode="in" longname="报表类型" parameterType="condition"/>
+            <parameter property="trxn_date" ref="GlDict.A.trxn_date" jdbcType="VARCHAR" javaType="GlBaseType.U_DATE" mode="in" longname="交易日期" parameterType="condition"/>
+            <parameter property="branch_id" ref="GlDict.A.branch_id" jdbcType="VARCHAR" javaType="BaseType.U_BRCHNO" mode="in" longname="机构号" parameterType="condition"/>
+            <parameter property="ccy_code" ref="GlDict.A.ccy_code" jdbcType="VARCHAR" javaType="BaseType.U_CRCYCD" mode="in" longname="货币代码" parameterType="condition"/>
+            <parameter property="gl_code" ref="GlDict.A.gl_code" jdbcType="VARCHAR" javaType="GlBaseType.U_SUBJECTNO" mode="in" longname="科目号" parameterType="condition"/>
+            <parameter property="on_bal_sheet_ind" ref="GlDict.A.on_bal_sheet_ind" jdbcType="VARCHAR" javaType="GlEnumType.E_YESORNO" mode="in" longname="表内标志" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="GlBranch.GlSubjectBalInfo"/>
+        <dynamicSql>
+            <str type="Str"><![CDATA[select * from gla_branch_gl]]></str>
+            <where type="Where">
+                <and type="And">
+                    <str type="Str"><![CDATA[corpno=#org_id#]]></str>
+                    <if test="report_type!=null" type="If">
+                        <str type="Str"><![CDATA[report_type=#report_type#]]></str>
+                    </if>
+                    <str type="Str"><![CDATA[trxn_date=#trxn_date#]]></str>
+                    <if test="branch_id!=null &amp; branch_id!=''" type="If">
+                        <str type="Str"><![CDATA[branch_id=#branch_id#]]></str>
+                    </if>
+                    <if test="ccy_code!=null &amp; ccy_code!=''" type="If">
+                        <str type="Str"><![CDATA[ccy_code=#ccy_code#]]></str>
+                    </if>
+                    <if test="gl_code!=null &amp; gl_code!=''" type="If">
+                        <str type="Str"><![CDATA[gl_code=#gl_code#]]></str>
+                    </if>
+                    <if test="on_bal_sheet_ind!=null" type="If">
+                        <str type="Str"><![CDATA[on_bal_sheet_ind=#on_bal_sheet_ind#]]></str>
+                    </if>
+                </and>
+            </where>
+        </dynamicSql>
+        <dynamicSql type="mysql">
+            <str type="Str"><![CDATA[select * from gla_branch_gl]]></str>
+            <where type="Where">
+                <and type="And">
+                    <str type="Str"><![CDATA[corpno=#org_id#]]></str>
+                    <if test="report_type!=null" type="If">
+                        <str type="Str"><![CDATA[report_type=#report_type#]]></str>
+                    </if>
+                    <str type="Str"><![CDATA[trxn_date=#trxn_date#]]></str>
+                    <if test="branch_id!=null &amp; branch_id!=''" type="If">
+                        <str type="Str"><![CDATA[branch_id=#branch_id#]]></str>
+                    </if>
+                    <if test="ccy_code!=null &amp; ccy_code!=''" type="If">
+                        <str type="Str"><![CDATA[ccy_code=#ccy_code#]]></str>
+                    </if>
+                    <if test="gl_code!=null &amp; gl_code!=''" type="If">
+                        <str type="Str"><![CDATA[gl_code=#gl_code#]]></str>
+                    </if>
+                    <if test="on_bal_sheet_ind!=null" type="If">
+                        <str type="Str"><![CDATA[on_bal_sheet_ind=#on_bal_sheet_ind#]]></str>
+                    </if>
+                </and>
+            </where>
+        </dynamicSql>
+        <dynamicSql type="db2">
+            <str type="Str"><![CDATA[select * from gla_branch_gl]]></str>
+            <where type="Where">
+                <and type="And">
+                    <str type="Str"><![CDATA[corpno=#org_id#]]></str>
+                    <if test="report_type!=null" type="If">
+                        <str type="Str"><![CDATA[report_type=#report_type#]]></str>
+                    </if>
+                    <str type="Str"><![CDATA[trxn_date=#trxn_date#]]></str>
+                    <if test="branch_id!=null &amp; branch_id!=''" type="If">
+                        <str type="Str"><![CDATA[branch_id=#branch_id#]]></str>
+                    </if>
+                    <if test="ccy_code!=null &amp; ccy_code!=''" type="If">
+                        <str type="Str"><![CDATA[ccy_code=#ccy_code#]]></str>
+                    </if>
+                    <if test="gl_code!=null &amp; gl_code!=''" type="If">
+                        <str type="Str"><![CDATA[gl_code=#gl_code#]]></str>
+                    </if>
+                    <if test="on_bal_sheet_ind!=null" type="If">
+                        <str type="Str"><![CDATA[on_bal_sheet_ind=#on_bal_sheet_ind#]]></str>
+                    </if>
+                </and>
+            </where>
+        </dynamicSql>
+        <dynamicSql type="oracle">
+            <str type="Str"><![CDATA[select * from gla_branch_gl]]></str>
+            <where type="Where">
+                <and type="And">
+                    <str type="Str"><![CDATA[corpno=#org_id#]]></str>
+                    <if test="report_type!=null" type="If">
+                        <str type="Str"><![CDATA[report_type=#report_type#]]></str>
+                    </if>
+                    <str type="Str"><![CDATA[trxn_date=#trxn_date#]]></str>
+                    <if test="branch_id!=null &amp; branch_id!=''" type="If">
+                        <str type="Str"><![CDATA[branch_id=#branch_id#]]></str>
+                    </if>
+                    <if test="ccy_code!=null &amp; ccy_code!=''" type="If">
+                        <str type="Str"><![CDATA[ccy_code=#ccy_code#]]></str>
+                    </if>
+                    <if test="gl_code!=null &amp; gl_code!=''" type="If">
+                        <str type="Str"><![CDATA[gl_code=#gl_code#]]></str>
+                    </if>
+                    <if test="on_bal_sheet_ind!=null" type="If">
+                        <str type="Str"><![CDATA[on_bal_sheet_ind=#on_bal_sheet_ind#]]></str>
+                    </if>
+                </and>
+            </where>
+        </dynamicSql>
+    </dynamicSelect>
+    <select cache="none" method="selectAll" type="sql" id="lstGlaBranchGlByDate" longname="查询科目余额信息">
+        <sql><![CDATA[select a.* from gla_branch_gl a, fap_accounting_subject b 
+where a.gl_code = b.gl_code and a.corpno = b.corpno
+and b.end_gl_code_ind = #end_gl_code_ind#
+and a.trxn_date = #trxn_date# and a.corpno = #org_id# and report_type = #report_type#]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="trxn_date" ref="GlDict.A.trxn_date" jdbcType="VARCHAR" javaType="GlBaseType.U_DATE" mode="in" longname="交易日期" parameterType="condition"/>
+            <parameter property="report_type" ref="GlDict.A.report_type" jdbcType="VARCHAR" javaType="GlBusinessType.E_REPORTTYPE" mode="in" longname="报表类型" parameterType="condition"/>
+            <parameter property="end_gl_code_ind" ref="GlDict.A.end_gl_code_ind" jdbcType="VARCHAR" javaType="GlEnumType.E_YESORNO" mode="in" longname="末层科目标志" parameterType="condition"/>
+            <parameter property="org_id" ref="GlDict.A.org_id" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人代码" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="TabGLBasic.gla_branch_gl"/>
+    </select>
+    <select cache="none" method="selectAll" type="sql" id="lstFabAccountingVochByDate" longname="查询科目记账信息">
+        <sql><![CDATA[select sum(accounting_amt) accounting_amt, sys_no,gl_code,debit_credit 
+from fab_accounting_voch
+where trxn_date = #trxn_date#
+and corpno = #org_id#
+group by sys_no,gl_code,debit_credit]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="trxn_date" ref="GlDict.A.trxn_date" jdbcType="VARCHAR" javaType="GlBaseType.U_DATE" mode="in" longname="交易日期" parameterType="condition"/>
+            <parameter property="org_id" ref="GlDict.A.org_id" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人代码" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="TabFaRegBook.fab_accounting_voch"/>
+    </select>
+</sqls>

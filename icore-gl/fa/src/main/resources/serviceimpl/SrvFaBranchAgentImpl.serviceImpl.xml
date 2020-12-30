@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceImpl id="SrvFaBranchAgentImpl" longname="账务代理机构信息维护" serviceType="SrvFaBranchAgent" package="cn.sunline.ltts.busi.fa.serviceimpl" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>

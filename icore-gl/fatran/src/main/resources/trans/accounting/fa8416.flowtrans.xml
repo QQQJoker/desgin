@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<flowtran id="fa8416" longname="表外记账" kind="F" package="cn.sunline.ltts.busi.fatran.trans.accounting" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <interface package="cn.sunline.ltts.busi.fatran.trans.accounting.intf">
+        <input packMode="true">
+            <field id="acct_no" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="账号" ref="GlDict.A.acct_no"/>
+            <field id="accounting_amt" type="BaseType.U_TRANAM" required="false" multi="false" array="false" longname="记账金额" ref="GlDict.A.accounting_amt"/>
+            <field id="debit_credit" type="GlEnumType.E_DEBITCREDIT" required="false" multi="false" array="false" longname="记账方向" ref="GlDict.A.debit_credit"/>
+            <field id="ccy_code" type="BaseType.U_CRCYCD" required="false" multi="false" array="false" longname="货币代码" ref="GlDict.A.ccy_code"/>
+            <field id="summary_code" type="GlBaseType.U_BYTE8" required="false" multi="false" array="false" longname="摘要代码" ref="GlDict.A.summary_code"/>
+            <field id="remark" type="GlBaseType.U_SHORTDESC" required="false" multi="false" array="false" longname="备注" ref="GlDict.A.remark"/>
+        </input>
+        <output asParm="true" packMode="true">
+            <field id="faaOutaccounttable" type="ComFaAccounting.FaaOutAccountTable" required="false" multi="false" array="false" longname="表外记账输出"/>
+        </output>
+        <property packMode="true"/>
+        <printer packMode="true"/>
+    </interface>
+    <flow>
+        <service serviceName="SrvFaAccounting.bookOffBalanceAccounting" id="SrvFaAccounting.bookOffBalanceAccounting" longname="表外记账">
+            <in_mappings by_interface="true">
+                <mapping src="accounting_amt" dest="offBalanceIn.accounting_amt" by_interface="true" on_top="true"/>
+                <mapping src="acct_no" dest="offBalanceIn.acct_no" by_interface="true" on_top="true"/>
+                <mapping src="debit_credit" dest="offBalanceIn.debit_credit" by_interface="true" on_top="true"/>
+                <mapping src="ccy_code" dest="offBalanceIn.ccy_code" desc="description" by_interface="true" on_top="true"/>
+                <mapping src="remark" dest="offBalanceIn.remark" by_interface="true" on_top="true"/>
+                <mapping src="summary_code" dest="offBalanceIn.summary_code" by_interface="true" on_top="true"/>
+            </in_mappings>
+            <out_mappings by_interface="true">
+                <mapping src="faaOutaccounttable.accounting_amt" dest="faaOutaccounttable.accounting_amt" by_interface="true" on_top="true"/>
+                <mapping src="faaOutaccounttable.acct_name" dest="faaOutaccounttable.acct_name" by_interface="true" on_top="true"/>
+                <mapping src="faaOutaccounttable.acct_no" dest="faaOutaccounttable.acct_no" by_interface="true" on_top="true"/>
+                <mapping src="faaOutaccounttable.ccy_code" dest="faaOutaccounttable.ccy_code" by_interface="true" on_top="true"/>
+                <mapping src="faaOutaccounttable.debit_credit" dest="faaOutaccounttable.debit_credit" by_interface="true" on_top="true"/>
+                <mapping src="faaOutaccounttable.gl_code" dest="faaOutaccounttable.gl_code" by_interface="true" on_top="true"/>
+                <mapping src="faaOutaccounttable.remark" dest="faaOutaccounttable.remark" by_interface="true" on_top="true"/>
+                <mapping src="faaOutaccounttable.summary_code" dest="faaOutaccounttable.summary_code" by_interface="true" on_top="true"/>
+                <mapping src="faaOutaccounttable.trxn_offset_acct_no" dest="faaOutaccounttable.trxn_offset_acct_no" by_interface="true" on_top="true"/>
+            </out_mappings>
+        </service>
+    </flow>
+    <outMapping/>
+    <propertyToPrinterMapping/>
+    <outToPrinterMapping/>
+</flowtran>

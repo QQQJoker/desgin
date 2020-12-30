@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="TabFaParm" package="cn.sunline.ltts.busi.fa.tables" longname="会计核算参数库表" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <table id="fap_accounting_subject" name="fap_accounting_subject" longname="会计科目" tableType="ORDINARY" category="P" virtual="false" extension="SysCommFieldTable.KapCommSync" abstract="false">
+        <fields>
+            <field id="gl_code" longname="科目号" type="GlBaseType.U_SUBJECTNO" ref="GlDict.A.gl_code" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="gl_code_desc" longname="科目名称" type="GlBaseType.U_SHORTDESC" ref="GlDict.A.gl_code_desc" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="upper_lvl_gl_code" longname="上级科目" type="GlBaseType.U_SUBJECTNO" ref="GlDict.A.upper_lvl_gl_code" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="gl_code_type" longname="科目类别" type="GlBusinessType.E_SUBJECTTYPE" ref="GlDict.A.gl_code_type" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="gl_code_level" longname="科目级别" type="GlBaseType.U_LONG" ref="GlDict.A.gl_code_level" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="end_gl_code_ind" longname="末层科目标志" type="GlEnumType.E_YESORNO" ref="GlDict.A.end_gl_code_ind" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="identifier_code" longname="识别码" type="GlBaseType.U_BYTE8" ref="GlDict.A.identifier_code" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="bal_prop" longname="余额性质" type="GlBusinessType.E_BALPROP" ref="GlDict.A.bal_prop" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="on_bal_sheet_ind" longname="表内标志" type="GlEnumType.E_YESORNO" ref="GlDict.A.on_bal_sheet_ind" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="simple_list_display_ind" longname="简表展示标识" type="GlEnumType.E_YESORNO" ref="GlDict.A.simple_list_display_ind" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="bal_check_ind" longname="余额检查标志" type="GlEnumType.E_YESORNO" ref="GlDict.A.bal_check_ind" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="debit_manual_allow" longname="借方手工记账许可" type="GlEnumType.E_YESORNO" ref="GlDict.A.debit_manual_allow" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="credit_manual_allow" longname="贷方手工记账许可" type="GlEnumType.E_YESORNO" ref="GlDict.A.credit_manual_allow" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="manual_open_acct_mode" longname="手工开户受理模式" type="GlBusinessType.E_MANUALOPENACCTMODE" ref="GlDict.A.manual_open_acct_mode" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="allow_accounting_sys" longname="允许记账的系统" type="GlBaseType.U_SYSNO" ref="GlDict.A.allow_accounting_sys" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="valid_ind" longname="有效标志" type="GlEnumType.E_YESORNO" ref="GlDict.A.valid_ind" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="opp_open_ind" longname="对开标志" type="GlEnumType.E_YESORNO" ref="GlDict.A.opp_open_ind" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="offset_gl_code" longname="对方科目" type="GlBaseType.U_SUBJECTNO" ref="GlDict.A.offset_gl_code" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="opp_open_way" longname="对开账户识别方式" type="GlBusinessType.E_OPPOPENWAY" ref="GlDict.A.opp_open_way" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="create_date" longname="建立日期" type="GlBaseType.U_DATE" ref="GlDict.A.create_date" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="primarykey" fields="gl_code" operate="selectOne deleteOne updateOne selectOneWithLock"/>
+        </odbindexes>
+        <indexes>
+            <index id="fap_accounting_subject_pk1" type="primarykey" fields="gl_code corpno">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+    <table id="fap_branch_agent" name="fap_branch_agent" longname="账务代理机构" tableType="ORDINARY" category="P" virtual="false" extension="SysCommFieldTable.KapCommSync" abstract="false">
+        <fields>
+            <field id="acct_branch" longname="账务机构" type="BaseType.U_BRCHNO" ref="GlDict.A.acct_branch" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="agent_brch_id" longname="代理机构" type="BaseType.U_BRCHNO" ref="GlDict.A.agent_brch_id" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="primarykey" fields="acct_branch" operate="selectOne deleteOne updateOne selectOneWithLock"/>
+            <index id="odb2" type="index" fields="agent_brch_id" operate="selectAll selectPage"/>
+        </odbindexes>
+        <indexes>
+            <index id="fap_branch_agent_pk1" type="primarykey" fields="acct_branch corpno">
+                <ddls/>
+            </index>
+            <index id="fap_branch_agent_idx1" type="index" fields="agent_brch_id corpno">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+    <table id="fap_branch_settlement" name="fap_branch_settlement" longname="清算关系组织结构" tableType="ORDINARY" category="P" virtual="false" extension="SysCommFieldTable.KapCommSync" abstract="false">
+        <fields>
+            <field id="ccy_code" longname="货币代码" type="BaseType.U_CRCYCD" ref="GlDict.A.ccy_code" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="acct_branch" longname="账务机构" type="BaseType.U_BRCHNO" ref="GlDict.A.acct_branch" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="parent_brch_id" longname="上级机构" type="BaseType.U_BRCHNO" ref="GlDict.A.parent_brch_id" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="busi_relation_level" longname="业务关系级别" type="GlBaseType.U_LONG" ref="GlDict.A.busi_relation_level" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="gl_code" longname="科目号" type="GlBaseType.U_SUBJECTNO" ref="GlDict.A.gl_code" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="upper_lvl_gl_code" longname="上级科目" type="GlBaseType.U_SUBJECTNO" ref="GlDict.A.upper_lvl_gl_code" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="primarykey" fields="ccy_code acct_branch" operate="selectOne deleteOne updateOne selectOneWithLock"/>
+            <index id="odb2" type="index" fields="busi_relation_level" operate="selectAll"/>
+        </odbindexes>
+        <indexes>
+            <index id="fap_branch_settlement_pk1" type="primarykey" fields="ccy_code acct_branch corpno">
+                <ddls/>
+            </index>
+            <index id="fap_branch_settlement_idx1" type="index" fields="busi_relation_level corpno">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+    <table id="fap_sys_define" name="fap_sys_define" longname="系统定义" tableType="ORDINARY" category="P" virtual="false" extension="SysCommFieldTable.KapCommSync" abstract="false">
+        <fields>
+            <field id="sys_no" longname="系统编号" type="GlBaseType.U_SYSNO" ref="GlDict.A.sys_no" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="sys_name" longname="系统名称" type="GlBaseType.U_SHORTDESC" ref="GlDict.A.sys_name" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="system_service_status" longname="系统服务状态" type="GlBusinessType.E_SYSTEMSERVICESTATUS" ref="GlDict.A.system_service_status" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="system_date" longname="系统日期" type="GlBaseType.U_DATE" ref="GlDict.A.system_date" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="busi_seq_format" longname="业务流水组织形式" type="GlBusinessType.E_BUSISEQFORMAT" ref="GlDict.A.busi_seq_format" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="ledger_clearing_gl_code" longname="与总账往来科目" type="GlBaseType.U_SUBJECTNO" ref="GlDict.A.ledger_clearing_gl_code" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="error_gl_code" longname="差错补偿科目" type="GlBaseType.U_SUBJECTNO" ref="GlDict.A.error_gl_code" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="remark" longname="备注" type="GlBaseType.U_SHORTDESC" ref="GlDict.A.remark" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="primarykey" fields="sys_no" operate="selectOne deleteOne updateOne selectOneWithLock"/>
+        </odbindexes>
+        <indexes>
+            <index id="fap_sys_define_pk1" type="primarykey" fields="corpno sys_no">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+    <table id="fap_accounting_event_parm" name="fap_accounting_event_parm" longname="会计事件核算定义" tableType="ORDINARY" category="P" virtual="false" extension="SysCommFieldTable.KapCommSync" abstract="false">
+        <fields>
+            <field id="sys_no" longname="系统编号" type="GlBaseType.U_SYSNO" ref="GlDict.A.sys_no" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="accounting_subject" longname="会计主体" type="GlBaseType.U_ACCOUNTINGSUBJECT" ref="GlDict.A.accounting_subject" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="accounting_alias" longname="核算别名" type="GlBaseType.U_BYTE32" ref="GlDict.A.accounting_alias" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="remark" longname="备注" type="GlBaseType.U_SHORTDESC" ref="GlDict.A.remark" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="bal_attributes" longname="余额属性" type="GlBaseType.U_BALPROPERTY" ref="GlDict.A.bal_attributes" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="gl_code" longname="科目号" type="GlBaseType.U_SUBJECTNO" ref="GlDict.A.gl_code" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="offset_gl_code" longname="对方科目" type="GlBaseType.U_SUBJECTNO" ref="GlDict.A.offset_gl_code" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="acct_no" longname="账号" type="BaseType.U_ACCTNO" ref="GlDict.A.acct_no" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="acct_seq" longname="账户序号" type="GlBaseType.U_BYTE8" ref="GlDict.A.acct_seq" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="primarykey" fields="sys_no accounting_alias bal_attributes" operate="selectOne deleteOne updateOne selectOneWithLock"/>
+            <index id="odb2" type="index" fields="sys_no gl_code" operate="selectFirst selectAll"/>
+        </odbindexes>
+        <indexes>
+            <index id="fap_accounting_event_parm_pk1" type="primarykey" fields="sys_no accounting_alias bal_attributes corpno">
+                <ddls/>
+            </index>
+            <index id="fap_accounting_event_parm_idx2" type="index" fields="corpno sys_no gl_code">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+    <table id="fap_accounting_prod_rule" name="fap_accounting_prod_rule" longname="产品核算定义表" tableType="ORDINARY" category="P" virtual="false" extension="SysCommFieldTable.KapCommSync" abstract="false">
+        <fields>
+            <field id="sys_no" longname="系统编号" type="GlBaseType.U_SYSNO" ref="GlDict.A.sys_no" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="product_code" longname="产品编号" type="GlBaseType.U_PRODUCT_CODE" ref="GlDict.A.product_code" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="product_name" longname="产品名称" type="GlBaseType.U_PRODUCT_NAME" ref="GlDict.A.product_name" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="event_code" longname="交易编码" type="GlBaseType.U_EVENT_CODE" ref="GlDict.A.event_code" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="event_name" longname="交易名称" type="GlBaseType.U_EVENT_NAME" ref="GlDict.A.event_name" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="data_sort" longname="数据序号" type="GlBaseType.U_LONG" ref="GlDict.A.data_sort" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="account_status" longname="贷款账户状态" type="GlEnumType.E_ACCOUNT_STATUS" ref="GlDict.A.account_status" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="debit_subject" longname="借方科目" type="GlBaseType.U_SUBJECTNO" ref="GlDict.A.debit_subject" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="credit_subject" longname="贷方科目" type="GlBaseType.U_SUBJECTNO" ref="GlDict.A.credit_subject" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="red_reverse_flag" longname="红字标识" type="GlEnumType.E_RED_REVERSE_FLAG" ref="GlDict.A.red_reverse_flag" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="tax_separate_flag" longname="增值税分离标识" type="BaseEnumType.E_YES___" ref="GlDict.A.tax_separate_flag" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="tax_event_code" longname="增值税交易编码" type="GlBaseType.U_EVENT_CODE" ref="GlDict.A.tax_event_code" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="tax_code" longname="税码" type="GlBaseType.U_BYTE50" ref="GlDict.A.tax_code" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="effect_date" longname="生效日期" type="BaseType.U_DATE08" ref="GlDict.A.effect_date" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="invalid_date" longname="失效日期" type="BaseType.U_DATE08" ref="GlDict.A.invalid_date" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="tran_user" longname="新增柜员" type="BaseType.U_USERID" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="auth_user" longname="新增授权柜员(串)" type="BaseType.U_USERID" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="last_tran_user" longname="最后修改柜员" type="BaseType.U_USERID" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="last_auth_user" longname="最后修改授权柜员(串)" type="BaseType.U_USERID" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="init_date" longname="初始化日期" type="BaseType.U_DATE08" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="spare_column_one" longname="备用字段1" type="GlBaseType.U_BYTE40" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="spare_column_two" longname="备用字段2" type="GlBaseType.U_BYTE40" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="spare_column_three" longname="备用字段3" type="GlBaseType.U_BYTE40" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="spare_column_four" longname="备用字段4" type="GlBaseType.U_BYTE40" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="spare_column_five" longname="备用字段5" type="GlBaseType.U_BYTE40" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="spare_column_six" longname="备用字段6" type="GlBaseType.U_BYTE40" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="spare_column_seven" longname="备用字段7" type="GlBaseType.U_BYTE40" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="spare_column_eight" longname="备用字段8" type="GlBaseType.U_BYTE40" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="spare_column_nine" longname="备用字段9" type="GlBaseType.U_BYTE40" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="spare_column_ten" longname="备用字段10" type="GlBaseType.U_BYTE40" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="index" fields="sys_no product_code event_code corpno" operate="selectAll"/>
+            <index id="odb2" type="unique" fields="sys_no product_code event_code data_sort effect_date" operate="selectOne deleteOne updateOne"/>
+        </odbindexes>
+        <indexes>
+            <index id="fap_accounting_prod_rule_idx1" type="index" fields="sys_no product_code event_code corpno">
+                <ddls/>
+            </index>
+            <index id="fap_accounting_prod_rule_idx2" type="unique" fields="sys_no product_code event_code data_sort effect_date corpno">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+    <table id="fap_tax_rate" name="fap_tax_rate" longname="增值税税率表" tableType="ORDINARY" category="P" virtual="false" extension="SysCommFieldTable.KapCommSync" abstract="false">
+        <fields>
+            <field id="tax_seq" longname="税率套号" type="BaseType.U_CHAR18" ref="GlDict.A.tax_seq" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="branch_code" longname="机构号" type="BaseType.U_BRCHNO" ref="GlDict.A.branch_code" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="business_code" longname="业务代码" type="BaseType.U_BUSINO" ref="GlDict.A.business_code" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="business_name" longname="业务名称" type="BaseType.U_CHAR80" ref="GlDict.A.business_name" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="cal_tax_method_code" longname="计税方法代码" type="BaseEnumType.E_CLMETH" ref="GlDict.A.cal_tax_method_code" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="cal_tax_method_name" longname="计税方法名称" type="GlBaseType.U_MIDDESC" ref="GlDict.A.cal_tax_method_name" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="valid_status" longname="税率状态" type="BaseEnumType.E_VALID_STATUS" ref="GlDict.A.valid_status" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="tax_code" longname="税码" type="GlBaseType.U_BYTE50" ref="GlDict.A.tax_code" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="tax_rate" longname="税率" type="BaseType.U_TAXRAT" ref="GlDict.A.tax_rate" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="gl_code" longname="科目号" type="GlBaseType.U_SUBJECTNO" ref="GlDict.A.gl_code" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="bill_type" longname="开票类型" type="TxEnumType.E_BILLTP" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="effect_date" longname="生效日期" type="BaseType.U_DATE08" ref="GlDict.A.effect_date" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="invalid_date" longname="失效日期" type="BaseType.U_DATE08" ref="GlDict.A.invalid_date" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="tran_user" longname="新增柜员" type="BaseType.U_USERID" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="auth_user" longname="新增授权柜员(串)" type="BaseType.U_USERID" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="last_tran_user" longname="最后修改柜员" type="BaseType.U_USERID" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="last_auth_user" longname="最后修改授权柜员(串)" type="BaseType.U_USERID" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="init_date" longname="初始化日期" type="BaseType.U_DATE08" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="spare_column_one" longname="备用字段1" type="GlBaseType.U_BYTE40" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="spare_column_two" longname="备用字段2" type="GlBaseType.U_BYTE40" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="spare_column_three" longname="备用字段3" type="GlBaseType.U_BYTE40" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="spare_column_four" longname="备用字段4" type="GlBaseType.U_BYTE40" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="spare_column_five" longname="备用字段5" type="GlBaseType.U_BYTE40" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="spare_column_six" longname="备用字段6" type="GlBaseType.U_BYTE40" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="spare_column_seven" longname="备用字段7" type="GlBaseType.U_BYTE40" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="spare_column_eight" longname="备用字段8" type="GlBaseType.U_BYTE40" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="spare_column_nine" longname="备用字段9" type="GlBaseType.U_BYTE40" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="spare_column_ten" longname="备用字段10" type="GlBaseType.U_BYTE40" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="primarykey" fields="branch_code business_code cal_tax_method_code effect_date corpno" operate="selectOne deleteOne updateOne selectOneWithLock"/>
+            <index id="odb2" type="index" fields="tax_seq" operate="selectAll"/>
+        </odbindexes>
+        <indexes>
+        	<index id="fap_tax_rate_pk" type="primarykey" fields="branch_code business_code cal_tax_method_code effect_date corpno">
+                <ddls/>
+            </index>
+            <index id="fap_tax_rate_idx1" type="index" fields="tax_seq corpno">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+    <table id="fap_accounting_prod_mapping" name="fap_accounting_prod_mapping" longname="产品核算映射表" tableType="ORDINARY" category="P" virtual="false" extension="SysCommFieldTable.KapCommSync" abstract="false">
+        <fields>
+            <field id="sys_no" longname="系统编号" type="GlBaseType.U_SYSNO" ref="GlDict.A.sys_no" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="sale_product_code" longname="可售产品编号" type="GlBaseType.U_PRODUCT_CODE" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="product_code" longname="核算产品编号" type="GlBaseType.U_PRODUCT_CODE" ref="GlDict.A.product_code" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="effect_date" longname="生效日期" type="BaseType.U_DATE08" ref="GlDict.A.effect_date" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="invalid_date" longname="失效日期" type="BaseType.U_DATE08" ref="GlDict.A.invalid_date" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="tran_user" longname="新增柜员" type="BaseType.U_USERID" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="auth_user" longname="新增授权柜员(串)" type="BaseType.U_USERID" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="last_tran_user" longname="最后修改柜员" type="BaseType.U_USERID" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="last_auth_user" longname="最后修改授权柜员(串)" type="BaseType.U_USERID" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="unique" fields="sys_no sale_product_code" operate="selectOne deleteOne updateOne"/>
+        </odbindexes>
+        <indexes>
+            <index id="fap_accounting_prod_mapping_uk" type="unique" fields="sys_no sale_product_code corpno">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+    <table id="fap_accounting_prod_scene" name="fap_accounting_prod_scene" longname="场景核算定义表" tableType="ORDINARY" category="P" virtual="false" extension="SysCommFieldTable.KapCommSync" abstract="false">
+        <fields>
+            <field id="sys_no" longname="系统编号" type="GlBaseType.U_SYSNO" ref="GlDict.A.sys_no" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="scene_code" longname="场景编号" type="GlBaseType.U_SCENE_CODE" ref="GlDict.A.scene_code" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="scene_name" longname="场景名称" type="GlBaseType.U_SCENE_NAME" ref="GlDict.A.scene_name" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="product_code" longname="产品编号" type="GlBaseType.U_PRODUCT_CODE" ref="GlDict.A.product_code" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="product_name" longname="产品名称" type="GlBaseType.U_PRODUCT_NAME" ref="GlDict.A.product_name" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="bal_type" longname="金额类别" type="GlBaseType.U_BAL_TYPE" ref="GlDict.B.bal_type" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="loan_term" longname="贷款期限" type="GlBaseType.U_LOAN_TERM" ref="GlDict.A.loan_term" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="data_sort" longname="数据序号" type="GlBaseType.U_LONG" ref="GlDict.A.data_sort" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="gl_code" longname="科目号" type="GlBaseType.U_SUBJECTNO" ref="GlDict.A.gl_code" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="debit_credit" longname="科目记账方向" type="GlEnumType.E_DEBITCREDIT" ref="GlDict.A.debit_credit" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="amount_direction_sign" longname="金额方向标志" type="GlEnumType.E_AMOUNT_DIRECTION_SIGN" ref="GlDict.A.amount_direction_sign" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="tax_separate_flag" longname="增值税分离标识" type="BaseEnumType.E_YES___" ref="GlDict.A.tax_separate_flag" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="tax_event_code" longname="增值税交易编码" type="GlBaseType.U_EVENT_CODE" ref="GlDict.A.tax_event_code" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="tax_code" longname="税码" type="GlBaseType.U_BYTE50" ref="GlDict.A.tax_code" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="effect_date" longname="生效日期" type="BaseType.U_DATE08" ref="GlDict.A.effect_date" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="invalid_date" longname="失效日期" type="BaseType.U_DATE08" ref="GlDict.A.invalid_date" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="tran_user" longname="新增柜员" type="BaseType.U_USERID" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="auth_user" longname="新增授权柜员(串)" type="BaseType.U_USERID" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="last_tran_user" longname="最后修改柜员" type="BaseType.U_USERID" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="last_auth_user" longname="最后修改授权柜员(串)" type="BaseType.U_USERID" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="init_date" longname="初始化日期" type="BaseType.U_DATE08" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="scene_dimension_five" longname="场景维度5" type="GlBaseType.U_BYTE40" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="scene_dimension_six" longname="场景维度6" type="GlBaseType.U_BYTE40" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="scene_dimension_seven" longname="场景维度7" type="GlBaseType.U_BYTE40" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="scene_dimension_eight" longname="场景维度8" type="GlBaseType.U_BYTE40" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="scene_dimension_nine" longname="场景维度9" type="GlBaseType.U_BYTE40" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="scene_dimension_ten" longname="场景维度10" type="GlBaseType.U_BYTE40" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="scene_dimension_eleven" longname="场景维度11" type="GlBaseType.U_BYTE40" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="scene_dimension_twelve" longname="场景维度12" type="GlBaseType.U_BYTE40" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="scene_dimension_thirteen" longname="场景维度13" type="GlBaseType.U_BYTE40" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="scene_dimension_fourteen" longname="场景维度14" type="GlBaseType.U_BYTE40" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="unique" fields="scene_code product_code bal_type loan_term data_sort effect_date" operate="selectOne deleteOne updateOne"/>
+        </odbindexes>
+        <indexes>
+            <index id="fap_accounting_prod_scene_pk" type="primarykey" fields="scene_code product_code bal_type loan_term data_sort effect_date corpno">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+</schema>

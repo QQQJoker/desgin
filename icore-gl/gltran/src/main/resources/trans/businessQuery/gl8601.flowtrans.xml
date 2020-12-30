@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<flowtran id="gl8601" longname="折算汇率维护" kind="P" package="cn.sunline.ltts.busi.gltran.trans.businessQuery" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <interface package="cn.sunline.ltts.busi.gltran.trans.businessQuery.intf">
+        <input packMode="true">
+            <fields id="list01" scope="GlExchange.GlExchangeRate" required="false" multi="true" longname="折算汇率维护" array="false">
+                <field id="operater_ind" type="GlEnumType.E_DATAOPERATE" required="false" multi="false" array="false" longname="操作标志" ref="GlDict.A.operater_ind"/>
+                <field id="trxn_date" type="GlBaseType.U_DATE" required="false" multi="false" array="false" longname="交易日期" ref="GlDict.A.trxn_date"/>
+                <field id="ccy_code" type="BaseType.U_CRCYCD" required="false" multi="false" array="false" longname="货币代码" ref="GlDict.A.ccy_code"/>
+                <field id="exchange_ccy_code" type="BaseType.U_CRCYCD" required="false" multi="false" array="false" longname="折合币种" ref="GlDict.A.exchange_ccy_code"/>
+                <field id="exchange_rate" type="GlBaseType.U_EXCHANGERATE" required="false" multi="false" array="false" longname="折算汇率" ref="GlDict.A.exchange_rate"/>
+                <field id="exchange_rate_unit" type="GlBaseType.U_LONG" required="false" multi="false" array="false" longname="折算单位" ref="GlDict.A.exchange_rate_unit"/>
+            </fields>
+        </input>
+        <output asParm="true" packMode="true">
+            <fields id="list01" scope="GlExchange.GlExchangeRateInfo" required="false" multi="true" longname="折算信息" array="false">
+                <field id="trxn_date" type="GlBaseType.U_DATE" required="false" multi="false" array="false" longname="交易日期" ref="GlDict.A.trxn_date"/>
+                <field id="ccy_code" type="BaseType.U_CRCYCD" required="false" multi="false" array="false" longname="货币代码" ref="GlDict.A.ccy_code"/>
+                <field id="exchange_ccy_code" type="BaseType.U_CRCYCD" required="false" multi="false" array="false" longname="折合币种" ref="GlDict.A.exchange_ccy_code"/>
+                <field id="exchange_rate" type="GlBaseType.U_EXCHANGERATE" required="false" multi="false" array="false" longname="折算汇率" ref="GlDict.A.exchange_rate"/>
+                <field id="exchange_rate_unit" type="GlBaseType.U_LONG" required="false" multi="false" array="false" longname="折算单位" ref="GlDict.A.exchange_rate_unit"/>
+            </fields>
+        </output>
+        <property packMode="true"/>
+        <printer packMode="true"/>
+    </interface>
+    <flow>
+        <service serviceName="SrvExchangB.selExchangeRate" id="SrvExchangB.selExchangeRate" longname="折算汇率维护">
+            <in_mappings by_interface="true">
+                <mapping src="list01" dest="queryIn" by_interface="true" on_top="true"/>
+            </in_mappings>
+            <out_mappings by_interface="true">
+                <mapping src="queryOut" dest="list01" by_interface="true" on_top="true"/>
+            </out_mappings>
+        </service>
+    </flow>
+</flowtran>

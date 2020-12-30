@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<flowtran id="fa8113" longname="账务代理机构删除" kind="P" package="cn.sunline.ltts.busi.fatran.trans.branchagent" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <interface package="cn.sunline.ltts.busi.fatran.trans.branch.intf">
+        <input packMode="true">
+            <field id="acct_branch" type="BaseType.U_BRCHNO" required="true" multi="false" array="false" longname="账务机构" ref="GlDict.A.acct_branch"/>
+            <field id="agent_brch_id" type="BaseType.U_BRCHNO" required="true" multi="false" array="false" longname="代理机构" ref="GlDict.A.agent_brch_id"/>
+            <field id="recdver" type="BaseType.U_RECDVER" required="true" multi="false" array="false"  longname="数据版本号" ref="BaseDict.Comm.recdver"/>
+        </input>
+        <output asParm="true" packMode="true"/>
+        <property packMode="false"/>
+        <printer packMode="false"/>
+    </interface>
+    <flow>
+        <service serviceName="SrvFaBranchAgent.deleteBranchAgent" id="SrvFaBranchAgent.deleteBranchAgent" longname="删除账务代理机构">
+            <in_mappings by_interface="true">
+                <mapping src="acct_branch" dest="deletIn.acct_branch" by_interface="true" on_top="true"/>
+                <mapping src="agent_brch_id" dest="deletIn.agent_brch_id" by_interface="true" on_top="true"/>
+                <mapping src="recdver" dest="deletIn.recdver" by_interface="true" on_top="true"/>
+	        </in_mappings>
+	        <out_mappings by_interface="true"/>
+        </service>
+        <!-- service serviceName="SrvApTrxn.registerApsTransaction" id="SrvApTrxn.registerApsTransaction" longname="登记流水">
+            <in_mappings by_interface="true"/>
+            <out_mappings by_interface="true"/>
+        </service-->
+    </flow>
+    <outMapping/>
+    <propertyToPrinterMapping/>
+    <outToPrinterMapping/>
+</flowtran>

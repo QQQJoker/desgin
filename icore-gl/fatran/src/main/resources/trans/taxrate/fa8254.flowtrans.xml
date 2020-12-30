@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<flowtran xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="fa8254" longname="税率查询" kind="1" package="cn.sunline.ltts.busi.fatran.trans.taxrate" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <interface package="cn.sunline.ltts.busi.fatran.trans.intf">
+        <input packMode="true">
+            <field id="branch_code" type="BaseType.U_BRCHNO" required="false" multi="false" array="false" longname="机构号" ref="GlDict.A.branch_code"/>
+            <field id="tax_seq" type="BaseType.U_CHAR18" required="false" multi="false" array="false" longname="税率套号" ref="GlDict.A.tax_seq"/>
+            <field id="business_code" type="BaseType.U_BUSINO" required="false" multi="false" array="false" longname="业务代码" ref="GlDict.A.business_code"/>
+            <field id="cal_tax_method_code" type="BaseEnumType.E_CLMETH" required="false" multi="false" array="false" longname="计税方法代码" ref="GlDict.A.cal_tax_method_code"/>
+            <field id="effect_date" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="生效日期" ref="GlDict.A.effect_date"/>
+            <field id="invalid_date" type="BaseType.U_DATE08" required="false" multi="false" array="false" longname="失效日期" ref="GlDict.A.invalid_date"/>
+            <field id="valid_status" type="BaseEnumType.E_VALID_STATUS" required="false" multi="false" array="false" longname="数据状态" ref="GlDict.A.valid_status"/>
+        </input>
+        <output asParm="true" packMode="true">
+            <field id="tax_infos" type="TabFaParm.fap_tax_rate" required="false" multi="true" array="false" longname="查询税率信息输出"/>
+        </output>
+        <property packMode="true"/>
+        <printer packMode="true"/>
+    </interface>
+    <flow>
+        <service serviceName="SrvFaTaxRate.queryTaxRateList" id="queryTaxRateList" longname="查询税率集" desc="查询税率集">
+            <in_mappings by_interface="true">
+                <mapping src="branch_code" dest="branch_code" by_interface="true" on_top="true"/>
+                <mapping src="business_code" dest="business_code" by_interface="true" on_top="true"/>
+                <mapping src="cal_tax_method_code" dest="cal_tax_method_code" by_interface="true" on_top="true"/>
+                <mapping src="effect_date" dest="effect_date" by_interface="true" on_top="true"/>
+                <mapping src="invalid_date" dest="invalid_date" by_interface="true" on_top="true"/>
+                <mapping src="tax_seq" dest="tax_seq" by_interface="true" on_top="true"/>
+                <mapping src="valid_status" dest="valid_status" by_interface="true" on_top="true"/>
+            </in_mappings>
+            <out_mappings by_interface="true">
+                <mapping src="queryOut" dest="tax_infos" by_interface="true" on_top="true"/>
+            </out_mappings>
+        </service>
+    </flow>
+</flowtran>

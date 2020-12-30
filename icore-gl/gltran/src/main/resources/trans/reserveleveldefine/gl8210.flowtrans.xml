@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<flowtran id="gl8210" longname="准备金缴存层级定义表查询" kind="Q" package="cn.sunline.ltts.busi.gltran.trans.reserveleveldefine" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <interface package="cn.sunline.ltts.busi.gltran.trans.reserveleveldefine.intf">
+        <input packMode="true">
+            <field id="deposit_level" type="GlBaseType.U_LONG" required="true" multi="false" array="false" longname="缴存层级" ref="GlDict.A.deposit_level"/>
+            <field id="reserve_type" type="GlBusinessType.E_RESERVEAMTTYPE" required="true" multi="false" array="false" longname="准备金种类" ref="GlDict.A.reserve_type"/>
+            <field id="deposit_busi_type" type="GlBusinessType.E_DEPOSITPAIDBUSIPROP" required="true" multi="false" array="false" longname="缴存款业务性质" ref="GlDict.A.deposit_busi_type"/>
+            <field id="deposit_processing_category" type="GlBusinessType.E_DEPOSITPAIDDEALTYPE" required="true" multi="false" array="false" longname="缴存款处理类别" ref="GlDict.A.deposit_processing_category"/>
+            <field id="accounting_gl_code" type="GlBaseType.U_SUBJECTNO" required="true" multi="false" array="false" longname="记账科目号" ref="GlDict.A.accounting_gl_code"/>
+            <field id="parent_accounting_gl_code" type="GlBaseType.U_SUBJECTNO" required="true" multi="false" array="false" longname="上级记账科目号" ref="GlDict.A.parent_accounting_gl_code"/>
+        </input>
+        <output asParm="true" packMode="true">
+            <fields id="list01" required="false" multi="true" longname="查询输出" array="false">
+                <field id="deposit_level" type="GlBaseType.U_LONG" required="true" multi="false" array="false" longname="缴存层级" ref="GlDict.A.deposit_level"/>
+                <field id="reserve_type" type="GlBusinessType.E_RESERVEAMTTYPE" required="true" multi="false" array="false" longname="准备金种类" ref="GlDict.A.reserve_type"/>
+                <field id="deposit_busi_type" type="GlBusinessType.E_DEPOSITPAIDBUSIPROP" required="true" multi="false" array="false" longname="缴存款业务性质" ref="GlDict.A.deposit_busi_type"/>
+                <field id="deposit_processing_category" type="GlBusinessType.E_DEPOSITPAIDDEALTYPE" required="true" multi="false" array="false" longname="缴存款处理类别" ref="GlDict.A.deposit_processing_category"/>
+                <field id="accounting_gl_code" type="GlBaseType.U_SUBJECTNO" required="true" multi="false" array="false" longname="记账科目号" ref="GlDict.A.accounting_gl_code"/>
+                <field id="parent_accounting_gl_code" type="GlBaseType.U_SUBJECTNO" required="true" multi="false" array="false" longname="上级记账科目号" ref="GlDict.A.parent_accounting_gl_code"/>
+                <field id="corpno" type="BaseType.U_CORPNO" required="true" multi="false" array="false" longname="法人代码" ref="ApDict.Aplt.corpno" />
+        		<field id="recdver" type="BaseType.U_RECDVER" required="true" multi="false" array="false"  longname="数据版本号" ref="BaseDict.Comm.recdver"/></fields>
+        </output>
+        <property packMode="true"/>
+        <printer packMode="true"/>
+    </interface>
+    <flow>
+        <service serviceName="SrvGlReserveLevelDefine.queryGlReserveLevelInfo" id="SrvGlReserveLevelDefine.queryGlReserveLevelInfo" longname="准备金缴存层级定义表查询">
+            <in_mappings by_interface="true">
+                <mapping src="accounting_gl_code" dest="queryIn.accounting_gl_code" by_interface="true" on_top="true"/>
+                <mapping src="deposit_busi_type" dest="queryIn.deposit_busi_type" by_interface="true" on_top="true"/>
+                <mapping src="deposit_processing_category" dest="queryIn.deposit_processing_category" by_interface="true" on_top="true"/>
+                <mapping src="deposit_level" dest="queryIn.deposit_level" by_interface="true" on_top="true"/>
+                <mapping src="reserve_type" dest="queryIn.reserve_type" by_interface="true" on_top="true"/>
+                <mapping src="parent_accounting_gl_code" dest="queryIn.parent_accounting_gl_code" by_interface="true" on_top="true"/>
+            </in_mappings>
+            <out_mappings by_interface="true">
+                <mapping src="queryOut" dest="list01" by_interface="true" on_top="true"/>
+            </out_mappings>
+        </service>
+    </flow>
+    <outMapping/>
+    <propertyToPrinterMapping/>
+    <outToPrinterMapping/>
+</flowtran>

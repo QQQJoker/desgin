@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema id="TabFaAccount" package="cn.sunline.ltts.busi.fa.tables" longname="总账账户台账" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <table id="faa_account" name="faa_account" longname="总账分户账" category="B" virtual="false" extension="SysCommFieldTable.KapCommSync" abstract="false">
+        <fields>
+            <field id="sys_no" longname="系统编号" type="GlBaseType.U_SYSNO" ref="GlDict.A.sys_no" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="acct_no" longname="账号" type="BaseType.U_ACCTNO" ref="GlDict.A.acct_no" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="acct_name" longname="账户名称" type="GlBaseType.U_ACCTNAME" ref="GlDict.A.acct_name" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="acct_branch" longname="账务机构" type="BaseType.U_BRCHNO" ref="GlDict.A.acct_branch" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="gl_code" longname="科目号" type="GlBaseType.U_SUBJECTNO" ref="GlDict.A.gl_code" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="ccy_code" longname="货币代码" type="BaseType.U_CRCYCD" ref="GlDict.A.ccy_code" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="acct_seq" longname="账户序号" type="GlBaseType.U_BYTE8" ref="GlDict.A.acct_seq" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="acct_type" longname="账户分类" type="GlBusinessType.E_ACCTTYPE" ref="GlDict.A.acct_type" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="bal_direction" longname="余额方向" type="GlEnumType.E_DEBITCREDIT" ref="GlDict.A.bal_direction" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="bal_prop" longname="余额性质" type="GlBusinessType.E_BALPROP" ref="GlDict.A.bal_prop" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="acct_bal" longname="账户余额" type="BaseType.U_TRANAM" ref="GlDict.A.acct_bal" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="previous_bal_direction" longname="上期余额方向" type="GlEnumType.E_DEBITCREDIT" ref="GlDict.A.previous_bal_direction" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="previous_acct_bal" longname="上期账户余额" type="BaseType.U_TRANAM" ref="GlDict.A.previous_acct_bal" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="bal_update_date" longname="余额更新日期" type="GlBaseType.U_DATE" ref="GlDict.A.bal_update_date" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="bal_check_ind" longname="余额检查标志" type="GlEnumType.E_YESORNO" ref="GlDict.A.bal_check_ind" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="on_bal_sheet_ind" longname="表内标志" type="GlEnumType.E_YESORNO" ref="GlDict.A.on_bal_sheet_ind" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="debit_manual_allow" longname="借方手工记账许可" type="GlEnumType.E_YESORNO" ref="GlDict.A.debit_manual_allow" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="credit_manual_allow" longname="贷方手工记账许可" type="GlEnumType.E_YESORNO" ref="GlDict.A.credit_manual_allow" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="acct_status" longname="账户状态" type="GlBusinessType.E_ACCTSTATUS" ref="GlDict.A.acct_status" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="remark" longname="备注" type="GlBaseType.U_SHORTDESC" ref="GlDict.A.remark" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="open_acct_brch" longname="开户机构" type="BaseType.U_BRCHNO" ref="GlDict.A.open_acct_brch" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="open_acct_user" longname="开户柜员" type="GlBaseType.U_USERID" ref="GlDict.A.open_acct_user" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="open_acct_date" longname="开户日期 " type="GlBaseType.U_DATE" ref="GlDict.A.open_acct_date" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="open_acct_seq" longname="开户流水" type="BaseType.U_SEQUNO" ref="GlDict.A.open_acct_seq" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="close_acct_brch" longname="销户机构" type="BaseType.U_BRCHNO" ref="GlDict.A.close_acct_brch" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="close_acct_user" longname="销户柜员" type="GlBaseType.U_USERID" ref="GlDict.A.close_acct_user" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="close_acct_date" longname="销户日期" type="GlBaseType.U_DATE" ref="GlDict.A.close_acct_date" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="close_acct_seq" longname="销户流水" type="BaseType.U_SEQUNO" ref="GlDict.A.close_acct_seq" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="primarykey" fields="acct_no" operate="selectOne deleteOne updateOne selectOneWithLock"/>
+            <index id="odb3" type="unique" fields="sys_no acct_branch gl_code ccy_code acct_seq" operate="selectOne deleteOne updateOne selectOneWithLock"/>
+            <index id="odb2" type="index" fields="sys_no acct_branch gl_code ccy_code" operate="selectFirst selectAll update delete"/>
+            <index id="odb4" type="index" fields="sys_no acct_branch gl_code ccy_code acct_type" operate="selectFirst selectAll"/>
+        </odbindexes>
+        <indexes>
+            <index id="faa_account_pk1" type="primarykey" fields="corpno acct_no">
+                <ddls/>
+            </index>
+            <index id="faa_account_uk2" type="unique" fields="sys_no acct_branch gl_code ccy_code acct_seq corpno">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+    <table id="faa_acct_seq_define" name="faa_acct_seq_define" longname="账户序号定义" category="B" virtual="false" extension="SysCommFieldTable.KapCommSync" abstract="false">
+        <fields>
+            <field id="gl_code" longname="科目号" type="GlBaseType.U_SUBJECTNO" ref="GlDict.A.gl_code" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="acct_seq" longname="账户序号" type="GlBaseType.U_BYTE8" ref="GlDict.A.acct_seq" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="acct_name" longname="账户名称" type="GlBaseType.U_ACCTNAME" ref="GlDict.A.acct_name" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="available_ccy_list" longname="适用币种" type="GlBaseType.U_SHORTDESC" ref="GlDict.A.available_ccy_list" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="batch_open_brch_scope" longname="批开机构范围" type="GlBusinessType.E_BATCHOPENBRCHSCOPE" ref="GlDict.A.batch_open_brch_scope" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="multi_draw_ind" longname="批开试用机构" type="GlBaseType.U_SHORTDESC" ref="GlDict.A.multi_draw_ind" primarykey="false" final="false" nullable="true" identity="false" allowSubType="true"/>
+            <field id="auto_batch_open_ind" longname="自动批开标志" type="GlEnumType.E_YESORNO" ref="GlDict.A.auto_batch_open_ind" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="acct_seq_status" longname="专户序号状态" type="GlBusinessType.E_ACCTSEQSTATE" ref="GlDict.A.acct_seq_status" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="bal_check_ind" longname="余额检查标志" type="GlEnumType.E_YESORNO" ref="GlDict.A.bal_check_ind" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="include_lower_level_ind" longname="包含下级标志" type="GlEnumType.E_YESORNO" ref="GlDict.A.include_lower_level_ind" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="primarykey" fields="gl_code acct_seq" operate="selectOne deleteOne updateOne"/>
+        </odbindexes>
+        <indexes>
+            <index id="faa_acct_seq_define_pk1" type="primarykey" fields="corpno acct_seq gl_code">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+    <table id="fah_balance" name="fah_balance" longname="内部账户历史余额表" category="B" virtual="false" extension="SysCommFieldTable.KapCommSync" abstract="false">
+        <fields>
+            <field id="acct_no" longname="账号" type="BaseType.U_ACCTNO" ref="GlDict.A.acct_no" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="start_date" longname="起始日期" type="GlBaseType.U_DATE" ref="GlDict.A.start_date" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="end_date" longname="截止日期" type="GlBaseType.U_DATE" ref="GlDict.A.end_date" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="bal_direction" longname="余额方向" type="GlEnumType.E_DEBITCREDIT" ref="GlDict.A.bal_direction" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+            <field id="acct_bal" longname="账户余额" type="BaseType.U_TRANAM" ref="GlDict.A.acct_bal" primarykey="false" final="false" nullable="false" identity="false" allowSubType="true"/>
+        </fields>
+        <ddls/>
+        <odbindexes>
+            <index id="odb1" type="primarykey" fields="acct_no start_date" operate="selectOne deleteOne updateOne"/>
+        </odbindexes>
+        <indexes>
+            <index id="fah_balance_pk1" type="primarykey" fields="corpno acct_no start_date">
+                <ddls/>
+            </index>
+        </indexes>
+    </table>
+</schema>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<flowtran id="insmry" longname="新增摘要码" kind="2" package="cn.sunline.ltts.busi.fatran.trans.summary" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <interface package="cn.sunline.ltts.busi.fatran.trans.summary.intf">
+        <input packMode="true">
+            <field id="smrycd" type="BaseType.U_SMRYCD" required="true" multi="false" array="false" longname="摘要代码" ref="BaseDict.Comm.smrycd"/>
+            <field id="smryds" type="BaseType.U_SMRYDS" required="true" multi="false" array="false" longname="摘要描述" ref="BaseDict.Comm.smryds"/>
+            <field id="remark" type="BaseType.U_MIDDDS" required="false" multi="false" array="false" longname="说明"/>
+        </input>
+        <output asParm="true" packMode="true"/>
+        <property packMode="false"/>
+        <printer packMode="false"/>
+    </interface>
+    <flow>
+        <method method="insertAppSmry" id="insertAppSmry" longname="新增摘要码"/>
+    </flow>
+    <outMapping/>
+    <propertyToPrinterMapping/>
+    <outToPrinterMapping/>
+</flowtran>

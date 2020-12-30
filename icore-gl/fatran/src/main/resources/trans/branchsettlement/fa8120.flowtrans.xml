@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<flowtran xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="fa8120" longname="清算关系组织结构信息列表查询" kind="1" package="cn.sunline.ltts.busi.fatran.trans.branchsettlement" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <interface package="cn.sunline.ltts.busi.fatran.trans.intf">
+        <input packMode="true">
+            <field id="ccy_code" type="BaseType.U_CRCYCD" required="false" multi="false" array="false" longname="货币代码" ref="GlDict.A.ccy_code"/>
+            <field id="acct_branch" type="BaseType.U_BRCHNO" required="false" multi="false" array="false" longname="账务机构" ref="GlDict.A.acct_branch"/>
+            <field id="parent_brch_id" type="BaseType.U_BRCHNO" required="false" multi="false" array="false" longname="上级机构" ref="GlDict.A.parent_brch_id"/>
+            <field id="busi_relation_level" type="GlBaseType.U_LONG" required="false" multi="false" array="false" longname="业务关系级别" ref="GlDict.A.busi_relation_level"/>
+            <field id="gl_code" type="GlBaseType.U_SUBJECTNO" required="false" multi="false" array="false" longname="科目号" ref="GlDict.A.gl_code"/>
+            <field id="upper_lvl_gl_code" type="GlBaseType.U_SUBJECTNO" required="false" multi="false" array="false" longname="上级科目" ref="GlDict.A.upper_lvl_gl_code"/>
+        </input>
+        <output asParm="true" packMode="true">
+            <fields id="list01" required="false" multi="true" longname="清算关系组织结构查询" array="false">
+                <field id="ccy_code" type="BaseType.U_CRCYCD" required="true" multi="false" array="false" longname="货币代码" ref="GlDict.A.ccy_code"/>
+                <field id="acct_branch" type="BaseType.U_BRCHNO" required="true" multi="false" array="false" longname="账务机构" ref="GlDict.A.acct_branch"/>
+                <field id="parent_brch_id" type="BaseType.U_BRCHNO" required="true" multi="false" array="false" longname="上级机构" ref="GlDict.A.parent_brch_id"/>
+                <field id="busi_relation_level" type="GlBaseType.U_LONG" required="true" multi="false" array="false" longname="业务关系级别" ref="GlDict.A.busi_relation_level"/>
+                <field id="gl_code" type="GlBaseType.U_SUBJECTNO" required="true" multi="false" array="false" longname="科目号" ref="GlDict.A.gl_code"/>
+                <field id="upper_lvl_gl_code" type="GlBaseType.U_SUBJECTNO" required="true" multi="false" array="false" longname="上级科目" ref="GlDict.A.upper_lvl_gl_code"/>
+                <field id="corpno" type="BaseType.U_CORPNO" required="true" multi="false" array="false" longname="法人代码" ref="ApDict.Aplt.corpno"/>
+                <field id="recdver" type="BaseType.U_RECDVER" required="true" multi="false" array="false" longname="记录版本号" ref="BaseDict.Comm.recdver"/>
+            </fields>
+        </output>
+        <property packMode="false"/>
+        <printer packMode="false"/>
+    </interface>
+    <flow>
+        <service serviceName="SrvFaBranchSettlement.queryBranchSettementList" id="SrvFaBranchSettlement.queryBranchSettementList" longname="清算关系组织结构列表查询">
+            <in_mappings by_interface="true">
+                <mapping src="acct_branch" dest="queryIn.acct_branch" by_interface="true" on_top="true"/>
+                <mapping src="busi_relation_level" dest="queryIn.busi_relation_level" by_interface="true" on_top="true"/>
+                <mapping src="ccy_code" dest="queryIn.ccy_code" by_interface="true" on_top="true"/>
+                <mapping src="parent_brch_id" dest="queryIn.parent_brch_id" by_interface="true" on_top="true"/>
+                <mapping src="upper_lvl_gl_code" dest="queryIn.upper_lvl_gl_code" by_interface="true" on_top="true"/>
+                <mapping src="gl_code" dest="queryIn.gl_code" by_interface="true" on_top="true"/>
+            </in_mappings>
+            <out_mappings by_interface="true">
+                <mapping src="queryOut" dest="list01" by_interface="true" on_top="true"/>
+            </out_mappings>
+        </service>
+    </flow>
+    <outMapping/>
+    <propertyToPrinterMapping/>
+    <outToPrinterMapping/>
+</flowtran>

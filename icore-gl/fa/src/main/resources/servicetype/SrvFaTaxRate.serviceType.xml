@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="SrvFaTaxRate" kind="business" longname="税率维护" package="cn.sunline.ltts.busi.fa.servicetype" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <service id="addTaxRate" name="addTaxRate" longname="增加税率">
+        <interface>
+            <input packMode="false">
+                <field id="addIn" type="TabFaParm.fap_tax_rate" required="false" multi="true" array="false" longname="增加输入"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="tax_seq" type="BaseType.U_CHAR18" required="false" multi="false" array="false" longname="增值税套号"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="mntTaxRate" name="mntTaxRate" longname="维护税率">
+        <interface>
+            <input packMode="false">
+                <field id="modifyIn" type="TabFaParm.fap_tax_rate" required="false" multi="true" array="false" longname="维护输入"/>
+            </input>
+            <output asParm="false" packMode="false" />
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="delTaxRate" name="delTaxRate" longname="删除一条记录">
+        <interface>
+            <input packMode="true">
+                <field id="branch_code" type="BaseType.U_BRCHNO" required="true" multi="false" array="false" longname="机构号" ref="GlDict.A.branch_code"/>
+                <field id="business_code" type="BaseType.U_BUSINO" required="true" multi="false" array="false" longname="业务代码" ref="GlDict.A.business_code"/>
+                <field id="cal_tax_method_code" type="BaseEnumType.E_CLMETH" required="true" multi="false" array="false" longname="计税方法代码" ref="GlDict.A.cal_tax_method_code"/>
+                <field id="effect_date" type="BaseType.U_DATE08" required="true" multi="false" array="false" longname="生效日期" ref="GlDict.A.effect_date"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="queryTaxRateList" name="queryTaxRateList" longname="查询税率集">
+        <interface>
+            <input packMode="true">
+                <field id="branch_code" type="BaseType.U_BRCHNO" required="true" multi="false" array="false" longname="机构号" ref="GlDict.A.branch_code"/>
+                <field id="tax_seq" type="BaseType.U_CHAR18" required="true" multi="false" array="false" longname="税率套号" ref="GlDict.A.tax_seq"/>
+                <field id="business_code" type="BaseType.U_BUSINO" required="true" multi="false" array="false" longname="业务代码" ref="GlDict.A.business_code"/>
+                <field id="cal_tax_method_code" type="BaseEnumType.E_CLMETH" required="true" multi="false" array="false" longname="计税方法代码" ref="GlDict.A.cal_tax_method_code"/>
+                <field id="effect_date" type="BaseType.U_DATE08" required="true" multi="false" array="false" longname="生效日期" ref="GlDict.A.effect_date"/>
+                <field id="invalid_date" type="BaseType.U_DATE08" required="true" multi="false" array="false" longname="失效日期" ref="GlDict.A.invalid_date"/>
+                <field id="valid_status" type="BaseEnumType.E_VALID_STATUS" required="true" multi="false" array="false" longname="数据状态" ref="GlDict.A.valid_status"/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="queryOut" type="TabFaParm.fap_tax_rate" required="false" multi="true" array="false" longname="查询税率信息输出"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+</serviceType>

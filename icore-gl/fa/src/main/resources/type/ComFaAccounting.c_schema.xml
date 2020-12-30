@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema id="ComFaAccounting" package="cn.sunline.ltts.gl.fa.type" longname="核算相关复合类型" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <complexType id="FaSetAccountsMain" longname="套账登记簿主表复合类型" dict="false" abstract="false" introduct="false">
+        <element id="sys_no" longname="系统编号" type="GlBaseType.U_SYSNO" ref="GlDict.A.sys_no" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="set_account_no" longname="套号" type="BaseType.U_SEQUNO" ref="GlDict.A.set_account_no" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="set_account_type" longname="套帐类别" type="GlBusinessType.E_SETACCOUNTTYPE" ref="GlDict.A.set_account_type" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trxn_date" longname="交易日期" type="GlBaseType.U_DATE" ref="GlDict.A.trxn_date" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trxn_seq" longname="交易流水" type="BaseType.U_SEQUNO" ref="GlDict.A.trxn_seq" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trxn_branch" longname="交易机构" type="BaseType.U_BRCHNO" ref="GlDict.A.trxn_branch" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trxn_teller" longname="交易柜员" type="GlBaseType.U_USERID" ref="GlDict.A.trxn_teller" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="set_account_status" longname="套账状态" type="GlBusinessType.E_SETACCOUNTSTATE" ref="GlDict.A.set_account_status" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="posting_date" longname="入账日期" type="GlBaseType.U_DATE" ref="GlDict.A.posting_date" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="posting_seq" longname="入账流水" type="BaseType.U_SEQUNO" ref="GlDict.A.posting_seq" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="posting_branch" longname="入账机构" type="BaseType.U_BRCHNO" ref="GlDict.A.posting_branch" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="posting_teller" longname="入账柜员" type="GlBaseType.U_USERID" ref="GlDict.A.posting_teller" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="remark" longname="备注" type="GlBaseType.U_SHORTDESC" ref="GlDict.A.remark" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="recdver" longname="数据版本号" type="BaseType.U_RECDVER" ref="BaseDict.Comm.recdver" required="false" default="1" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="subject_accounting_ind" longname="科目记账标志" type="GlEnumType.E_YESORNO" ref="GlDict.A.subject_accounting_ind" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="FaSetAccountsDetail" longname="套账登记薄明细表复合类型" dict="false" abstract="false" introduct="false">
+        <element id="set_account_no" longname="套号" type="BaseType.U_SEQUNO" ref="GlDict.A.set_account_no" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="data_sort" longname="数据序号" type="GlBaseType.U_LONG" ref="GlDict.A.data_sort" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acct_no" longname="账号" type="BaseType.U_ACCTNO" ref="GlDict.A.acct_no" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ccy_code" longname="货币代码" type="BaseType.U_CRCYCD" ref="GlDict.A.ccy_code" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="debit_credit" longname="记账方向" type="GlEnumType.E_DEBITCREDIT" ref="GlDict.A.debit_credit" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="accounting_amt" longname="记账金额" type="BaseType.U_TRANAM" ref="GlDict.A.accounting_amt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="gl_code" longname="科目号" type="GlBaseType.U_SUBJECTNO" ref="GlDict.A.gl_code" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acct_branch" longname="账务机构" type="BaseType.U_BRCHNO" ref="GlDict.A.acct_branch" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="exchg_method" longname="折算方式" type="GlBusinessType.E_EXCHANGEMODE" ref="GlDict.A.exchg_method" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="exchg_org_ccy_amt" longname="折本金额" type="BaseType.U_TRANAM" ref="GlDict.A.exchg_org_ccy_amt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="exchg_dol_ccy_amt" longname="折美金额" type="BaseType.U_TRANAM" ref="GlDict.A.exchg_dol_ccy_amt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trxn_offset_acct_no" longname="交易对手账号" type="BaseType.U_ACCTNO" ref="GlDict.A.trxn_offset_acct_no" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trxn_offset_acct_name" longname="交易对手户名" type="GlBaseType.U_ACCTNAME" ref="GlDict.A.trxn_offset_acct_name" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="cash_trxn_ind" longname="现转标志" type="GlBusinessType.E_CASHTRXN" ref="GlDict.A.cash_trxn_ind" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="summary_code" longname="摘要代码" type="GlBaseType.U_BYTE8" ref="GlDict.A.summary_code" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="summary_desc" longname="摘要描述" type="GlBaseType.U_SHORTDESC" ref="GlDict.A.summary_desc" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="remark" longname="备注" type="GlBaseType.U_SHORTDESC" ref="GlDict.A.remark" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="recdver" longname="数据版本号" type="BaseType.U_RECDVER" ref="BaseDict.Comm.recdver" required="false" default="1" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="rebuwa" longname="红蓝字" type="InEnumType.E_REBUWA" ref="InDict.wrac.rebuwa" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acct_name" longname="账户名称" type="GlBaseType.U_ACCTNAME" ref="GlDict.A.acct_name" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="gl_code_desc" longname="科目名称" type="GlBaseType.U_SHORTDESC" ref="GlDict.A.gl_code_desc" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="FaRegTellerSeq" longname="登记柜员流水复合类型" dict="false" abstract="false" introduct="false">
+        <element id="sys_no" longname="系统编号" type="GlBaseType.U_SYSNO" ref="GlDict.A.sys_no" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trxn_seq_type" longname="交易流水类型" type="GlBusinessType.E_TRXNSEQTYPE" ref="GlDict.A.trxn_seq_type" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trxn_subject" longname="交易主体" type="BaseType.U_SEQUNO" ref="GlDict.A.trxn_subject" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="busi_ref_no" longname="业务参考号" type="BaseType.U_SEQUNO" ref="GlDict.A.busi_ref_no" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="remark" longname="备注" type="GlBaseType.U_SHORTDESC" ref="GlDict.A.remark" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="sett_status" longname="清算" type="GlBusinessType.E_SETTSTATE" ref="GlDict.A.sett_status" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="sett_batch_no" longname="清算批次号" type="BaseType.U_SEQUNO" ref="GlDict.A.sett_batch_no" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="reversal_status" longname="冲账状态" type="GlBusinessType.E_REVERSALSTATE" ref="GlDict.A.reversal_status" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="original_trxn_date" longname="原日期" type="GlBaseType.U_DATE" ref="GlDict.A.original_trxn_date" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="original_trxn_seq" longname="原交易流水" type="BaseType.U_SEQUNO" ref="GlDict.A.original_trxn_seq" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="review_teller" longname="复核柜员" type="GlBaseType.U_USERID" ref="GlDict.A.review_teller" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trxn_seq" longname="交易流水" type="BaseType.U_SEQUNO" ref="GlDict.A.trxn_seq" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="FaSingleAccountingCheckIn" longname="单笔记账检查输入" dict="false" abstract="false" introduct="false">
+        <element id="acct_no" longname="账号" type="BaseType.U_ACCTNO" ref="GlDict.A.acct_no" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="sys_no" longname="系统编号" type="GlBaseType.U_SYSNO" ref="GlDict.A.sys_no" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acct_branch" longname="账务机构" type="BaseType.U_BRCHNO" ref="GlDict.A.acct_branch" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acct_type" longname="账户分类" type="GlBusinessType.E_ACCTTYPE" ref="GlDict.A.acct_type" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acct_seq" longname="账户序号" type="GlBaseType.U_BYTE8" ref="GlDict.A.acct_seq" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ccy_code" longname="货币代码" type="BaseType.U_CRCYCD" ref="GlDict.A.ccy_code" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="debit_credit" longname="记账方向" type="GlEnumType.E_DEBITCREDIT" ref="GlDict.A.debit_credit" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="accounting_amt" longname="记账金额" type="BaseType.U_TRANAM" ref="GlDict.A.accounting_amt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="summary_code" longname="摘要代码" type="GlBaseType.U_BYTE8" ref="GlDict.A.summary_code" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="gl_code" longname="科目号" type="GlBaseType.U_SUBJECTNO" ref="GlDict.A.gl_code" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="remark" longname="备注" type="GlBaseType.U_SHORTDESC" ref="GlDict.A.remark" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="FaCalcuBalanceIn" longname="账户余额计算输入复合类型" dict="false" abstract="false" introduct="false">
+        <element id="bal_direction" longname="余额方向" type="GlEnumType.E_DEBITCREDIT" ref="GlDict.A.bal_direction" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acct_bal" longname="账户余额" type="BaseType.U_TRANAM" ref="GlDict.A.acct_bal" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="debit_credit" longname="记账方向" type="GlEnumType.E_DEBITCREDIT" ref="GlDict.A.debit_credit" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="accounting_amt" longname="记账金额" type="BaseType.U_TRANAM" ref="GlDict.A.accounting_amt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="bal_prop" longname="余额性质" type="GlBusinessType.E_BALPROP" ref="GlDict.A.bal_prop" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="FaRegAccountingVoch" longname="登记总账凭证" dict="false" abstract="false" introduct="false">
+        <element id="trxn_date" longname="交易日期" type="GlBaseType.U_DATE" ref="GlDict.A.trxn_date" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trxn_seq" longname="交易流水" type="BaseType.U_SEQUNO" ref="GlDict.A.trxn_seq" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="data_sort" longname="数据序号" type="GlBaseType.U_LONG" ref="GlDict.A.data_sort" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="sys_no" longname="系统编号" type="GlBaseType.U_SYSNO" ref="GlDict.A.sys_no" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acct_branch" longname="账务机构" type="BaseType.U_BRCHNO" ref="GlDict.A.acct_branch" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trxn_ccy" longname="交易币种" type="BaseType.U_CRCYCD" ref="GlDict.A.trxn_ccy" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="gl_code" longname="科目号" type="GlBaseType.U_SUBJECTNO" ref="GlDict.A.gl_code" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acct_seq" longname="账户序号" type="GlBaseType.U_BYTE8" ref="GlDict.A.acct_seq" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acct_no" longname="账号" type="BaseType.U_ACCTNO" ref="GlDict.A.acct_no" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="debit_credit" longname="记账方向" type="GlEnumType.E_DEBITCREDIT" ref="GlDict.A.debit_credit" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="accounting_amt" longname="记账金额" type="BaseType.U_TRANAM" ref="GlDict.A.accounting_amt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="total_count" longname="总记录数" type="GlBaseType.U_LONG" ref="GlDict.A.total_count" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="exchg_org_ccy_amt" longname="折本金额" type="BaseType.U_TRANAM" ref="GlDict.A.exchg_org_ccy_amt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="exchg_method" longname="折算方式" type="GlBusinessType.E_EXCHANGEMODE" ref="GlDict.A.exchg_method" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="exchg_dol_ccy_amt" longname="折美金额" type="BaseType.U_TRANAM" ref="GlDict.A.exchg_dol_ccy_amt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="on_bal_sheet_ind" longname="表内标志" type="GlEnumType.E_YESORNO" ref="GlDict.A.on_bal_sheet_ind" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="bal_direction" longname="余额方向" type="GlEnumType.E_DEBITCREDIT" ref="GlDict.A.bal_direction" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acct_bal" longname="账户余额" type="BaseType.U_TRANAM" ref="GlDict.A.acct_bal" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="summary_code" longname="摘要代码" type="GlBaseType.U_BYTE8" ref="GlDict.A.summary_code" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="summary_desc" longname="摘要描述" type="GlBaseType.U_SHORTDESC" ref="GlDict.A.summary_desc" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="host_date" longname="主机日期" type="GlBaseType.U_DATE" ref="GlDict.A.host_date" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trxn_time" longname="交易时间" type="GlBaseType.U_DATETIME" ref="GlDict.A.trxn_time" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="org_id" longname="法人代码" type="BaseType.U_CORPNO" ref="GlDict.A.org_id" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="recdver" longname="数据版本号" type="BaseType.U_RECDVER" ref="BaseDict.Comm.recdver" required="false" default="1" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="FaUpdateBalanceIn" longname="余额更新输入复合类型" dict="false" abstract="false" introduct="false">
+        <element id="acct_no" longname="账号" type="BaseType.U_ACCTNO" ref="GlDict.A.acct_no" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="debit_credit" longname="记账方向" type="GlEnumType.E_DEBITCREDIT" ref="GlDict.A.debit_credit" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="accounting_amt" longname="记账金额" type="BaseType.U_TRANAM" ref="GlDict.A.accounting_amt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="FaSummarySetAccountDetail" longname="套账明细汇总" dict="false" abstract="false" introduct="false">
+        <element id="ccy_code" longname="货币代码" type="BaseType.U_CRCYCD" ref="GlDict.A.ccy_code" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="debit_count" longname="借方笔数" type="GlBaseType.U_LONG" ref="GlDict.A.debit_count" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="debit_amt" longname="借方金额" type="BaseType.U_TRANAM" ref="GlDict.A.debit_amt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="creit_count" longname="贷方笔数" type="GlBaseType.U_LONG" ref="GlDict.A.creit_count" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="credit_amt" longname="贷方金额" type="BaseType.U_TRANAM" ref="GlDict.A.credit_amt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="debit_creit_margin" longname="借贷差额" type="BaseType.U_TRANAM" ref="GlDict.A.debit_creit_margin" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="FaSingleAccountingDoIn" longname="单笔记账do输入" dict="false" abstract="false" introduct="false">
+        <element id="acct_no" longname="账号" type="BaseType.U_ACCTNO" ref="GlDict.A.acct_no" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="accounting_amt" longname="记账金额" type="BaseType.U_TRANAM" ref="GlDict.A.accounting_amt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="debit_credit" longname="记账方向" type="GlEnumType.E_DEBITCREDIT" ref="GlDict.A.debit_credit" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="summary_code" longname="摘要代码" type="GlBaseType.U_BYTE8" ref="GlDict.A.summary_code" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="sys_no" longname="系统编号" type="GlBaseType.U_SYSNO" ref="GlDict.A.sys_no" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="remark" longname="备注" type="GlBaseType.U_SHORTDESC" ref="GlDict.A.remark" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="FaSetAccountsDatailDelIn" longname="套账明细删除输入" dict="false" abstract="false" introduct="false">
+        <element id="set_account_no" longname="套号" type="BaseType.U_SEQUNO" ref="GlDict.A.set_account_no" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="data_sort" longname="数据序号" type="GlBaseType.U_LONG" ref="GlDict.A.data_sort" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="recdver" longname="数据版本号" type="BaseType.U_RECDVER" ref="BaseDict.Comm.recdver" required="false" default="1" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="FaQuerySetAccountsOut" longname="套账明细查询输出" dict="false" abstract="false" introduct="false">
+        <element id="sys_no" longname="系统编号" type="GlBaseType.U_SYSNO" ref="GlDict.A.sys_no" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="data_sort" longname="数据序号" type="GlBaseType.U_LONG" ref="GlDict.A.data_sort" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="set_account_no" longname="套号" type="BaseType.U_SEQUNO" ref="GlDict.A.set_account_no" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="set_account_type" longname="套帐类别" type="GlBusinessType.E_SETACCOUNTTYPE" ref="GlDict.A.set_account_type" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="subject_accounting_ind" longname="科目记账标志" type="GlEnumType.E_YESORNO" ref="GlDict.A.subject_accounting_ind" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trxn_date" longname="交易日期" type="GlBaseType.U_DATE" ref="GlDict.A.trxn_date" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trxn_seq" longname="交易流水" type="BaseType.U_SEQUNO" ref="GlDict.A.trxn_seq" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trxn_branch" longname="交易机构" type="BaseType.U_BRCHNO" ref="GlDict.A.trxn_branch" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trxn_teller" longname="交易柜员" type="GlBaseType.U_USERID" ref="GlDict.A.trxn_teller" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="set_account_status" longname="套账状态" type="GlBusinessType.E_SETACCOUNTSTATE" ref="GlDict.A.set_account_status" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="posting_date" longname="入账日期" type="GlBaseType.U_DATE" ref="GlDict.A.posting_date" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="posting_seq" longname="入账流水" type="BaseType.U_SEQUNO" ref="GlDict.A.posting_seq" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="posting_branch" longname="入账机构" type="BaseType.U_BRCHNO" ref="GlDict.A.posting_branch" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="posting_teller" longname="入账柜员" type="GlBaseType.U_USERID" ref="GlDict.A.posting_teller" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="remark" longname="备注" type="GlBaseType.U_SHORTDESC" ref="GlDict.A.remark" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="corpno" longname="法人代码" type="BaseType.U_CORPNO" ref="ApDict.Aplt.corpno" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="recdver" longname="数据版本号" type="BaseType.U_RECDVER" ref="BaseDict.Comm.recdver" required="false" default="1" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="setAccountsDetail" longname="套账明细" type="ComFaAccounting.FaSetAccountsDetail" required="false" multi="true" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acct_branch" longname="账务机构" type="BaseType.U_BRCHNO" ref="GlDict.A.acct_branch" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="summary_code" longname="摘要代码" type="GlBaseType.U_BYTE8" ref="GlDict.A.summary_code" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="summary_desc" longname="摘要描述" type="GlBaseType.U_SHORTDESC" ref="GlDict.A.summary_desc" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="rebuwa" longname="红蓝字" type="InEnumType.E_REBUWA" ref="InDict.wrac.rebuwa" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="FaOffBanlceAccountingIn" longname="表外记账输入复合类型" dict="false" abstract="false" introduct="false">
+        <element id="acct_no" longname="账号" type="BaseType.U_ACCTNO" ref="GlDict.A.acct_no" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="accounting_amt" longname="记账金额" type="BaseType.U_TRANAM" ref="GlDict.A.accounting_amt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ccy_code" longname="货币代码" type="BaseType.U_CRCYCD" ref="GlDict.A.ccy_code" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="debit_credit" longname="记账方向" type="GlEnumType.E_DEBITCREDIT" ref="GlDict.A.debit_credit" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="summary_code" longname="摘要代码" type="GlBaseType.U_BYTE8" ref="GlDict.A.summary_code" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="remark" longname="备注" type="GlBaseType.U_SHORTDESC" ref="GlDict.A.remark" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="FaDebitAndCrebitBalance" longname="检查借贷平衡返回复合类型" dict="false" abstract="false" introduct="false">
+        <element id="trxn_ccy" longname="交易币种" type="BaseType.U_CRCYCD" ref="GlDict.A.trxn_ccy" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="debit_creit_margin" longname="借贷差额" type="BaseType.U_TRANAM" ref="GlDict.A.debit_creit_margin" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="FaLedgerCheckSeqInfo" longname="总分余额核对流水" dict="false" abstract="false" introduct="false">
+        <element id="sys_no" longname="系统编号" type="GlBaseType.U_SYSNO" ref="GlDict.A.sys_no" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trxn_date" longname="交易日期" type="GlBaseType.U_DATE" ref="GlDict.A.trxn_date" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="record_no" longname="记录次序号" type="GlBaseType.U_LONG" ref="GlDict.A.record_no" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acct_branch" longname="账务机构" type="BaseType.U_BRCHNO" ref="GlDict.A.acct_branch" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ccy_code" longname="货币代码" type="BaseType.U_CRCYCD" ref="GlDict.A.ccy_code" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="accounting_subject" longname="会计主体" type="GlBaseType.U_ACCOUNTINGSUBJECT" ref="GlDict.A.accounting_subject" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="accounting_alias" longname="核算别名" type="GlBaseType.U_BYTE32" ref="GlDict.A.accounting_alias" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="bal_attributes" longname="余额属性" type="GlBaseType.U_BALPROPERTY" ref="GlDict.A.bal_attributes" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ledger_bal_direction" longname="分户余额方向" type="GlEnumType.E_DEBITCREDIT" ref="GlDict.A.ledger_bal_direction" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ledger_acct_bal" longname="分户账户余额" type="BaseType.U_TRANAM" ref="GlDict.A.ledger_acct_bal" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="org_id" longname="法人代码" type="BaseType.U_CORPNO" ref="GlDict.A.org_id" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="gl_code" longname="科目号" type="GlBaseType.U_SUBJECTNO" ref="GlDict.A.gl_code" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="FaLedgerCheckResultInfo" longname="总分余额核对结果复合类型" dict="false" abstract="false" introduct="false">
+        <element id="sys_no" longname="系统编号" type="GlBaseType.U_SYSNO" ref="GlDict.A.sys_no" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trxn_date" longname="交易日期" type="GlBaseType.U_DATE" ref="GlDict.A.trxn_date" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acct_branch" longname="账务机构" type="BaseType.U_BRCHNO" ref="GlDict.A.acct_branch" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ccy_code" longname="货币代码" type="BaseType.U_CRCYCD" ref="GlDict.A.ccy_code" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="accounting_alias" longname="核算别名" type="GlBaseType.U_BYTE32" ref="GlDict.A.accounting_alias" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="bal_attributes" longname="余额属性" type="GlBaseType.U_BALPROPERTY" ref="GlDict.A.bal_attributes" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ledger_bal_direction" longname="分户余额方向" type="GlEnumType.E_DEBITCREDIT" ref="GlDict.A.ledger_bal_direction" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ledger_acct_bal" longname="分户账户余额" type="BaseType.U_TRANAM" ref="GlDict.A.ledger_acct_bal" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="gl_code" longname="科目号" type="GlBaseType.U_SUBJECTNO" ref="GlDict.A.gl_code" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="gl_bal_direction" longname="总账余额方向" type="GlEnumType.E_DEBITCREDIT" ref="GlDict.A.gl_bal_direction" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="gl_acct_bal" longname="总账账户余额" type="BaseType.U_TRANAM" ref="GlDict.A.gl_acct_bal" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ledger_check_result" longname="总分核对结果" type="GlBusinessType.E_LEDGERCHECKRESULT" ref="GlDict.A.ledger_check_result" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="FaGetSubjectBalIn" longname="查询科目账户余额输入" dict="false" abstract="false" introduct="false">
+        <element id="gl_code" longname="科目号" type="GlBaseType.U_SUBJECTNO" ref="GlDict.A.gl_code" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ccy_code" longname="货币代码" type="BaseType.U_CRCYCD" ref="GlDict.A.ccy_code" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acct_seq" longname="账户序号" type="GlBaseType.U_BYTE8" ref="GlDict.A.acct_seq" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="sys_no" longname="系统编号" type="GlBaseType.U_SYSNO" ref="GlDict.A.sys_no" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acct_branch" longname="账务机构" type="BaseType.U_BRCHNO" ref="GlDict.A.acct_branch" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="start_date" longname="起始日期" type="GlBaseType.U_DATE" ref="GlDict.A.start_date" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="end_date" longname="截止日期" type="GlBaseType.U_DATE" ref="GlDict.A.end_date" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="FaGetSubjectBalOut" longname="科目账户余额查询结果" dict="false" abstract="false" introduct="false">
+        <element id="report_type" longname="报表类型" type="GlBusinessType.E_REPORTTYPE" ref="GlDict.A.report_type" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trxn_date" longname="交易日期" type="GlBaseType.U_DATE" ref="GlDict.A.trxn_date" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="branch_id" longname="机构号" type="BaseType.U_BRCHNO" ref="GlDict.A.branch_id" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ccy_code" longname="货币代码" type="BaseType.U_CRCYCD" ref="GlDict.A.ccy_code" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="gl_code" longname="科目号" type="GlBaseType.U_SUBJECTNO" ref="GlDict.A.gl_code" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="on_bal_sheet_ind" longname="表内标志" type="GlEnumType.E_YESORNO" ref="GlDict.A.on_bal_sheet_ind" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="prev_debit_bal" longname="上期借方余额" type="BaseType.U_TRANAM" ref="GlDict.A.prev_debit_bal" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="prev_credit_bal" longname="上期贷方余额" type="BaseType.U_TRANAM" ref="GlDict.A.prev_credit_bal" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="current_deposit_amt" longname="本次缴存金额" type="BaseType.U_TRANAM" ref="GlDict.A.current_deposit_amt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="current_credit_amt" longname="本期贷方发生额" type="BaseType.U_TRANAM" ref="GlDict.A.current_credit_amt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="current_debit_bal" longname="本期借方余额" type="BaseType.U_TRANAM" ref="GlDict.A.current_debit_bal" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="current_credit_bal" longname="本期贷方余额" type="BaseType.U_TRANAM" ref="GlDict.A.current_credit_bal" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="org_id" longname="法人代码" type="BaseType.U_CORPNO" ref="GlDict.A.org_id" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="data_create_user" longname="数据创建柜员" type="BaseType.U_USERID" ref="GlDict.A.data_create_user" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="data_create_time" longname="数据创建时间" type="GlBaseType.U_DATETIME" ref="GlDict.A.data_create_time" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="data_update_user" longname="数据更新操作员" type="BaseType.U_USERID" ref="GlDict.A.data_update_user" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="data_update_time" longname="数据更新时间" type="GlBaseType.U_DATETIME" ref="GlDict.A.data_update_time" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="recdver" longname="数据版本号" type="BaseType.U_RECDVER" ref="BaseDict.Comm.recdver" required="false" default="1" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="FaAccountingData" longname="记账复合类型" dict="false" abstract="false" introduct="false">
+        <element id="sys_no" longname="系统编号" type="GlBaseType.U_SYSNO" ref="GlDict.A.sys_no" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="total_amt" longname="总金额" type="BaseType.U_TRANAM" ref="GlDict.A.total_amt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="total_count" longname="总记录数" type="GlBaseType.U_LONG" ref="GlDict.A.total_count" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trxn_date" longname="交易日期" type="GlBaseType.U_DATE" ref="GlDict.A.trxn_date" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trxn_ccy" longname="交易币种" type="BaseType.U_CRCYCD" ref="GlDict.A.trxn_ccy" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="gl_code" longname="科目号" type="GlBaseType.U_SUBJECTNO" ref="GlDict.A.gl_code" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="accounting_gl_code" longname="记账科目号" type="GlBaseType.U_SUBJECTNO" ref="GlDict.A.accounting_gl_code" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acct_branch" longname="账务机构" type="BaseType.U_BRCHNO" ref="GlDict.A.acct_branch" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="debit_credit" longname="记账方向" type="GlEnumType.E_DEBITCREDIT" ref="GlDict.A.debit_credit" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="sub_acct_seq" longname="子账户序号" type="GlBaseType.U_SUBACCTSEQ" ref="GlDict.A.sub_acct_seq" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="FaTotalBatchNo" longname="批次号" dict="false" abstract="false" introduct="false">
+        <element id="total_batch_no" longname="汇总批次号" type="BaseType.U_SEQUNO" ref="GlDict.A.total_batch_no" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="FaLedgerCheckIn" longname="总分核对查询输入复合类型" dict="false" abstract="false" introduct="false">
+        <element id="sys_no" longname="系统编号" type="GlBaseType.U_SYSNO" ref="GlDict.A.sys_no" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trxn_date" longname="交易日期" type="GlBaseType.U_DATE" ref="GlDict.A.trxn_date" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acct_branch" longname="账务机构" type="BaseType.U_BRCHNO" ref="GlDict.A.acct_branch" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ccy_code" longname="货币代码" type="BaseType.U_CRCYCD" ref="GlDict.A.ccy_code" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="accounting_alias" longname="核算别名" type="GlBaseType.U_BYTE32" ref="GlDict.A.accounting_alias" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="bal_attributes" longname="余额属性" type="GlBaseType.U_BALPROPERTY" ref="GlDict.A.bal_attributes" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="gl_code" longname="科目号" type="GlBaseType.U_SUBJECTNO" ref="GlDict.A.gl_code" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="analysis_state" longname="解析状态" type="GlBusinessType.E_ANALYSISSTATE" ref="GlDict.A.analysis_state" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ledger_check_result" longname="总分核对结果" type="GlBusinessType.E_LEDGERCHECKRESULT" ref="GlDict.A.ledger_check_result" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="accounting_subject" longname="会计主体" type="GlBaseType.U_ACCOUNTINGSUBJECT" ref="GlDict.A.accounting_subject" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="FaLedgerCheckOut" longname="总分核对查询输出复合类型" dict="false" abstract="false" introduct="false">
+        <element id="sys_no" longname="系统编号" type="GlBaseType.U_SYSNO" ref="GlDict.A.sys_no" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trxn_date" longname="交易日期" type="GlBaseType.U_DATE" ref="GlDict.A.trxn_date" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acct_branch" longname="账务机构" type="BaseType.U_BRCHNO" ref="GlDict.A.acct_branch" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ccy_code" longname="货币代码" type="BaseType.U_CRCYCD" ref="GlDict.A.ccy_code" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="accounting_alias" longname="核算别名" type="GlBaseType.U_BYTE32" ref="GlDict.A.accounting_alias" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="bal_attributes" longname="余额属性" type="GlBaseType.U_BALPROPERTY" ref="GlDict.A.bal_attributes" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ledger_bal_direction" longname="分户余额方向" type="GlEnumType.E_DEBITCREDIT" ref="GlDict.A.ledger_bal_direction" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ledger_acct_bal" longname="分户账户余额" type="BaseType.U_TRANAM" ref="GlDict.A.ledger_acct_bal" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="gl_code" longname="科目号" type="GlBaseType.U_SUBJECTNO" ref="GlDict.A.gl_code" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="gl_bal_direction" longname="总账余额方向" type="GlEnumType.E_DEBITCREDIT" ref="GlDict.A.gl_bal_direction" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="accounting_subject" longname="会计主体" type="GlBaseType.U_ACCOUNTINGSUBJECT" ref="GlDict.A.accounting_subject" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="gl_acct_bal" longname="总账账户余额" type="BaseType.U_TRANAM" ref="GlDict.A.gl_acct_bal" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ledger_check_result" longname="总分核对结果" type="GlBusinessType.E_LEDGERCHECKRESULT" ref="GlDict.A.ledger_check_result" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="analysis_state" longname="解析状态" type="GlBusinessType.E_ANALYSISSTATE" ref="GlDict.A.analysis_state" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acct_bal" longname="账户余额" type="BaseType.U_TRANAM" ref="GlDict.A.acct_bal" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="FaaOutAccountTable" longname="表外记账输出" dict="false" abstract="false" introduct="false">
+        <element id="acct_no" longname="账号" type="BaseType.U_ACCTNO" ref="GlDict.A.acct_no" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acct_name" longname="账户名称" type="GlBaseType.U_ACCTNAME" ref="GlDict.A.acct_name" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ccy_code" longname="货币代码" type="BaseType.U_CRCYCD" ref="GlDict.A.ccy_code" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="debit_credit" longname="记账方向" type="GlEnumType.E_DEBITCREDIT" ref="GlDict.A.debit_credit" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="accounting_amt" longname="记账金额" type="BaseType.U_TRANAM" ref="GlDict.A.accounting_amt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="gl_code" longname="科目号" type="GlBaseType.U_SUBJECTNO" ref="GlDict.A.gl_code" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trxn_offset_acct_no" longname="交易对手账号" type="BaseType.U_ACCTNO" ref="GlDict.A.trxn_offset_acct_no" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="summary_code" longname="摘要代码" type="GlBaseType.U_BYTE8" ref="GlDict.A.summary_code" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="remark" longname="备注" type="GlBaseType.U_SHORTDESC" ref="GlDict.A.remark" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="SettlePrepData" longname="清算准备数据" dict="false" abstract="false" introduct="false">
+        <element id="ccy_code" longname="货币代码" type="BaseType.U_CRCYCD" ref="GlDict.A.ccy_code" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acct_branch" longname="账务机构" type="BaseType.U_BRCHNO" ref="GlDict.A.acct_branch" required="false" default="''" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="accounting_amt" longname="记账金额" type="BaseType.U_TRANAM" ref="GlDict.A.accounting_amt" required="false" default="0.0" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="parent_brch_id" longname="上级机构" type="BaseType.U_BRCHNO" ref="GlDict.A.parent_brch_id" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="SettlePrepFlatData" longname="清算准备数据" dict="false" abstract="false" introduct="false">
+        <element id="ccy_code" longname="货币代码" type="BaseType.U_CRCYCD" ref="GlDict.A.ccy_code" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acct_branch" longname="账务机构" type="BaseType.U_BRCHNO" ref="GlDict.A.acct_branch" required="false" default="''" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="debit_credit" longname="记账方向" type="GlEnumType.E_DEBITCREDIT" ref="GlDict.A.debit_credit" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="debit_amt" longname="借方金额" type="BaseType.U_TRANAM" ref="GlDict.A.debit_amt" required="false" default="0.0" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="credit_amt" longname="贷方金额" type="BaseType.U_TRANAM" ref="GlDict.A.credit_amt" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="FaLnLedgerCheckSeqInfo" longname="贷款总分余额核对流水" dict="false" abstract="false" introduct="false">
+        <element id="sys_no" longname="系统编号" type="GlBaseType.U_SYSNO" ref="GlDict.A.sys_no" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trxn_date" longname="交易日期" type="GlBaseType.U_DATE" ref="GlDict.A.trxn_date" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="record_no" longname="记录次序号" type="GlBaseType.U_LONG" ref="GlDict.A.record_no" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="acct_branch" longname="账务机构" type="BaseType.U_BRCHNO" ref="GlDict.A.acct_branch" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trxn_ccy" longname="币种" type="BaseType.U_CRCYCD" ref="GlDict.A.trxn_ccy" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ledger_bal_direction" longname="分户余额方向" type="GlEnumType.E_DEBITCREDIT" ref="GlDict.A.ledger_bal_direction" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="ledger_acct_bal" longname="分户账户余额" type="BaseType.U_TRANAM" ref="GlDict.A.ledger_acct_bal" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="org_id" longname="法人代码" type="BaseType.U_CORPNO" ref="GlDict.A.org_id" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="gl_code" longname="科目号" type="GlBaseType.U_SUBJECTNO" ref="GlDict.A.gl_code" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+</schema>

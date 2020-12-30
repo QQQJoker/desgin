@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<sqls xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="FaAccount" longname="账户相关SQL" package="cn.sunline.ltts.busi.fa.namedsql" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <dynamicSelect cache="none" method="selectPageWithCount" type="sql" id="lstAcctList" longname="查询账户信息列表">
+        <parameterMap class="java.util.Map">
+            <parameter property="org_id" ref="GlDict.A.org_id" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人代码" parameterType="condition"/>
+            <parameter property="sys_no" ref="GlDict.A.sys_no" jdbcType="VARCHAR" javaType="GlBaseType.U_SYSNO" mode="in" longname="系统编号" parameterType="condition"/>
+            <parameter property="acct_no" ref="GlDict.A.acct_no" jdbcType="VARCHAR" javaType="BaseType.U_ACCTNO" mode="in" longname="账号" parameterType="condition"/>
+            <parameter property="acct_name" ref="GlDict.A.acct_name" jdbcType="VARCHAR" javaType="GlBaseType.U_ACCTNAME" mode="in" longname="账户名称" parameterType="condition"/>
+            <parameter property="acct_branch" ref="GlDict.A.acct_branch" jdbcType="VARCHAR" javaType="BaseType.U_BRCHNO" mode="in" longname="账务机构" parameterType="condition"/>
+            <parameter property="gl_code" ref="GlDict.A.gl_code" jdbcType="VARCHAR" javaType="GlBaseType.U_SUBJECTNO" mode="in" longname="科目号" parameterType="condition"/>
+            <parameter property="ccy_code" ref="GlDict.A.ccy_code" jdbcType="VARCHAR" javaType="BaseType.U_CRCYCD" mode="in" longname="货币代码" parameterType="condition"/>
+            <parameter property="acct_seq" ref="GlDict.A.acct_seq" jdbcType="VARCHAR" javaType="GlBaseType.U_BYTE8" mode="in" longname="账户序号" parameterType="condition"/>
+            <parameter property="acct_type" ref="GlDict.A.acct_type" jdbcType="VARCHAR" javaType="GlBusinessType.E_ACCTTYPE" mode="in" longname="账户分类" parameterType="condition"/>
+            <parameter property="bal_direction" ref="GlDict.A.bal_direction" jdbcType="VARCHAR" javaType="GlEnumType.E_DEBITCREDIT" mode="in" longname="余额方向" parameterType="condition"/>
+            <parameter property="bal_prop" ref="GlDict.A.bal_prop" jdbcType="VARCHAR" javaType="GlBusinessType.E_BALPROP" mode="in" longname="余额性质" parameterType="condition"/>
+            <parameter property="bal_check_ind" ref="GlDict.A.bal_check_ind" jdbcType="VARCHAR" javaType="GlEnumType.E_YESORNO" mode="in" longname="余额检查标志" parameterType="condition"/>
+            <parameter property="on_bal_sheet_ind" ref="GlDict.A.on_bal_sheet_ind" jdbcType="VARCHAR" javaType="GlEnumType.E_YESORNO" mode="in" longname="表内标志" parameterType="condition"/>
+            <parameter property="debit_manual_allow" ref="GlDict.A.debit_manual_allow" jdbcType="VARCHAR" javaType="GlEnumType.E_YESORNO" mode="in" longname="借方手工记账许可" parameterType="condition"/>
+            <parameter property="credit_manual_allow" ref="GlDict.A.credit_manual_allow" jdbcType="VARCHAR" javaType="GlEnumType.E_YESORNO" mode="in" longname="贷方手工记账许可" parameterType="condition"/>
+            <parameter property="acct_status" ref="GlDict.A.acct_status" jdbcType="VARCHAR" javaType="GlBusinessType.E_ACCTSTATUS" mode="in" longname="账户状态" parameterType="condition"/>
+            <parameter property="open_acct_date" ref="GlDict.A.open_acct_date" jdbcType="VARCHAR" javaType="GlBaseType.U_DATE" mode="in" longname="开户日期 " parameterType="condition"/>
+            <parameter property="close_acct_date" ref="GlDict.A.close_acct_date" jdbcType="VARCHAR" javaType="GlBaseType.U_DATE" mode="in" longname="销户日期" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="ComFaAccount.FaAcctInfo"/>
+        <dynamicSql type="oracle">
+            <str type="Str"><![CDATA[select  * from faa_account]]></str>
+            <where type="Where">
+                <and type="And">
+                    <str type="Str"><![CDATA[corpno = #org_id#]]></str>
+                    <if test="sys_no != null &amp;&amp; sys_no !=''" type="If">
+                        <str type="Str"><![CDATA[sys_no = #sys_no#]]></str>
+                    </if>
+                    <if test="acct_seq != null &amp;&amp; acct_seq !=''" type="If">
+                        <str type="Str"><![CDATA[acct_seq = #acct_seq#]]></str>
+                    </if>
+                    <if test="acct_no != null &amp;&amp; acct_no !=''" type="If">
+                        <str type="Str"><![CDATA[acct_no like concat('%' , concat(#acct_no#, '%') )]]></str>
+                    </if>
+                    <if test="acct_name != null &amp;&amp; acct_name !=''" type="If">
+                        <str type="Str"><![CDATA[acct_name like concat('%', concat(#acct_name# ,'%'))]]></str>
+                    </if>
+                    <if test="acct_branch!=null &amp;&amp;acct_branch!=''" type="If">
+                        <str type="Str"><![CDATA[acct_branch= #acct_branch#]]></str>
+                    </if>
+                    <if test="gl_code != null &amp;&amp; gl_code !=''" type="If">
+                        <str type="Str"><![CDATA[gl_code = #gl_code#]]></str>
+                    </if>
+                    <if test="ccy_code != null &amp;&amp; ccy_code !=''" type="If">
+                        <str type="Str"><![CDATA[ccy_code =#ccy_code#]]></str>
+                    </if>
+                    <if test="acct_type != null" type="If">
+                        <str type="Str"><![CDATA[acct_type = #acct_type#]]></str>
+                    </if>
+                    <if test="bal_direction!=null" type="If">
+                        <str type="Str"><![CDATA[bal_direction=#bal_direction#]]></str>
+                    </if>
+                    <if test="bal_prop!=null" type="If">
+                        <str type="Str"><![CDATA[bal_prop=#bal_prop#]]></str>
+                    </if>
+                    <if test="acct_status!=null" type="If">
+                        <str type="Str"><![CDATA[acct_status=#acct_status#]]></str>
+                    </if>
+                    <if test="on_bal_sheet_ind!=null" type="If">
+                        <str type="Str"><![CDATA[on_bal_sheet_ind=#on_bal_sheet_ind#]]></str>
+                    </if>
+                    <if test="bal_check_ind!=null" type="If">
+                        <str type="Str"><![CDATA[bal_check_ind = #bal_check_ind#]]></str>
+                    </if>
+                    <if test="debit_manual_allow!=null" type="If">
+                        <str type="Str"><![CDATA[debit_manual_allow=#debit_manual_allow#]]></str>
+                    </if>
+                    <if test="credit_manual_allow!=null" type="If">
+                        <str type="Str"><![CDATA[credit_manual_allow=#credit_manual_allow#]]></str>
+                    </if>
+                    <if test="open_acct_date!=null &amp;&amp;open_acct_date!=''" type="If">
+                        <str type="Str"><![CDATA[open_acct_date=#open_acct_date#]]></str>
+                    </if>
+                    <if test="close_acct_date!=null &amp;&amp;close_acct_date!=''" type="If">
+                        <str type="Str"><![CDATA[close_acct_date=#close_acct_date#]]></str>
+                    </if>
+                </and>
+            </where>
+            <str type="Str"><![CDATA[order by sys_no,acct_branch,gl_code,ccy_code,acct_seq]]></str>
+        </dynamicSql>
+        <dynamicSql type="db2">
+            <str type="Str"><![CDATA[select  * from faa_account]]></str>
+            <where type="Where">
+                <and type="And">
+                    <str type="Str"><![CDATA[corpno = #org_id#]]></str>
+                    <if test="sys_no != null &amp;&amp; sys_no !=''" type="If">
+                        <str type="Str"><![CDATA[sys_no = #sys_no#]]></str>
+                    </if>
+                    <if test="acct_seq != null &amp;&amp; acct_seq !=''" type="If">
+                        <str type="Str"><![CDATA[acct_seq = #acct_seq#]]></str>
+                    </if>
+                    <if test="acct_no != null &amp;&amp; acct_no !=''" type="If">
+                        <str type="Str"><![CDATA[acct_no like concat('%' , concat(#acct_no#, '%') )]]></str>
+                    </if>
+                    <if test="acct_name != null &amp;&amp; acct_name !=''" type="If">
+                        <str type="Str"><![CDATA[acct_name like concat('%', concat(#acct_name# ,'%'))]]></str>
+                    </if>
+                    <if test="acct_branch!=null &amp;&amp;acct_branch!=''" type="If">
+                        <str type="Str"><![CDATA[acct_branch= #acct_branch#]]></str>
+                    </if>
+                    <if test="gl_code != null &amp;&amp; gl_code !=''" type="If">
+                        <str type="Str"><![CDATA[gl_code = #gl_code#]]></str>
+                    </if>
+                    <if test="ccy_code != null &amp;&amp; ccy_code !=''" type="If">
+                        <str type="Str"><![CDATA[ccy_code =#ccy_code#]]></str>
+                    </if>
+                    <if test="acct_type != null" type="If">
+                        <str type="Str"><![CDATA[acct_type = #acct_type#]]></str>
+                    </if>
+                    <if test="bal_direction!=null" type="If">
+                        <str type="Str"><![CDATA[bal_direction=#bal_direction#]]></str>
+                    </if>
+                    <if test="bal_prop!=null" type="If">
+                        <str type="Str"><![CDATA[bal_prop=#bal_prop#]]></str>
+                    </if>
+                    <if test="acct_status!=null" type="If">
+                        <str type="Str"><![CDATA[acct_status=#acct_status#]]></str>
+                    </if>
+                    <if test="on_bal_sheet_ind!=null" type="If">
+                        <str type="Str"><![CDATA[on_bal_sheet_ind=#on_bal_sheet_ind#]]></str>
+                    </if>
+                    <if test="bal_check_ind!=null" type="If">
+                        <str type="Str"><![CDATA[bal_check_ind = #bal_check_ind#]]></str>
+                    </if>
+                    <if test="debit_manual_allow!=null" type="If">
+                        <str type="Str"><![CDATA[debit_manual_allow=#debit_manual_allow#]]></str>
+                    </if>
+                    <if test="credit_manual_allow!=null" type="If">
+                        <str type="Str"><![CDATA[credit_manual_allow=#credit_manual_allow#]]></str>
+                    </if>
+                    <if test="open_acct_date!=null &amp;&amp;open_acct_date!=''" type="If">
+                        <str type="Str"><![CDATA[open_acct_date=#open_acct_date#]]></str>
+                    </if>
+                    <if test="close_acct_date!=null &amp;&amp;close_acct_date!=''" type="If">
+                        <str type="Str"><![CDATA[close_acct_date=#close_acct_date#]]></str>
+                    </if>
+                </and>
+            </where>
+            <str type="Str"><![CDATA[order by sys_no,acct_branch,gl_code,ccy_code,acct_seq]]></str>
+        </dynamicSql>
+        <dynamicSql type="mysql">
+            <str type="Str"><![CDATA[select  * from faa_account]]></str>
+            <where type="Where">
+                <and type="And">
+                    <str type="Str"><![CDATA[corpno = #org_id#]]></str>
+                    <if test="sys_no != null &amp;&amp; sys_no !=''" type="If">
+                        <str type="Str"><![CDATA[sys_no = #sys_no#]]></str>
+                    </if>
+                    <if test="acct_seq != null &amp;&amp; acct_seq !=''" type="If">
+                        <str type="Str"><![CDATA[acct_seq = #acct_seq#]]></str>
+                    </if>
+                    <if test="acct_no != null &amp;&amp; acct_no !=''" type="If">
+                        <str type="Str"><![CDATA[acct_no like concat('%' , concat(#acct_no#, '%') )]]></str>
+                    </if>
+                    <if test="acct_name != null &amp;&amp; acct_name !=''" type="If">
+                        <str type="Str"><![CDATA[acct_name like concat('%', concat(#acct_name# ,'%'))]]></str>
+                    </if>
+                    <if test="acct_branch!=null &amp;&amp;acct_branch!=''" type="If">
+                        <str type="Str"><![CDATA[acct_branch= #acct_branch#]]></str>
+                    </if>
+                    <if test="gl_code != null &amp;&amp; gl_code !=''" type="If">
+                        <str type="Str"><![CDATA[gl_code = #gl_code#]]></str>
+                    </if>
+                    <if test="ccy_code != null &amp;&amp; ccy_code !=''" type="If">
+                        <str type="Str"><![CDATA[ccy_code =#ccy_code#]]></str>
+                    </if>
+                    <if test="acct_type != null" type="If">
+                        <str type="Str"><![CDATA[acct_type = #acct_type#]]></str>
+                    </if>
+                    <if test="bal_direction!=null" type="If">
+                        <str type="Str"><![CDATA[bal_direction=#bal_direction#]]></str>
+                    </if>
+                    <if test="bal_prop!=null" type="If">
+                        <str type="Str"><![CDATA[bal_prop=#bal_prop#]]></str>
+                    </if>
+                    <if test="acct_status!=null" type="If">
+                        <str type="Str"><![CDATA[acct_status=#acct_status#]]></str>
+                    </if>
+                    <if test="on_bal_sheet_ind!=null" type="If">
+                        <str type="Str"><![CDATA[on_bal_sheet_ind=#on_bal_sheet_ind#]]></str>
+                    </if>
+                    <if test="bal_check_ind!=null" type="If">
+                        <str type="Str"><![CDATA[bal_check_ind = #bal_check_ind#]]></str>
+                    </if>
+                    <if test="debit_manual_allow!=null" type="If">
+                        <str type="Str"><![CDATA[debit_manual_allow=#debit_manual_allow#]]></str>
+                    </if>
+                    <if test="credit_manual_allow!=null" type="If">
+                        <str type="Str"><![CDATA[credit_manual_allow=#credit_manual_allow#]]></str>
+                    </if>
+                    <if test="open_acct_date!=null &amp;&amp;open_acct_date!=''" type="If">
+                        <str type="Str"><![CDATA[open_acct_date=#open_acct_date#]]></str>
+                    </if>
+                    <if test="close_acct_date!=null &amp;&amp;close_acct_date!=''" type="If">
+                        <str type="Str"><![CDATA[close_acct_date=#close_acct_date#]]></str>
+                    </if>
+                </and>
+            </where>
+            <str type="Str"><![CDATA[order by sys_no,acct_branch,gl_code,ccy_code,acct_seq]]></str>
+        </dynamicSql>
+    </dynamicSelect>
+    <dynamicSelect cache="none" method="selectAll" type="sql" id="lstAcctnoListBybrch" longname="根据机构查询账户信息列表">
+        <parameterMap class="java.util.Map">
+            <parameter property="org_id" ref="GlDict.A.org_id" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人代码" parameterType="condition"/>
+            <parameter property="acct_branch" ref="GlDict.A.acct_branch" jdbcType="VARCHAR" javaType="BaseType.U_BRCHNO" mode="in" longname="账务机构" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="ComFaAccount.FaAcctNoInfo"/>
+        <dynamicSql type="oracle">
+            <str type="Str"><![CDATA[select  acct_no from faa_account]]></str>
+            <where type="Where">
+                <and type="And">
+                    <str type="Str"><![CDATA[corpno = #org_id#]]></str>
+                    <if test="acct_branch!=null &amp;&amp;acct_branch!=''" type="If">
+                        <str type="Str"><![CDATA[acct_branch= #acct_branch#]]></str>
+                    </if>
+                </and>
+            </where>
+            <str type="Str"><![CDATA[order by acct_no]]></str>
+        </dynamicSql>
+        <dynamicSql type="db2">
+            <str type="Str"><![CDATA[select  acct_no from faa_account]]></str>
+            <where type="Where">
+                <and type="And">
+                    <str type="Str"><![CDATA[corpno = #org_id#]]></str>
+                    <if test="acct_branch!=null &amp;&amp;acct_branch!=''" type="If">
+                        <str type="Str"><![CDATA[acct_branch= #acct_branch#]]></str>
+                    </if>
+                </and>
+            </where>
+            <str type="Str"><![CDATA[order by acct_no]]></str>
+        </dynamicSql>
+        <dynamicSql type="mysql">
+            <str type="Str"><![CDATA[select  acct_no from faa_account]]></str>
+            <where type="Where">
+                <and type="And">
+                    <str type="Str"><![CDATA[corpno = #org_id#]]></str>
+                    <if test="acct_branch!=null &amp;&amp;acct_branch!=''" type="If">
+                        <str type="Str"><![CDATA[acct_branch= #acct_branch#]]></str>
+                    </if>
+                </and>
+            </where>
+            <str type="Str"><![CDATA[order by acct_no]]></str>
+        </dynamicSql>
+    </dynamicSelect>
+    <select cache="none" method="selectOne" type="sql" id="selHistoryBalance" longname="获取账户历史余额">
+        <sql type="oracle"><![CDATA[
+    	select
+    	    	* 
+    	from
+    	    	fah_balance a 
+    	where
+    	    	a.corpno = #org_id# and a.acct_no = #acct_no# 
+    	    	and a.start_date = (
+    	    	    	select
+    	    	    	    	max(b.start_date) 
+    	    	    	from
+    	    	    	    	fah_balance b 
+    	    	    	where
+    	    	    	    	b.corpno = #org_id# and b.acct_no = #acct_no#
+    	    	) 
+    	]]></sql>
+        <sql type="db2"><![CDATA[
+    	select
+    	    	* 
+    	from
+    	    	fah_balance a 
+    	where
+    	    	a.corpno = #org_id# and a.acct_no = #acct_no# 
+    	    	and a.start_date = (
+    	    	    	select
+    	    	    	    	max(b.start_date) 
+    	    	    	from
+    	    	    	    	fah_balance b 
+    	    	    	where
+    	    	    	    	b.corpno = #org_id# and b.acct_no = #acct_no#
+    	    	) 
+    	]]></sql>
+        <sql type="mysql"><![CDATA[
+    	select
+    	    	* 
+    	from
+    	    	fah_balance a 
+    	where
+    	    	a.corpno = #org_id# and a.acct_no = #acct_no# 
+    	    	and a.start_date = (
+    	    	    	select
+    	    	    	    	max(b.start_date) 
+    	    	    	from
+    	    	    	    	fah_balance b 
+    	    	    	where
+    	    	    	    	b.corpno = #org_id# and b.acct_no = #acct_no#
+    	    	) 
+    	]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="org_id" ref="GlDict.A.org_id" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人代码" parameterType="condition"/>
+            <parameter property="acct_no" ref="GlDict.A.acct_no" jdbcType="VARCHAR" javaType="BaseType.U_ACCTNO" mode="in" longname="账号" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="TabFaAccount.fah_balance"/>
+    </select>
+    <select cache="none" method="selectAll" type="sql" id="lstValidAcct" longname="状态可以批量开户的账户">
+        <sql type="oracle"><![CDATA[
+    	select
+    	    	* 
+    	from
+    	    	faa_acct_seq_define
+    	where
+    	    	corpno=#org_id# and auto_batch_open_ind =#auto_batch_open_ind# and acct_seq_status =#acct_seq_status#    	]]></sql>
+        <sql type="db2"><![CDATA[
+    	select
+    	    	* 
+    	from
+    	    	faa_acct_seq_define
+    	where
+    	    	corpno=#org_id# and auto_batch_open_ind =#auto_batch_open_ind# and acct_seq_status =#acct_seq_status#    	]]></sql>
+        <sql type="mysql"><![CDATA[
+    	select
+    	    	* 
+    	from
+    	    	faa_acct_seq_define
+    	where
+    	    	corpno=#org_id# and auto_batch_open_ind =#auto_batch_open_ind# and acct_seq_status =#acct_seq_status#    	]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="org_id" ref="GlDict.A.org_id" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人代码" parameterType="condition"/>
+            <parameter property="auto_batch_open_ind" ref="GlDict.A.auto_batch_open_ind" jdbcType="VARCHAR" javaType="GlEnumType.E_YESORNO" mode="in" longname="自动批开标志" parameterType="condition"/>
+            <parameter property="acct_seq_status" ref="GlDict.A.acct_seq_status" jdbcType="VARCHAR" javaType="GlBusinessType.E_ACCTSEQSTATE" mode="in" longname="专户序号状态" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="ComFaAccount.FaAcctDefineInfo"/>
+    </select>
+    <select cache="none" method="selectAll" type="sql" id="lstAcctByAccureSubject" longname="查红字补计提内部户">
+        <sql type="oracle"><![CDATA[
+    	select
+    	    	* 
+    	from
+    	    	faa_account a 
+    	where
+    	    	a.gl_code=#gl_code# and a.bal_update_date=#bal_update_date# 
+    	    	and a.corpno=#org_id# and a.acct_bal< 0 
+    	]]></sql>
+        <sql type="db2"><![CDATA[
+    	select
+    	    	* 
+    	from
+    	    	faa_account a 
+    	where
+    	    	a.gl_code=#gl_code# and a.bal_update_date=#bal_update_date# 
+    	    	and a.corpno=#org_id# and a.acct_bal< 0 
+    	]]></sql>
+        <sql type="mysql"><![CDATA[
+    	select
+    	    	* 
+    	from
+    	    	faa_account a 
+    	where
+    	    	a.gl_code=#gl_code# and a.bal_update_date=#bal_update_date# 
+    	    	and a.corpno=#org_id# and a.acct_bal< 0 
+    	]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="org_id" ref="GlDict.A.org_id" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人代码" parameterType="condition"/>
+            <parameter property="bal_update_date" ref="GlDict.A.bal_update_date" jdbcType="VARCHAR" javaType="GlBaseType.U_DATE" mode="in" longname="余额更新日期" parameterType="condition"/>
+            <parameter property="gl_code" ref="GlDict.A.gl_code" jdbcType="VARCHAR" javaType="GlBaseType.U_SUBJECTNO" mode="in" longname="科目号" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="TabFaAccount.faa_account"/>
+    </select>
+    <select cache="none" method="selectOne" type="sql" id="cntAccountCount" longname="查询某种账户类型的个数">
+        <sql type="oracle"><![CDATA[
+    	select
+    	    	count(*) 
+    	from
+    	    	faa_account 
+    	where
+    	    	corpno=#org_id# and sys_no=#sys_no# 
+    	    	and acct_branch=#acct_branch# and gl_code=#gl_code# 
+    	    	and ccy_code=#ccy_code# and acct_type=#acct_type# 
+    	]]></sql>
+        <sql type="db2"><![CDATA[
+    	select
+    	    	count(*) 
+    	from
+    	    	faa_account 
+    	where
+    	    	corpno=#org_id# and sys_no=#sys_no# 
+    	    	and acct_branch=#acct_branch# and gl_code=#gl_code# 
+    	    	and ccy_code=#ccy_code# and acct_type=#acct_type# 
+    	]]></sql>
+        <sql type="mysql"><![CDATA[
+    	select
+    	    	count(*) 
+    	from
+    	    	faa_account 
+    	where
+    	    	corpno=#org_id# and sys_no=#sys_no# 
+    	    	and acct_branch=#acct_branch# and gl_code=#gl_code# 
+    	    	and ccy_code=#ccy_code# and acct_type=#acct_type# 
+    	]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="org_id" ref="GlDict.A.org_id" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人代码" parameterType="condition"/>
+            <parameter property="sys_no" ref="GlDict.A.sys_no" jdbcType="VARCHAR" javaType="GlBaseType.U_SYSNO" mode="in" longname="系统编号" parameterType="condition"/>
+            <parameter property="acct_branch" ref="GlDict.A.acct_branch" jdbcType="VARCHAR" javaType="BaseType.U_BRCHNO" mode="in" longname="账务机构" parameterType="condition"/>
+            <parameter property="gl_code" ref="GlDict.A.gl_code" jdbcType="VARCHAR" javaType="GlBaseType.U_SUBJECTNO" mode="in" longname="科目号" parameterType="condition"/>
+            <parameter property="ccy_code" ref="GlDict.A.ccy_code" jdbcType="VARCHAR" javaType="BaseType.U_CRCYCD" mode="in" longname="货币代码" parameterType="condition"/>
+            <parameter property="acct_type" ref="GlDict.A.acct_type" jdbcType="VARCHAR" javaType="GlBusinessType.E_ACCTTYPE" mode="in" longname="账户分类" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="int"/>
+    </select>
+    <select cache="none" method="selectOne" type="sql" id="selGlCodeBal" longname="查询科目余额">
+        <sql type="oracle"><![CDATA[
+    	select sum(acct_bal) from faa_account where corpno=#org_id# and gl_code = #gl_code# group by gl_code
+    	]]></sql>
+        <sql type="db2"><![CDATA[
+    	select sum(acct_bal) from faa_account where corpno=#org_id# and gl_code = #gl_code# group by gl_code
+    	]]></sql>
+        <sql type="mysql"><![CDATA[
+    	select sum(acct_bal) from faa_account where corpno=#org_id# and gl_code = #gl_code# group by gl_code
+    	]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="gl_code" ref="GlDict.A.gl_code" jdbcType="VARCHAR" javaType="GlBaseType.U_SUBJECTNO" mode="in" longname="科目号" parameterType="condition"/>
+            <parameter property="org_id" ref="GlDict.A.org_id" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人代码" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="int"/>
+    </select>
+    <select cache="none" method="selectOne" type="sql" id="selMaxSeq" longname="根据科目号系统编号查询账户最大序号">
+        <sql type="oracle"><![CDATA[
+    	select
+    	    	max(acct_seq) as acct_seq
+    	from
+    	    	faa_account 
+    	where
+    	    	corpno=#org_id# and gl_code=#glcode# and sys_no=#sysno# and acct_type=#accttype#
+    	]]></sql>
+        <sql type="db2"><![CDATA[
+    	select
+    	    	max(acct_seq) as acct_seq
+    	from
+    	    	faa_account 
+    	where
+    	    	corpno=#org_id# and gl_code=#glcode# and sys_no=#sysno# and acct_type=#accttype#
+    	]]></sql>
+        <sql type="mysql"><![CDATA[
+    	select
+    	    	max(acct_seq) as acct_seq
+    	from
+    	    	faa_account 
+    	where
+    	    	corpno=#org_id# and gl_code=#glcode# and sys_no=#sysno# and acct_type=#accttype#
+    	]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="org_id" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人码" parameterType="condition"/>
+            <parameter property="glcode" jdbcType="VARCHAR" javaType="GlBaseType.U_SUBJECTNO" mode="in" longname="科目号" parameterType="condition"/>
+            <parameter property="sysno" jdbcType="VARCHAR" javaType="GlBaseType.U_SYSNO" mode="in" longname="系统编号" parameterType="condition"/>
+            <parameter property="accttype" jdbcType="VARCHAR" javaType="GlBusinessType.E_ACCTTYPE" mode="in" longname="账户类型" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="java.lang.String"/>
+    </select>
+    <select cache="none" method="selectOne" type="sql" id="cntNormalAccountCount" longname="根据科目号查询该科目下账户状态为正常的账户个数">
+        <sql type="oracle"><![CDATA[
+    	select
+    	    	count(*) 
+    	from
+    	    	faa_account 
+    	where
+    	    	corpno=#org_id# and gl_code=#glcode# and acct_status='1'
+    	]]></sql>
+        <sql type="db2"><![CDATA[
+    	select
+    	    	count(*) 
+    	from
+    	    	faa_account 
+    	where
+    	    	corpno=#org_id# and gl_code=#glcode# and acct_status='1'
+    	]]></sql>
+        <sql type="mysql"><![CDATA[
+    	select
+    	    	count(*) 
+    	from
+    	    	faa_account 
+    	where
+    	    	corpno=#org_id# and gl_code=#glcode# and acct_status='1'
+    	]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="org_id" ref="GlDict.A.org_id" jdbcType="VARCHAR" javaType="BaseType.U_CORPNO" mode="in" longname="法人代码" parameterType="condition"/>
+            <parameter property="glcode" jdbcType="VARCHAR" javaType="GlBaseType.U_SUBJECTNO" mode="in" longname="科目号" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="java.lang.String"/>
+    </select>
+</sqls>

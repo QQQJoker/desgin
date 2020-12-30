@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<flowtran xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="fa8122" longname="清算关系组织结构信息维护" kind="2" package="cn.sunline.ltts.busi.fatran.trans.branchsettlement" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <interface package="cn.sunline.ltts.busi.fatran.trans.intf">
+        <input packMode="true">
+            <field id="ccy_code" type="BaseType.U_CRCYCD" required="true" multi="false" array="false" longname="货币代码" ref="GlDict.A.ccy_code"/>
+            <field id="acct_branch" type="BaseType.U_BRCHNO" required="true" multi="false" array="false" longname="账务机构" ref="GlDict.A.acct_branch"/>
+            <field id="parent_brch_id" type="BaseType.U_BRCHNO" required="true" multi="false" array="false" longname="上级机构" ref="GlDict.A.parent_brch_id"/>
+            <field id="busi_relation_level" type="GlBaseType.U_LONG" required="true" multi="false" array="false" longname="业务关系级别" ref="GlDict.A.busi_relation_level"/>
+            <field id="gl_code" type="GlBaseType.U_SUBJECTNO" required="true" multi="false" array="false" longname="科目号" ref="GlDict.A.gl_code"/>
+            <field id="upper_lvl_gl_code" type="GlBaseType.U_SUBJECTNO" required="true" multi="false" array="false" longname="上级科目" ref="GlDict.A.upper_lvl_gl_code"/>
+            <field id="recdver" type="BaseType.U_RECDVER" required="true" multi="false" array="false" longname="数据版本号" ref="BaseDict.Comm.recdver"/>
+        </input>
+        <output asParm="true" packMode="true"/>
+        <property packMode="false"/>
+        <printer packMode="false"/>
+    </interface>
+    <flow>
+        <service serviceName="SrvFaBranchSettlement.modifyBranchSettlement" id="SrvFaBranchSettlement.modifyBranchSettlement" longname="清算关系组织结构信息维护">
+            <in_mappings by_interface="true">
+                <mapping src="ccy_code" dest="modifyIn.ccy_code" by_interface="true" on_top="true"/>
+                <mapping src="acct_branch" dest="modifyIn.acct_branch" by_interface="true" on_top="true"/>
+                <mapping src="parent_brch_id" dest="modifyIn.parent_brch_id" by_interface="true" on_top="true"/>
+                <mapping src="busi_relation_level" dest="modifyIn.busi_relation_level" by_interface="true" on_top="true"/>
+                <mapping src="gl_code" dest="modifyIn.gl_code" by_interface="true" on_top="true"/>
+                <mapping src="upper_lvl_gl_code" dest="modifyIn.upper_lvl_gl_code" by_interface="true" on_top="true"/>
+                <mapping src="recdver" dest="modifyIn.recdver" by_interface="true" on_top="true"/>
+            </in_mappings>
+            <out_mappings by_interface="true"/>
+        </service>
+    </flow>
+    <outMapping/>
+    <propertyToPrinterMapping/>
+    <outToPrinterMapping/>
+</flowtran>

@@ -1,0 +1,14 @@
+{
+ "input":{
+  "filesq":"1"
+ },
+ "comm_req":{
+  "jiaoyirq":"20170414"
+ },
+ "sys":{
+  "corpno":"999",
+  "groupId":"910",
+  "flowId":"gl_dayend",
+  "prcscd":""
+ }
+}

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType id="SrvFaAccounting" kind="business" longname="记账类服务" package="cn.sunline.ltts.gl.fa.servicetype" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <service id="applySetAccountsNo" name="applySetAccountsNo" longname="申请套号">
+        <interface>
+            <input packMode="false">
+                <field id="subject_accounting_ind" type="GlEnumType.E_YESORNO" required="false" multi="false" array="false" longname="科目记账标志" ref="GlDict.A.subject_accounting_ind"/>
+                <field id="remark" type="GlBaseType.U_SHORTDESC" required="false" multi="false" array="false" longname="备注" ref="GlDict.A.remark"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="mainOut" type="ComFaAccounting.FaSetAccountsMain" required="false" multi="false" array="false" longname="套账主表返回"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="addSetAccountsDetails" name="addSetAccountsDetails" longname="套号记账明细录入">
+        <interface>
+            <input packMode="false">
+                <field id="setDetailIn" type="ComFaAccounting.FaSetAccountsDetail" required="false" multi="true" array="false" longname="明细输入"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="bookSetAccount" name="bookSetAccount" longname="套平入账">
+        <interface>
+            <input packMode="false">
+                <field id="set_account_no" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="套号" ref="GlDict.A.set_account_no"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="mainOut" type="ComFaAccounting.FaSetAccountsMain" required="false" multi="false" array="false" longname="套账主表输出"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="delSetAccountDetail" name="delSetAccountDetail" longname="套账明细删除">
+        <interface>
+            <input packMode="false">
+                <field id="detailDelIn" type="ComFaAccounting.FaSetAccountsDatailDelIn" required="false" multi="false" array="false" longname="明细删除输入"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="invalidSetAcccounts" name="invalidSetAcccounts" longname="套账作废">
+        <interface>
+            <input packMode="false">
+                <field id="setAccountsInvaidIn" type="ComFaAccounting.FaSetAccountsDatailDelIn" required="false" multi="false" array="false" longname="套号作废"/>
+            </input>
+            <output asParm="false" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="querySetAccountsDeitail" name="querySetAccountsDeitail" longname="套账明细查询">
+        <interface>
+            <input packMode="false">
+                <field id="set_account_no" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="套号" ref="GlDict.A.set_account_no"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="setAccountsQuery" type="ComFaAccounting.FaQuerySetAccountsOut" required="false" multi="false" array="false" longname="明细查询输出"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="bookOffBalanceAccounting" name="bookOffBalanceAccounting" longname="表外记账">
+        <interface>
+            <input packMode="false">
+                <field id="offBalanceIn" type="ComFaAccounting.FaOffBanlceAccountingIn" required="false" multi="false" array="false" longname="表外记账输入"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="faaOutaccounttable" type="ComFaAccounting.FaaOutAccountTable" required="false" multi="false" array="false" longname="表外记账输出"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="querySetAccountsDeitails" name="querySetAccountsDeitails" longname="套账查询">
+        <interface>
+            <input packMode="true">
+                <field id="start_date" type="GlBaseType.U_DATE" required="false" multi="false" array="false" longname="起始日期" ref="GlDict.A.start_date"/>
+                <field id="end_date" type="GlBaseType.U_DATE" required="false" multi="false" array="false" longname="截止日期" ref="GlDict.A.end_date"/>
+                <field id="trxn_teller" type="GlBaseType.U_USERID" required="false" multi="false" array="false" longname="交易柜员" ref="GlDict.A.trxn_teller"/>
+                <field id="gl_code" type="GlBaseType.U_SUBJECTNO" required="false" multi="false" array="false" longname="科目号" ref="GlDict.A.gl_code"/>
+                <field id="acct_no" type="BaseType.U_ACCTNO" required="false" multi="false" array="false" longname="账号" ref="GlDict.A.acct_no"/>
+                <field id="set_account_no" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="套号" ref="GlDict.A.set_account_no"/>
+                <field id="accounting_amt" type="BaseType.U_TRANAM" required="false" multi="false" array="false" longname="记账金额" ref="GlDict.A.accounting_amt"/>
+                <field id="ccy_code" type="BaseType.U_CRCYCD" required="false" multi="false" array="false" longname="币种" ref="GlDict.A.ccy_code"/>
+            </input>
+            <output asParm="true" packMode="true">
+                <field id="setDetailOut" type="ComFaAccounting.FaQuerySetAccountsOut" required="false" multi="true" array="false" longname="套账明细查询输出集"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="modifySetAccountDetail" name="modifySetAccountDetail" longname="套账明细维护">
+        <interface>
+            <input packMode="false">
+                <field id="setAccountDetails" type="ComFaAccounting.FaSetAccountsDetail" required="false" multi="true" array="false" longname="明细修改"/>
+            </input>
+            <output asParm="true" packMode="false"/>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+</serviceType>

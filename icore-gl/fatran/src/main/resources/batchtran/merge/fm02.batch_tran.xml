@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<batch_transaction id="fm02" longname="下载并账文件入库并解析" dataItem="TabFaRecLedger.apb_merge_receive" package="cn.sunline.ltts.busi.fatran.batchtran.merge" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <interface package="cn.sunline.ltts.busi.fatran.batchtran.merge.intf">
+        <input packMode="true"/>
+        <output asParm="true" packMode="true"/>
+        <property packMode="true">
+            <field id="trxn_date" type="GlBaseType.U_DATE" required="false" multi="false" array="false" longname="交易日期" ref="GlDict.A.trxn_date"/>
+        </property>
+        <printer packMode="true"/>
+    </interface>
+</batch_transaction>

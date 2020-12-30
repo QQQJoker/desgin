@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<sqls xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="FaMerge" longname="并账文件处理相关SQL" package="cn.sunline.ltts.busi.gl.fa.namedsql" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <select cache="none" method="selectAll" type="sql" id="lstMergeOkfileList" longname="获取需要并账的标志文件列表">
+        <sql><![CDATA[select a.* from apb_merge_file a where a.file_merge_type=#file_merge_type# and a.file_is_merge = #file_is_merge# 
+and not exists(
+	select 1 from apb_merge_receive b 
+	where a.sys_no = b.sys_no 
+	and a.channel_id = b.channel_id 
+	and a.file_merge_type = b.file_merge_type 
+	and b.trxn_date = #trxn_date# 
+)]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="file_merge_type" ref="GlDict.B.file_merge_type" jdbcType="VARCHAR" javaType="GlEnumType.E_MERGETYPE" mode="in" longname="并账文件类型" parameterType="condition"/>
+            <parameter property="file_is_merge" ref="GlDict.B.file_is_merge" jdbcType="VARCHAR" javaType="GlEnumType.E_YESORNO" mode="in" longname="是否需要并账" parameterType="condition"/>
+            <parameter property="trxn_date" ref="GlDict.A.trxn_date" jdbcType="VARCHAR" javaType="GlBaseType.U_DATE" mode="in" longname="交易日期" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="TabFaRecLedger.apb_merge_file"/>
+    </select>
+    <select cache="none" method="selectOne" type="sql" id="cntMergeReceiveCount" longname="查询待下载文件记录条数">
+        <sql><![CDATA[select count(1) from apb_merge_receive where trxn_date = #trxn_date# ]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="trxn_date" ref="GlDict.A.trxn_date" jdbcType="VARCHAR" javaType="GlBaseType.U_DATE" mode="in" longname="交易日期" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="int"/>
+    </select>
+    <select cache="none" method="selectOne" type="sql" id="cntMergeFileCount" longname="查询待并账文件总记录数">
+        <sql><![CDATA[select count(1) from apb_merge_file where file_is_merge = #file_is_merge#]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="file_is_merge" ref="GlDict.B.file_is_merge" jdbcType="VARCHAR" javaType="GlEnumType.E_YESORNO" mode="in" longname="是否需要并账" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="int"/>
+    </select>
+    <select cache="none" method="selectAll" type="sql" id="lstMergeToDownload" longname="查询待下载并解析的文件记录">
+        <sql><![CDATA[select * from apb_merge_receive 
+where (file_handling_status <> #succ_stat# and file_handling_status <> #chck_stat#)]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="succ_stat" jdbcType="VARCHAR" javaType="GlEnumType.E_FILEDEALSTATUS" mode="in" longname="校验失败状态" parameterType="condition"/>
+            <parameter property="chck_stat" jdbcType="VARCHAR" javaType="GlEnumType.E_FILEDEALSTATUS" mode="in" longname="未校验状态" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="TabFaRecLedger.apb_merge_receive"/>
+    </select>
+    <select cache="none" method="selectAll" type="sql" id="lstMergeBatchCode" longname="查询待处理并账记录批次号">
+        <sql><![CDATA[select distinct busi_batch_code from fab_merge_detail where trxn_date=#trxn_date# and file_handling_status = #file_handling_status#]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="trxn_date" ref="GlDict.A.trxn_date" jdbcType="VARCHAR" javaType="GlBaseType.U_DATE" mode="in" longname="交易日期" parameterType="condition"/>
+            <parameter property="file_handling_status" ref="GlDict.A.file_handling_status" jdbcType="VARCHAR" javaType="GlEnumType.E_FILEDEALSTATUS" mode="in" longname="file deal status" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="java.lang.String"/>
+    </select>
+    <select cache="none" method="selectAll" type="sql" id="lstMergeDetailByBatchCode" longname="查询待处理并账明细记录">
+        <sql><![CDATA[select * from fab_merge_detail where busi_batch_code=#busi_batch_code# and trxn_date=#trxn_date# and file_handling_status = #file_handling_status#]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="trxn_date" ref="GlDict.A.trxn_date" jdbcType="VARCHAR" javaType="GlBaseType.U_DATE" mode="in" longname="交易日期" parameterType="condition"/>
+            <parameter property="file_handling_status" ref="GlDict.A.file_handling_status" jdbcType="VARCHAR" javaType="GlEnumType.E_FILEDEALSTATUS" mode="in" longname="file deal status" parameterType="condition"/>
+            <parameter property="busi_batch_code" ref="GlDict.A.busi_batch_code" jdbcType="VARCHAR" javaType="GlBaseType.U_BYTE32" mode="in" longname="batch business code" parameterType="condition"/>
+        </parameterMap>
+        <resultMap class="TabFaRecLedger.fab_merge_detail"/>
+    </select>
+    <update method="update" id="updMergeDetailStatus" longname="修改并账明细记录处理状态">
+        <sql><![CDATA[update fab_merge_detail 
+set file_handling_status = #file_handling_status# , tran_seq=#tran_seq# 
+where busi_batch_code=#busi_batch_code# 
+and trxn_date=#trxn_date# ]]></sql>
+        <parameterMap class="java.util.Map">
+            <parameter property="trxn_date" ref="GlDict.A.trxn_date" jdbcType="VARCHAR" javaType="GlBaseType.U_DATE" mode="in" longname="交易日期" parameterType="condition"/>
+            <parameter property="file_handling_status" ref="GlDict.A.file_handling_status" jdbcType="VARCHAR" javaType="GlEnumType.E_FILEDEALSTATUS" mode="in" longname="file deal status" parameterType="condition"/>
+            <parameter property="busi_batch_code" ref="GlDict.A.busi_batch_code" jdbcType="VARCHAR" javaType="GlBaseType.U_BYTE32" mode="in" longname="batch business code" parameterType="condition"/>
+            <parameter property="tran_seq" jdbcType="VARCHAR" javaType="BaseType.U_SEQUNO" mode="in" longname="记账流水" parameterType="condition"/>
+        </parameterMap>
+    </update>
+</sqls>

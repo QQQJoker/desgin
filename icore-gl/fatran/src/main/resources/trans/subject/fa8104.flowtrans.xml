@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<flowtran xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="fa8104" longname="科目信息查询" kind="1" package="cn.sunline.ltts.busi.gl.fatran.trans.subject" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <interface package="cn.sunline.ltts.busi.gl.fatran.trans.subject.intf">
+        <input packMode="true">
+            <field id="gl_code" type="GlBaseType.U_SUBJECTNO" required="false" multi="false" array="false" longname="科目号" ref="GlDict.A.gl_code"/>
+        </input>
+        <output asParm="true" packMode="true">
+            <field id="gl_code_desc" type="GlBaseType.U_SHORTDESC" required="false" multi="false" array="false" longname="科目名称" ref="GlDict.A.gl_code_desc"/>
+            <field id="debit_manual_allow" type="GlEnumType.E_YESORNO" required="false" multi="false" array="false" longname="借方手工记账许可" ref="GlDict.A.debit_manual_allow"/>
+            <field id="credit_manual_allow" type="GlEnumType.E_YESORNO" required="false" multi="false" array="false" longname="贷方手工记账许可" ref="GlDict.A.credit_manual_allow"/>
+        </output>
+        <property packMode="true"/>
+        <printer packMode="true"/>
+    </interface>
+    <flow>
+        <method method="queryAccountingSubject" id="queryAccountingSubject" longname="科目信息查询"/>
+    </flow>
+    <outMapping/>
+    <propertyToPrinterMapping/>
+    <outToPrinterMapping/>
+</flowtran>

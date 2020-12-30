@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="ComFaLnAccounting" package="cn.sunline.ltts.busi.fa.type" longname="贷款核算相关复合类型" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <complexType id="FaLnFapAccountingprodSceneInfo" longname="场景核算事件定义复合类型" dict="false" abstract="false" introduct="false">
+        <element id="sys_no" longname="系统编号" type="GlBaseType.U_SYSNO" ref="GlDict.A.sys_no" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="scene_code" longname="场景编码" type="GlBaseType.U_SCENE_CODE" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="gl_code" longname="科目号" type="GlBaseType.U_SUBJECTNO" ref="GlDict.A.gl_code" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="loan_term" longname="贷款期限" type="GlBaseType.U_LOAN_TERM" ref="GlDict.A.loan_term" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="product_code" longname="产品编号" type="GlBaseType.U_PRODUCT_CODE" ref="GlDict.A.product_code" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="bal_type" longname="金额类别" type="GlBaseType.U_BAL_TYPE" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tax_separate_flag" longname="增值税分离标识" type="BaseEnumType.E_YES___" ref="GlDict.A.tax_separate_flag" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="effect_date" longname="生效日期" type="BaseType.U_DATE08" ref="GlDict.A.effect_date" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="invalid_date" longname="失效日期" type="BaseType.U_DATE08" ref="GlDict.A.invalid_date" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="FaLnAccountingSceneInfo" longname="场景核算流水解析输入" dict="false" abstract="false" introduct="false">
+   		<element id="sys_no" longname="系统编号" type="GlBaseType.U_SYSNO" ref="GlDict.A.sys_no" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="scene_code" longname="场景编码" type="GlBaseType.U_SCENE_CODE" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="product_code" longname="产品编号" type="GlBaseType.U_PRODUCT_CODE" ref="GlDict.A.product_code" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="bal_type" longname="金额类别" type="GlBaseType.U_BAL_TYPE" ref="GlDict.B.bal_type" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="loan_term" longname="贷款期限" type="GlBaseType.U_LOAN_TERM" ref="GlDict.A.loan_term" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trxn_date" longname="交易日期" type="GlBaseType.U_DATE" ref="GlDict.A.trxn_date" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trxn_amt" longname="交易金额" type="BaseType.U_TRANAM" ref="GlDict.A.trxn_amt" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tax_separate_flag" longname="增值税分离标识" type="BaseEnumType.E_YES___" ref="GlDict.A.tax_separate_flag" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trxn_ccy" longname="币种" type="BaseType.U_CRCYCD" ref="GlDict.A.trxn_ccy" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="FaLnAccountingSceneResult" longname="场景核算流水解析结果" dict="false" abstract="false" introduct="false">
+   		<element id="debit_credit" longname="记账方向" type="GlEnumType.E_DEBITCREDIT" ref="GlDict.A.debit_credit" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="gl_code" longname="科目号" type="GlBaseType.U_SUBJECTNO" ref="GlDict.A.gl_code" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="data_sort" longname="数据序号" type="GlBaseType.U_LONG" ref="GlDict.A.data_sort" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="gl_code_desc" longname="科目名称" type="GlBaseType.U_SHORTDESC" ref="GlDict.A.gl_code_desc" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trxn_amt" longname="交易金额" type="BaseType.U_TRANAM" ref="GlDict.A.trxn_amt" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="trxn_ccy" longname="币种" type="BaseType.U_CRCYCD" ref="GlDict.A.trxn_ccy" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+    <complexType id="FaLnAccountingTxsInfo" longname="场景核算流水解析营改增明细" dict="false" abstract="false" introduct="false">
+        <element id="trxn_ccy" longname="币种" type="BaseType.U_CRCYCD" ref="GlDict.A.trxn_ccy" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="taxin_amount" longname="含税额金额" type="BaseType.U_CIBLTP" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="taxout_amount" longname="不含税额金额" type="BaseType.U_CIBLTP" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="real_tax_amount" longname="实际应收税额" type="LnBaseType.U_ACYJIN" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tax_amount" longname="应收税额" type="BaseType.U_CIBLTP" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tax_rate" longname="税率" type="BaseType.U_VATXRT" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="gl_code" longname="科目" type="GlBaseType.U_SUBJECTNO" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="bill_type" longname="开票类型" type="TxEnumType.E_BILLTP" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tran_event" longname="交易事件" type="LnBaseType.U_TRAEVT" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="tax_code" longname="税码" type="GlBaseType.U_BYTE50" required="true" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+</schema>

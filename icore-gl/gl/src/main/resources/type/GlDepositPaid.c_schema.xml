@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema id="GlDepositPaid" package="cn.sunline.ltts.busi.gl.type" longname="准备金缴存复合类型" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <complexType id="GlDepositPaidAmt" longname="准备金余额金额比率" dict="false" abstract="false" introduct="false">
+        <element id="deposit_payable_bal" longname="应记缴存款余额" type="BaseType.U_TRANAM" ref="GlDict.A.deposit_payable_bal" required="false" default="0.0" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="deposit_payable_amt" longname="应记缴存金额" type="BaseType.U_TRANAM" ref="GlDict.A.deposit_payable_amt" required="false" default="0.0" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="deposit_percent" longname="缴存比率" type="BaseType.U_TRANAM" ref="GlDict.A.deposit_percent" required="false" default="0.0" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="deposit_paid_bal_sum" longname="汇总应记缴存款余额" type="BaseType.U_TRANAM" ref="GlDict.A.deposit_paid_bal_sum" required="false" default="0.0" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+        <element id="deposit_paid_amt_sum" longname="汇总应记缴存金额" type="BaseType.U_TRANAM" ref="GlDict.A.deposit_paid_amt_sum" required="false" default="0.0" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
+    </complexType>
+</schema>

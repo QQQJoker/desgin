@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<serviceType id="SrvGlBranchSubjectBal" kind="business" longname="科目余额" package="cn.sunline.ltts.busi.gl.servicetype" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <service id="getBalInfo" name="getBalInfo" longname="单条信息查询">
+        <interface>
+            <input packMode="false">
+                <field id="queryIn" type="GlBranch.GlSubjectBalQueryIn" required="false" multi="false" array="false" longname="查询输入"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="queryOut" type="GlBranch.GlSubjectBalInfo" required="false" multi="false" array="false" longname="查询输出"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+    <service id="queryBalInfo" name="queryBalInfo" longname="科目余额信息列表查询">
+        <interface>
+            <input packMode="false">
+                <field id="queryIn" type="GlBranch.GlSubjectBalQueryIn" required="false" multi="false" array="false" longname="查询输入"/>
+            </input>
+            <output asParm="false" packMode="false">
+                <field id="queryOut" type="GlBranch.GlSubjectBalInfo" required="false" multi="true" array="false" longname="查询输出"/>
+            </output>
+            <property packMode="false"/>
+            <printer packMode="true"/>
+        </interface>
+    </service>
+</serviceType>

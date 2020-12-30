@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<flowtran id="gl8213" longname="准备金缴存层级定义删除" kind="P" package="cn.sunline.ltts.busi.gltran.trans.reserveleveldefine" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <interface package="cn.sunline.ltts.busi.gltran.trans.reserveleveldefine.intf">
+        <input packMode="true">
+            <field id="deposit_level" type="GlBaseType.U_LONG" required="true" multi="false" array="false" longname="缴存层级" ref="GlDict.A.deposit_level"/>
+            <field id="reserve_type" type="GlBusinessType.E_RESERVEAMTTYPE" required="true" multi="false" array="false" longname="准备金种类" ref="GlDict.A.reserve_type"/>
+            <field id="deposit_busi_type" type="GlBusinessType.E_DEPOSITPAIDBUSIPROP" required="true" multi="false" array="false" longname="缴存款业务性质" ref="GlDict.A.deposit_busi_type"/>
+            <field id="recdver" type="BaseType.U_RECDVER" required="true" multi="false" array="false"  longname="数据版本号" ref="BaseDict.Comm.recdver"/>
+        </input>
+        <output asParm="true" packMode="true"/>
+        <property packMode="true"/>
+        <printer packMode="true"/>
+    </interface>
+    <flow>
+        <service serviceName="SrvGlReserveLevelDefine.delReserveLevelDefine" id="SrvGlReserveLevelDefine.delReserveLevelDefine" longname="准备金缴存层级定义删除">
+            <in_mappings by_interface="true">
+                <mapping src="recdver" dest="recdver" by_interface="true" on_top="true"/>
+                <mapping src="deposit_busi_type" dest="deposit_busi_type" by_interface="true" on_top="true"/>
+                <mapping src="deposit_level" dest="deposit_level" by_interface="true" on_top="true"/>
+                <mapping src="reserve_type" dest="reserve_type" by_interface="true" on_top="true"/>
+            </in_mappings>
+            <out_mappings by_interface="true"/>
+        </service>
+        <!-- <service serviceName="SrvApTrxn.registerApsTransaction" id="SrvApTrxn.registerApsTransaction" longname="登记流水">
+            <in_mappings by_interface="true"/>
+            <out_mappings by_interface="true"/>
+        </service> -->
+    </flow>
+    <outMapping/>
+    <propertyToPrinterMapping/>
+    <outToPrinterMapping/>
+</flowtran>

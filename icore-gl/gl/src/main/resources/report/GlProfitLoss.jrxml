@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="GlIncome" language="groovy" pageWidth="623" pageHeight="793" columnWidth="567" leftMargin="28" rightMargin="28" topMargin="28" bottomMargin="28" uuid="480c4c1b-25eb-41e8-a143-ce1215522443">
+	<property name="ireport.zoom" value="1.6963904734899395"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="36"/>
+	<parameter name="head" class="cn.sunline.ltts.busi.gl.type.GlReport$GlTiller"/>
+	<field name="bean" class="cn.sunline.ltts.busi.gl.type.GlReport$GlProfit"/>
+	<variable name="v_baobbizh" class="java.lang.String" resetType="Group" resetGroup="bizhong">
+		<variableExpression><![CDATA[$F{bean}.getCcy_code()]]></variableExpression>
+	</variable>
+	<group name="bizhong" isStartNewPage="true">
+		<groupExpression><![CDATA[$V{v_baobbizh}]]></groupExpression>
+		<groupHeader>
+			<band/>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="135" splitType="Stretch">
+			<staticText>
+				<reportElement key="st_brchno" x="16" y="70" width="53" height="20" uuid="ffb57fb8-a940-4fad-9030-5337bcbc1c22"/>
+				<textElement>
+					<font fontName="SansSerif" pdfEncoding="Cp1252"/>
+				</textElement>
+				<text><![CDATA[Branch:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="st_crcycd" x="173" y="70" width="50" height="20" uuid="5f07a746-8841-492d-9283-6f4ac71fc0e4"/>
+				<textElement>
+					<font fontName="SansSerif" pdfEncoding="Cp1252"/>
+				</textElement>
+				<text><![CDATA[Currency : ]]></text>
+			</staticText>
+			<line>
+				<reportElement x="553" y="116" width="1" height="18" uuid="04d9241d-b19e-48f2-aeea-ba5e4ddbbf50"/>
+			</line>
+			<line>
+				<reportElement x="261" y="116" width="1" height="18" uuid="8b9d6763-daa5-430c-868e-3d6882267116"/>
+			</line>
+			<line>
+				<reportElement x="297" y="116" width="1" height="18" uuid="e26c0f35-a41a-491d-ac80-10ba26718cb7"/>
+			</line>
+			<line>
+				<reportElement x="426" y="116" width="1" height="18" uuid="d83c1c3b-73e7-4d95-9c6d-40a5b86888c3"/>
+			</line>
+			<staticText>
+				<reportElement x="4" y="116" width="257" height="18" uuid="28fd6cb8-6f4d-430e-875a-eca7255daf82"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" pdfEncoding="Cp1252" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Item]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="262" y="116" width="35" height="18" uuid="9265792d-21cb-4094-adda-9df8272d4ea7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" pdfEncoding="Cp1252" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Line]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="299" y="117" width="126" height="18" uuid="0da298b8-b70f-47e5-ae67-7bb068bc1fc0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" pdfEncoding="Cp1252" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Current]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="427" y="116" width="126" height="18" uuid="e6a7ad21-12ff-4e48-b1d0-0ddcd0c5d007"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" pdfEncoding="Cp1252" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[YTD]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="69" y="70" width="81" height="20" uuid="3ca88163-c833-49ca-9c0f-319be0d7c8bf"/>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif" pdfEncoding="Cp1252" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{head}.getBranch_name()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="233" y="70" width="80" height="20" uuid="0e602f8d-b4da-4441-893d-d3e99ef295eb"/>
+				<textElement>
+					<font fontName="SansSerif" pdfEncoding="Cp1252" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bean}.getCcy_code()]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="4" y="116" width="551" height="1" uuid="61028074-a833-415a-97c2-b79de9515e1a"/>
+			</line>
+			<line>
+				<reportElement x="3" y="116" width="1" height="18" uuid="c3a9f5be-a7a9-4c20-9ec7-3e5012c91f93"/>
+			</line>
+			<textField>
+				<reportElement x="389" y="60" width="161" height="20" uuid="fe9adc7a-908b-402b-90f7-fea2e6d75ac7"/>
+				<textElement>
+					<font fontName="SansSerif" pdfEncoding="Cp1252"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page : " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="389" y="80" width="161" height="20" uuid="6220133a-785d-488a-a7ac-f13a7b1fc802"/>
+				<textElement>
+					<font fontName="SansSerif" pdfEncoding="Cp1252" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Total Pages : " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="3" y="134" width="550" height="1" uuid="c498e33c-b2f2-42c9-ab41-1342f96151f7"/>
+			</line>
+			<staticText>
+				<reportElement x="16" y="90" width="53" height="20" uuid="f7c82c79-2dfd-411e-abdb-2cf05800a657"/>
+				<textElement>
+					<font fontName="SansSerif" pdfEncoding="Cp1252"/>
+				</textElement>
+				<text><![CDATA[Date:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="69" y="90" width="81" height="20" uuid="828f1d37-2248-43b2-9fac-a00805614f1d"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{head}.getTrxn_date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="st_brchno" x="120" y="20" width="280" height="20" uuid="ec6c2ea3-0f2f-4b80-bfd5-47d1e92d563b"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="14" isBold="true" pdfEncoding="Cp1252"/>
+				</textElement>
+				<text><![CDATA[Profit Sheet]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="19" splitType="Stretch">
+			<line>
+				<reportElement x="3" y="0" width="1" height="18" uuid="ab7b7771-4a75-4a4c-a13b-d3afbb7e3378"/>
+			</line>
+			<line>
+				<reportElement x="261" y="0" width="1" height="18" uuid="c3c3c45c-6f46-49e7-b74e-3baa62b52ecf"/>
+			</line>
+			<line>
+				<reportElement x="297" y="0" width="1" height="18" uuid="aace6470-76a0-41b4-80dd-0fe193a4739e"/>
+			</line>
+			<line>
+				<reportElement x="426" y="0" width="1" height="18" uuid="27c2c343-99de-422b-8311-2839778f697b"/>
+			</line>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="299" y="0" width="126" height="18" uuid="6d1ad732-39a0-4329-83b4-b70283cf93c4"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="SansSerif" pdfEncoding="Cp1252" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bean}.getCur_term_amt()]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="427" y="0" width="126" height="18" uuid="464ae87c-9fef-4218-8c45-233119712bb2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="SansSerif" pdfEncoding="Cp1252" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bean}.getAdd_up_amt()]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="553" y="0" width="1" height="18" uuid="9b2c47d8-9906-4e40-b966-106a1f192e60"/>
+			</line>
+			<textField isBlankWhenNull="true">
+				<reportElement x="4" y="0" width="257" height="18" uuid="11bc6029-b2f5-46ef-9055-50a40f23166c"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" pdfEncoding="Cp1252" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bean}.getItem_data_name()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="262" y="0" width="35" height="18" uuid="55925d64-0208-40d2-8683-b3d3db0724bd"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" pdfEncoding="Cp1252" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bean}.getPrint_display_no()]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="3" y="18" width="550" height="1" uuid="535295c6-846e-49a3-97ac-88654fb23e7f"/>
+			</line>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="50"/>
+	</pageFooter>
+</jasperReport>

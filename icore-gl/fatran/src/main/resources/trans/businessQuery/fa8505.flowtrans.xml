@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<flowtran xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="fa8505" longname="总账明细查询" kind="1" package="cn.sunline.ltts.busi.fatran.trans.businessQuery" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <interface package="cn.sunline.ltts.busi.fatran.trans.businessQuery.intf">
+        <input packMode="true">
+            <field id="trxn_date" type="GlBaseType.U_DATE" required="false" multi="false" array="false" longname="交易日期" ref="GlDict.A.trxn_date"/>
+            <field id="trxn_seq" type="BaseType.U_SEQUNO" required="false" multi="false" array="false" longname="交易流水" ref="GlDict.A.trxn_seq"/>
+            <field id="acct_branch" type="BaseType.U_BRCHNO" required="false" multi="false" array="false" longname="账务机构" ref="GlDict.A.acct_branch"/>
+            <field id="gl_code" type="GlBaseType.U_SUBJECTNO" required="false" multi="false" array="false" longname="科目号" ref="GlDict.A.gl_code"/>
+            <field id="trxn_ccy" type="BaseType.U_CRCYCD" required="false" multi="false" array="false" longname="交易币种" ref="GlDict.A.trxn_ccy"/>
+            <field id="isQuan" type="GlEnumType.E_YESORNO" required="false" multi="false" array="false" longname="是否全部导出"/>
+        </input>
+        <output asParm="true" packMode="true">
+            <field id="list01" type="ComFaAccount.FaAcctingSeqOut" required="false" multi="true" array="false" longname="查询输出"/>
+        </output>
+        <property packMode="true"/>
+        <printer packMode="true"/>
+    </interface>
+    <flow>
+        <service serviceName="SrvFabSeqCheck.queryFabSeqCheck" id="queryFabSeqCheck" longname="总账明细查询">
+            <in_mappings by_interface="true">
+                <mapping src="acct_branch" dest="queryIn.acct_branch" by_interface="true" on_top="true"/>
+                <mapping src="gl_code" dest="queryIn.gl_code" by_interface="true" on_top="true"/>
+                <mapping src="isQuan" dest="queryIn.isQuan" by_interface="true" on_top="true"/>
+                <mapping src="trxn_ccy" dest="queryIn.trxn_ccy" by_interface="true" on_top="true"/>
+                <mapping src="trxn_date" dest="queryIn.trxn_date" by_interface="true" on_top="true"/>
+                <mapping src="trxn_seq" dest="queryIn.trxn_seq" by_interface="true" on_top="true"/>
+            </in_mappings>
+            <out_mappings by_interface="true">
+                <mapping src="queryOut" dest="list01" by_interface="true" on_top="true"/>
+            </out_mappings>
+        </service>
+    </flow>
+    <outMapping/>
+    <propertyToPrinterMapping/>
+    <outToPrinterMapping/>
+</flowtran>

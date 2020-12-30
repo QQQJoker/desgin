@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<flowtran xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="fa8140" longname="会计核算事件建立" kind="2" package="cn.sunline.ltts.busi.fatran.trans.accountingevent" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
+    <interface package="cn.sunline.ltts.busi.fatran.trans.intf">
+        <input packMode="true">
+            <field id="sys_no" type="GlBaseType.U_SYSNO" required="true" multi="false" array="false" longname="系统编号" ref="GlDict.A.sys_no"/>
+            <field id="accounting_subject" type="GlBaseType.U_ACCOUNTINGSUBJECT" required="true" multi="false" array="false" longname="会计主体" ref="GlDict.A.accounting_subject"/>
+            <field id="accounting_alias" type="GlBaseType.U_BYTE32" required="true" multi="false" array="false" longname="核算别名" ref="GlDict.A.accounting_alias"/>
+            <field id="remark" type="GlBaseType.U_SHORTDESC" required="false" multi="false" array="false" longname="备注" ref="GlDict.A.remark"/>
+            <field id="bal_attributes" type="GlBaseType.U_BALPROPERTY" required="true" multi="false" array="false" longname="余额属性" ref="GlDict.A.bal_attributes"/>
+            <field id="gl_code" type="GlBaseType.U_SUBJECTNO" required="true" multi="false" array="false" longname="科目号" ref="GlDict.A.gl_code"/>
+            <field id="offset_gl_code" type="GlBaseType.U_SUBJECTNO" required="false" multi="false" array="false" longname="对方科目" ref="GlDict.A.offset_gl_code"/>
+            <field id="acct_seq" type="GlBaseType.U_BYTE8" required="false" multi="false" array="false" longname="账户序号" ref="GlDict.A.acct_seq"/>
+        </input>
+        <output asParm="true" packMode="true"/>
+        <property packMode="true"/>
+        <printer packMode="true"/>
+    </interface>
+    <flow>
+        <service serviceName="SrvFaAccountingEvent.addAccountingEvent" id="SrvFaAccountingEvent.addAccountingEvent" longname="新增会计事件核算定义">
+            <in_mappings by_interface="true">
+                <mapping src="accounting_alias" dest="addIn.accounting_alias" by_interface="true" on_top="true"/>
+                <mapping src="accounting_subject" dest="addIn.accounting_subject" by_interface="true" on_top="true"/>
+                <mapping src="bal_attributes" dest="addIn.bal_attributes" by_interface="true" on_top="true"/>
+                <mapping src="offset_gl_code" dest="addIn.offset_gl_code" by_interface="true" on_top="true"/>
+                <mapping src="remark" dest="addIn.remark" by_interface="true" on_top="true"/>
+                <mapping src="gl_code" dest="addIn.gl_code" by_interface="true" on_top="true"/>
+                <mapping src="sys_no" dest="addIn.sys_no" by_interface="true" on_top="true"/>
+                <mapping src="acct_seq" dest="addIn.acct_seq" desc="description" by_interface="true" on_top="true"/>
+            </in_mappings>
+            <out_mappings by_interface="true"/>
+        </service>
+    </flow>
+    <outMapping/>
+    <propertyToPrinterMapping/>
+    <outToPrinterMapping/>
+</flowtran>
