@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<batch_transaction xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="gl19" longname="营改增价税分离流水入账" dataItem="ComFaRegBook.FaAccrueBook" package="cn.sunline.ltts.busi.gl.gltran.batchtran" xsi:noNamespaceSchemaLocation="ltts-model.xsd">
-    <interface package="cn.sunline.ltts.busi.gl.gltran.batchtran.intf">
-        <input packMode="true"/>
-        <output asParm="true" packMode="true"/>
-        <property packMode="true"/>
-        <printer packMode="true"/>
-    </interface>
-</batch_transaction>

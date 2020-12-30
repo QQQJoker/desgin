@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<batch_transaction id="fm01" longname="批量同步外系统并账文件" dataItem="TabFaRecLedger.apb_merge_file" package="cn.sunline.ltts.busi.fatran.batchtran.merge" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <interface package="cn.sunline.ltts.busi.fatran.batchtran.merge.intf">
-        <input packMode="true"/>
-        <output asParm="true" packMode="true"/>
-        <property packMode="true"/>
-        <printer packMode="true"/>
-    </interface>
-</batch_transaction>

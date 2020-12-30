@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<schema id="GlComplexType" package="cn.sunline.ltts.busi.gl.type" longname="业务总账相关复合类型" classgen="normal" xsi:noNamespaceSchemaLocation="ltts-model.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <complexType id="GlDayEndProcessControl" longname="日终步骤顺序控制相关项" dict="false" abstract="false" introduct="false">
-        <element id="flow_step_num" longname="流程步骤号" type="KBaseType.U_TYSZLEIX" ref="KsDict.BtDict.flow_step_num" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
-        <element id="step_id" longname="步骤号" type="KBaseType.U_TYSZLEIX" ref="KsDict.BtDict.step_id" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
-        <element id="tran_code" longname="批量交易码" type="KBaseType.U_PLJIOYMA" ref="KsDict.BtDict.tran_code" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
-        <element id="tran_group_id" longname="批量交易组ID" type="KBaseType.U_PILJYZBS" ref="KsDict.BtDict.tran_group_id" required="false" multi="false" range="false" array="false" final="false" override="false" allowSubType="true"/>
-    </complexType>
-</schema>
